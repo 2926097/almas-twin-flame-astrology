@@ -1,11 +1,18 @@
 # Changelog
 
+## 1.3.1 — 2026-09-24
+
+- Reafirma la arquitectura de una sola Skill ALMAS; el contrato álmico permanece como módulo interno.
+- Añade módulo de causa contractual y controles contra circularidad interpretativa.
+- Amplía el registro doctrinal y académico con Kardec, Zohar, Talmud, Kwilecki, Stokke, Crane, Bailey y Prophet.
+- Distingue antecedentes doctrinales, documentación académica y método astrológico contemporáneo.
+
 ## 1.3.0 — 2026-09-24
 
-- Separa formalmente ALMAS en dos skills interoperables: Astrología Metafísica Relacional y Contrato Álmico.
+- Mantiene ALMAS como una única skill modular; el contrato álmico funciona como módulo interno interoperable con el motor astrológico.
 - Define la astrología como método metafísico de investigación dentro de ALMAS.
 - Convierte los guardacarriles en controles metodológicos internos, no en negación del paradigma metafísico.
-- Extrae del SKILL astrológico la lógica contractual detallada y la traslada a una skill especializada con versión propia.
+- Organiza la lógica contractual detallada en módulos internos y contratos JSON dentro de la misma skill.
 - Añade un contrato JSON de intercambio entre ambos motores.
 - Mantiene raíces, temporalidad, robustez y contraevidencia durante el traspaso.
 - Permite casos reales públicos y verificables con procedencia; excluye material privado no publicado.
