@@ -41,10 +41,15 @@
           "source_role": {
             "enum": [
               "DOCTRINAL_PRIMARY",
+              "ACADEMIC_ANALYSIS",
               "ACADEMIC_CONTEXT",
               "HISTORICAL_TECHNICAL",
               "IDENTIFIED_METHOD",
               "EMIC_USAGE",
+              "LITERARY_PRIMARY",
+              "LITERARY_ESOTERIC_PRIMARY",
+              "LITERARY_CRITICISM",
+              "HISTORICAL_RECEPTION",
               "WEAK_UNVERIFIED"
             ]
           },
