@@ -14,3 +14,9 @@
 12. No se infieren sentimientos, consentimiento ni decisiones futuras.
 13. Todo ejemplo público debe ser sintético o basarse en datos reales ya públicos y verificables con fuente; nunca en datos privados no autorizados.
 14. El texto narrativo se genera después de la matriz de cláusulas, nunca antes.
+
+15. En modo FULL, el contrato incluye la reconstrucción preencarnatoria de ocho etapas.
+16. Las tareas individuales se identifican antes de usar la sinastría como activador.
+17. La tarea común no se deriva por simple suma de las tareas individuales.
+18. Toda cláusula debe ser trazable hacia motivo, roles, tareas y raíces.
+19. Los mecanismos de cumplimiento no constituyen predicciones obligatorias ni equivalen a unión romántica.
