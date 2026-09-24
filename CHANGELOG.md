@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.7.1 — 2026-09-24
+
+### Fase 6 · Causalidad preencarnatoria — completada
+- Añade motor por gates G1–G8 y niveles causales C0–C3.
+- Exige tarea previa con pareja retirada, activador específico, independencia, recurrencia, ablación y alternativa competidora.
+- No cuantifica causalidad antes de validar los gates.
+
+### Fase 7 · Discriminadores — completada
+- Añade discriminación transversal funcional/epistémica.
+- Separa contrato funcional de karma genérico y catálisis simple.
+- Mantiene explícitamente NOT_VALIDATED los discriminadores ontológicos fuertes.
+- Añade fallbacks reproducibles cuando varias ontologías sobreviven.
+
 ## 1.7.0 — 2026-09-24
 
 ### Fase 5 · Doctrina → astrología — completada
