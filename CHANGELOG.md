@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.7.0 — 2026-09-24
+
+### Fase 5 · Doctrina → astrología — completada
+- Añade mapa formal `FUENTE → VARIABLE_METAFISICA → OPERACIONALIZACION_ASTROLOGICA`.
+- Separa C_DOCTRINE de E_PROJECT_HYPOTHESIS en cada correspondencia.
+- Define indicadores astrológicos admisibles e inferencias inadmisibles por concepto.
+- Impide que Kardec, Luria, Prophet o Stokke se conviertan en fuentes de técnicas astrológicas que no enseñan.
+- Mantiene la dracónica como B_TECNICA documentada por método identificado y no como prueba ontológica.
+- Añade tests automáticos de integridad concepto↔fuente↔operacionalización.
+
 ## 1.6.0 — 2026-09-24
 
 ### Fase 3 · Separación origen/contrato/función
