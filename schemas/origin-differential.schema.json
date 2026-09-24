@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/origin-differential.schema.json",
+  "title": "ALMAS Soul Origin Differential",
+  "type": "object",
+  "required": ["schema_version","overall_state","models","undifferentiated_output"],
+  "properties": {
+    "schema_version": {"const":"1.0.0"},
+    "overall_state": {
+      "enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]
+    },
+    "models": {
+      "type":"array",
+      "items":{
+        "type":"object",
+        "required":["model_id","state","independent_roots","discriminators_used","competing_models","reason_not_higher"],
+        "properties":{
+          "model_id":{"type":"string"},
+          "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
+          "doctrinal_signature_match":{"type":["number","null"],"minimum":0,"maximum":100},
+          "astrology_dimensions":{"type":"object"},
+          "independent_roots":{"type":"array","items":{"type":"string"}},
+          "coverage":{"type":["number","null"],"minimum":0,"maximum":100},
+          "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
+          "r_min":{"type":["number","null"],"minimum":0,"maximum":1},
+          "discriminators_used":{"type":"array","items":{"type":"string"}},
+          "counterevidence":{"type":"array","items":{"type":"string"}},
+          "competing_models":{"type":"array","items":{"type":"string"}},
+          "reason_not_higher":{"type":["string","null"]}
+        },
+        "additionalProperties":true
+      }
+    },
+    "undifferentiated_output":{
+      "type":["object","null"],
+      "properties":{
+        "id":{"const":"SHARED_ORIGIN_UNDIFFERENTIATED"},
+        "state":{"enum":["COMPATIBLE","INSUFFICIENT","NOT_EVALUABLE"]},
+        "compatible_models":{"type":"array","items":{"type":"string"}},
+        "missing_discriminators":{"type":"array","items":{"type":"string"}}
+      },
+      "additionalProperties":true
+    },
+    "global_counterevidence":{"type":"array","items":{"type":"string"}},
+    "limitations":{"type":"array","items":{"type":"string"}}
+  },
+  "additionalProperties":true
+}
