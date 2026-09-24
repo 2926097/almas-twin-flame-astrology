@@ -5,7 +5,6 @@ version: 1.0.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
-  internal_lineage: "Twin-Flame Astrology / ALMAS v3.12.1"
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
@@ -13,7 +12,7 @@ metadata:
 
 ## 0. Public release status
 
-This is the first public release of the ALMAS Twin-Flame Astrology Skill. Public version `1.0.0` derives from the internal ALMAS/Twin-Flame Astrology v3.12.1 line. Renumbering is editorial and does not mean the methodology was reset.
+This is the public `1.0.0` release of the ALMAS Twin-Flame Astrology Skill. The GitHub distribution is case-independent: it contains generalized rules, reusable implementation contracts, public-source provenance and synthetic examples only.
 
 The skill is a **calculation → evidence → validation → ontology → differential diagnosis → hermeneutics → report** protocol. It is not a single-label detector.
 
@@ -211,7 +210,7 @@ IEMs are independent and do not sum to 100.
 
 ## 12. Differential discrimination — IDD
 
-`IDD` = **Índice de Discriminación Diagnóstica**. Legacy internal documents may use the alias `IDE`.
+`IDD` = **Índice de Discriminación Diagnóstica**. `IDE` may appear as a legacy alias for `IDD`.
 
 Use Shapley attribution over `IEM_pre` to estimate which independent roots distinguish models. Exact attribution is preferred for small root sets; deterministic permutation approximation may be used for larger sets with convergence checks.
 
@@ -293,7 +292,7 @@ ICE measures explicit contradictions or structural incompatibilities. It is not 
 
 A model may be marked `SUPPORTED` only when all preregistered minimums are met, including adequate IEM, core strength, coverage, robustness, minimum perturbation resilience, evaluability of essential pillars and absence of essential contradiction.
 
-The public default inherited from the v3.12 line is:
+The public default for v1.0.0 is:
 - `IEM_final >= 75`;
 - `CORE >= 0.65`;
 - `ICC >= 80`;
