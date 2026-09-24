@@ -1,0 +1,44 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "$id":"https://example.invalid/almas/encounter-conditions-differential.schema.json",
+ "title":"ALMAS Encounter Conditions Differential",
+ "type":"object",
+ "required":["schema_version","overall_state","conditions","primary_conditions","temporal_windows","evidence_families","discriminators","competing_explanations","counterevidence","why_not_more_specific"],
+ "properties":{
+  "schema_version":{"const":"1.0.0"},
+  "overall_state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
+  "conditions":{
+   "type":"array",
+   "items":{
+    "type":"object",
+    "required":["id","state","independent_roots","reason_not_higher"],
+    "properties":{
+     "id":{"enum":["EC_VENTANA_TEMPORAL","EC_CONTEXTO_GEOGRAFICO_SOCIAL","EC_LINEA_FAMILIAR_ENTORNO","EC_MADUREZ_EVOLUTIVA","EC_ESTADO_RELACIONAL_PREVIO","EC_UMBRAL_CRISIS_CAMBIO","EC_DISPARADOR_RECONOCIMIENTO","EC_BLOQUEO_RETRASO","EC_RUTA_ALTERNATIVA","EC_INDETERMINADA"]},
+     "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
+     "priority":{"enum":["PRIMARY","SECONDARY","CORROBORATIVE","INSUFFICIENT","NO_EVALUABLE"]},
+     "independent_roots":{"type":"array","items":{"type":"string"}},
+     "temporal_refs":{"type":"array","items":{"type":"string"}},
+     "documentary_refs":{"type":"array","items":{"type":"string"}},
+     "doctrinal_sources":{"type":"array","items":{"type":"string"}},
+     "coverage":{"type":["number","null"],"minimum":0,"maximum":100},
+     "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
+     "counterevidence":{"type":"array","items":{"type":"string"}},
+     "reason_not_higher":{"type":["string","null"]}
+    },
+    "additionalProperties":true
+   }
+  },
+  "primary_conditions":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+  "temporal_windows":{"type":"array","items":{"type":"object"}},
+  "contexts":{"type":"array","items":{"type":"object"}},
+  "evidence_families":{"type":"array","items":{"enum":["ECF1_ANCLAJE_ESTRUCTURAL","ECF2_TEMPORALIDAD_INDEPENDIENTE","ECF3_CARTA_EVENTO","ECF4_CONTEXTO_DOCUMENTAL","ECF5_RECURRENCIA_DE_VENTANAS","ECF6_RECONOCIMIENTO","ECF7_BLOQUEO","ECF8_CAMBIO_DE_FASE"]},"uniqueItems":true},
+  "discriminators":{"type":"array","items":{"type":"object"}},
+  "doctrinal_support":{"type":"array","items":{"type":"string"}},
+  "competing_explanations":{"type":"array","items":{"type":"string"}},
+  "counterevidence":{"type":"array","items":{"type":"string"}},
+  "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
+  "why_selected":{"type":["string","null"]},
+  "why_not_more_specific":{"type":"string"}
+ },
+ "additionalProperties":true
+}
