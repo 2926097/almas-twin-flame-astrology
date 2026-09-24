@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/precomputed-result.schema.json",
+  "title": "ALMAS Precomputed Scoring Result",
+  "type": "object",
+  "required": [
+    "public_version",
+    "input_mode",
+    "models",
+    "pairwise_idd",
+    "limitations"
+  ],
+  "properties": {
+    "public_version": {"const": "1.0.0"},
+    "input_mode": {"const": "PRECOMPUTED_PILLARS"},
+    "models": {
+      "type": "object",
+      "required": ["AF", "KA", "AG", "LG"],
+      "properties": {
+        "AF": {"$ref": "#/$defs/modelResult"},
+        "KA": {"$ref": "#/$defs/modelResult"},
+        "AG": {"$ref": "#/$defs/modelResult"},
+        "LG": {"$ref": "#/$defs/modelResult"}
+      },
+      "additionalProperties": false
+    },
+    "pairwise_idd": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["idd", "band"],
+        "properties": {
+          "idd": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+          "band": {
+            "enum": [
+              "OVERLAP",
+              "TRANSITION",
+              "MATERIAL",
+              "VERY_MARKED",
+              "NOT_EVALUABLE"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "modelResult": {
+      "type": "object",
+      "required": [
+        "core",
+        "support",
+        "iem_pre",
+        "ice",
+        "iem_final",
+        "essential_evaluable",
+        "supported_gate"
+      ],
+      "properties": {
+        "core": {"type": "number", "minimum": 0, "maximum": 1},
+        "support": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "iem_pre": {"type": "number", "minimum": 0, "maximum": 100},
+        "ice": {"type": "number", "minimum": 0, "maximum": 100},
+        "iem_final": {"type": "number", "minimum": 0, "maximum": 100},
+        "essential_evaluable": {"type": "boolean"},
+        "supported_gate": {"type": ["boolean", "null"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
