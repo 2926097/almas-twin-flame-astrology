@@ -10,3 +10,8 @@ If a real-world example is added in the future, it must be placed in a clearly i
 ## Preincarnation reconstruction
 
 `preincarnation-reconstruction.synthetic.json` is a fully synthetic eight-stage Soul Contract fixture. It demonstrates origin, agreement motive, roles, encounter conditions, individual tasks, common task, clauses and fulfillment mechanisms without encoding any real relationship.
+
+
+## Soul-origin differential
+
+`origin-differential.synthetic.json` demonstrates the differential origin engine with competing models, doctrinal discriminators, astrological dimensions and an explicit `SHARED_ORIGIN_UNDIFFERENTIATED` fallback. It is entirely synthetic.
