@@ -1,84 +1,42 @@
-# ALMAS · Arquitectura de dos skills
+# ALMAS · Nota de compatibilidad arquitectónica
 
-ALMAS utiliza dos motores metafísicos especializados que se entrelazan sin confundirse.
+> **Estado:** documento legado. La arquitectura normativa vigente está en `docs/MODULE_ARCHITECTURE.md`.
 
-## Skill A · Astrología Metafísica Relacional
+Las versiones intermedias de ALMAS describieron la astrología metafísica relacional y el contrato álmico como dos skills o motores con versionado independiente.
 
-Entrada principal: datos astronómicos/natales y eventos.
+Desde **ALMAS v1.4.0**, esa separación deja de ser normativa.
 
-Función: observar e inferir metafísicamente la arquitectura del alma y del vínculo mediante astrología.
+ALMAS se publica como **una única skill modular**. Se conservan dos motores funcionales porque realizan tareas diferentes:
 
-Produce:
+1. **Motor astrológico-relacional** — calcula cartas, raíces, pilares, modelos, temporalidad, robustez y contraevidencia.
+2. **Módulo de contrato preencarnatorio** — consume la arquitectura ya calculada y reconstruye origen, motivo, roles, tareas, cláusulas y mecanismos de cumplimiento.
 
-- geometría natal y relacional;
-- raíces independientes;
-- pilares;
-- modelos AF/KA/AG/LG;
-- ejes ontológicos;
-- temporalidad;
-- robustez;
-- cobertura;
-- contraevidencia.
+La separación es computacional y metodológica, no una división en dos productos o skills.
 
-Salida canónica principal: `canonical_analysis.json`.
+El bridge `schemas/astrology-to-soul-contract.schema.json` se conserva porque impide que el módulo contractual recalcule o duplique evidencia astrológica.
 
-Salida de interoperabilidad: `astrology_to_soul_contract.json`.
-
-## Skill B · Contrato Álmico
-
-Entrada principal: `astrology_to_soul_contract.json`.
-
-Puede añadir doctrina, historia, cronología, hechos y otros módulos metafísicos documentados.
-
-Función: reconstruir la posible arquitectura preencarnatoria:
-
-- motivo del encuentro;
-- funciones A_EN_B y B_EN_A;
-- campo común;
-- cláusulas;
-- roles;
-- karma/dharma;
-- aprendizaje;
-- reparación;
-- misión;
-- integración;
-- transformación;
-- cierre.
-
-Salida: `canonical_soul_contract.json`.
-
-## Relación entre motores
+## Flujo vigente
 
 ```text
 DATOS
   ↓
-ASTROLOGÍA METAFÍSICA
+MOTOR ASTROLÓGICO
   ↓
 canonical_analysis.json
   ↓
-astrology_to_soul_contract.json
+bridge contractual
   ↓
-CONTRATO ÁLMICO
+MÓDULO DE CONTRATO PREENCARNATORIO
   ↓
 canonical_soul_contract.json
   ↓
-INFORME HERMENÉUTICO
+VALIDACIÓN + INFORME
 ```
 
-La segunda skill no vuelve a contar como nuevas confirmaciones las mismas técnicas ya consolidadas por la primera.
+## Versionado
 
-## Principio metafísico
+La única versión pública es la contenida en `VERSION`.
 
-La separación es funcional, no filosófica. Ambos motores trabajan dentro del paradigma metafísico ALMAS.
+Los motores internos pueden mantener `schema_version`, `engine_revision` o `manifest_version` para compatibilidad técnica, pero no SemVer público independiente.
 
-La astrología no es un apéndice decorativo del análisis: es un instrumento principal de averiguación metafísica.
-
-Los controles de robustez, dependencia y contraevidencia son mecanismos de rigor interno.
-
-## Versionado independiente
-
-- paquete/motor astrológico raíz: SemVer propio;
-- `ALMAS Soul Contract`: SemVer propio;
-- bridge astrology→contract: versión de contrato propia.
-
-Un cambio doctrinal en Soul Contract no obliga a modificar el motor astrológico. Un cambio de cálculo astrológico sólo exige nueva versión del bridge si rompe su contrato de datos.
+Véase `docs/MODULE_ARCHITECTURE.md`.
