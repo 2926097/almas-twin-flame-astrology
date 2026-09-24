@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.1.0
+version: 1.2.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.1.0
+# ALMAS Soul Contract · Contrato Álmico v1.2.0
 
 ## 0. Paradigma
 
@@ -353,3 +353,39 @@ Referencia normativa: `reference/preincarnation-reconstruction.md`.
 Esquema: `schemas/preincarnation-reconstruction.schema.json`.
 Mapa de fuentes: `reference/preincarnation-source-map.json`.
 Invariantes: `tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md`.
+
+
+## 17. Motor diferencial del origen
+
+La etapa ORIGEN debe ejecutarse mediante el motor definido en:
+
+- `reference/origin-differential.md`
+- `manifests/origin-model-registry.json`
+- `schemas/origin-differential.schema.json`
+- `tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md`
+
+Modelos iniciales:
+
+- INDEPENDENT_SOULS
+- SOUL_FAMILY_GROUP
+- RELATED_SOUL_ROOTS
+- ZIVUG_TRUE_PAIR
+- SHARED_ORIGIN_UNDIFFERENTIATED
+- MONADIC_COMMON_SOURCE
+- SPLIT_SOUL
+- TWIN_SOUL
+- TWIN_FLAME_MODEL
+
+La salida FULL de reconstrucción preencarnatoria debe incluir `origin_differential`.
+
+Regla de techo:
+
+Un subtipo de origen no puede alcanzar `SUPPORTED` sin un discriminador astrológico `VALIDATED` que lo separe de sus rivales principales.
+
+Cuando varias ontologías sigan explicando la misma firma observable, usar:
+
+`SHARED_ORIGIN_UNDIFFERENTIATED + INSUFFICIENT`
+
+y enumerar los modelos compatibles y los discriminadores faltantes.
+
+La finalidad del motor es discriminar mejor, no forzar una identidad ontológica.
