@@ -1,0 +1,162 @@
+{
+  "registry_version": "1.0.0",
+  "almas_version": "1.4.0",
+  "concepts": [
+    {
+      "id": "PREINCARNATIONAL_CHOICE",
+      "label_es": "elección preencarnatoria",
+      "definition": "Doctrina o modelo en el que una entidad/alma/espíritu participa antes del nacimiento en la elección de pruebas, circunstancias generales o propósitos.",
+      "primary_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "PRENATAL_PAIRING",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Puede fundamentar doctrinalmente la posibilidad de propósito previo; no define por sí sola un contrato bilateral."
+    },
+    {
+      "id": "SOUL_CONTRACT",
+      "label_es": "contrato álmico",
+      "definition": "Uso contemporáneo de un acuerdo o plan pre-natal que organiza aprendizajes, pruebas o encuentros.",
+      "primary_sources": [],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "not_equivalent_to": [
+        "PREINCARNATIONAL_CHOICE",
+        "KARMIC_CONTINUITY",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "ALMAS reconstruye una arquitectura contractual como E_HIPOTESIS_PROYECTO; no atribuye su gramática astrológica a las fuentes."
+    },
+    {
+      "id": "PRENATAL_PAIRING",
+      "label_es": "emparejamiento prenatal",
+      "definition": "Motivo doctrinal en el que la pareja o correspondencia es designada o anunciada antes del nacimiento.",
+      "primary_sources": [
+        "talmud_sotah_2a_9"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SPLIT_SOUL",
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Informa el eje historia/origen cuando la tradición concreta lo sostiene; no demuestra una pareja única moderna."
+    },
+    {
+      "id": "SOUL_PAIRING",
+      "label_es": "pares de almas",
+      "definition": "Motivo de almas presentadas como pares, separadas o posteriormente reunidas.",
+      "primary_sources": [
+        "zohar_lech_lecha_32_346_350"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "PRENATAL_PAIRING",
+        "TWIN_FLAME_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "almas_use": "Comparando tradiciones, se mantiene separado del lenguaje moderno de twin flame salvo puente documental explícito."
+    },
+    {
+      "id": "SPLIT_PRIMORDIAL_BEING",
+      "label_es": "ser primordial dividido",
+      "definition": "Motivo filosófico o cosmogónico de una unidad original dividida en dos o más partes.",
+      "primary_sources": [
+        "plato_symposium_aristophanes",
+        "brihadaranyaka_1_4_3"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_PAIRING",
+        "MONAD"
+      ],
+      "almas_use": "Antecedente comparativo. No se usa como prueba histórica directa de la doctrina twin flame."
+    },
+    {
+      "id": "MONAD",
+      "label_es": "Mónada",
+      "definition": "Término esotérico/metafísico cuyo significado depende de la tradición; en Teosofía participa de una cosmología evolutiva.",
+      "primary_sources": [
+        "blavatsky_secret_doctrine_monads"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "MONADIC_PAIR",
+        "TWIN_FLAME_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "almas_use": "Todo modelo monádico debe citar la tradición específica y no derivarse sólo del término Mónada."
+    },
+    {
+      "id": "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
+      "label_es": "evolución del alma en astrología esotérica",
+      "definition": "Marco en el que la astrología se interpreta en relación con alma, personalidad, propósito y desarrollo espiritual.",
+      "primary_sources": [
+        "bailey_esoteric_astrology_1951",
+        "bailey_esoteric_psychology_soul"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Aporta contexto doctrinal a la lectura evolutiva; no prescribe las fórmulas contractuales ALMAS."
+    },
+    {
+      "id": "TWIN_FLAME_ORIGIN",
+      "label_es": "origen compartido en modelo llama gemela",
+      "definition": "Doctrina moderna explícita de contrapartes masculina/femenina originadas conjuntamente.",
+      "primary_sources": [
+        "summit_lighthouse_soulmates_twin_flames",
+        "summit_lighthouse_glossary_twin_flame",
+        "prophet_twin_flames_qa_part1",
+        "summit_lighthouse_what_is_twin_flame"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOULMATE",
+        "KARMIC_RELATIONSHIP",
+        "SPLIT_PRIMORDIAL_BEING",
+        "MONAD"
+      ],
+      "almas_use": "Modelo doctrinal de origen. Debe mantenerse separado de contrato, función y viabilidad."
+    },
+    {
+      "id": "SOULMATE_EXPERIENCE",
+      "label_es": "experiencia soulmate/alma gemela",
+      "definition": "Fenomenología contemporánea de relaciones descritas por participantes mediante reconocimiento, sincronicidad, transformación u otros rasgos transpersonales.",
+      "primary_sources": [],
+      "academic_sources": [
+        "stokke_spiritual_love_relations_2021"
+      ],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "OBJECTIVE_ONTOLOGY"
+      ],
+      "almas_use": "Sirve para comparar experiencia emic/fenomenología, no como verificación ontológica."
+    },
+    {
+      "id": "DRACONIC_ASTROLOGY",
+      "label_es": "astrología dracónica",
+      "definition": "Método astrológico moderno basado en rotación nodal de posiciones zodiacales.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "crane_draconic_astrology_1987"
+      ],
+      "not_equivalent_to": [
+        "PAST_LIFE_PROOF",
+        "SOUL_CONTRACT_PROOF"
+      ],
+      "almas_use": "Capa técnica de recurrencia nodal; por defecto corroborativa y su dependencia matemática debe controlarse."
+    }
+  ]
+}
