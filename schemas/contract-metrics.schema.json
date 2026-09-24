@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/contract-metrics.schema.json",
+  "title": "ALMAS Contract Metrics",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ITP",
+    "IAA",
+    "IRCo",
+    "ICCo",
+    "IVC",
+    "IRCT",
+    "ICE_C",
+    "ICC_C",
+    "IAP",
+    "state"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "ITP": {
+      "type": "object",
+      "required": [
+        "A",
+        "B"
+      ],
+      "properties": {
+        "A": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "B": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "IAA": {
+      "type": "object",
+      "required": [
+        "A_EN_B",
+        "B_EN_A"
+      ],
+      "properties": {
+        "A_EN_B": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "B_EN_A": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "IRCo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "ICCo": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "IVC": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "IRCT": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "ICE_C": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "ICC_C": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "IAP": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "state": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "resolution_level": {
+      "enum": [
+        "R0_NOT_EVALUABLE",
+        "R1_PREINCARNATIONAL_THEME",
+        "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "R3_BILATERAL_AGREEMENT_MODEL",
+        "R4_LITERAL_CONTENT"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
