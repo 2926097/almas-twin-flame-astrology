@@ -9,7 +9,7 @@ The framework can compare four recurrent operational models — **AF** (almas af
 
 ## What v1.0.0 means
 
-`1.0.0` is the public semantic-version baseline for this repository. GitHub contains only generalized methodology, reusable code, public-source references and synthetic examples.
+`1.0.0` is the public semantic-version baseline for this repository. GitHub contains generalized methodology, reusable code, public-source references and synthetic examples. Real-world case material may be included only when the underlying data are already public and independently verifiable, with explicit source provenance.
 
 ## Core principles
 
@@ -39,6 +39,7 @@ docs/ONTOLOGY.md            Relational ontology and states
 docs/METRICS.md             IEM, IDD, IRC, IAT, ICC, ICE
 docs/REPORTING.md           Canonical report and PDF pipeline
 docs/PROVENANCE.md          Public versioning and provenance policy
+docs/PUBLICATION_POLICY.md  Rules for public/private/synthetic material
 schemas/                    Minimal canonical JSON contracts
 tests/INVARIANTS.md         Release invariants and regression checklist
 CHANGELOG.md                Public changelog
