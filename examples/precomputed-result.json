@@ -1,0 +1,52 @@
+{
+  "public_version": "1.0.0",
+  "input_mode": "PRECOMPUTED_PILLARS",
+  "models": {
+    "AF": {
+      "core": 0.9099450532861861,
+      "support": 0.865,
+      "iem_pre": 89.76607950668227,
+      "ice": 0.0,
+      "iem_final": 89.76607950668227,
+      "essential_evaluable": true,
+      "supported_gate": true
+    },
+    "KA": {
+      "core": 0.8099382692526635,
+      "support": 0.8833333333333333,
+      "iem_pre": 80.04889894447157,
+      "ice": 5.0,
+      "iem_final": 78.8481654603045,
+      "essential_evaluable": true,
+      "supported_gate": true
+    },
+    "AG": {
+      "core": 0.8871212525575862,
+      "support": 0.7733333333333333,
+      "iem_pre": 86.70131708329477,
+      "ice": 0.0,
+      "iem_final": 86.70131708329477,
+      "essential_evaluable": true,
+      "supported_gate": true
+    },
+    "LG": {
+      "core": 0.8732712398198799,
+      "support": 0.6666666666666666,
+      "iem_pre": 84.41621984925504,
+      "ice": 10.0,
+      "iem_final": 81.8837332537774,
+      "essential_evaluable": true,
+      "supported_gate": true
+    }
+  },
+  "pairwise_idd": {
+    "AG_vs_LG": {
+      "idd": 70.71067811865476,
+      "band": "VERY_MARKED"
+    }
+  },
+  "limitations": [
+    "This output does not calculate astronomy, aspects, roots, null models or timing.",
+    "Model scores are structural compatibility indices, not metaphysical probabilities."
+  ]
+}
