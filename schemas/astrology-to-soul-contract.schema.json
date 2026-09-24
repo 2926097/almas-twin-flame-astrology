@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/astrology-to-soul-contract.schema.json",
+  "title": "ALMAS Astrology to Soul Contract Bridge",
+  "type": "object",
+  "required": [
+    "bridge_version",
+    "source_engine",
+    "source_version",
+    "subjects",
+    "structural_roots",
+    "counterevidence",
+    "coverage",
+    "robustness"
+  ],
+  "properties": {
+    "bridge_version": {"const": "1.0.0"},
+    "source_engine": {"const": "almas-metaphysical-relationship-astrology"},
+    "source_version": {"type": "string"},
+    "analysis_id": {"type": ["string", "null"]},
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": {"type": "string"},
+          "public_case": {"type": "boolean", "default": false}
+        },
+        "additionalProperties": false
+      }
+    },
+    "structural_roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "direction", "strength", "technique_families", "canonical_refs"],
+        "properties": {
+          "id": {"type": "string"},
+          "direction": {
+            "enum": ["A_EN_B", "B_EN_A", "CAMPO_COMUN", "BILATERAL"]
+          },
+          "strength": {"type": "number", "minimum": 0, "maximum": 1},
+          "pillar_loadings": {
+            "type": "object",
+            "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+          },
+          "technique_families": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "semantic_tags": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "canonical_refs": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "birth_time_sensitive": {"type": "boolean"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "model_scores": {
+      "type": "object",
+      "properties": {
+        "AF": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "KA": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "AG": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "LG": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "ontology": {"type": "object"},
+    "temporal_activations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["root_id", "family", "anchored"],
+        "properties": {
+          "root_id": {"type": "string"},
+          "family": {"type": "string"},
+          "anchored": {"type": "boolean"},
+          "strength": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "date_or_period": {"type": ["string", "null"]},
+          "canonical_refs": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "coverage": {"type": "object"},
+    "robustness": {"type": "object"},
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": true
+}
