@@ -1,5 +1,5 @@
 {
-  "public_version": "1.8.0",
+  "public_version": "1.8.3",
   "input_mode": "PRECOMPUTED_PILLARS",
   "models": {
     "AF": {
