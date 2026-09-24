@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/precomputed-pillars.schema.json",
+  "title": "ALMAS Precomputed Pillars Input",
+  "type": "object",
+  "required": ["pillars"],
+  "properties": {
+    "pillars": {
+      "type": "object",
+      "properties": {
+        "PA": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PK": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PE": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PR": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PX": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PT": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PS": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "PU": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "ice_by_model": {
+      "type": "object",
+      "properties": {
+        "AF": {"type": "number", "minimum": 0, "maximum": 100},
+        "KA": {"type": "number", "minimum": 0, "maximum": 100},
+        "AG": {"type": "number", "minimum": 0, "maximum": 100},
+        "LG": {"type": "number", "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "icc": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "irc": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "r_min": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "essential_contradictions": {
+      "type": "object",
+      "properties": {
+        "AF": {"type": "boolean"},
+        "KA": {"type": "boolean"},
+        "AG": {"type": "boolean"},
+        "LG": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "attributions": {
+      "type": "object",
+      "properties": {
+        "AF": {"$ref": "#/$defs/attributionMap"},
+        "KA": {"$ref": "#/$defs/attributionMap"},
+        "AG": {"$ref": "#/$defs/attributionMap"},
+        "LG": {"$ref": "#/$defs/attributionMap"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "attributionMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    }
+  },
+  "additionalProperties": false
+}
