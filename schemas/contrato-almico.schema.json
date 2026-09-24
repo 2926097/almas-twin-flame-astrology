@@ -120,6 +120,29 @@
             ],
             "minimum": 0,
             "maximum": 100
+          },
+          "estado_temporal": {
+            "enum": [
+              "LATENTE",
+              "ACTIVADA",
+              "EN_DESARROLLO",
+              "INTEGRADA",
+              "TRANSFORMADA",
+              "CERRADA",
+              "NO_EVALUABLE"
+            ]
+          },
+          "tiempo_observacion": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidencia_hechos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
