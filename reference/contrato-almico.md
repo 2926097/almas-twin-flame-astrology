@@ -1,8 +1,8 @@
-# Módulo transversal · Extracción del contrato álmico
+# Referencia normativa · ALMAS Soul Contract
 
 ## 1. Finalidad
 
-Este módulo intenta reconstruir, desde la arquitectura astrológica relacional previamente calculada, el contenido funcional de un posible **contrato o acuerdo preencarnatorio**.
+Esta skill opera explícitamente dentro del paradigma metafísico ALMAS e intenta reconstruir, desde la arquitectura astrológica relacional previamente calculada y otras fuentes admitidas, el contenido funcional de un posible **contrato o acuerdo preencarnatorio**. La astrología se utiliza aquí como método metafísico de averiguación.
 
 No crea una quinta categoría relacional. El contrato álmico es una propiedad transversal que puede coexistir con almas afines, vínculo kármico, almas gemelas o llamas gemelas.
 
@@ -15,7 +15,7 @@ Su pregunta principal no es sólo «¿hay pacto?», sino:
 - ¿qué integración exige la arquitectura?;
 - ¿qué indicaría que una cláusula ha cumplido su función o ha dejado de necesitar repetición?
 
-La hipótesis de contrato preencarnatorio pertenece a `E_HIPOTESIS_PROYECTO` salvo que se esté describiendo explícitamente la doctrina de una fuente identificada.
+La formulación concreta que ALMAS haga de un contrato pertenece a `E_HIPOTESIS_PROYECTO`; cuando una fuente identificada sostenga explícitamente una doctrina preencarnatoria, esa doctrina se registra separadamente como `C_DOCTRINA`. Esta separación indica procedencia y trazabilidad, no rechazo del marco metafísico.
 
 ## 2. Requisitos de entrada
 
@@ -267,7 +267,7 @@ Sólo incluir verbos apoyados por cláusulas evaluadas.
 
 ## 11. Límites de inferencia
 
-La astrología no autoriza a extraer cláusulas literales como:
+La metodología ALMAS no convierte automáticamente la arquitectura astrológica en cláusulas literales como:
 
 - «prometieron casarse»;
 - «deben terminar juntos»;
@@ -289,15 +289,9 @@ Sí puede reconstruir, dentro del marco simbólico del proyecto, funciones como:
 
 ## 12. Privacidad pública
 
-Los casos privados empleados para desarrollar o probar este módulo no se publican.
+Los casos privados empleados para desarrollar o probar este módulo no se publican. Los casos reales cuyos datos ya sean públicos y verificables sí pueden documentarse con fuente y procedencia.
 
-Toda mejora derivada de ellos debe transformarse primero en:
-
-1. regla abstracta;
-2. criterio reproducible;
-3. prueba sintética;
-4. ejemplo desidentificado;
-5. entrada de changelog.
+Toda mejora metodológica derivada de un caso privado debe transformarse primero en regla abstracta, criterio reproducible y prueba sintética antes de incorporarse a la metodología pública.
 
 
 ## 13. Estado temporal de la cláusula
