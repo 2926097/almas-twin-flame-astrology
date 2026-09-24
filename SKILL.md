@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.3.1
+version: 1.4.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.3.1
+# ALMAS · Astrología Metafísica Relacional v1.4.0
 
 ## 0. Public release status
 
-This is the public `1.3.1` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
+This is the public `1.4.0` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
 
 ### Metaphysical research stance
 
@@ -439,9 +439,9 @@ The objective is not to confirm a prior belief, but to build the broadest, most 
 
 ## 32. Interoperabilidad con ALMAS Contrato Álmico
 
-La reconstrucción de un posible **acuerdo preencarnatorio** pertenece a una segunda skill especializada: `ALMAS Soul Contract / Contrato Álmico`.
+La reconstrucción de un posible **acuerdo preencarnatorio** se ejecuta en el **módulo interno de Contrato Preencarnatorio** de la misma skill ALMAS.
 
-Esta skill astrológica no deja de pensar metafísicamente. Su función es producir la arquitectura astrológica trazable que la skill contractual utiliza como evidencia de entrada.
+El motor astrológico produce la arquitectura trazable que el módulo contractual consume como evidencia de entrada.
 
 Salida de intercambio recomendada:
 
@@ -449,7 +449,7 @@ Salida de intercambio recomendada:
 
 La interfaz normativa se define en `schemas/astrology-to-soul-contract.schema.json`.
 
-La skill de contrato álmico se encuentra en `skills/almas-soul-contract/SKILL.md`.
+El punto de entrada especializado del módulo contractual se conserva en `skills/almas-soul-contract/SKILL.md` por compatibilidad histórica.
 
 Reglas de interoperabilidad:
 
@@ -457,7 +457,7 @@ Reglas de interoperabilidad:
 2. Una cláusula contractual debe apuntar a una o más raíces del motor astrológico.
 3. La temporalidad contractual sólo puede referirse a activaciones ancladas a arquitectura estructural.
 4. La contraevidencia y la robustez viajan con la evidencia; no se eliminan al pasar al motor contractual.
-5. Los dos motores pueden evolucionar de forma independiente mediante versiones propias.
+5. Los motores internos pueden evolucionar mediante `engine_revision` o `schema_version`, pero heredan una única versión pública desde `VERSION`.
 
 ## 33. Convención lingüística pública
 
@@ -481,7 +481,7 @@ Esta convención no obliga a renombrar claves internas de software si ello rompe
 
 ## 36. Causa contractual
 
-La causa contractual pertenece a la skill especializada **ALMAS Soul Contract**. La skill astrológica aporta la tarea previa del receptor, el activador, la geometría, la recurrencia y la robustez necesarias para que el motor contractual evalúe la causa preencarnatoria.
+La causa contractual pertenece al **módulo interno de Contrato Preencarnatorio**. El motor astrológico aporta la tarea previa del receptor, el activador, la geometría, la recurrencia y la robustez necesarias para que el módulo contractual evalúe la causa preencarnatoria.
 
 La causa contractual intenta explicar por qué un factor de A encaja como activador de una tarea que B ya trae antes del encuentro.
 
@@ -494,3 +494,25 @@ La tarea previa debe identificarse sin usar primero la sinastría. Si sólo apar
 Tipos de causa: reconocimiento, catálisis, confrontación, encarnación, reciprocidad, verdad, integración y liberación.
 
 Referencia: `reference/causa-contractual.md`.
+
+
+## 37. Integración doctrinal basada en fuentes
+
+ALMAS v1.4.0 inicia una capa formal de genealogía doctrinal.
+
+Archivos normativos:
+
+- `schemas/source-registry.schema.json`;
+- `reference/source-registry.json`;
+- `reference/concept-registry.json`;
+- `reference/doctrinal-genealogy.json`;
+- `docs/SOURCE_INTEGRATION_PLAN.md`;
+- `docs/SOURCE_GAPS.md`.
+
+Reglas:
+
+1. Una fuente define, contextualiza o limita conceptos; no añade puntuación astrológica por existir.
+2. Todo concepto doctrinal debe distinguir antecedentes, doctrina explícita, uso contemporáneo e hipótesis ALMAS.
+3. Relaciones entre conceptos usan vínculos explícitos como `NON_EQUIVALENT`, `PARTIAL_OVERLAP`, `COMPARATIVE_ANTECEDENT_ONLY` o `PROJECT_OPERATIONALIZATION`.
+4. Una operacionalización astrológica creada por ALMAS permanece `E_PROJECT_HYPOTHESIS`, aunque dialogue con una doctrina P1.
+5. Los huecos documentales permanecen `INSUFFICIENT` o `NOT_EVALUABLE`; no se rellenan por semejanza intuitiva.
