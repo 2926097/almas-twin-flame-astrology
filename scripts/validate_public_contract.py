@@ -29,6 +29,7 @@ REQUIRED_FILES = [
     "schemas/contrato-almico.schema.json",
     "schemas/source-registry.schema.json",
     "schemas/ontology-output.schema.json",
+    "schemas/preincarnation-contract-chain.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
@@ -55,6 +56,7 @@ REQUIRED_FILES = [
     "reference/concept-registry.json",
     "reference/doctrinal-genealogy.json",
     "reference/ontology-registry.json",
+    "reference/contract-causal-architecture-v2.md",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
     "reference/preincarnation-reconstruction.md",
@@ -76,6 +78,7 @@ REQUIRED_FILES = [
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/ONTOLOGY_V2_INVARIANTS.md",
+    "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
@@ -102,6 +105,7 @@ REQUIRED_FILES = [
     "examples/common-task.synthetic.json",
     "examples/clause-assembly.synthetic.json",
     "examples/fulfillment-mechanisms.synthetic.json",
+    "examples/preincarnation-contract-chain.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -231,6 +235,8 @@ def main() -> int:
     concept_registry = load_json("reference/concept-registry.json")
     doctrinal_genealogy = load_json("reference/doctrinal-genealogy.json")
     ontology_registry = load_json("reference/ontology-registry.json")
+    contract_chain_schema = load_json("schemas/preincarnation-contract-chain.schema.json")
+    contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
@@ -245,6 +251,11 @@ def main() -> int:
 
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
+
+    if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
+        fail("contract causal chain schema must expose 2.0.0")
+    if contract_chain_example.get("literal_content_state") != "NOT_EVALUABLE":
+        fail("synthetic contract chain must keep literal pre-birth content NOT_EVALUABLE")
 
     if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.8.0":
         fail("preincarnation reconstruction schema must expose schema_version 1.8.0")
