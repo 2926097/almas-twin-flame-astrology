@@ -16,3 +16,10 @@
 14. La robustez y la cobertura acompañan cada inferencia.
 15. Toda conclusión enumera modelos competidores y razón por la que no alcanza un estado superior.
 16. CONTRADICTED exige evidencia incompatible, no simple ausencia de marcadores.
+
+17. La resolución progresa O1 → O2 → O3; una dimensión alta no permite saltar niveles.
+18. R_PAIR, R_POLARITY y R_SINGULARITY no bastan por sí solas para O3_UNIQUE_DYADIC.
+19. Los discriminadores D_* distinguen doctrinas; los A_* distinguen, si están validados, atribución astrológica entre ontologías.
+20. Un discriminador doctrinal explícito no se trata automáticamente como discriminador astrológico.
+21. Toda salida debe indicar resolution_level y why_not_more_specific.
+22. A_UNIQUE_DYADIC_ORIGIN permanece NOT_VALIDATED hasta una validación preregistrada independiente.
