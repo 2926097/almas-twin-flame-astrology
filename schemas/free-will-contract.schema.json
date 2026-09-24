@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/free-will-contract.schema.json",
+  "title": "ALMAS Contract Free-Will Layer",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "clauses",
+    "global_rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "clause_id",
+          "determination_level",
+          "fixed_component",
+          "open_components",
+          "bilateral_requirements",
+          "alternative_routes"
+        ],
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "determination_level": {
+            "enum": [
+              "FD0_NOT_EVALUABLE",
+              "FD1_THEME_FIXED_FORM_OPEN",
+              "FD2_ROLE_TENDENCY_FORM_OPEN",
+              "FD3_CONDITIONAL_ROUTE",
+              "FD4_FIXED_EVENT_CLAIM"
+            ]
+          },
+          "fixed_component": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "open_components": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "choice_points": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "bilateral_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "individual_fulfillment_possible": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "shared_fulfillment_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "alternative_routes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "ROUTE_SHARED_EMBODIMENT",
+                "ROUTE_REDEFINED_RELATIONSHIP",
+                "ROUTE_INDIVIDUAL_INTEGRATION",
+                "ROUTE_SERVICE_EXTERNALIZATION",
+                "ROUTE_RELEASE",
+                "ROUTE_CLOSURE",
+                "ROUTE_UNRESOLVED"
+              ]
+            }
+          },
+          "prohibited_future_inferences": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "global_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
