@@ -672,3 +672,27 @@ El módulo contractual puede cuantificar arquitectura sin convertirla en probabi
 `IAP` resume arquitectura funcional R2. No decide ORIGIN ni eleva automáticamente R3_BILATERAL_AGREEMENT_MODEL a SUPPORTED.
 
 Referencia: `reference/contract-metrics.md`.
+
+
+## 44. Libre albedrío contractual
+
+Cada cláusula contractual debe distinguir:
+
+- `ESTRUCTURA_PREVIA`;
+- `ELECCION_ENCARNADA`;
+- `FORMA_RELACIONAL`;
+- `RUTA_ALTERNATIVA`.
+
+Niveles de determinación:
+
+- `FD0_NOT_EVALUABLE`;
+- `FD1_THEME_FIXED_FORM_OPEN`;
+- `FD2_ROLE_TENDENCY_FORM_OPEN`;
+- `FD3_CONDITIONAL_ROUTE`;
+- `FD4_FIXED_EVENT_CLAIM`.
+
+`FD4_FIXED_EVENT_CLAIM` no puede alcanzar `SUPPORTED` desde astrología.
+
+Toda forma compartida requiere elección y hechos bilaterales. Reconocimiento, contrato u origen no sustituyen consentimiento.
+
+Referencia: `reference/contract-free-will.md`.
