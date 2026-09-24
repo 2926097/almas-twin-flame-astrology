@@ -1,0 +1,47 @@
+{
+  "registry_version": "1.0.0",
+  "clauses": [
+    "CL_ENCUENTRO_RECONOCIMIENTO",
+    "CL_VINCULO_AMOROSO",
+    "CL_HERIDA_REPARACION",
+    "CL_LIBERTAD_AUTONOMIA",
+    "CL_COMUNICACION_VERDAD",
+    "CL_TRANSFORMACION_PODER",
+    "CL_INTEGRACION_ENCARNACION",
+    "CL_LIBERACION_CIERRE"
+  ],
+  "discriminators": [
+    {
+      "id": "CLD1_GENEALOGY_COMPLETE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD2_OVERLAP_VS_DISTINCT",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD3_ROLE_TASK_ALIGNMENT",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD4_SHADOW_VS_FUNCTION",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD5_INTEGRATION_SIGNATURE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD6_TEMPORAL_STATE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD7_ESSENTIAL_VS_AUXILIARY",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CLD8_UNIQUE_CLAUSE",
+      "status": "NOT_VALIDATED"
+    }
+  ]
+}
