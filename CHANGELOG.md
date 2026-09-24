@@ -12,3 +12,7 @@ First public GitHub release.
 - Makes comparative doctrine and hermeneutic synthesis explicit.
 - Expands relational ontology to independent origin/history/function/polarity/modality/phase/viability/reciprocity axes.
 - Defines canonical-analysis → report-model → PDF publication contract.
+- Adds a dependency-free Python scoring core for pillar aggregation, IEM, IDD and IRC.
+- Adds 11 deterministic unit tests and GitHub Actions CI.
+- Adds public module/discriminator manifests and preserved v3.12 validation metadata.
+- Adds a source-provenance policy and starter machine-readable doctrinal registry.
