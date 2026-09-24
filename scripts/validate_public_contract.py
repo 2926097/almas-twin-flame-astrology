@@ -44,6 +44,7 @@ REQUIRED_FILES = [
     "manifests/module-manifest.json",
     "manifests/almas-module-manifest.json",
     "manifests/causal-type-registry.json",
+    "manifests/cross-model-discriminator-registry.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
     "manifests/origin-discriminator-registry.json",
@@ -61,6 +62,7 @@ REQUIRED_FILES = [
     "reference/ontology-registry.json",
     "reference/contract-causal-architecture-v2.md",
     "reference/preincarnation-causality-engine.md",
+    "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
@@ -85,6 +87,7 @@ REQUIRED_FILES = [
     "tests/ONTOLOGY_V2_INVARIANTS.md",
     "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
     "tests/PREINCARNATION_CAUSALITY_INVARIANTS.md",
+    "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
@@ -246,6 +249,7 @@ def main() -> int:
     contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
     doctrine_map = load_json("reference/doctrine-to-astrology-map.json")
     causal_registry = load_json("manifests/causal-type-registry.json")
+    cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
@@ -361,6 +365,12 @@ def main() -> int:
     specificity_ids = {x.get("id") for x in causal_registry.get("specificity_levels", [])}
     if specificity_ids != {"C0_GENERIC","C1_TARGETED","C2_MULTIROOT","C3_PAIR_SPECIFIC_EMERGENT"}:
         fail("causal specificity registry must define C0..C3")
+
+    if not cross_discriminators.get("discriminators"):
+        fail("cross-model discriminator registry is empty")
+    for d in cross_discriminators.get("discriminators", []):
+        if d.get("status") not in {"OPERATIONAL","OPERATIONAL_FUNCTIONAL_ONLY","OPERATIONAL_EPISTEMIC","DOCTRINAL_ONLY","NOT_VALIDATED"}:
+            fail(f"unknown cross-model discriminator status: {d.get('id')}")
 
     expected_preincarnation_stages = {
         "ORIGIN",
