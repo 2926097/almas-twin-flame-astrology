@@ -50,6 +50,25 @@ VERSION                     Public version
 
 Start with `SKILL.md`. A FULL run should produce a canonical analytical object first, then derive any report from that canonical object. The report layer may format and explain findings, but it must not recalculate or alter analytical values.
 
+
+## Validation and reproducibility
+
+![Public contract](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/public-contract.yml/badge.svg)
+
+The public contract validator runs on every push and pull request. It currently verifies the public version contract, required files, the M00–M31 module manifest, AF/KA/AG/LG canonical model slots, evidential states, raw-input cardinality and discriminator-registration rules.
+
+The preserved internal v3.12 validation artifact records **20/20 critical** and **25/25 non-critical** checks passing. See [VALIDATION_STATUS.md](VALIDATION_STATUS.md). This historical result is kept distinct from the current public CI: the original complete v3.12 execution bundle has not yet been imported file-for-file.
+
+## Source provenance
+
+Doctrine and contemporary usage are not treated as interchangeable. The source policy is documented in [docs/SOURCE_POLICY.md](docs/SOURCE_POLICY.md), with a machine-readable starter registry in [reference/source-registry.json](reference/source-registry.json).
+
+The registry currently distinguishes classical antecedents, Theosophical and Bailey material, explicit Summit Lighthouse/Elizabeth Clare Prophet twin-flame doctrine, and academic context. Project hypotheses do not become doctrinal claims merely because analogous imagery exists in an older tradition.
+
+## Current public implementation status
+
+The repository is presently a validated **method specification and public contract**, with schemas, manifests, source provenance, regression invariants and CI. The complete astronomical/calculation, Monte Carlo, ablation and report-rendering engines remain pending verified source import. They will not be silently reconstructed and represented as the historical implementation.
+
 ## License
 
 No open-source license has been selected for v1.0.0. Publication on GitHub does not itself grant reuse rights beyond those provided by applicable law and GitHub's platform terms. Add a license only when the project owner has chosen one deliberately.
