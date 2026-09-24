@@ -31,6 +31,7 @@ REQUIRED_FILES = [
     "schemas/source-registry.schema.json",
     "schemas/ontology-output.schema.json",
     "schemas/preincarnation-contract-chain.schema.json",
+    "schemas/preincarnation-causality.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
@@ -42,6 +43,7 @@ REQUIRED_FILES = [
     "schemas/fulfillment-mechanisms.schema.json",
     "manifests/module-manifest.json",
     "manifests/almas-module-manifest.json",
+    "manifests/causal-type-registry.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
     "manifests/origin-discriminator-registry.json",
@@ -58,6 +60,7 @@ REQUIRED_FILES = [
     "reference/doctrinal-genealogy.json",
     "reference/ontology-registry.json",
     "reference/contract-causal-architecture-v2.md",
+    "reference/preincarnation-causality-engine.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
@@ -81,6 +84,7 @@ REQUIRED_FILES = [
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/ONTOLOGY_V2_INVARIANTS.md",
     "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
+    "tests/PREINCARNATION_CAUSALITY_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
@@ -241,6 +245,7 @@ def main() -> int:
     contract_chain_schema = load_json("schemas/preincarnation-contract-chain.schema.json")
     contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
     doctrine_map = load_json("reference/doctrine-to-astrology-map.json")
+    causal_registry = load_json("manifests/causal-type-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
@@ -352,6 +357,10 @@ def main() -> int:
         for source_id in mapping.get("source_basis", []):
             if source_id not in source_ids:
                 fail(f"doctrine-to-astrology mapping references unknown source: {source_id}")
+
+    specificity_ids = {x.get("id") for x in causal_registry.get("specificity_levels", [])}
+    if specificity_ids != {"C0_GENERIC","C1_TARGETED","C2_MULTIROOT","C3_PAIR_SPECIFIC_EMERGENT"}:
+        fail("causal specificity registry must define C0..C3")
 
     expected_preincarnation_stages = {
         "ORIGIN",
