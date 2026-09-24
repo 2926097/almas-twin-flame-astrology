@@ -1,0 +1,172 @@
+{
+  "registry_version": "1.0.0",
+  "almas_version": "1.7.0",
+  "policy": "A discriminator may separate functional architectures without proving metaphysical truth. Ontological subtype discrimination requires independent validation.",
+  "discriminators": [
+    {
+      "id": "X_CONTINUITY_VS_NEW",
+      "domain": "HISTORY_CONTINUITY",
+      "status": "OPERATIONAL",
+      "separates": [
+        "NEW_CONNECTION",
+        "UNRESOLVED_CONTINUITY"
+      ],
+      "requires": [
+        "independent_continuity_roots",
+        "partner_specific_recurrence"
+      ],
+      "does_not_establish": [
+        "shared_origin",
+        "soul_contract",
+        "twin_flame"
+      ]
+    },
+    {
+      "id": "X_CONTRACT_ARCHITECTURE_VS_GENERIC_KARMA",
+      "domain": "PREINCARNATION_CONTRACT",
+      "status": "OPERATIONAL_FUNCTIONAL_ONLY",
+      "separates": [
+        "RELATIONAL_CONTRACT_ARCHITECTURE",
+        "GENERIC_KARMIC_CONTINUITY"
+      ],
+      "requires": [
+        "preexisting_task",
+        "specific_activator",
+        "directional_role",
+        "clause_genealogy",
+        "integration_or_fulfillment_signature"
+      ],
+      "does_not_establish": [
+        "literal_mutual_prebirth_agreement",
+        "shared_origin",
+        "romantic_permanence"
+      ]
+    },
+    {
+      "id": "X_CONTRACT_VS_CATALYTIC_ONLY",
+      "domain": "FUNCTION",
+      "status": "OPERATIONAL_FUNCTIONAL_ONLY",
+      "separates": [
+        "RELATIONAL_CONTRACT_ARCHITECTURE",
+        "CATALYTIC_FUNCTION_ONLY"
+      ],
+      "requires": [
+        "preexisting_tasks_beyond_event",
+        "causal_chain_C1_C6",
+        "roles_or_common_task"
+      ],
+      "does_not_establish": [
+        "literal_prebirth_contract"
+      ]
+    },
+    {
+      "id": "X_MISSION_VS_SHARED_ORIGIN",
+      "domain": "CROSS_AXIS",
+      "status": "OPERATIONAL_EPISTEMIC",
+      "separates": [
+        "MISSION_SERVICE",
+        "SHARED_ORIGIN"
+      ],
+      "rule": "Mission/service evidence remains FUNCTION unless an independent ORIGIN discriminator is satisfied."
+    },
+    {
+      "id": "X_PHENOMENOLOGY_VS_ONTOLOGY",
+      "domain": "CROSS_AXIS",
+      "status": "OPERATIONAL_EPISTEMIC",
+      "separates": [
+        "PHENOMENOLOGY",
+        "ORIGIN"
+      ],
+      "rule": "Recognition, synchronicity, transpersonal meaning and intensity cannot elevate origin state."
+    },
+    {
+      "id": "X_PAIRING_VS_SHARED_ORIGIN",
+      "domain": "CROSS_AXIS",
+      "status": "DOCTRINAL_ONLY",
+      "separates": [
+        "PRENATAL_PAIRING_OR_ZIVUG",
+        "SHARED_ORIGIN"
+      ],
+      "rule": "A doctrine may pair two souls without stating they originate from one source."
+    },
+    {
+      "id": "X_R2_FUNCTION_VS_R3_BILATERAL_AGREEMENT",
+      "domain": "PREINCARNATION_CONTRACT",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "R3_BILATERAL_AGREEMENT_MODEL"
+      ],
+      "missing_validation": "No validated astrological discriminator establishes that both parties literally agreed before birth."
+    },
+    {
+      "id": "X_SOUL_ROOT_VS_ZIVUG",
+      "domain": "ORIGIN",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "RELATED_SOUL_ROOTS",
+        "ZIVUG_TRUE_PAIR"
+      ]
+    },
+    {
+      "id": "X_ZIVUG_VS_TWIN_FLAME",
+      "domain": "ORIGIN",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "ZIVUG_TRUE_PAIR",
+        "TWIN_FLAME_MODEL"
+      ]
+    },
+    {
+      "id": "X_SPLIT_SOUL_VS_TWIN_FLAME",
+      "domain": "ORIGIN",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "SPLIT_SOUL",
+        "TWIN_FLAME_MODEL"
+      ]
+    },
+    {
+      "id": "X_MONADIC_VS_RELATED_ROOT",
+      "domain": "ORIGIN",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "MONADIC_COMMON_SOURCE",
+        "RELATED_SOUL_ROOTS"
+      ]
+    },
+    {
+      "id": "X_TWIN_SOUL_VS_TWIN_FLAME",
+      "domain": "ORIGIN",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "TWIN_SOUL",
+        "TWIN_FLAME_MODEL"
+      ]
+    },
+    {
+      "id": "X_AG_VS_LG",
+      "domain": "AF_KA_AG_LG",
+      "status": "NOT_VALIDATED",
+      "separates": [
+        "AG",
+        "LG"
+      ],
+      "rule": "Transformation, mission, mirroring, draconic recurrence, asteroids and IEM magnitude are not validated AG/LG discriminators."
+    }
+  ],
+  "fallback_rules": [
+    {
+      "when": "multiple_origin_models_survive_and_relevant_discriminator_not_validated",
+      "output": "SHARED_ORIGIN_UNDIFFERENTIATED + INSUFFICIENT"
+    },
+    {
+      "when": "contract_function_supported_but_literal_mutual_agreement_not_discriminated",
+      "output": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION; R3 max COMPATIBLE/INSUFFICIENT"
+    },
+    {
+      "when": "phenomenology_strong_but_structural_ontology_weak",
+      "output": "PHENOMENOLOGY may be SUPPORTED while ORIGIN remains INSUFFICIENT"
+    }
+  ]
+}
