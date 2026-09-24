@@ -1,14 +1,14 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.1.1
+version: 1.2.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Relacional v1.1.1
+# ALMAS · Astrología Relacional v1.2.0
 
 ## 0. Public release status
 
@@ -504,3 +504,40 @@ con `NO_EVALUABLE` cuando falte seguimiento suficiente.
 Esta secuencia no es obligatoriamente lineal: una cláusula puede reactivarse, cambiar de modalidad o permanecer latente durante largos periodos.
 
 Los estados `INTEGRADA`, `TRANSFORMADA` y `CERRADA` requieren hechos documentados y una firma de cumplimiento definida previamente. No pueden asignarse desde astrología temporal sola ni desde fechas futuras calculadas.
+
+
+## 35. Arquitectura de roles preencarnatorios
+
+El contrato álmico puede descomponerse en **roles funcionales por cláusula**.
+
+No usar etiquetas totalizantes como identidad esencial. Calcular por separado:
+
+- `A_EN_B`;
+- `B_EN_A`;
+- `CAMPO_COMUN`.
+
+Roles funcionales admitidos:
+
+- activador;
+- catalizador;
+- espejo;
+- memoria;
+- estructurador;
+- liberador;
+- confrontador;
+- portador de vulnerabilidad;
+- integrador;
+- mediador;
+- testigo;
+- compañero de aprendizaje.
+
+Cadena mínima:
+
+`RADIX_RECEPTOR → FACTOR_DEL_OTRO → CONFIGURACION_ACTIVADA → FUNCION → CLAUSULA`
+
+Todo rol debe indicar intensidad `PRIMARIO`, `SECUNDARIO`, `CORROBORATIVO`, `INSUFICIENTE` o `NO_EVALUABLE`.
+
+Un rol simbólico no implica obligación, permanencia, autoridad, consentimiento ni responsabilidad sobre la evolución de la otra persona.
+
+Referencia: `reference/roles-preencarnatorios.md`.
+Invariantes: `tests/ROLES_PREENCARNATORIOS_INVARIANTS.md`.
