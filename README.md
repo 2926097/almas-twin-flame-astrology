@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.3.1  
+**Versión pública:** 1.4.0  
 **Status:** research specification / reproducible interpretive framework
 
 ALMAS is a multidisciplinary framework for studying relationship astrology and soul-bond models without reducing a relationship to a single label. It combines synastry, composite and Davison charts, draconic layers, traditional mirror techniques, temporal activation, null-model rarity, ablation, birth-time robustness, comparative doctrine and hermeneutic reporting.
@@ -9,7 +9,7 @@ The framework can compare four recurrent operational models — **AF** (almas af
 
 ## Arquitectura pública
 
-El repositorio contiene el motor de **astrología metafísica relacional** y, como segunda skill interoperable, el motor de **contrato álmico preencarnatorio**. Ambos pertenecen a ALMAS, pero mantienen funciones y versionado propios. GitHub contiene metodología generalizada, código reutilizable, fuentes públicas y ejemplos sintéticos; los casos reales sólo pueden incorporarse cuando sus datos ya son públicos y verificables.
+El repositorio publica **una única skill ALMAS** organizada en módulos internos: astrología metafísica relacional, ontología, doctrina y fuentes, contrato preencarnatorio, roles, causalidad, temporalidad, validación e informes. GitHub contiene metodología generalizada, código reutilizable, fuentes públicas y ejemplos sintéticos; los casos reales sólo pueden incorporarse cuando sus datos ya son públicos y verificables.
 
 ## Core principles
 
@@ -95,12 +95,14 @@ The repository is a validated **generalized method specification plus executable
 No open-source license has been selected for the current public release. Publication on GitHub does not itself grant reuse rights beyond those provided by applicable law and GitHub's platform terms. Add a license only when the project owner has chosen one deliberately.
 
 
-## Dos skills interoperables
+## Arquitectura modular
 
-**1. ALMAS · Astrología Metafísica Relacional** — esta raíz del repositorio. Calcula y organiza la arquitectura metafísica observable mediante astrología: cartas, sinastría, nodos, ejes, declinaciones, antiscios, compuesta, Davison, dracónica, lotes, temporalidad, recurrencia, rareza estructural, ablación y robustez.
+**ALMAS es una única skill pública.** El motor astrológico calcula la arquitectura relacional y el módulo de contrato preencarnatorio consume esa salida sin recalcularla.
 
-**2. ALMAS · Contrato Álmico v1.9.0** — `skills/almas-soul-contract/SKILL.md`. Reconstruye el posible acuerdo preencarnatorio a partir de la arquitectura astrológica ya calculada, doctrina documentada, cronología y contraevidencia. Su reconstrucción FULL sigue ocho etapas: origen → motivo → roles → condiciones de encuentro → tareas individuales → tarea común → cláusulas → mecanismos de cumplimiento. Las ocho etapas — ORIGEN, MOTIVO, ROLES, CONDICIONES DE ENCUENTRO, TAREAS INDIVIDUALES, TAREA COMÚN, CLÁUSULAS y MECANISMOS DE CUMPLIMIENTO — disponen ya de motores diferenciales o de ensamblaje propios. La etapa de origen incorpora un **motor diferencial del origen de las almas** que compara modelos competidores y conserva `SHARED_ORIGIN_UNDIFFERENTIATED` cuando faltan discriminadores validados.
+El punto de entrada especializado del contrato se conserva en `skills/almas-soul-contract/SKILL.md` por compatibilidad histórica, pero hereda la versión raíz y no constituye una segunda skill.
 
-Las dos skills se conectan mediante `schemas/astrology-to-soul-contract.schema.json`. La astrología funciona aquí como método metafísico de investigación; los controles metodológicos evitan sobreconteo, dependencia y ajuste al caso, no desautorizan el paradigma metafísico.
+La arquitectura normativa está en `docs/MODULE_ARCHITECTURE.md`. El orden ejecutable de las ocho etapas preencarnatorias se publica en `manifests/preincarnation-pipeline-manifest.json`.
 
-Consulta también `docs/DUAL_ENGINE_ARCHITECTURE.md`. El orden ejecutable de las ocho etapas se publica en `manifests/preincarnation-pipeline-manifest.json`.
+## Fase 1 · Fuentes y genealogía doctrinal
+
+ALMAS v1.4.0 inicia la normalización del corpus documental mediante `schemas/source-registry.schema.json` y `docs/SOURCE_INTEGRATION_PLAN.md`. Las fuentes definen procedencia, significado y límites doctrinales; nunca añaden puntuación astrológica por su mera existencia.
