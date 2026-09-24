@@ -25,12 +25,15 @@ REQUIRED_FILES = [
     "schemas/astrology-to-soul-contract.schema.json",
     "schemas/contrato-almico.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
+    "schemas/origin-differential.schema.json",
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
+    "manifests/origin-model-registry.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
     "reference/preincarnation-reconstruction.md",
+    "reference/origin-differential.md",
     "reference/roles-preencarnatorios.md",
     "skills/almas-soul-contract/SKILL.md",
     "skills/almas-soul-contract/VERSION",
@@ -41,6 +44,7 @@ REQUIRED_FILES = [
     "tests/INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
+    "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
     "reference/causa-contractual.md",
     "tests/CAUSA_CONTRACTUAL_INVARIANTS.md",
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
@@ -49,6 +53,7 @@ REQUIRED_FILES = [
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/preincarnation-reconstruction.synthetic.json",
+    "examples/origin-differential.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -124,11 +129,11 @@ def main() -> int:
 
     soul_skill = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     soul_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
-    if soul_version != "1.1.0":
+    if soul_version != "1.2.0":
         fail(f"unexpected soul-contract VERSION: {soul_version}")
     for needle in [
         "name: almas-soul-contract",
-        "version: 1.1.0",
+        "version: 1.2.0",
         "ALMAS Soul Contract",
         "método metafísico",
         "A_EN_B",
@@ -144,6 +149,9 @@ def main() -> int:
     result_schema = load_json("schemas/precomputed-result.schema.json")
     bridge_schema = load_json("schemas/astrology-to-soul-contract.schema.json")
     preincarnation_schema = load_json("schemas/preincarnation-reconstruction.schema.json")
+    origin_schema = load_json("schemas/origin-differential.schema.json")
+    origin_registry = load_json("manifests/origin-model-registry.json")
+    origin_example = load_json("examples/origin-differential.synthetic.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
@@ -161,8 +169,8 @@ def main() -> int:
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
 
-    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
-        fail("preincarnation reconstruction schema must expose schema_version 1.0.0")
+    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.1.0":
+        fail("preincarnation reconstruction schema must expose schema_version 1.1.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
@@ -201,8 +209,8 @@ def main() -> int:
                 if source_id not in source_ids:
                     fail(f"unknown source id in {stage_name}: {source_id}")
 
-    if preincarnation_example.get("schema_version") != "1.0.0":
-        fail("synthetic preincarnation example must use schema_version 1.0.0")
+    if preincarnation_example.get("schema_version") != "1.1.0":
+        fail("synthetic preincarnation example must use schema_version 1.1.0")
 
     required_example_keys = {
         "origin",
@@ -216,6 +224,57 @@ def main() -> int:
     }
     if not required_example_keys.issubset(preincarnation_example):
         fail("synthetic preincarnation example is missing one or more canonical stages")
+
+    if origin_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("origin differential schema must expose schema_version 1.0.0")
+
+    expected_origin_models = {
+        "INDEPENDENT_SOULS",
+        "SOUL_FAMILY_GROUP",
+        "RELATED_SOUL_ROOTS",
+        "ZIVUG_TRUE_PAIR",
+        "SHARED_ORIGIN_UNDIFFERENTIATED",
+        "MONADIC_COMMON_SOURCE",
+        "SPLIT_SOUL",
+        "TWIN_SOUL",
+        "TWIN_FLAME_MODEL",
+    }
+    origin_models = {m.get("id") for m in origin_registry.get("models", [])}
+    if origin_models != expected_origin_models:
+        fail("origin model registry diverges from canonical model set")
+
+    for model in origin_registry.get("models", []):
+        for source_id in model.get("source_ids", []):
+            if source_id not in source_ids:
+                fail(f"unknown source id in origin model {model.get('id')}: {source_id}")
+
+    astro_discriminators = [
+        d for d in origin_registry.get("discriminators", [])
+        if d.get("kind") == "ASTROLOGICAL"
+    ]
+    if not astro_discriminators:
+        fail("origin registry must declare astrological discriminator status")
+    for d in astro_discriminators:
+        if d.get("status") == "VALIDATED" and not d.get("validation_reference"):
+            fail(f"validated origin discriminator lacks validation reference: {d.get('id')}")
+
+    if origin_example.get("schema_version") != "1.0.0":
+        fail("synthetic origin example must use schema_version 1.0.0")
+
+    for result in origin_example.get("models", []):
+        if result.get("model_id") not in expected_origin_models:
+            fail(f"unknown model in synthetic origin example: {result.get('model_id')}")
+        if result.get("state") == "SUPPORTED":
+            used = set(result.get("discriminators_used", []))
+            validated = {
+                d.get("id") for d in astro_discriminators
+                if d.get("status") == "VALIDATED"
+            }
+            if not (used & validated):
+                fail("SUPPORTED origin subtype requires at least one VALIDATED astrological discriminator")
+
+    if "origin_differential" not in preincarnation_example:
+        fail("synthetic preincarnation example must embed origin_differential")
 
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
