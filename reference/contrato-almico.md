@@ -298,3 +298,30 @@ Toda mejora derivada de ellos debe transformarse primero en:
 3. prueba sintética;
 4. ejemplo desidentificado;
 5. entrada de changelog.
+
+
+## 13. Estado temporal de la cláusula
+
+El estado epistemológico (`SUPPORTED`, `COMPATIBLE`, etc.) responde a **qué fuerza tiene la inferencia**.
+
+El estado temporal responde a **en qué momento funcional se encuentra la cláusula**.
+
+Usar:
+
+- `LATENTE`: la raíz existe estructuralmente, pero no hay activación temporal suficiente;
+- `ACTIVADA`: una o más familias temporales ancladas movilizan la raíz;
+- `EN_DESARROLLO`: la cláusula reaparece en más de una activación o evento independiente;
+- `INTEGRADA`: los hechos documentados son coherentes con la firma de integración preregistrada;
+- `TRANSFORMADA`: la función persiste pero cambia de modalidad;
+- `CERRADA`: la firma de cierre preregistrada se cumple y la raíz deja de organizar el patrón relacional de la misma forma;
+- `NO_EVALUABLE`: faltan eventos, seguimiento o datos suficientes.
+
+Reglas:
+
+1. `ACTIVADA` no implica `EN_DESARROLLO`.
+2. `EN_DESARROLLO` no implica `INTEGRADA`.
+3. `INTEGRADA` no implica unión romántica.
+4. `CERRADA` no implica necesariamente separación.
+5. Una fecha futura calculada no permite asignar `INTEGRADA` ni `CERRADA`.
+6. `INTEGRADA`, `TRANSFORMADA` y `CERRADA` requieren contraste con hechos documentados posteriores a la activación.
+7. No se permite inferir estos estados sólo a partir de tránsitos, progresiones o atacires.
