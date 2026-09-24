@@ -36,6 +36,7 @@ REQUIRED_FILES = [
     "schemas/contract-metrics.schema.json",
     "schemas/free-will-contract.schema.json",
     "schemas/contract-temporality-v2.schema.json",
+    "schemas/documentary-event-ledger.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
@@ -70,6 +71,7 @@ REQUIRED_FILES = [
     "reference/contract-metrics.md",
     "reference/contract-free-will.md",
     "reference/contract-temporality-v2.md",
+    "reference/documentary-events.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -99,6 +101,7 @@ REQUIRED_FILES = [
     "tests/CONTRACT_METRICS_INVARIANTS.md",
     "tests/CONTRACT_FREE_WILL_INVARIANTS.md",
     "tests/CONTRACT_TEMPORALITY_V2_INVARIANTS.md",
+    "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -129,6 +132,7 @@ REQUIRED_FILES = [
     "examples/fulfillment-mechanisms.synthetic.json",
     "examples/preincarnation-contract-chain.synthetic.json",
     "examples/contract-ablation.synthetic.json",
+    "examples/documentary-event-ledger.synthetic.json",
 ]
 
 EXPECTED_STATES = {
