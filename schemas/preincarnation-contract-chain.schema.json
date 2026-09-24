@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/preincarnation-contract-chain.schema.json",
+  "title": "ALMAS Preincarnation Contract Causal Chain",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "resolution_level",
+    "party_A",
+    "party_B",
+    "common_field",
+    "clauses",
+    "literal_content_state"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "resolution_level": {
+      "enum": [
+        "R0_NOT_EVALUABLE",
+        "R1_PREINCARNATIONAL_THEME",
+        "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "R3_BILATERAL_AGREEMENT_MODEL",
+        "R4_LITERAL_CONTENT"
+      ]
+    },
+    "party_A": {
+      "$ref": "#/$defs/party"
+    },
+    "party_B": {
+      "$ref": "#/$defs/party"
+    },
+    "common_field": {
+      "type": "object"
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clause"
+      }
+    },
+    "literal_content_state": {
+      "enum": [
+        "NOT_EVALUABLE",
+        "INSUFFICIENT",
+        "CONTRADICTED"
+      ]
+    },
+    "global_counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "state": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "party": {
+      "type": "object",
+      "required": [
+        "preexisting_tasks",
+        "selection_causes",
+        "roles"
+      ],
+      "properties": {
+        "preexisting_tasks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "selection_causes": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "clause": {
+      "type": "object",
+      "required": [
+        "id",
+        "state",
+        "activation_clause",
+        "contract_test",
+        "expected_integration",
+        "fulfillment_condition",
+        "closure_forms",
+        "trace"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/state"
+        },
+        "granularity": {
+          "enum": [
+            "THEME",
+            "FUNCTION",
+            "ROLE",
+            "CONDITION",
+            "EVENT",
+            "DETAIL"
+          ]
+        },
+        "activation_clause": {
+          "type": "string"
+        },
+        "contract_test": {
+          "type": "string"
+        },
+        "expected_integration": {
+          "type": "string"
+        },
+        "fulfillment_condition": {
+          "type": "string"
+        },
+        "closure_forms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trace": {
+          "type": "object",
+          "required": [
+            "task_refs",
+            "selection_cause_refs",
+            "role_refs",
+            "root_refs"
+          ],
+          "properties": {
+            "task_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "selection_cause_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "role_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "root_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "common_task_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "counterevidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reason_not_higher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
