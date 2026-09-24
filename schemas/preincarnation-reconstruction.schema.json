@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/preincarnation-reconstruction.schema.json",
+  "title": "ALMAS Preincarnation Reconstruction",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "origin",
+    "agreement_motive",
+    "role_selection",
+    "encounter_conditions",
+    "individual_tasks",
+    "common_task",
+    "clauses",
+    "fulfillment_mechanisms"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "origin": {"$ref": "#/$defs/stage"},
+    "agreement_motive": {"$ref": "#/$defs/stage"},
+    "role_selection": {"$ref": "#/$defs/stage"},
+    "encounter_conditions": {"$ref": "#/$defs/stage"},
+    "individual_tasks": {
+      "type": "object",
+      "required": ["A", "B"],
+      "properties": {
+        "A": {"$ref": "#/$defs/stage"},
+        "B": {"$ref": "#/$defs/stage"}
+      },
+      "additionalProperties": false
+    },
+    "common_task": {"$ref": "#/$defs/stage"},
+    "clauses": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/stageItem"}
+    },
+    "fulfillment_mechanisms": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/stageItem"}
+    },
+    "global_alternatives": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "global_counterevidence": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "state": {
+      "enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]
+    },
+    "stage": {
+      "type": "object",
+      "required": ["state", "hypotheses", "selection", "astrology_roots", "doctrinal_sources", "alternatives", "counterevidence"],
+      "properties": {
+        "state": {"$ref": "#/$defs/state"},
+        "hypotheses": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/stageItem"}
+        },
+        "selection": {
+          "type": ["string", "null"]
+        },
+        "astrology_roots": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "doctrinal_sources": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "contemporary_sources": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "counterevidence": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "robustness": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "hermeneutic_note": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "stageItem": {
+      "type": "object",
+      "required": ["id", "state"],
+      "properties": {
+        "id": {"type": "string"},
+        "state": {"$ref": "#/$defs/state"},
+        "direction": {
+          "enum": ["A_EN_B", "B_EN_A", "CAMPO_COMUN", "BILATERAL", "NO_APLICA", "NO_EVALUABLE"]
+        },
+        "astrology_roots": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "doctrinal_sources": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "counterevidence": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "note": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
