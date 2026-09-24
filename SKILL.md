@@ -730,3 +730,27 @@ Una ventana futura `PROSPECTIVE_ACTIVATION` no permite asignar `EMBODIED`, `TRAN
 IAT mide activación de raíces preexistentes y no modifica IAP.
 
 Referencia: `reference/contract-temporality-v2.md`.
+
+
+## 46. Hechos y biografía documental
+
+Los hechos entran sólo después de congelar la estructura.
+
+Secuencia:
+
+`ESTRUCTURA_CONGELADA → EVENTO_DOCUMENTADO → FUNCIÓN_PROBATORIA`.
+
+Un evento puede corroborar activación, aportar hechos de cumplimiento, contraevidencia, viabilidad, reciprocidad o fenomenología documentada. No puede crear raíces, cláusulas u origen retrospectivamente.
+
+Calidad documental:
+
+- `DQ1_PRIMARY_DOCUMENT`
+- `DQ2_DIRECT_SELF_REPORT`
+- `DQ3_CORROBORATED_REPORT`
+- `DQ4_SECONDARY_REPORT`
+- `DQ5_UNVERIFIED`
+
+Clases públicas: `PUBLIC_VERIFIABLE` y `SYNTHETIC`. Los eventos privados no se publican.
+
+Referencia: `reference/documentary-events.md`.
+Esquema: `schemas/documentary-event-ledger.schema.json`.
