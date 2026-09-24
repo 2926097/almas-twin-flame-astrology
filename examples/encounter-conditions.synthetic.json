@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "overall_state": "COMPATIBLE",
+  "conditions": [
+    {
+      "id": "EC_VENTANA_TEMPORAL",
+      "state": "SUPPORTED",
+      "priority": "PRIMARY",
+      "independent_roots": [
+        "root_origin_01",
+        "root_pair_04"
+      ],
+      "temporal_refs": [
+        "TPROG_SYN_01",
+        "TDIR_REL_02"
+      ],
+      "documentary_refs": [
+        "event_meeting_001"
+      ],
+      "doctrinal_sources": [
+        "myss_sacred_contracts_2001"
+      ],
+      "coverage": 92,
+      "robustness": 86,
+      "counterevidence": [],
+      "reason_not_higher": null
+    },
+    {
+      "id": "EC_DISPARADOR_RECONOCIMIENTO",
+      "state": "COMPATIBLE",
+      "priority": "PRIMARY",
+      "independent_roots": [
+        "root_origin_01",
+        "root_cont_02"
+      ],
+      "temporal_refs": [
+        "TPROG_SYN_01"
+      ],
+      "documentary_refs": [
+        "event_meeting_001"
+      ],
+      "doctrinal_sources": [
+        "zohar_lech_lecha_32_346_350"
+      ],
+      "coverage": 88,
+      "robustness": 83,
+      "counterevidence": [],
+      "reason_not_higher": "Recognition and attraction remain partially overlapping in this synthetic fixture."
+    },
+    {
+      "id": "EC_CONTEXTO_GEOGRAFICO_SOCIAL",
+      "state": "COMPATIBLE",
+      "priority": "SECONDARY",
+      "independent_roots": [],
+      "temporal_refs": [],
+      "documentary_refs": [
+        "context_public_001"
+      ],
+      "doctrinal_sources": [
+        "myss_sacred_contracts_2001"
+      ],
+      "coverage": 80,
+      "robustness": null,
+      "counterevidence": [],
+      "reason_not_higher": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL is NOT_VALIDATED."
+    }
+  ],
+  "primary_conditions": [
+    "EC_VENTANA_TEMPORAL",
+    "EC_DISPARADOR_RECONOCIMIENTO"
+  ],
+  "temporal_windows": [
+    {
+      "id": "window_001",
+      "state": "SUPPORTED",
+      "anchored_roots": [
+        "root_origin_01"
+      ],
+      "families": [
+        "TPROG",
+        "TDIR"
+      ],
+      "event_ref": "event_meeting_001"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context_public_001",
+      "type": "SOCIAL_GEOGRAPHIC",
+      "state": "COMPATIBLE"
+    }
+  ],
+  "evidence_families": [
+    "ECF1_ANCLAJE_ESTRUCTURAL",
+    "ECF2_TEMPORALIDAD_INDEPENDIENTE",
+    "ECF3_CARTA_EVENTO",
+    "ECF4_CONTEXTO_DOCUMENTAL",
+    "ECF6_RECONOCIMIENTO"
+  ],
+  "discriminators": [
+    {
+      "id": "ECD1_STRUCTURE_VS_COINCIDENCE",
+      "status": "OPERATIONAL",
+      "result": "STRUCTURAL_ACTIVATION"
+    },
+    {
+      "id": "ECD3_RECOGNITION_VS_ATTRACTION",
+      "status": "OPERATIONAL",
+      "result": "PARTIALLY_SEPARATED"
+    },
+    {
+      "id": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL",
+      "status": "NOT_VALIDATED",
+      "result": null
+    },
+    {
+      "id": "ECD6_UNIQUE_EVENT_VS_ALTERNATIVE_PATH",
+      "status": "NOT_VALIDATED",
+      "result": null
+    }
+  ],
+  "doctrinal_support": [
+    "myss_sacred_contracts_2001",
+    "newton_journey_of_souls_1994",
+    "zohar_lech_lecha_32_346_350"
+  ],
+  "competing_explanations": [
+    "TIMING_COINCIDENCE",
+    "ORDINARY_ATTRACTION"
+  ],
+  "counterevidence": [],
+  "robustness": 85,
+  "why_selected": "The synthetic meeting window activates pre-existing roots through independent temporal families and a matching event chart.",
+  "why_not_more_specific": "The engine cannot establish that this exact place/event was the unique preincarnational route or that no alternative encounter path existed."
+}
