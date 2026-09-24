@@ -633,3 +633,21 @@ Permanecen `NOT_VALIDATED` como discriminadores ontológicos:
 - AG vs LG.
 
 Registro: `manifests/cross-model-discriminator-registry.json`.
+
+
+## 42. Ablación contractual
+
+Una ejecución FULL del contrato debe ejecutar la batería:
+
+`AB0_FULL`, `AB1_NO_ASTEROIDS`, `AB2_NO_TEMPORALITY`, `AB3_NO_DRACONIC`, `AB4_NO_RELCHART`, `AB5_NO_HOUSES_ANGLES`, `AB6_NO_NODES`, `AB7_TROPICAL_PLANETARY_CORE`, `AB8_INDIVIDUAL_ONLY`.
+
+Objetivos:
+
+- comprobar que tareas previas existen sin la pareja;
+- comprobar que causas/cláusulas sobreviven sin asteroides y temporalidad;
+- medir dependencia de dracónica, cartas relacionales y ángulos;
+- separar núcleo estructural de soporte auxiliar.
+
+Clases: `CORE_STABLE`, `MULTILAYER_STABLE`, `DRACONIC_SENSITIVE`, `DRACONIC_DEPENDENT`, `RELCHART_SENSITIVE`, `RELCHART_DEPENDENT`, `ANGULAR_SENSITIVE`, `SUPPORT_LAYER_DEPENDENT`, `TEMPORAL_ONLY`, `NOT_EVALUABLE`.
+
+Referencia: `reference/contract-ablation.md`.
