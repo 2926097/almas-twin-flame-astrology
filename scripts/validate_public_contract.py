@@ -292,6 +292,15 @@ def main() -> int:
                 if source_id not in source_ids:
                     fail(f"unknown source id in concept {concept.get('id')}: {source_id}")
 
+    for entry in source_registry.get("entries", []):
+        for concept_id in entry.get("concepts", []):
+            if concept_id not in concept_ids:
+                fail(f"source entry references unknown concept: {entry.get('id')} -> {concept_id}")
+        if not entry.get("tradition"):
+            fail(f"source entry lacks tradition: {entry.get('id')}")
+        if not entry.get("verification_status"):
+            fail(f"source entry lacks verification status: {entry.get('id')}")
+
     for edge in doctrinal_genealogy.get("edges", []):
         if edge.get("from") not in concept_ids or edge.get("to") not in concept_ids:
             fail(f"doctrinal genealogy edge references unknown concept: {edge}")
