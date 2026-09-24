@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.8.1 — 2026-09-24
+
+### Fase 9 · Métricas contractuales — completada
+- Descompone IAP en ITP, IAA, IRCo, ICCo, IVC, IRCT, ICE-C e ICC-C.
+- Define IAP como índice de arquitectura preencarnatoria funcional, no como probabilidad.
+- Separa reciprocidad contractual astrológica de reciprocidad interpersonal real.
+- Impide que IAP alto eleve por sí solo R3 acuerdo bilateral literal.
+- Añade fórmulas, gates, esquema y tests.
+
 ## 1.8.0 — 2026-09-24
 
 ### Fase 8 · Ablación y dependencia contractual — completada
