@@ -1,0 +1,77 @@
+{
+  "manifest_version": "1.0.0",
+  "almas_public_version": "1.4.0",
+  "architecture": "single_skill_modular",
+  "root_skill": {
+    "id": "almas-twin-flame-astrology",
+    "path": "SKILL.md"
+  },
+  "modules": [
+    {
+      "id": "M_ASTROLOGY",
+      "name": "Astrología metafísica relacional",
+      "status": "CORE",
+      "entrypoint": "SKILL.md"
+    },
+    {
+      "id": "M_ONTOLOGY",
+      "name": "Ontología relacional comparada",
+      "status": "CORE",
+      "entrypoint": "docs/ONTOLOGY.md"
+    },
+    {
+      "id": "M_DOCTRINE",
+      "name": "Doctrina, genealogía y fuentes",
+      "status": "CORE",
+      "entrypoint": "reference/source-registry.json"
+    },
+    {
+      "id": "M_SOUL_CONTRACT",
+      "name": "Contrato álmico preencarnatorio",
+      "status": "CORE",
+      "entrypoint": "skills/almas-soul-contract/SKILL.md",
+      "note": "Punto de entrada especializado; no es una skill pública independiente."
+    },
+    {
+      "id": "M_ROLES",
+      "name": "Roles preencarnatorios",
+      "status": "SUBMODULE",
+      "entrypoint": "reference/roles-preencarnatorios.md"
+    },
+    {
+      "id": "M_CAUSALITY",
+      "name": "Causa contractual",
+      "status": "SUBMODULE",
+      "entrypoint": "reference/causa-contractual.md"
+    },
+    {
+      "id": "M_TEMPORAL",
+      "name": "Temporalidad y cumplimiento",
+      "status": "CORE",
+      "entrypoint": "manifests/preincarnation-pipeline-manifest.json"
+    },
+    {
+      "id": "M_VALIDATION",
+      "name": "Dependencia, ablación, robustez y contraevidencia",
+      "status": "CORE",
+      "entrypoint": "tests/INVARIANTS.md"
+    },
+    {
+      "id": "M_REPORTING",
+      "name": "Informe canónico y hermenéutica",
+      "status": "CORE",
+      "entrypoint": "docs/REPORTING.md"
+    }
+  ],
+  "canonical_flow": [
+    "source_registry",
+    "birth_and_event_data",
+    "canonical_analysis",
+    "ontology",
+    "preincarnation_reconstruction",
+    "counterevidence_and_validation",
+    "canonical_soul_contract",
+    "report_document_model"
+  ],
+  "versioning_rule": "Todos los módulos heredan VERSION. Los números históricos internos de motores/esquemas pueden conservarse sólo como schema_version o engine_revision, nunca como una segunda versión pública de skill."
+}
