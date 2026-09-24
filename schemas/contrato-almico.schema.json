@@ -267,6 +267,9 @@
           }
         }
       }
+    },
+    "reconstruccion_preencarnatoria": {
+      "$ref": "preincarnation-reconstruction.schema.json"
     }
   }
 }
