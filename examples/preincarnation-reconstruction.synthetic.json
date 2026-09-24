@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "origin": {
-    "state": "COMPATIBLE",
+    "state": "INSUFFICIENT",
     "hypotheses": [
       {
         "id": "RAICES_RELACIONADAS",
@@ -31,7 +31,7 @@
         ]
       }
     ],
-    "selection": "RAICES_RELACIONADAS",
+    "selection": "SHARED_ORIGIN_UNDIFFERENTIATED",
     "astrology_roots": [
       "root_syn_001",
       "root_rel_002"
@@ -40,12 +40,13 @@
       "vital_shaar_hagilgulim_39_soul_roots"
     ],
     "alternatives": [
-      "ZIVUG_PAREJA_VERDADERA",
-      "MISMO_GRUPO_O_FAMILIA"
+      "RELATED_SOUL_ROOTS",
+      "ZIVUG_TRUE_PAIR",
+      "TWIN_FLAME_MODEL"
     ],
     "counterevidence": [],
     "robustness": 82,
-    "hermeneutic_note": "Synthetic example; no real persons or charts."
+    "hermeneutic_note": "Synthetic summary. Detailed origin resolution is stored in origin_differential."
   },
   "agreement_motive": {
     "state": "COMPATIBLE",
@@ -355,8 +356,9 @@
           "R_SINGULARITY": 70
         },
         "independent_roots": [
-          "root_syn_001",
-          "root_rel_002"
+          "root_origin_01",
+          "root_cont_02",
+          "root_rel_03"
         ],
         "coverage": 91,
         "robustness": 83,
@@ -367,9 +369,10 @@
         ],
         "counterevidence": [],
         "competing_models": [
-          "ZIVUG_TRUE_PAIR"
+          "ZIVUG_TRUE_PAIR",
+          "TWIN_SOUL"
         ],
-        "reason_not_higher": "No validated astrological discriminator separates related roots from a true-pair model."
+        "reason_not_higher": "No validated astrological discriminator separates related soul roots from a specific true-pair model."
       },
       {
         "model_id": "ZIVUG_TRUE_PAIR",
@@ -384,9 +387,9 @@
           "R_SINGULARITY": 70
         },
         "independent_roots": [
-          "root_syn_001",
-          "root_pair_004",
-          "root_cont_002"
+          "root_origin_01",
+          "root_pair_04",
+          "root_cont_02"
         ],
         "coverage": 88,
         "robustness": 79,
@@ -401,6 +404,38 @@
           "TWIN_FLAME_MODEL"
         ],
         "reason_not_higher": "A_RELATED_ROOT_VS_ZIVUG and A_ZIVUG_VS_TWIN_FLAME are NOT_VALIDATED."
+      },
+      {
+        "model_id": "TWIN_FLAME_MODEL",
+        "state": "INSUFFICIENT",
+        "doctrinal_signature_match": 58,
+        "astrology_dimensions": {
+          "R_ORIGIN": 84,
+          "R_PAIR": 78,
+          "R_CONTINUITY": 70,
+          "R_POLARITY": 74,
+          "R_SHARED_TASK": 69,
+          "R_SINGULARITY": 70
+        },
+        "independent_roots": [
+          "root_origin_01",
+          "root_pair_04"
+        ],
+        "coverage": 88,
+        "robustness": 79,
+        "r_min": 0.66,
+        "discriminators_used": [
+          "D_POLARITY_PAIR",
+          "D_SHARED_MISSION"
+        ],
+        "counterevidence": [
+          "No independent evidence operationalizes the doctrine-specific unique blueprint requirement."
+        ],
+        "competing_models": [
+          "ZIVUG_TRUE_PAIR",
+          "TWIN_SOUL"
+        ],
+        "reason_not_higher": "Doctrine-specific markers such as a unique shared blueprint have no validated astrological discriminator."
       }
     ],
     "undifferentiated_output": {
@@ -419,6 +454,27 @@
     "limitations": [
       "Synthetic fixture only.",
       "No ontological probability is inferred."
-    ]
+    ],
+    "resolution_level": "O2_ROOT_FAMILY",
+    "evidence_families": [
+      "F1_CONTINUIDAD",
+      "F2_RAIZ_COMPARTIDA",
+      "F3_SIMETRIA_DYADICA",
+      "F4_SINGULARIDAD"
+    ],
+    "doctrinal_discriminators": [
+      "D_SHARED_ROOT",
+      "D_PREBIRTH_PAIRING",
+      "D_REINCARNATION_RETURN",
+      "D_POLARITY_PAIR",
+      "D_SHARED_MISSION"
+    ],
+    "astrology_discriminators": [
+      "A_CONTINUITY_VS_NEW",
+      "A_RELATED_ROOT_VS_ZIVUG",
+      "A_ZIVUG_VS_TWIN_FLAME",
+      "A_UNIQUE_DYADIC_ORIGIN"
+    ],
+    "why_not_more_specific": "The synthetic fixture reaches O2 because continuity and shared-root architecture are strong, but no validated A_* discriminator establishes a unique dyadic ontology or separates related roots, zivug and twin-flame models."
   }
 }
