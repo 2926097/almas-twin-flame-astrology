@@ -1,6 +1,15 @@
-# ALMAS Soul Contract · Changelog
+# Módulo ALMAS · Contrato Preencarnatorio · historial técnico
 
-## 1.9.0 — 2026-09-24
+> Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz.
+
+## ALMAS 1.4.0 — 2026-09-24
+
+- Migra el antiguo Soul Contract a módulo interno de la única skill ALMAS.
+- Conserva la revisión técnica 1.9.0 como `engine_revision`.
+- Elimina el versionado público independiente.
+- Mantiene intactos los motores diferenciales de las ocho etapas preencarnatorias.
+
+## engine_revision 1.9.0 — 2026-09-24
 
 - Añade motor diferencial de mecanismos de cumplimiento.
 - Separa activación, repetición, integración, transformación y cierre.
@@ -9,7 +18,7 @@
 - Añade discriminadores FMD1–FMD8.
 - Completa la arquitectura diferencial de las ocho etapas preencarnatorias.
 
-## 1.8.0 — 2026-09-24
+## engine_revision 1.8.0 — 2026-09-24
 
 - Añade motor de ensamblaje diferencial de cláusulas.
 - Formaliza las ocho cláusulas como objetos derivados con genealogía vertical.
@@ -19,7 +28,7 @@
 - Añade discriminadores CLD1–CLD8.
 
 
-## 1.7.0 — 2026-09-24
+## engine_revision 1.7.0 — 2026-09-24
 
 - Añade motor diferencial de tarea común.
 - Exige prueba de emergencia frente a la suma de tareas individuales.
@@ -29,7 +38,7 @@
 - Integra common_task_differential en la reconstrucción preencarnatoria.
 
 
-## 1.6.0 — 2026-09-24
+## engine_revision 1.6.0 — 2026-09-24
 
 - Añade motor diferencial de tareas individuales.
 - Exige identificar TAREA_A_PREVIA y TAREA_B_PREVIA antes de usar sinastría.
@@ -39,7 +48,7 @@
 - Integra individual_tasks_differential en la reconstrucción preencarnatoria.
 
 
-## 1.5.0 — 2026-09-24
+## engine_revision 1.5.0 — 2026-09-24
 
 - Añade motor diferencial de condiciones de encuentro.
 - Separa ventana temporal, contexto, reconocimiento, bloqueo y rutas alternativas.
@@ -49,7 +58,7 @@
 - Integra encounter_conditions_differential en la reconstrucción preencarnatoria.
 
 
-## 1.4.0 — 2026-09-24
+## engine_revision 1.4.0 — 2026-09-24
 
 - Añade motor diferencial de selección de roles.
 - Separa rol funcional, dirección, intensidad y mecanismo preencarnatorio.
@@ -61,7 +70,7 @@
 - Integra role_selection_differential en la reconstrucción preencarnatoria.
 
 
-## 1.3.0 — 2026-09-24
+## engine_revision 1.3.0 — 2026-09-24
 
 - Añade motor diferencial del motivo del acuerdo.
 - Separa motivo funcional, dirección/alcance y mecanismo preencarnatorio.
@@ -74,7 +83,7 @@
 - Integra agreement_motive_differential en la reconstrucción preencarnatoria.
 
 
-## 1.2.0 — 2026-09-24
+## engine_revision 1.2.0 — 2026-09-24
 
 - Añade motor diferencial del origen de las almas.
 - Define nueve modelos operativos de origen y una categoría explícita de origen compartido no diferenciado.
@@ -85,7 +94,7 @@
 - Integra el motor de origen en la reconstrucción preencarnatoria v1.1.0.
 
 
-## 1.1.0 — 2026-09-24
+## engine_revision 1.1.0 — 2026-09-24
 
 - Añade la reconstrucción preencarnatoria en ocho etapas.
 - Formaliza origen, motivo del acuerdo, selección de roles, condiciones de encuentro, tareas individuales, tarea común, cláusulas y mecanismos de cumplimiento.
@@ -96,9 +105,9 @@
 - Introduce mecanismos de cumplimiento, transformación, cierre, ruta alternativa y aplazamiento.
 - Mantiene la astrología como método metafísico de averiguación y los controles como rigor interno.
 
-## 1.0.0 — 2026-09-24
+## engine_revision 1.0.0 — 2026-09-24
 
-- Primera versión pública independiente de ALMAS Soul Contract.
+- Primera revisión histórica del motor contractual; su estatus independiente queda retirado desde ALMAS 1.4.0.
 - Ocho cláusulas base.
 - Roles preencarnatorios.
 - Causa contractual.
