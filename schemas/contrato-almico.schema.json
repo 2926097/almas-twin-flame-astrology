@@ -165,6 +165,108 @@
           "type": "object"
         }
       }
+    },
+    "roles_preencarnatorios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "origen",
+          "receptor",
+          "clausula",
+          "rol_funcional",
+          "intensidad",
+          "radix_receptor",
+          "factores_activadores",
+          "significado_funcional"
+        ],
+        "properties": {
+          "origen": {
+            "type": "string"
+          },
+          "receptor": {
+            "type": "string"
+          },
+          "clausula": {
+            "type": "string"
+          },
+          "rol_funcional": {
+            "enum": [
+              "ACTIVADOR",
+              "CATALIZADOR",
+              "ESPEJO",
+              "MEMORIA",
+              "ESTRUCTURADOR",
+              "LIBERADOR",
+              "CONFRONTADOR",
+              "PORTADOR_DE_VULNERABILIDAD",
+              "INTEGRADOR",
+              "MEDIADOR",
+              "TESTIGO",
+              "COMPANERO_DE_APRENDIZAJE"
+            ]
+          },
+          "intensidad": {
+            "enum": [
+              "PRIMARIO",
+              "SECUNDARIO",
+              "CORROBORATIVO",
+              "INSUFICIENTE",
+              "NO_EVALUABLE"
+            ]
+          },
+          "radix_receptor": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "factores_activadores": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "raices_independientes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tecnicas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dependencias": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "significado_funcional": {
+            "type": "string"
+          },
+          "sombra": {
+            "type": "string"
+          },
+          "requisito_integracion": {
+            "type": "string"
+          },
+          "alternativa_competidora": {
+            "type": "string"
+          },
+          "robustez_horaria": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
     }
   }
 }
