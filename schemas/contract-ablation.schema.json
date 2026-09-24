@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/contract-ablation.schema.json",
+  "title": "ALMAS Contract Ablation Matrix",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "runs",
+    "units",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "unit_id",
+          "unit_type",
+          "full_state",
+          "ablation_results",
+          "dependency_class"
+        ],
+        "properties": {
+          "unit_id": {
+            "type": "string"
+          },
+          "unit_type": {
+            "enum": [
+              "INDIVIDUAL_TASK",
+              "CAUSE",
+              "ROLE",
+              "COMMON_TASK",
+              "CLAUSE",
+              "ORIGIN_MODEL",
+              "GLOBAL_CONTRACT"
+            ]
+          },
+          "full_state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "ablation_results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "run",
+                "state",
+                "surviving_roots",
+                "lost_roots"
+              ],
+              "properties": {
+                "run": {
+                  "type": "string"
+                },
+                "state": {
+                  "enum": [
+                    "SUPPORTED",
+                    "COMPATIBLE",
+                    "INSUFFICIENT",
+                    "CONTRADICTED",
+                    "NOT_EVALUABLE"
+                  ]
+                },
+                "surviving_roots": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "lost_roots": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "note": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "dependency_class": {
+            "enum": [
+              "CORE_STABLE",
+              "MULTILAYER_STABLE",
+              "DRACONIC_SENSITIVE",
+              "DRACONIC_DEPENDENT",
+              "RELCHART_SENSITIVE",
+              "RELCHART_DEPENDENT",
+              "ANGULAR_SENSITIVE",
+              "SUPPORT_LAYER_DEPENDENT",
+              "TEMPORAL_ONLY",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "nuclear_survivors",
+        "layer_sensitive_units",
+        "invalidated_units"
+      ],
+      "properties": {
+        "nuclear_survivors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "layer_sensitive_units": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "invalidated_units": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved_dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
