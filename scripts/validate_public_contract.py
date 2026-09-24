@@ -32,6 +32,7 @@ REQUIRED_FILES = [
     "schemas/ontology-output.schema.json",
     "schemas/preincarnation-contract-chain.schema.json",
     "schemas/preincarnation-causality.schema.json",
+    "schemas/contract-ablation.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
@@ -62,6 +63,7 @@ REQUIRED_FILES = [
     "reference/ontology-registry.json",
     "reference/contract-causal-architecture-v2.md",
     "reference/preincarnation-causality-engine.md",
+    "reference/contract-ablation.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -87,6 +89,7 @@ REQUIRED_FILES = [
     "tests/ONTOLOGY_V2_INVARIANTS.md",
     "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
     "tests/PREINCARNATION_CAUSALITY_INVARIANTS.md",
+    "tests/CONTRACT_ABLATION_INVARIANTS.md",
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -116,6 +119,7 @@ REQUIRED_FILES = [
     "examples/clause-assembly.synthetic.json",
     "examples/fulfillment-mechanisms.synthetic.json",
     "examples/preincarnation-contract-chain.synthetic.json",
+    "examples/contract-ablation.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -247,6 +251,7 @@ def main() -> int:
     ontology_registry = load_json("reference/ontology-registry.json")
     contract_chain_schema = load_json("schemas/preincarnation-contract-chain.schema.json")
     contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
+    contract_ablation_example = load_json("examples/contract-ablation.synthetic.json")
     doctrine_map = load_json("reference/doctrine-to-astrology-map.json")
     causal_registry = load_json("manifests/causal-type-registry.json")
     cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
@@ -269,6 +274,10 @@ def main() -> int:
         fail("contract causal chain schema must expose 2.0.0")
     if contract_chain_example.get("literal_content_state") != "NOT_EVALUABLE":
         fail("synthetic contract chain must keep literal pre-birth content NOT_EVALUABLE")
+
+    ab_runs = set(contract_ablation_example.get("runs", []))
+    if not {"AB1_NO_ASTEROIDS","AB2_NO_TEMPORALITY","AB8_INDIVIDUAL_ONLY"}.issubset(ab_runs):
+        fail("contract ablation fixture must include AB1 and AB2 and AB8")
 
     if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.8.0":
         fail("preincarnation reconstruction schema must expose schema_version 1.8.0")
