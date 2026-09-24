@@ -491,7 +491,133 @@
         "metaphysical truth of twin-soul doctrine",
         "astrological criteria"
       ]
+    },
+    {
+      "id": "vital_shaar_hagilgulim_1_soul_levels",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Lurianic Kabbalah",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 1",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.1/",
+      "supports": [
+        "fivefold soul terminology Nefesh, Ruach, Neshamah, Chayah, Yechidah",
+        "Lurianic anthropology linking the human soul to the four worlds"
+      ],
+      "does_not_support": [
+        "modern twin-flame terminology",
+        "a literal pre-birth bilateral contract for every relationship"
+      ]
+    },
+    {
+      "id": "vital_shaar_hagilgulim_8_reasons_for_return",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Lurianic Kabbalah",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 8",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.8",
+      "supports": [
+        "multiple reasons for gilgul including rectification of transgression, completion of a missing mitzvah, and returning for the sake of others",
+        "explicit statement that a soul may return in order to take its bat zug when it did not merit doing so previously"
+      ],
+      "does_not_support": [
+        "identity with modern twin-flame doctrine",
+        "astrological proof that a specific pair is a bat zug"
+      ]
+    },
+    {
+      "id": "vital_shaar_hagilgulim_20_zivug",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Lurianic Kabbalah",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 20:1",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20.7",
+      "supports": [
+        "distinction between first and second zivug",
+        "teaching that a true bat zug may reincarnate again with the same soul",
+        "second zivug can mean the second union of the same true pair across gilgul rather than necessarily a different spouse"
+      ],
+      "does_not_support": [
+        "modern twin-flame taxonomy",
+        "claim that every intense relationship is a reincarnated true pair"
+      ]
+    },
+    {
+      "id": "vital_shaar_hagilgulim_39_soul_roots",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Lurianic Kabbalah",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 39",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.39",
+      "supports": [
+        "explicit discourse on shared or related soul roots",
+        "examples of enduring connections among souls across roles such as parent-child and teacher-student",
+        "language of true bat zug in relation to soul-root structures"
+      ],
+      "does_not_support": [
+        "a simple one-to-one equation between soul root and romantic twin flame",
+        "astrological diagnostic rules"
+      ]
+    },
+    {
+      "id": "vital_sefer_etz_chaim",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Lurianic Kabbalah",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sefer Etz Chaim",
+      "url": "https://www.sefaria.org/Sefer_Etz_Chaim",
+      "supports": [
+        "core Lurianic cosmological architecture",
+        "framework of worlds, partzufim, emanation, rupture and rectificatory dynamics necessary for interpreting tikkun and zivug"
+      ],
+      "does_not_support": [
+        "modern romantic twin-flame doctrine",
+        "direct astrological classification of relationships"
+      ]
+    },
+    {
+      "id": "vital_pri_etz_chaim",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Lurianic Kabbalah",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Pri Etz Chaim",
+      "url": "https://www.sefaria.org/Pri_Etz_Chaim",
+      "supports": [
+        "Lurianic ritual and theurgical elaboration of zivug, male-female divine configurations and rectificatory union",
+        "important context for understanding symbolic union language within the Lurianic system"
+      ],
+      "does_not_support": [
+        "automatic mapping of divine partzufim onto a human romantic couple",
+        "modern twin-flame diagnosis"
+      ]
+    },
+    {
+      "id": "magid_life_of_soul_lurianic_gilgul",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "author": "Shaul Magid",
+      "work": "Reincarnation (Gilgul) as Traversing Boundaries of Identity from Lurianic Kabbalah to Joel Teitelbaum of Satmar",
+      "date_note": "in The Life of the Soul: Jewish Perspectives on Reincarnation from the Middle Ages to the Modern Period",
+      "pages": "249-272",
+      "url": "https://www.jstor.org/stable/jj.21761189.14",
+      "supports": [
+        "academic analysis of gilgul in Hayyim Vital and later Jewish thought",
+        "context for Lurianic reincarnation as a system affecting identity and soul relations"
+      ],
+      "does_not_support": [
+        "modern twin-flame doctrine",
+        "ALMAS astrological rules"
+      ]
     }
   ],
-  "registry_revision": "2026-09-24-literature-audit-1"
+  "registry_revision": "2026-09-24-lurianic-layer-1"
 }
