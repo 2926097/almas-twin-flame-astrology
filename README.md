@@ -1,6 +1,6 @@
-# ALMAS Twin-Flame Astrology Skill
+# ALMAS · Astrología Relacional
 
-**Public release:** 1.0.0  
+**Versión pública:** 1.1.0  
 **Status:** research specification / reproducible interpretive framework
 
 ALMAS is a multidisciplinary framework for studying relationship astrology and soul-bond models without reducing a relationship to a single label. It combines synastry, composite and Davison charts, draconic layers, traditional mirror techniques, temporal activation, null-model rarity, ablation, birth-time robustness, comparative doctrine and hermeneutic reporting.
@@ -93,3 +93,27 @@ The repository is a validated **generalized method specification plus executable
 ## License
 
 No open-source license has been selected for v1.0.0. Publication on GitHub does not itself grant reuse rights beyond those provided by applicable law and GitHub's platform terms. Add a license only when the project owner has chosen one deliberately.
+
+
+## Contrato álmico
+
+La versión 1.1.0 incorpora el **contrato álmico** como módulo transversal de la misma metodología ALMAS. No es una quinta categoría junto a AF, KA, AG y LG.
+
+El módulo intenta reconstruir, a partir de raíces astrológicas trazables:
+
+- qué activa una persona en la otra;
+- qué activa la otra en sentido inverso;
+- qué tarea común emerge;
+- qué tensión o herida se expone;
+- qué integración exige la arquitectura;
+- qué podría constituir cumplimiento, transformación o cierre de una cláusula.
+
+La extracción se organiza en ocho cláusulas: encuentro y reconocimiento; vínculo amoroso; herida y reparación; libertad y autonomía; comunicación y verdad; transformación y poder; integración y encarnación; liberación y cierre.
+
+La dimensión temporal distingue **activación inicial**, **desarrollo de cláusulas** y **cumplimiento/transformación/cierre**. La temporalidad activa estructura preexistente; no crea por sí sola un contrato.
+
+Consulta [reference/contrato-almico.md](reference/contrato-almico.md).
+
+## Idioma
+
+La documentación pública orientada a personas se redacta prioritariamente en español. Se conservan identificadores técnicos históricos en inglés sólo cuando son necesarios para compatibilidad con código, esquemas o versiones anteriores.
