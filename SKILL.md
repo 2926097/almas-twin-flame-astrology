@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.3.0
+version: 1.3.1
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.3.0
+# ALMAS · Astrología Metafísica Relacional v1.3.1
 
 ## 0. Public release status
 
-This is the public `1.3.0` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
+This is the public `1.3.1` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
 
 ### Metaphysical research stance
 
@@ -477,3 +477,20 @@ Ejemplos:
 - `reciprocity` → **reciprocidad**.
 
 Esta convención no obliga a renombrar claves internas de software si ello rompe compatibilidad.
+
+
+## 36. Causa contractual
+
+El contrato álmico permanece como **módulo interno de esta única Skill ALMAS**.
+
+La causa contractual intenta explicar por qué un factor de A encaja como activador de una tarea que B ya trae antes del encuentro.
+
+Cadena obligatoria:
+
+`TAREA_PREVIA_RECEPTOR → FACTOR_ACTIVADOR_DEL_OTRO → ENCAJE_GEOMETRICO → RECURRENCIA → FUNCION_CONTRACTUAL → CAMPO_COMUN`.
+
+La tarea previa debe identificarse sin usar primero la sinastría. Si sólo aparece después de ver el contacto con la otra persona, la inferencia es circular y se marca `INSUFFICIENT`.
+
+Tipos de causa: reconocimiento, catálisis, confrontación, encarnación, reciprocidad, verdad, integración y liberación.
+
+Referencia: `reference/causa-contractual.md`.
