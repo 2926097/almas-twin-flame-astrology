@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/documentary-event-ledger.schema.json",
+  "title": "ALMAS Documentary Event Ledger",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "analysis_freeze_ref",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "analysis_freeze_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "event_id",
+          "subjects",
+          "event_type",
+          "date_precision",
+          "fact_statement",
+          "documentary_quality",
+          "source_refs",
+          "privacy_class",
+          "evidence_roles"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string"
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "event_type": {
+            "enum": [
+              "FIRST_MEETING",
+              "CONTACT",
+              "CONVERSATION",
+              "RELATIONSHIP_CHANGE",
+              "COMMITMENT",
+              "SEPARATION",
+              "RECONCILIATION",
+              "NO_CONTACT",
+              "MARRIAGE",
+              "BIRTH",
+              "DEATH",
+              "MOVE",
+              "TRAVEL",
+              "FAMILY_EVENT",
+              "WORK_OR_SERVICE",
+              "HEALTH_EVENT",
+              "SPIRITUAL_EVENT",
+              "CONFLICT",
+              "BOUNDARY",
+              "OTHER"
+            ]
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date_range": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date_precision": {
+            "enum": [
+              "EXACT_DATETIME",
+              "EXACT_DATE",
+              "MONTH",
+              "YEAR",
+              "RANGE",
+              "APPROXIMATE",
+              "UNKNOWN"
+            ]
+          },
+          "place_general": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fact_statement": {
+            "type": "string"
+          },
+          "documentary_quality": {
+            "enum": [
+              "DQ1_PRIMARY_DOCUMENT",
+              "DQ2_DIRECT_SELF_REPORT",
+              "DQ3_CORROBORATED_REPORT",
+              "DQ4_SECONDARY_REPORT",
+              "DQ5_UNVERIFIED"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "privacy_class": {
+            "enum": [
+              "PUBLIC_VERIFIABLE",
+              "PRIVATE_AUTHORIZED",
+              "PRIVATE_RESTRICTED",
+              "SYNTHETIC"
+            ]
+          },
+          "evidence_roles": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "ACTIVATION_CORROBORATION",
+                "FULFILLMENT_EVIDENCE",
+                "COUNTEREVIDENCE",
+                "VIABILITY_FACT",
+                "RECIPROCITY_FACT",
+                "PHENOMENOLOGY_DOCUMENT",
+                "CONTEXT_ONLY"
+              ]
+            }
+          },
+          "linked_root_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "linked_clause_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "interpretations": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "counterevidence_effect": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "supersedes_event_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "correction_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
