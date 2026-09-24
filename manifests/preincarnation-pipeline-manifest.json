@@ -253,5 +253,23 @@
       "bilateral_requirements",
       "alternative_routes"
     ]
+  },
+  "contract_temporality": {
+    "version": "2.0.0",
+    "reference": "reference/contract-temporality-v2.md",
+    "schema": "schemas/contract-temporality-v2.schema.json",
+    "invariants": "tests/CONTRACT_TEMPORALITY_V2_INVARIANTS.md",
+    "required_in_full": true,
+    "consumes": [
+      "CLAUSES",
+      "anchored_temporal_activations",
+      "documented_facts",
+      "contract_free_will"
+    ],
+    "produces": [
+      "lifecycle_state",
+      "temporal_windows",
+      "factual_match"
+    ]
   }
 }
