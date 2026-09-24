@@ -1,20 +1,24 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.2.0
+version: 1.3.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Relacional v1.2.0
+# ALMAS · Astrología Metafísica Relacional v1.3.0
 
 ## 0. Public release status
 
-This is the public `1.0.0` release of the ALMAS Twin-Flame Astrology Skill. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
+This is the public `1.3.0` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
 
-The skill is a **calculation → evidence → validation → ontology → differential diagnosis → hermeneutics → report** protocol. It is not a single-label detector.
+### Metaphysical research stance
+
+ALMAS uses astrology as a **metaphysical method of inquiry** into soul architecture, relational origin/history/function, karmic or dharmic continuity, polarity, activation, integration and other defined metaphysical dimensions. The methodological controls in this skill are quality controls inside that paradigm: they prevent dependency inflation, case-fitting and unsupported ontological jumps; they are not a rejection of metaphysical inquiry.
+
+The skill follows a **calculation → evidence → validation → metaphysical ontology → differential diagnosis → hermeneutics → report** protocol. It is not a single-label detector.
 
 ## 1. Objective
 
@@ -433,51 +437,33 @@ Every full analysis should clearly distinguish:
 The objective is not to confirm a prior belief, but to build the broadest, most documented, reproducible and discriminating model possible for studying soul-bond narratives and astrological relationship structures.
 
 
-## 32. Módulo transversal de contrato álmico
+## 32. Interoperabilidad con ALMAS Contrato Álmico
 
-El análisis del **contrato álmico** forma parte de la misma Skill ALMAS y no constituye una skill independiente ni una quinta categoría relacional.
+La reconstrucción de un posible **acuerdo preencarnatorio** pertenece a una segunda skill especializada: `ALMAS Soul Contract / Contrato Álmico`.
 
-Objetivo: extraer, desde raíces previamente calculadas y normalizadas, el contenido funcional de un posible acuerdo preencarnatorio.
+Esta skill astrológica no deja de pensar metafísicamente. Su función es producir la arquitectura astrológica trazable que la skill contractual utiliza como evidencia de entrada.
 
-La extracción debe distinguir:
+Salida de intercambio recomendada:
 
-- `A_EN_B`: qué activa A en B;
-- `B_EN_A`: qué activa B en A;
-- `CAMPO_COMUN`: qué surge en la arquitectura relacional;
-- reciprocidad bilateral, parcial, asimétrica o no evaluable.
+`cálculo astrológico → raíces independientes → pilares/ontología → temporalidad → robustez/contraevidencia → astrology_to_soul_contract.json`
 
-Cláusulas públicas en español:
+La interfaz normativa se define en `schemas/astrology-to-soul-contract.schema.json`.
 
-1. **Encuentro y reconocimiento**.
-2. **Vínculo amoroso**.
-3. **Herida y reparación**.
-4. **Libertad y autonomía**.
-5. **Comunicación y verdad**.
-6. **Transformación y poder**.
-7. **Integración y encarnación**.
-8. **Liberación y cierre**.
+La skill de contrato álmico se encuentra en `skills/almas-soul-contract/SKILL.md`.
 
-Cada cláusula debe registrar raíz, técnica, dependencia, dirección, acción simbólica, aprendizaje, sombra, requisito de integración, firma de cumplimiento, alternativas, contraevidencia y robustez.
+Reglas de interoperabilidad:
 
-La temporalidad contractual se divide en:
-
-- **Tiempo 1 · Activación inicial**: qué pone en movimiento el encuentro;
-- **Tiempo 2 · Desarrollo de cláusulas**: qué raíces vuelven a activarse durante la historia;
-- **Tiempo 3 · Cumplimiento, transformación o cierre**: si el patrón sigue repitiéndose, se integra, cambia de modalidad o deja de organizar el vínculo.
-
-La temporalidad no crea el contrato. Sólo puede activar o ayudar a evaluar una arquitectura estructural ya existente.
-
-El texto narrativo del contrato se redacta únicamente después de cerrar la matriz de cláusulas y la contraevidencia.
-
-Referencia normativa: `reference/contrato-almico.md`.
-Esquema: `schemas/contrato-almico.schema.json`.
-Invariantes: `tests/CONTRATO_ALMICO_INVARIANTS.md`.
+1. El motor contractual consume raíces y evidencias ya normalizadas; no recalcula silenciosamente la astrología.
+2. Una cláusula contractual debe apuntar a una o más raíces del motor astrológico.
+3. La temporalidad contractual sólo puede referirse a activaciones ancladas a arquitectura estructural.
+4. La contraevidencia y la robustez viajan con la evidencia; no se eliminan al pasar al motor contractual.
+5. Los dos motores pueden evolucionar de forma independiente mediante versiones propias.
 
 ## 33. Convención lingüística pública
 
 La documentación destinada a lectura humana utiliza **terminología española** como forma principal.
 
-Los identificadores históricos o de máquina en inglés pueden conservarse cuando sean necesarios para compatibilidad con código, esquemas o versiones anteriores, pero deben acompañarse de su denominación española y no deben dominar la presentación pública.
+Los identificadores de máquina en inglés pueden conservarse cuando sean necesarios para compatibilidad con código o esquemas, acompañados de su denominación española cuando sea útil.
 
 Ejemplos:
 
@@ -491,53 +477,3 @@ Ejemplos:
 - `reciprocity` → **reciprocidad**.
 
 Esta convención no obliga a renombrar claves internas de software si ello rompe compatibilidad.
-
-
-## 34. Estado temporal de cláusula
-
-Además del estado epistemológico, cada cláusula del contrato álmico puede registrar un estado temporal:
-
-`LATENTE → ACTIVADA → EN_DESARROLLO → INTEGRADA | TRANSFORMADA | CERRADA`
-
-con `NO_EVALUABLE` cuando falte seguimiento suficiente.
-
-Esta secuencia no es obligatoriamente lineal: una cláusula puede reactivarse, cambiar de modalidad o permanecer latente durante largos periodos.
-
-Los estados `INTEGRADA`, `TRANSFORMADA` y `CERRADA` requieren hechos documentados y una firma de cumplimiento definida previamente. No pueden asignarse desde astrología temporal sola ni desde fechas futuras calculadas.
-
-
-## 35. Arquitectura de roles preencarnatorios
-
-El contrato álmico puede descomponerse en **roles funcionales por cláusula**.
-
-No usar etiquetas totalizantes como identidad esencial. Calcular por separado:
-
-- `A_EN_B`;
-- `B_EN_A`;
-- `CAMPO_COMUN`.
-
-Roles funcionales admitidos:
-
-- activador;
-- catalizador;
-- espejo;
-- memoria;
-- estructurador;
-- liberador;
-- confrontador;
-- portador de vulnerabilidad;
-- integrador;
-- mediador;
-- testigo;
-- compañero de aprendizaje.
-
-Cadena mínima:
-
-`RADIX_RECEPTOR → FACTOR_DEL_OTRO → CONFIGURACION_ACTIVADA → FUNCION → CLAUSULA`
-
-Todo rol debe indicar intensidad `PRIMARIO`, `SECUNDARIO`, `CORROBORATIVO`, `INSUFICIENTE` o `NO_EVALUABLE`.
-
-Un rol simbólico no implica obligación, permanencia, autoridad, consentimiento ni responsabilidad sobre la evolución de la otra persona.
-
-Referencia: `reference/roles-preencarnatorios.md`.
-Invariantes: `tests/ROLES_PREENCARNATORIOS_INVARIANTS.md`.
