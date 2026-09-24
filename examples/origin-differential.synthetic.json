@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "overall_state": "INSUFFICIENT",
+  "models": [
+    {
+      "model_id": "RELATED_SOUL_ROOTS",
+      "state": "COMPATIBLE",
+      "doctrinal_signature_match": 86,
+      "astrology_dimensions": {
+        "R_ORIGIN": 84,
+        "R_PAIR": 72,
+        "R_CONTINUITY": 81,
+        "R_POLARITY": 60,
+        "R_SHARED_TASK": 65,
+        "R_SINGULARITY": 70
+      },
+      "independent_roots": [
+        "root_origin_01",
+        "root_cont_02",
+        "root_rel_03"
+      ],
+      "coverage": 91,
+      "robustness": 83,
+      "r_min": 0.71,
+      "discriminators_used": [
+        "D_SHARED_ROOT",
+        "D_REINCARNATION_RETURN"
+      ],
+      "counterevidence": [],
+      "competing_models": [
+        "ZIVUG_TRUE_PAIR",
+        "TWIN_SOUL"
+      ],
+      "reason_not_higher": "No validated astrological discriminator separates related soul roots from a specific true-pair model."
+    },
+    {
+      "model_id": "ZIVUG_TRUE_PAIR",
+      "state": "COMPATIBLE",
+      "doctrinal_signature_match": 80,
+      "astrology_dimensions": {
+        "R_ORIGIN": 84,
+        "R_PAIR": 78,
+        "R_CONTINUITY": 86,
+        "R_POLARITY": 67,
+        "R_SHARED_TASK": 61,
+        "R_SINGULARITY": 70
+      },
+      "independent_roots": [
+        "root_origin_01",
+        "root_pair_04",
+        "root_cont_02"
+      ],
+      "coverage": 88,
+      "robustness": 79,
+      "r_min": 0.66,
+      "discriminators_used": [
+        "D_PREBIRTH_PAIRING",
+        "D_REINCARNATION_RETURN"
+      ],
+      "counterevidence": [],
+      "competing_models": [
+        "RELATED_SOUL_ROOTS",
+        "TWIN_FLAME_MODEL"
+      ],
+      "reason_not_higher": "A_RELATED_ROOT_VS_ZIVUG and A_ZIVUG_VS_TWIN_FLAME are NOT_VALIDATED."
+    },
+    {
+      "model_id": "TWIN_FLAME_MODEL",
+      "state": "INSUFFICIENT",
+      "doctrinal_signature_match": 58,
+      "astrology_dimensions": {
+        "R_ORIGIN": 84,
+        "R_PAIR": 78,
+        "R_CONTINUITY": 70,
+        "R_POLARITY": 74,
+        "R_SHARED_TASK": 69,
+        "R_SINGULARITY": 70
+      },
+      "independent_roots": [
+        "root_origin_01",
+        "root_pair_04"
+      ],
+      "coverage": 88,
+      "robustness": 79,
+      "r_min": 0.66,
+      "discriminators_used": [
+        "D_POLARITY_PAIR",
+        "D_SHARED_MISSION"
+      ],
+      "counterevidence": [
+        "No independent evidence operationalizes the doctrine-specific unique blueprint requirement."
+      ],
+      "competing_models": [
+        "ZIVUG_TRUE_PAIR",
+        "TWIN_SOUL"
+      ],
+      "reason_not_higher": "Doctrine-specific markers such as a unique shared blueprint have no validated astrological discriminator."
+    }
+  ],
+  "undifferentiated_output": {
+    "id": "SHARED_ORIGIN_UNDIFFERENTIATED",
+    "state": "INSUFFICIENT",
+    "compatible_models": [
+      "RELATED_SOUL_ROOTS",
+      "ZIVUG_TRUE_PAIR"
+    ],
+    "missing_discriminators": [
+      "A_RELATED_ROOT_VS_ZIVUG",
+      "A_ZIVUG_VS_TWIN_FLAME"
+    ]
+  },
+  "global_counterevidence": [],
+  "limitations": [
+    "Synthetic fixture only.",
+    "No ontological probability is inferred."
+  ]
+}
