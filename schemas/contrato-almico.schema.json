@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contrato álmico ALMAS",
+  "type": "object",
+  "required": [
+    "version",
+    "estado_global",
+    "reciprocidad",
+    "clausulas",
+    "tiempos"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "estado_global": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "reciprocidad": {
+      "enum": [
+        "BILATERAL",
+        "PARCIAL",
+        "ASIMETRICA",
+        "NO_EVALUABLE"
+      ]
+    },
+    "clausulas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "nombre",
+          "estado",
+          "direccion",
+          "raices",
+          "accion_simbolica",
+          "requisito_integracion",
+          "firma_cumplimiento"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "estado": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "direccion": {
+            "enum": [
+              "A_EN_B",
+              "B_EN_A",
+              "CAMPO_COMUN",
+              "BILATERAL"
+            ]
+          },
+          "raices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tecnicas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dependencias": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "accion_simbolica": {
+            "type": "string"
+          },
+          "aprendizaje": {
+            "type": "string"
+          },
+          "sombra": {
+            "type": "string"
+          },
+          "requisito_integracion": {
+            "type": "string"
+          },
+          "firma_cumplimiento": {
+            "type": "string"
+          },
+          "alternativas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contraevidencia": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "robustez": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    "tiempos": {
+      "type": "object",
+      "required": [
+        "activacion_inicial",
+        "desarrollo_clausulas",
+        "cumplimiento_transformacion_cierre"
+      ],
+      "properties": {
+        "activacion_inicial": {
+          "type": "object"
+        },
+        "desarrollo_clausulas": {
+          "type": "object"
+        },
+        "cumplimiento_transformacion_cierre": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
