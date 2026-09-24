@@ -1,4 +1,4 @@
-# Módulo · Arquitectura de roles preencarnatorios
+# Referencia · Arquitectura de roles preencarnatorios
 
 ## 1. Objetivo
 
@@ -204,4 +204,4 @@ Preferir:
 
 ## 12. Privacidad
 
-Los roles derivados de casos privados se generalizan antes de publicarse. El repositorio sólo conserva reglas, esquemas y ejemplos sintéticos.
+Los roles derivados de casos privados se generalizan antes de publicarse. También pueden documentarse casos reales cuando sus datos ya sean públicos y verificables, con fuente explícita y sin utilizarlos para ajustar retrospectivamente las reglas.
