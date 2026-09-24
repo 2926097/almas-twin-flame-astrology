@@ -28,6 +28,7 @@ REQUIRED_FILES = [
     "schemas/astrology-to-soul-contract.schema.json",
     "schemas/contrato-almico.schema.json",
     "schemas/source-registry.schema.json",
+    "schemas/ontology-output.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
@@ -53,6 +54,7 @@ REQUIRED_FILES = [
     "reference/source-registry.json",
     "reference/concept-registry.json",
     "reference/doctrinal-genealogy.json",
+    "reference/ontology-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
     "reference/preincarnation-reconstruction.md",
@@ -73,6 +75,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/cli.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
+    "tests/ONTOLOGY_V2_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
@@ -227,6 +230,7 @@ def main() -> int:
     source_schema = load_json("schemas/source-registry.schema.json")
     concept_registry = load_json("reference/concept-registry.json")
     doctrinal_genealogy = load_json("reference/doctrinal-genealogy.json")
+    ontology_registry = load_json("reference/ontology-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
@@ -304,6 +308,26 @@ def main() -> int:
     for edge in doctrinal_genealogy.get("edges", []):
         if edge.get("from") not in concept_ids or edge.get("to") not in concept_ids:
             fail(f"doctrinal genealogy edge references unknown concept: {edge}")
+
+    ontology_axes = {a.get("id") for a in ontology_registry.get("axes", [])}
+    required_axes = {
+        "ORIGIN",
+        "PREINCARNATION_CONTRACT",
+        "HISTORY_CONTINUITY",
+        "FUNCTION",
+        "PHENOMENOLOGY",
+        "POLARITY",
+        "MODALITY",
+        "PHASE",
+        "REAL_VIABILITY",
+        "RECIPROCITY",
+    }
+    if ontology_axes != required_axes:
+        fail("ontology must define independent axes exactly once")
+    for axis in ontology_registry.get("axes", []):
+        for concept_id in axis.get("concept_ids", []):
+            if concept_id not in concept_ids:
+                fail(f"ontology axis references unknown concept: {axis.get('id')} -> {concept_id}")
 
     expected_preincarnation_stages = {
         "ORIGIN",
