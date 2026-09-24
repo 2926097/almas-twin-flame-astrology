@@ -149,5 +149,27 @@
   "final_schema": "schemas/contrato-almico.schema.json",
   "narrative_gate": "Narrative synthesis may be generated only after all eight stages are represented, including INSUFFICIENT or NOT_EVALUABLE states where appropriate.",
   "almas_version": "1.5.0",
-  "contract_engine_revision": "1.9.0"
+  "contract_engine_revision": "1.9.0",
+  "contract_causal_chain": {
+    "version": "2.0.0",
+    "reference": "reference/contract-causal-architecture-v2.md",
+    "schema": "schemas/preincarnation-contract-chain.schema.json",
+    "invariants": "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
+    "synthetic_example": "examples/preincarnation-contract-chain.synthetic.json",
+    "required_in_full": true,
+    "assembled_from": [
+      "INDIVIDUAL_TASKS",
+      "AGREEMENT_MOTIVE",
+      "ROLE_SELECTION",
+      "ENCOUNTER_CONDITIONS",
+      "COMMON_TASK",
+      "CLAUSES",
+      "FULFILLMENT_MECHANISMS"
+    ],
+    "origin_relation": "ORIGIN is contextual ontology and is not part of the minimum contract causal chain."
+  },
+  "final_outputs": [
+    "canonical_soul_contract.json",
+    "preincarnation_contract_chain"
+  ]
 }
