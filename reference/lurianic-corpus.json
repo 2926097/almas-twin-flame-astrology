@@ -1,0 +1,107 @@
+{
+  "corpus_version": "1.0.0",
+  "tradition": "Lurianic Kabbalah",
+  "primary_gateway": "Sefaria",
+  "purpose": "Provide a dedicated Lurianic layer for ALMAS research on gilgul, tikkun, soul roots, zivug and recurrent relational bonds.",
+  "core_texts": [
+    {
+      "work": "Sha'ar HaGilgulim",
+      "compiler": "Hayyim Vital",
+      "teacher": "Isaac Luria",
+      "key_passages": [
+        {
+          "passage": "1",
+          "topics": [
+            "Nefesh/Ruach/Neshamah/Chayah/Yechidah",
+            "soul structure"
+          ]
+        },
+        {
+          "passage": "8",
+          "topics": [
+            "reasons for gilgul",
+            "rectification",
+            "return for others",
+            "return for bat zug"
+          ]
+        },
+        {
+          "passage": "20",
+          "topics": [
+            "first/second zivug",
+            "true bat zug",
+            "reincarnation with same partner"
+          ]
+        },
+        {
+          "passage": "39",
+          "topics": [
+            "soul roots",
+            "enduring relational links",
+            "true bat zug examples"
+          ]
+        }
+      ]
+    },
+    {
+      "work": "Sefer Etz Chaim",
+      "compiler": "Hayyim Vital",
+      "teacher": "Isaac Luria",
+      "topics": [
+        "cosmology",
+        "partzufim",
+        "tikkun",
+        "worlds",
+        "rectificatory dynamics"
+      ]
+    },
+    {
+      "work": "Pri Etz Chaim",
+      "compiler": "Hayyim Vital",
+      "teacher": "Isaac Luria",
+      "topics": [
+        "zivug",
+        "ritual/theurgical union",
+        "male-female divine configurations",
+        "tikkun"
+      ]
+    }
+  ],
+  "almas_mapping": {
+    "ORIGIN": [
+      "soul roots",
+      "paired or related soul structures"
+    ],
+    "HISTORY": [
+      "gilgul",
+      "recurrent pairing",
+      "unfinished prior union"
+    ],
+    "FUNCTION": [
+      "tikkun",
+      "repair of self",
+      "repair for others"
+    ],
+    "POLARITY": [
+      "zivug",
+      "male/female symbolic dynamics"
+    ],
+    "CONTRACT": [
+      "return for another",
+      "return to take bat zug",
+      "task carried across incarnations"
+    ],
+    "PHASE": [
+      "first zivug",
+      "second zivug",
+      "rectification across reincarnation"
+    ]
+  },
+  "controls": [
+    "Do not equate zivug automatically with modern twin flame.",
+    "Do not equate shared soul root automatically with one unique romantic counterpart.",
+    "Separate divine-theurgical zivug from human relational zivug.",
+    "Treat Sha'ar HaGilgulim as primary doctrinal evidence for reincarnation and paired-soul continuity.",
+    "Use academic scholarship to contextualize Lurianic terminology and historical development."
+  ]
+}
