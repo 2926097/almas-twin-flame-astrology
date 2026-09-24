@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6.0",
+  "schema_version": "1.8.0",
   "origin": {
     "state": "INSUFFICIENT",
     "hypotheses": [
@@ -278,61 +278,84 @@
   },
   "clauses": [
     {
-      "id": "LIBERTAD_AUTONOMIA",
-      "state": "COMPATIBLE",
+      "id": "CL_LIBERTAD_AUTONOMIA",
+      "state": "SUPPORTED",
       "direction": "A_EN_B",
       "astrology_roots": [
-        "root_syn_004"
+        "root_AactivatesB_03",
+        "root_bilat_04"
       ],
       "doctrinal_sources": [],
       "counterevidence": [],
-      "note": "Derived ALMAS clause; synthetic."
+      "note": "Synthetic summary; detailed genealogy in clause_assembly."
     },
     {
-      "id": "COMUNICACION_VERDAD",
+      "id": "CL_INTEGRACION_ENCARNACION",
+      "state": "COMPATIBLE",
+      "direction": "CAMPO_COMUN",
+      "astrology_roots": [
+        "root_rel_02",
+        "root_bilat_04"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed genealogy in clause_assembly."
+    },
+    {
+      "id": "CL_COMUNICACION_VERDAD",
       "state": "COMPATIBLE",
       "direction": "B_EN_A",
       "astrology_roots": [
-        "root_syn_005"
+        "root_BstructuresA_05"
       ],
       "doctrinal_sources": [],
       "counterevidence": [],
-      "note": "Derived ALMAS clause; synthetic."
+      "note": "Synthetic summary; detailed genealogy in clause_assembly."
     }
   ],
   "fulfillment_mechanisms": [
     {
-      "id": "ACTIVACION",
-      "state": "COMPATIBLE",
-      "direction": "BILATERAL",
-      "astrology_roots": [
-        "root_time_001"
-      ],
+      "id": "FM_ACTIVACION",
+      "state": "SUPPORTED",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
       "doctrinal_sources": [],
-      "counterevidence": []
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
     },
     {
-      "id": "TIKKUN_REPARACION",
+      "id": "FM_REPETICION",
       "state": "COMPATIBLE",
-      "direction": "A_EN_B",
-      "astrology_roots": [
-        "root_syn_004"
-      ],
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
+    },
+    {
+      "id": "FM_TIKKUN_REPARACION",
+      "state": "INSUFFICIENT",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
       "doctrinal_sources": [
         "vital_shaar_hagilgulim_8_reasons_for_return"
       ],
-      "counterevidence": []
+      "counterevidence": [
+        "No post-activation fact yet satisfies the preregistered integration signature."
+      ],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
     },
     {
-      "id": "RUTA_ALTERNATIVA",
+      "id": "FM_RUTA_ALTERNATIVA",
       "state": "COMPATIBLE",
       "direction": "NO_APLICA",
       "astrology_roots": [],
       "doctrinal_sources": [
-        "myss_sacred_contracts_2001"
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
       ],
       "counterevidence": [],
-      "note": "Method-specific; not universalized."
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
     }
   ],
   "global_alternatives": [
@@ -1123,5 +1146,368 @@
     "robustness": 83,
     "why_selected": "Synthetic RELCHART and bilateral roots add an integration function not reducible to the two individual task sets.",
     "why_not_more_specific": "The common field is clear, but integration and reciprocal learning remain partly coextensive and service is not independently externalized."
+  },
+  "clause_assembly": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "essential_clauses": [
+      "CL_LIBERTAD_AUTONOMIA",
+      "CL_INTEGRACION_ENCARNACION"
+    ],
+    "primary_clauses": [
+      "CL_COMUNICACION_VERDAD"
+    ],
+    "secondary_clauses": [
+      "CL_ENCUENTRO_RECONOCIMIENTO"
+    ],
+    "clauses": [
+      {
+        "id": "CL_LIBERTAD_AUTONOMIA",
+        "state": "SUPPORTED",
+        "centrality": "ESSENTIAL",
+        "direction": "A_EN_B",
+        "genealogy": {
+          "origin_refs": [
+            "SHARED_ORIGIN_UNDIFFERENTIATED"
+          ],
+          "motive_refs": [
+            "M_TIKKUN_DEL_OTRO",
+            "M_CATALISIS_TRANSFORMACION"
+          ],
+          "role_refs": [
+            "A:ACTIVADOR→B"
+          ],
+          "encounter_condition_refs": [
+            "EC_VENTANA_TEMPORAL"
+          ],
+          "individual_task_refs": [
+            "B:IT_VULNERABILIDAD",
+            "A:IT_AUTONOMIA"
+          ],
+          "common_task_refs": [
+            "CT_INTEGRACION_POLARIDADES"
+          ]
+        },
+        "astrology_root_refs": [
+          "root_AactivatesB_03",
+          "root_bilat_04"
+        ],
+        "function": "hacer visible la tensión cercanía/autonomía",
+        "soul_objective": "integrar vínculo y libertad sin apropiación ni huida",
+        "learning": "sostener proximidad y diferenciación simultáneamente",
+        "shadow": "control o retirada",
+        "integration_requirement": "la autonomía deja de requerir ruptura para existir",
+        "fulfillment_signature": "la misma tensión puede sostenerse sin crisis repetitiva",
+        "temporal_state": "EN_DESARROLLO",
+        "coverage": 92,
+        "robustness": 85,
+        "r_min": 0.74,
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "CL_INTEGRACION_ENCARNACION",
+        "state": "COMPATIBLE",
+        "centrality": "ESSENTIAL",
+        "direction": "CAMPO_COMUN",
+        "genealogy": {
+          "origin_refs": [
+            "SHARED_ORIGIN_UNDIFFERENTIATED"
+          ],
+          "motive_refs": [
+            "M_APRENDIZAJE_MUTUO"
+          ],
+          "role_refs": [
+            "CAMPO_COMUN:INTEGRADOR"
+          ],
+          "encounter_condition_refs": [
+            "EC_DISPARADOR_RECONOCIMIENTO"
+          ],
+          "individual_task_refs": [
+            "A:IT_AUTONOMIA",
+            "B:IT_VULNERABILIDAD"
+          ],
+          "common_task_refs": [
+            "CT_INTEGRACION_POLARIDADES"
+          ]
+        },
+        "astrology_root_refs": [
+          "root_rel_02",
+          "root_bilat_04"
+        ],
+        "function": "transformar una polaridad simbólica en forma vivida",
+        "soul_objective": "encarnar integración en decisiones y conducta",
+        "learning": "pasar de significado simbólico a coherencia práctica",
+        "shadow": "idealización sin forma",
+        "integration_requirement": "la integración aparece en hechos observables",
+        "fulfillment_signature": "la función relacional produce una organización encarnada estable",
+        "temporal_state": "EN_DESARROLLO",
+        "coverage": 88,
+        "robustness": 82,
+        "r_min": 0.7,
+        "counterevidence": [],
+        "reason_not_higher": "Current synthetic fixture contains no documented post-activation integration facts."
+      },
+      {
+        "id": "CL_COMUNICACION_VERDAD",
+        "state": "COMPATIBLE",
+        "centrality": "PRIMARY",
+        "direction": "B_EN_A",
+        "genealogy": {
+          "origin_refs": [],
+          "motive_refs": [
+            "M_APRENDIZAJE_MUTUO"
+          ],
+          "role_refs": [
+            "B:ESTRUCTURADOR→A"
+          ],
+          "encounter_condition_refs": [],
+          "individual_task_refs": [
+            "B:IT_VERDAD"
+          ],
+          "common_task_refs": [
+            "CT_APRENDIZAJE_RECIPROCO"
+          ]
+        },
+        "astrology_root_refs": [
+          "root_BstructuresA_05"
+        ],
+        "function": "convertir ambigüedad en formulación consciente",
+        "soul_objective": "hacer explícita una verdad relacional",
+        "learning": "nombrar sin imponer",
+        "shadow": "silencio o interpretación unilateral",
+        "integration_requirement": "la verdad puede expresarse sin compulsión",
+        "fulfillment_signature": "la comunicación deja de depender de crisis",
+        "temporal_state": "ACTIVADA",
+        "coverage": 85,
+        "robustness": 80,
+        "r_min": 0.68,
+        "counterevidence": [],
+        "reason_not_higher": "Only one strong independent directional root is present."
+      }
+    ],
+    "overlap_matrix": [
+      {
+        "a": "CL_LIBERTAD_AUTONOMIA",
+        "b": "CL_INTEGRACION_ENCARNACION",
+        "relation": "DISTINCT_BUT_DEPENDENT"
+      },
+      {
+        "a": "CL_LIBERTAD_AUTONOMIA",
+        "b": "CL_COMUNICACION_VERDAD",
+        "relation": "DISTINCT_INDEPENDENT"
+      }
+    ],
+    "evidence_families": [
+      "CLF1_GENEALOGIA_VERTICAL",
+      "CLF2_RAICES_ESTRUCTURALES",
+      "CLF3_DIRECCIONALIDAD",
+      "CLF4_ALINEACION_ROL_TAREA",
+      "CLF5_ALINEACION_TAREA_COMUN",
+      "CLF6_ANCLAJE_TEMPORAL",
+      "CLF7_CONTRAEVIDENCIA",
+      "CLF8_ROBUSTEZ"
+    ],
+    "discriminators": [
+      {
+        "id": "CLD1_GENEALOGY_COMPLETE",
+        "status": "OPERATIONAL",
+        "result": "PASSED"
+      },
+      {
+        "id": "CLD2_OVERLAP_VS_DISTINCT",
+        "status": "OPERATIONAL",
+        "result": "CONTROLLED"
+      },
+      {
+        "id": "CLD5_INTEGRATION_SIGNATURE",
+        "status": "OPERATIONAL",
+        "result": "PREREGISTERED"
+      },
+      {
+        "id": "CLD8_UNIQUE_CLAUSE",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "counterevidence": [],
+    "robustness": 83,
+    "vertical_coherence": 90,
+    "why_selected": "The synthetic clauses are traceable to upstream motive, role, task and root structures.",
+    "why_not_more_specific": "Some clause boundaries remain dependent because the same structural roots contribute to more than one functional expression."
+  },
+  "fulfillment_mechanisms_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "mechanisms": [
+      {
+        "id": "FM_ACTIVACION",
+        "state": "SUPPORTED",
+        "clause_refs": [
+          "CL_LIBERTAD_AUTONOMIA",
+          "CL_COMUNICACION_VERDAD"
+        ],
+        "functional_state": "ACTIVADA",
+        "temporal_refs": [
+          "TPROG_SYN_01",
+          "TDIR_REL_02"
+        ],
+        "fact_refs": [
+          "event_meeting_001"
+        ],
+        "source_ids": [],
+        "coverage": 92,
+        "robustness": 86,
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "FM_REPETICION",
+        "state": "COMPATIBLE",
+        "clause_refs": [
+          "CL_LIBERTAD_AUTONOMIA"
+        ],
+        "functional_state": "EN_REPETICION",
+        "temporal_refs": [
+          "window_001",
+          "window_002"
+        ],
+        "fact_refs": [
+          "fact_pattern_001",
+          "fact_pattern_002"
+        ],
+        "source_ids": [],
+        "coverage": 86,
+        "robustness": 82,
+        "counterevidence": [],
+        "reason_not_higher": "The fixture shows recurrence but not enough factual change for repair."
+      },
+      {
+        "id": "FM_TIKKUN_REPARACION",
+        "state": "INSUFFICIENT",
+        "clause_refs": [
+          "CL_LIBERTAD_AUTONOMIA"
+        ],
+        "functional_state": "EN_INTEGRACION",
+        "temporal_refs": [
+          "window_002"
+        ],
+        "fact_refs": [],
+        "source_ids": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ],
+        "coverage": 80,
+        "robustness": 78,
+        "counterevidence": [
+          "No post-activation fact yet satisfies the preregistered integration signature."
+        ],
+        "reason_not_higher": "Functional repair remains unverified in facts."
+      },
+      {
+        "id": "FM_RUTA_ALTERNATIVA",
+        "state": "COMPATIBLE",
+        "clause_refs": [
+          "CL_INTEGRACION_ENCARNACION"
+        ],
+        "functional_state": "NO_EVALUABLE",
+        "temporal_refs": [],
+        "fact_refs": [],
+        "source_ids": [
+          "myss_sacred_contracts_2001",
+          "schwartz_your_souls_plan_2009"
+        ],
+        "coverage": null,
+        "robustness": null,
+        "counterevidence": [],
+        "reason_not_higher": "Alternative-route language is method-specific and has no validated astrological discriminator."
+      }
+    ],
+    "clause_status": [
+      {
+        "clause_id": "CL_LIBERTAD_AUTONOMIA",
+        "functional_state": "EN_REPETICION",
+        "fulfillment_signature_met": false,
+        "fact_refs": [
+          "fact_pattern_001",
+          "fact_pattern_002"
+        ]
+      },
+      {
+        "clause_id": "CL_INTEGRACION_ENCARNACION",
+        "functional_state": "EN_INTEGRACION",
+        "fulfillment_signature_met": null,
+        "fact_refs": []
+      },
+      {
+        "clause_id": "CL_COMUNICACION_VERDAD",
+        "functional_state": "ACTIVADA",
+        "fulfillment_signature_met": false,
+        "fact_refs": [
+          "event_meeting_001"
+        ]
+      }
+    ],
+    "evidence_families": [
+      "FMF1_ANCLAJE_CLAUSULA",
+      "FMF2_RECURRENCIA_TEMPORAL",
+      "FMF8_CONTRAEVIDENCIA"
+    ],
+    "discriminators": [
+      {
+        "id": "FMD1_ACTIVATION_VS_FULFILLMENT",
+        "status": "OPERATIONAL",
+        "result": "ACTIVATION_ONLY_FOR_SOME_CLAUSES"
+      },
+      {
+        "id": "FMD2_REPETITION_VS_REPAIR",
+        "status": "OPERATIONAL",
+        "result": "REPETITION_NOT_YET_REPAIR"
+      },
+      {
+        "id": "FMD6_ALTERNATIVE_ROUTE",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "FMD8_FUTURE_COMPLETION",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "factual_evidence": [
+      {
+        "id": "fact_pattern_001",
+        "kind": "SYNTHETIC_FACT",
+        "supports": [
+          "FM_REPETICION"
+        ]
+      },
+      {
+        "id": "fact_pattern_002",
+        "kind": "SYNTHETIC_FACT",
+        "supports": [
+          "FM_REPETICION"
+        ]
+      }
+    ],
+    "temporal_evidence": [
+      {
+        "id": "window_001",
+        "anchored": true,
+        "root_ref": "root_AactivatesB_03"
+      },
+      {
+        "id": "window_002",
+        "anchored": true,
+        "root_ref": "root_AactivatesB_03"
+      }
+    ],
+    "competing_explanations": [
+      "RECURRENT_RELATIONAL_PATTERN_WITHOUT_PREBIRTH_CONTRACT"
+    ],
+    "counterevidence": [],
+    "robustness": 81,
+    "why_selected": "The synthetic fixture supports activation and repetition but does not yet document full integration or closure.",
+    "why_not_more_specific": "No documented facts satisfy a preregistered integration/closure signature, and future completion cannot be inferred from astrology."
   }
 }
