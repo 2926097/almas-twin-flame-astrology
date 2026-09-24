@@ -1,5 +1,18 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.3.0 — 2026-09-24
+
+- Añade motor diferencial del motivo del acuerdo.
+- Separa motivo funcional, dirección/alcance y mecanismo preencarnatorio.
+- Define catorce motivos funcionales canónicos.
+- Añade ocho familias de evidencia para motivo.
+- Añade discriminadores AM1–AM8.
+- Distingue motivo PRIMARY, SECONDARY y CORROBORATIVE.
+- Impide inferir elección mutua o asignación preencarnatoria sólo desde astrología.
+- Integra Kardec, Sha'ar HaGilgulim, Myss, Newton y Schwartz como fuentes distintas, no equivalentes.
+- Integra agreement_motive_differential en la reconstrucción preencarnatoria.
+
+
 ## 1.2.0 — 2026-09-24
 
 - Añade motor diferencial del origen de las almas.
