@@ -18,6 +18,7 @@ REQUIRED_FILES = [
     "docs/MODULE_ARCHITECTURE.md",
     "docs/SOURCE_INTEGRATION_PLAN.md",
     "docs/SOURCE_GAPS.md",
+    "docs/DOCTRINE_TO_ASTROLOGY.md",
     "examples/README.md",
     "public_cases/README.md",
     "pyproject.toml",
@@ -57,6 +58,7 @@ REQUIRED_FILES = [
     "reference/doctrinal-genealogy.json",
     "reference/ontology-registry.json",
     "reference/contract-causal-architecture-v2.md",
+    "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
     "reference/preincarnation-reconstruction.md",
@@ -79,6 +81,7 @@ REQUIRED_FILES = [
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/ONTOLOGY_V2_INVARIANTS.md",
     "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
+    "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
@@ -237,6 +240,7 @@ def main() -> int:
     ontology_registry = load_json("reference/ontology-registry.json")
     contract_chain_schema = load_json("schemas/preincarnation-contract-chain.schema.json")
     contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
+    doctrine_map = load_json("reference/doctrine-to-astrology-map.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
@@ -339,6 +343,15 @@ def main() -> int:
         for concept_id in axis.get("concept_ids", []):
             if concept_id not in concept_ids:
                 fail(f"ontology axis references unknown concept: {axis.get('id')} -> {concept_id}")
+
+    for mapping in doctrine_map.get("mappings", []):
+        if mapping.get("concept_id") not in concept_ids:
+            fail(f"doctrine-to-astrology map references unknown concept: {mapping.get('concept_id')}")
+        if not mapping.get("operationalization_class"):
+            fail(f"doctrine-to-astrology mapping lacks operationalization_class: {mapping.get('concept_id')}")
+        for source_id in mapping.get("source_basis", []):
+            if source_id not in source_ids:
+                fail(f"doctrine-to-astrology mapping references unknown source: {source_id}")
 
     expected_preincarnation_stages = {
         "ORIGIN",
