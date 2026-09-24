@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.1.0",
+  "registry_version": "1.2.0",
   "models": [
     {
       "id": "INDEPENDENT_SOULS",
@@ -9,7 +9,9 @@
       },
       "pair_uniqueness": "not_required",
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O1_CONTINUITY"
+      "max_resolution_claim": "O1_CONTINUITY",
+      "axis": "ORIGIN",
+      "concept_ids": []
     },
     {
       "id": "SOUL_FAMILY_GROUP",
@@ -23,7 +25,11 @@
       "source_ids": [
         "newton_journey_of_souls_1994"
       ],
-      "max_resolution_claim": "O2_ROOT_FAMILY"
+      "max_resolution_claim": "O2_ROOT_FAMILY",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "SOUL_GROUP"
+      ]
     },
     {
       "id": "RELATED_SOUL_ROOTS",
@@ -36,7 +42,11 @@
       },
       "pair_uniqueness": "not_required",
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O2_ROOT_FAMILY"
+      "max_resolution_claim": "O2_ROOT_FAMILY",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "SOUL_ROOT"
+      ]
     },
     {
       "id": "ZIVUG_TRUE_PAIR",
@@ -52,7 +62,12 @@
       },
       "pair_uniqueness": "source_specific",
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O2_ROOT_FAMILY"
+      "max_resolution_claim": "O2_ROOT_FAMILY",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "ZIVUG",
+        "GILGUL"
+      ]
     },
     {
       "id": "SHARED_ORIGIN_UNDIFFERENTIATED",
@@ -62,7 +77,9 @@
       },
       "pair_uniqueness": "unresolved",
       "astrological_discriminator_status": "FALLBACK",
-      "max_resolution_claim": "O2_ROOT_FAMILY"
+      "max_resolution_claim": "O2_ROOT_FAMILY",
+      "axis": "ORIGIN",
+      "concept_ids": []
     },
     {
       "id": "MONADIC_COMMON_SOURCE",
@@ -75,7 +92,11 @@
       },
       "pair_uniqueness": "not_established_by_primary_source",
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O2_ROOT_FAMILY"
+      "max_resolution_claim": "O2_ROOT_FAMILY",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "MONAD"
+      ]
     },
     {
       "id": "SPLIT_SOUL",
@@ -89,7 +110,12 @@
       },
       "pair_uniqueness": "model_dependent",
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O3_UNIQUE_DYADIC"
+      "max_resolution_claim": "O3_UNIQUE_DYADIC",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "SPLIT_PRIMORDIAL_BEING",
+        "TWIN_FLAME_LITERARY_GENEALOGY"
+      ]
     },
     {
       "id": "TWIN_SOUL",
@@ -105,7 +131,11 @@
       },
       "pair_uniqueness": "model_dependent",
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O3_UNIQUE_DYADIC"
+      "max_resolution_claim": "O3_UNIQUE_DYADIC",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "TWIN_FLAME_LITERARY_GENEALOGY"
+      ]
     },
     {
       "id": "TWIN_FLAME_MODEL",
@@ -124,7 +154,11 @@
         "shared_task": "explicit"
       },
       "astrological_discriminator_status": "NOT_VALIDATED",
-      "max_resolution_claim": "O3_UNIQUE_DYADIC"
+      "max_resolution_claim": "O3_UNIQUE_DYADIC",
+      "axis": "ORIGIN",
+      "concept_ids": [
+        "TWIN_FLAME_ORIGIN"
+      ]
     }
   ],
   "discriminators": [
