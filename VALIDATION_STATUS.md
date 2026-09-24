@@ -1,6 +1,6 @@
 # Validation status
 
-## Public v1.0.0
+## Public v1.3.1
 
 The repository validates generalized rules with synthetic test fixtures. Real public case studies, if added, are documentary/illustrative material and are not used as hidden validation fixtures or as a basis for case-fitted rules.
 
@@ -17,6 +17,8 @@ Current public layers:
 | Public static contract validator | Published; CI enabled |
 | Deterministic pillar/IEM/IDD/IRC scoring core | Published; unit-tested |
 | Precomputed-pillar CLI | Published; unit-tested |
+| ALMAS Soul Contract skill | Published; independent v1.0.0 |
+| Astrology→Soul Contract bridge | Published; contract v1.0.0 |
 | Synthetic examples | Published |
 | Private/non-public case analyses | Excluded |
 | Public sourced case studies | Permitted outside the synthetic validation corpus |
