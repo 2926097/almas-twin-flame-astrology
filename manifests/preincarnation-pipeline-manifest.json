@@ -190,5 +190,22 @@
       "CLAUSES"
     ],
     "required_in_full": true
+  },
+  "contract_ablation": {
+    "version": "1.0.0",
+    "reference": "reference/contract-ablation.md",
+    "schema": "schemas/contract-ablation.schema.json",
+    "invariants": "tests/CONTRACT_ABLATION_INVARIANTS.md",
+    "synthetic_example": "examples/contract-ablation.synthetic.json",
+    "required_in_full": true,
+    "applies_to": [
+      "INDIVIDUAL_TASKS",
+      "causality_engine",
+      "ROLE_SELECTION",
+      "COMMON_TASK",
+      "CLAUSES",
+      "origin_differential",
+      "contract_causal_chain"
+    ]
   }
 }
