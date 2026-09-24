@@ -12,13 +12,16 @@
     },
     {
       "id": "SOUL_FAMILY_GROUP",
-      "source_class": "CONTEMPORARY_COMPARATIVE",
+      "source_class": "IDENTIFIED_METHOD_CONTEMPORARY",
       "essential_signature": {
         "scope": "group",
         "origin_relation": "related_or_common"
       },
       "pair_uniqueness": "not_required",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "source_ids": [
+        "newton_journey_of_souls_1994"
+      ]
     },
     {
       "id": "RELATED_SOUL_ROOTS",
@@ -101,7 +104,8 @@
       "source_class": "DOCTRINAL_PRIMARY_MODERN",
       "source_ids": [
         "summit_lighthouse_soulmates_twin_flames",
-        "summit_lighthouse_glossary_twin_flame"
+        "summit_lighthouse_glossary_twin_flame",
+        "summit_lighthouse_what_is_twin_flame"
       ],
       "essential_signature": {
         "scope": "pair",
