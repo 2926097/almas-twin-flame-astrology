@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.3.0
+version: 1.4.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.3.0
+# ALMAS Soul Contract · Contrato Álmico v1.4.0
 
 ## 0. Paradigma
 
@@ -412,3 +412,26 @@ No se permite inferir que un acuerdo fue elegido, solicitado, mutuamente pactado
 Un motivo puede ser PRIMARY, SECONDARY o CORROBORATIVE.
 
 Mecanismos M3 como ACORDADA_MUTUAMENTE o PROVIDENCIALMENTE_ASIGNADA requieren fuente doctrinal o método identificado y no se universalizan entre tradiciones.
+
+
+## 19. Motor diferencial de selección de roles
+
+La etapa SELECCION_DE_ROLES debe ejecutarse mediante:
+
+- reference/role-selection-differential.md
+- manifests/role-selection-registry.json
+- schemas/role-selection-differential.schema.json
+- tests/ROLE_SELECTION_INVARIANTS.md
+
+La salida FULL debe incluir role_selection_differential.
+
+El motor separa:
+- rol funcional;
+- dirección;
+- intensidad;
+- mecanismo preencarnatorio;
+- posible cambio de fase.
+
+Un rol funcional fuerte no eleva automáticamente a SUPPORTED el mecanismo por el que ese rol fue asumido antes de encarnar.
+
+RSD5_REQUESTED_VS_MUTUAL, RSD6_KARMIC_VS_VOLUNTARY y RSD8_UNIQUE_ROLE permanecen NOT_VALIDATED.
