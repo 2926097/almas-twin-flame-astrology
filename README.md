@@ -1,7 +1,6 @@
 # ALMAS Twin-Flame Astrology Skill
 
 **Public release:** 1.0.0  
-**Internal lineage:** Twin-Flame Astrology / ALMAS v3.12.1  
 **Status:** research specification / reproducible interpretive framework
 
 ALMAS is a multidisciplinary framework for studying relationship astrology and soul-bond models without reducing a relationship to a single label. It combines synastry, composite and Davison charts, draconic layers, traditional mirror techniques, temporal activation, null-model rarity, ablation, birth-time robustness, comparative doctrine and hermeneutic reporting.
@@ -10,7 +9,7 @@ The framework can compare four recurrent operational models — **AF** (almas af
 
 ## What v1.0.0 means
 
-`1.0.0` is the first **public GitHub version**. It is not the first internal version. The public release derives from the ALMAS v3.12.1 line and consolidates its calculation, validation, differential-diagnosis, hermeneutic and reporting rules into a publication-oriented specification.
+`1.0.0` is the public semantic-version baseline for this repository. GitHub contains only generalized methodology, reusable code, public-source references and synthetic examples.
 
 ## Core principles
 
@@ -39,7 +38,7 @@ docs/ARCHITECTURE.md        Layering, module graph and independence rules
 docs/ONTOLOGY.md            Relational ontology and states
 docs/METRICS.md             IEM, IDD, IRC, IAT, ICC, ICE
 docs/REPORTING.md           Canonical report and PDF pipeline
-docs/PROVENANCE.md          Public/internal version lineage
+docs/PROVENANCE.md          Public versioning and provenance policy
 schemas/                    Minimal canonical JSON contracts
 tests/INVARIANTS.md         Release invariants and regression checklist
 CHANGELOG.md                Public changelog
@@ -58,7 +57,6 @@ Start with `SKILL.md`. A FULL run should produce a canonical analytical object f
 
 The public contract validator runs on every push and pull request. It currently verifies the public version contract, required files, the M00–M31 module manifest, AF/KA/AG/LG canonical model slots, evidential states, raw-input cardinality and discriminator-registration rules.
 
-The preserved internal v3.12 validation artifact records **20/20 critical** and **25/25 non-critical** checks passing. See [VALIDATION_STATUS.md](VALIDATION_STATUS.md). This historical result is kept distinct from the current public CI: the original complete v3.12 execution bundle has not yet been imported file-for-file.
 
 ## Source provenance
 
@@ -89,7 +87,7 @@ The input/output contracts are `schemas/precomputed-pillars.schema.json` and `sc
 
 ## Current public implementation status
 
-The repository is now a validated **method specification plus executable scoring core**, with schemas, manifests, source provenance, regression invariants and CI. The complete astronomical/ephemeris calculation, evidence-extraction, Monte Carlo, ablation and report-rendering engines remain pending verified source import. They will not be silently reconstructed and represented as the historical implementation.
+The repository is a validated **generalized method specification plus executable scoring core**, with schemas, manifests, source provenance, synthetic examples, regression invariants and CI. Case-specific analyses and private research artifacts are intentionally excluded.
 
 ## License
 
