@@ -14,13 +14,14 @@
     "encounter_conditions",
     "encounter_conditions_differential",
     "individual_tasks",
+    "individual_tasks_differential",
     "common_task",
     "clauses",
     "fulfillment_mechanisms"
   ],
   "properties": {
     "schema_version": {
-      "const": "1.4.0"
+      "const": "1.5.0"
     },
     "origin": {
       "$ref": "#/$defs/stage"
@@ -94,6 +95,9 @@
     },
     "encounter_conditions_differential": {
       "$ref": "encounter-conditions-differential.schema.json"
+    },
+    "individual_tasks_differential": {
+      "$ref": "individual-tasks-differential.schema.json"
     }
   },
   "$defs": {
