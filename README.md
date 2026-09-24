@@ -54,6 +54,7 @@ Start with `SKILL.md`. A FULL run should produce a canonical analytical object f
 ## Validation and reproducibility
 
 ![Public contract](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/public-contract.yml/badge.svg)
+![Python core](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/python-tests.yml/badge.svg)
 
 The public contract validator runs on every push and pull request. It currently verifies the public version contract, required files, the M00–M31 module manifest, AF/KA/AG/LG canonical model slots, evidential states, raw-input cardinality and discriminator-registration rules.
 
@@ -77,6 +78,14 @@ The repository now includes a dependency-free Python core in `src/almas_tfa/core
 - IRC robustness components and aggregation.
 
 Install locally with `python -m pip install -e .` and run the deterministic regression suite with `python -m unittest discover -s tests -p "test_*.py" -v`.
+
+For precomputed pillar data, the installed command is:
+
+```bash
+almas-score examples/precomputed-pillars.json
+```
+
+The input/output contracts are `schemas/precomputed-pillars.schema.json` and `schemas/precomputed-result.schema.json`. See `docs/CLI.md` for the full interface.
 
 ## Current public implementation status
 
