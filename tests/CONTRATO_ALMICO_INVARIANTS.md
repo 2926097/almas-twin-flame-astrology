@@ -12,5 +12,5 @@
 10. Cumplimiento no equivale a unión romántica.
 11. Cierre no equivale necesariamente a separación.
 12. No se infieren sentimientos, consentimiento ni decisiones futuras.
-13. Todo ejemplo público debe ser sintético o desidentificado.
+13. Todo ejemplo público debe ser sintético o basarse en datos reales ya públicos y verificables con fuente; nunca en datos privados no autorizados.
 14. El texto narrativo se genera después de la matriz de cláusulas, nunca antes.
