@@ -13,6 +13,9 @@ REQUIRED_FILES = [
     "CHANGELOG.md",
     "VERSION",
     "VALIDATION_STATUS.md",
+    "docs/PUBLICATION_POLICY.md",
+    "examples/README.md",
+    "public_cases/README.md",
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
@@ -82,6 +85,17 @@ def main() -> int:
 
     if "1.0.0" not in readme:
         fail("README.md does not identify v1.0.0")
+
+    publication_policy = (ROOT / "docs/PUBLICATION_POLICY.md").read_text(encoding="utf-8")
+    examples_policy = (ROOT / "examples/README.md").read_text(encoding="utf-8")
+    public_cases_policy = (ROOT / "public_cases/README.md").read_text(encoding="utf-8")
+
+    if "already public" not in publication_policy:
+        fail("publication policy must define the already-public case rule")
+    if "synthetic" not in examples_policy.lower():
+        fail("examples policy must identify the default fixtures as synthetic")
+    if "independently verifiable" not in public_cases_policy:
+        fail("public case policy must require independent verification")
 
     if 'version = "1.0.0"' not in pyproject:
         fail("pyproject.toml version diverges from VERSION")
