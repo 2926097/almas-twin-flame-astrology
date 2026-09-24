@@ -133,7 +133,7 @@ def score_model(
         multiplier = 0.90 + 0.10 * support
     else:
         support = None
-        # Frozen v3.12 rule: no evaluable support uses a neutral multiplier.
+        # Public v1.0.0 rule: no evaluable support uses a neutral multiplier.
         # Missingness is represented separately through coverage/evaluability.
         multiplier = 1.0
 
