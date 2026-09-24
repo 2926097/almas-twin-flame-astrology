@@ -258,3 +258,101 @@ La redacción final debe responder:
 7. por qué el estado final no es más alto.
 
 El motor prioriza una incertidumbre discriminante sobre una certeza narrativa artificial.
+
+
+## 13. Niveles de resolución O1/O2/O3
+
+Las seis dimensiones R_* describen fuerza estructural. Los niveles O1/O2/O3 describen **qué precisión ontológica puede sostenerse**.
+
+### O1_CONTINUITY
+La arquitectura permite inferir continuidad, familiaridad, karma/gilgul o historia previa frente a una conexión enteramente nueva.
+
+Puede estar SUPPORTED aunque el origen común sea INSUFFICIENT.
+
+### O2_ROOT_FAMILY
+La arquitectura permite ir más allá de continuidad y es compatible con familia, grupo, raíces relacionadas, mismo shoresh o una forma de origen compartido.
+
+O2 no implica una única contraparte.
+
+### O3_UNIQUE_DYADIC
+El modelo exige una pareja ontológicamente única o una díada originaria exclusiva.
+
+Ejemplos doctrinales que pueden entrar en esta comparación:
+- ciertos modelos split-soul;
+- twin soul cuando se formule como contraparte única;
+- twin flame de Summit Lighthouse;
+- un zivug interpretado específicamente como par singular.
+
+O3 sólo puede alcanzar SUPPORTED si existe un discriminador astrológico VALIDATED que separe el modelo de las alternativas de O2/O3.
+
+### UNRESOLVED
+No existe cobertura suficiente ni siquiera para determinar el nivel.
+
+## 14. Dos clases de discriminadores
+
+### D_* · Discriminadores doctrinales
+Diferencian lo que cada tradición o autor **afirma**.
+
+Ejemplos:
+- D_PAIR_UNIQUENESS
+- D_DIVISION_OF_ONE
+- D_SHARED_ROOT
+- D_PREBIRTH_PAIRING
+- D_REINCARNATION_RETURN
+- D_UNIQUE_BLUEPRINT
+- D_POLARITY_PAIR
+- D_SHARED_MISSION
+- D_TIKKUN
+
+Estos discriminadores pueden estar bien documentados históricamente y, aun así, no distinguir un caso astrológico.
+
+### A_* · Discriminadores astrológicos de atribución ontológica
+Intentan separar modelos que producen firmas observables similares.
+
+Registro inicial:
+- A_CONTINUITY_VS_NEW: OPERATIONAL;
+- A_GROUP_VS_RELATED_ROOT: NOT_VALIDATED;
+- A_RELATED_ROOT_VS_ZIVUG: NOT_VALIDATED;
+- A_ZIVUG_VS_TWIN_FLAME: NOT_VALIDATED;
+- A_SPLIT_SOUL_VS_TWIN_FLAME: NOT_VALIDATED;
+- A_MONADIC_VS_SHARED_ROOT: NOT_VALIDATED;
+- A_TWIN_SOUL_VS_TWIN_FLAME: NOT_VALIDATED;
+- A_UNIQUE_DYADIC_ORIGIN: NOT_VALIDATED.
+
+El hecho de que una doctrina posea un rasgo único no significa que ese rasgo tenga actualmente un marcador astrológico validado.
+
+## 15. Regla de salida por nivel
+
+Una salida de origen debe indicar:
+
+- resolution_level;
+- overall_state;
+- models;
+- evidence_families;
+- doctrinal_discriminators;
+- astrology_discriminators;
+- undifferentiated_output;
+- why_not_more_specific.
+
+Cuando varias ontologías sobreviven pero ninguna A_* las separa, usar:
+
+SHARED_ORIGIN_UNDIFFERENTIATED
+
+y explicar exactamente qué discriminador falta.
+
+## 16. Relación entre dimensiones y niveles
+
+- R_CONTINUITY alimenta principalmente O1.
+- R_ORIGIN + R_CONTINUITY alimentan O2.
+- R_PAIR + R_POLARITY pueden reforzar especificidad diádica, pero no bastan para O3.
+- R_SHARED_TASK puede apoyar función compartida, no origen único.
+- R_SINGULARITY aumenta excepcionalidad estructural, no unicidad metafísica.
+- Ninguna dimensión aislada puede saltar de O1 a O3.
+
+## 17. Regla doctrinal específica de twin flame
+
+En la doctrina Summit Lighthouse, twin flame se define por un origen común en un mismo white-fire ovoid, dos contrapartes, patrón o blueprint compartido, polaridad y una única twin flame.
+
+Por tanto, doctrinalmente D_UNIQUE_BLUEPRINT y D_PAIR_UNIQUENESS distinguen esa doctrina de una noción genérica de afinidad o raíces relacionadas.
+
+Astrológicamente, mientras A_UNIQUE_DYADIC_ORIGIN y A_ZIVUG_VS_TWIN_FLAME sigan NOT_VALIDATED, esa especificidad doctrinal no puede convertirse en clasificación O3 SUPPORTED sólo por similitud estructural.
