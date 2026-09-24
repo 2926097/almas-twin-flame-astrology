@@ -12,7 +12,7 @@ metadata:
 
 ## 0. Public release status
 
-This is the public `1.0.0` release of the ALMAS Twin-Flame Astrology Skill. The GitHub distribution is case-independent: it contains generalized rules, reusable implementation contracts, public-source provenance and synthetic examples only.
+This is the public `1.0.0` release of the ALMAS Twin-Flame Astrology Skill. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
 
 The skill is a **calculation → evidence → validation → ontology → differential diagnosis → hermeneutics → report** protocol. It is not a single-label detector.
 
