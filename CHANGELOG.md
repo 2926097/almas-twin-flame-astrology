@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0 — 2026-09-24
+
+- Añade arquitectura de roles preencarnatorios dentro del módulo de contrato álmico.
+- Separa A_EN_B, B_EN_A y CAMPO_COMUN.
+- Define roles funcionales: activador, catalizador, espejo, memoria, estructurador, liberador, confrontador, portador de vulnerabilidad, integrador, mediador, testigo y compañero de aprendizaje.
+- Exige trazabilidad desde el radix receptor hasta la cláusula contractual.
+- Añade intensidades PRIMARIO, SECUNDARIO, CORROBORATIVO, INSUFICIENTE y NO_EVALUABLE.
+- Prohíbe convertir un rol simbólico en obligación, autoridad o permanencia.
+
 ## 1.1.1 — 2026-09-24
 
 - Añade estado temporal independiente para cada cláusula contractual.
