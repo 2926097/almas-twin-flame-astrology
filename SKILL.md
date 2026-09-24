@@ -605,3 +605,31 @@ La temporalidad no crea causalidad.
 Referencia: `reference/preincarnation-causality-engine.md`.
 Registro: `manifests/causal-type-registry.json`.
 Esquema: `schemas/preincarnation-causality.schema.json`.
+
+
+## 41. Discriminación transversal
+
+ALMAS distingue entre:
+
+- discriminadores funcionales/epistémicos;
+- discriminadores ontológicos.
+
+Puede distinguirse operacionalmente:
+
+- continuidad frente a conexión nueva;
+- arquitectura contractual frente a karma genérico;
+- contrato funcional frente a catálisis sin cadena contractual;
+- misión/servicio frente a origen compartido;
+- fenomenología frente a ontología.
+
+Permanecen `NOT_VALIDATED` como discriminadores ontológicos:
+
+- R2 función contractual vs R3 acuerdo bilateral literal;
+- raíz relacionada vs zivug;
+- zivug vs twin flame;
+- split-soul vs twin flame;
+- monádico vs raíz relacionada;
+- twin-soul vs twin-flame;
+- AG vs LG.
+
+Registro: `manifests/cross-model-discriminator-registry.json`.
