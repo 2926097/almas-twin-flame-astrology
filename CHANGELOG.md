@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 — 2026-09-24
+
+- Separa formalmente ALMAS en dos skills interoperables: Astrología Metafísica Relacional y Contrato Álmico.
+- Define la astrología como método metafísico de investigación dentro de ALMAS.
+- Convierte los guardacarriles en controles metodológicos internos, no en negación del paradigma metafísico.
+- Extrae del SKILL astrológico la lógica contractual detallada y la traslada a una skill especializada con versión propia.
+- Añade un contrato JSON de intercambio entre ambos motores.
+- Mantiene raíces, temporalidad, robustez y contraevidencia durante el traspaso.
+- Permite casos reales públicos y verificables con procedencia; excluye material privado no publicado.
+
+
 ## 1.2.0 — 2026-09-24
 
 - Añade arquitectura de roles preencarnatorios dentro del módulo de contrato álmico.
