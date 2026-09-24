@@ -207,5 +207,33 @@
       "origin_differential",
       "contract_causal_chain"
     ]
+  },
+  "contract_metrics": {
+    "version": "1.0.0",
+    "reference": "reference/contract-metrics.md",
+    "schema": "schemas/contract-metrics.schema.json",
+    "invariants": "tests/CONTRACT_METRICS_INVARIANTS.md",
+    "consumes": [
+      "INDIVIDUAL_TASKS",
+      "causality_engine",
+      "ROLE_SELECTION",
+      "COMMON_TASK",
+      "CLAUSES",
+      "contract_ablation",
+      "counterevidence",
+      "robustness"
+    ],
+    "produces": [
+      "ITP",
+      "IAA",
+      "IRCo",
+      "ICCo",
+      "IVC",
+      "IRCT",
+      "ICE-C",
+      "ICC-C",
+      "IAP"
+    ],
+    "required_in_full": true
   }
 }
