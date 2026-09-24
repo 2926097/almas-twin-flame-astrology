@@ -31,6 +31,8 @@ REQUIRED_FILES = [
     "schemas/encounter-conditions-differential.schema.json",
     "schemas/individual-tasks-differential.schema.json",
     "schemas/common-task-differential.schema.json",
+    "schemas/clause-assembly.schema.json",
+    "schemas/fulfillment-mechanisms.schema.json",
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
@@ -40,6 +42,8 @@ REQUIRED_FILES = [
     "manifests/encounter-conditions-registry.json",
     "manifests/individual-tasks-registry.json",
     "manifests/common-task-registry.json",
+    "manifests/clause-registry.json",
+    "manifests/fulfillment-mechanisms-registry.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
@@ -50,6 +54,8 @@ REQUIRED_FILES = [
     "reference/encounter-conditions-differential.md",
     "reference/individual-tasks-differential.md",
     "reference/common-task-differential.md",
+    "reference/clause-assembly.md",
+    "reference/fulfillment-mechanisms.md",
     "reference/roles-preencarnatorios.md",
     "skills/almas-soul-contract/SKILL.md",
     "skills/almas-soul-contract/VERSION",
@@ -66,6 +72,8 @@ REQUIRED_FILES = [
     "tests/ENCOUNTER_CONDITIONS_INVARIANTS.md",
     "tests/INDIVIDUAL_TASKS_INVARIANTS.md",
     "tests/COMMON_TASK_INVARIANTS.md",
+    "tests/CLAUSE_ASSEMBLY_INVARIANTS.md",
+    "tests/FULFILLMENT_MECHANISMS_INVARIANTS.md",
     "reference/causa-contractual.md",
     "tests/CAUSA_CONTRACTUAL_INVARIANTS.md",
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
@@ -80,6 +88,8 @@ REQUIRED_FILES = [
     "examples/encounter-conditions.synthetic.json",
     "examples/individual-tasks.synthetic.json",
     "examples/common-task.synthetic.json",
+    "examples/clause-assembly.synthetic.json",
+    "examples/fulfillment-mechanisms.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -155,11 +165,11 @@ def main() -> int:
 
     soul_skill = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     soul_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
-    if soul_version != "1.7.0":
+    if soul_version != "1.9.0":
         fail(f"unexpected soul-contract VERSION: {soul_version}")
     for needle in [
         "name: almas-soul-contract",
-        "version: 1.7.0",
+        "version: 1.9.0",
         "ALMAS Soul Contract",
         "método metafísico",
         "A_EN_B",
@@ -194,6 +204,12 @@ def main() -> int:
     common_task_schema = load_json("schemas/common-task-differential.schema.json")
     common_task_registry = load_json("manifests/common-task-registry.json")
     common_task_example = load_json("examples/common-task.synthetic.json")
+    clause_assembly_schema = load_json("schemas/clause-assembly.schema.json")
+    clause_registry = load_json("manifests/clause-registry.json")
+    clause_assembly_example = load_json("examples/clause-assembly.synthetic.json")
+    fulfillment_schema = load_json("schemas/fulfillment-mechanisms.schema.json")
+    fulfillment_registry = load_json("manifests/fulfillment-mechanisms-registry.json")
+    fulfillment_example = load_json("examples/fulfillment-mechanisms.synthetic.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
@@ -211,8 +227,8 @@ def main() -> int:
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
 
-    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.6.0":
-        fail("preincarnation reconstruction schema must expose schema_version 1.6.0")
+    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.8.0":
+        fail("preincarnation reconstruction schema must expose schema_version 1.8.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
@@ -251,8 +267,8 @@ def main() -> int:
                 if source_id not in source_ids:
                     fail(f"unknown source id in {stage_name}: {source_id}")
 
-    if preincarnation_example.get("schema_version") != "1.6.0":
-        fail("synthetic preincarnation example must use schema_version 1.6.0")
+    if preincarnation_example.get("schema_version") != "1.8.0":
+        fail("synthetic preincarnation example must use schema_version 1.8.0")
 
     required_example_keys = {
         "origin",
@@ -283,6 +299,10 @@ def main() -> int:
         fail("individual tasks schema must expose schema_version 1.0.0")
     if common_task_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("common task schema must expose schema_version 1.0.0")
+    if clause_assembly_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("clause assembly schema must expose schema_version 1.0.0")
+    if fulfillment_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("fulfillment mechanisms schema must expose schema_version 1.0.0")
 
     expected_origin_models = {
         "INDEPENDENT_SOULS",
@@ -463,6 +483,44 @@ def main() -> int:
             fail(f"unknown common task in synthetic example: {task.get('id')}")
         if task.get("state") == "SUPPORTED" and task.get("emergence_test") != "PASSED":
             fail("SUPPORTED common task requires emergence_test PASSED")
+
+    expected_clause_ids = {
+        "CL_ENCUENTRO_RECONOCIMIENTO","CL_VINCULO_AMOROSO","CL_HERIDA_REPARACION",
+        "CL_LIBERTAD_AUTONOMIA","CL_COMUNICACION_VERDAD","CL_TRANSFORMACION_PODER",
+        "CL_INTEGRACION_ENCARNACION","CL_LIBERACION_CIERRE"
+    }
+    if set(clause_registry.get("clauses", [])) != expected_clause_ids:
+        fail("clause registry diverges from canonical eight-clause set")
+    if clause_assembly_example.get("schema_version") != "1.0.0":
+        fail("synthetic clause-assembly example must use schema_version 1.0.0")
+    for clause in clause_assembly_example.get("clauses", []):
+        if clause.get("id") not in expected_clause_ids:
+            fail(f"unknown clause in synthetic clause-assembly example: {clause.get('id')}")
+        if clause.get("state") == "SUPPORTED":
+            genealogy = clause.get("genealogy", {})
+            if not genealogy.get("motive_refs") or not genealogy.get("individual_task_refs") or not clause.get("astrology_root_refs"):
+                fail("SUPPORTED clause requires motive, individual-task and astrology-root genealogy")
+            if not clause.get("fulfillment_signature"):
+                fail("SUPPORTED clause requires preregistered fulfillment signature")
+
+    expected_fulfillment_ids = {
+        "FM_ACTIVACION","FM_REPETICION","FM_RECIPROCIDAD","FM_CATALISIS",
+        "FM_ENCARNACION","FM_TIKKUN_REPARACION","FM_SERVICIO","FM_LIBERACION",
+        "FM_TRANSFORMACION_MODALIDAD","FM_CIERRE","FM_RUTA_ALTERNATIVA","FM_APLAZAMIENTO"
+    }
+    if set(fulfillment_registry.get("mechanisms", [])) != expected_fulfillment_ids:
+        fail("fulfillment mechanism registry diverges from canonical set")
+    for source_id in fulfillment_registry.get("source_ids", []):
+        if source_id not in source_ids:
+            fail(f"unknown source id in fulfillment registry: {source_id}")
+    if fulfillment_example.get("schema_version") != "1.0.0":
+        fail("synthetic fulfillment example must use schema_version 1.0.0")
+    factual_required_states = {"INTEGRADA","TRANSFORMADA","CERRADA"}
+    for mechanism in fulfillment_example.get("mechanisms", []):
+        if mechanism.get("id") not in expected_fulfillment_ids:
+            fail(f"unknown fulfillment mechanism in synthetic example: {mechanism.get('id')}")
+        if mechanism.get("functional_state") in factual_required_states and not mechanism.get("fact_refs"):
+            fail("integrated/transformed/closed mechanism requires factual evidence")
     for role in role_selection_example.get("roles", []):
         if role.get("id") not in expected_role_ids:
             fail(f"unknown role in synthetic role-selection example: {role.get('id')}")
@@ -513,6 +571,22 @@ def main() -> int:
         fail("embedded common-task differential diverges from standalone synthetic example")
     if embedded_common.get("why_not_more_specific") != common_task_example.get("why_not_more_specific"):
         fail("embedded common-task explanation diverges from standalone synthetic example")
+
+    if "clause_assembly" not in preincarnation_example:
+        fail("synthetic preincarnation example must embed clause_assembly")
+    embedded_clauses = preincarnation_example.get("clause_assembly", {})
+    if embedded_clauses.get("essential_clauses") != clause_assembly_example.get("essential_clauses"):
+        fail("embedded clause assembly diverges from standalone synthetic example")
+    if embedded_clauses.get("vertical_coherence") != clause_assembly_example.get("vertical_coherence"):
+        fail("embedded clause vertical coherence diverges from standalone example")
+
+    if "fulfillment_mechanisms_differential" not in preincarnation_example:
+        fail("synthetic preincarnation example must embed fulfillment_mechanisms_differential")
+    embedded_fulfillment = preincarnation_example.get("fulfillment_mechanisms_differential", {})
+    if [m.get("id") for m in embedded_fulfillment.get("mechanisms", [])] != [m.get("id") for m in fulfillment_example.get("mechanisms", [])]:
+        fail("embedded fulfillment mechanisms diverge from standalone synthetic example")
+    if embedded_fulfillment.get("why_not_more_specific") != fulfillment_example.get("why_not_more_specific"):
+        fail("embedded fulfillment explanation diverges from standalone synthetic example")
 
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
