@@ -8,6 +8,7 @@
     "origin",
     "origin_differential",
     "agreement_motive",
+    "agreement_motive_differential",
     "role_selection",
     "encounter_conditions",
     "individual_tasks",
@@ -17,7 +18,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.1.0"
+      "const": "1.2.0"
     },
     "origin": {
       "$ref": "#/$defs/stage"
@@ -82,6 +83,9 @@
     },
     "origin_differential": {
       "$ref": "origin-differential.schema.json"
+    },
+    "agreement_motive_differential": {
+      "$ref": "agreement-motive-differential.schema.json"
     }
   },
   "$defs": {
