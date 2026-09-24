@@ -16,7 +16,8 @@
       "does_not_support": [
         "identity with modern twin-flame doctrine",
         "astrological diagnostic rules"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "brihadaranyaka_1_4_3",
@@ -35,7 +36,9 @@
         "one unique romantic counterpart for every contemporary person",
         "astrological verification"
       ],
-      "translation_note": "Online translation used as locator; critical editions/translations should be preferred in formal scholarship."
+      "translation_note": "Online translation used as locator; critical editions/translations should be preferred in formal scholarship.",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "verification_status": "NEEDS_CRITICAL_EDITION_LOCATOR"
     },
     {
       "id": "blavatsky_secret_doctrine_monads",
@@ -50,7 +53,8 @@
       ],
       "does_not_support": [
         "automatic equivalence between Theosophical Monad and a romantic twin-flame pair"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "bailey_esoteric_psychology_soul",
@@ -65,7 +69,8 @@
       ],
       "does_not_support": [
         "automatic attribution of a canonical romantic twin-flame doctrine to Bailey"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "summit_lighthouse_soulmates_twin_flames",
@@ -80,7 +85,8 @@
       "does_not_support": [
         "scientific validation of the doctrine",
         "astrological proof that any specific pair belongs to the category"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "summit_lighthouse_glossary_twin_flame",
@@ -96,7 +102,8 @@
       "does_not_support": [
         "historical priority over all earlier uses of twin-flame language",
         "astrological diagnostic criteria"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "granholm_sociology_esotericism",
@@ -112,7 +119,8 @@
       "does_not_support": [
         "a specific twin-flame metaphysics",
         "astrological validation"
-      ]
+      ],
+      "source_role": "ACADEMIC_ANALYSIS"
     },
     {
       "id": "kardec_spirits_book_choice_trials",
@@ -130,14 +138,15 @@
       "does_not_support": [
         "a bilateral romantic soul contract",
         "astrological extraction of contract clauses"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "zohar_lech_lecha_32_346_350",
       "priority": "P1_PRIMARY",
       "author": "Zohar",
       "work": "Zohar, Lech Lecha",
-      "passage": "32:346-350",
+      "passage": "Lech Lecha 32:346-351",
       "url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
       "supports": [
         "paired souls before embodiment",
@@ -146,22 +155,25 @@
       "does_not_support": [
         "identity with modern twin-flame doctrine",
         "an astrological contract-reading method"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "talmud_sotah_2a_9",
       "priority": "P1_PRIMARY",
       "author": "Babylonian Talmud",
       "work": "Sotah",
-      "passage": "2a:9",
-      "url": "https://www.sefaria.org/Sotah.2a.8",
+      "passage": "Sotah 2a:9",
+      "url": "https://www.sefaria.org/Sotah.2a.9",
       "supports": [
         "pre-birth heavenly matching motif in rabbinic literature"
       ],
       "does_not_support": [
         "split-soul ontology",
         "modern twin-flame astrology"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "verification_note": "Exact Sefaria locator corrected; passage concerns a heavenly proclamation before fetal formation and distinguishes first and second matches."
     },
     {
       "id": "kwilecki_soul_contract_theodicy_2014",
@@ -179,7 +191,8 @@
       "does_not_support": [
         "empirical proof that soul contracts exist",
         "astrological validation of a contract"
-      ]
+      ],
+      "source_role": "ACADEMIC_ANALYSIS"
     },
     {
       "id": "stokke_spiritual_love_relations_2021",
@@ -198,7 +211,8 @@
       "does_not_support": [
         "objective verification of soulmate ontology",
         "twin-flame or soul-contract diagnostic criteria"
-      ]
+      ],
+      "source_role": "ACADEMIC_ANALYSIS"
     },
     {
       "id": "crane_draconic_astrology_1987",
@@ -215,7 +229,8 @@
       "does_not_support": [
         "ancient origin of the modern draconic method",
         "literal proof of soul contracts"
-      ]
+      ],
+      "source_role": "IDENTIFIED_METHOD"
     },
     {
       "id": "bailey_esoteric_astrology_1951",
@@ -230,7 +245,8 @@
       "does_not_support": [
         "a canonical soul-contract chart",
         "automatic twin-flame doctrine"
-      ]
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
     },
     {
       "id": "prophet_twin_flames_qa_part1",
@@ -245,7 +261,237 @@
       "does_not_support": [
         "scientific validation",
         "astrological proof of a specific pair"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY"
+    },
+    {
+      "id": "swedenborg_conjugial_love_1768",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "author": "Emanuel Swedenborg",
+      "work": "Conjugial Love / Delights of Wisdom Pertaining to Conjugial Love",
+      "date": "1768",
+      "passages": [
+        "§158",
+        "§229"
+      ],
+      "urls": [
+        "https://www.e-swedenborg.com/writings/static/d5686/158.htm",
+        "https://www.eswedenborg.com/writings/static/d5686/229.htm"
+      ],
+      "supports": [
+        "doctrine that true conjugial love can unite two souls and minds as one",
+        "doctrine of providentially provided correspondences or partners, including recognition imagery"
+      ],
+      "does_not_support": [
+        "reincarnational soul contracts",
+        "modern twin-flame taxonomy",
+        "astrological identification of a unique counterpart"
+      ]
+    },
+    {
+      "id": "steiner_karmic_relationships_1924",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "author": "Rudolf Steiner",
+      "work": "Karmic Relationships, Volumes I-II (GA 235-236)",
+      "date": "1924",
+      "url": "https://rsarchive.org/Karma/",
+      "supports": [
+        "explicit anthroposophical doctrine of reincarnation and karmic relationships across successive earthly lives",
+        "individual karmic connections considered through lives and the interval between death and rebirth"
+      ],
+      "does_not_support": [
+        "a standardized pre-birth bilateral contract schema",
+        "modern twin-flame taxonomy",
+        "ALMAS astrological scoring rules"
+      ]
+    },
+    {
+      "id": "wambach_life_before_life_1979",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Helen Wambach",
+      "work": "Life Before Life",
+      "date": "1979",
+      "publisher": "Bantam Books",
+      "url": "https://search.worldcat.org/cs/title/life-before-life/oclc/1035926140",
+      "supports": [
+        "identified regression-based literature on reported pre-birth experience",
+        "questions about choosing incarnation, family/friends, timing of birth and reasons for earthly life"
+      ],
+      "does_not_support": [
+        "independent empirical verification of pre-birth planning",
+        "astrological extraction of specific soul-contract clauses"
+      ]
+    },
+    {
+      "id": "whitton_fisher_life_between_life_1986",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Joel L. Whitton and Joe Fisher",
+      "work": "Life Between Life: Scientific Explorations into the Void Separating One Incarnation from the Next",
+      "date": "1986",
+      "publisher": "Doubleday",
+      "url": "https://books.google.com/books/about/Life_Between_Life.html?id=3ATXAAAAMAAJ",
+      "supports": [
+        "identified regression literature describing a between-life state and reported life choices or karmic planning",
+        "important source in the later genealogy of interlife planning literature"
+      ],
+      "does_not_support": [
+        "scientific consensus that between-life memories are verified",
+        "a unique romantic soul-contract ontology"
+      ]
+    },
+    {
+      "id": "newton_journey_of_souls_1994",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Michael Newton",
+      "work": "Journey of Souls",
+      "date": "1994",
+      "url": "https://www.newtoninstitute.org/publication/journey-of-the-souls/",
+      "supports": [
+        "identified Life Between Lives regression corpus describing guides, soul groups, life review and reported life planning",
+        "major source for later New Age/interlife planning vocabulary"
+      ],
+      "does_not_support": [
+        "independent empirical proof of soul groups or pre-birth plans",
+        "astrological validation of a contract"
+      ]
+    },
+    {
+      "id": "myss_sacred_contracts_2001",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Caroline Myss",
+      "work": "Sacred Contracts: Awakening Your Divine Potential",
+      "date": "2001",
+      "publisher": "Harmony Books",
+      "url": "https://books.google.com/books/about/Sacred_Contracts.html?id=HmEHAAAACAAJ",
+      "supports": [
+        "explicit contemporary model of a sacred contract agreed by the soul before birth",
+        "relationships and life mission as components of an overarching sacred contract",
+        "archetypal method for interpreting purpose"
+      ],
+      "does_not_support": [
+        "reincarnational proof of a bilateral contract between a specific pair",
+        "astrological diagnostic criteria"
+      ]
+    },
+    {
+      "id": "schwartz_your_souls_plan_2009",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Robert Schwartz",
+      "work": "Your Soul's Plan: Discovering the Real Meaning of the Life You Planned Before You Were Born",
+      "date": "2009",
+      "publisher": "North Atlantic Books",
+      "url": "https://www.penguinrandomhouse.com/books/162921/your-souls-plan-by-robert-schwartz/",
+      "supports": [
+        "explicit contemporary pre-birth planning model in which souls plan major challenges and relationships for growth",
+        "modern soul-plan literature useful for the contract-engine genealogy"
+      ],
+      "does_not_support": [
+        "independent empirical proof that a specific event was planned before birth",
+        "astrological verification"
+      ]
+    },
+    {
+      "id": "hanegraaff_new_age_religion_1996",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "author": "Wouter J. Hanegraaff",
+      "work": "New Age Religion and Western Culture: Esotericism in the Mirror of Secular Thought",
+      "date": "1996/1998",
+      "publisher": "Brill / SUNY Press",
+      "url": "https://www.jstor.org/stable/jj.18255037",
+      "supports": [
+        "academic historical framework for New Age religion and its Western esoteric antecedents",
+        "context for reincarnation, channeling, esotericism and modern metaphysical synthesis"
+      ],
+      "does_not_support": [
+        "any specific twin-flame doctrine as historically continuous from antiquity",
+        "astrological validation"
+      ]
+    },
+    {
+      "id": "corelli_romance_two_worlds_1886",
+      "priority": "P1_PRIMARY",
+      "source_role": "LITERARY_ESOTERIC_PRIMARY",
+      "author": "Marie Corelli",
+      "work": "A Romance of Two Worlds",
+      "date": "1886",
+      "url": "https://www.gutenberg.org/ebooks/4394",
+      "passages": [
+        "Twin Flame / Twin-Flame passages around Gutenberg text lines 285 and 1283-1287",
+        "Twin Soul passages around lines 1819 and 1844"
+      ],
+      "supports": [
+        "documented literary use in 1886 of the exact expressions Twin Flame, Twin-Flame, Twin-Flames and Twin Soul",
+        "literary model of an incomplete soul as half a flame seeking a counterpart",
+        "spiritual-affinity and postmortem reunion imagery"
+      ],
+      "does_not_support": [
+        "institutional doctrine",
+        "historical priority over every possible earlier use without further corpus research",
+        "astrological diagnostic criteria"
+      ]
+    },
+    {
+      "id": "theosophist_occultism_modern_literature_1887",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "source_role": "HISTORICAL_RECEPTION",
+      "author": "The Theosophist",
+      "work": "Occultism in Modern Literature",
+      "date": "1887-02",
+      "url": "https://iapsop.com/archive/materials/theosophist/theosophist_v8_n89_february_1887.pdf",
+      "supports": [
+        "contemporary 1887 reception explicitly noting Corelli's twin-flame motif",
+        "evidence that the phrase was visible in occult literary discourse before later twentieth-century twin-flame movements"
+      ],
+      "does_not_support": [
+        "Theosophical endorsement of Corelli's twin-flame model",
+        "proof that Theosophy originated the doctrine"
+      ]
+    },
+    {
+      "id": "mackay_twin_soul_1887",
+      "priority": "P1_PRIMARY",
+      "source_role": "LITERARY_PRIMARY",
+      "author": "Charles Mackay (traditional attribution; authorship now debated)",
+      "work": "The Twin Soul; or, The Strange Experiences of Mr. Rameses",
+      "date": "1887",
+      "url": "https://openlibrary.org/works/OL2987304W/The_twin_soul_or_The_strange_experiences_of_Mr._Rameses",
+      "supports": [
+        "late-Victorian literary circulation of the explicit 'twin soul' expression",
+        "historical literary genealogy of paired-soul language"
+      ],
+      "does_not_support": [
+        "settled sole authorship by Mackay",
+        "doctrinal authority"
+      ]
+    },
+    {
+      "id": "dobson_turner_twin_souls_2025",
+      "priority": "P2_ACADEMIC",
+      "source_role": "LITERARY_CRITICISM",
+      "author": "Eleanor Dobson and Joanna Turner",
+      "work": "Twin Souls, Twin Pens: Charles Mackay, Marie Corelli, and the Authorship of The Twin Soul (1887)",
+      "date": "2025",
+      "journal": "Victoriographies 15(3):239-263",
+      "doi": "10.3366/vic.2025.0581",
+      "url": "https://research.birmingham.ac.uk/en/publications/twin-souls-twin-pens-charles-mackay-marie-corelli-and-the-authors/",
+      "supports": [
+        "peer-reviewed literary-historical analysis of The Twin Soul (1887)",
+        "evidence for possible Corelli collaboration while retaining Mackay as likely primary author",
+        "context for Victorian literary transmission of twin-soul motifs"
+      ],
+      "does_not_support": [
+        "metaphysical truth of twin-soul doctrine",
+        "astrological criteria"
       ]
     }
-  ]
+  ],
+  "registry_revision": "2026-09-24-literature-audit-1"
 }
