@@ -1,15 +1,15 @@
-# ALMAS · Astrología Relacional
+# ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.1.0  
+**Versión pública:** 1.3.0  
 **Status:** research specification / reproducible interpretive framework
 
 ALMAS is a multidisciplinary framework for studying relationship astrology and soul-bond models without reducing a relationship to a single label. It combines synastry, composite and Davison charts, draconic layers, traditional mirror techniques, temporal activation, null-model rarity, ablation, birth-time robustness, comparative doctrine and hermeneutic reporting.
 
 The framework can compare four recurrent operational models — **AF** (almas afines), **KA** (karmic), **AG** (almas gemelas/soulmate), and **LG** (llamas gemelas/twin flame) — while simultaneously analysing independent axes of origin, history, function, polarity, modality, phase, viability and reciprocity.
 
-## What v1.0.0 means
+## Arquitectura pública
 
-`1.0.0` is the public semantic-version baseline for this repository. GitHub contains generalized methodology, reusable code, public-source references and synthetic examples. Real-world case material may be included only when the underlying data are already public and independently verifiable, with explicit source provenance.
+El repositorio contiene el motor de **astrología metafísica relacional** y, como segunda skill interoperable, el motor de **contrato álmico preencarnatorio**. Ambos pertenecen a ALMAS, pero mantienen funciones y versionado propios. GitHub contiene metodología generalizada, código reutilizable, fuentes públicas y ejemplos sintéticos; los casos reales sólo pueden incorporarse cuando sus datos ya son públicos y verificables.
 
 ## Core principles
 
@@ -92,28 +92,15 @@ The repository is a validated **generalized method specification plus executable
 
 ## License
 
-No open-source license has been selected for v1.0.0. Publication on GitHub does not itself grant reuse rights beyond those provided by applicable law and GitHub's platform terms. Add a license only when the project owner has chosen one deliberately.
+No open-source license has been selected for the current public release. Publication on GitHub does not itself grant reuse rights beyond those provided by applicable law and GitHub's platform terms. Add a license only when the project owner has chosen one deliberately.
 
 
-## Contrato álmico
+## Dos skills interoperables
 
-La versión 1.1.0 incorpora el **contrato álmico** como módulo transversal de la misma metodología ALMAS. No es una quinta categoría junto a AF, KA, AG y LG.
+**1. ALMAS · Astrología Metafísica Relacional** — esta raíz del repositorio. Calcula y organiza la arquitectura metafísica observable mediante astrología: cartas, sinastría, nodos, ejes, declinaciones, antiscios, compuesta, Davison, dracónica, lotes, temporalidad, recurrencia, rareza estructural, ablación y robustez.
 
-El módulo intenta reconstruir, a partir de raíces astrológicas trazables:
+**2. ALMAS · Contrato Álmico** — `skills/almas-soul-contract/SKILL.md`. Reconstruye el posible acuerdo preencarnatorio a partir de la arquitectura astrológica ya calculada, doctrina documentada, cronología y contraevidencia.
 
-- qué activa una persona en la otra;
-- qué activa la otra en sentido inverso;
-- qué tarea común emerge;
-- qué tensión o herida se expone;
-- qué integración exige la arquitectura;
-- qué podría constituir cumplimiento, transformación o cierre de una cláusula.
+Las dos skills se conectan mediante `schemas/astrology-to-soul-contract.schema.json`. La astrología funciona aquí como método metafísico de investigación; los controles metodológicos evitan sobreconteo, dependencia y ajuste al caso, no desautorizan el paradigma metafísico.
 
-La extracción se organiza en ocho cláusulas: encuentro y reconocimiento; vínculo amoroso; herida y reparación; libertad y autonomía; comunicación y verdad; transformación y poder; integración y encarnación; liberación y cierre.
-
-La dimensión temporal distingue **activación inicial**, **desarrollo de cláusulas** y **cumplimiento/transformación/cierre**. La temporalidad activa estructura preexistente; no crea por sí sola un contrato.
-
-Consulta [reference/contrato-almico.md](reference/contrato-almico.md).
-
-## Idioma
-
-La documentación pública orientada a personas se redacta prioritariamente en español. Se conservan identificadores técnicos históricos en inglés sólo cuando son necesarios para compatibilidad con código, esquemas o versiones anteriores.
+Consulta también `docs/DUAL_ENGINE_ARCHITECTURE.md`.
