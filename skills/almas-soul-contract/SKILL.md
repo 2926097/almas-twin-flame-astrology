@@ -1,27 +1,39 @@
 ---
-name: almas-soul-contract
-description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.9.0
+name: almas-preincarnation-contract-module
+description: Specialized internal ALMAS module for reconstructing possible preincarnational agreements from canonical astrological architecture, doctrine, chronology, counterevidence and documented facts.
+version: 1.4.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
+  kind: internal_module
+  parent_skill: almas-twin-flame-astrology
+  independent_versioning: false
+  engine_revision: 1.9.0
   paradigm: metaphysical_research
   depends_on:
     - almas-metaphysical-relationship-astrology
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.9.0
+# ALMAS · Módulo de Contrato Preencarnatorio
 
 ## 0. Paradigma
 
-Esta skill trabaja explícitamente dentro del marco metafísico ALMAS.
+Este módulo trabaja explícitamente dentro del marco metafísico ALMAS.
 
 La astrología se utiliza como **método metafísico de averiguación**. El motor contractual no parte de una objeción externa a la metafísica, sino de una pregunta interna: dado un conjunto de evidencias astrológicas, doctrinales, temporales y documentales, ¿qué arquitectura preencarnatoria explica mejor el vínculo?
 
 Los controles metodológicos sirven para evitar sobreconteo, dependencia, ajuste retrospectivo al caso y saltos ontológicos apoyados en evidencia aislada. No constituyen una negación del paradigma metafísico.
 
-## 1. Función de la skill
+## 0.1. Estatus arquitectónico
+
+Este archivo se conserva en `skills/almas-soul-contract/SKILL.md` por compatibilidad histórica y como punto de entrada especializado.
+
+**No constituye una segunda skill pública.** Hereda la versión raíz de ALMAS y su lógica forma parte de la arquitectura modular definida en `docs/MODULE_ARCHITECTURE.md`.
+
+La revisión histórica del motor contractual `1.9.0` se conserva como `engine_revision`, no como SemVer público independiente.
+
+## 1. Función del módulo
 
 Reconstruir, cuando la evidencia lo permita, un posible **contrato, pacto o acuerdo preencarnatorio** entre dos almas.
 
@@ -40,7 +52,7 @@ Preguntas nucleares:
 
 ## 2. Entrada principal
 
-La entrada preferente es `astrology_to_soul_contract.json`, generado por la skill de Astrología Metafísica Relacional y conforme a:
+La entrada preferente es `astrology_to_soul_contract.json`, generado por el motor astrológico de la misma skill ALMAS y conforme a:
 
 `schemas/astrology-to-soul-contract.schema.json`
 
