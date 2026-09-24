@@ -15,6 +15,9 @@ REQUIRED_FILES = [
     "VALIDATION_STATUS.md",
     "docs/PUBLICATION_POLICY.md",
     "docs/DUAL_ENGINE_ARCHITECTURE.md",
+    "docs/MODULE_ARCHITECTURE.md",
+    "docs/SOURCE_INTEGRATION_PLAN.md",
+    "docs/SOURCE_GAPS.md",
     "examples/README.md",
     "public_cases/README.md",
     "pyproject.toml",
@@ -24,6 +27,7 @@ REQUIRED_FILES = [
     "schemas/precomputed-result.schema.json",
     "schemas/astrology-to-soul-contract.schema.json",
     "schemas/contrato-almico.schema.json",
+    "schemas/source-registry.schema.json",
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
@@ -34,6 +38,7 @@ REQUIRED_FILES = [
     "schemas/clause-assembly.schema.json",
     "schemas/fulfillment-mechanisms.schema.json",
     "manifests/module-manifest.json",
+    "manifests/almas-module-manifest.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
     "manifests/origin-discriminator-registry.json",
@@ -46,6 +51,8 @@ REQUIRED_FILES = [
     "manifests/fulfillment-mechanisms-registry.json",
     "manifests/preincarnation-pipeline-manifest.json",
     "reference/source-registry.json",
+    "reference/concept-registry.json",
+    "reference/doctrinal-genealogy.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
     "reference/preincarnation-reconstruction.md",
@@ -65,6 +72,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/cli.py",
     "tests/INVARIANTS.md",
+    "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
@@ -117,7 +125,7 @@ def main() -> int:
             fail(f"missing required file: {rel}")
 
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    if version != "1.3.1":
+    if version != "1.4.0":
         fail(f"unexpected root VERSION: {version}")
 
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
@@ -164,21 +172,22 @@ def main() -> int:
     if "independently verifiable" not in public_cases_policy:
         fail("public case policy must require independent verification")
 
-    soul_skill = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
-    soul_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
-    if soul_version != "1.9.0":
-        fail(f"unexpected soul-contract VERSION: {soul_version}")
+    contract_module = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
+    contract_module_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
+    if contract_module_version != version:
+        fail("contract module VERSION must inherit root VERSION")
     for needle in [
-        "name: almas-soul-contract",
-        "version: 1.9.0",
-        "ALMAS Soul Contract",
-        "método metafísico",
+        "name: almas-preincarnation-contract-module",
+        f"version: {version}",
+        "kind: internal_module",
+        "independent_versioning: false",
+        "Módulo de Contrato Preencarnatorio",
         "A_EN_B",
         "B_EN_A",
         "CAMPO_COMUN",
     ]:
-        if needle not in soul_skill:
-            fail(f"soul-contract SKILL missing token: {needle}")
+        if needle not in contract_module:
+            fail(f"contract module missing token: {needle}")
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
@@ -215,6 +224,10 @@ def main() -> int:
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
+    source_schema = load_json("schemas/source-registry.schema.json")
+    concept_registry = load_json("reference/concept-registry.json")
+    doctrinal_genealogy = load_json("reference/doctrinal-genealogy.json")
+    almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
     preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
@@ -248,6 +261,41 @@ def main() -> int:
     if not source_registry.get("entries"):
         fail("source registry is empty")
 
+    if source_registry.get("registry_version") != version:
+        fail("source registry version must match public VERSION during v1.4 normalization")
+
+    if almas_module_manifest.get("architecture") != "single_skill_modular":
+        fail("ALMAS architecture must be single_skill_modular")
+    if almas_module_manifest.get("almas_public_version") != version:
+        fail("ALMAS module manifest version diverges from VERSION")
+
+    source_ids_list = [entry.get("id") for entry in source_registry.get("entries", [])]
+    if len(source_ids_list) != len(set(source_ids_list)):
+        fail("source registry contains duplicate ids")
+    source_ids = set(source_ids_list)
+
+    required_source_fields = {"id", "priority", "author", "work", "supports", "does_not_support"}
+    for entry in source_registry.get("entries", []):
+        missing = required_source_fields - set(entry)
+        if missing:
+            fail(f"source entry {entry.get('id')} missing fields: {sorted(missing)}")
+        if not entry.get("supports") or not entry.get("does_not_support"):
+            fail(f"source entry {entry.get('id')} must define supports and does_not_support")
+
+    concept_ids_list = [c.get("id") for c in concept_registry.get("concepts", [])]
+    if len(concept_ids_list) != len(set(concept_ids_list)):
+        fail("concept registry contains duplicate ids")
+    concept_ids = set(concept_ids_list)
+    for concept in concept_registry.get("concepts", []):
+        for key in ("primary_sources", "academic_sources", "method_sources"):
+            for source_id in concept.get(key, []):
+                if source_id not in source_ids:
+                    fail(f"unknown source id in concept {concept.get('id')}: {source_id}")
+
+    for edge in doctrinal_genealogy.get("edges", []):
+        if edge.get("from") not in concept_ids or edge.get("to") not in concept_ids:
+            fail(f"doctrinal genealogy edge references unknown concept: {edge}")
+
     expected_preincarnation_stages = {
         "ORIGIN",
         "AGREEMENT_MOTIVE",
@@ -262,7 +310,6 @@ def main() -> int:
     if source_map_stages != expected_preincarnation_stages:
         fail("preincarnation source map must expose exactly eight canonical stages")
 
-    source_ids = {entry.get("id") for entry in source_registry.get("entries", [])}
     for stage_name, stage in preincarnation_source_map.get("stages", {}).items():
         for key in ("primary", "methods", "comparative"):
             for source_id in stage.get(key, []):
