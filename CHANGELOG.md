@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.0 — 2026-09-24
+
+- Integra el contrato álmico como módulo transversal de la única Skill ALMAS.
+- Añade ocho cláusulas contractuales: encuentro/reconocimiento, vínculo amoroso, herida/reparación, libertad/autonomía, comunicación/verdad, transformación/poder, integración/encarnación y liberación/cierre.
+- Añade extracción direccional A_EN_B, B_EN_A y CAMPO_COMUN.
+- Añade tres tiempos contractuales: activación inicial, desarrollo y cumplimiento/transformación/cierre.
+- Añade esquema JSON de contrato álmico e invariantes de regresión.
+- Establece terminología española como presentación pública principal.
+- Mantiene los identificadores técnicos heredados sólo cuando son necesarios para compatibilidad.
+- Reafirma la frontera de privacidad: ningún caso privado o identificable se publica.
+
 ## 1.0.0 — 2026-09-24
 
 First public GitHub release.
