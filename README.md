@@ -65,9 +65,22 @@ Doctrine and contemporary usage are not treated as interchangeable. The source p
 
 The registry currently distinguishes classical antecedents, Theosophical and Bailey material, explicit Summit Lighthouse/Elizabeth Clare Prophet twin-flame doctrine, and academic context. Project hypotheses do not become doctrinal claims merely because analogous imagery exists in an older tradition.
 
+## Executable scoring core
+
+The repository now includes a dependency-free Python core in `src/almas_tfa/core.py`. It implements the frozen public formulas for:
+
+- pillar aggregation from the three strongest independent roots;
+- AF/KA/AG/LG IEM calculation;
+- single ICE application;
+- the structural `SUPPORTED` gate;
+- IDD/Jensen–Shannon diagnostic separation;
+- IRC robustness components and aggregation.
+
+Install locally with `python -m pip install -e .` and run the deterministic regression suite with `python -m unittest discover -s tests -p "test_*.py" -v`.
+
 ## Current public implementation status
 
-The repository is presently a validated **method specification and public contract**, with schemas, manifests, source provenance, regression invariants and CI. The complete astronomical/calculation, Monte Carlo, ablation and report-rendering engines remain pending verified source import. They will not be silently reconstructed and represented as the historical implementation.
+The repository is now a validated **method specification plus executable scoring core**, with schemas, manifests, source provenance, regression invariants and CI. The complete astronomical/ephemeris calculation, evidence-extraction, Monte Carlo, ablation and report-rendering engines remain pending verified source import. They will not be silently reconstructed and represented as the historical implementation.
 
 ## License
 
