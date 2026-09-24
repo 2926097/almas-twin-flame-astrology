@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0.0",
+  "overall_state": "COMPATIBLE",
+  "essential_clauses": [
+    "CL_LIBERTAD_AUTONOMIA",
+    "CL_INTEGRACION_ENCARNACION"
+  ],
+  "primary_clauses": [
+    "CL_COMUNICACION_VERDAD"
+  ],
+  "secondary_clauses": [
+    "CL_ENCUENTRO_RECONOCIMIENTO"
+  ],
+  "clauses": [
+    {
+      "id": "CL_LIBERTAD_AUTONOMIA",
+      "state": "SUPPORTED",
+      "centrality": "ESSENTIAL",
+      "direction": "A_EN_B",
+      "genealogy": {
+        "origin_refs": [
+          "SHARED_ORIGIN_UNDIFFERENTIATED"
+        ],
+        "motive_refs": [
+          "M_TIKKUN_DEL_OTRO",
+          "M_CATALISIS_TRANSFORMACION"
+        ],
+        "role_refs": [
+          "A:ACTIVADOR→B"
+        ],
+        "encounter_condition_refs": [
+          "EC_VENTANA_TEMPORAL"
+        ],
+        "individual_task_refs": [
+          "B:IT_VULNERABILIDAD",
+          "A:IT_AUTONOMIA"
+        ],
+        "common_task_refs": [
+          "CT_INTEGRACION_POLARIDADES"
+        ]
+      },
+      "astrology_root_refs": [
+        "root_AactivatesB_03",
+        "root_bilat_04"
+      ],
+      "function": "hacer visible la tensión cercanía/autonomía",
+      "soul_objective": "integrar vínculo y libertad sin apropiación ni huida",
+      "learning": "sostener proximidad y diferenciación simultáneamente",
+      "shadow": "control o retirada",
+      "integration_requirement": "la autonomía deja de requerir ruptura para existir",
+      "fulfillment_signature": "la misma tensión puede sostenerse sin crisis repetitiva",
+      "temporal_state": "EN_DESARROLLO",
+      "coverage": 92,
+      "robustness": 85,
+      "r_min": 0.74,
+      "counterevidence": [],
+      "reason_not_higher": null
+    },
+    {
+      "id": "CL_INTEGRACION_ENCARNACION",
+      "state": "COMPATIBLE",
+      "centrality": "ESSENTIAL",
+      "direction": "CAMPO_COMUN",
+      "genealogy": {
+        "origin_refs": [
+          "SHARED_ORIGIN_UNDIFFERENTIATED"
+        ],
+        "motive_refs": [
+          "M_APRENDIZAJE_MUTUO"
+        ],
+        "role_refs": [
+          "CAMPO_COMUN:INTEGRADOR"
+        ],
+        "encounter_condition_refs": [
+          "EC_DISPARADOR_RECONOCIMIENTO"
+        ],
+        "individual_task_refs": [
+          "A:IT_AUTONOMIA",
+          "B:IT_VULNERABILIDAD"
+        ],
+        "common_task_refs": [
+          "CT_INTEGRACION_POLARIDADES"
+        ]
+      },
+      "astrology_root_refs": [
+        "root_rel_02",
+        "root_bilat_04"
+      ],
+      "function": "transformar una polaridad simbólica en forma vivida",
+      "soul_objective": "encarnar integración en decisiones y conducta",
+      "learning": "pasar de significado simbólico a coherencia práctica",
+      "shadow": "idealización sin forma",
+      "integration_requirement": "la integración aparece en hechos observables",
+      "fulfillment_signature": "la función relacional produce una organización encarnada estable",
+      "temporal_state": "EN_DESARROLLO",
+      "coverage": 88,
+      "robustness": 82,
+      "r_min": 0.7,
+      "counterevidence": [],
+      "reason_not_higher": "Current synthetic fixture contains no documented post-activation integration facts."
+    },
+    {
+      "id": "CL_COMUNICACION_VERDAD",
+      "state": "COMPATIBLE",
+      "centrality": "PRIMARY",
+      "direction": "B_EN_A",
+      "genealogy": {
+        "origin_refs": [],
+        "motive_refs": [
+          "M_APRENDIZAJE_MUTUO"
+        ],
+        "role_refs": [
+          "B:ESTRUCTURADOR→A"
+        ],
+        "encounter_condition_refs": [],
+        "individual_task_refs": [
+          "B:IT_VERDAD"
+        ],
+        "common_task_refs": [
+          "CT_APRENDIZAJE_RECIPROCO"
+        ]
+      },
+      "astrology_root_refs": [
+        "root_BstructuresA_05"
+      ],
+      "function": "convertir ambigüedad en formulación consciente",
+      "soul_objective": "hacer explícita una verdad relacional",
+      "learning": "nombrar sin imponer",
+      "shadow": "silencio o interpretación unilateral",
+      "integration_requirement": "la verdad puede expresarse sin compulsión",
+      "fulfillment_signature": "la comunicación deja de depender de crisis",
+      "temporal_state": "ACTIVADA",
+      "coverage": 85,
+      "robustness": 80,
+      "r_min": 0.68,
+      "counterevidence": [],
+      "reason_not_higher": "Only one strong independent directional root is present."
+    }
+  ],
+  "overlap_matrix": [
+    {
+      "a": "CL_LIBERTAD_AUTONOMIA",
+      "b": "CL_INTEGRACION_ENCARNACION",
+      "relation": "DISTINCT_BUT_DEPENDENT"
+    },
+    {
+      "a": "CL_LIBERTAD_AUTONOMIA",
+      "b": "CL_COMUNICACION_VERDAD",
+      "relation": "DISTINCT_INDEPENDENT"
+    }
+  ],
+  "evidence_families": [
+    "CLF1_GENEALOGIA_VERTICAL",
+    "CLF2_RAICES_ESTRUCTURALES",
+    "CLF3_DIRECCIONALIDAD",
+    "CLF4_ALINEACION_ROL_TAREA",
+    "CLF5_ALINEACION_TAREA_COMUN",
+    "CLF6_ANCLAJE_TEMPORAL",
+    "CLF7_CONTRAEVIDENCIA",
+    "CLF8_ROBUSTEZ"
+  ],
+  "discriminators": [
+    {
+      "id": "CLD1_GENEALOGY_COMPLETE",
+      "status": "OPERATIONAL",
+      "result": "PASSED"
+    },
+    {
+      "id": "CLD2_OVERLAP_VS_DISTINCT",
+      "status": "OPERATIONAL",
+      "result": "CONTROLLED"
+    },
+    {
+      "id": "CLD5_INTEGRATION_SIGNATURE",
+      "status": "OPERATIONAL",
+      "result": "PREREGISTERED"
+    },
+    {
+      "id": "CLD8_UNIQUE_CLAUSE",
+      "status": "NOT_VALIDATED",
+      "result": null
+    }
+  ],
+  "counterevidence": [],
+  "robustness": 83,
+  "vertical_coherence": 90,
+  "why_selected": "The synthetic clauses are traceable to upstream motive, role, task and root structures.",
+  "why_not_more_specific": "Some clause boundaries remain dependent because the same structural roots contribute to more than one functional expression."
+}
