@@ -580,3 +580,28 @@ Kardec no es fuente de esa técnica astrológica; sólo de la doctrina de elecci
 
 Registro normativo: `reference/doctrine-to-astrology-map.json`.
 Documentación: `docs/DOCTRINE_TO_ASTROLOGY.md`.
+
+
+## 40. Motor de causalidad preencarnatoria
+
+El motor causal evalúa si una persona activa de forma específica una tarea que la otra ya trae.
+
+Cadena:
+
+`TAREA_PREVIA_RECEPTOR → ACTIVADOR_DEL_OTRO → ENCAJE → RECURRENCIA → DIRECCION → CAMPO_COMUN → FUNCION → CLAUSULA`.
+
+Niveles de especificidad:
+
+- `C0_GENERIC`;
+- `C1_TARGETED`;
+- `C2_MULTIROOT`;
+- `C3_PAIR_SPECIFIC_EMERGENT`.
+
+`C0_GENERIC` no puede alcanzar `SUPPORTED`.  
+`C1_TARGETED` no puede alcanzar `SUPPORTED` sin una segunda raíz independiente o corroboración independiente equivalente.
+
+La temporalidad no crea causalidad.
+
+Referencia: `reference/preincarnation-causality-engine.md`.
+Registro: `manifests/causal-type-registry.json`.
+Esquema: `schemas/preincarnation-causality.schema.json`.
