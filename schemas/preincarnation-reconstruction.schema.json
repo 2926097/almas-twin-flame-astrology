@@ -10,6 +10,7 @@
     "agreement_motive",
     "agreement_motive_differential",
     "role_selection",
+    "role_selection_differential",
     "encounter_conditions",
     "individual_tasks",
     "common_task",
@@ -18,7 +19,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "1.2.0"
+      "const": "1.3.0"
     },
     "origin": {
       "$ref": "#/$defs/stage"
@@ -86,6 +87,9 @@
     },
     "agreement_motive_differential": {
       "$ref": "agreement-motive-differential.schema.json"
+    },
+    "role_selection_differential": {
+      "$ref": "role-selection-differential.schema.json"
     }
   },
   "$defs": {
