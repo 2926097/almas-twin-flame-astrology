@@ -81,35 +81,55 @@ Use:
 
 These are methodological states, not probabilities.
 
-## 5. Descriptive ontology
+## 5. Ontología relacional multiaxial
 
-Analyse the relationship across independent axes.
+ALMAS no usa una etiqueta única como sustituto de la arquitectura completa.
+
+Evaluar de forma independiente:
 
 ### ORIGIN
-`independent`, `family_group`, `shared_origin`, `monadic`, `split_soul`, `twin_flame_model`, `indeterminate`.
+`INDEPENDENT_SOULS`, `SOUL_FAMILY_GROUP`, `RELATED_SOUL_ROOTS`, `SHARED_ORIGIN_UNDIFFERENTIATED`, `MONADIC_COMMON_SOURCE`, `SPLIT_SOUL`, `TWIN_SOUL`, `TWIN_FLAME_MODEL`, `INDETERMINATE`.
 
-### HISTORY
-`new_connection`, `familiarity`, `past_life_interpretation`, `karmic_debt_or_balance`, `contract_or_agreement`, `indeterminate`.
+### PREINCARNATION_CONTRACT
+`NONE_DETECTED`, `INDIVIDUAL_PREINCARNATIONAL_CHOICE`, `MISSION_PREINCARNATIONAL`, `BILATERAL_SOUL_CONTRACT`, `MULTIPARTY_SOUL_PLAN`, `INDETERMINATE`.
+
+### HISTORY_CONTINUITY
+`NEW_CONNECTION`, `FAMILIARITY`, `KARMIC_CONTINUITY`, `GILGUL_CONTINUITY`, `PAIRED_REINCARNATION`, `UNRESOLVED_CONTINUITY`, `INDETERMINATE`.
 
 ### FUNCTION
-`companionship`, `learning`, `mirror`, `catalysis`, `healing`, `initiation`, `evolution`, `integration_hieros_gamos`, `mission_service`.
+`COMPANIONSHIP`, `LEARNING`, `MIRROR`, `CATALYSIS`, `HEALING_REPAIR`, `INITIATION`, `EVOLUTION`, `INTEGRATION`, `MISSION_SERVICE`, `LIBERATION`, `CLOSURE_FUNCTION`.
+
+### PHENOMENOLOGY
+`RECOGNITION`, `FAMILIARITY_FEELING`, `SYNCHRONICITY`, `TRANSPERSONAL_MEANING`, `INTENSITY`, `ARCHETYPAL_EXPERIENCE`, `DREAM_OR_VISION`, `OTHER`.
 
 ### POLARITY
-`similarity`, `complementarity`, `mirror`, `erotic`, `archetypal`.
+`SIMILARITY`, `COMPLEMENTARITY`, `MIRROR`, `EROTIC`, `ARCHETYPAL`, `MASCULINE_FEMININE_DOCTRINAL`, `MIXED`, `INDETERMINATE`.
 
 ### MODALITY
-`3D_material`, `transitional`, `mixed_3D_5D`, `predominantly_transpersonal`.
+`MATERIAL_3D`, `TRANSITIONAL`, `MIXED_3D_TRANSPERSONAL`, `PREDOMINANTLY_TRANSPERSONAL`, `INDETERMINATE`.
 
 ### PHASE
-`recognition`, `activation`, `crisis_mirror`, `separation`, `surrender`, `integration`, `reunion`, `service`, `closure`, `indeterminate`.
+`RECOGNITION`, `ACTIVATION`, `CRISIS_MIRROR`, `SEPARATION`, `SURRENDER`, `INTEGRATION`, `REUNION`, `SERVICE`, `CLOSURE`, `INDETERMINATE`.
 
-### VIABILITY_REAL
-`unknown`, `stable`, `unstable`, `separated`, `non_romantic`, `no_contact`, `defined_by_facts`.
+### REAL_VIABILITY
+`UNKNOWN`, `STABLE`, `UNSTABLE`, `SEPARATED`, `NON_ROMANTIC`, `NO_CONTACT`, `DEFINED_BY_FACTS`.
 
 ### RECIPROCITY
-`bilateral`, `partial`, `asymmetric`, `not_evaluable`.
+`BILATERAL`, `PARTIAL`, `ASYMMETRIC`, `NOT_EVALUABLE`.
 
-A relationship may occupy several categories at once.
+Critical non-implications:
+
+- origin does not imply contract;
+- contract does not imply shared origin or romantic union;
+- continuity does not imply twin flame;
+- function does not imply origin;
+- phenomenology does not imply ontology;
+- mission does not imply shared origin;
+- phase does not imply viability;
+- astrological reciprocity does not substitute current interpersonal reciprocity.
+
+Normative registry: `reference/ontology-registry.json`.
+Output schema: `schemas/ontology-output.schema.json`.
 
 ## 6. Execution modes
 
