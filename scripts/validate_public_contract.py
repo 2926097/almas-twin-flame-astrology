@@ -13,11 +13,22 @@ REQUIRED_FILES = [
     "CHANGELOG.md",
     "VERSION",
     "VALIDATION_STATUS.md",
+    "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/precomputed-pillars.schema.json",
+    "schemas/precomputed-result.schema.json",
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
+    "reference/source-registry.json",
+    "src/almas_tfa/core.py",
+    "src/almas_tfa/analysis.py",
+    "src/almas_tfa/cli.py",
     "tests/INVARIANTS.md",
+    "tests/test_core.py",
+    "tests/test_analysis.py",
+    "examples/precomputed-pillars.json",
+    "examples/precomputed-result.json",
 ]
 
 EXPECTED_STATES = {
@@ -49,6 +60,7 @@ def main() -> int:
 
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
 
     for needle in [
         "version: 1.0.0",
@@ -71,15 +83,29 @@ def main() -> int:
     if "1.0.0" not in readme:
         fail("README.md does not identify v1.0.0")
 
+    if 'version = "1.0.0"' not in pyproject:
+        fail("pyproject.toml version diverges from VERSION")
+
+    if 'almas-score = "almas_tfa.cli:main"' not in pyproject:
+        fail("pyproject.toml does not expose almas-score")
+
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
+    precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
+    result_schema = load_json("schemas/precomputed-result.schema.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json(
         "manifests/differential-discriminator-registry.json"
     )
+    source_registry = load_json("reference/source-registry.json")
+    example_input = load_json("examples/precomputed-pillars.json")
+    example_result = load_json("examples/precomputed-result.json")
 
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical schema version is not 1.0.0")
+
+    if result_schema.get("properties", {}).get("public_version", {}).get("const") != "1.0.0":
+        fail("precomputed result schema version is not 1.0.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
@@ -96,6 +122,9 @@ def main() -> int:
             fail(
                 f"validated discriminator lacks validation reference: {d.get('id')}"
             )
+
+    if not source_registry.get("entries"):
+        fail("source registry is empty")
 
     model_props = (
         canonical_schema.get("properties", {})
@@ -118,10 +147,27 @@ def main() -> int:
     if subject_items.get("minItems") != 2 or subject_items.get("maxItems") != 2:
         fail("raw input schema must require exactly two subjects")
 
+    pillar_props = (
+        precomputed_schema.get("properties", {})
+        .get("pillars", {})
+        .get("properties", {})
+    )
+    if set(pillar_props) != {"PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU"}:
+        fail("precomputed pillar schema must expose PA/PK/PE/PR/PX/PT/PS/PU")
+
+    if set(example_input.get("pillars", {})) != {
+        "PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU"
+    }:
+        fail("example precomputed input does not cover all public pillars")
+
+    if set(example_result.get("models", {})) != {"AF", "KA", "AG", "LG"}:
+        fail("example precomputed result does not contain all four models")
+
     print("ALMAS public contract validation: PASS")
     print(f"Version: {version}")
     print(f"Modules: {len(modules)}")
     print(f"Discriminators registered: {len(discriminators)}")
+    print(f"Source entries: {len(source_registry.get('entries', []))}")
     return 0
 
 
