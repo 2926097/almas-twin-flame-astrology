@@ -481,7 +481,7 @@ Esta convención no obliga a renombrar claves internas de software si ello rompe
 
 ## 36. Causa contractual
 
-El contrato álmico permanece como **módulo interno de esta única Skill ALMAS**.
+La causa contractual pertenece a la skill especializada **ALMAS Soul Contract**. La skill astrológica aporta la tarea previa del receptor, el activador, la geometría, la recurrencia y la robustez necesarias para que el motor contractual evalúe la causa preencarnatoria.
 
 La causa contractual intenta explicar por qué un factor de A encaja como activador de una tarea que B ya trae antes del encuentro.
 
