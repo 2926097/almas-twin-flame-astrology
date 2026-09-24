@@ -1,0 +1,189 @@
+{
+  "registry_version": "2.0.0",
+  "almas_version": "1.4.0",
+  "principle": "Independent axes; no axis automatically determines another.",
+  "states": [
+    "SUPPORTED",
+    "COMPATIBLE",
+    "INSUFFICIENT",
+    "CONTRADICTED",
+    "NOT_EVALUABLE"
+  ],
+  "axes": [
+    {
+      "id": "ORIGIN",
+      "question": "¿Qué relación ontológica de origen describe mejor a las almas?",
+      "categories": [
+        "INDEPENDENT_SOULS",
+        "SOUL_FAMILY_GROUP",
+        "RELATED_SOUL_ROOTS",
+        "SHARED_ORIGIN_UNDIFFERENTIATED",
+        "MONADIC_COMMON_SOURCE",
+        "SPLIT_SOUL",
+        "TWIN_SOUL",
+        "TWIN_FLAME_MODEL",
+        "INDETERMINATE"
+      ],
+      "source_registry": "manifests/origin-model-registry.json",
+      "rule": "Origin must not be inferred from contract, intensity, mission or phenomenology alone."
+    },
+    {
+      "id": "PREINCARNATION_CONTRACT",
+      "question": "¿Existe compatibilidad con elección, plan, misión o acuerdo anterior al nacimiento?",
+      "categories": [
+        "NONE_DETECTED",
+        "INDIVIDUAL_PREINCARNATIONAL_CHOICE",
+        "MISSION_PREINCARNATIONAL",
+        "BILATERAL_SOUL_CONTRACT",
+        "MULTIPARTY_SOUL_PLAN",
+        "INDETERMINATE"
+      ],
+      "concept_ids": [
+        "PREINCARNATIONAL_CHOICE",
+        "MISSION_PREINCARNATIONAL",
+        "SOUL_CONTRACT",
+        "SACRED_CONTRACT",
+        "SOUL_PLAN"
+      ],
+      "rule": "A contract does not establish shared origin or romantic permanence."
+    },
+    {
+      "id": "HISTORY_CONTINUITY",
+      "question": "¿Qué continuidad previa al encuentro está respaldada o es compatible?",
+      "categories": [
+        "NEW_CONNECTION",
+        "FAMILIARITY",
+        "KARMIC_CONTINUITY",
+        "GILGUL_CONTINUITY",
+        "PAIRED_REINCARNATION",
+        "UNRESOLVED_CONTINUITY",
+        "INDETERMINATE"
+      ],
+      "concept_ids": [
+        "GILGUL",
+        "KARMIC_RELATIONSHIP",
+        "ZIVUG"
+      ],
+      "rule": "History/continuity is separate from origin and contract."
+    },
+    {
+      "id": "FUNCTION",
+      "question": "¿Qué hace el vínculo en la evolución de sus participantes?",
+      "categories": [
+        "COMPANIONSHIP",
+        "LEARNING",
+        "MIRROR",
+        "CATALYSIS",
+        "HEALING_REPAIR",
+        "INITIATION",
+        "EVOLUTION",
+        "INTEGRATION",
+        "MISSION_SERVICE",
+        "LIBERATION",
+        "CLOSURE_FUNCTION"
+      ],
+      "rule": "Functions are multi-valued and non-hierarchical."
+    },
+    {
+      "id": "PHENOMENOLOGY",
+      "question": "¿Qué experiencias subjetivas o emic se reportan/documentan?",
+      "categories": [
+        "RECOGNITION",
+        "FAMILIARITY_FEELING",
+        "SYNCHRONICITY",
+        "TRANSPERSONAL_MEANING",
+        "INTENSITY",
+        "ARCHETYPAL_EXPERIENCE",
+        "DREAM_OR_VISION",
+        "OTHER"
+      ],
+      "concept_ids": [
+        "SOULMATE_EXPERIENCE"
+      ],
+      "rule": "Phenomenology never upgrades ontology by itself."
+    },
+    {
+      "id": "POLARITY",
+      "question": "¿Cómo se organiza la relación entre polos?",
+      "categories": [
+        "SIMILARITY",
+        "COMPLEMENTARITY",
+        "MIRROR",
+        "EROTIC",
+        "ARCHETYPAL",
+        "MASCULINE_FEMININE_DOCTRINAL",
+        "MIXED",
+        "INDETERMINATE"
+      ],
+      "rule": "Masculine/feminine doctrinal polarity must be source-specific; it is not inferred from sex/gender."
+    },
+    {
+      "id": "MODALITY",
+      "question": "¿En qué plano se manifiesta el vínculo?",
+      "categories": [
+        "MATERIAL_3D",
+        "TRANSITIONAL",
+        "MIXED_3D_TRANSPERSONAL",
+        "PREDOMINANTLY_TRANSPERSONAL",
+        "INDETERMINATE"
+      ]
+    },
+    {
+      "id": "PHASE",
+      "question": "¿Qué fase describe mejor la dinámica temporal observada?",
+      "categories": [
+        "RECOGNITION",
+        "ACTIVATION",
+        "CRISIS_MIRROR",
+        "SEPARATION",
+        "SURRENDER",
+        "INTEGRATION",
+        "REUNION",
+        "SERVICE",
+        "CLOSURE",
+        "INDETERMINATE"
+      ],
+      "rule": "Phase is temporal/functional and does not determine final viability."
+    },
+    {
+      "id": "REAL_VIABILITY",
+      "question": "¿Qué forma real existe y puede sostenerse según hechos documentados?",
+      "categories": [
+        "UNKNOWN",
+        "STABLE",
+        "UNSTABLE",
+        "SEPARATED",
+        "NON_ROMANTIC",
+        "NO_CONTACT",
+        "DEFINED_BY_FACTS"
+      ],
+      "evidence_type": "DOCUMENTARY_REAL_WORLD"
+    },
+    {
+      "id": "RECIPROCITY",
+      "question": "¿Qué grado de bilateralidad existe según hechos observables?",
+      "categories": [
+        "BILATERAL",
+        "PARTIAL",
+        "ASYMMETRIC",
+        "NOT_EVALUABLE"
+      ],
+      "evidence_type": "DOCUMENTARY_REAL_WORLD",
+      "rule": "Astrological reciprocity is not a substitute for current interpersonal reciprocity."
+    }
+  ],
+  "non_implication_rules": [
+    "ORIGIN !-> PREINCARNATION_CONTRACT",
+    "PREINCARNATION_CONTRACT !-> ORIGIN",
+    "PREINCARNATION_CONTRACT !-> ROMANTIC_UNION",
+    "HISTORY_CONTINUITY !-> TWIN_FLAME_MODEL",
+    "FUNCTION !-> ORIGIN",
+    "PHENOMENOLOGY !-> ORIGIN",
+    "PHENOMENOLOGY !-> PREINCARNATION_CONTRACT",
+    "INTENSITY !-> SPIRITUAL_HIERARCHY",
+    "POLARITY !-> TWIN_FLAME_MODEL",
+    "MISSION_SERVICE !-> SHARED_ORIGIN",
+    "PHASE !-> REAL_VIABILITY",
+    "ASTROLOGICAL_RECIPROCITY !-> REAL_RECIPROCITY"
+  ]
+}
