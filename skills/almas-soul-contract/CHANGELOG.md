@@ -1,5 +1,15 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.5.0 — 2026-09-24
+
+- Añade motor diferencial de condiciones de encuentro.
+- Separa ventana temporal, contexto, reconocimiento, bloqueo y rutas alternativas.
+- Añade ocho familias ECF1–ECF8 y discriminadores ECD1–ECD8.
+- Exige anclaje estructural previo para toda condición temporal.
+- Impide convertir coincidencia temporal/geográfica en prueba contractual.
+- Integra encounter_conditions_differential en la reconstrucción preencarnatoria.
+
+
 ## 1.4.0 — 2026-09-24
 
 - Añade motor diferencial de selección de roles.
