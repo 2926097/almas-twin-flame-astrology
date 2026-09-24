@@ -18,10 +18,14 @@
         "required": [
           "id",
           "priority",
+          "source_role",
+          "tradition",
           "author",
           "work",
+          "concepts",
           "supports",
-          "does_not_support"
+          "does_not_support",
+          "verification_status"
         ],
         "properties": {
           "id": {
