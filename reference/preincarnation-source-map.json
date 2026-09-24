@@ -1,0 +1,96 @@
+{
+  "map_version": "1.0.0",
+  "purpose": "Map preincarnation-reconstruction stages to source-registry entries without treating traditions as equivalent.",
+  "stages": {
+    "ORIGIN": {
+      "primary": [
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug",
+        "vital_shaar_hagilgulim_39_soul_roots",
+        "blavatsky_secret_doctrine_monads",
+        "summit_lighthouse_soulmates_twin_flames"
+      ],
+      "comparative": [
+        "plato_symposium_aristophanes",
+        "corelli_romance_two_worlds_1886"
+      ],
+      "note": "Sources support distinct models; no automatic equivalence."
+    },
+    "AGREEMENT_MOTIVE": {
+      "primary": [
+        "kardec_spirits_book_choice_trials",
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "methods": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009",
+        "newton_journey_of_souls_1994"
+      ],
+      "note": "Choice of trials, tikkun, mission and modern pre-birth planning are separate doctrinal/method families."
+    },
+    "ROLE_SELECTION": {
+      "primary": [
+        "kardec_spirits_book_missions_572_573",
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "methods": [
+        "schwartz_your_souls_plan_2009",
+        "newton_journey_of_souls_1994",
+        "myss_sacred_contracts_2001"
+      ]
+    },
+    "ENCOUNTER_CONDITIONS": {
+      "primary": [
+        "talmud_sotah_2a_9",
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug"
+      ],
+      "methods": [
+        "myss_sacred_contracts_2001",
+        "newton_journey_of_souls_1994",
+        "schwartz_your_souls_plan_2009"
+      ]
+    },
+    "INDIVIDUAL_TASKS": {
+      "primary": [
+        "kardec_spirits_book_choice_trials",
+        "kardec_spirits_book_missions_572_573",
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "methods": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
+      ]
+    },
+    "COMMON_TASK": {
+      "primary": [
+        "kardec_spirits_book_missions_572_573",
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_pri_etz_chaim"
+      ],
+      "methods": [
+        "myss_sacred_contracts_2001",
+        "newton_journey_of_souls_1994"
+      ]
+    },
+    "CLAUSES": {
+      "project_hypothesis": [
+        "reference/contrato-almico.md"
+      ],
+      "note": "The eight-clause taxonomy is ALMAS E_PROJECT_HYPOTHESIS, not a doctrine copied from one source."
+    },
+    "FULFILLMENT_MECHANISMS": {
+      "primary": [
+        "kardec_spirits_book_choice_trials",
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "methods": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009",
+        "newton_journey_of_souls_1994"
+      ],
+      "note": "Free-will choice points and alternate plans belong to identified modern methods unless supported by another doctrine."
+    }
+  }
+}
