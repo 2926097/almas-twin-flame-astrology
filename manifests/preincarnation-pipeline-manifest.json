@@ -171,5 +171,24 @@
   "final_outputs": [
     "canonical_soul_contract.json",
     "preincarnation_contract_chain"
-  ]
+  ],
+  "causality_engine": {
+    "version": "1.0.0",
+    "reference": "reference/preincarnation-causality-engine.md",
+    "registry": "manifests/causal-type-registry.json",
+    "schema": "schemas/preincarnation-causality.schema.json",
+    "invariants": "tests/PREINCARNATION_CAUSALITY_INVARIANTS.md",
+    "consumes": [
+      "INDIVIDUAL_TASKS",
+      "AGREEMENT_MOTIVE",
+      "ROLE_SELECTION",
+      "structural_roots",
+      "COMMON_TASK"
+    ],
+    "feeds": [
+      "contract_causal_chain",
+      "CLAUSES"
+    ],
+    "required_in_full": true
+  }
 }
