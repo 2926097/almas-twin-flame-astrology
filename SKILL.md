@@ -651,3 +651,24 @@ Objetivos:
 Clases: `CORE_STABLE`, `MULTILAYER_STABLE`, `DRACONIC_SENSITIVE`, `DRACONIC_DEPENDENT`, `RELCHART_SENSITIVE`, `RELCHART_DEPENDENT`, `ANGULAR_SENSITIVE`, `SUPPORT_LAYER_DEPENDENT`, `TEMPORAL_ONLY`, `NOT_EVALUABLE`.
 
 Referencia: `reference/contract-ablation.md`.
+
+
+## 43. Métricas contractuales
+
+El módulo contractual puede cuantificar arquitectura sin convertirla en probabilidad metafísica.
+
+Índices:
+
+- `ITP` — Índice de Tarea Previa;
+- `IAA` — Índice de Adecuación del Activador;
+- `IRCo` — Índice de Reciprocidad Contractual;
+- `ICCo` — Índice de Coherencia del Campo Común;
+- `IVC` — Índice de Coherencia Vertical Contractual;
+- `IRCT` — Índice de Robustez Contractual;
+- `ICE-C` — Índice de Contraevidencia Contractual;
+- `ICC-C` — Índice de Cobertura Contractual;
+- `IAP` — Índice de Arquitectura Preencarnatoria.
+
+`IAP` resume arquitectura funcional R2. No decide ORIGIN ni eleva automáticamente R3_BILATERAL_AGREEMENT_MODEL a SUPPORTED.
+
+Referencia: `reference/contract-metrics.md`.
