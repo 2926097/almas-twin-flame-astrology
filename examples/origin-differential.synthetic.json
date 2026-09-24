@@ -113,5 +113,26 @@
   "limitations": [
     "Synthetic fixture only.",
     "No ontological probability is inferred."
-  ]
+  ],
+  "resolution_level": "O2_ROOT_FAMILY",
+  "evidence_families": [
+    "F1_CONTINUIDAD",
+    "F2_RAIZ_COMPARTIDA",
+    "F3_SIMETRIA_DYADICA",
+    "F4_SINGULARIDAD"
+  ],
+  "doctrinal_discriminators": [
+    "D_SHARED_ROOT",
+    "D_PREBIRTH_PAIRING",
+    "D_REINCARNATION_RETURN",
+    "D_POLARITY_PAIR",
+    "D_SHARED_MISSION"
+  ],
+  "astrology_discriminators": [
+    "A_CONTINUITY_VS_NEW",
+    "A_RELATED_ROOT_VS_ZIVUG",
+    "A_ZIVUG_VS_TWIN_FLAME",
+    "A_UNIQUE_DYADIC_ORIGIN"
+  ],
+  "why_not_more_specific": "The synthetic fixture reaches O2 because continuity and shared-root architecture are strong, but no validated A_* discriminator establishes a unique dyadic ontology or separates related roots, zivug and twin-flame models."
 }
