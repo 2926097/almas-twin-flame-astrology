@@ -1,3 +1,12 @@
+# BASE PACKAGE CHECKSUMS — ALMAS Twin-Flame Astrology v1.0.0
+#
+# These SHA-256 values correspond only to the original 14-file base publication
+# package created before the repository was expanded with CI, source registries,
+# manifests, executable Python modules, CLI files and additional schemas.
+#
+# They MUST NOT be interpreted as a checksum manifest for the current HEAD.
+# Current Git object SHAs and GitHub history provide provenance for later files.
+
 94c073b624c37ab70ef7ded75cd71e2738b8799dcc3e239dd7d891ca7483d606  .gitignore
 ad45bb84035e752bace3c166884de0da0a229076bad4df138f79c1ee95fd55b9  CHANGELOG.md
 4c91f5945e90345e07b3b3eeec83dc20312836425b9be105a4a917d47f436888  README.md
