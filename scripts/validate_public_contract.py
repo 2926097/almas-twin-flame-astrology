@@ -29,6 +29,8 @@ REQUIRED_FILES = [
     "schemas/agreement-motive-differential.schema.json",
     "schemas/role-selection-differential.schema.json",
     "schemas/encounter-conditions-differential.schema.json",
+    "schemas/individual-tasks-differential.schema.json",
+    "schemas/common-task-differential.schema.json",
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
@@ -36,6 +38,8 @@ REQUIRED_FILES = [
     "manifests/agreement-motive-registry.json",
     "manifests/role-selection-registry.json",
     "manifests/encounter-conditions-registry.json",
+    "manifests/individual-tasks-registry.json",
+    "manifests/common-task-registry.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
@@ -44,6 +48,8 @@ REQUIRED_FILES = [
     "reference/agreement-motive-differential.md",
     "reference/role-selection-differential.md",
     "reference/encounter-conditions-differential.md",
+    "reference/individual-tasks-differential.md",
+    "reference/common-task-differential.md",
     "reference/roles-preencarnatorios.md",
     "skills/almas-soul-contract/SKILL.md",
     "skills/almas-soul-contract/VERSION",
@@ -58,6 +64,8 @@ REQUIRED_FILES = [
     "tests/AGREEMENT_MOTIVE_INVARIANTS.md",
     "tests/ROLE_SELECTION_INVARIANTS.md",
     "tests/ENCOUNTER_CONDITIONS_INVARIANTS.md",
+    "tests/INDIVIDUAL_TASKS_INVARIANTS.md",
+    "tests/COMMON_TASK_INVARIANTS.md",
     "reference/causa-contractual.md",
     "tests/CAUSA_CONTRACTUAL_INVARIANTS.md",
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
@@ -70,6 +78,8 @@ REQUIRED_FILES = [
     "examples/agreement-motive.synthetic.json",
     "examples/role-selection.synthetic.json",
     "examples/encounter-conditions.synthetic.json",
+    "examples/individual-tasks.synthetic.json",
+    "examples/common-task.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -145,11 +155,11 @@ def main() -> int:
 
     soul_skill = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     soul_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
-    if soul_version != "1.5.0":
+    if soul_version != "1.7.0":
         fail(f"unexpected soul-contract VERSION: {soul_version}")
     for needle in [
         "name: almas-soul-contract",
-        "version: 1.5.0",
+        "version: 1.7.0",
         "ALMAS Soul Contract",
         "método metafísico",
         "A_EN_B",
@@ -178,6 +188,12 @@ def main() -> int:
     encounter_conditions_schema = load_json("schemas/encounter-conditions-differential.schema.json")
     encounter_conditions_registry = load_json("manifests/encounter-conditions-registry.json")
     encounter_conditions_example = load_json("examples/encounter-conditions.synthetic.json")
+    individual_tasks_schema = load_json("schemas/individual-tasks-differential.schema.json")
+    individual_tasks_registry = load_json("manifests/individual-tasks-registry.json")
+    individual_tasks_example = load_json("examples/individual-tasks.synthetic.json")
+    common_task_schema = load_json("schemas/common-task-differential.schema.json")
+    common_task_registry = load_json("manifests/common-task-registry.json")
+    common_task_example = load_json("examples/common-task.synthetic.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
@@ -195,8 +211,8 @@ def main() -> int:
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
 
-    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.4.0":
-        fail("preincarnation reconstruction schema must expose schema_version 1.4.0")
+    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.6.0":
+        fail("preincarnation reconstruction schema must expose schema_version 1.6.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
@@ -235,8 +251,8 @@ def main() -> int:
                 if source_id not in source_ids:
                     fail(f"unknown source id in {stage_name}: {source_id}")
 
-    if preincarnation_example.get("schema_version") != "1.4.0":
-        fail("synthetic preincarnation example must use schema_version 1.4.0")
+    if preincarnation_example.get("schema_version") != "1.6.0":
+        fail("synthetic preincarnation example must use schema_version 1.6.0")
 
     required_example_keys = {
         "origin",
@@ -262,6 +278,11 @@ def main() -> int:
 
     if encounter_conditions_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("encounter conditions schema must expose schema_version 1.0.0")
+
+    if individual_tasks_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("individual tasks schema must expose schema_version 1.0.0")
+    if common_task_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("common task schema must expose schema_version 1.0.0")
 
     expected_origin_models = {
         "INDEPENDENT_SOULS",
@@ -409,6 +430,39 @@ def main() -> int:
             fail(f"unknown source id in encounter-conditions registry: {source_id}")
     if encounter_conditions_example.get("schema_version") != "1.0.0":
         fail("synthetic encounter-conditions example must use schema_version 1.0.0")
+
+    expected_individual_task_ids = {
+        "IT_AUTONOMIA","IT_VINCULO","IT_CONFIANZA","IT_VULNERABILIDAD","IT_LIMITES",
+        "IT_VERDAD","IT_COMUNICACION","IT_PODER","IT_ENTREGA","IT_RESPONSABILIDAD",
+        "IT_ENCARNACION","IT_REPARACION","IT_SERVICIO","IT_INTEGRACION","IT_LIBERACION",
+        "IT_MISION_INDIVIDUAL","IT_INDETERMINADA"
+    }
+    if set(individual_tasks_registry.get("tasks", [])) != expected_individual_task_ids:
+        fail("individual tasks registry diverges from canonical task set")
+    if individual_tasks_example.get("schema_version") != "1.0.0":
+        fail("synthetic individual-tasks example must use schema_version 1.0.0")
+    for subject in ("A","B"):
+        for task in individual_tasks_example.get("subjects", {}).get(subject, {}).get("tasks", []):
+            if task.get("id") not in expected_individual_task_ids:
+                fail(f"unknown individual task in synthetic example: {task.get('id')}")
+
+    expected_common_task_ids = {
+        "CT_TIKKUN_CONJUNTO","CT_APRENDIZAJE_RECIPROCO","CT_INTEGRACION_POLARIDADES",
+        "CT_MISION_SERVICIO","CT_CREACION_MATERIALIZACION","CT_TRANSMISION_ENSENANZA",
+        "CT_SANACION_RELACIONAL","CT_TESTIMONIO","CT_CIERRE_CICLO","CT_INDETERMINADA"
+    }
+    if set(common_task_registry.get("tasks", [])) != expected_common_task_ids:
+        fail("common task registry diverges from canonical common-task set")
+    for source_id in common_task_registry.get("source_ids", []):
+        if source_id not in source_ids:
+            fail(f"unknown source id in common-task registry: {source_id}")
+    if common_task_example.get("schema_version") != "1.0.0":
+        fail("synthetic common-task example must use schema_version 1.0.0")
+    for task in common_task_example.get("tasks", []):
+        if task.get("id") not in expected_common_task_ids:
+            fail(f"unknown common task in synthetic example: {task.get('id')}")
+        if task.get("state") == "SUPPORTED" and task.get("emergence_test") != "PASSED":
+            fail("SUPPORTED common task requires emergence_test PASSED")
     for role in role_selection_example.get("roles", []):
         if role.get("id") not in expected_role_ids:
             fail(f"unknown role in synthetic role-selection example: {role.get('id')}")
@@ -444,6 +498,21 @@ def main() -> int:
         fail("embedded encounter conditions diverge from standalone synthetic example")
     if embedded_encounter.get("why_not_more_specific") != encounter_conditions_example.get("why_not_more_specific"):
         fail("embedded encounter-condition explanation diverges from standalone synthetic example")
+
+    if "individual_tasks_differential" not in preincarnation_example:
+        fail("synthetic preincarnation example must embed individual_tasks_differential")
+    embedded_individual_tasks = preincarnation_example.get("individual_tasks_differential", {})
+    for subject in ("A","B"):
+        if embedded_individual_tasks.get("subjects", {}).get(subject, {}).get("primary_tasks") != individual_tasks_example.get("subjects", {}).get(subject, {}).get("primary_tasks"):
+            fail(f"embedded individual tasks diverge for subject {subject}")
+
+    if "common_task_differential" not in preincarnation_example:
+        fail("synthetic preincarnation example must embed common_task_differential")
+    embedded_common = preincarnation_example.get("common_task_differential", {})
+    if embedded_common.get("primary_common_tasks") != common_task_example.get("primary_common_tasks"):
+        fail("embedded common-task differential diverges from standalone synthetic example")
+    if embedded_common.get("why_not_more_specific") != common_task_example.get("why_not_more_specific"):
+        fail("embedded common-task explanation diverges from standalone synthetic example")
 
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
