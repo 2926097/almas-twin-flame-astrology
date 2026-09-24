@@ -15,4 +15,4 @@ First public GitHub release.
 - Adds formal input/output JSON Schemas.
 - Adds **14 deterministic unit tests** and GitHub Actions CI.
 - Adds public module/discriminator manifests and source-provenance registry.
-- Establishes a strict publication boundary: **generalized rules and synthetic examples only**; no identifiable real relationship cases or private research artifacts.
+- Establishes a publication boundary: generalized rules and synthetic fixtures by default; real cases are permitted only when their underlying data are already public, independently verifiable and cited. Private/non-public case material is excluded.
