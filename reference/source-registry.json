@@ -617,7 +617,27 @@
         "modern twin-flame doctrine",
         "ALMAS astrological rules"
       ]
+    },
+    {
+      "id": "kardec_spirits_book_missions_572_573",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Spiritism",
+      "author": "Allan Kardec",
+      "work": "The Spirits' Book",
+      "passage": "Book II, Chapter X, questions 572-573",
+      "date": "1857",
+      "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
+      "supports": [
+        "doctrine that a spirit may request a mission before incarnation",
+        "possibility that several spirits seek the same mission but not all are accepted",
+        "incarnate missions as service, instruction, advancement and contribution to providential purposes"
+      ],
+      "does_not_support": [
+        "a fixed bilateral romantic contract for every relationship",
+        "ALMAS astrological rules for assigning roles"
+      ]
     }
   ],
-  "registry_revision": "2026-09-24-lurianic-layer-1"
+  "registry_revision": "2026-09-24-preincarnation-reconstruction-1"
 }
