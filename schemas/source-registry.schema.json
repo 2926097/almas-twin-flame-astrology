@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/source-registry.schema.json",
+  "title": "ALMAS Source Registry",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "entries"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "priority",
+          "author",
+          "work",
+          "supports",
+          "does_not_support"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "priority": {
+            "enum": [
+              "P1_PRIMARY",
+              "P2_ACADEMIC",
+              "P3_HISTORICAL_TECHNICAL",
+              "P4_IDENTIFIED_METHOD",
+              "P5_EMIC",
+              "P6_WEAK_UNVERIFIED"
+            ]
+          },
+          "source_role": {
+            "enum": [
+              "DOCTRINAL_PRIMARY",
+              "ACADEMIC_CONTEXT",
+              "HISTORICAL_TECHNICAL",
+              "IDENTIFIED_METHOD",
+              "EMIC_USAGE",
+              "WEAK_UNVERIFIED"
+            ]
+          },
+          "tradition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "author": {
+            "type": "string"
+          },
+          "work": {
+            "type": "string"
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "passage": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pages": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "doi": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "download_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "license": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rights_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "local_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "concepts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "supports": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "does_not_support": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "translation_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_status": {
+            "enum": [
+              "VERIFIED_PRIMARY",
+              "VERIFIED_METADATA",
+              "PARTIAL",
+              "PENDING"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
