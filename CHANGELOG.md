@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.8.0 — 2026-09-24
+
+### Fase 8 · Ablación y dependencia contractual — completada
+- Añade batería AB0–AB8 para retirar asteroides, temporalidad, dracónica, cartas relacionales, casas/ángulos, nodos y capas auxiliares.
+- Añade AB8_INDIVIDUAL_ONLY para demostrar que las tareas previas existen antes de introducir a la pareja.
+- Clasifica dependencia como CORE_STABLE, MULTILAYER_STABLE, DRACONIC_SENSITIVE/DEPENDENT, RELCHART_SENSITIVE/DEPENDENT, ANGULAR_SENSITIVE, SUPPORT_LAYER_DEPENDENT o TEMPORAL_ONLY.
+- Exige que causas y cláusulas estructurales sobrevivan sin temporalidad y que cláusulas SUPPORTED sobrevivan sin asteroides.
+- Añade esquema, fixture sintético, pipeline y tests.
+
 ## 1.7.1 — 2026-09-24
 
 ### Fase 6 · Causalidad preencarnatoria — completada
