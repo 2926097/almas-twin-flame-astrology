@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "runs": [
+    "AB0_FULL",
+    "AB1_NO_ASTEROIDS",
+    "AB2_NO_TEMPORALITY",
+    "AB3_NO_DRACONIC",
+    "AB4_NO_RELCHART",
+    "AB5_NO_HOUSES_ANGLES",
+    "AB7_TROPICAL_PLANETARY_CORE",
+    "AB8_INDIVIDUAL_ONLY"
+  ],
+  "units": [
+    {
+      "unit_id": "CL_SYNTH_AUTONOMY",
+      "unit_type": "CLAUSE",
+      "full_state": "SUPPORTED",
+      "ablation_results": [
+        {
+          "run": "AB1_NO_ASTEROIDS",
+          "state": "SUPPORTED",
+          "surviving_roots": [
+            "R1",
+            "R2"
+          ],
+          "lost_roots": [
+            "AS1"
+          ]
+        },
+        {
+          "run": "AB2_NO_TEMPORALITY",
+          "state": "SUPPORTED",
+          "surviving_roots": [
+            "R1",
+            "R2"
+          ],
+          "lost_roots": [
+            "T1"
+          ]
+        },
+        {
+          "run": "AB3_NO_DRACONIC",
+          "state": "COMPATIBLE",
+          "surviving_roots": [
+            "R1"
+          ],
+          "lost_roots": [
+            "D1"
+          ]
+        },
+        {
+          "run": "AB7_TROPICAL_PLANETARY_CORE",
+          "state": "COMPATIBLE",
+          "surviving_roots": [
+            "R1"
+          ],
+          "lost_roots": [
+            "D1",
+            "RC1"
+          ]
+        }
+      ],
+      "dependency_class": "MULTILAYER_STABLE",
+      "reason": "A core tropical root survives; auxiliary layers increase support."
+    }
+  ],
+  "summary": {
+    "nuclear_survivors": [
+      "CL_SYNTH_AUTONOMY"
+    ],
+    "layer_sensitive_units": [],
+    "invalidated_units": [],
+    "unresolved_dependencies": []
+  }
+}
