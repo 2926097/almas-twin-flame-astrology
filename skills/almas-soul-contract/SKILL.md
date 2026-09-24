@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.6.0
+version: 1.7.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.6.0
+# ALMAS Soul Contract · Contrato Álmico v1.7.0
 
 ## 0. Paradigma
 
@@ -469,3 +469,19 @@ La salida FULL debe incluir individual_tasks_differential.
 Las tareas de A y B se fijan antes de introducir la carta del otro. ITF8_INDEPENDENCIA_DEL_OTRO es obligatoria para considerar una tarea como previa.
 
 La activación sinástrica puede explicar cómo se moviliza una tarea, pero no puede fabricarla retrospectivamente.
+
+
+## 22. Motor diferencial de tarea común
+
+La etapa TAREA_COMUN debe ejecutarse mediante:
+
+- reference/common-task-differential.md
+- manifests/common-task-registry.json
+- schemas/common-task-differential.schema.json
+- tests/COMMON_TASK_INVARIANTS.md
+
+La salida FULL debe incluir common_task_differential.
+
+La tarea común sólo existe cuando supera CTD1_SUM_VS_EMERGENCE: debe aparecer una función del campo relacional que no quede explicada por la suma de TAREA_A_PREVIA y TAREA_B_PREVIA.
+
+Compuesta y Davison forman una única familia RELCHART a efectos de independencia.
