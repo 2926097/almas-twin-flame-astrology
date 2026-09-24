@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "public_release": "1.0.0",
+  "policy": "A directional ontological discriminator is usable only when preregistered and validated independently of the target case.",
+  "discriminators": [
+    {
+      "id": "AG_vs_LG",
+      "models": ["AG", "LG"],
+      "status": "NOT_VALIDATED",
+      "direction": null,
+      "note": "Differences in transformation, mission, mirroring, draconic recurrence, asteroids or IEM magnitude do not constitute a validated AG/LG discriminator."
+    },
+    {
+      "id": "monadic_vs_split_soul",
+      "models": ["monadic", "split_soul"],
+      "status": "NOT_VALIDATED",
+      "direction": null,
+      "note": "When both models fit the same observable architecture, return INSUFFICIENT rather than force a choice."
+    }
+  ]
+}
