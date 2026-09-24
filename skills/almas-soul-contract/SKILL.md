@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.7.0
+version: 1.9.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.7.0
+# ALMAS Soul Contract · Contrato Álmico v1.9.0
 
 ## 0. Paradigma
 
@@ -485,3 +485,41 @@ La salida FULL debe incluir common_task_differential.
 La tarea común sólo existe cuando supera CTD1_SUM_VS_EMERGENCE: debe aparecer una función del campo relacional que no quede explicada por la suma de TAREA_A_PREVIA y TAREA_B_PREVIA.
 
 Compuesta y Davison forman una única familia RELCHART a efectos de independencia.
+
+
+## 23. Motor de ensamblaje de cláusulas
+
+La etapa CLAUSULAS debe ejecutarse mediante:
+
+- reference/clause-assembly.md
+- manifests/clause-registry.json
+- schemas/clause-assembly.schema.json
+- tests/CLAUSE_ASSEMBLY_INVARIANTS.md
+
+La salida FULL debe incluir clause_assembly.
+
+Las ocho cláusulas son objetos derivados. Cada una debe conservar genealogía vertical hacia motivo, roles, tareas y raíces. Una cláusula sin genealogía suficiente queda INSUFFICIENT.
+
+El motor controla solapamiento para evitar que una misma raíz se multiplique artificialmente bajo varios nombres de cláusula.
+
+## 24. Motor de mecanismos de cumplimiento
+
+La etapa MECANISMOS_DE_CUMPLIMIENTO debe ejecutarse mediante:
+
+- reference/fulfillment-mechanisms.md
+- manifests/fulfillment-mechanisms-registry.json
+- schemas/fulfillment-mechanisms.schema.json
+- tests/FULFILLMENT_MECHANISMS_INVARIANTS.md
+
+La salida FULL debe incluir fulfillment_mechanisms_differential.
+
+Regla principal:
+
+ACTIVACION ≠ CUMPLIMIENTO
+
+INTEGRADA, TRANSFORMADA y CERRADA requieren hechos documentados posteriores a la activación y comparación con una firma de cumplimiento preregistrada.
+
+FM_RUTA_ALTERNATIVA y FM_APLAZAMIENTO son hipótesis condicionadas por las fuentes que admiten contingencia o choice points; no implican predicción de reencuentro, obligación de continuidad ni futura encarnación.
+
+Con estos dos motores, la reconstrucción FULL queda cerrada en ocho etapas diferenciales:
+ORIGEN → MOTIVO → ROLES → CONDICIONES → TAREAS_INDIVIDUALES → TAREA_COMUN → CLAUSULAS → CUMPLIMIENTO.
