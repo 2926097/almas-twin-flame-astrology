@@ -235,5 +235,23 @@
       "IAP"
     ],
     "required_in_full": true
+  },
+  "contract_free_will": {
+    "version": "1.0.0",
+    "reference": "reference/contract-free-will.md",
+    "schema": "schemas/free-will-contract.schema.json",
+    "invariants": "tests/CONTRACT_FREE_WILL_INVARIANTS.md",
+    "required_in_full": true,
+    "applies_to": [
+      "CLAUSES",
+      "FULFILLMENT_MECHANISMS",
+      "contract_causal_chain"
+    ],
+    "produces": [
+      "determination_level",
+      "choice_points",
+      "bilateral_requirements",
+      "alternative_routes"
+    ]
   }
 }
