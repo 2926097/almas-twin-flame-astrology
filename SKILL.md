@@ -562,3 +562,21 @@ La fuerza inferencial disminuye hacia EVENT/DETAIL. La temporalidad puede docume
 
 Referencia: `reference/contract-causal-architecture-v2.md`.
 Esquema: `schemas/preincarnation-contract-chain.schema.json`.
+
+
+## 39. Traducción doctrina → astrología
+
+Toda correspondencia doctrinal se procesa en tres pasos:
+
+`FUENTE → VARIABLE_METAFISICA → OPERACIONALIZACION_ASTROLOGICA`.
+
+La fuente define el concepto y sus límites. La variable metafísica permite compararlo dentro de ALMAS. La operacionalización astrológica pertenece normalmente a `E_PROJECT_HYPOTHESIS`.
+
+Ejemplo:
+
+`Kardec 258–259 → PREBIRTH_THEME_OR_TRIAL → tareas individuales + nodos/regentes + estructura saturnina + recurrencia`.
+
+Kardec no es fuente de esa técnica astrológica; sólo de la doctrina de elección del género de prueba.
+
+Registro normativo: `reference/doctrine-to-astrology-map.json`.
+Documentación: `docs/DOCTRINE_TO_ASTROLOGY.md`.
