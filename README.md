@@ -99,7 +99,7 @@ No open-source license has been selected for the current public release. Publica
 
 **1. ALMAS · Astrología Metafísica Relacional** — esta raíz del repositorio. Calcula y organiza la arquitectura metafísica observable mediante astrología: cartas, sinastría, nodos, ejes, declinaciones, antiscios, compuesta, Davison, dracónica, lotes, temporalidad, recurrencia, rareza estructural, ablación y robustez.
 
-**2. ALMAS · Contrato Álmico v1.1.0** — `skills/almas-soul-contract/SKILL.md`. Reconstruye el posible acuerdo preencarnatorio a partir de la arquitectura astrológica ya calculada, doctrina documentada, cronología y contraevidencia. Su reconstrucción FULL sigue ocho etapas: origen → motivo → roles → condiciones de encuentro → tareas individuales → tarea común → cláusulas → mecanismos de cumplimiento.
+**2. ALMAS · Contrato Álmico v1.2.0** — `skills/almas-soul-contract/SKILL.md`. Reconstruye el posible acuerdo preencarnatorio a partir de la arquitectura astrológica ya calculada, doctrina documentada, cronología y contraevidencia. Su reconstrucción FULL sigue ocho etapas: origen → motivo → roles → condiciones de encuentro → tareas individuales → tarea común → cláusulas → mecanismos de cumplimiento. La etapa de origen incorpora un **motor diferencial del origen de las almas** que compara modelos competidores y conserva `SHARED_ORIGIN_UNDIFFERENTIATED` cuando faltan discriminadores validados.
 
 Las dos skills se conectan mediante `schemas/astrology-to-soul-contract.schema.json`. La astrología funciona aquí como método metafísico de investigación; los controles metodológicos evitan sobreconteo, dependencia y ajuste al caso, no desautorizan el paradigma metafísico.
 
