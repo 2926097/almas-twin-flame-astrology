@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/raw-input.schema.json",
+  "title": "ALMAS Raw Relationship Input",
+  "type": "object",
+  "required": [
+    "subjects"
+  ],
+  "properties": {
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "birth_date"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "birth_time": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "timezone": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "place": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "latitude": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "longitude": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "time_reliability": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D",
+              null
+            ]
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "mode": {
+      "enum": [
+        "FULL",
+        "TARGETED",
+        "TEMPORAL",
+        "REPORT"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
