@@ -24,18 +24,23 @@ REQUIRED_FILES = [
     "schemas/precomputed-result.schema.json",
     "schemas/astrology-to-soul-contract.schema.json",
     "schemas/contrato-almico.schema.json",
+    "schemas/preincarnation-reconstruction.schema.json",
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
+    "reference/preincarnation-source-map.json",
+    "reference/preincarnation-reconstruction.md",
     "reference/roles-preencarnatorios.md",
     "skills/almas-soul-contract/SKILL.md",
     "skills/almas-soul-contract/VERSION",
+    "skills/almas-soul-contract/CHANGELOG.md",
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/cli.py",
     "tests/INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
+    "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "reference/causa-contractual.md",
     "tests/CAUSA_CONTRACTUAL_INVARIANTS.md",
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
@@ -118,11 +123,11 @@ def main() -> int:
 
     soul_skill = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     soul_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
-    if soul_version != "1.0.0":
+    if soul_version != "1.1.0":
         fail(f"unexpected soul-contract VERSION: {soul_version}")
     for needle in [
         "name: almas-soul-contract",
-        "version: 1.0.0",
+        "version: 1.1.0",
         "ALMAS Soul Contract",
         "método metafísico",
         "A_EN_B",
@@ -137,6 +142,7 @@ def main() -> int:
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
     bridge_schema = load_json("schemas/astrology-to-soul-contract.schema.json")
+    preincarnation_schema = load_json("schemas/preincarnation-reconstruction.schema.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
@@ -151,6 +157,9 @@ def main() -> int:
 
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
+
+    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("preincarnation reconstruction schema must expose schema_version 1.0.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
