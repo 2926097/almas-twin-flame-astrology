@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.4.0",
+  "schema_version": "1.5.0",
   "origin": {
     "state": "INSUFFICIENT",
     "hypotheses": [
@@ -882,5 +882,133 @@
     "robustness": 85,
     "why_selected": "The synthetic meeting window activates pre-existing roots through independent temporal families and a matching event chart.",
     "why_not_more_specific": "The engine cannot establish that this exact place/event was the unique preincarnational route or that no alternative encounter path existed."
+  },
+  "individual_tasks_differential": {
+    "schema_version": "1.0.0",
+    "subjects": {
+      "A": {
+        "state": "PREVIA_FUERTE",
+        "primary_tasks": [
+          "IT_AUTONOMIA",
+          "IT_LIMITES"
+        ],
+        "secondary_tasks": [
+          "IT_RESPONSABILIDAD"
+        ],
+        "tasks": [
+          {
+            "id": "IT_AUTONOMIA",
+            "state": "SUPPORTED",
+            "independent_natal_roots": [
+              "A_nat_01",
+              "A_node_02"
+            ],
+            "coverage": 92,
+            "robustness": 87,
+            "r_min": 0.78,
+            "counterevidence": [],
+            "reason_not_higher": null
+          },
+          {
+            "id": "IT_LIMITES",
+            "state": "COMPATIBLE",
+            "independent_natal_roots": [
+              "A_nat_03",
+              "A_disp_04"
+            ],
+            "coverage": 88,
+            "robustness": 84,
+            "r_min": 0.72,
+            "counterevidence": [],
+            "reason_not_higher": "Secondary overlap with autonomy."
+          }
+        ],
+        "evidence_families": [
+          "ITF1_RADIX_DOMINANTE",
+          "ITF2_NODOS_Y_REGENTES",
+          "ITF3_DISPOSITORES",
+          "ITF4_POLARIDAD_REPETIDA",
+          "ITF6_ROBUSTEZ_HORARIA",
+          "ITF8_INDEPENDENCIA_DEL_OTRO"
+        ],
+        "partner_removed_result": "PRESERVED",
+        "ablation_result": "PRIMARY_TASKS_PRESERVED",
+        "counterevidence": [],
+        "robustness": 86,
+        "why_selected": "Synthetic natal architecture preserves autonomy/boundary themes without partner data.",
+        "why_not_more_specific": "The task can be described through overlapping autonomy and boundary formulations."
+      },
+      "B": {
+        "state": "PREVIA_FUERTE",
+        "primary_tasks": [
+          "IT_VULNERABILIDAD",
+          "IT_VERDAD"
+        ],
+        "secondary_tasks": [
+          "IT_COMUNICACION"
+        ],
+        "tasks": [
+          {
+            "id": "IT_VULNERABILIDAD",
+            "state": "SUPPORTED",
+            "independent_natal_roots": [
+              "B_nat_01",
+              "B_node_02"
+            ],
+            "coverage": 91,
+            "robustness": 85,
+            "r_min": 0.76,
+            "counterevidence": [],
+            "reason_not_higher": null
+          },
+          {
+            "id": "IT_VERDAD",
+            "state": "COMPATIBLE",
+            "independent_natal_roots": [
+              "B_nat_03"
+            ],
+            "coverage": 84,
+            "robustness": 81,
+            "r_min": 0.69,
+            "counterevidence": [],
+            "reason_not_higher": "Needs additional independent natal recurrence."
+          }
+        ],
+        "evidence_families": [
+          "ITF1_RADIX_DOMINANTE",
+          "ITF2_NODOS_Y_REGENTES",
+          "ITF4_POLARIDAD_REPETIDA",
+          "ITF6_ROBUSTEZ_HORARIA",
+          "ITF8_INDEPENDENCIA_DEL_OTRO"
+        ],
+        "partner_removed_result": "PRESERVED",
+        "ablation_result": "PRIMARY_TASKS_PRESERVED",
+        "counterevidence": [],
+        "robustness": 84,
+        "why_selected": "Synthetic natal architecture preserves vulnerability/truth themes without partner data.",
+        "why_not_more_specific": "Truth and communication remain partially overlapping task formulations."
+      }
+    },
+    "cross_activation": [
+      {
+        "receiver": "A",
+        "task_id": "IT_AUTONOMIA",
+        "activator": "B",
+        "root_refs": [
+          "root_BstructuresA_05"
+        ],
+        "state": "COMPATIBLE"
+      },
+      {
+        "receiver": "B",
+        "task_id": "IT_VULNERABILIDAD",
+        "activator": "A",
+        "root_refs": [
+          "root_AactivatesB_03"
+        ],
+        "state": "SUPPORTED"
+      }
+    ],
+    "counterevidence": []
   }
 }
