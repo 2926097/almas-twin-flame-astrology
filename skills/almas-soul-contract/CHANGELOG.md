@@ -1,5 +1,15 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.6.0 — 2026-09-24
+
+- Añade motor diferencial de tareas individuales.
+- Exige identificar TAREA_A_PREVIA y TAREA_B_PREVIA antes de usar sinastría.
+- Añade diecisiete tareas canónicas y ocho familias ITF1–ITF8.
+- Introduce partner_removed_result como control explícito contra circularidad.
+- Añade discriminadores ITD1–ITD8.
+- Integra individual_tasks_differential en la reconstrucción preencarnatoria.
+
+
 ## 1.5.0 — 2026-09-24
 
 - Añade motor diferencial de condiciones de encuentro.
