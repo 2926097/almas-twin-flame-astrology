@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.6.0 — 2026-09-24
+
+### Fase 3 · Separación origen/contrato/función
+- Queda absorbida por la ontología multiaxial v2 de ALMAS 1.5.0.
+
+### Fase 4 · Motor del contrato preencarnatorio — completada
+- Añade cadena causal contractual C1–C8.
+- Separa origen ontológico de contenido contractual.
+- Introduce niveles R0–R4 de resolución contractual.
+- Introduce granularidad THEME/FUNCTION/ROLE/CONDITION/EVENT/DETAIL.
+- Impide elevar contenido literal pre-natal a SUPPORTED desde astrología.
+- Añade esquema, fixture sintético, manifiesto y tests de regresión.
+
 ## 1.5.0 — 2026-09-24
 
 ### Fase 1 · Corpus de fuentes — cerrada
