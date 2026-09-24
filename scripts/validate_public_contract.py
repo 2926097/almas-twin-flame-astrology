@@ -44,6 +44,7 @@ REQUIRED_FILES = [
     "manifests/common-task-registry.json",
     "manifests/clause-registry.json",
     "manifests/fulfillment-mechanisms-registry.json",
+    "manifests/preincarnation-pipeline-manifest.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
@@ -210,6 +211,7 @@ def main() -> int:
     fulfillment_schema = load_json("schemas/fulfillment-mechanisms.schema.json")
     fulfillment_registry = load_json("manifests/fulfillment-mechanisms-registry.json")
     fulfillment_example = load_json("examples/fulfillment-mechanisms.synthetic.json")
+    pipeline_manifest = load_json("manifests/preincarnation-pipeline-manifest.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
@@ -303,6 +305,29 @@ def main() -> int:
         fail("clause assembly schema must expose schema_version 1.0.0")
     if fulfillment_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("fulfillment mechanisms schema must expose schema_version 1.0.0")
+
+    if pipeline_manifest.get("pipeline_version") != "1.0.0":
+        fail("preincarnation pipeline manifest must expose pipeline_version 1.0.0")
+    if pipeline_manifest.get("soul_contract_version") != soul_version:
+        fail("pipeline manifest soul_contract_version diverges from Soul Contract VERSION")
+    if pipeline_manifest.get("preincarnation_schema_version") != "1.8.0":
+        fail("pipeline manifest preincarnation schema version must be 1.8.0")
+
+    expected_pipeline_stages = [
+        "ORIGIN",
+        "AGREEMENT_MOTIVE",
+        "ROLE_SELECTION",
+        "ENCOUNTER_CONDITIONS",
+        "INDIVIDUAL_TASKS",
+        "COMMON_TASK",
+        "CLAUSES",
+        "FULFILLMENT_MECHANISMS",
+    ]
+    actual_pipeline_stages = [stage.get("id") for stage in pipeline_manifest.get("stages", [])]
+    if actual_pipeline_stages != expected_pipeline_stages:
+        fail("preincarnation pipeline stage order diverges from canonical eight-stage sequence")
+    if [stage.get("order") for stage in pipeline_manifest.get("stages", [])] != list(range(1, 9)):
+        fail("preincarnation pipeline stage order numbers must be 1..8")
 
     expected_origin_models = {
         "INDEPENDENT_SOULS",
