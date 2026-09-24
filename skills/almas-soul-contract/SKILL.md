@@ -535,3 +535,18 @@ FM_RUTA_ALTERNATIVA y FM_APLAZAMIENTO son hipótesis condicionadas por las fuent
 
 Con estos dos motores, la reconstrucción FULL queda cerrada en ocho etapas diferenciales:
 ORIGEN → MOTIVO → ROLES → CONDICIONES → TAREAS_INDIVIDUALES → TAREA_COMUN → CLAUSULAS → CUMPLIMIENTO.
+
+
+## 26. Cadena causal contractual v2
+
+Además de las ocho etapas diferenciales históricas, una ejecución FULL debe ensamblar la cadena causal:
+
+`TAREA_PREVIA → MOTIVO_DE_ELECCION_DEL_OTRO → ROL_ASUMIDO → CLAUSULA_DE_ACTIVACION → PRUEBA_PACTADA → INTEGRACION_ESPERADA → CONDICION_DE_CUMPLIMIENTO → CIERRE_O_ALTERNATIVA`.
+
+La cadena reutiliza los motores existentes; no vuelve a contar evidencia.
+
+`ORIGIN` permanece como contexto ontológico independiente.
+
+La salida debe ajustarse a `schemas/preincarnation-contract-chain.schema.json`.
+
+El contenido literal de supuestas promesas, frases, fechas o desenlaces pre-natales permanece `NOT_EVALUABLE` desde astrología.
