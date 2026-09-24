@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.3.1",
   "entries": [
     {
       "id": "plato_symposium_aristophanes",
@@ -112,6 +112,139 @@
       "does_not_support": [
         "a specific twin-flame metaphysics",
         "astrological validation"
+      ]
+    },
+    {
+      "id": "kardec_spirits_book_choice_trials",
+      "priority": "P1_PRIMARY",
+      "author": "Allan Kardec",
+      "work": "The Spirits' Book",
+      "passage": "Book II, ch. VI, questions 258-259",
+      "date": "1857; English ed. 1875",
+      "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/139/book-twothe-spirit-world/chapter-vispirit-life/choice-of-trials",
+      "download_url": "https://www.loc.gov/item/03019928/",
+      "supports": [
+        "explicit Spiritist doctrine that spirits choose the type of trials before incarnation",
+        "distinction between general type of trial and contingent details"
+      ],
+      "does_not_support": [
+        "a bilateral romantic soul contract",
+        "astrological extraction of contract clauses"
+      ]
+    },
+    {
+      "id": "zohar_lech_lecha_32_346_350",
+      "priority": "P1_PRIMARY",
+      "author": "Zohar",
+      "work": "Zohar, Lech Lecha",
+      "passage": "32:346-350",
+      "url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
+      "supports": [
+        "paired souls before embodiment",
+        "separation and later matching/reunion imagery"
+      ],
+      "does_not_support": [
+        "identity with modern twin-flame doctrine",
+        "an astrological contract-reading method"
+      ]
+    },
+    {
+      "id": "talmud_sotah_2a_9",
+      "priority": "P1_PRIMARY",
+      "author": "Babylonian Talmud",
+      "work": "Sotah",
+      "passage": "2a:9",
+      "url": "https://www.sefaria.org/Sotah.2a.8",
+      "supports": [
+        "pre-birth heavenly matching motif in rabbinic literature"
+      ],
+      "does_not_support": [
+        "split-soul ontology",
+        "modern twin-flame astrology"
+      ]
+    },
+    {
+      "id": "kwilecki_soul_contract_theodicy_2014",
+      "priority": "P2_ACADEMIC",
+      "author": "Susan Kwilecki",
+      "work": "The Soul Contract Theodicy: New Age Understandings of the Death of a Child",
+      "date": "2014",
+      "pages": "411-424",
+      "doi": "10.1080/13537903.2014.945724",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/13537903.2014.945724",
+      "supports": [
+        "academic documentation of soul-contract/pre-birth-plan discourse in contemporary New Age religion",
+        "genealogy through interlife regression literature and reincarnation/evolution themes"
+      ],
+      "does_not_support": [
+        "empirical proof that soul contracts exist",
+        "astrological validation of a contract"
+      ]
+    },
+    {
+      "id": "stokke_spiritual_love_relations_2021",
+      "priority": "P2_ACADEMIC",
+      "author": "Christian Stokke",
+      "work": "Exploring the transpersonal phenomena of spiritual love relations",
+      "date": "2021",
+      "pages": "130-144",
+      "doi": "10.1080/20440243.2021.1955454",
+      "url": "https://hdl.handle.net/11250/2994583",
+      "license": "CC BY-NC-ND 4.0",
+      "supports": [
+        "empirical documentation of experiences reported in relationships participants call soulmates",
+        "reported motifs including instant recognition, synchronicity, transformation and archetypal integration"
+      ],
+      "does_not_support": [
+        "objective verification of soulmate ontology",
+        "twin-flame or soul-contract diagnostic criteria"
+      ]
+    },
+    {
+      "id": "crane_draconic_astrology_1987",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "Pamela A. F. Crane",
+      "work": "Draconic Astrology: An Introduction to the Use of Draconic Charts in Astrological Interpretation",
+      "date": "1987",
+      "publisher": "Aquarian",
+      "isbn": "0850305594",
+      "url": "https://obnb.uk/p8110748-draconic-astrology-an-introduction-to-the-use-of-draconic-charts-in-astrological-interpretation",
+      "supports": [
+        "identified modern source for draconic astrological practice"
+      ],
+      "does_not_support": [
+        "ancient origin of the modern draconic method",
+        "literal proof of soul contracts"
+      ]
+    },
+    {
+      "id": "bailey_esoteric_astrology_1951",
+      "priority": "P1_PRIMARY",
+      "author": "Alice A. Bailey",
+      "work": "Esoteric Astrology",
+      "date": "1951",
+      "url": "https://www.lucistrust.org/online_books/esoteric_astrology_obooks",
+      "supports": [
+        "explicit esoteric-astrology framework relating astrology to soul development and energies"
+      ],
+      "does_not_support": [
+        "a canonical soul-contract chart",
+        "automatic twin-flame doctrine"
+      ]
+    },
+    {
+      "id": "prophet_twin_flames_qa_part1",
+      "priority": "P1_PRIMARY",
+      "author": "Elizabeth Clare Prophet",
+      "work": "Soul Mates and Twin Flames: Q and A Part 1",
+      "url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
+      "supports": [
+        "explicit modern doctrine of twin flames originating from one white-fire ovoid",
+        "explicit differentiation of twin flames, soul mates and karmic relationships"
+      ],
+      "does_not_support": [
+        "scientific validation",
+        "astrological proof of a specific pair"
       ]
     }
   ]
