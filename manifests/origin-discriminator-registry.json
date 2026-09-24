@@ -1,0 +1,89 @@
+{
+  "registry_version": "1.0.0",
+  "doctrinal_discriminators": [
+    {
+      "id": "D_PAIR_UNIQUENESS",
+      "meaning": "Doctrine requires one unique counterpart."
+    },
+    {
+      "id": "D_DIVISION_OF_ONE",
+      "meaning": "Doctrine explicitly derives two beings from one prior unity."
+    },
+    {
+      "id": "D_SHARED_ROOT",
+      "meaning": "Doctrine describes common or related soul roots."
+    },
+    {
+      "id": "D_PREBIRTH_PAIRING",
+      "meaning": "Pairing exists before embodiment."
+    },
+    {
+      "id": "D_REINCARNATION_RETURN",
+      "meaning": "Doctrine permits recurrent pairing across incarnations."
+    },
+    {
+      "id": "D_UNIQUE_BLUEPRINT",
+      "meaning": "Doctrine specifies an exclusive shared blueprint/pattern."
+    },
+    {
+      "id": "D_POLARITY_PAIR",
+      "meaning": "Doctrine defines complementary pair polarity."
+    },
+    {
+      "id": "D_SHARED_MISSION",
+      "meaning": "Doctrine assigns shared plan/service."
+    },
+    {
+      "id": "D_TIKKUN",
+      "meaning": "Rectification is constitutive of the relationship model."
+    }
+  ],
+  "astrology_discriminators": [
+    {
+      "id": "A_CONTINUITY_VS_NEW",
+      "status": "OPERATIONAL",
+      "resolution_level": "O1_CONTINUITY",
+      "required_families": [
+        "F1_CONTINUIDAD",
+        "F5_CONTINUIDAD_INTERENCARNACIONAL"
+      ],
+      "note": "Operational project discriminator; does not identify a specific shared-origin ontology."
+    },
+    {
+      "id": "A_GROUP_VS_RELATED_ROOT",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O2_ROOT_FAMILY"
+    },
+    {
+      "id": "A_RELATED_ROOT_VS_ZIVUG",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O2_ROOT_FAMILY"
+    },
+    {
+      "id": "A_ZIVUG_VS_TWIN_FLAME",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_SPLIT_SOUL_VS_TWIN_FLAME",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_MONADIC_VS_SHARED_ROOT",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_TWIN_SOUL_VS_TWIN_FLAME",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_UNIQUE_DYADIC_ORIGIN",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    }
+  ],
+  "gate_rule": "No O3 subtype may be SUPPORTED unless at least one relevant A_* discriminator is VALIDATED and separates it from its principal competing models."
+}
