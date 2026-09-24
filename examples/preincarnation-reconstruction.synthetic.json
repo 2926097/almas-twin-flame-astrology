@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0.0",
+  "origin": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "RAICES_RELACIONADAS",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_001",
+          "root_rel_002"
+        ],
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_39_soul_roots"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "ZIVUG_PAREJA_VERDADERA",
+        "state": "INSUFFICIENT",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_001"
+        ],
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_20_zivug"
+        ],
+        "counterevidence": [
+          "No validated discriminator separates related roots from true-pair model in this synthetic fixture."
+        ]
+      }
+    ],
+    "selection": "RAICES_RELACIONADAS",
+    "astrology_roots": [
+      "root_syn_001",
+      "root_rel_002"
+    ],
+    "doctrinal_sources": [
+      "vital_shaar_hagilgulim_39_soul_roots"
+    ],
+    "alternatives": [
+      "ZIVUG_PAREJA_VERDADERA",
+      "MISMO_GRUPO_O_FAMILIA"
+    ],
+    "counterevidence": [],
+    "robustness": 82,
+    "hermeneutic_note": "Synthetic example; no real persons or charts."
+  },
+  "agreement_motive": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "APRENDIZAJE_MUTUO",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_003"
+        ],
+        "doctrinal_sources": [
+          "kardec_spirits_book_choice_trials",
+          "myss_sacred_contracts_2001"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "TIKKUN_DEL_OTRO",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B",
+        "astrology_roots": [
+          "root_syn_004"
+        ],
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "APRENDIZAJE_MUTUO+TIKKUN_DEL_OTRO",
+    "astrology_roots": [
+      "root_syn_003",
+      "root_syn_004"
+    ],
+    "doctrinal_sources": [
+      "kardec_spirits_book_choice_trials",
+      "vital_shaar_hagilgulim_8_reasons_for_return"
+    ],
+    "contemporary_sources": [
+      "myss_sacred_contracts_2001"
+    ],
+    "alternatives": [
+      "CATALISIS_TRANSFORMACION"
+    ],
+    "counterevidence": [],
+    "robustness": 78
+  },
+  "role_selection": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "A_ACTIVADOR_EN_B",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B",
+        "astrology_roots": [
+          "root_syn_004"
+        ],
+        "doctrinal_sources": [
+          "schwartz_your_souls_plan_2009"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "B_ESTRUCTURADOR_EN_A",
+        "state": "COMPATIBLE",
+        "direction": "B_EN_A",
+        "astrology_roots": [
+          "root_syn_005"
+        ],
+        "doctrinal_sources": [
+          "kardec_spirits_book_missions_572_573"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "ROLES_ASIMETRICOS_COMPLEMENTARIOS",
+    "astrology_roots": [
+      "root_syn_004",
+      "root_syn_005"
+    ],
+    "doctrinal_sources": [
+      "kardec_spirits_book_missions_572_573"
+    ],
+    "contemporary_sources": [
+      "schwartz_your_souls_plan_2009"
+    ],
+    "alternatives": [
+      "ROLES_EMERGENTES_NO_PRESELECCIONADOS"
+    ],
+    "counterevidence": [],
+    "robustness": 75
+  },
+  "encounter_conditions": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "VENTANA_TEMPORAL",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_time_001"
+        ],
+        "doctrinal_sources": [
+          "newton_journey_of_souls_1994"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "CONDICION_DE_RECONOCIMIENTO",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_001"
+        ],
+        "doctrinal_sources": [
+          "zohar_lech_lecha_32_346_350"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "VENTANA_TEMPORAL+CONDICION_DE_RECONOCIMIENTO",
+    "astrology_roots": [
+      "root_time_001",
+      "root_syn_001"
+    ],
+    "doctrinal_sources": [
+      "zohar_lech_lecha_32_346_350"
+    ],
+    "contemporary_sources": [
+      "newton_journey_of_souls_1994"
+    ],
+    "alternatives": [
+      "COINCIDENCIA_NO_CONTRACTUAL"
+    ],
+    "counterevidence": [],
+    "robustness": 73
+  },
+  "individual_tasks": {
+    "A": {
+      "state": "COMPATIBLE",
+      "hypotheses": [
+        {
+          "id": "AUTONOMIA_Y_LIMITES",
+          "state": "COMPATIBLE",
+          "direction": "NO_APLICA",
+          "astrology_roots": [
+            "root_natal_A_01"
+          ],
+          "doctrinal_sources": [
+            "kardec_spirits_book_choice_trials"
+          ],
+          "counterevidence": []
+        }
+      ],
+      "selection": "AUTONOMIA_Y_LIMITES",
+      "astrology_roots": [
+        "root_natal_A_01"
+      ],
+      "doctrinal_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "alternatives": [],
+      "counterevidence": [],
+      "robustness": 85
+    },
+    "B": {
+      "state": "COMPATIBLE",
+      "hypotheses": [
+        {
+          "id": "VULNERABILIDAD_Y_VERDAD",
+          "state": "COMPATIBLE",
+          "direction": "NO_APLICA",
+          "astrology_roots": [
+            "root_natal_B_01"
+          ],
+          "doctrinal_sources": [
+            "kardec_spirits_book_choice_trials"
+          ],
+          "counterevidence": []
+        }
+      ],
+      "selection": "VULNERABILIDAD_Y_VERDAD",
+      "astrology_roots": [
+        "root_natal_B_01"
+      ],
+      "doctrinal_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "alternatives": [],
+      "counterevidence": [],
+      "robustness": 84
+    }
+  },
+  "common_task": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "INTEGRACION_DE_POLARIDADES",
+        "state": "COMPATIBLE",
+        "direction": "CAMPO_COMUN",
+        "astrology_roots": [
+          "root_rel_002",
+          "root_rel_006"
+        ],
+        "doctrinal_sources": [
+          "vital_pri_etz_chaim"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "INTEGRACION_DE_POLARIDADES",
+    "astrology_roots": [
+      "root_rel_002",
+      "root_rel_006"
+    ],
+    "doctrinal_sources": [
+      "vital_pri_etz_chaim"
+    ],
+    "alternatives": [
+      "APRENDIZAJE_RECIPROCO"
+    ],
+    "counterevidence": [],
+    "robustness": 80
+  },
+  "clauses": [
+    {
+      "id": "LIBERTAD_AUTONOMIA",
+      "state": "COMPATIBLE",
+      "direction": "A_EN_B",
+      "astrology_roots": [
+        "root_syn_004"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Derived ALMAS clause; synthetic."
+    },
+    {
+      "id": "COMUNICACION_VERDAD",
+      "state": "COMPATIBLE",
+      "direction": "B_EN_A",
+      "astrology_roots": [
+        "root_syn_005"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Derived ALMAS clause; synthetic."
+    }
+  ],
+  "fulfillment_mechanisms": [
+    {
+      "id": "ACTIVACION",
+      "state": "COMPATIBLE",
+      "direction": "BILATERAL",
+      "astrology_roots": [
+        "root_time_001"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": []
+    },
+    {
+      "id": "TIKKUN_REPARACION",
+      "state": "COMPATIBLE",
+      "direction": "A_EN_B",
+      "astrology_roots": [
+        "root_syn_004"
+      ],
+      "doctrinal_sources": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "counterevidence": []
+    },
+    {
+      "id": "RUTA_ALTERNATIVA",
+      "state": "COMPATIBLE",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
+      "doctrinal_sources": [
+        "myss_sacred_contracts_2001"
+      ],
+      "counterevidence": [],
+      "note": "Method-specific; not universalized."
+    }
+  ],
+  "global_alternatives": [
+    "NON_CONTRACTUAL_EVOLUTIONARY_RELATIONSHIP"
+  ],
+  "global_counterevidence": [],
+  "limitations": [
+    "Synthetic fixture only.",
+    "No metaphysical probability is inferred."
+  ]
+}
