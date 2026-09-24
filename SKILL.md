@@ -1,14 +1,14 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.1.0
+version: 1.1.1
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Relacional v1.1.0
+# ALMAS · Astrología Relacional v1.1.1
 
 ## 0. Public release status
 
@@ -491,3 +491,16 @@ Ejemplos:
 - `reciprocity` → **reciprocidad**.
 
 Esta convención no obliga a renombrar claves internas de software si ello rompe compatibilidad.
+
+
+## 34. Estado temporal de cláusula
+
+Además del estado epistemológico, cada cláusula del contrato álmico puede registrar un estado temporal:
+
+`LATENTE → ACTIVADA → EN_DESARROLLO → INTEGRADA | TRANSFORMADA | CERRADA`
+
+con `NO_EVALUABLE` cuando falte seguimiento suficiente.
+
+Esta secuencia no es obligatoriamente lineal: una cláusula puede reactivarse, cambiar de modalidad o permanecer latente durante largos periodos.
+
+Los estados `INTEGRADA`, `TRANSFORMADA` y `CERRADA` requieren hechos documentados y una firma de cumplimiento definida previamente. No pueden asignarse desde astrología temporal sola ni desde fechas futuras calculadas.
