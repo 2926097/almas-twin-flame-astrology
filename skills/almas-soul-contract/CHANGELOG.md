@@ -1,5 +1,24 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.9.0 — 2026-09-24
+
+- Añade motor diferencial de mecanismos de cumplimiento.
+- Separa activación, repetición, integración, transformación y cierre.
+- Exige hechos documentados para INTEGRADA, TRANSFORMADA y CERRADA.
+- Añade mecanismos FM_ACTIVACION, FM_REPETICION, FM_RECIPROCIDAD, FM_CATALISIS, FM_ENCARNACION, FM_TIKKUN_REPARACION, FM_SERVICIO, FM_LIBERACION, FM_TRANSFORMACION_MODALIDAD, FM_CIERRE, FM_RUTA_ALTERNATIVA y FM_APLAZAMIENTO.
+- Añade discriminadores FMD1–FMD8.
+- Completa la arquitectura diferencial de las ocho etapas preencarnatorias.
+
+## 1.8.0 — 2026-09-24
+
+- Añade motor de ensamblaje diferencial de cláusulas.
+- Formaliza las ocho cláusulas como objetos derivados con genealogía vertical.
+- Añade control de solapamiento entre cláusulas.
+- Separa estado epistemológico, centralidad y estado temporal.
+- Exige firma de cumplimiento preregistrada.
+- Añade discriminadores CLD1–CLD8.
+
+
 ## 1.7.0 — 2026-09-24
 
 - Añade motor diferencial de tarea común.
