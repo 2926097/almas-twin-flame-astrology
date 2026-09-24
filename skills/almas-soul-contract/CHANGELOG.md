@@ -1,5 +1,17 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.4.0 — 2026-09-24
+
+- Añade motor diferencial de selección de roles.
+- Separa rol funcional, dirección, intensidad y mecanismo preencarnatorio.
+- Formaliza doce roles canónicos.
+- Añade ocho familias de evidencia RF1–RF8.
+- Añade discriminadores RSD1–RSD8.
+- Permite roles estables, alternantes o dependientes de fase.
+- Impide inferir acuerdo mutuo, necesidad kármica o rol único sólo desde bilateralidad o intensidad.
+- Integra role_selection_differential en la reconstrucción preencarnatoria.
+
+
 ## 1.3.0 — 2026-09-24
 
 - Añade motor diferencial del motivo del acuerdo.
