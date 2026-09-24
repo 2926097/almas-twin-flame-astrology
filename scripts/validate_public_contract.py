@@ -29,6 +29,7 @@ REQUIRED_FILES = [
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
+    "manifests/origin-discriminator-registry.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
@@ -151,6 +152,7 @@ def main() -> int:
     preincarnation_schema = load_json("schemas/preincarnation-reconstruction.schema.json")
     origin_schema = load_json("schemas/origin-differential.schema.json")
     origin_registry = load_json("manifests/origin-model-registry.json")
+    origin_discriminator_registry = load_json("manifests/origin-discriminator-registry.json")
     origin_example = load_json("examples/origin-differential.synthetic.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
@@ -243,6 +245,17 @@ def main() -> int:
     if origin_models != expected_origin_models:
         fail("origin model registry diverges from canonical model set")
 
+    expected_resolution_levels = {
+        "O1_CONTINUITY",
+        "O2_ROOT_FAMILY",
+        "O3_UNIQUE_DYADIC",
+        "UNRESOLVED",
+    }
+    for model in origin_registry.get("models", []):
+        level = model.get("max_resolution_claim")
+        if level not in expected_resolution_levels:
+            fail(f"origin model {model.get('id')} has invalid max_resolution_claim: {level}")
+
     for model in origin_registry.get("models", []):
         for source_id in model.get("source_ids", []):
             if source_id not in source_ids:
@@ -252,6 +265,13 @@ def main() -> int:
         d for d in origin_registry.get("discriminators", [])
         if d.get("kind") == "ASTROLOGICAL"
     ]
+
+    canonical_astrology_discriminator_ids = {
+        d.get("id") for d in origin_discriminator_registry.get("astrology_discriminators", [])
+    }
+    registry_astrology_discriminator_ids = {d.get("id") for d in astro_discriminators}
+    if canonical_astrology_discriminator_ids != registry_astrology_discriminator_ids:
+        fail("origin model registry and origin discriminator registry disagree on A_* identifiers")
     if not astro_discriminators:
         fail("origin registry must declare astrological discriminator status")
     for d in astro_discriminators:
@@ -260,6 +280,16 @@ def main() -> int:
 
     if origin_example.get("schema_version") != "1.0.0":
         fail("synthetic origin example must use schema_version 1.0.0")
+
+    if origin_example.get("resolution_level") not in expected_resolution_levels:
+        fail("synthetic origin example has invalid resolution_level")
+
+    if not origin_example.get("why_not_more_specific"):
+        fail("synthetic origin example must explain why it cannot be more specific")
+
+    for discriminator_id in origin_example.get("astrology_discriminators", []):
+        if discriminator_id not in canonical_astrology_discriminator_ids:
+            fail(f"unknown A_* discriminator in synthetic origin example: {discriminator_id}")
 
     for result in origin_example.get("models", []):
         if result.get("model_id") not in expected_origin_models:
@@ -275,6 +305,12 @@ def main() -> int:
 
     if "origin_differential" not in preincarnation_example:
         fail("synthetic preincarnation example must embed origin_differential")
+
+    embedded_origin = preincarnation_example.get("origin_differential", {})
+    if embedded_origin.get("resolution_level") != origin_example.get("resolution_level"):
+        fail("embedded origin differential diverges from standalone synthetic origin example")
+    if embedded_origin.get("why_not_more_specific") != origin_example.get("why_not_more_specific"):
+        fail("embedded origin differential explanation diverges from standalone example")
 
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
