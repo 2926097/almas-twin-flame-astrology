@@ -1,14 +1,14 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.0.0
+version: 1.1.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS Twin-Flame Astrology Skill v1.0.0
+# ALMAS · Astrología Relacional v1.1.0
 
 ## 0. Public release status
 
@@ -431,3 +431,63 @@ Every full analysis should clearly distinguish:
 - real-world viability and reciprocity when observable.
 
 The objective is not to confirm a prior belief, but to build the broadest, most documented, reproducible and discriminating model possible for studying soul-bond narratives and astrological relationship structures.
+
+
+## 32. Módulo transversal de contrato álmico
+
+El análisis del **contrato álmico** forma parte de la misma Skill ALMAS y no constituye una skill independiente ni una quinta categoría relacional.
+
+Objetivo: extraer, desde raíces previamente calculadas y normalizadas, el contenido funcional de un posible acuerdo preencarnatorio.
+
+La extracción debe distinguir:
+
+- `A_EN_B`: qué activa A en B;
+- `B_EN_A`: qué activa B en A;
+- `CAMPO_COMUN`: qué surge en la arquitectura relacional;
+- reciprocidad bilateral, parcial, asimétrica o no evaluable.
+
+Cláusulas públicas en español:
+
+1. **Encuentro y reconocimiento**.
+2. **Vínculo amoroso**.
+3. **Herida y reparación**.
+4. **Libertad y autonomía**.
+5. **Comunicación y verdad**.
+6. **Transformación y poder**.
+7. **Integración y encarnación**.
+8. **Liberación y cierre**.
+
+Cada cláusula debe registrar raíz, técnica, dependencia, dirección, acción simbólica, aprendizaje, sombra, requisito de integración, firma de cumplimiento, alternativas, contraevidencia y robustez.
+
+La temporalidad contractual se divide en:
+
+- **Tiempo 1 · Activación inicial**: qué pone en movimiento el encuentro;
+- **Tiempo 2 · Desarrollo de cláusulas**: qué raíces vuelven a activarse durante la historia;
+- **Tiempo 3 · Cumplimiento, transformación o cierre**: si el patrón sigue repitiéndose, se integra, cambia de modalidad o deja de organizar el vínculo.
+
+La temporalidad no crea el contrato. Sólo puede activar o ayudar a evaluar una arquitectura estructural ya existente.
+
+El texto narrativo del contrato se redacta únicamente después de cerrar la matriz de cláusulas y la contraevidencia.
+
+Referencia normativa: `reference/contrato-almico.md`.
+Esquema: `schemas/contrato-almico.schema.json`.
+Invariantes: `tests/CONTRATO_ALMICO_INVARIANTS.md`.
+
+## 33. Convención lingüística pública
+
+La documentación destinada a lectura humana utiliza **terminología española** como forma principal.
+
+Los identificadores históricos o de máquina en inglés pueden conservarse cuando sean necesarios para compatibilidad con código, esquemas o versiones anteriores, pero deben acompañarse de su denominación española y no deben dominar la presentación pública.
+
+Ejemplos:
+
+- `soul contract` → **contrato álmico**;
+- `preincarnational agreement` → **acuerdo preencarnatorio**;
+- `relationship chart` → **carta relacional**;
+- `root` → **raíz semántica**;
+- `counterevidence` → **contraevidencia**;
+- `closure` → **cierre**;
+- `embodiment` → **encarnación**;
+- `reciprocity` → **reciprocidad**.
+
+Esta convención no obliga a renombrar claves internas de software si ello rompe compatibilidad.
