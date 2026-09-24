@@ -1,0 +1,62 @@
+{
+  "genealogy_version": "1.0.0",
+  "almas_version": "1.4.0",
+  "edges": [
+    {
+      "from": "SPLIT_PRIMORDIAL_BEING",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "COMPARATIVE_ANTECEDENT_ONLY",
+      "status": "COMPATIBLE",
+      "note": "Motivos formalmente parecidos; no se afirma identidad doctrinal ni transmisión histórica directa."
+    },
+    {
+      "from": "SOUL_PAIRING",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Emparejamiento o pares de almas no equivalen al origen white-fire/twin-flame."
+    },
+    {
+      "from": "PRENATAL_PAIRING",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Un emparejamiento previo no implica cláusulas de aprendizaje o acuerdo bilateral."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "SOUL_CONTRACT",
+      "relation": "CONCEPTUAL_PRECONDITION",
+      "status": "COMPATIBLE",
+      "note": "Elegir pruebas antes de nacer hace inteligible un plan previo, pero no demuestra contrato entre dos almas."
+    },
+    {
+      "from": "MONAD",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "No usar Mónada como sinónimo automático de pareja monádica o twin flame."
+    },
+    {
+      "from": "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
+      "to": "SOUL_CONTRACT",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "Aporta un marco alma-personalidad-propósito, no la gramática contractual de ALMAS."
+    },
+    {
+      "from": "DRACONIC_ASTROLOGY",
+      "to": "SOUL_CONTRACT",
+      "relation": "PROJECT_OPERATIONALIZATION",
+      "status": "E_PROJECT_HYPOTHESIS",
+      "note": "La utilización de la dracónica como capa contractual es una operacionalización ALMAS, no doctrina de Crane."
+    },
+    {
+      "from": "SOULMATE_EXPERIENCE",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+      "status": "INSUFFICIENT",
+      "note": "La experiencia reportada no discrimina origen metafísico."
+    }
+  ]
+}
