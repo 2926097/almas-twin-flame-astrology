@@ -11,4 +11,4 @@
 9. “Catalizador” no implica permanencia.
 10. Un rol simbólico nunca crea obligación relacional.
 11. El campo común se calcula separadamente de los roles individuales.
-12. Todo ejemplo público es sintético o desidentificado.
+12. Todo ejemplo público es sintético o procede de datos reales ya públicos y verificables con fuente; los datos privados no se publican.
