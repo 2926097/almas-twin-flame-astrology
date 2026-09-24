@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/canonical-analysis.schema.json",
+  "title": "ALMAS Canonical Analysis",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "analysis_mode",
+    "evidence",
+    "models",
+    "coverage",
+    "robustness",
+    "counterevidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "analysis_mode": {
+      "enum": [
+        "FULL",
+        "TARGETED",
+        "TEMPORAL",
+        "REPORT"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "models": {
+      "type": "object",
+      "properties": {
+        "AF": {
+          "type": "object",
+          "properties": {
+            "iem": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "state": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            }
+          }
+        },
+        "KA": {
+          "type": "object",
+          "properties": {
+            "iem": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "state": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            }
+          }
+        },
+        "AG": {
+          "type": "object",
+          "properties": {
+            "iem": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "state": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            }
+          }
+        },
+        "LG": {
+          "type": "object",
+          "properties": {
+            "iem": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "state": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "indices": {
+      "type": "object",
+      "properties": {
+        "IDD": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "IAT": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "ICC": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "IRC": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "ICE": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "robustness": {
+      "type": "object"
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "ontology": {
+      "type": "object"
+    },
+    "doctrine": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "temporal": {
+      "type": "object"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
