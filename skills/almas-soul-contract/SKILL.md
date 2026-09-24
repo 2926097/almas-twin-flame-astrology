@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.2.0
+version: 1.3.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.2.0
+# ALMAS Soul Contract · Contrato Álmico v1.3.0
 
 ## 0. Paradigma
 
@@ -389,3 +389,26 @@ Cuando varias ontologías sigan explicando la misma firma observable, usar:
 y enumerar los modelos compatibles y los discriminadores faltantes.
 
 La finalidad del motor es discriminar mejor, no forzar una identidad ontológica.
+
+
+## 18. Motor diferencial del motivo del acuerdo
+
+La etapa MOTIVO_DEL_ACUERDO debe ejecutarse mediante:
+
+- reference/agreement-motive-differential.md
+- manifests/agreement-motive-registry.json
+- schemas/agreement-motive-differential.schema.json
+- tests/AGREEMENT_MOTIVE_INVARIANTS.md
+
+La salida FULL debe incluir agreement_motive_differential.
+
+La evaluación distingue:
+1. motivo funcional;
+2. dirección/alcance;
+3. mecanismo preencarnatorio.
+
+No se permite inferir que un acuerdo fue elegido, solicitado, mutuamente pactado o providencialmente asignado sólo porque el motivo funcional sea fuerte.
+
+Un motivo puede ser PRIMARY, SECONDARY o CORROBORATIVE.
+
+Mecanismos M3 como ACORDADA_MUTUAMENTE o PROVIDENCIALMENTE_ASIGNADA requieren fuente doctrinal o método identificado y no se universalizan entre tradiciones.
