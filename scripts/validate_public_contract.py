@@ -36,6 +36,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/cli.py",
     "tests/INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
+    "reference/causa-contractual.md",
+    "tests/CAUSA_CONTRACTUAL_INVARIANTS.md",
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
     "tests/test_core.py",
     "tests/test_analysis.py",
@@ -67,7 +69,7 @@ def main() -> int:
             fail(f"missing required file: {rel}")
 
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    if version != "1.3.0":
+    if version != "1.3.1":
         fail(f"unexpected root VERSION: {version}")
 
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
