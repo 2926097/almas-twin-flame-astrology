@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "almas_version": "1.4.0",
   "concepts": [
     {
@@ -157,6 +157,219 @@
         "SOUL_CONTRACT_PROOF"
       ],
       "almas_use": "Capa técnica de recurrencia nodal; por defecto corroborativa y su dependencia matemática debe controlarse."
+    },
+    {
+      "id": "GILGUL",
+      "label_es": "gilgul / reencarnación",
+      "definition": "Doctrina de transmigración o retorno del alma dentro de la Cábala luriana.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_shaar_hagilgulim_20_zivug",
+        "vital_shaar_hagilgulim_39_soul_roots"
+      ],
+      "academic_sources": [
+        "magid_life_of_soul_lurianic_gilgul"
+      ],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Informa historia/continuidad y reparación; no implica por sí sola origen compartido."
+    },
+    {
+      "id": "ZIVUG",
+      "label_es": "zivug / emparejamiento",
+      "definition": "Lenguaje judío/cabalístico de emparejamiento o unión, con formulaciones distintas según corpus y época.",
+      "primary_sources": [
+        "talmud_sotah_2a_9",
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Se usa como categoría doctrinal propia; no se traduce automáticamente por llama gemela."
+    },
+    {
+      "id": "SOUL_ROOT",
+      "label_es": "raíz del alma",
+      "definition": "Estructura doctrinal de procedencia o conexión entre almas dentro de sistemas como la Cábala luriana.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_39_soul_roots"
+      ],
+      "academic_sources": [
+        "magid_life_of_soul_lurianic_gilgul"
+      ],
+      "not_equivalent_to": [
+        "MONAD",
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_PAIRING"
+      ],
+      "almas_use": "Puede informar origen relacionado/grupal; requiere discriminadores propios."
+    },
+    {
+      "id": "TIKKUN",
+      "label_es": "tikkun / rectificación",
+      "definition": "Rectificación o reparación dentro del marco luriano; puede motivar retorno, práctica o relación.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_sefer_etz_chaim",
+        "vital_pri_etz_chaim"
+      ],
+      "academic_sources": [
+        "magid_life_of_soul_lurianic_gilgul"
+      ],
+      "not_equivalent_to": [
+        "WOUND_REPAIR",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Antecedente doctrinal para reparación/rectificación, manteniendo su contexto cabalístico."
+    },
+    {
+      "id": "MISSION_PREINCARNATIONAL",
+      "label_es": "misión preencarnatoria",
+      "definition": "Modelo en el que un espíritu puede solicitar o asumir una misión antes de encarnar.",
+      "primary_sources": [
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "MISSION_SERVICE_RELATIONAL"
+      ],
+      "almas_use": "Informa propósito/misión; una misión individual no implica acuerdo bilateral."
+    },
+    {
+      "id": "KARMIC_RELATIONSHIP",
+      "label_es": "relación kármica",
+      "definition": "Relación interpretada dentro de una doctrina de karma/reencarnación como continuidad causal entre vidas.",
+      "primary_sources": [
+        "steiner_karmic_relationships_1924"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Modelo de historia/función distinto del origen compartido."
+    },
+    {
+      "id": "CONJUGIAL_PAIRING",
+      "label_es": "pareja conjugial providencial",
+      "definition": "Doctrina Swedenborgiana de amor verdaderamente conjugial, afinidad interna y provisión providencial de parejas.",
+      "primary_sources": [
+        "swedenborg_conjugial_love_1768"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "ZIVUG",
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Comparando parejas providenciales sin convertirlas en reencarnación o twin flame."
+    },
+    {
+      "id": "LIFE_BETWEEN_LIVES",
+      "label_es": "vida entre vidas / intervida",
+      "definition": "Corpus moderno de regresión que describe estados interencarnatorios, revisión y planificación.",
+      "primary_sources": [],
+      "method_sources": [
+        "wambach_life_before_life_1979",
+        "whitton_fisher_life_between_life_1986",
+        "newton_journey_of_souls_1994"
+      ],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "not_equivalent_to": [
+        "PREINCARNATIONAL_CHOICE",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Genealogía moderna del plan prenatal; su evidencia es de método identificado/emic, no doctrina universal."
+    },
+    {
+      "id": "SACRED_CONTRACT",
+      "label_es": "contrato sagrado",
+      "definition": "Modelo contemporáneo de propósito pre-natal y compromisos arquetípicos asociados a misión y relaciones.",
+      "primary_sources": [],
+      "method_sources": [
+        "myss_sacred_contracts_2001"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "PREINCARNATIONAL_CHOICE"
+      ],
+      "almas_use": "Fuente moderna identificada para propósito/compromiso previo; no fuente de técnica astrológica ALMAS."
+    },
+    {
+      "id": "SOUL_PLAN",
+      "label_es": "plan del alma",
+      "definition": "Modelo contemporáneo de planificación prenatal de desafíos y relaciones.",
+      "primary_sources": [],
+      "method_sources": [
+        "schwartz_your_souls_plan_2009"
+      ],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "KARMIC_RELATIONSHIP"
+      ],
+      "almas_use": "Contextualiza planificación prenatal moderna."
+    },
+    {
+      "id": "SOUL_GROUP",
+      "label_es": "grupo de almas",
+      "definition": "Modelo contemporáneo de agrupaciones de almas descritas en literatura de intervida.",
+      "primary_sources": [],
+      "method_sources": [
+        "newton_journey_of_souls_1994"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOUL_ROOT",
+        "MONAD",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Modelo contemporáneo; no se equipara a raíz luriana ni Mónada."
+    },
+    {
+      "id": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "label_es": "genealogía literaria de twin flame",
+      "definition": "Usos literarios e histórico-receptivos de twin flame/twin soul anteriores a doctrinas institucionales del siglo XX.",
+      "primary_sources": [
+        "corelli_romance_two_worlds_1886",
+        "mackay_twin_soul_1887"
+      ],
+      "academic_sources": [
+        "dobson_turner_twin_souls_2025"
+      ],
+      "historical_sources": [
+        "theosophist_occultism_modern_literature_1887"
+      ],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Documenta historia del vocabulario, no continuidad doctrinal automática."
+    },
+    {
+      "id": "NEW_AGE_RELIGION",
+      "label_es": "religión/New Age",
+      "definition": "Marco histórico-académico para estudiar síntesis metafísicas modernas, reencarnación, canalización y evolución espiritual.",
+      "primary_sources": [],
+      "academic_sources": [
+        "hanegraaff_new_age_religion_1996",
+        "granholm_sociology_esotericism"
+      ],
+      "not_equivalent_to": [
+        "WESTERN_ESOTERICISM_ALL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Contexto académico para usos contemporáneos."
     }
   ]
 }
