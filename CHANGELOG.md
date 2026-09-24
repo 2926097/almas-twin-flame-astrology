@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 — 2026-09-24
+
+- Añade estado temporal independiente para cada cláusula contractual.
+- Define LATENTE, ACTIVADA, EN_DESARROLLO, INTEGRADA, TRANSFORMADA, CERRADA y NO_EVALUABLE.
+- Impide asignar integración o cierre únicamente desde técnicas astrológicas o fechas futuras.
+- Exige hechos documentados y firmas preregistradas para integración, transformación y cierre.
+
 ## 1.1.0 — 2026-09-24
 
 - Integra el contrato álmico como módulo transversal de la única Skill ALMAS.
