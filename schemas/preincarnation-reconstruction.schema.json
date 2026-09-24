@@ -16,12 +16,13 @@
     "individual_tasks",
     "individual_tasks_differential",
     "common_task",
+    "common_task_differential",
     "clauses",
     "fulfillment_mechanisms"
   ],
   "properties": {
     "schema_version": {
-      "const": "1.5.0"
+      "const": "1.6.0"
     },
     "origin": {
       "$ref": "#/$defs/stage"
@@ -98,6 +99,9 @@
     },
     "individual_tasks_differential": {
       "$ref": "individual-tasks-differential.schema.json"
+    },
+    "common_task_differential": {
+      "$ref": "common-task-differential.schema.json"
     }
   },
   "$defs": {
