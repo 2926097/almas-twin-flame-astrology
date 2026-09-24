@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/contract-temporality-v2.schema.json",
+  "title": "ALMAS Contract Temporality v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "clauses"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "clause_id",
+          "structural_state",
+          "lifecycle_state",
+          "temporal_windows",
+          "anchored_root_refs",
+          "why_not_more_advanced"
+        ],
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "structural_state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "lifecycle_state": {
+            "enum": [
+              "LATENT",
+              "TRIGGERED",
+              "ACTIVE",
+              "RECURRING",
+              "INTEGRATING",
+              "EMBODIED",
+              "TRANSFORMED",
+              "CLOSED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "temporal_windows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "status",
+                "temporal_family",
+                "root_ref",
+                "date_or_period"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "RETROSPECTIVE_CONFIRMED",
+                    "RETROSPECTIVE_UNCONFIRMED",
+                    "CURRENT_ACTIVE",
+                    "PROSPECTIVE_ACTIVATION",
+                    "EXPLORATORY",
+                    "UNANCHORED"
+                  ]
+                },
+                "temporal_family": {
+                  "type": "string"
+                },
+                "root_ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "date_or_period": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "event_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "note": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "anchored_root_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fulfillment_signature": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "factual_match": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "counterevidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "why_not_more_advanced": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
