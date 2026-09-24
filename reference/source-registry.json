@@ -17,7 +17,13 @@
         "identity with modern twin-flame doctrine",
         "astrological diagnostic rules"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Classical Greek philosophy",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "brihadaranyaka_1_4_3",
@@ -38,7 +44,12 @@
       ],
       "translation_note": "Online translation used as locator; critical editions/translations should be preferred in formal scholarship.",
       "source_role": "DOCTRINAL_PRIMARY",
-      "verification_status": "NEEDS_CRITICAL_EDITION_LOCATOR"
+      "verification_status": "PARTIAL",
+      "tradition": "Upanishadic Hindu tradition",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "blavatsky_secret_doctrine_monads",
@@ -54,7 +65,13 @@
       "does_not_support": [
         "automatic equivalence between Theosophical Monad and a romantic twin-flame pair"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Theosophy",
+      "concepts": [
+        "MONAD"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "bailey_esoteric_psychology_soul",
@@ -70,7 +87,13 @@
       "does_not_support": [
         "automatic attribution of a canonical romantic twin-flame doctrine to Bailey"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Alice Bailey / Lucis Trust esotericism",
+      "concepts": [
+        "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "summit_lighthouse_soulmates_twin_flames",
@@ -86,7 +109,13 @@
         "scientific validation of the doctrine",
         "astrological proof that any specific pair belongs to the category"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "PENDING",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "summit_lighthouse_glossary_twin_flame",
@@ -103,7 +132,13 @@
         "historical priority over all earlier uses of twin-flame language",
         "astrological diagnostic criteria"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "PENDING",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "granholm_sociology_esotericism",
@@ -120,7 +155,13 @@
         "a specific twin-flame metaphysics",
         "astrological validation"
       ],
-      "source_role": "ACADEMIC_ANALYSIS"
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Academic study of Western esotericism",
+      "concepts": [
+        "NEW_AGE_RELIGION"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "kardec_spirits_book_choice_trials",
@@ -139,7 +180,13 @@
         "a bilateral romantic soul contract",
         "astrological extraction of contract clauses"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Spiritism",
+      "concepts": [
+        "PREINCARNATIONAL_CHOICE"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "zohar_lech_lecha_32_346_350",
@@ -156,7 +203,14 @@
         "identity with modern twin-flame doctrine",
         "an astrological contract-reading method"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Zoharic Kabbalah",
+      "concepts": [
+        "SOUL_PAIRING",
+        "ZIVUG"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "talmud_sotah_2a_9",
@@ -173,7 +227,14 @@
         "modern twin-flame astrology"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "verification_note": "Exact Sefaria locator corrected; passage concerns a heavenly proclamation before fetal formation and distinguishes first and second matches."
+      "verification_note": "Exact Sefaria locator corrected; passage concerns a heavenly proclamation before fetal formation and distinguishes first and second matches.",
+      "tradition": "Rabbinic Judaism / Babylonian Talmud",
+      "concepts": [
+        "PRENATAL_PAIRING",
+        "ZIVUG"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "kwilecki_soul_contract_theodicy_2014",
@@ -192,7 +253,15 @@
         "empirical proof that soul contracts exist",
         "astrological validation of a contract"
       ],
-      "source_role": "ACADEMIC_ANALYSIS"
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Academic study of New Age religion",
+      "concepts": [
+        "SOUL_CONTRACT",
+        "LIFE_BETWEEN_LIVES",
+        "SOUL_PLAN"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "stokke_spiritual_love_relations_2021",
@@ -212,7 +281,13 @@
         "objective verification of soulmate ontology",
         "twin-flame or soul-contract diagnostic criteria"
       ],
-      "source_role": "ACADEMIC_ANALYSIS"
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Academic study of contemporary spirituality",
+      "concepts": [
+        "SOULMATE_EXPERIENCE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use according to stated license: CC BY-NC-ND 4.0."
     },
     {
       "id": "crane_draconic_astrology_1987",
@@ -230,7 +305,13 @@
         "ancient origin of the modern draconic method",
         "literal proof of soul contracts"
       ],
-      "source_role": "IDENTIFIED_METHOD"
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Modern astrology",
+      "concepts": [
+        "DRACONIC_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "bailey_esoteric_astrology_1951",
@@ -246,7 +327,13 @@
         "a canonical soul-contract chart",
         "automatic twin-flame doctrine"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Alice Bailey / Lucis Trust esotericism",
+      "concepts": [
+        "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "prophet_twin_flames_qa_part1",
@@ -262,7 +349,13 @@
         "scientific validation",
         "astrological proof of a specific pair"
       ],
-      "source_role": "DOCTRINAL_PRIMARY"
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "PENDING",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "swedenborg_conjugial_love_1768",
@@ -287,7 +380,13 @@
         "reincarnational soul contracts",
         "modern twin-flame taxonomy",
         "astrological identification of a unique counterpart"
-      ]
+      ],
+      "tradition": "Swedenborgian Christianity",
+      "concepts": [
+        "CONJUGIAL_PAIRING"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "steiner_karmic_relationships_1924",
@@ -305,7 +404,13 @@
         "a standardized pre-birth bilateral contract schema",
         "modern twin-flame taxonomy",
         "ALMAS astrological scoring rules"
-      ]
+      ],
+      "tradition": "Anthroposophy",
+      "concepts": [
+        "KARMIC_RELATIONSHIP"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "wambach_life_before_life_1979",
@@ -323,7 +428,14 @@
       "does_not_support": [
         "independent empirical verification of pre-birth planning",
         "astrological extraction of specific soul-contract clauses"
-      ]
+      ],
+      "tradition": "Regression / pre-birth research literature",
+      "concepts": [
+        "LIFE_BETWEEN_LIVES",
+        "PREINCARNATIONAL_CHOICE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "whitton_fisher_life_between_life_1986",
@@ -341,7 +453,14 @@
       "does_not_support": [
         "scientific consensus that between-life memories are verified",
         "a unique romantic soul-contract ontology"
-      ]
+      ],
+      "tradition": "Regression / interlife literature",
+      "concepts": [
+        "LIFE_BETWEEN_LIVES",
+        "SOUL_PLAN"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "newton_journey_of_souls_1994",
@@ -358,7 +477,15 @@
       "does_not_support": [
         "independent empirical proof of soul groups or pre-birth plans",
         "astrological validation of a contract"
-      ]
+      ],
+      "tradition": "Life Between Lives regression",
+      "concepts": [
+        "LIFE_BETWEEN_LIVES",
+        "SOUL_GROUP",
+        "SOUL_PLAN"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "myss_sacred_contracts_2001",
@@ -377,7 +504,14 @@
       "does_not_support": [
         "reincarnational proof of a bilateral contract between a specific pair",
         "astrological diagnostic criteria"
-      ]
+      ],
+      "tradition": "Contemporary New Age / archetypal spirituality",
+      "concepts": [
+        "SACRED_CONTRACT",
+        "PREINCARNATIONAL_CHOICE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "schwartz_your_souls_plan_2009",
@@ -395,7 +529,14 @@
       "does_not_support": [
         "independent empirical proof that a specific event was planned before birth",
         "astrological verification"
-      ]
+      ],
+      "tradition": "Contemporary pre-birth planning literature",
+      "concepts": [
+        "SOUL_PLAN",
+        "PREINCARNATIONAL_CHOICE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "hanegraaff_new_age_religion_1996",
@@ -413,7 +554,13 @@
       "does_not_support": [
         "any specific twin-flame doctrine as historically continuous from antiquity",
         "astrological validation"
-      ]
+      ],
+      "tradition": "Academic study of Western esotericism/New Age",
+      "concepts": [
+        "NEW_AGE_RELIGION"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "corelli_romance_two_worlds_1886",
@@ -436,7 +583,13 @@
         "institutional doctrine",
         "historical priority over every possible earlier use without further corpus research",
         "astrological diagnostic criteria"
-      ]
+      ],
+      "tradition": "Victorian esoteric fiction",
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "theosophist_occultism_modern_literature_1887",
@@ -453,7 +606,13 @@
       "does_not_support": [
         "Theosophical endorsement of Corelli's twin-flame model",
         "proof that Theosophy originated the doctrine"
-      ]
+      ],
+      "tradition": "Theosophical historical reception",
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "mackay_twin_soul_1887",
@@ -470,7 +629,13 @@
       "does_not_support": [
         "settled sole authorship by Mackay",
         "doctrinal authority"
-      ]
+      ],
+      "tradition": "Victorian esoteric fiction",
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "dobson_turner_twin_souls_2025",
@@ -490,7 +655,13 @@
       "does_not_support": [
         "metaphysical truth of twin-soul doctrine",
         "astrological criteria"
-      ]
+      ],
+      "tradition": "Academic literary history",
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "vital_shaar_hagilgulim_1_soul_levels",
@@ -508,7 +679,13 @@
       "does_not_support": [
         "modern twin-flame terminology",
         "a literal pre-birth bilateral contract for every relationship"
-      ]
+      ],
+      "concepts": [
+        "SOUL_ROOT",
+        "GILGUL"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "vital_shaar_hagilgulim_8_reasons_for_return",
@@ -526,7 +703,14 @@
       "does_not_support": [
         "identity with modern twin-flame doctrine",
         "astrological proof that a specific pair is a bat zug"
-      ]
+      ],
+      "concepts": [
+        "GILGUL",
+        "TIKKUN",
+        "ZIVUG"
+      ],
+      "verification_status": "PARTIAL",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "vital_shaar_hagilgulim_20_zivug",
@@ -545,7 +729,13 @@
       "does_not_support": [
         "modern twin-flame taxonomy",
         "claim that every intense relationship is a reincarnated true pair"
-      ]
+      ],
+      "concepts": [
+        "GILGUL",
+        "ZIVUG"
+      ],
+      "verification_status": "PARTIAL",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "vital_shaar_hagilgulim_39_soul_roots",
@@ -564,7 +754,13 @@
       "does_not_support": [
         "a simple one-to-one equation between soul root and romantic twin flame",
         "astrological diagnostic rules"
-      ]
+      ],
+      "concepts": [
+        "SOUL_ROOT",
+        "GILGUL"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "vital_sefer_etz_chaim",
@@ -581,7 +777,13 @@
       "does_not_support": [
         "modern romantic twin-flame doctrine",
         "direct astrological classification of relationships"
-      ]
+      ],
+      "concepts": [
+        "TIKKUN",
+        "SOUL_ROOT"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "vital_pri_etz_chaim",
@@ -598,7 +800,13 @@
       "does_not_support": [
         "automatic mapping of divine partzufim onto a human romantic couple",
         "modern twin-flame diagnosis"
-      ]
+      ],
+      "concepts": [
+        "TIKKUN",
+        "ZIVUG"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "magid_life_of_soul_lurianic_gilgul",
@@ -616,7 +824,14 @@
       "does_not_support": [
         "modern twin-flame doctrine",
         "ALMAS astrological rules"
-      ]
+      ],
+      "tradition": "Academic study of Jewish reincarnation",
+      "concepts": [
+        "GILGUL",
+        "SOUL_ROOT"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     },
     {
       "id": "kardec_spirits_book_missions_572_573",
@@ -636,7 +851,12 @@
       "does_not_support": [
         "a fixed bilateral romantic contract for every relationship",
         "ALMAS astrological rules for assigning roles"
-      ]
+      ],
+      "concepts": [
+        "MISSION_PREINCARNATIONAL"
+      ],
+      "verification_status": "PENDING",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     },
     {
       "id": "summit_lighthouse_what_is_twin_flame",
@@ -655,7 +875,12 @@
       "does_not_support": [
         "astrological identification of a specific twin-flame pair",
         "equivalence with Lurianic zivug, Theosophical Monad, or Victorian literary twin-flame usage"
-      ]
+      ],
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
     }
   ],
   "registry_revision": "2026-09-24-origin-differential-1"
