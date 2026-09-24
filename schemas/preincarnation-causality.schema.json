@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/preincarnation-causality.schema.json",
+  "title": "ALMAS Preincarnation Causality",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "causes",
+    "global_alternatives",
+    "global_counterevidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "causes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "cause_id",
+          "direction",
+          "receptor_task_refs",
+          "activator_factors",
+          "independent_root_refs",
+          "specificity_level",
+          "cause_types",
+          "state",
+          "reason_not_higher"
+        ],
+        "properties": {
+          "cause_id": {
+            "type": "string"
+          },
+          "direction": {
+            "enum": [
+              "A_EN_B",
+              "B_EN_A",
+              "CAMPO_COMUN"
+            ]
+          },
+          "receptor_task_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "activator_factors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "geometry": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "independent_root_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "specificity_level": {
+            "enum": [
+              "C0_GENERIC",
+              "C1_TARGETED",
+              "C2_MULTIROOT",
+              "C3_PAIR_SPECIFIC_EMERGENT"
+            ]
+          },
+          "semantic_recurrence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "common_field_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ablation_survival": {
+            "type": "object"
+          },
+          "competing_explanations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "counterevidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "robustness": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "cause_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "reason_not_higher": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "global_alternatives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "global_counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
