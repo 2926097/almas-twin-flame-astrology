@@ -696,3 +696,37 @@ Niveles de determinación:
 Toda forma compartida requiere elección y hechos bilaterales. Reconocimiento, contrato u origen no sustituyen consentimiento.
 
 Referencia: `reference/contract-free-will.md`.
+
+
+## 45. Temporalidad contractual v2
+
+Toda cláusula separa:
+
+`ESTRUCTURA → ACTIVACION → DESARROLLO → INTEGRACION/TRANSFORMACION/CIERRE`.
+
+Estados de ciclo:
+
+- `LATENT`
+- `TRIGGERED`
+- `ACTIVE`
+- `RECURRING`
+- `INTEGRATING`
+- `EMBODIED`
+- `TRANSFORMED`
+- `CLOSED`
+- `NOT_EVALUABLE`
+
+Estados de ventana:
+
+- `RETROSPECTIVE_CONFIRMED`
+- `RETROSPECTIVE_UNCONFIRMED`
+- `CURRENT_ACTIVE`
+- `PROSPECTIVE_ACTIVATION`
+- `EXPLORATORY`
+- `UNANCHORED`
+
+Una ventana futura `PROSPECTIVE_ACTIVATION` no permite asignar `EMBODIED`, `TRANSFORMED` ni `CLOSED`.
+
+IAT mide activación de raíces preexistentes y no modifica IAP.
+
+Referencia: `reference/contract-temporality-v2.md`.
