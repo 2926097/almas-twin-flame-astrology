@@ -1,0 +1,150 @@
+{
+  "corpus_version": "1.0.0",
+  "purpose": "Trace literary and symbolic transmission of soul-pair, spiritual-affinity, fated-love, division/reunion and metaphysical relationship motifs without treating literature as doctrine.",
+  "rules": [
+    "Literary evidence may establish terminology, motifs, reception and genealogy.",
+    "Literary evidence does not by itself establish doctrine or metaphysical ontology.",
+    "A literary motif cannot create an astrological rule.",
+    "Direct textual evidence is preferred to summaries.",
+    "When authorship or dating is disputed, preserve the uncertainty explicitly."
+  ],
+  "works": [
+    {
+      "id": "plato_symposium_aristophanes_literary",
+      "author": "Plato",
+      "work": "Symposium",
+      "date_note": "4th century BCE",
+      "source_role": "PHILOSOPHICAL_LITERARY_ANTECEDENT",
+      "locator": "189c-193d",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "motifs": [
+        "division of an original whole",
+        "search for the lost half",
+        "recognition/reunion"
+      ],
+      "relevance": "Major ancient antecedent for later half-soul imagery.",
+      "caution": "The speech is a dramatic/philosophical myth within Plato's dialogue, not a modern twin-flame doctrine."
+    },
+    {
+      "id": "dante_vita_nuova_1294",
+      "author": "Dante Alighieri",
+      "work": "La Vita Nuova",
+      "date": "c.1294",
+      "source_role": "LITERARY_MYSTICAL_PRIMARY",
+      "url": "https://www.gutenberg.org/ebooks/41085",
+      "motifs": [
+        "recognition",
+        "idealized beloved",
+        "love as spiritual transformation",
+        "beloved as mediator toward divine reality"
+      ],
+      "relevance": "Important Western literary example of human love becoming a vehicle for spiritual ascent and transformation.",
+      "caution": "Beatrice should not be retrofitted automatically into soulmate, twin-flame or pre-birth-contract doctrine."
+    },
+    {
+      "id": "goethe_elective_affinities_1809",
+      "author": "Johann Wolfgang von Goethe",
+      "work": "Die Wahlverwandtschaften / Elective Affinities",
+      "date": "1809",
+      "source_role": "LITERARY_PRIMARY",
+      "url": "https://www.gutenberg.org/ebooks/10604",
+      "motifs": [
+        "affinity",
+        "attraction as quasi-natural law",
+        "conflict between social form and compelling bond"
+      ],
+      "relevance": "Influential literary metaphor for relational affinity using chemical attraction as an analogy.",
+      "caution": "It is not a reincarnation or soul-contract doctrine."
+    },
+    {
+      "id": "coleridge_soul_mate_1822",
+      "author": "Samuel Taylor Coleridge",
+      "work": "Letter to a Young Lady / later collected correspondence",
+      "date": "1822",
+      "source_role": "LEXICAL_LITERARY_HISTORY",
+      "secondary_locator": "https://www.etymonline.com/word/soulmate",
+      "motifs": [
+        "soul-mate",
+        "spiritual compatibility in marriage"
+      ],
+      "relevance": "Earliest widely cited English attestation of 'soul mate' currently identified in standard lexical histories.",
+      "verification_status": "PRIMARY_EDITION_LOCATOR_PENDING",
+      "caution": "Lexical coinage does not establish split-soul or reincarnational doctrine."
+    },
+    {
+      "id": "corelli_romance_two_worlds_1886_literary",
+      "author": "Marie Corelli",
+      "work": "A Romance of Two Worlds",
+      "date": "1886",
+      "source_role": "LITERARY_ESOTERIC_PRIMARY",
+      "url": "https://www.gutenberg.org/ebooks/4394",
+      "direct_text_markers": [
+        "Twin Flame",
+        "Twin-Flame",
+        "Twin-Flames",
+        "Twin Soul",
+        "half a flame that seeks the other half"
+      ],
+      "motifs": [
+        "dual soul",
+        "half-flame",
+        "spiritual counterpart",
+        "postmortem reunion",
+        "spiritual affinity"
+      ],
+      "relevance": "Major documented Victorian source for exact twin-flame and twin-soul vocabulary before twentieth-century institutionalized twin-flame teachings.",
+      "caution": "Treat as literary-esoteric transmission, not institutional doctrine; do not claim absolute first use without broader corpus proof."
+    },
+    {
+      "id": "mackay_twin_soul_1887_literary",
+      "author": "Charles Mackay (traditional attribution; possible Marie Corelli collaboration)",
+      "work": "The Twin Soul; or, The Strange Experiences of Mr. Rameses",
+      "date": "1887",
+      "source_role": "LITERARY_PRIMARY",
+      "url": "https://openlibrary.org/works/OL2987304W/The_twin_soul_or_The_strange_experiences_of_Mr._Rameses",
+      "motifs": [
+        "twin soul",
+        "Victorian occult romance",
+        "paired-soul vocabulary"
+      ],
+      "relevance": "Demonstrates explicit late-Victorian circulation of 'twin soul' as a literary title and motif.",
+      "authorship_note": "Dobson and Turner (2025) argue Mackay is likely the primary author but find evidence compatible with Corelli collaboration.",
+      "caution": "Authorship is not fully settled; literary circulation is the relevant fact."
+    }
+  ],
+  "research_queue": [
+    {
+      "area": "Sufi literary corpus",
+      "targets": [
+        "Rumi / Shams",
+        "Ibn Arabi love imagery"
+      ],
+      "requirement": "Use primary text plus academic commentary; separate divine-beloved mysticism from dyadic soulmate doctrine."
+    },
+    {
+      "area": "Christian mystical literature",
+      "targets": [
+        "Hadewijch",
+        "Mechthild of Magdeburg",
+        "John of the Cross",
+        "Teresa of Avila"
+      ],
+      "requirement": "Treat mystical marriage primarily as soul-God relation unless a text explicitly supports another structure."
+    },
+    {
+      "area": "Victorian occult fiction",
+      "targets": [
+        "Marie Corelli later novels",
+        "Theosophical and Spiritualist fiction"
+      ],
+      "requirement": "Trace terminology and reception, not doctrine by association."
+    },
+    {
+      "area": "Modern metaphysical fiction/nonfiction boundary",
+      "targets": [
+        "New Age novels and channelled literature"
+      ],
+      "requirement": "Classify clearly as fiction, emic teaching or identified method."
+    }
+  ]
+}
