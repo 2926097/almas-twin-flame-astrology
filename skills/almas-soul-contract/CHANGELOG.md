@@ -1,5 +1,16 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.2.0 — 2026-09-24
+
+- Añade motor diferencial del origen de las almas.
+- Define nueve modelos operativos de origen y una categoría explícita de origen compartido no diferenciado.
+- Separa firma doctrinal de evidencia astrológica.
+- Añade seis dimensiones astrológicas operativas: origen, especificidad diádica, continuidad, polaridad, tarea compartida y singularidad.
+- Añade registro de discriminadores doctrinales y astrológicos.
+- Impide que un subtipo de origen alcance SUPPORTED mientras sus discriminadores astrológicos sigan NOT_VALIDATED.
+- Integra el motor de origen en la reconstrucción preencarnatoria v1.1.0.
+
+
 ## 1.1.0 — 2026-09-24
 
 - Añade la reconstrucción preencarnatoria en ocho etapas.
