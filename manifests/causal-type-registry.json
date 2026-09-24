@@ -1,0 +1,115 @@
+{
+  "registry_version": "1.0.0",
+  "types": [
+    {
+      "id": "CAUSA_DE_RECONOCIMIENTO",
+      "function": "reactivate familiarity/continuity already present",
+      "allowed_axes": [
+        "HISTORY_CONTINUITY",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_CATALISIS",
+      "function": "accelerate reorganization of a pre-existing structure",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_CONFRONTACION",
+      "function": "force previously separated principles into one experience",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_ENCARNACION",
+      "function": "bring ideal/transpersonal content into form, limit and responsibility",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_RECIPROCIDAD",
+      "function": "activate mutuality, alterity, balance or bilateral choice",
+      "allowed_axes": [
+        "FUNCTION",
+        "RECIPROCITY",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_VERDAD",
+      "function": "force articulation of ambiguity, silence or differentiated meaning",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_INTEGRACION",
+      "function": "connect principles previously operating separately",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_LIBERACION",
+      "function": "make an exhausted form or defense available for change",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    },
+    {
+      "id": "CAUSA_DE_TIKKUN",
+      "function": "rectification-oriented interpretation under an explicit tikkun framework",
+      "allowed_axes": [
+        "HISTORY_CONTINUITY",
+        "FUNCTION"
+      ],
+      "source_concept_required": "TIKKUN"
+    },
+    {
+      "id": "CAUSA_DE_MISION",
+      "function": "activate service or mission beyond the dyad",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ],
+      "source_concept_required": "MISSION_PREINCARNATIONAL"
+    },
+    {
+      "id": "CAUSA_INDETERMINADA",
+      "function": "causal function cannot be discriminated",
+      "allowed_axes": [
+        "FUNCTION",
+        "PREINCARNATION_CONTRACT"
+      ]
+    }
+  ],
+  "specificity_levels": [
+    {
+      "id": "C0_GENERIC",
+      "max_state": "INSUFFICIENT"
+    },
+    {
+      "id": "C1_TARGETED",
+      "max_state": "COMPATIBLE"
+    },
+    {
+      "id": "C2_MULTIROOT",
+      "max_state": "SUPPORTED_IF_GATES_PASS"
+    },
+    {
+      "id": "C3_PAIR_SPECIFIC_EMERGENT",
+      "max_state": "SUPPORTED_IF_GATES_PASS",
+      "note": "Does not imply unique ontological pair."
+    }
+  ]
+}
