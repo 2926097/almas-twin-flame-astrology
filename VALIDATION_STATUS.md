@@ -17,9 +17,10 @@ Current public layers:
 | Public static contract validator | Published; CI enabled |
 | Deterministic pillar/IEM/IDD/IRC scoring core | Published; unit-tested |
 | Precomputed-pillar CLI | Published; unit-tested |
-| ALMAS Soul Contract skill | Published; independent v1.1.0 |
+| ALMAS Soul Contract skill | Published; independent v1.2.0 |
 | Astrology→Soul Contract bridge | Published; contract v1.0.0 |
-| Preincarnation reconstruction | Published; eight-stage schema v1.0.0 |
+| Preincarnation reconstruction | Published; eight-stage schema v1.1.0 |
+| Soul-origin differential engine | Published; model registry/schema v1.0.0 |
 | Synthetic examples | Published |
 | Private/non-public case analyses | Excluded |
 | Public sourced case studies | Permitted outside the synthetic validation corpus |
