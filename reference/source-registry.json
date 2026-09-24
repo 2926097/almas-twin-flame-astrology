@@ -637,7 +637,26 @@
         "a fixed bilateral romantic contract for every relationship",
         "ALMAS astrological rules for assigning roles"
       ]
+    },
+    {
+      "id": "summit_lighthouse_what_is_twin_flame",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "author": "The Summit Lighthouse",
+      "work": "What Is a Twin Flame?",
+      "url": "https://summitlighthouse.org/what-is-a-twin-flame/",
+      "supports": [
+        "explicit doctrine that twin flames originate from the same original white-fire ovoid",
+        "explicit doctrine of two counterpart spirit spheres and masculine/feminine polarity",
+        "explicit claim that the pair shares a unique electronic blueprint",
+        "doctrinal basis for a pair-specific origin model distinct from generic affinity"
+      ],
+      "does_not_support": [
+        "astrological identification of a specific twin-flame pair",
+        "equivalence with Lurianic zivug, Theosophical Monad, or Victorian literary twin-flame usage"
+      ]
     }
   ],
-  "registry_revision": "2026-09-24-preincarnation-reconstruction-1"
+  "registry_revision": "2026-09-24-origin-differential-1"
 }
