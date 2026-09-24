@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.8.4 — 2026-09-24
+
+### Fase 12 · Hechos y biografía documental — completada
+- Añade ledger documental separado de la arquitectura simbólica.
+- Impone análisis estructural congelado antes de incorporar acontecimientos.
+- Separa hecho verificable de interpretación.
+- Define calidad documental DQ1–DQ5.
+- Permite que los hechos corroboren activación, cumplimiento, contraevidencia, viabilidad o reciprocidad, pero no creen raíces/cláusulas retrospectivamente.
+- Añade privacidad, correcciones trazables, esquema, fixture sintético y tests.
+
 ## 1.8.3 — 2026-09-24
 
 ### Fase 11 · Temporalidad contractual — completada
