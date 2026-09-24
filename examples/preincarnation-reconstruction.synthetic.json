@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "origin": {
     "state": "INSUFFICIENT",
     "hypotheses": [
@@ -77,7 +77,7 @@
         "counterevidence": []
       }
     ],
-    "selection": "APRENDIZAJE_MUTUO+TIKKUN_DEL_OTRO",
+    "selection": "M_APRENDIZAJE_MUTUO+M_TIKKUN_DEL_OTRO",
     "astrology_roots": [
       "root_syn_003",
       "root_syn_004"
@@ -93,7 +93,8 @@
       "CATALISIS_TRANSFORMACION"
     ],
     "counterevidence": [],
-    "robustness": 78
+    "robustness": 78,
+    "hermeneutic_note": "Synthetic summary. Detailed motive resolution is stored in agreement_motive_differential."
   },
   "role_selection": {
     "state": "COMPATIBLE",
@@ -476,5 +477,132 @@
       "A_UNIQUE_DYADIC_ORIGIN"
     ],
     "why_not_more_specific": "The synthetic fixture reaches O2 because continuity and shared-root architecture are strong, but no validated A_* discriminator establishes a unique dyadic ontology or separates related roots, zivug and twin-flame models."
+  },
+  "agreement_motive_differential": {
+    "schema_version": "1.0.0",
+    "resolution_level": "M2_DIRECTION_SCOPE",
+    "overall_state": "COMPATIBLE",
+    "primary_motives": [
+      "M_APRENDIZAJE_MUTUO",
+      "M_TIKKUN_DEL_OTRO"
+    ],
+    "secondary_motives": [
+      "M_CATALISIS_TRANSFORMACION"
+    ],
+    "motives": [
+      {
+        "id": "M_APRENDIZAJE_MUTUO",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_task_A_01",
+          "root_task_B_01",
+          "root_rel_02"
+        ],
+        "coverage": 90,
+        "robustness": 82,
+        "r_min": 0.71,
+        "doctrinal_sources": [
+          "myss_sacred_contracts_2001",
+          "schwartz_your_souls_plan_2009"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": "The functional motive is well supported, but the prebirth mechanism cannot be uniquely attributed."
+      },
+      {
+        "id": "M_TIKKUN_DEL_OTRO",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_task_B_01",
+          "root_AactivatesB_03"
+        ],
+        "coverage": 86,
+        "robustness": 78,
+        "r_min": 0.65,
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": "AM5_TIKKUN_SELF_VS_OTHER is not validated strongly enough for a unique ontological attribution."
+      },
+      {
+        "id": "M_CATALISIS_TRANSFORMACION",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "priority": "SECONDARY",
+        "independent_roots": [
+          "root_transform_04"
+        ],
+        "coverage": 84,
+        "robustness": 80,
+        "r_min": 0.69,
+        "doctrinal_sources": [],
+        "counterevidence": [],
+        "reason_not_higher": "Catalysis explains activation intensity but not the full contract architecture."
+      }
+    ],
+    "evidence_families": [
+      "MF1_TAREA_PREVIA",
+      "MF2_ADECUACION_DEL_ACTIVADOR",
+      "MF3_RECIPROCIDAD",
+      "MF4_CAMPO_COMUN",
+      "MF5_REPETICION_RECTIFICATORIA"
+    ],
+    "discriminators": [
+      {
+        "id": "AM1_REPAIR_VS_LEARNING",
+        "status": "OPERATIONAL",
+        "result": "BOTH_PRESENT"
+      },
+      {
+        "id": "AM3_INDIVIDUAL_VS_COMMON",
+        "status": "OPERATIONAL",
+        "result": "BOTH_INDIVIDUAL_AND_COMMON"
+      },
+      {
+        "id": "AM5_TIKKUN_SELF_VS_OTHER",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "AM7_MUTUAL_AGREEMENT",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "doctrinal_mechanisms": [
+      {
+        "id": "ELEGIDA",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "myss_sacred_contracts_2001"
+        ]
+      },
+      {
+        "id": "KARMICAMENTE_NECESARIA",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ]
+      },
+      {
+        "id": "ACORDADA_MUTUAMENTE",
+        "state": "INSUFFICIENT",
+        "source_ids": [
+          "schwartz_your_souls_plan_2009"
+        ]
+      }
+    ],
+    "competing_explanations": [
+      "M_CATALISIS_TRANSFORMACION_ONLY",
+      "NON_CONTRACTUAL_EVOLUTIONARY_LEARNING"
+    ],
+    "counterevidence": [],
+    "robustness": 80,
+    "why_primary": "The synthetic architecture contains prior individual tasks, bilateral activation and a recurrent repair/learning field.",
+    "why_not_more_specific": "No validated astrological discriminator establishes whether the prebirth mechanism was mutual agreement, individual choice, karmic necessity or another doctrinally possible mechanism."
   }
 }
