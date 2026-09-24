@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.4.0
+version: 1.5.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.4.0
+# ALMAS Soul Contract · Contrato Álmico v1.5.0
 
 ## 0. Paradigma
 
@@ -435,3 +435,21 @@ El motor separa:
 Un rol funcional fuerte no eleva automáticamente a SUPPORTED el mecanismo por el que ese rol fue asumido antes de encarnar.
 
 RSD5_REQUESTED_VS_MUTUAL, RSD6_KARMIC_VS_VOLUNTARY y RSD8_UNIQUE_ROLE permanecen NOT_VALIDATED.
+
+
+## 20. Motor diferencial de condiciones de encuentro
+
+La etapa CONDICIONES_DE_ENCUENTRO debe ejecutarse mediante:
+
+- reference/encounter-conditions-differential.md
+- manifests/encounter-conditions-registry.json
+- schemas/encounter-conditions-differential.schema.json
+- tests/ENCOUNTER_CONDITIONS_INVARIANTS.md
+
+La salida FULL debe incluir encounter_conditions_differential.
+
+Una condición sólo es contractual cuando enlaza una raíz estructural previa con una activación y un contexto trazables.
+
+Una coincidencia temporal, geográfica o subjetiva sin anclaje estructural no crea condición de encuentro.
+
+ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL, ECD6_UNIQUE_EVENT_VS_ALTERNATIVE_PATH, ECD7_GEOGRAPHIC_NECESSITY y ECD8_FREE_WILL_BRANCH permanecen NOT_VALIDATED.
