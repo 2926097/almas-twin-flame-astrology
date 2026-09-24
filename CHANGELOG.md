@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.4.0 — 2026-09-24
+
+### Fase 0 · Arquitectura congelada
+- Consolida ALMAS como **una única skill pública modular**.
+- Convierte el antiguo Soul Contract en módulo interno y conserva su 1.9.0 sólo como `engine_revision`.
+- Establece `VERSION` como único SemVer público.
+- Añade `manifests/almas-module-manifest.json` y `docs/MODULE_ARCHITECTURE.md`.
+- Convierte `docs/DUAL_ENGINE_ARCHITECTURE.md` en nota histórica de compatibilidad.
+- Añade invariantes CI para impedir que reaparezca la arquitectura dual.
+
+### Fase 1 · Fuentes y genealogía — iniciada
+- Formaliza `schemas/source-registry.schema.json`.
+- Añade `reference/concept-registry.json`.
+- Añade `reference/doctrinal-genealogy.json`.
+- Añade `docs/SOURCE_INTEGRATION_PLAN.md` y `docs/SOURCE_GAPS.md`.
+- El registro contiene 36 fuentes en el punto de partida de esta fase.
+- Establece que una fuente define significado/procedencia/límites pero no añade puntuación astrológica por su mera existencia.
+
 ## 1.3.1 — 2026-09-24
 
 - Soul Contract alcanza **v1.9.0** como subskill independiente, con motores reproducibles para las ocho etapas de reconstrucción preencarnatoria.
