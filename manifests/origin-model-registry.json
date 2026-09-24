@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "models": [
     {
       "id": "INDEPENDENT_SOULS",
@@ -8,7 +8,8 @@
         "origin_relation": "independent"
       },
       "pair_uniqueness": "not_required",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O1_CONTINUITY"
     },
     {
       "id": "SOUL_FAMILY_GROUP",
@@ -21,7 +22,8 @@
       "astrological_discriminator_status": "NOT_VALIDATED",
       "source_ids": [
         "newton_journey_of_souls_1994"
-      ]
+      ],
+      "max_resolution_claim": "O2_ROOT_FAMILY"
     },
     {
       "id": "RELATED_SOUL_ROOTS",
@@ -33,7 +35,8 @@
         "origin_relation": "related_root"
       },
       "pair_uniqueness": "not_required",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O2_ROOT_FAMILY"
     },
     {
       "id": "ZIVUG_TRUE_PAIR",
@@ -48,7 +51,8 @@
         "reincarnation_continuity": "explicit_or_possible"
       },
       "pair_uniqueness": "source_specific",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O2_ROOT_FAMILY"
     },
     {
       "id": "SHARED_ORIGIN_UNDIFFERENTIATED",
@@ -57,7 +61,8 @@
         "origin_relation": "shared_or_related_unresolved"
       },
       "pair_uniqueness": "unresolved",
-      "astrological_discriminator_status": "FALLBACK"
+      "astrological_discriminator_status": "FALLBACK",
+      "max_resolution_claim": "O2_ROOT_FAMILY"
     },
     {
       "id": "MONADIC_COMMON_SOURCE",
@@ -69,7 +74,8 @@
         "origin_relation": "common_monadic_source"
       },
       "pair_uniqueness": "not_established_by_primary_source",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O2_ROOT_FAMILY"
     },
     {
       "id": "SPLIT_SOUL",
@@ -82,7 +88,8 @@
         "origin_relation": "division_of_one"
       },
       "pair_uniqueness": "model_dependent",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O3_UNIQUE_DYADIC"
     },
     {
       "id": "TWIN_SOUL",
@@ -97,7 +104,8 @@
         "origin_relation": "paired_or_dual"
       },
       "pair_uniqueness": "model_dependent",
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O3_UNIQUE_DYADIC"
     },
     {
       "id": "TWIN_FLAME_MODEL",
@@ -115,7 +123,8 @@
         "shared_blueprint": "explicit",
         "shared_task": "explicit"
       },
-      "astrological_discriminator_status": "NOT_VALIDATED"
+      "astrological_discriminator_status": "NOT_VALIDATED",
+      "max_resolution_claim": "O3_UNIQUE_DYADIC"
     }
   ],
   "discriminators": [
@@ -165,24 +174,52 @@
       "status": "DOCUMENTED"
     },
     {
+      "id": "A_CONTINUITY_VS_NEW",
+      "kind": "ASTROLOGICAL",
+      "status": "OPERATIONAL",
+      "resolution_level": "O1_CONTINUITY"
+    },
+    {
+      "id": "A_GROUP_VS_RELATED_ROOT",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O2_ROOT_FAMILY"
+    },
+    {
       "id": "A_RELATED_ROOT_VS_ZIVUG",
       "kind": "ASTROLOGICAL",
-      "status": "NOT_VALIDATED"
-    },
-    {
-      "id": "A_MONADIC_VS_SPLIT_SOUL",
-      "kind": "ASTROLOGICAL",
-      "status": "NOT_VALIDATED"
-    },
-    {
-      "id": "A_TWIN_SOUL_VS_TWIN_FLAME",
-      "kind": "ASTROLOGICAL",
-      "status": "NOT_VALIDATED"
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O2_ROOT_FAMILY"
     },
     {
       "id": "A_ZIVUG_VS_TWIN_FLAME",
       "kind": "ASTROLOGICAL",
-      "status": "NOT_VALIDATED"
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_SPLIT_SOUL_VS_TWIN_FLAME",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_MONADIC_VS_SHARED_ROOT",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_TWIN_SOUL_VS_TWIN_FLAME",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "A_UNIQUE_DYADIC_ORIGIN",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED",
+      "resolution_level": "O3_UNIQUE_DYADIC"
     }
   ]
 }
