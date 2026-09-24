@@ -32,7 +32,7 @@ class TestAnalyzePrecomputed(unittest.TestCase):
                 },
             }
         )
-        self.assertEqual(result["public_version"], "1.4.0")
+        self.assertEqual(result["public_version"], "1.5.0")
         self.assertEqual(set(result["models"]), {"AF", "KA", "AG", "LG"})
         self.assertIn("AG_vs_LG", result["pairwise_idd"])
         self.assertIsInstance(result["models"]["AG"]["iem_final"], float)
