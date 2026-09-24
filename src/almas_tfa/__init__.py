@@ -1,5 +1,6 @@
 """Public ALMAS Twin-Flame Astrology scoring core."""
 
+from .analysis import analyze_precomputed
 from .core import (
     MODEL_PILLARS,
     SUPPORTED_THRESHOLDS,
@@ -16,6 +17,7 @@ from .core import (
 )
 
 __all__ = [
+    "analyze_precomputed",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
