@@ -30,6 +30,16 @@ No usar una fase posterior para fabricar retrospectivamente la anterior.
 
 ## 3. Etapa 1 · Origen de las almas
 
+### Motor diferencial del origen
+
+Esta etapa se resuelve mediante `reference/origin-differential.md` y `manifests/origin-model-registry.json`.
+
+La reconstrucción FULL debe conservar tanto la síntesis `origin` como el objeto estructurado `origin_differential`.
+
+Si varios modelos sobreviven sin discriminador astrológico validado, la síntesis utiliza `SHARED_ORIGIN_UNDIFFERENTIATED` y mantiene los modelos compatibles sin forzar una elección.
+
+
+
 Pregunta:
 
 **¿Qué relación ontológica previa es más compatible con la arquitectura disponible?**
