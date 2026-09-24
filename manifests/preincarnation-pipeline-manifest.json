@@ -271,5 +271,20 @@
       "temporal_windows",
       "factual_match"
     ]
+  },
+  "documentary_event_layer": {
+    "version": "1.0.0",
+    "reference": "reference/documentary-events.md",
+    "schema": "schemas/documentary-event-ledger.schema.json",
+    "invariants": "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
+    "synthetic_example": "examples/documentary-event-ledger.synthetic.json",
+    "order_rule": "Runs only after structural analysis freeze.",
+    "feeds": [
+      "contract_temporality",
+      "FULFILLMENT_MECHANISMS",
+      "REAL_VIABILITY",
+      "RECIPROCITY",
+      "counterevidence"
+    ]
   }
 }
