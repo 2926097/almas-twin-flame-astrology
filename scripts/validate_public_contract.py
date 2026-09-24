@@ -27,17 +27,20 @@ REQUIRED_FILES = [
     "schemas/preincarnation-reconstruction.schema.json",
     "schemas/origin-differential.schema.json",
     "schemas/agreement-motive-differential.schema.json",
+    "schemas/role-selection-differential.schema.json",
     "manifests/module-manifest.json",
     "manifests/differential-discriminator-registry.json",
     "manifests/origin-model-registry.json",
     "manifests/origin-discriminator-registry.json",
     "manifests/agreement-motive-registry.json",
+    "manifests/role-selection-registry.json",
     "reference/source-registry.json",
     "reference/contrato-almico.md",
     "reference/preincarnation-source-map.json",
     "reference/preincarnation-reconstruction.md",
     "reference/origin-differential.md",
     "reference/agreement-motive-differential.md",
+    "reference/role-selection-differential.md",
     "reference/roles-preencarnatorios.md",
     "skills/almas-soul-contract/SKILL.md",
     "skills/almas-soul-contract/VERSION",
@@ -50,6 +53,7 @@ REQUIRED_FILES = [
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
     "tests/AGREEMENT_MOTIVE_INVARIANTS.md",
+    "tests/ROLE_SELECTION_INVARIANTS.md",
     "reference/causa-contractual.md",
     "tests/CAUSA_CONTRACTUAL_INVARIANTS.md",
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
@@ -60,6 +64,7 @@ REQUIRED_FILES = [
     "examples/preincarnation-reconstruction.synthetic.json",
     "examples/origin-differential.synthetic.json",
     "examples/agreement-motive.synthetic.json",
+    "examples/role-selection.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -135,11 +140,11 @@ def main() -> int:
 
     soul_skill = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     soul_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
-    if soul_version != "1.3.0":
+    if soul_version != "1.4.0":
         fail(f"unexpected soul-contract VERSION: {soul_version}")
     for needle in [
         "name: almas-soul-contract",
-        "version: 1.3.0",
+        "version: 1.4.0",
         "ALMAS Soul Contract",
         "método metafísico",
         "A_EN_B",
@@ -162,6 +167,9 @@ def main() -> int:
     agreement_motive_schema = load_json("schemas/agreement-motive-differential.schema.json")
     agreement_motive_registry = load_json("manifests/agreement-motive-registry.json")
     agreement_motive_example = load_json("examples/agreement-motive.synthetic.json")
+    role_selection_schema = load_json("schemas/role-selection-differential.schema.json")
+    role_selection_registry = load_json("manifests/role-selection-registry.json")
+    role_selection_example = load_json("examples/role-selection.synthetic.json")
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
@@ -179,8 +187,8 @@ def main() -> int:
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
 
-    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.2.0":
-        fail("preincarnation reconstruction schema must expose schema_version 1.2.0")
+    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.3.0":
+        fail("preincarnation reconstruction schema must expose schema_version 1.3.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
@@ -219,8 +227,8 @@ def main() -> int:
                 if source_id not in source_ids:
                     fail(f"unknown source id in {stage_name}: {source_id}")
 
-    if preincarnation_example.get("schema_version") != "1.2.0":
-        fail("synthetic preincarnation example must use schema_version 1.2.0")
+    if preincarnation_example.get("schema_version") != "1.3.0":
+        fail("synthetic preincarnation example must use schema_version 1.3.0")
 
     required_example_keys = {
         "origin",
@@ -240,6 +248,9 @@ def main() -> int:
 
     if agreement_motive_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("agreement motive schema must expose schema_version 1.0.0")
+
+    if role_selection_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
+        fail("role selection schema must expose schema_version 1.0.0")
 
     expected_origin_models = {
         "INDEPENDENT_SOULS",
@@ -349,6 +360,34 @@ def main() -> int:
 
     if agreement_motive_example.get("schema_version") != "1.0.0":
         fail("synthetic agreement motive example must use schema_version 1.0.0")
+
+    expected_role_ids = {
+        "ACTIVADOR","CATALIZADOR","ESPEJO","MEMORIA","ESTRUCTURADOR","LIBERADOR",
+        "CONFRONTADOR","PORTADOR_DE_VULNERABILIDAD","INTEGRADOR","MEDIADOR","TESTIGO",
+        "COMPANERO_DE_APRENDIZAJE"
+    }
+    if set(role_selection_registry.get("roles", [])) != expected_role_ids:
+        fail("role selection registry diverges from canonical role set")
+
+    for mechanism in role_selection_registry.get("mechanisms", []):
+        for source_id in mechanism.get("source_ids", []):
+            if source_id not in source_ids:
+                fail(f"unknown source id in role-selection mechanism {mechanism.get('id')}: {source_id}")
+
+    rsd_ids = {d.get("id") for d in role_selection_registry.get("discriminators", [])}
+    expected_rsd_ids = {f"RSD{i}_{suffix}" for i, suffix in [
+        (1,"ROLE_VS_TRAIT"),(2,"DIRECTION"),(3,"PRIMARY_VS_SECONDARY"),
+        (4,"INDIVIDUAL_VS_COMMON_FIELD"),(5,"REQUESTED_VS_MUTUAL"),
+        (6,"KARMIC_VS_VOLUNTARY"),(7,"FIXED_VS_PHASE_DEPENDENT"),(8,"UNIQUE_ROLE")
+    ]}
+    if rsd_ids != expected_rsd_ids:
+        fail("role selection registry must contain canonical RSD1-RSD8 discriminators")
+
+    if role_selection_example.get("schema_version") != "1.0.0":
+        fail("synthetic role-selection example must use schema_version 1.0.0")
+    for role in role_selection_example.get("roles", []):
+        if role.get("id") not in expected_role_ids:
+            fail(f"unknown role in synthetic role-selection example: {role.get('id')}")
     if not set(agreement_motive_example.get("primary_motives", [])).issubset(expected_motive_ids):
         fail("synthetic agreement motive example contains unknown primary motive")
     if "agreement_motive_differential" not in preincarnation_example:
@@ -365,6 +404,14 @@ def main() -> int:
         fail("embedded agreement motive differential diverges from standalone synthetic example")
     if embedded_motive.get("why_not_more_specific") != agreement_motive_example.get("why_not_more_specific"):
         fail("embedded motive explanation diverges from standalone synthetic example")
+
+    if "role_selection_differential" not in preincarnation_example:
+        fail("synthetic preincarnation example must embed role_selection_differential")
+    embedded_roles = preincarnation_example.get("role_selection_differential", {})
+    if embedded_roles.get("primary_roles") != role_selection_example.get("primary_roles"):
+        fail("embedded role-selection differential diverges from standalone synthetic example")
+    if embedded_roles.get("why_not_more_specific") != role_selection_example.get("why_not_more_specific"):
+        fail("embedded role-selection explanation diverges from standalone synthetic example")
 
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
