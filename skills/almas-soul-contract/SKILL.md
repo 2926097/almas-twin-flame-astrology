@@ -171,6 +171,29 @@ Intensidad:
 - `INSUFICIENTE`
 - `NO_EVALUABLE`
 
+## 8.1. Causa contractual
+
+La **causa contractual** pregunta por qué una persona encaja metafísicamente como activador de una tarea que la otra ya trae antes del encuentro.
+
+Cadena mínima:
+
+`TAREA_PREVIA_RECEPTOR → FACTOR_ACTIVADOR_DEL_OTRO → ENCAJE_GEOMETRICO → RECURRENCIA → FUNCION_CONTRACTUAL → CAMPO_COMUN`
+
+La tarea previa se identifica primero desde la arquitectura individual del receptor. Después se evalúa el encaje del otro. Este orden evita construir retrospectivamente la tarea sólo porque existe un aspecto sinástrico.
+
+Tipos iniciales:
+
+- CAUSA_DE_RECONOCIMIENTO
+- CAUSA_DE_CATALISIS
+- CAUSA_DE_CONFRONTACION
+- CAUSA_DE_ENCARNACION
+- CAUSA_DE_RECIPROCIDAD
+- CAUSA_DE_VERDAD
+- CAUSA_DE_INTEGRACION
+- CAUSA_DE_LIBERACION
+
+Referencia normativa: `reference/causa-contractual.md`.
+
 ## 8. Preexistencia y origen
 
 El contrato puede investigar, sin forzar equivalencias doctrinales:
