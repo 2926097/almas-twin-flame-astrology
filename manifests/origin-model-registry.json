@@ -1,0 +1,184 @@
+{
+  "registry_version": "1.0.0",
+  "models": [
+    {
+      "id": "INDEPENDENT_SOULS",
+      "source_class": "ALMAS_BASELINE",
+      "essential_signature": {
+        "origin_relation": "independent"
+      },
+      "pair_uniqueness": "not_required",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "SOUL_FAMILY_GROUP",
+      "source_class": "CONTEMPORARY_COMPARATIVE",
+      "essential_signature": {
+        "scope": "group",
+        "origin_relation": "related_or_common"
+      },
+      "pair_uniqueness": "not_required",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "RELATED_SOUL_ROOTS",
+      "source_class": "DOCTRINAL_COMPARATIVE",
+      "source_ids": [
+        "vital_shaar_hagilgulim_39_soul_roots"
+      ],
+      "essential_signature": {
+        "origin_relation": "related_root"
+      },
+      "pair_uniqueness": "not_required",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "ZIVUG_TRUE_PAIR",
+      "source_class": "DOCTRINAL_PRIMARY",
+      "source_ids": [
+        "vital_shaar_hagilgulim_20_zivug",
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "essential_signature": {
+        "scope": "pair",
+        "preincarnational_pairing": "explicit",
+        "reincarnation_continuity": "explicit_or_possible"
+      },
+      "pair_uniqueness": "source_specific",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "SHARED_ORIGIN_UNDIFFERENTIATED",
+      "source_class": "ALMAS_PROJECT_HYPOTHESIS",
+      "essential_signature": {
+        "origin_relation": "shared_or_related_unresolved"
+      },
+      "pair_uniqueness": "unresolved",
+      "astrological_discriminator_status": "FALLBACK"
+    },
+    {
+      "id": "MONADIC_COMMON_SOURCE",
+      "source_class": "COMPARATIVE_PROJECT_MODEL",
+      "source_ids": [
+        "blavatsky_secret_doctrine_monads"
+      ],
+      "essential_signature": {
+        "origin_relation": "common_monadic_source"
+      },
+      "pair_uniqueness": "not_established_by_primary_source",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "SPLIT_SOUL",
+      "source_class": "LITERARY_COMPARATIVE",
+      "source_ids": [
+        "plato_symposium_aristophanes",
+        "corelli_romance_two_worlds_1886"
+      ],
+      "essential_signature": {
+        "origin_relation": "division_of_one"
+      },
+      "pair_uniqueness": "model_dependent",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "TWIN_SOUL",
+      "source_class": "LITERARY_ESOTERIC_GENEALOGY",
+      "source_ids": [
+        "corelli_romance_two_worlds_1886",
+        "mackay_twin_soul_1887",
+        "dobson_turner_twin_souls_2025"
+      ],
+      "essential_signature": {
+        "scope": "pair",
+        "origin_relation": "paired_or_dual"
+      },
+      "pair_uniqueness": "model_dependent",
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "TWIN_FLAME_MODEL",
+      "source_class": "DOCTRINAL_PRIMARY_MODERN",
+      "source_ids": [
+        "summit_lighthouse_soulmates_twin_flames",
+        "summit_lighthouse_glossary_twin_flame"
+      ],
+      "essential_signature": {
+        "scope": "pair",
+        "origin_relation": "same_white_fire_ovoid",
+        "pair_uniqueness": "exclusive",
+        "polarity": "masculine_feminine",
+        "shared_blueprint": "explicit",
+        "shared_task": "explicit"
+      },
+      "astrological_discriminator_status": "NOT_VALIDATED"
+    }
+  ],
+  "discriminators": [
+    {
+      "id": "D_PAIR_UNIQUENESS",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_DIVISION_OF_ONE",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_SHARED_ROOT",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_PREBIRTH_PAIRING",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_REINCARNATION_RETURN",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_UNIQUE_BLUEPRINT",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_POLARITY_PAIR",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_SHARED_MISSION",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_TIKKUN",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "A_RELATED_ROOT_VS_ZIVUG",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "A_MONADIC_VS_SPLIT_SOUL",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "A_TWIN_SOUL_VS_TWIN_FLAME",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "A_ZIVUG_VS_TWIN_FLAME",
+      "kind": "ASTROLOGICAL",
+      "status": "NOT_VALIDATED"
+    }
+  ]
+}
