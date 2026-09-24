@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_public_version": "1.8.0",
+  "almas_public_version": "1.8.3",
   "architecture": "single_skill_modular",
   "root_skill": {
     "id": "almas-twin-flame-astrology",
