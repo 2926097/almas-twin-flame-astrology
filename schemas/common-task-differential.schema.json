@@ -1,0 +1,45 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "$id":"https://example.invalid/almas/common-task-differential.schema.json",
+ "title":"ALMAS Common Task Differential",
+ "type":"object",
+ "required":["schema_version","overall_state","primary_common_tasks","secondary_common_tasks","tasks","evidence_families","discriminators","competing_explanations","counterevidence","why_not_more_specific"],
+ "properties":{
+  "schema_version":{"const":"1.0.0"},
+  "overall_state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
+  "primary_common_tasks":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+  "secondary_common_tasks":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+  "tasks":{
+   "type":"array",
+   "items":{
+    "type":"object",
+    "required":["id","state","independent_roots","emergence_test","reason_not_higher"],
+    "properties":{
+     "id":{"type":"string"},
+     "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
+     "priority":{"enum":["PRIMARY","SECONDARY","CORROBORATIVE","INSUFFICIENT","NO_EVALUABLE"]},
+     "independent_roots":{"type":"array","items":{"type":"string"}},
+     "emergence_test":{"enum":["PASSED","PARTIAL","FAILED","NOT_EVALUABLE"]},
+     "coverage":{"type":["number","null"],"minimum":0,"maximum":100},
+     "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
+     "r_min":{"type":["number","null"],"minimum":0,"maximum":1},
+     "doctrinal_sources":{"type":"array","items":{"type":"string"}},
+     "counterevidence":{"type":"array","items":{"type":"string"}},
+     "reason_not_higher":{"type":["string","null"]}
+    },
+    "additionalProperties":true
+   }
+  },
+  "evidence_families":{"type":"array","items":{"enum":["CTF1_RELCHART","CTF2_RAICES_BILATERALES","CTF3_RECURRENCIA_SEMANTICA","CTF4_EVENTOS_CONJUNTOS","CTF5_EXTERNALIZACION","CTF6_EMERGENCIA","CTF7_ROBUSTEZ","CTF8_CONTROL_DE_DEPENDENCIA"]},"uniqueItems":true},
+  "discriminators":{"type":"array","items":{"type":"object"}},
+  "relation_chart_refs":{"type":"array","items":{"type":"string"}},
+  "bilateral_root_refs":{"type":"array","items":{"type":"string"}},
+  "externalization_refs":{"type":"array","items":{"type":"string"}},
+  "competing_explanations":{"type":"array","items":{"type":"string"}},
+  "counterevidence":{"type":"array","items":{"type":"string"}},
+  "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
+  "why_selected":{"type":["string","null"]},
+  "why_not_more_specific":{"type":"string"}
+ },
+ "additionalProperties":true
+}
