@@ -536,3 +536,29 @@ Reglas:
 3. Relaciones entre conceptos usan vínculos explícitos como `NON_EQUIVALENT`, `PARTIAL_OVERLAP`, `COMPARATIVE_ANTECEDENT_ONLY` o `PROJECT_OPERATIONALIZATION`.
 4. Una operacionalización astrológica creada por ALMAS permanece `E_PROJECT_HYPOTHESIS`, aunque dialogue con una doctrina P1.
 5. Los huecos documentales permanecen `INSUFFICIENT` o `NOT_EVALUABLE`; no se rellenan por semejanza intuitiva.
+
+
+## 38. Cadena causal del contrato preencarnatorio
+
+En modo FULL, el módulo contractual debe producir una cadena causal adicional:
+
+`TAREA_PREVIA → MOTIVO_DE_ELECCION_DEL_OTRO → ROL_ASUMIDO → CLAUSULA_DE_ACTIVACION → PRUEBA_PACTADA → INTEGRACION_ESPERADA → CONDICION_DE_CUMPLIMIENTO → FORMAS_DE_CIERRE_O_ALTERNATIVA`.
+
+Niveles de resolución:
+
+- `R0_NOT_EVALUABLE`;
+- `R1_PREINCARNATIONAL_THEME`;
+- `R2_RELATIONAL_PREINCARNATIONAL_FUNCTION`;
+- `R3_BILATERAL_AGREEMENT_MODEL`;
+- `R4_LITERAL_CONTENT`.
+
+`R4_LITERAL_CONTENT` no puede alcanzar `SUPPORTED` desde astrología.
+
+Granularidad contractual:
+
+`THEME → FUNCTION → ROLE → CONDITION → EVENT → DETAIL`.
+
+La fuerza inferencial disminuye hacia EVENT/DETAIL. La temporalidad puede documentar activación de un evento, pero no convertirlo retrospectivamente en detalle pactado.
+
+Referencia: `reference/contract-causal-architecture-v2.md`.
+Esquema: `schemas/preincarnation-contract-chain.schema.json`.
