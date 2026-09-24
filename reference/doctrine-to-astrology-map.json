@@ -1,0 +1,307 @@
+{
+  "map_version": "1.0.0",
+  "almas_version": "1.6.0",
+  "principles": [
+    "Doctrine defines concepts and limits; it does not contribute structural score by mere existence.",
+    "Astrological mappings created by ALMAS are E_PROJECT_HYPOTHESIS unless the cited source explicitly supplies the technique.",
+    "Houses, signs and asteroids may contextualize but cannot independently create an ontological conclusion.",
+    "Temporal techniques can activate a pre-existing variable but cannot create it."
+  ],
+  "mappings": [
+    {
+      "concept_id": "PREINCARNATIONAL_CHOICE",
+      "metaphysical_variable": "PREBIRTH_THEME_OR_TRIAL",
+      "source_basis": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "individual_natal_dominant_configurations",
+        "nodal_axis_and_rulers",
+        "saturnian_structure",
+        "recurrent_individual_polarities",
+        "individual_draconic_as_correlative_nodal_reframing",
+        "birth_time_robust_houses_as_context"
+      ],
+      "inadmissible_inferences": [
+        "specific event was literally selected before birth",
+        "exact date was pre-agreed",
+        "single synastry aspect proves pre-birth choice"
+      ]
+    },
+    {
+      "concept_id": "MISSION_PREINCARNATIONAL",
+      "metaphysical_variable": "MISSION_SERVICE_THEME",
+      "source_basis": [
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "sun_jupiter_saturn_node_networks",
+        "robust_mc_ic_axis_and_rulers",
+        "11th_house_or_collective_context_when_birth_time_robust",
+        "relational_emergence_in_composite_or_davison",
+        "externalization_events_as_documentary_corroboration"
+      ],
+      "inadmissible_inferences": [
+        "every relationship has shared mission",
+        "mission implies shared origin",
+        "10th_or_11th_house contact alone proves mission"
+      ]
+    },
+    {
+      "concept_id": "GILGUL",
+      "metaphysical_variable": "INTERINCARNATIONAL_CONTINUITY",
+      "source_basis": [
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_shaar_hagilgulim_20_zivug",
+        "vital_shaar_hagilgulim_39_soul_roots",
+        "magid_life_of_soul_lurianic_gilgul"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "lunar_nodes_and_rulers",
+        "saturn_chiron_pluto_structural_roots",
+        "natal_to_draconic_crosses_both_directions",
+        "independent_recurrence_across_synastry_and_relational_charts",
+        "documented_recurring_life_themes"
+      ],
+      "inadmissible_inferences": [
+        "south_node_contact alone proves a past life",
+        "draconic contact alone proves reincarnation",
+        "continuity automatically means twin flame"
+      ]
+    },
+    {
+      "concept_id": "ZIVUG",
+      "metaphysical_variable": "PAIRING_OR_TRUE_PAIR_MODEL",
+      "source_basis": [
+        "talmud_sotah_2a_9",
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "bilateral_core_roots",
+        "nodal_and_luminary_recurrence",
+        "relationship_chart_consonance",
+        "crossed_draconic_recurrence",
+        "pair_specificity_under_ablation"
+      ],
+      "inadmissible_inferences": [
+        "zivug equals twin flame",
+        "one Venus-Node contact proves true pair",
+        "pairing doctrine proves current romantic viability"
+      ]
+    },
+    {
+      "concept_id": "SOUL_ROOT",
+      "metaphysical_variable": "RELATED_OR_SHARED_SOUL_ROOT",
+      "source_basis": [
+        "vital_shaar_hagilgulim_39_soul_roots",
+        "magid_life_of_soul_lurianic_gilgul"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "multi_layer_semantic_recurrence",
+        "nodal_regent_networks",
+        "bilateral_cross_chart_roots",
+        "shared_task_emergence",
+        "null_model_pair_specificity"
+      ],
+      "inadmissible_inferences": [
+        "soul root automatically means romantic pair",
+        "soul root automatically means one unique counterpart",
+        "rare structure equals proof of shared root"
+      ]
+    },
+    {
+      "concept_id": "MONAD",
+      "metaphysical_variable": "MONADIC_COMMON_SOURCE_MODEL",
+      "source_basis": [
+        "blavatsky_secret_doctrine_monads"
+      ],
+      "operationalization_class": "COMPARATIVE_E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "same evidence families used for shared-origin differential",
+        "only as comparative model with explicit non-equivalence controls"
+      ],
+      "inadmissible_inferences": [
+        "Blavatsky teaches romantic monadic pairs",
+        "Monad equals twin flame",
+        "any astrological signature currently validates monadic-pair ontology"
+      ]
+    },
+    {
+      "concept_id": "TWIN_FLAME_ORIGIN",
+      "metaphysical_variable": "UNIQUE_DYADIC_SHARED_ORIGIN",
+      "source_basis": [
+        "summit_lighthouse_what_is_twin_flame",
+        "summit_lighthouse_soulmates_twin_flames",
+        "summit_lighthouse_glossary_twin_flame"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "pair_specificity",
+        "bilateral_recurrence",
+        "origin_continuity_roots",
+        "polarity_architecture",
+        "shared_task_emergence",
+        "ablation_robustness",
+        "null_model_singularity"
+      ],
+      "inadmissible_inferences": [
+        "intensity proves twin flame",
+        "shared mission proves twin flame",
+        "masculine_feminine polarity proves twin flame",
+        "low null frequency is probability of twin flame",
+        "O3 unique dyadic origin can be SUPPORTED without validated discriminator"
+      ]
+    },
+    {
+      "concept_id": "SPLIT_PRIMORDIAL_BEING",
+      "metaphysical_variable": "DIVISION_OF_ONE_MODEL",
+      "source_basis": [
+        "plato_symposium_aristophanes",
+        "brihadaranyaka_1_4_3"
+      ],
+      "operationalization_class": "COMPARATIVE_E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "symmetry_and_complementarity_as_non_discriminating_support",
+        "pair_specificity_as_exploratory",
+        "shared_origin_differential"
+      ],
+      "inadmissible_inferences": [
+        "Plato or Brihadaranyaka teaches modern twin flames",
+        "mirror symmetry proves literal split soul"
+      ]
+    },
+    {
+      "concept_id": "SOUL_CONTRACT",
+      "metaphysical_variable": "RELATIONAL_PREBIRTH_CONTRACT",
+      "source_basis": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "preexisting_individual_tasks",
+        "partner_activation_specificity",
+        "directional_roles",
+        "common_task_emergence",
+        "contract_clause_genealogy",
+        "fulfillment_signatures"
+      ],
+      "inadmissible_inferences": [
+        "academic documentation proves contracts exist",
+        "astrology reconstructs literal pre-birth wording",
+        "contract implies shared origin or romantic permanence"
+      ]
+    },
+    {
+      "concept_id": "SACRED_CONTRACT",
+      "metaphysical_variable": "ARCHETYPAL_PREBIRTH_COMMITMENT",
+      "source_basis": [
+        "myss_sacred_contracts_2001"
+      ],
+      "operationalization_class": "IDENTIFIED_METHOD_PLUS_E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "individual_archetypal_tasks",
+        "relationship_role_patterns",
+        "mission_service_context",
+        "choice_point_documentation"
+      ],
+      "inadmissible_inferences": [
+        "Myss method is identical to Kardec or Lurianic doctrine",
+        "archetypal role proves bilateral agreement"
+      ]
+    },
+    {
+      "concept_id": "SOUL_PLAN",
+      "metaphysical_variable": "PREBIRTH_LIFE_PLAN",
+      "source_basis": [
+        "schwartz_your_souls_plan_2009",
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "operationalization_class": "IDENTIFIED_METHOD_PLUS_E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "preexisting_tasks",
+        "major_challenge_patterns",
+        "relational_activation",
+        "documented_choice_points"
+      ],
+      "inadmissible_inferences": [
+        "every hardship was planned",
+        "future decision is fixed",
+        "plan removes free will"
+      ]
+    },
+    {
+      "concept_id": "LIFE_BETWEEN_LIVES",
+      "metaphysical_variable": "INTERLIFE_PLANNING_MODEL",
+      "source_basis": [
+        "wambach_life_before_life_1979",
+        "whitton_fisher_life_between_life_1986",
+        "newton_journey_of_souls_1994"
+      ],
+      "operationalization_class": "IDENTIFIED_METHOD_CONTEXT",
+      "admissible_astrology": [
+        "used only as comparative planning model",
+        "no direct scoring contribution"
+      ],
+      "inadmissible_inferences": [
+        "regression reports independently verify interlife planning",
+        "astrology validates regression content without separate evidence"
+      ]
+    },
+    {
+      "concept_id": "CONJUGIAL_PAIRING",
+      "metaphysical_variable": "PROVIDENTIAL_PAIRING_MODEL",
+      "source_basis": [
+        "swedenborg_conjugial_love_1768"
+      ],
+      "operationalization_class": "COMPARATIVE_E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "pairing_and_recognition_architecture_as_comparative_only",
+        "relationship_chart_coherence"
+      ],
+      "inadmissible_inferences": [
+        "Swedenborg teaches reincarnational soul contracts",
+        "providential pair equals twin flame"
+      ]
+    },
+    {
+      "concept_id": "SOULMATE_EXPERIENCE",
+      "metaphysical_variable": "RELATIONAL_PHENOMENOLOGY",
+      "source_basis": [
+        "stokke_spiritual_love_relations_2021"
+      ],
+      "operationalization_class": "D_CONTEMPORARY_USAGE_OR_DOCUMENTARY",
+      "admissible_astrology": [
+        "none_for_structural_scoring",
+        "may_be_compared_to_temporal_or_symbolic_patterns_after_documentation"
+      ],
+      "inadmissible_inferences": [
+        "recognition or synchronicity proves ontology",
+        "subjective experience modifies IEM or origin score"
+      ]
+    },
+    {
+      "concept_id": "DRACONIC_ASTROLOGY",
+      "metaphysical_variable": "NODAL_REFRAMING_TECHNIQUE",
+      "source_basis": [
+        "crane_draconic_astrology_1987"
+      ],
+      "operationalization_class": "B_TECHNIQUE",
+      "admissible_astrology": [
+        "individual_draconic",
+        "natal_to_draconic_A_to_B",
+        "natal_to_draconic_B_to_A",
+        "draconic_to_draconic_corroborative"
+      ],
+      "inadmissible_inferences": [
+        "draconic chart independently proves soul contract",
+        "draconic nodal anchors count as independent recurrence"
+      ]
+    }
+  ]
+}
