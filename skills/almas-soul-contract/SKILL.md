@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.0.0
+version: 1.1.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.0.0
+# ALMAS Soul Contract · Contrato Álmico v1.1.0
 
 ## 0. Paradigma
 
@@ -309,3 +309,47 @@ Nunca al revés.
 GitHub publica reglas generalizadas, fuentes públicas, tests sintéticos y casos reales únicamente cuando los datos subyacentes ya son públicos y verificables.
 
 El material privado no se convierte en público por haber sido usado en investigación interna.
+
+
+## 16. Reconstrucción preencarnatoria en ocho etapas
+
+En modo FULL, Soul Contract debe intentar reconstruir la secuencia:
+
+`ORIGEN → MOTIVO_DEL_ACUERDO → SELECCION_DE_ROLES → CONDICIONES_DE_ENCUENTRO → TAREAS_INDIVIDUALES → TAREA_COMUN → CLAUSULAS → MECANISMOS_DE_CUMPLIMIENTO`
+
+Cada etapa conserva estado epistemológico, hipótesis competidoras, raíces astrológicas, fuentes doctrinales, alternativas, contraevidencia, dependencias y robustez.
+
+La reconstrucción no presupone que todas las tradiciones describan literalmente estas ocho fases. Es una ontología operativa ALMAS que compara doctrinas y métodos sin fusionarlos.
+
+Reglas centrales:
+
+1. El origen se evalúa antes de usar las cláusulas como confirmación.
+2. El motivo del acuerdo debe enlazar con tareas previas o funciones identificables.
+3. Los roles se calculan por A_EN_B, B_EN_A y CAMPO_COMUN.
+4. Las condiciones de encuentro requieren raíces estructurales más activación; la sincronía aislada no basta.
+5. TAREA_A_PREVIA y TAREA_B_PREVIA se identifican desde las cartas individuales antes de mirar la activación del otro.
+6. La TAREA_COMUN pertenece al campo relacional y no es la suma de A+B.
+7. Cada cláusula debe poder rastrearse hacia atrás hasta motivo, roles, tareas y raíces.
+8. Los mecanismos de cumplimiento son vías funcionales, no desenlaces obligatorios.
+
+Mecanismos admitidos inicialmente:
+
+- ACTIVACION
+- REPETICION
+- RECIPROCIDAD
+- CATALISIS
+- ENCARNACION
+- TIKKUN_REPARACION
+- SERVICIO
+- LIBERACION
+- TRANSFORMACION_DE_MODALIDAD
+- CIERRE
+- RUTA_ALTERNATIVA
+- APLAZAMIENTO
+
+En modo FULL, la salida `canonical_soul_contract.json` debe incluir `reconstruccion_preencarnatoria`. Si una etapa no puede resolverse, se conserva como `INSUFFICIENT` o `NOT_EVALUABLE`; no se rellena narrativamente.
+
+Referencia normativa: `reference/preincarnation-reconstruction.md`.
+Esquema: `schemas/preincarnation-reconstruction.schema.json`.
+Mapa de fuentes: `reference/preincarnation-source-map.json`.
+Invariantes: `tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md`.
