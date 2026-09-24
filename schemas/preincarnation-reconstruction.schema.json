@@ -18,11 +18,13 @@
     "common_task",
     "common_task_differential",
     "clauses",
-    "fulfillment_mechanisms"
+    "clause_assembly",
+    "fulfillment_mechanisms",
+    "fulfillment_mechanisms_differential"
   ],
   "properties": {
     "schema_version": {
-      "const": "1.6.0"
+      "const": "1.8.0"
     },
     "origin": {
       "$ref": "#/$defs/stage"
@@ -102,6 +104,12 @@
     },
     "common_task_differential": {
       "$ref": "common-task-differential.schema.json"
+    },
+    "clause_assembly": {
+      "$ref": "clause-assembly.schema.json"
+    },
+    "fulfillment_mechanisms_differential": {
+      "$ref": "fulfillment-mechanisms.schema.json"
     }
   },
   "$defs": {
