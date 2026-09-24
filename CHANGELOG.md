@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.0 — 2026-09-24
+
+### Fase 1 · Corpus de fuentes — cerrada
+- Normaliza 36 fuentes con tradición, conceptos y estado de verificación.
+- Registra 12 fuentes primarias verificadas en texto, 17 verificadas en metadatos, 3 parciales y 4 pendientes.
+- Añade informe auditable de normalización y tests de integridad fuente↔concepto.
+
+### Fase 2 · Ontología comparada — completada
+- Separa ORIGIN, PREINCARNATION_CONTRACT, HISTORY_CONTINUITY, FUNCTION y PHENOMENOLOGY.
+- Mantiene POLARITY, MODALITY, PHASE, REAL_VIABILITY y RECIPROCITY como ejes independientes.
+- Añade reglas explícitas de no-implicación entre ejes.
+- Vincula los modelos de origen con el registro doctrinal y de conceptos.
+- Añade `reference/ontology-registry.json`, `schemas/ontology-output.schema.json` y tests específicos.
+
 ## 1.4.0 — 2026-09-24
 
 ### Fase 0 · Arquitectura congelada
