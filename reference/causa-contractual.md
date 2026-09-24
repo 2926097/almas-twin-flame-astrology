@@ -6,7 +6,7 @@ La causa contractual intenta responder:
 
 **¿Por qué, dentro de la hipótesis preencarnatoria del proyecto, esta persona sería un activador adecuado de una tarea que la otra ya trae antes del encuentro?**
 
-No equivale a demostrar una decisión literal tomada antes de nacer.
+Dentro de ALMAS se formula como hipótesis metafísica de causa preencarnatoria; no se trata como una transcripción literal de palabras o decisiones supuestamente pronunciadas antes de nacer.
 
 ## 2. Cadena causal mínima
 
@@ -44,7 +44,7 @@ Una persona es un activador especialmente adecuado cuando sus factores:
 3. repiten el mismo motivo mediante raíces independientes;
 4. lo hacen en una dirección que no puede explicarse sólo por una superposición genérica de casas.
 
-No usar lenguaje de “persona elegida” como conclusión astrológica.
+Usar lenguaje de adecuación contractual sólo cuando la cadena estructural esté trazada; una etiqueta de “persona elegida” exige un marco doctrinal adicional y no se deriva de un contacto aislado.
 
 ## 5. Tipos de causalidad contractual
 
@@ -173,6 +173,6 @@ Cada causa debe registrar:
 
 ## 13. Capa epistemológica
 
-La reconstrucción de una causa preencarnatoria es siempre `E_HIPOTESIS_PROYECTO`.
+La reconstrucción específica de una causa preencarnatoria por ALMAS se registra como `E_HIPOTESIS_PROYECTO`; esto identifica su procedencia metodológica dentro de un marco metafísico, no la reduce a una lectura no metafísica.
 
 Las doctrinas históricas pueden aportar antecedentes de elección preencarnatoria, pares de almas, karma, mónada o propósito, pero no convierten esta regla astrológica en doctrina de esas tradiciones.
