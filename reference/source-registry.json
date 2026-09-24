@@ -1,0 +1,118 @@
+{
+  "registry_version": "1.0.0",
+  "entries": [
+    {
+      "id": "plato_symposium_aristophanes",
+      "priority": "P1_PRIMARY",
+      "author": "Plato",
+      "work": "Symposium",
+      "passage": "189c-193d",
+      "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "supports": [
+        "Aristophanes' myth of originally whole humans divided and seeking reunion",
+        "historical antecedent for later split-pair imagery"
+      ],
+      "does_not_support": [
+        "identity with modern twin-flame doctrine",
+        "astrological diagnostic rules"
+      ]
+    },
+    {
+      "id": "brihadaranyaka_1_4_3",
+      "priority": "P1_PRIMARY",
+      "author": "Brihadaranyaka Upanishad",
+      "work": "Brihadaranyaka Upanishad",
+      "passage": "1.4.3",
+      "date_note": "Ancient Upanishadic text; dating varies by scholarship",
+      "url": "https://gita.pub/upanishad/brihadaranyaka/verse/1-4-3/",
+      "supports": [
+        "a cosmogonic passage in which a primordial self divides into husband and wife",
+        "comparative analogue for division/reunion motifs"
+      ],
+      "does_not_support": [
+        "a modern twin-flame taxonomy",
+        "one unique romantic counterpart for every contemporary person",
+        "astrological verification"
+      ],
+      "translation_note": "Online translation used as locator; critical editions/translations should be preferred in formal scholarship."
+    },
+    {
+      "id": "blavatsky_secret_doctrine_monads",
+      "priority": "P1_PRIMARY",
+      "author": "H. P. Blavatsky",
+      "work": "The Secret Doctrine, Volume I",
+      "passage": "p. 170, 'Additional Facts and Explanations Concerning the Globes and the Monads'",
+      "date": "1888",
+      "url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
+      "supports": [
+        "Theosophical use of Monad terminology within evolutionary/cosmological doctrine"
+      ],
+      "does_not_support": [
+        "automatic equivalence between Theosophical Monad and a romantic twin-flame pair"
+      ]
+    },
+    {
+      "id": "bailey_esoteric_psychology_soul",
+      "priority": "P1_PRIMARY",
+      "author": "Alice A. Bailey",
+      "work": "Esoteric Psychology, Volume I",
+      "passage": "Chapter II, Question 1: What is the soul?",
+      "url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
+      "supports": [
+        "a distinct esoteric account of spirit, soul, personality and embodied form",
+        "comparative soul ontology"
+      ],
+      "does_not_support": [
+        "automatic attribution of a canonical romantic twin-flame doctrine to Bailey"
+      ]
+    },
+    {
+      "id": "summit_lighthouse_soulmates_twin_flames",
+      "priority": "P1_PRIMARY",
+      "author": "The Summit Lighthouse / Elizabeth Clare Prophet tradition",
+      "work": "Soulmates and Twin Flames",
+      "url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "supports": [
+        "explicit modern distinction among twin flames, soul mates and karmic relationships",
+        "doctrine that twin flames were created together in a single fiery ovoid and differentiated into masculine/feminine polarity"
+      ],
+      "does_not_support": [
+        "scientific validation of the doctrine",
+        "astrological proof that any specific pair belongs to the category"
+      ]
+    },
+    {
+      "id": "summit_lighthouse_glossary_twin_flame",
+      "priority": "P1_PRIMARY",
+      "author": "The Summit Lighthouse",
+      "work": "Glossary",
+      "passage": "Twin flame",
+      "url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
+      "supports": [
+        "organizational definition of twin flame as masculine or feminine counterpart conceived from the same white-fire body",
+        "bibliographic pointers to 1978, 1985 and later Summit Lighthouse materials"
+      ],
+      "does_not_support": [
+        "historical priority over all earlier uses of twin-flame language",
+        "astrological diagnostic criteria"
+      ]
+    },
+    {
+      "id": "granholm_sociology_esotericism",
+      "priority": "P2_ACADEMIC",
+      "author": "Kennet Granholm",
+      "work": "The Sociology of Esotericism, in The Oxford Handbook of the Sociology of Religion",
+      "date": "2009",
+      "pages": "783-800",
+      "url": "https://academic.oup.com/edited-volume/34355/chapter-abstract/291451698",
+      "supports": [
+        "academic contextualization of modern Western esotericism and New Age spirituality"
+      ],
+      "does_not_support": [
+        "a specific twin-flame metaphysics",
+        "astrological validation"
+      ]
+    }
+  ]
+}
