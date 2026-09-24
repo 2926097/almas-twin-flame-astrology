@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "origin": {
     "state": "INSUFFICIENT",
     "hypotheses": [
@@ -124,7 +124,7 @@
         "counterevidence": []
       }
     ],
-    "selection": "ROLES_ASIMETRICOS_COMPLEMENTARIOS",
+    "selection": "A:ACTIVADOR→B+B:ESTRUCTURADOR→A",
     "astrology_roots": [
       "root_syn_004",
       "root_syn_005"
@@ -139,7 +139,8 @@
       "ROLES_EMERGENTES_NO_PRESELECCIONADOS"
     ],
     "counterevidence": [],
-    "robustness": 75
+    "robustness": 75,
+    "hermeneutic_note": "Synthetic summary. Detailed role resolution is stored in role_selection_differential."
   },
   "encounter_conditions": {
     "state": "COMPATIBLE",
@@ -604,5 +605,146 @@
     "robustness": 80,
     "why_primary": "The synthetic architecture contains prior individual tasks, bilateral activation and a recurrent repair/learning field.",
     "why_not_more_specific": "No validated astrological discriminator establishes whether the prebirth mechanism was mutual agreement, individual choice, karmic necessity or another doctrinally possible mechanism."
+  },
+  "role_selection_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "roles": [
+      {
+        "id": "ACTIVADOR",
+        "state": "SUPPORTED",
+        "direction": "A_EN_B",
+        "intensity": "PRIMARIO",
+        "receiver": "B",
+        "independent_roots": [
+          "root_task_B_01",
+          "root_AactivatesB_03"
+        ],
+        "motive_refs": [
+          "M_TIKKUN_DEL_OTRO",
+          "M_CATALISIS_TRANSFORMACION"
+        ],
+        "clause_refs": [
+          "LIBERTAD_AUTONOMIA"
+        ],
+        "coverage": 91,
+        "robustness": 84,
+        "r_min": 0.73,
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "ESTRUCTURADOR",
+        "state": "COMPATIBLE",
+        "direction": "B_EN_A",
+        "intensity": "PRIMARIO",
+        "receiver": "A",
+        "independent_roots": [
+          "root_task_A_01",
+          "root_BstructuresA_05"
+        ],
+        "motive_refs": [
+          "M_APRENDIZAJE_MUTUO"
+        ],
+        "clause_refs": [
+          "INTEGRACION_ENCARNACION"
+        ],
+        "coverage": 86,
+        "robustness": 79,
+        "r_min": 0.66,
+        "counterevidence": [],
+        "reason_not_higher": "The role is structurally coherent but has less independent recurrence than ACTIVADOR."
+      },
+      {
+        "id": "INTEGRADOR",
+        "state": "COMPATIBLE",
+        "direction": "CAMPO_COMUN",
+        "intensity": "SECUNDARIO",
+        "receiver": "CAMPO_COMUN",
+        "independent_roots": [
+          "root_rel_02"
+        ],
+        "motive_refs": [
+          "M_INTEGRACION"
+        ],
+        "clause_refs": [
+          "INTEGRACION_ENCARNACION"
+        ],
+        "coverage": 84,
+        "robustness": 78,
+        "r_min": 0.65,
+        "counterevidence": [],
+        "reason_not_higher": "The role depends substantially on the RELCHART family."
+      }
+    ],
+    "primary_roles": [
+      "A:ACTIVADOR→B",
+      "B:ESTRUCTURADOR→A"
+    ],
+    "secondary_roles": [
+      "CAMPO_COMUN:INTEGRADOR"
+    ],
+    "mechanisms": [
+      {
+        "id": "RS_KARMIC_RETURN_FOR_OTHER",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ]
+      },
+      {
+        "id": "RS_MUTUAL_AGREEMENT",
+        "state": "INSUFFICIENT",
+        "source_ids": [
+          "myss_sacred_contracts_2001",
+          "schwartz_your_souls_plan_2009"
+        ]
+      },
+      {
+        "id": "RS_REQUESTED_MISSION",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "kardec_spirits_book_missions_572_573"
+        ]
+      }
+    ],
+    "evidence_families": [
+      "RF1_TAREA_RECEPTORA",
+      "RF2_ESPECIFICIDAD_ACTIVADOR",
+      "RF3_DIRECCIONALIDAD",
+      "RF4_COMPLEMENTARIEDAD_RECIPROCA",
+      "RF5_CAMPO_COMUN",
+      "RF6_RECURRENCIA"
+    ],
+    "discriminators": [
+      {
+        "id": "RSD1_ROLE_VS_TRAIT",
+        "status": "OPERATIONAL",
+        "result": "ROLE"
+      },
+      {
+        "id": "RSD2_DIRECTION",
+        "status": "OPERATIONAL",
+        "result": "ASYMMETRIC_COMPLEMENTARY"
+      },
+      {
+        "id": "RSD5_REQUESTED_VS_MUTUAL",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "RSD6_KARMIC_VS_VOLUNTARY",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "competing_role_models": [
+      "BILATERAL_CATALYST",
+      "MUTUAL_LEARNING_ONLY"
+    ],
+    "counterevidence": [],
+    "robustness": 82,
+    "why_selected": "Synthetic tasks and activator-fit roots support asymmetric but complementary primary roles.",
+    "why_not_more_specific": "The functional roles are distinguishable, but the exact prebirth mechanism—requested mission, mutual agreement or karmic return—cannot be uniquely determined."
   }
 }
