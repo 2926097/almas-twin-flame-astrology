@@ -21,10 +21,15 @@ That artifact is evidence about the internal v3.12 build from which public v1.0.
 | Module manifest | Published |
 | Differential-discriminator registry | Published |
 | Historical v3.12 validation result | Published |
-| Public static contract validator | Published |
+| Public static contract validator | Published; CI enabled |
+| Deterministic pillar/IEM/IDD/IRC scoring core | Published; unit-tested |
 | Full astronomical calculation engine | Pending verified import |
 | Monte Carlo/ablation engine | Pending verified import |
 | Full historical automated suite | Pending verified import |
 | End-to-end canonical report renderer | Pending verified import |
 
 No missing executable component should be silently reconstructed and presented as the historical implementation. When the original source is recovered, it should be imported with provenance and regression-tested against the preserved validation results.
+
+## Public scoring-core tests
+
+The first public scoring-core suite contains 11 deterministic unit tests covering pillar aggregation, the one-root ceiling, non-simplex IEM behavior, ICE application, missing-essential handling, the SUPPORT gate, IDD overlap/disjoint behavior and robustness aggregation. The same suite is executed by GitHub Actions.
