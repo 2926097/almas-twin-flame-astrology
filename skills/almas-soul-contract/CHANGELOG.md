@@ -1,5 +1,15 @@
 # ALMAS Soul Contract · Changelog
 
+## 1.7.0 — 2026-09-24
+
+- Añade motor diferencial de tarea común.
+- Exige prueba de emergencia frente a la suma de tareas individuales.
+- Formaliza diez tareas comunes canónicas.
+- Añade familias CTF1–CTF8 y discriminadores CTD1–CTD8.
+- Controla dependencia de compuesta/Davison como una sola familia RELCHART.
+- Integra common_task_differential en la reconstrucción preencarnatoria.
+
+
 ## 1.6.0 — 2026-09-24
 
 - Añade motor diferencial de tareas individuales.
