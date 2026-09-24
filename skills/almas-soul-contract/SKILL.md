@@ -1,7 +1,7 @@
 ---
 name: almas-soul-contract
 description: Metaphysical research skill for reconstructing possible preincarnational soul agreements from ALMAS astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.5.0
+version: 1.6.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -11,7 +11,7 @@ metadata:
   tags: [soul-contract, preincarnation, metaphysics, astrology, hermeneutics, karma, dharma, relationships]
 ---
 
-# ALMAS Soul Contract · Contrato Álmico v1.5.0
+# ALMAS Soul Contract · Contrato Álmico v1.6.0
 
 ## 0. Paradigma
 
@@ -453,3 +453,19 @@ Una condición sólo es contractual cuando enlaza una raíz estructural previa c
 Una coincidencia temporal, geográfica o subjetiva sin anclaje estructural no crea condición de encuentro.
 
 ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL, ECD6_UNIQUE_EVENT_VS_ALTERNATIVE_PATH, ECD7_GEOGRAPHIC_NECESSITY y ECD8_FREE_WILL_BRANCH permanecen NOT_VALIDATED.
+
+
+## 21. Motor diferencial de tareas individuales
+
+La etapa TAREAS_INDIVIDUALES debe ejecutarse mediante:
+
+- reference/individual-tasks-differential.md
+- manifests/individual-tasks-registry.json
+- schemas/individual-tasks-differential.schema.json
+- tests/INDIVIDUAL_TASKS_INVARIANTS.md
+
+La salida FULL debe incluir individual_tasks_differential.
+
+Las tareas de A y B se fijan antes de introducir la carta del otro. ITF8_INDEPENDENCIA_DEL_OTRO es obligatoria para considerar una tarea como previa.
+
+La activación sinástrica puede explicar cómo se moviliza una tarea, pero no puede fabricarla retrospectivamente.
