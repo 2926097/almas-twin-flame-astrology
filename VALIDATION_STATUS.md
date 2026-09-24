@@ -2,7 +2,7 @@
 
 ## Public v1.0.0
 
-The repository validates only generalized rules and synthetic test fixtures. No result from an identifiable real relationship is part of the public validation corpus.
+The repository validates generalized rules with synthetic test fixtures. Real public case studies, if added, are documentary/illustrative material and are not used as hidden validation fixtures or as a basis for case-fitted rules.
 
 Current public layers:
 
@@ -18,7 +18,8 @@ Current public layers:
 | Deterministic pillar/IEM/IDD/IRC scoring core | Published; unit-tested |
 | Precomputed-pillar CLI | Published; unit-tested |
 | Synthetic examples | Published |
-| Case-specific analyses | Excluded by publication policy |
+| Private/non-public case analyses | Excluded |
+| Public sourced case studies | Permitted outside the synthetic validation corpus |
 
 ## Public automated tests
 
