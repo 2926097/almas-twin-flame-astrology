@@ -11,7 +11,7 @@
     "limitations"
   ],
   "properties": {
-    "public_version": {"const": "1.3.0"},
+    "public_version": {"const": "1.3.1"},
     "input_mode": {"const": "PRECOMPUTED_PILLARS"},
     "models": {
       "type": "object",
