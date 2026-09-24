@@ -48,6 +48,7 @@ REQUIRED_FILES = [
     "tests/test_analysis.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
+    "examples/preincarnation-reconstruction.synthetic.json",
 ]
 
 EXPECTED_STATES = {
@@ -148,6 +149,8 @@ def main() -> int:
     source_registry = load_json("reference/source-registry.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
+    preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
+    preincarnation_example = load_json("examples/preincarnation-reconstruction.synthetic.json")
 
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
@@ -176,6 +179,43 @@ def main() -> int:
 
     if not source_registry.get("entries"):
         fail("source registry is empty")
+
+    expected_preincarnation_stages = {
+        "ORIGIN",
+        "AGREEMENT_MOTIVE",
+        "ROLE_SELECTION",
+        "ENCOUNTER_CONDITIONS",
+        "INDIVIDUAL_TASKS",
+        "COMMON_TASK",
+        "CLAUSES",
+        "FULFILLMENT_MECHANISMS",
+    }
+    source_map_stages = set(preincarnation_source_map.get("stages", {}))
+    if source_map_stages != expected_preincarnation_stages:
+        fail("preincarnation source map must expose exactly eight canonical stages")
+
+    source_ids = {entry.get("id") for entry in source_registry.get("entries", [])}
+    for stage_name, stage in preincarnation_source_map.get("stages", {}).items():
+        for key in ("primary", "methods", "comparative"):
+            for source_id in stage.get(key, []):
+                if source_id not in source_ids:
+                    fail(f"unknown source id in {stage_name}: {source_id}")
+
+    if preincarnation_example.get("schema_version") != "1.0.0":
+        fail("synthetic preincarnation example must use schema_version 1.0.0")
+
+    required_example_keys = {
+        "origin",
+        "agreement_motive",
+        "role_selection",
+        "encounter_conditions",
+        "individual_tasks",
+        "common_task",
+        "clauses",
+        "fulfillment_mechanisms",
+    }
+    if not required_example_keys.issubset(preincarnation_example):
+        fail("synthetic preincarnation example is missing one or more canonical stages")
 
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
