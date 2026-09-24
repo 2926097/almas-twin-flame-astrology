@@ -2,6 +2,8 @@
 
 ## 1.3.1 — 2026-09-24
 
+- Soul Contract avanza independientemente a **v1.1.0** con reconstrucción preencarnatoria en ocho etapas y contrato JSON propio.
+
 - Reafirma ALMAS como proyecto paraguas con dos skills interoperables: Astrología Metafísica Relacional y Contrato Álmico.
 - Añade módulo de causa contractual y controles contra circularidad interpretativa.
 - Amplía el registro doctrinal y académico con Kardec, Zohar, Talmud, Kwilecki, Stokke, Crane, Bailey y Prophet.
