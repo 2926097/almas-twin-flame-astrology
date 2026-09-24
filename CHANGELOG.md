@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.8.3 — 2026-09-24
+
+### Fase 11 · Temporalidad contractual — completada
+- Separa estructura, activación, recurrencia e integración/cierre.
+- Añade estados LATENT, TRIGGERED, ACTIVE, RECURRING, INTEGRATING, EMBODIED, TRANSFORMED y CLOSED.
+- Clasifica ventanas como retrospectivas, actuales, prospectivas, exploratorias o no ancladas.
+- Prohíbe convertir fechas futuras en reunión, decisión, contacto o cierre.
+- Mantiene IAT separado de IAP.
+
+## 1.8.2 — 2026-09-24
+
+### Fase 10 · Libre albedrío — completada
+- Separa estructura previa, elección encarnada, forma relacional y rutas alternativas.
+- Añade niveles FD0–FD4 de determinación.
+- Exige elección y hechos bilaterales para toda forma compartida.
+- Permite cumplimiento individual cuando la función de la cláusula lo admite.
+- Impide inferir eventos fijos o decisiones futuras desde astrología.
+
 ## 1.8.1 — 2026-09-24
 
 ### Fase 9 · Métricas contractuales — completada
