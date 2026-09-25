@@ -149,6 +149,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
+    "src/almas_tfa/null_model_handlers.py",
     "src/almas_tfa/robustness_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
     "src/almas_tfa/final_handlers.py",
@@ -198,6 +199,7 @@ REQUIRED_FILES = [
     "tests/test_counterevidence_handlers.py",
     "tests/test_ablation_handlers.py",
     "tests/test_time_sensitivity_handlers.py",
+    "tests/test_null_model_handlers.py",
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
@@ -328,6 +330,7 @@ def main() -> int:
     counterevidence_output_schema = load_json("schemas/counterevidence-output.schema.json")
     structural_ablation_schema = load_json("schemas/structural-ablation-output.schema.json")
     time_sensitivity_schema = load_json("schemas/time-sensitivity-output.schema.json")
+    null_model_schema = load_json("schemas/null-model-output.schema.json")
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -450,6 +453,14 @@ def main() -> int:
         set(time_sensitivity_schema.get("required", []))
     ):
         fail("time sensitivity schema lacks preregistered robustness fields")
+
+    if null_model_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
+        fail("null model schema must forbid metaphysical probability")
+    if null_model_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
+        fail("M24 must not generate null sampling internally")
+    null_runs = null_model_schema.get("properties", {}).get("runs", {})
+    if null_runs.get("minItems") != 1:
+        fail("null model schema must require at least one run")
 
     if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
         fail("M23 must not generate perturbations implicitly")
