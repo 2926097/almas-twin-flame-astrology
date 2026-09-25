@@ -8,10 +8,10 @@
 
 El corpus doctrinal y académico queda normalizado con:
 
-- **37 fuentes**;
+- **38 fuentes**;
 - **92 conceptos** definidos;
 - **73 relaciones doctrinales/genealógicas**;
-- **20 fuentes verificadas en texto primario**;
+- **21 fuentes verificadas en texto primario**;
 - **17 fuentes verificadas en metadatos**;
 - **0 fuentes parciales**;
 - **0 conceptos usados por fuentes sin definición**;
@@ -23,7 +23,7 @@ El corpus doctrinal y académico queda normalizado con:
 - P1 · primaria: 23
 - P2 · académica: 7
 - P3 · histórica/técnica: 1
-- P4 · método identificado: 6
+- P4 · método identificado: 7
 
 ## Criterio de cierre
 
@@ -45,3 +45,10 @@ Páginas, DOI, licencia, copia local y hash permanecen opcionales cuando no sean
 ## Próximo paso
 
 La mejora deja de ser “añadir fuentes” y pasa a **usar el corpus para refinar operacionalizaciones doctrinales, discriminadores y reglas de inferencia**.
+
+
+## Anclas documentales
+
+Los 23 documentos usados directamente por los 15 mapeos doctrina→astrología tienen ahora `verification_anchor`, tipo de ancla y alcance de evidencia.
+
+Véase `docs/MAPPED_SOURCE_ANCHOR_REPORT.md`.
