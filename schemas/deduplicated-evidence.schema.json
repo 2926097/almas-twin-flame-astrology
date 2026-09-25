@@ -1,0 +1,17 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.invalid/almas/deduplicated-evidence.schema.json",
+  "title":"ALMAS Dependency-Deduplicated Evidence",
+  "type":"object",
+  "required":[
+    "retained","suppressed","groups","retained_count","suppressed_count"
+  ],
+  "properties":{
+    "retained":{"type":"array","items":{"type":"object"}},
+    "suppressed":{"type":"array","items":{"type":"object"}},
+    "groups":{"type":"array","items":{"type":"object"}},
+    "retained_count":{"type":"integer","minimum":0},
+    "suppressed_count":{"type":"integer","minimum":0}
+  },
+  "additionalProperties":false
+}
