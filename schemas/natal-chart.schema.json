@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/natal-chart.schema.json",
+  "title": "ALMAS Canonical Natal Chart",
+  "type": "object",
+  "required": [
+    "subject_id",
+    "timed",
+    "backend_id",
+    "backend_version",
+    "positions"
+  ],
+  "properties": {
+    "subject_id": {"type": "string", "minLength": 1},
+    "timed": {"type": "boolean"},
+    "backend_id": {"type": "string", "minLength": 1},
+    "backend_version": {"type": "string", "minLength": 1},
+    "zodiac": {"type": ["string", "null"]},
+    "positions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["longitude"],
+        "properties": {
+          "longitude": {"type": "number", "minimum": 0, "exclusiveMaximum": 360},
+          "latitude": {"type": ["number", "null"]},
+          "declination": {"type": ["number", "null"]},
+          "speed": {"type": ["number", "null"]},
+          "retrograde": {"type": ["boolean", "null"]},
+          "point_type": {
+            "enum": [
+              "LUMINARY",
+              "PLANET",
+              "NODE",
+              "ANGLE",
+              "ASTEROID",
+              "LOT",
+              "OTHER",
+              null
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "angles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "exclusiveMaximum": 360
+      }
+    },
+    "houses": {
+      "type": "object",
+      "properties": {
+        "1":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "2":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "3":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "4":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "5":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "6":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "7":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "8":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "9":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "10":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "11":{"type":"number","minimum":0,"exclusiveMaximum":360},
+        "12":{"type":"number","minimum":0,"exclusiveMaximum":360}
+      },
+      "additionalProperties": false
+    },
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": true
+}
