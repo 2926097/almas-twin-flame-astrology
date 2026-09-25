@@ -4,6 +4,8 @@ from datetime import date
 from itertools import combinations
 from typing import Any, Mapping
 
+from .astrology_handlers import make_m02_natal
+from .relationship_chart_handlers import make_m08_davison
 from .core import (
     diagnostic_discrimination,
     idd_band,
@@ -367,3 +369,18 @@ def default_handlers():
         "M30": m30_report_gate,
         "M31": m31_report,
     }
+
+
+def configured_handlers(*, astrology_backend=None, davison_backend=None):
+    """Devuelve handlers por defecto más backends opcionales M02/M08.
+
+    Permite ejecutar el pipeline completo sin acoplar ALMAS a una biblioteca
+    astronómica concreta. Los backends se inyectan explícitamente.
+    """
+
+    handlers = default_handlers()
+    if astrology_backend is not None:
+        handlers["M02"] = make_m02_natal(astrology_backend)
+    if davison_backend is not None:
+        handlers["M08"] = make_m08_davison(davison_backend)
+    return handlers
