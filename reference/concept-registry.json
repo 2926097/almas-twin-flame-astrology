@@ -446,6 +446,70 @@
         "TWIN_FLAME_ORIGIN"
       ],
       "almas_use": "Evita reducir toda relación profunda a una díada exclusiva."
+    },
+    {
+      "id": "TWIN_SOUL_LITERARY_GENEALOGY",
+      "label_es": "genealogía literaria de twin soul",
+      "definition": "Historia literaria del vocabulario twin soul en el siglo XIX y su circulación cultural.",
+      "primary_sources": [
+        "mackay_twin_soul_1887"
+      ],
+      "academic_sources": [
+        "dobson_turner_twin_souls_2025"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_PAIRING",
+        "BAT_ZUG"
+      ],
+      "almas_use": "Antecedente terminológico e imaginativo; no se convierte automáticamente en ontología ALMAS."
+    },
+    {
+      "id": "DUAL_SOUL_LITERARY_MODEL",
+      "label_es": "modelo literario de alma dual",
+      "definition": "Motivo literario de un alma incompleta o media llama que busca una contraparte.",
+      "primary_sources": [
+        "corelli_romance_two_worlds_1886"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "SPLIT_PRIMORDIAL_BEING",
+        "TWIN_FLAME_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "almas_use": "Se conserva como motivo literario específico, separado de Platón, Upanishads y doctrinas institucionales posteriores."
+    },
+    {
+      "id": "THEOSOPHICAL_MONAD",
+      "label_es": "Mónada teosófica",
+      "definition": "Uso teosófico de Mónada dentro de una cosmología y evolución espiritual propias.",
+      "primary_sources": [
+        "blavatsky_secret_doctrine_monads"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "SOUL_ROOT",
+        "TWIN_FLAME_ORIGIN",
+        "MONADIC_PAIR"
+      ],
+      "almas_use": "Toda inferencia de pareja monádica requiere una fuente adicional; la Mónada de Blavatsky no equivale por sí sola a una díada romántica."
+    },
+    {
+      "id": "HISTORICAL_RECEPTION",
+      "label_es": "recepción histórica",
+      "definition": "Evidencia de cómo una idea, obra o término fue leído y discutido en su contexto histórico.",
+      "primary_sources": [
+        "theosophist_occultism_modern_literature_1887"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "DOCTRINAL_ENDORSEMENT"
+      ],
+      "almas_use": "Sirve para genealogía histórica y circulación conceptual, no para atribuir doctrina al medio receptor."
     }
   ]
 }
