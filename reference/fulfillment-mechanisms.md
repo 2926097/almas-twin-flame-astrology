@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial de mecanismos de cumplimiento
+# ALMAS · Contrato Preencarnatorio · Motor diferencial de mecanismos de cumplimiento
 
 ## 1. Finalidad
 
