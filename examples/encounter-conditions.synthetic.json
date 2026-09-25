@@ -45,7 +45,7 @@
       "coverage": 88,
       "robustness": 83,
       "counterevidence": [],
-      "reason_not_higher": "Recognition and attraction remain partially overlapping in this synthetic fixture."
+      "reason_not_higher": "Reconocimiento y atracción permanecen parcialmente solapados en estos datos sintéticos."
     },
     {
       "id": "EC_CONTEXTO_GEOGRAFICO_SOCIAL",
@@ -62,7 +62,7 @@
       "coverage": 80,
       "robustness": null,
       "counterevidence": [],
-      "reason_not_higher": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL is NOT_VALIDATED."
+      "reason_not_higher": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL está NOT_VALIDATED."
     }
   ],
   "primary_conditions": [
@@ -130,6 +130,6 @@
   ],
   "counterevidence": [],
   "robustness": 85,
-  "why_selected": "The synthetic meeting window activates pre-existing roots through independent temporal families and a matching event chart.",
+  "why_selected": "La ventana sintética de encuentro activa raíces preexistentes mediante familias temporales independientes y una carta de evento concordante.",
   "why_not_more_specific": "The engine cannot establish that this exact place/event was the unique preincarnational route or that no alternative encounter path existed."
 }
