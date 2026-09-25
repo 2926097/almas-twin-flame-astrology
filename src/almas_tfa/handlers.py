@@ -22,6 +22,7 @@ from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import m22_ablation
+from .robustness_handlers import m23_time_sensitivity, m24_null_models
 
 
 MODELS = ("AF", "KA", "AG", "LG")
@@ -270,24 +271,52 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
     """M25: agrega componentes de robustez ya calculados mediante IRC y R_min."""
 
     components = context.raw_input.get("robustness_components")
-    if components is None:
-        components = context.canonical_snapshot.get("robustness_components")
+    component_map: dict[str, float] = {}
 
     if isinstance(components, Mapping):
-        values = list(components.values())
+        component_map = {
+            str(name): float(value) for name, value in components.items()
+        }
     elif isinstance(components, (list, tuple)):
-        values = list(components)
-    else:
+        component_map = {
+            f"INPUT_{index + 1}": float(value)
+            for index, value in enumerate(components)
+        }
+    elif components is None:
+        canonical_components = context.canonical_snapshot.get(
+            "robustness_components"
+        )
+        if isinstance(canonical_components, Mapping):
+            component_map = {
+                str(name): float(value)
+                for name, value in canonical_components.items()
+            }
+        elif isinstance(canonical_components, (list, tuple)):
+            component_map = {
+                f"CANONICAL_{index + 1}": float(value)
+                for index, value in enumerate(canonical_components)
+            }
+
+    time_sensitivity = context.canonical_snapshot.get("time_sensitivity")
+    if isinstance(time_sensitivity, Mapping):
+        value = time_sensitivity.get("robustness_component")
+        if value is not None and "BIRTH_TIME" not in component_map:
+            component_map["BIRTH_TIME"] = float(value)
+
+    if not component_map:
         return not_evaluable_result(
             "M25",
             "Faltan componentes de robustez preregistrados.",
         )
 
+    values = list(component_map.values())
     irc, r_min = robustness_index(values)
     output = {
         "irc": irc,
         "r_min": r_min,
         "components": values,
+        "component_map": component_map,
+        "null_model_rarity_used_as_robustness": False,
     }
 
     return ModuleResult(
@@ -295,6 +324,9 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
         status=ExecutionStatus.COMPLETED,
         payload=output,
         canonical_updates={"robustness_index": output},
+        limitations=(
+            "La rareza de M24 no entra en IRC salvo preregistro explícito como componente de robustez.",
+        ),
     )
 
 
@@ -321,5 +353,7 @@ def default_handlers():
         "M20": m20_counterevidence,
         "M21": m21_differential_discrimination,
         "M22": m22_ablation,
+        "M23": m23_time_sensitivity,
+        "M24": m24_null_models,
         "M25": m25_robustness,
     }
