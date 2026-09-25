@@ -47,7 +47,7 @@
         "F1_CONTINUIDAD",
         "F5_CONTINUIDAD_INTERENCARNACIONAL"
       ],
-      "note": "Operational project discriminator; does not identify a specific shared-origin ontology."
+      "note": "Discriminador operativo del proyecto; no identifica una ontología específica de origen compartido."
     },
     {
       "id": "A_GROUP_VS_RELATED_ROOT",
