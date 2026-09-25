@@ -381,38 +381,325 @@ class TestDoctrineFirewall(unittest.TestCase):
 
 
 class TestViabilityReciprocity(unittest.TestCase):
-    def test_requires_documentary_roles(self):
-        canonical = {
-            "documentary_events": {
-                "events": [
-                    {
-                        "event_id": "E1",
-                        "evidence_roles": ["VIABILITY_FACT"],
-                    },
-                    {
-                        "event_id": "E2",
-                        "evidence_roles": ["RECIPROCITY_FACT"],
-                    },
-                ]
-            }
+    def event(
+        self,
+        event_id,
+        role,
+        *,
+        event_type="RELATIONSHIP_CHANGE",
+        subjects=None,
+        quality="DQ1_PRIMARY_DOCUMENT",
+        record_status="ACTIVE",
+        quality_ok=True,
+        date_ok=True,
+        fact_split=True,
+        date_value="2030-04-01",
+    ):
+        return {
+            "event_id": event_id,
+            "subjects": subjects or ["A", "B"],
+            "event_type": event_type,
+            "date": date_value,
+            "date_precision": "EXACT_DATE",
+            "documentary_quality": quality,
+            "evidence_roles": [role],
+            "record_status": record_status,
+            "documentary_quality_contract_met": quality_ok,
+            "date_precision_contract_met": date_ok,
+            "fact_interpretation_separated": fact_split,
         }
+
+    def canonical(self, events):
+        return {"documentary_events": {"events": events}}
+
+    def assessment(self, **overrides):
+        data = {
+            "assessment_ref": "VR-001",
+            "as_of_date": "2030-05-01",
+            "subjects": ["A", "B"],
+            "real_viability": "STABLE",
+            "reciprocity": "BILATERAL",
+            "viability_basis": [
+                {
+                    "event_id": "E1",
+                    "basis_kind": "OBSERVED_STABLE_RELATIONSHIP",
+                    "observation_type": "DOCUMENTED_STATUS",
+                    "subject_ids": ["A", "B"],
+                }
+            ],
+            "reciprocity_basis": [
+                {
+                    "event_id": "E2",
+                    "basis_kind": "DOCUMENTED_BILATERALITY",
+                    "observation_type": "MUTUAL_AGREEMENT",
+                    "subject_ids": ["A", "B"],
+                }
+            ],
+        }
+        data.update(overrides)
+        return data
+
+    def test_requires_active_documentary_facts_for_both_axes(self):
+        canonical = self.canonical(
+            [
+                self.event("E1", "VIABILITY_FACT"),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        result = m29_viability_reciprocity(
+            ctx(
+                "M29",
+                {"viability_reciprocity_assessment": self.assessment()},
+                canonical,
+            )
+        )
+        output = result.canonical_updates["viability_reciprocity"]
+
+        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
+        self.assertTrue(output["factual_basis_only"])
+        self.assertEqual(output["viability_event_refs"], ["E1"])
+        self.assertEqual(output["reciprocity_event_refs"], ["E2"])
+        self.assertEqual(output["viability_subject_coverage"], ["A", "B"])
+        self.assertEqual(output["reciprocity_subject_coverage"], ["A", "B"])
+        self.assertFalse(output["astrology_used_as_real_world_fact"])
+        self.assertFalse(output["metaphysical_claim_used_as_real_world_fact"])
+        self.assertFalse(output["future_decisions_inferred"])
+
+    def test_superseded_event_cannot_support_current_assessment(self):
+        canonical = self.canonical(
+            [
+                self.event(
+                    "E1",
+                    "VIABILITY_FACT",
+                    record_status="SUPERSEDED",
+                ),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        with self.assertRaises(ValueError):
+            m29_viability_reciprocity(
+                ctx(
+                    "M29",
+                    {"viability_reciprocity_assessment": self.assessment()},
+                    canonical,
+                )
+            )
+
+    def test_failed_documentary_contract_is_rejected(self):
+        canonical = self.canonical(
+            [
+                self.event(
+                    "E1",
+                    "VIABILITY_FACT",
+                    quality_ok=False,
+                ),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        with self.assertRaises(ValueError):
+            m29_viability_reciprocity(
+                ctx(
+                    "M29",
+                    {"viability_reciprocity_assessment": self.assessment()},
+                    canonical,
+                )
+            )
+
+    def test_weak_unverified_fact_is_not_decisive(self):
+        canonical = self.canonical(
+            [
+                self.event(
+                    "E1",
+                    "VIABILITY_FACT",
+                    quality="DQ5_UNVERIFIED",
+                ),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        with self.assertRaises(ValueError):
+            m29_viability_reciprocity(
+                ctx(
+                    "M29",
+                    {"viability_reciprocity_assessment": self.assessment()},
+                    canonical,
+                )
+            )
+
+    def test_future_event_cannot_describe_state_as_of_earlier_date(self):
+        canonical = self.canonical(
+            [
+                self.event(
+                    "E1",
+                    "VIABILITY_FACT",
+                    date_value="2031-01-01",
+                ),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        with self.assertRaises(ValueError):
+            m29_viability_reciprocity(
+                ctx(
+                    "M29",
+                    {"viability_reciprocity_assessment": self.assessment()},
+                    canonical,
+                )
+            )
+
+    def test_absence_of_second_subject_does_not_prove_asymmetry(self):
+        canonical = self.canonical(
+            [
+                self.event("E1", "VIABILITY_FACT"),
+                self.event(
+                    "E2",
+                    "RECIPROCITY_FACT",
+                    subjects=["A"],
+                ),
+            ]
+        )
+        assessment = self.assessment(
+            reciprocity="ASYMMETRIC",
+            reciprocity_basis=[
+                {
+                    "event_id": "E2",
+                    "basis_kind": "DOCUMENTED_ASYMMETRY",
+                    "observation_type": "EXPLICIT_STATEMENT",
+                    "subject_ids": ["A"],
+                }
+            ],
+        )
+        with self.assertRaises(ValueError):
+            m29_viability_reciprocity(
+                ctx(
+                    "M29",
+                    {"viability_reciprocity_assessment": assessment},
+                    canonical,
+                )
+            )
+
+    def test_separated_requires_documented_separation_event(self):
+        canonical = self.canonical(
+            [
+                self.event(
+                    "E1",
+                    "VIABILITY_FACT",
+                    event_type="RELATIONSHIP_CHANGE",
+                ),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        assessment = self.assessment(
+            real_viability="SEPARATED",
+            viability_basis=[
+                {
+                    "event_id": "E1",
+                    "basis_kind": "DOCUMENTED_SEPARATION",
+                    "observation_type": "DOCUMENTED_STATUS",
+                    "subject_ids": ["A", "B"],
+                }
+            ],
+        )
+        with self.assertRaises(ValueError):
+            m29_viability_reciprocity(
+                ctx(
+                    "M29",
+                    {"viability_reciprocity_assessment": assessment},
+                    canonical,
+                )
+            )
+
+    def test_no_contact_requires_no_contact_event(self):
+        canonical = self.canonical(
+            [
+                self.event(
+                    "E1",
+                    "VIABILITY_FACT",
+                    event_type="NO_CONTACT",
+                ),
+                self.event("E2", "RECIPROCITY_FACT"),
+            ]
+        )
+        assessment = self.assessment(
+            real_viability="NO_CONTACT",
+            viability_basis=[
+                {
+                    "event_id": "E1",
+                    "basis_kind": "DOCUMENTED_NO_CONTACT",
+                    "observation_type": "DOCUMENTED_STATUS",
+                    "subject_ids": ["A", "B"],
+                }
+            ],
+        )
+        result = m29_viability_reciprocity(
+            ctx(
+                "M29",
+                {"viability_reciprocity_assessment": assessment},
+                canonical,
+            )
+        )
+        self.assertEqual(
+            result.canonical_updates["viability_reciprocity"][
+                "real_viability"
+            ],
+            "NO_CONTACT",
+        )
+
+    def test_unknown_and_not_evaluable_need_no_confirmatory_basis(self):
         result = m29_viability_reciprocity(
             ctx(
                 "M29",
                 {
                     "viability_reciprocity_assessment": {
-                        "real_viability": "STABLE",
-                        "reciprocity": "BILATERAL",
-                        "viability_event_refs": ["E1"],
-                        "reciprocity_event_refs": ["E2"],
+                        "assessment_ref": "VR-UNKNOWN",
+                        "as_of_date": "2030-05-01",
+                        "subjects": ["A", "B"],
+                        "real_viability": "UNKNOWN",
+                        "reciprocity": "NOT_EVALUABLE",
+                        "viability_basis": [],
+                        "reciprocity_basis": [],
                     }
                 },
+                self.canonical([]),
+            )
+        )
+        output = result.canonical_updates["viability_reciprocity"]
+        self.assertEqual(output["real_viability"], "UNKNOWN")
+        self.assertEqual(output["reciprocity"], "NOT_EVALUABLE")
+        self.assertFalse(output["absence_used_as_asymmetry"])
+        self.assertFalse(output["mental_states_inferred"])
+        self.assertFalse(output["consent_inferred"])
+        self.assertFalse(output["fidelity_inferred"])
+
+    def test_phase_and_phenomenology_are_not_factual_substitutes(self):
+        canonical = {
+            **self.canonical(
+                [
+                    self.event("E1", "VIABILITY_FACT"),
+                    self.event("E2", "RECIPROCITY_FACT"),
+                ]
+            ),
+            "temporal_activation": {
+                "phase": "REUNION",
+            },
+            "doctrine_hermeneutics": {
+                "claims": [{"statement": "Metaphysical interpretation"}],
+            },
+        }
+        result = m29_viability_reciprocity(
+            ctx(
+                "M29",
+                {"viability_reciprocity_assessment": self.assessment()},
                 canonical,
             )
         )
         output = result.canonical_updates["viability_reciprocity"]
-        self.assertFalse(output["astrology_used_as_real_world_fact"])
-        self.assertFalse(output["future_decisions_inferred"])
+
+        self.assertFalse(output["phase_used_as_viability"])
+        self.assertFalse(
+            output["phenomenology_used_as_reciprocity_fact"]
+        )
+        self.assertFalse(output["mental_states_inferred"])
+
+
 
 
 class TestReportingFirewall(unittest.TestCase):
