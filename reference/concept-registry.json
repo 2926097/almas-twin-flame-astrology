@@ -1,6 +1,6 @@
 {
-  "registry_version": "1.2.0",
-  "almas_version": "1.4.0",
+  "registry_version": "1.3.0",
+  "almas_version": "1.9.0",
   "concepts": [
     {
       "id": "PREINCARNATIONAL_CHOICE",
@@ -1214,6 +1214,386 @@
       "historical_sources": [],
       "not_equivalent_to": [],
       "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "ARCHETYPAL_PURPOSE",
+      "label_es": "propósito arquetípico",
+      "definition": "Modelo contemporáneo en el que el propósito vital se articula mediante patrones o compromisos arquetípicos previos al nacimiento.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "myss_sacred_contracts_2001"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "MISSION_PREINCARNATIONAL"
+      ],
+      "almas_use": "Contextualiza propósito y rol; no autoriza a derivar un arquetipo concreto sólo desde un aspecto astrológico.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "AUTHORSHIP_HISTORY",
+      "label_es": "historia de autoría",
+      "definition": "Categoría historiográfica para registrar disputas, colaboraciones o atribuciones de autoría relevantes para la genealogía documental.",
+      "primary_sources": [],
+      "academic_sources": [
+        "dobson_turner_twin_souls_2025"
+      ],
+      "method_sources": [],
+      "historical_sources": [
+        "mackay_twin_soul_1887"
+      ],
+      "not_equivalent_to": [
+        "DOCTRINAL_ENDORSEMENT"
+      ],
+      "almas_use": "Sirve para controlar la genealogía textual de twin soul/twin flame sin convertir problemas de autoría en doctrina metafísica.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "status": "DEFINED"
+    },
+    {
+      "id": "BODY_SELECTION",
+      "label_es": "selección del cuerpo",
+      "definition": "Motivo contemporáneo de literatura de intervida según el cual el alma participa en la elección de un cuerpo o condiciones corporales antes de nacer.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "newton_journey_of_souls_1994"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "PREINCARNATIONAL_CHOICE",
+        "DETAILED_LIFE_SCRIPT"
+      ],
+      "almas_use": "Se registra como motivo contemporáneo de planificación; no se presume ni se operacionaliza astrológicamente sin regla específica.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "FAMILY_SELECTION",
+      "label_es": "selección de familia",
+      "definition": "Motivo moderno de planificación pre-natal según el cual se eligen o aceptan determinadas condiciones familiares.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "wambach_life_before_life_1979"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "PRENATAL_PAIRING"
+      ],
+      "almas_use": "Puede informar modelos de contexto preencarnatorio; no prueba que una relación concreta haya sido pactada.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "INCARNATION_TIMING",
+      "label_es": "momento de encarnación",
+      "definition": "Motivo de literatura de intervida que atribuye relevancia a la elección o preparación del momento de nacimiento.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "wambach_life_before_life_1979"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "ASTROLOGICAL_ELECTION",
+        "FATALISM"
+      ],
+      "almas_use": "No se convierte en regla astrológica causal; permanece como motivo doctrinal/contemporáneo.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "KARMIC_PLANNING",
+      "label_es": "planificación kármica",
+      "definition": "Modelo contemporáneo según el cual parte de las experiencias interencarnatorias se organizan en relación con aprendizajes o deudas kármicas.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "whitton_fisher_life_between_life_1986"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "KARMIC_RELATIONSHIP",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Contextualiza una posible planificación kármica; no identifica por sí sola el tipo de relación.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "LURIANIC_KABBALAH",
+      "label_es": "Cábala luriana",
+      "definition": "Sistema cabalístico asociado a Isaac Luria y transmitido principalmente por Ḥayyim Vital, con cosmología de ruptura, tikkun, gilgul, raíces del alma y zivug.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_1_soul_levels",
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_shaar_hagilgulim_20_zivug",
+        "vital_shaar_hagilgulim_39_soul_roots",
+        "vital_sefer_etz_chaim",
+        "vital_pri_etz_chaim"
+      ],
+      "academic_sources": [
+        "magid_life_of_soul_lurianic_gilgul",
+        "fishbane_personal_identity_lurianic_gilgul_2024"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "NEW_AGE_RELIGION",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Marco doctrinal propio; sus conceptos no se traducen automáticamente a categorías New Age.",
+      "concept_class": "DOCTRINAL_FRAMEWORK",
+      "status": "DEFINED"
+    },
+    {
+      "id": "MONAD_SOUL_PERSONALITY",
+      "label_es": "Mónada–alma–personalidad",
+      "definition": "Estructura jerárquica esotérica que distingue Mónada, alma y personalidad dentro de la tradición de Alice Bailey.",
+      "primary_sources": [
+        "bailey_esoteric_psychology_soul"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "MONADIC_PAIR",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Sirve para distinguir niveles ontológicos; no implica una pareja monádica.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "PAIRED_SOULS",
+      "label_es": "almas emparejadas",
+      "definition": "Motivo textual de almas presentadas como parejas o correspondencias antes o durante su descenso/encarnación.",
+      "primary_sources": [
+        "zohar_lech_lecha_32_346_350"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "almas_use": "Se conserva como categoría descriptiva del texto fuente; no se equipara a llama gemela.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "PLANNED_CHALLENGES",
+      "label_es": "desafíos planificados",
+      "definition": "Modelo contemporáneo de planificación prenatal de desafíos principales con finalidad de aprendizaje o crecimiento.",
+      "primary_sources": [],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "method_sources": [
+        "schwartz_your_souls_plan_2009"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "PREINCARNATIONAL_TRIAL",
+        "DETAILED_LIFE_SCRIPT"
+      ],
+      "almas_use": "Puede compararse con la elección de pruebas sin declarar equivalencia doctrinal.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "PLANNED_RELATIONSHIPS",
+      "label_es": "relaciones planificadas",
+      "definition": "Modelo contemporáneo según el cual determinadas relaciones pueden formar parte de una planificación prenatal.",
+      "primary_sources": [],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "method_sources": [
+        "schwartz_your_souls_plan_2009"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "PRENATAL_PAIRING",
+        "SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Antecedente contemporáneo para contrato relacional; la especificidad bilateral requiere evidencia adicional.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "REINCARNATIONAL_CONTINUITY",
+      "label_es": "continuidad reencarnatoria",
+      "definition": "Continuidad de vínculos, causas o aprendizajes entre encarnaciones sucesivas dentro de una doctrina reencarnacionista.",
+      "primary_sources": [
+        "steiner_karmic_relationships_1924"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Informa historia/continuidad; no determina por sí sola origen compartido ni contrato.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "REINCARNATION_NEW_AGE",
+      "label_es": "reencarnación en New Age",
+      "definition": "Uso y reelaboración de la reencarnación dentro de corrientes New Age modernas.",
+      "primary_sources": [],
+      "academic_sources": [
+        "hanegraaff_new_age_religion_1996"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "GILGUL",
+        "SPIRITIST_REINCARNATION"
+      ],
+      "almas_use": "Contexto histórico-académico para distinguir síntesis modernas de doctrinas tradicionales.",
+      "concept_class": "ACADEMIC_CONTEXT",
+      "status": "DEFINED"
+    },
+    {
+      "id": "RELATIONAL_PURPOSE",
+      "label_es": "propósito relacional",
+      "definition": "Modelo contemporáneo en el que una relación significativa puede cumplir una función de aprendizaje, propósito o activación dentro del plan vital.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "myss_sacred_contracts_2001"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "SERVICE_MISSION"
+      ],
+      "almas_use": "Permite modelar función relacional sin asumir contrato bilateral literal.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED"
+    },
+    {
+      "id": "RETURN_FOR_OTHERS",
+      "label_es": "retorno por otros",
+      "definition": "Motivo luriano en el que un alma puede retornar no sólo por su propia rectificación, sino por función respecto de otras almas.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SERVICE_MISSION",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Antecedente doctrinal para función inter-almas; no implica acuerdo romántico.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "SEPARATION_REUNION",
+      "label_es": "separación y reunión",
+      "definition": "Motivo doctrinal o narrativo en el que una unidad o par aparece separado y posteriormente reunido.",
+      "primary_sources": [
+        "zohar_lech_lecha_32_346_350"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_PHASE",
+        "GUARANTEED_REUNION"
+      ],
+      "almas_use": "No se convierte automáticamente en fase obligatoria de separación/reunión de llamas gemelas.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "SERVICE_MISSION",
+      "label_es": "misión de servicio",
+      "definition": "Función de servicio, instrucción o contribución atribuida a una misión aceptada o solicitada antes de encarnar.",
+      "primary_sources": [
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "MISSION_SERVICE_RELATIONAL",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Permite distinguir misión individual de misión compartida de pareja.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "SOUL_IDENTITY",
+      "label_es": "identidad del alma",
+      "definition": "Problema doctrinal y académico relativo a la continuidad, composición e identidad del alma a través de gilgul y cambios de encarnación.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_39_soul_roots"
+      ],
+      "academic_sources": [
+        "magid_life_of_soul_lurianic_gilgul",
+        "fishbane_personal_identity_lurianic_gilgul_2024"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "PERSONALITY_IDENTITY",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Ayuda a evitar que raíz del alma, identidad individual y pareja metafísica se confundan.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "TEACHER_STUDENT_ROOT",
+      "label_es": "vínculo maestro–discípulo por raíz del alma",
+      "definition": "Motivo luriano de conexiones persistentes entre almas que pueden expresarse mediante roles no románticos, como maestro y discípulo.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_39_soul_roots"
+      ],
+      "academic_sources": [
+        "fishbane_personal_identity_lurianic_gilgul_2024"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SOUL_PAIRING",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Refuerza que compartir raíz o continuidad no determina modalidad romántica.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED"
+    },
+    {
+      "id": "WESTERN_ESOTERICISM_CONTEXT",
+      "label_es": "contexto del esoterismo occidental",
+      "definition": "Marco académico para situar movimientos, doctrinas y transmisiones dentro de la historia del esoterismo occidental.",
+      "primary_sources": [],
+      "academic_sources": [
+        "hanegraaff_new_age_religion_1996",
+        "granholm_sociology_esotericism"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "NEW_AGE_RELIGION",
+        "DOCTRINAL_ENDORSEMENT"
+      ],
+      "almas_use": "Contextualiza genealogías sin afirmar continuidad doctrinal donde sólo existe semejanza.",
+      "concept_class": "ACADEMIC_CONTEXT",
+      "status": "DEFINED"
     }
   ]
 }
