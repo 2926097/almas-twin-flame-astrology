@@ -1,4 +1,4 @@
-"""Public ALMAS relational-astrology scoring core."""
+"""Núcleo público de puntuación de astrología relacional ALMAS."""
 
 from .analysis import analyze_precomputed
 from .core import (
