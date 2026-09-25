@@ -40,7 +40,8 @@ from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, wilson_in
 from .robustness_index_handlers import m25_robustness
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .doctrine_handlers import m28_doctrine_hermeneutics
-from .final_handlers import m29_viability_reciprocity, m30_report_gate, m31_report
+from .reality_handlers import m29_viability_reciprocity
+from .final_handlers import m30_report_gate, m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
