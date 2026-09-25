@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.9.0",
+  "registry_version": "1.4.0",
   "entries": [
     {
       "id": "plato_symposium_aristophanes",
@@ -23,7 +23,15 @@
         "SPLIT_PRIMORDIAL_BEING"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "brihadaranyaka_1_4_3",
@@ -49,7 +57,14 @@
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
       ],
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
     },
     {
       "id": "blavatsky_secret_doctrine_monads",
@@ -72,7 +87,15 @@
         "THEOSOPHICAL_MONAD"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "bailey_esoteric_psychology_soul",
@@ -96,7 +119,16 @@
         "MONAD_SOUL_PERSONALITY"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "summit_lighthouse_soulmates_twin_flames",
@@ -119,7 +151,17 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "summit_lighthouse_glossary_twin_flame",
@@ -143,7 +185,16 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "granholm_sociology_esotericism",
@@ -166,7 +217,15 @@
         "NEW_AGE_RELIGION"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "kardec_spirits_book_choice_trials",
@@ -194,7 +253,14 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Primary doctrinal locator verified in KardecPedia; reproduce only within the rights of the specific edition/translation.",
-      "verification_note": "Questions 258-259 explicitly distinguish choice of the type of trial from contingent life details."
+      "verification_note": "Questions 258-259 explicitly distinguish choice of the type of trial from contingent life details.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "zohar_lech_lecha_32_346_350",
@@ -221,7 +287,16 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "English Soncino version in Sefaria explicitly presents souls as paired before descent, separated, and later joined; it also preserves a merit/action qualification."
+      "verification_note": "English Soncino version in Sefaria explicitly presents souls as paired before descent, separated, and later joined; it also preserves a merit/action qualification.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "talmud_sotah_2a_9",
@@ -245,7 +320,16 @@
         "FIRST_SECOND_ZIVUG"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "kwilecki_soul_contract_theodicy_2014",
@@ -275,7 +359,14 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
-      "verification_note": "Journal metadata and abstract verify the 2014 article, pages 411-424, and its definition of soul-contract theodicy as pre-birth plans for growth."
+      "verification_note": "Journal metadata and abstract verify the 2014 article, pages 411-424, and its definition of soul-contract theodicy as pre-birth plans for growth.",
+      "date_note": null,
+      "passage": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "stokke_spiritual_love_relations_2021",
@@ -306,7 +397,13 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Use according to stated license: CC BY-NC-ND 4.0.",
-      "verification_note": "Peer-reviewed open-access study verified; convenience sample of 140 naturally occurring responses in a New Age Facebook group. It documents reported phenomena and explicitly does not provide population-level prevalence or ontological verification."
+      "verification_note": "Peer-reviewed open-access study verified; convenience sample of 140 naturally occurring responses in a New Age Facebook group. It documents reported phenomena and explicitly does not provide population-level prevalence or ontological verification.",
+      "date_note": null,
+      "passage": null,
+      "download_url": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "crane_draconic_astrology_1987",
@@ -332,7 +429,16 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
-      "verification_note": "Open British National Bibliography verifies title, author, Aquarian publisher, 1987 date, ISBN 0850305594 and 224-page book; Astrological Association also lists Crane's 1987 conference recording on draconic astrology."
+      "verification_note": "Open British National Bibliography verifies title, author, Aquarian publisher, 1987 date, ISBN 0850305594 and 224-page book; Astrological Association also lists Crane's 1987 conference recording on draconic astrology.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "bailey_esoteric_astrology_1951",
@@ -359,7 +465,15 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Copyright Lucis Trust; use official online access and short analytical quotation only as permitted.",
       "passage": "Esoteric Astrology, especially Chapters I-II and sections on spiritual unfoldment",
-      "verification_note": "Official Lucis Trust online text verifies the 1951 work and its explicit framing of astrology in relation to spiritual unfoldment, soul, personality and evolutionary stage."
+      "verification_note": "Official Lucis Trust online text verifies the 1951 work and its explicit framing of astrology in relation to spiritual unfoldment, soul, personality and evolutionary stage.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "prophet_twin_flames_qa_part1",
@@ -382,7 +496,17 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "swedenborg_conjugial_love_1768",
@@ -413,7 +537,17 @@
         "CONJUGIAL_PAIRING"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "url": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "steiner_karmic_relationships_1924",
@@ -439,7 +573,16 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Rudolf Steiner Archive verifies GA 235-240 as 1924 karmic-relationship lecture cycles."
+      "verification_note": "Rudolf Steiner Archive verifies GA 235-240 as 1924 karmic-relationship lecture cycles.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "wambach_life_before_life_1979",
@@ -466,7 +609,16 @@
         "INCARNATION_TIMING"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "whitton_fisher_life_between_life_1986",
@@ -492,7 +644,16 @@
         "KARMIC_PLANNING"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "newton_journey_of_souls_1994",
@@ -519,7 +680,16 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
-      "verification_note": "Michael Newton Institute confirms 1994 publication and identifies life selection, choosing a new body, soul groups and rebirth as core contents."
+      "verification_note": "Michael Newton Institute confirms 1994 publication and identifies life selection, choosing a new body, soul groups and rebirth as core contents.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "myss_sacred_contracts_2001",
@@ -548,7 +718,16 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
-      "verification_note": "Google Books metadata describes a sacred contract agreed before birth and an archetypal method for interpreting purpose and significant encounters."
+      "verification_note": "Google Books metadata describes a sacred contract agreed before birth and an archetypal method for interpreting purpose and significant encounters.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "schwartz_your_souls_plan_2009",
@@ -576,7 +755,16 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
-      "verification_note": "Publisher metadata confirms the book's explicit pre-birth planning framework."
+      "verification_note": "Publisher metadata confirms the book's explicit pre-birth planning framework.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "hanegraaff_new_age_religion_1996",
@@ -602,7 +790,16 @@
         "REINCARNATION_NEW_AGE"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "corelli_romance_two_worlds_1886",
@@ -634,7 +831,15 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
-      "verification_note": "Project Gutenberg text verifies explicit 'Twin-Flame' language and a literary half-flame/counterpart model in A Romance of Two Worlds."
+      "verification_note": "Project Gutenberg text verifies explicit 'Twin-Flame' language and a literary half-flame/counterpart model in A Romance of Two Worlds.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "theosophist_occultism_modern_literature_1887",
@@ -660,7 +865,15 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "passage": "Occultism in Modern Literature (7), The Theosophist, vol. 8, February 1887, p. 266ff.",
-      "verification_note": "Contemporary Theosophist reception explicitly discusses 'true mates', 'twin-flames' and 'companion-spirits' as themes in occult literature; this is reception evidence, not doctrinal endorsement."
+      "verification_note": "Contemporary Theosophist reception explicitly discusses 'true mates', 'twin-flames' and 'companion-spirits' as themes in occult literature; this is reception evidence, not doctrinal endorsement.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "mackay_twin_soul_1887",
@@ -684,7 +897,16 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "1887 work and title verified bibliographically; authorship remains historically contested and is handled with the 2025 Dobson-Turner study."
+      "verification_note": "1887 work and title verified bibliographically; authorship remains historically contested and is handled with the 2025 Dobson-Turner study.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "dobson_turner_twin_souls_2025",
@@ -712,7 +934,15 @@
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
-      "verification_note": "Peer-reviewed 2025 article verifies the authorship problem and argues for likely Mackay primary authorship with evidence of Corelli collaboration."
+      "verification_note": "Peer-reviewed 2025 article verifies the authorship problem and argues for likely Mackay primary authorship with evidence of Corelli collaboration.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "vital_shaar_hagilgulim_1_soul_levels",
@@ -736,7 +966,16 @@
         "GILGUL"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "vital_shaar_hagilgulim_8_reasons_for_return",
@@ -765,7 +1004,15 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "verification_note": "Source-language text verified in Sefaria. It distinguishes several causes of gilgul, including rectification, completing a missing commandment, returning for others, and in some cases returning to take one's bat zug.",
-      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; ALMAS records primary-source status without treating an unofficial translation as canonical."
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; ALMAS records primary-source status without treating an unofficial translation as canonical.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
     },
     {
       "id": "vital_shaar_hagilgulim_20_zivug",
@@ -795,7 +1042,15 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "verification_note": "Source-language text verified in Sefaria. The opening discussion interprets first/second zivug in reincarnational terms and explicitly treats a repeated union with the same true mate as a possible second zivug.",
-      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; interpretive summaries must remain tied to the Hebrew source and academic literature."
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; interpretive summaries must remain tied to the Hebrew source and academic literature.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
     },
     {
       "id": "vital_shaar_hagilgulim_39_soul_roots",
@@ -824,7 +1079,15 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "verification_note": "Source-language text verified in Sefaria; chapter contains extensive discussion of soul-root relations, reincarnational links and connections across relational roles.",
-      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter."
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
     },
     {
       "id": "vital_sefer_etz_chaim",
@@ -847,7 +1110,17 @@
         "SOUL_ROOT"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "vital_pri_etz_chaim",
@@ -870,7 +1143,17 @@
         "ZIVUG"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "magid_life_of_soul_lurianic_gilgul",
@@ -898,7 +1181,13 @@
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "date": "2024",
-      "doi": "10.1515/9798855800074-012"
+      "doi": "10.1515/9798855800074-012",
+      "passage": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "kardec_spirits_book_missions_572_573",
@@ -926,7 +1215,15 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Questions 572-573 explicitly state that a spirit may request a mission and describe missions of incarnate spirits."
+      "verification_note": "Questions 572-573 explicitly state that a spirit may request a mission and describe missions of incarnate spirits.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "summit_lighthouse_what_is_twin_flame",
@@ -951,7 +1248,17 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     },
     {
       "id": "fishbane_personal_identity_lurianic_gilgul_2024",
@@ -979,7 +1286,14 @@
         "ALMAS astrological diagnostic rules"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
     }
   ],
   "registry_revision": "2026-09-24-origin-differential-1"
