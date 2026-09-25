@@ -46,6 +46,7 @@ REQUIRED_FILES = [
     "schemas/structural-ablation-output.schema.json",
     "schemas/time-sensitivity-output.schema.json",
     "schemas/null-model-output.schema.json",
+    "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
     "schemas/final-pipeline-output.schema.json",
@@ -151,6 +152,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/time_sensitivity_handlers.py",
     "src/almas_tfa/null_model_handlers.py",
     "src/almas_tfa/robustness_handlers.py",
+    "src/almas_tfa/robustness_index_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
@@ -331,6 +333,7 @@ def main() -> int:
     structural_ablation_schema = load_json("schemas/structural-ablation-output.schema.json")
     time_sensitivity_schema = load_json("schemas/time-sensitivity-output.schema.json")
     null_model_schema = load_json("schemas/null-model-output.schema.json")
+    robustness_output_schema = load_json("schemas/robustness-output.schema.json")
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -461,6 +464,21 @@ def main() -> int:
     null_runs = null_model_schema.get("properties", {}).get("runs", {})
     if null_runs.get("minItems") != 1:
         fail("null model schema must require at least one run")
+
+    robustness_props = robustness_output_schema.get("properties", {})
+    if robustness_props.get("null_model_rarity_used_as_robustness", {}).get("const") is not False:
+        fail("M25 must forbid null-model rarity as robustness")
+    if robustness_props.get("components", {}).get("minItems") != 1:
+        fail("M25 robustness schema must require at least one component")
+    allowed_m25_kinds = set(
+        robustness_props.get("components", {})
+        .get("items", {})
+        .get("properties", {})
+        .get("kind", {})
+        .get("enum", [])
+    )
+    if "NULL_RARITY" in allowed_m25_kinds or "NULL_MODEL_FREQUENCY" in allowed_m25_kinds:
+        fail("M25 must not admit null rarity as a robustness component")
 
     if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
         fail("M23 must not generate perturbations implicitly")
