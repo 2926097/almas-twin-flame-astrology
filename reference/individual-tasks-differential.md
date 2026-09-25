@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial de tareas individuales
+# ALMAS · Contrato Preencarnatorio · Motor diferencial de tareas individuales
 
 ## 1. Finalidad
 
