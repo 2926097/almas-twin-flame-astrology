@@ -130,3 +130,9 @@ Los contratos de salida están en `schemas/synastry-output.schema.json` y `schem
 `M10` exige una `draconic_policy` que identifique el nodo norte mediante `node_id` y declare `transform=NORTH_NODE_TO_ZERO`. La transformación aplicada a cada longitud es `(λ-nodo_norte) mod 360°`. Ángulos y cúspides sólo se transforman cuando la política activa expresamente `include_angles` o `include_houses`.
 
 `M11` calcula los cruces natal A↔dracónica B y natal B↔dracónica A utilizando una `draconic_aspect_policy` declarada. `M12` calcula dracónica↔dracónica y marca la salida `corroborative_only=true`, conforme a la regla de independencia de ALMAS.
+
+## M13 · lotes helenísticos / partes arábigas
+
+`M13` es un evaluador declarativo de fórmulas. Cada lote debe declarar `id`, `source_ref` y una fórmula o variantes `DAY/NIGHT`. Si existen variantes, `lot_policy.sect_by_subject` debe indicar el sect de cada sujeto. ALMAS no escoge fórmulas ni invierte términos de forma implícita.
+
+La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0–360°. Los puntos pueden proceder de posiciones natales o ángulos canónicos.
