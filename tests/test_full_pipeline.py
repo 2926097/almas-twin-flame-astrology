@@ -482,9 +482,24 @@ class TestFullPipelineSynthetic(unittest.TestCase):
         self.assertIn("independent_roots", run.canonical)
         self.assertIn("temporal_activation", run.canonical)
         self.assertIn("documentary_events", run.canonical)
-        self.assertFalse(
-            run.canonical["report_document_model"]["canonical_values_mutated"]
+        report_model = run.canonical["report_document_model"]
+        self.assertEqual(report_model["report_state"], "READY")
+        self.assertTrue(report_model["canonical_fingerprint_verified"])
+        self.assertEqual(
+            report_model["canonical_fingerprint"],
+            run.canonical["report_gate"]["canonical_fingerprint"],
         )
+        self.assertEqual(len(report_model["sections"]), 11)
+        self.assertEqual(
+            sum(report_model["section_counts"].values()),
+            11,
+        )
+        self.assertFalse(report_model["canonical_values_embedded"])
+        self.assertFalse(report_model["canonical_values_mutated"])
+        self.assertFalse(report_model["prose_generated"])
+        self.assertFalse(report_model["rendered_document_created"])
+        self.assertFalse(report_model["docx_created"])
+        self.assertFalse(report_model["pdf_created"])
 
 
 if __name__ == "__main__":
