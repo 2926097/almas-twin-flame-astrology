@@ -21,6 +21,7 @@ from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .counterevidence_handlers import m20_counterevidence
+from .ablation_handlers import m22_ablation
 
 
 MODELS = ("AF", "KA", "AG", "LG")
@@ -319,5 +320,6 @@ def default_handlers():
         "M19": m19_structural_model_indices,
         "M20": m20_counterevidence,
         "M21": m21_differential_discrimination,
+        "M22": m22_ablation,
         "M25": m25_robustness,
     }
