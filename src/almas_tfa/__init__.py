@@ -31,6 +31,7 @@ from .relationship_chart_handlers import DavisonBackend, DavisonRequest, circula
 from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cross, m12_draconic_draconic
 from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
+from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -66,6 +67,9 @@ __all__ = [
     "m12_draconic_draconic",
     "m13_lots",
     "m14_secondary_symbolic",
+    "m15_evidence_extraction",
+    "m16_dependency_deduplication",
+    "m17_independent_roots",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
