@@ -378,18 +378,52 @@ class TestFullPipelineSynthetic(unittest.TestCase):
             },
             "doctrinal_claims": [
                 {
+                    "schema_version": "2.0.0",
                     "claim_id": "D1",
                     "statement": "Synthetic doctrinal statement.",
                     "epistemic_class": "C_DOCTRINE",
-                    "status": "SUPPORTED",
+                    "claim_scope": "DOCTRINAL_ATTRIBUTION",
+                    "concept_id": "SYNTHETIC_DOCTRINE",
                     "source_relation": "DIRECT_DOCTRINE",
                     "source_ids": ["SRC1"],
-                    "source_anchor_refs": ["SRC1:ANCHOR"],
+                    "source_anchor_refs": ["SRC1"],
+                    "source_support_refs": [
+                        {"source_id": "SRC1", "support_index": 0}
+                    ],
+                    "does_not_support_checked": True,
+                    "asserts_doctrinal_identity": False,
+                    "astrological_refs": [],
+                    "status": "SUPPORTED",
+                    "requested_conclusion": "SYNTHETIC_DOCTRINAL_ATTRIBUTION",
+                    "allowed_conclusion": "SYNTHETIC_DOCTRINAL_ATTRIBUTION",
+                    "inferential_ceiling": "DIRECT_DOCTRINE_ONLY",
+                    "discriminator_id": None,
                     "discriminator_state": "DOCTRINAL_ONLY",
                     "ceiling_enforced": True,
+                    "alternatives": [],
+                    "limitations": ["Synthetic doctrine fixture only."],
                 }
             ],
-            "source_registry": ["SRC1"],
+            "source_registry": {
+                "registry_version": "TEST-1",
+                "entries": [
+                    {
+                        "id": "SRC1",
+                        "priority": "P1_PRIMARY",
+                        "source_role": "DOCTRINAL_PRIMARY",
+                        "tradition": "Synthetic tradition",
+                        "author": "Synthetic Author",
+                        "work": "Synthetic Work",
+                        "concepts": ["SYNTHETIC_DOCTRINE"],
+                        "supports": ["Synthetic doctrinal statement."],
+                        "does_not_support": ["Cross-tradition identity."],
+                        "verification_status": "VERIFIED_PRIMARY",
+                        "verification_anchor": "Synthetic exact passage.",
+                        "verification_anchor_type": "EXACT_PASSAGE",
+                        "evidence_scope": "DOCTRINAL_CLAIM",
+                    }
+                ],
+            },
             "viability_reciprocity_assessment": {
                 "real_viability": "STABLE",
                 "reciprocity": "BILATERAL",
