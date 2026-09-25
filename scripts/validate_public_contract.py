@@ -50,6 +50,8 @@ REQUIRED_FILES = [
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
     "schemas/doctrine-hermeneutics-output.schema.json",
+    "schemas/viability-reciprocity-assessment.schema.json",
+    "schemas/viability-reciprocity-output.schema.json",
     "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
@@ -114,6 +116,7 @@ REQUIRED_FILES = [
     "reference/contract-free-will.md",
     "reference/contract-temporality-v2.md",
     "reference/documentary-events.md",
+    "reference/viability-reciprocity.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -156,6 +159,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/robustness_index_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
     "src/almas_tfa/doctrine_handlers.py",
+    "src/almas_tfa/reality_handlers.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -172,6 +176,7 @@ REQUIRED_FILES = [
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/DOCTRINAL_CLAIM_V2_INVARIANTS.md",
+    "tests/VIABILITY_RECIPROCITY_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -340,6 +345,8 @@ def main() -> int:
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
     doctrine_output_schema = load_json("schemas/doctrine-hermeneutics-output.schema.json")
+    viability_input_schema = load_json("schemas/viability-reciprocity-assessment.schema.json")
+    viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
@@ -561,8 +568,34 @@ def main() -> int:
         fail("M28 project hypothesis must not become doctrine")
     if doctrine_props.get("cross_tradition_identity_inferred", {}).get("const") is not False:
         fail("M28 must not infer cross-tradition doctrinal identity")
-    if final_props.get("viability_reciprocity", {}).get("properties", {}).get("astrology_used_as_real_world_fact", {}).get("const") is not False:
-        fail("M29 must not substitute astrology for real-world facts")
+    viability_ref = final_props.get("viability_reciprocity", {}).get("$ref")
+    if viability_ref != "viability-reciprocity-output.schema.json":
+        fail("final pipeline must reference canonical M29 output schema")
+
+    viability_props = viability_output_schema.get("properties", {})
+    if viability_props.get("factual_basis_only", {}).get("const") is not True:
+        fail("M29 must require factual basis only")
+    for field in (
+        "astrology_used_as_real_world_fact",
+        "metaphysical_claim_used_as_real_world_fact",
+        "phase_used_as_viability",
+        "phenomenology_used_as_reciprocity_fact",
+        "absence_used_as_asymmetry",
+        "mental_states_inferred",
+        "consent_inferred",
+        "fidelity_inferred",
+        "future_decisions_inferred",
+    ):
+        if viability_props.get(field, {}).get("const") is not False:
+            fail(f"M29 firewall field {field} must remain false")
+
+    viability_input_required = set(viability_input_schema.get("required", []))
+    for field in ("assessment_ref", "as_of_date", "subjects", "real_viability", "reciprocity"):
+        if field not in viability_input_required:
+            fail(f"M29 input schema missing required field: {field}")
+    subject_schema = viability_input_schema.get("properties", {}).get("subjects", {})
+    if subject_schema.get("minItems") != 2 or subject_schema.get("maxItems") != 2:
+        fail("M29 must require exactly two subjects")
     if final_props.get("report_gate", {}).get("properties", {}).get("canonical_values_mutated", {}).get("const") is not False:
         fail("M30 report gate must not mutate canonical values")
     if final_props.get("report_document_model", {}).get("properties", {}).get("rendered_document_created", {}).get("const") is not False:
