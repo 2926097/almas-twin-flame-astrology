@@ -3,7 +3,7 @@
 ## Prioridad alta
 
 1. **Cábala luriana — PARCIALMENTE CUBIERTO**: Sha'ar HaGilgulim 8, 20 y 39 ya están verificados en texto fuente; se añadieron Magid y Fishbane como apoyo académico. Pendiente ampliar ediciones críticas, tikkun, ibbur y estudios específicos sobre zivug.
-2. **Historia de twin soul / twin flame**: establecer cronología documental de usos anteriores a Summit Lighthouse y distinguir literatura, ocultismo y doctrina institucional.
+2. **Historia de twin soul / twin flame — PARCIALMENTE CUBIERTO**: Corelli 1886, The Theosophist 1887, The Twin Soul 1887 y Dobson/Turner 2025 ya permiten separar genealogía literaria de doctrina Summit Lighthouse. Pendiente ampliar el arco 1888–1970 y documentar transmisiones intermedias.
 3. **Espiritismo**: completar Kardec sobre misiones, simpatías/antipatías y relaciones entre espíritus.
 4. **Teosofía y post-Teosofía**: separar Mónada, alma, rayos y cualquier afirmación real sobre pares.
 5. **Astrología dracónica**: documentar historia técnica, fórmula, autores y fecha de aparición moderna.
