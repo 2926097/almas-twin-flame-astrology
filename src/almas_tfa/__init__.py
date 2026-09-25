@@ -27,6 +27,7 @@ from .module_contract import (
 )
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .symmetry_handlers import antiscion_longitude, contra_antiscion_longitude, m05_declinations, m06_antiscia
+from .relationship_chart_handlers import DavisonBackend, DavisonRequest, circular_midpoint, m07_composite, make_m08_davison
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -52,6 +53,11 @@ __all__ = [
     "m06_antiscia",
     "antiscion_longitude",
     "contra_antiscion_longitude",
+    "circular_midpoint",
+    "m07_composite",
+    "DavisonRequest",
+    "DavisonBackend",
+    "make_m08_davison",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
