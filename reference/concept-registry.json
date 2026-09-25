@@ -399,6 +399,53 @@
         "FATALISM"
       ],
       "almas_use": "Base doctrinal para separar arquitectura previa de desenlace encarnado."
+    },
+    {
+      "id": "BAT_ZUG",
+      "label_es": "bat zug / pareja correspondiente",
+      "definition": "Expresión relacional presente en fuentes judías y lurianas para la pareja correspondiente o verdadera dentro de su propio marco doctrinal.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_shaar_hagilgulim_20_zivug"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SOULMATE_EXPERIENCE",
+        "SPLIT_SOUL"
+      ],
+      "almas_use": "Puede alimentar el modelo ZIVUG_TRUE_PAIR, pero no autoriza a etiquetarlo como twin flame."
+    },
+    {
+      "id": "FIRST_SECOND_ZIVUG",
+      "label_es": "primer y segundo zivug",
+      "definition": "Distinción rabínica y cabalística entre primer y segundo emparejamiento, con interpretaciones diferentes según el corpus.",
+      "primary_sources": [
+        "talmud_sotah_2a_9",
+        "vital_shaar_hagilgulim_20_zivug"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "FIRST_SECOND_SPOUSE_SIMPLE",
+        "TWIN_FLAME_PHASE"
+      ],
+      "almas_use": "ALMAS debe conservar la diferencia entre el uso talmúdico y la reinterpretación luriana."
+    },
+    {
+      "id": "SOUL_NETWORK",
+      "label_es": "red de almas relacionadas",
+      "definition": "Modelo de conexiones múltiples derivadas de raíces, chispas, parentesco espiritual, maestro-discípulo u otras relaciones dentro de una ontología reencarnacionista.",
+      "primary_sources": [
+        "vital_shaar_hagilgulim_39_soul_roots"
+      ],
+      "academic_sources": [
+        "fishbane_personal_identity_lurianic_gilgul_2024"
+      ],
+      "not_equivalent_to": [
+        "DYADIC_SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Evita reducir toda relación profunda a una díada exclusiva."
     }
   ]
 }
