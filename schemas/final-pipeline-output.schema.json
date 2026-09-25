@@ -14,26 +14,7 @@
       "$ref": "report-gate-output.schema.json"
     },
     "report_document_model": {
-      "type": "object",
-      "required": [
-        "model_version",
-        "sections",
-        "canonical_source",
-        "canonical_values_mutated",
-        "rendered_document_created"
-      ],
-      "properties": {
-        "canonical_source": {
-          "const": "canonical_analysis"
-        },
-        "canonical_values_mutated": {
-          "const": false
-        },
-        "rendered_document_created": {
-          "const": false
-        }
-      },
-      "additionalProperties": true
+      "$ref": "report-document-model.schema.json"
     }
   },
   "additionalProperties": false
