@@ -1,25 +1,25 @@
-# Reporting and PDF pipeline
+# Informes y pipeline PDF
 
-The canonical analytical object is the sole analytical truth.
+El objeto analítico canónico es la única verdad analítica.
 
-Recommended pipeline:
+Pipeline recomendado:
 
-`canonical_analysis.json → report_document_model.json → structured document → PDF → preflight → render all pages → inspect → correct → re-render/verify`
+`canonical_analysis.json → report_document_model.json → documento estructurado → PDF → preflight → renderizar todas las páginas → inspeccionar → corregir → volver a renderizar/verificar`
 
-For long reports, a DOCX authoring stage before PDF conversion is preferred. Reports should explain findings hermeneutically rather than merely list aspects.
+Para informes largos se prefiere una fase de autoría en DOCX antes de la conversión a PDF. Los informes deben explicar los hallazgos hermenéuticamente y no limitarse a enumerar aspectos.
 
-Every material conclusion should identify its evidentiary class, source/technique, competing explanations, counterevidence, uncertainty and whether it is structural or temporal.
+Toda conclusión material debe identificar su clase evidencial, fuente/técnica, explicaciones competidoras, contraevidencia, incertidumbre y si pertenece al componente estructural o temporal.
 
-Recommended chapter order:
+Orden recomendado de capítulos:
 
-1. Synthesis
-2. Data quality and method
-3. Numeric ontology
-4. Structural architecture
-5. Relational/cross-chart layers
-6. Differential diagnosis and counterevidence
-7. Temporal activation/events
-8. Robustness/validation
-9. Comparative doctrine/corpus
-10. Final synthesis
-11. Sources and appendices
+1. Síntesis
+2. Calidad de datos y método
+3. Ontología numérica
+4. Arquitectura estructural
+5. Capas relacionales/intercarta
+6. Diagnóstico diferencial y contraevidencia
+7. Activación temporal/eventos
+8. Robustez/validación
+9. Doctrina/corpus comparados
+10. Síntesis final
+11. Fuentes y anexos
