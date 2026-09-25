@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.9.2 — 2026-09-25
+
+### Auditoría doctrina → astrología
+- Audita los 15 conceptos que sí tienen traducción astrológica.
+- Añade `source_alignment`, `validation_state`, `inferential_ceiling`, `structural_score_policy`, dependencias, gates, poder discriminante y upgrades prohibidos.
+- Establece que score, rareza, recurrencia o número de técnicas nunca pueden superar el techo inferencial.
+- Vincula techos críticos a discriminadores explícitos: contrato R2→R3, soul-root→zivug, zivug→twin-flame, split-soul→twin-flame y monadic→related-root.
+- Mantiene DRACONIC_ASTROLOGY como técnica corroborativa dependiente de nodos.
+- Mantiene LIFE_BETWEEN_LIVES y SOULMATE_EXPERIENCE sin contribución estructural directa.
+- Añade cobertura doctrina→astrología para los 92 conceptos y CI que impide crear evidencia desde conceptos contextuales o de límite.
+- Añade `docs/DOCTRINE_ASTROLOGY_MAPPING_AUDIT.md`.
+
 ## 1.9.1 — 2026-09-25
 
 ### Corpus doctrinal y CI
