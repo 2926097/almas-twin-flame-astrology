@@ -160,3 +160,11 @@ El módulo no inventa una fórmula de ICE. Si la entrada contiene `ice_by_model`
 `M22` ejecuta AB0–AB8 sobre la evidencia deduplicada y las raíces independientes. Registra evidencia y raíces supervivientes/perdidas y una fracción de supervivencia por corrida. `AB7_TROPICAL_PLANETARY_CORE` conserva únicamente sinastría tropical entre luminarias/planetas principales; `AB8_INDIVIDUAL_ONLY` conserva sólo evidencia intrapersonal si existiera.
 
 La salida se marca `structural_only=true` y `dependency_classes_assigned=false`. Las clases contractuales CORE_STABLE, DRACONIC_DEPENDENT, RELCHART_SENSITIVE, etc., no se infieren automáticamente a partir de esta matriz hasta disponer de las unidades contractuales correspondientes.
+
+## M23–M25 · sensibilidad, modelos nulos y robustez
+
+`M23` consume un resumen preregistrado de perturbación horaria con `delta90` y `preserved_fraction=G` y aplica exactamente `R_X = exp(-delta90/20) × sqrt(G)`. No genera por sí mismo horas perturbadas.
+
+`M24` resume corridas nulas ya generadas bajo uno de los modelos admitidos por la skill. Exige `preregistration_ref` y `frozen_before_inspection=true`, calcula la frecuencia `hits/trials` y, cuando se declara `wilson_z`, el intervalo Wilson correspondiente. La salida fija `metaphysical_probability=false` y `sampling_generated_by_m24=false`.
+
+`M25` puede incorporar automáticamente el componente `BIRTH_TIME` de M23 junto con otros componentes preregistrados y calcula `IRC` y `R_min` con la fórmula existente. La rareza de M24 no se incorpora a IRC por defecto.
