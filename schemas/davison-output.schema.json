@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/davison-output.schema.json",
+  "title": "ALMAS Davison Output",
+  "type": "object",
+  "required": ["subjects","policy","chart"],
+  "properties": {
+    "subjects":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"string"}},
+    "policy":{"type":"object"},
+    "chart":{"type":"object"}
+  },
+  "additionalProperties":false
+}
