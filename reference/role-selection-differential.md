@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial de selección de roles
+# ALMAS · Contrato Preencarnatorio · Motor diferencial de selección de roles
 
 ## 1. Finalidad
 
