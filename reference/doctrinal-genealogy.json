@@ -225,6 +225,55 @@
       "relation": "PAIRING_NOT_CONTRACT",
       "status": "INSUFFICIENT",
       "note": "A corresponding mate does not by itself establish negotiated preincarnational clauses."
+    },
+    {
+      "from": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "TERMINOLOGICAL_ANTECEDENT_NOT_DOCTRINAL_IDENTITY",
+      "status": "SUPPORTED",
+      "note": "The phrase predates Summit Lighthouse in Victorian esoteric fiction; later doctrinal codification must be treated separately."
+    },
+    {
+      "from": "DUAL_SOUL_LITERARY_MODEL",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "MOTIF_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Corelli's half-flame imagery resembles later counterpart models but does not establish direct doctrinal continuity."
+    },
+    {
+      "from": "TWIN_SOUL_LITERARY_GENEALOGY",
+      "to": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "relation": "PARALLEL_VICTORIAN_VOCABULARY",
+      "status": "COMPATIBLE",
+      "note": "Twin soul and twin flame circulate in adjacent Victorian esoteric-literary contexts but are not assumed identical."
+    },
+    {
+      "from": "HISTORICAL_RECEPTION",
+      "to": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "relation": "DOCUMENTS_CIRCULATION",
+      "status": "SUPPORTED",
+      "note": "Theosophist reception documents circulation of twin-flame language without establishing doctrinal endorsement."
+    },
+    {
+      "from": "THEOSOPHICAL_MONAD",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Blavatsky's Monad belongs to Theosophical cosmology and is not a romantic dyad."
+    },
+    {
+      "from": "THEOSOPHICAL_MONAD",
+      "to": "SOUL_ROOT",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Theosophical Monad and Lurianic soul-root are distinct ontological structures."
+    },
+    {
+      "from": "SPLIT_PRIMORDIAL_BEING",
+      "to": "DUAL_SOUL_LITERARY_MODEL",
+      "relation": "COMPARATIVE_MOTIF_ONLY",
+      "status": "COMPATIBLE",
+      "note": "Division/reunion motifs are comparable but do not establish direct transmission or doctrinal identity."
     }
   ]
 }
