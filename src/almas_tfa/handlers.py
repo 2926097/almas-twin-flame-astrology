@@ -20,6 +20,7 @@ from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cros
 from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
+from .counterevidence_handlers import m20_counterevidence
 
 
 MODELS = ("AF", "KA", "AG", "LG")
@@ -316,6 +317,7 @@ def default_handlers():
         "M17": m17_independent_roots,
         "M18": m18_pillars,
         "M19": m19_structural_model_indices,
+        "M20": m20_counterevidence,
         "M21": m21_differential_discrimination,
         "M25": m25_robustness,
     }
