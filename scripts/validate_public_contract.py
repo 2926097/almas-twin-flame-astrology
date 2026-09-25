@@ -507,10 +507,36 @@ def main() -> int:
         fail("M26 temporal signals must never create structural roots")
     if signal_props.get("predicts_real_world_event", {}).get("const") is not False:
         fail("M26 temporal signals must never predict real-world events")
-    if documentary_event_output_schema.get("properties", {}).get("structural_mutation_allowed", {}).get("const") is not False:
+    documentary_props = documentary_event_output_schema.get("properties", {})
+    if documentary_props.get("structural_mutation_allowed", {}).get("const") is not False:
         fail("M27 must forbid retrospective structural mutation")
-    if documentary_event_output_schema.get("properties", {}).get("append_only_validated", {}).get("const") is not True:
+    if documentary_props.get("clause_creation_allowed", {}).get("const") is not False:
+        fail("M27 must forbid retrospective clause creation")
+    if documentary_props.get("origin_elevation_allowed", {}).get("const") is not False:
+        fail("M27 must forbid origin elevation from documentary events")
+    if documentary_props.get("astrology_backfill_allowed", {}).get("const") is not False:
+        fail("M27 must forbid astrology backfill from known events")
+    if documentary_props.get("append_only_validated", {}).get("const") is not True:
         fail("M27 must validate append-only event history")
+    if documentary_props.get("public_export_policy_enforced", {}).get("const") is not True:
+        fail("M27 must enforce public/private export policy")
+    if documentary_props.get("analysis_freeze_reference_verified", {}).get("const") is not False:
+        fail("M27 must not claim freeze verification before a canonical freeze registry exists")
+    documentary_event_props = (
+        documentary_props.get("events", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    for field in (
+        "creates_structural_root",
+        "creates_clause",
+        "elevates_origin",
+        "astrology_backfill_allowed",
+    ):
+        if documentary_event_props.get(field, {}).get("const") is not False:
+            fail(f"M27 event field {field} must remain false")
+    if documentary_event_props.get("fact_interpretation_separated", {}).get("const") is not True:
+        fail("M27 must keep fact and interpretation separate")
 
     final_props = final_pipeline_output_schema.get("properties", {})
     if final_props.get("doctrine_hermeneutics", {}).get("properties", {}).get("doctrine_adds_structural_score", {}).get("const") is not False:
