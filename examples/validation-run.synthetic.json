@@ -1,0 +1,89 @@
+{
+  "run_id": "SYNTHETIC_PHASE13_SMOKE_001",
+  "case_id": "SYNTHETIC_VALIDATION_001",
+  "almas_version": "1.9.0",
+  "commit_sha": "PREREGISTRATION_FIXTURE",
+  "frozen_before_run": false,
+  "analysis_phase": "FINAL_AUDIT",
+  "preregistered_endpoint_ids": [
+    "EV1_REPRODUCIBILITY",
+    "EV2_FALSE_SPECIFICITY",
+    "EV3_AMBIGUITY_PRESERVATION",
+    "EV4_CORE_SURVIVAL",
+    "EV5_CONTRACT_SPECIFICITY",
+    "EV6_LABEL_INDEPENDENCE",
+    "EV7_DOCTRINAL_ATTRIBUTION",
+    "EV8_TEMPORAL_ANCHORING"
+  ],
+  "endpoints": [
+    {
+      "id": "EV1_REPRODUCIBILITY",
+      "status": "PASS",
+      "value": true,
+      "notes": [
+        "Schema/pipeline smoke fixture is deterministic; this is not an external metaphysical validation result."
+      ]
+    },
+    {
+      "id": "EV2_FALSE_SPECIFICITY",
+      "status": "NOT_EVALUABLE",
+      "value": null,
+      "notes": [
+        "Requires a populated validation cohort."
+      ]
+    },
+    {
+      "id": "EV3_AMBIGUITY_PRESERVATION",
+      "status": "NOT_EVALUABLE",
+      "value": null,
+      "notes": [
+        "Requires model-comparison holdout cases."
+      ]
+    },
+    {
+      "id": "EV4_CORE_SURVIVAL",
+      "status": "NOT_EVALUABLE",
+      "value": null,
+      "notes": [
+        "Requires AB0-AB8 outputs for a validation case."
+      ]
+    },
+    {
+      "id": "EV5_CONTRACT_SPECIFICITY",
+      "status": "NOT_EVALUABLE",
+      "value": null,
+      "notes": [
+        "Requires frozen contractual output."
+      ]
+    },
+    {
+      "id": "EV6_LABEL_INDEPENDENCE",
+      "status": "NOT_EVALUABLE",
+      "value": null,
+      "notes": [
+        "Requires a blinded/unblinded paired run."
+      ]
+    },
+    {
+      "id": "EV7_DOCTRINAL_ATTRIBUTION",
+      "status": "PASS",
+      "value": true,
+      "notes": [
+        "Fixture uses no doctrinal claim beyond protocol metadata."
+      ]
+    },
+    {
+      "id": "EV8_TEMPORAL_ANCHORING",
+      "status": "NOT_EVALUABLE",
+      "value": null,
+      "notes": [
+        "Requires temporal evidence."
+      ]
+    }
+  ],
+  "errors": [],
+  "promotion_eligible": false,
+  "promotion_notes": [
+    "Smoke fixture only. No rule promotion and no claim of external validation."
+  ]
+}
