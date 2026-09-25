@@ -1,9 +1,9 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/temporal-activation-output.schema.json",
-  "title":"ALMAS Temporal Activation Output",
-  "type":"object",
-  "required":[
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/temporal-activation-output.schema.json",
+  "title": "ALMAS · Salida de activación temporal",
+  "type": "object",
+  "required": [
     "signals",
     "selected_independent_signals",
     "suppressed",
@@ -17,44 +17,111 @@
     "structural_roots_created",
     "real_world_event_prediction_made"
   ],
-  "properties":{
-    "signals":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":[
-          "signal_id","root_id","anchored","clause_id","structural_family",
-          "temporal_family","activation_class","k","strength","effective_strength",
-          "exactitude_orb","preregistered_window_rule","preregistered",
-          "window_status","date_or_period","event_refs","traceability_complete",
-          "missing_traceability","iat_eligible","creates_structural_root",
+  "properties": {
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "signal_id",
+          "root_id",
+          "anchored",
+          "clause_id",
+          "structural_family",
+          "temporal_family",
+          "activation_class",
+          "k",
+          "strength",
+          "effective_strength",
+          "exactitude_orb",
+          "preregistered_window_rule",
+          "preregistered",
+          "window_status",
+          "date_or_period",
+          "event_refs",
+          "traceability_complete",
+          "missing_traceability",
+          "iat_eligible",
+          "creates_structural_root",
           "predicts_real_world_event"
         ],
-        "properties":{
-          "signal_id":{"type":"string","minLength":1},
-          "root_id":{"type":["string","null"]},
-          "anchored":{"type":"boolean"},
-          "clause_id":{"type":["string","null"]},
-          "structural_family":{"type":["string","null"]},
-          "temporal_family":{
-            "enum":["TPROG","TDIR","TTRANSIT","TECLIPSE","TREL","TATACIR"]
+        "properties": {
+          "signal_id": {
+            "type": "string",
+            "minLength": 1
           },
-          "activation_class":{
-            "enum":[
+          "root_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "anchored": {
+            "type": "boolean"
+          },
+          "clause_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "structural_family": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "temporal_family": {
+            "enum": [
+              "TPROG",
+              "TDIR",
+              "TTRANSIT",
+              "TECLIPSE",
+              "TREL",
+              "TATACIR"
+            ]
+          },
+          "activation_class": {
+            "enum": [
               "DIRECT_REPETITION",
               "RELATIONAL_ROOT_ACTIVATION",
               "ENDPOINT_ACTIVATION",
               "UNANCHORED"
             ]
           },
-          "k":{"type":"number","minimum":0,"maximum":1},
-          "strength":{"type":"number","minimum":0,"maximum":1},
-          "effective_strength":{"type":"number","minimum":0,"maximum":1},
-          "exactitude_orb":{"type":["number","null"],"minimum":0},
-          "preregistered_window_rule":{"type":["string","null"]},
-          "preregistered":{"type":"boolean"},
-          "window_status":{
-            "enum":[
+          "k": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "effective_strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "exactitude_orb": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "preregistered_window_rule": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "preregistered": {
+            "type": "boolean"
+          },
+          "window_status": {
+            "enum": [
               "RETROSPECTIVE_CONFIRMED",
               "RETROSPECTIVE_UNCONFIRMED",
               "CURRENT_ACTIVE",
@@ -63,84 +130,200 @@
               "UNANCHORED"
             ]
           },
-          "date_or_period":{"type":["string","null"]},
-          "event_refs":{"type":"array","items":{"type":"string"}},
-          "traceability_complete":{"type":"boolean"},
-          "missing_traceability":{"type":"array","items":{"type":"string"}},
-          "iat_eligible":{"type":"boolean"},
-          "creates_structural_root":{"const":false},
-          "predicts_real_world_event":{"const":false}
+          "date_or_period": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "event_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "traceability_complete": {
+            "type": "boolean"
+          },
+          "missing_traceability": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "iat_eligible": {
+            "type": "boolean"
+          },
+          "creates_structural_root": {
+            "const": false
+          },
+          "predicts_real_world_event": {
+            "const": false
+          }
         },
-        "additionalProperties":true
+        "additionalProperties": true
       }
     },
-    "selected_independent_signals":{"type":"array","items":{"type":"object"}},
-    "suppressed":{"type":"array","items":{"type":"object"}},
-    "root_activation_summary":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":[
-          "root_id","independent_temporal_families",
-          "independent_family_count","selected_signal_ids",
+    "selected_independent_signals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "suppressed": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "root_activation_summary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "root_id",
+          "independent_temporal_families",
+          "independent_family_count",
+          "selected_signal_ids",
           "recurring_across_independent_families"
         ],
-        "properties":{
-          "root_id":{"type":"string"},
-          "independent_temporal_families":{
-            "type":"array","items":{"type":"string"},"uniqueItems":true
+        "properties": {
+          "root_id": {
+            "type": "string"
           },
-          "independent_family_count":{"type":"integer","minimum":1},
-          "selected_signal_ids":{
-            "type":"array","items":{"type":"string"},"uniqueItems":true
+          "independent_temporal_families": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
-          "recurring_across_independent_families":{"type":"boolean"}
+          "independent_family_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "selected_signal_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "recurring_across_independent_families": {
+            "type": "boolean"
+          }
         },
-        "additionalProperties":false
+        "additionalProperties": false
       }
     },
-    "iat_eligible_signal_ids":{
-      "type":"array","items":{"type":"string"},"uniqueItems":true
-    },
-    "iat":{"type":["number","null"],"minimum":0,"maximum":100},
-    "iat_state":{"enum":["CALCULATED","NOT_CALCULATED"]},
-    "iat_policy":{
-      "type":["object","null"],
-      "properties":{
-        "preregistration_ref":{"type":"string","minLength":1},
-        "window_scope_ref":{"type":"string","minLength":1},
-        "formula":{"const":"WEIGHTED_MEAN_EFFECTIVE_STRENGTH"},
-        "family_weights":{"type":"object"},
-        "root_weights":{"type":"object"},
-        "applied_signal_weights":{"type":"array","items":{"type":"object"}}
+    "iat_eligible_signal_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
       },
-      "additionalProperties":false
+      "uniqueItems": true
     },
-    "aggregation_weights_applied":{"type":"boolean"},
-    "structural_score_modified":{"const":false},
-    "structural_roots_created":{"const":false},
-    "real_world_event_prediction_made":{"const":false}
+    "iat": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "iat_state": {
+      "enum": [
+        "CALCULATED",
+        "NOT_CALCULATED"
+      ]
+    },
+    "iat_policy": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "preregistration_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "window_scope_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "formula": {
+          "const": "WEIGHTED_MEAN_EFFECTIVE_STRENGTH"
+        },
+        "family_weights": {
+          "type": "object"
+        },
+        "root_weights": {
+          "type": "object"
+        },
+        "applied_signal_weights": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "aggregation_weights_applied": {
+      "type": "boolean"
+    },
+    "structural_score_modified": {
+      "const": false
+    },
+    "structural_roots_created": {
+      "const": false
+    },
+    "real_world_event_prediction_made": {
+      "const": false
+    }
   },
-  "allOf":[
+  "allOf": [
     {
-      "if":{"properties":{"iat_state":{"const":"CALCULATED"}}},
-      "then":{
-        "properties":{
-          "iat":{"type":"number"},
-          "iat_policy":{"type":"object"},
-          "aggregation_weights_applied":{"const":true}
+      "if": {
+        "properties": {
+          "iat_state": {
+            "const": "CALCULATED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "iat": {
+            "type": "number"
+          },
+          "iat_policy": {
+            "type": "object"
+          },
+          "aggregation_weights_applied": {
+            "const": true
+          }
         }
       }
     },
     {
-      "if":{"properties":{"iat_state":{"const":"NOT_CALCULATED"}}},
-      "then":{
-        "properties":{
-          "iat":{"type":"null"},
-          "aggregation_weights_applied":{"const":false}
+      "if": {
+        "properties": {
+          "iat_state": {
+            "const": "NOT_CALCULATED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "iat": {
+            "type": "null"
+          },
+          "aggregation_weights_applied": {
+            "const": false
+          }
         }
       }
     }
   ],
-  "additionalProperties":false
+  "additionalProperties": false
 }
