@@ -590,6 +590,102 @@
         "SOUL_CONTRACT_PROOF"
       ],
       "almas_use": "ALMAS la usa como transformación nodal dependiente y capa corroborativa, nunca como evidencia independiente automática."
+    },
+    {
+      "id": "RECOGNITION_PHENOMENOLOGY",
+      "label_es": "fenomenología de reconocimiento",
+      "definition": "Experiencia reportada de reconocimiento inmediato, familiaridad o vinculación rápida en relaciones interpretadas espiritualmente.",
+      "primary_sources": [],
+      "academic_sources": [
+        "stokke_spiritual_love_relations_2021"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "PAST_LIFE_PROOF",
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Se registra como experiencia/uso contemporáneo; puede compararse con arquitectura astrológica pero no define ontología."
+    },
+    {
+      "id": "SYNCHRONICITY_REPORT",
+      "label_es": "sincronicidad reportada",
+      "definition": "Coincidencias significativas descritas subjetivamente dentro de una relación espiritual.",
+      "primary_sources": [],
+      "academic_sources": [
+        "stokke_spiritual_love_relations_2021"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "CAUSAL_PROOF",
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Puede formar parte de la cronología emic, pero no añade raíz estructural ni categoría."
+    },
+    {
+      "id": "TRANSFORMATION_REPORT",
+      "label_es": "transformación reportada",
+      "definition": "Cambio psicológico, espiritual o vital atribuido por participantes a una relación significativa.",
+      "primary_sources": [],
+      "academic_sources": [
+        "stokke_spiritual_love_relations_2021"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "OBJECTIVE_METAPHYSICAL_STATUS",
+        "TIKKUN",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Informa función vivida/documentada y puede contrastarse con PT; no discrimina origen."
+    },
+    {
+      "id": "TWIN_FLAME_EMIC_USAGE",
+      "label_es": "uso emic contemporáneo de llama gemela",
+      "definition": "Autoidentificación o etiquetado comunitario contemporáneo de una relación como twin flame.",
+      "primary_sources": [],
+      "academic_sources": [
+        "stokke_spiritual_love_relations_2021"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "TWIN_FLAME_ASTROLOGICAL_MODEL"
+      ],
+      "almas_use": "Se conserva como D_USO_CONTEMPORANEO y nunca como confirmación de LG."
+    },
+    {
+      "id": "NEW_AGE_THEODICY",
+      "label_es": "teodicea New Age del contrato álmico",
+      "definition": "Interpretación contemporánea del sufrimiento y los desafíos como elementos de planes o contratos prenatales orientados al crecimiento.",
+      "primary_sources": [],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "SPIRITIST_TRIAL_DOCTRINE",
+        "KARMIC_RELATIONSHIP",
+        "SOUL_CONTRACT_PROOF"
+      ],
+      "almas_use": "Contextualiza el uso moderno del contrato álmico y ayuda a distinguirlo de doctrinas históricas anteriores."
+    },
+    {
+      "id": "CONTEMPORARY_SOUL_CONTRACT_USAGE",
+      "label_es": "uso contemporáneo de contrato álmico",
+      "definition": "Vocabulario New Age contemporáneo que presenta relaciones o desafíos como planificados antes del nacimiento.",
+      "primary_sources": [],
+      "academic_sources": [
+        "kwilecki_soul_contract_theodicy_2014",
+        "hanegraaff_new_age_religion_1996"
+      ],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "KARDEC_PREINCARNATIONAL_CHOICE",
+        "LURIANIC_ZIVUG",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Pertenece a D_USO_CONTEMPORANEO salvo cuando una fuente primaria específica formula su propia doctrina."
     }
   ]
 }
