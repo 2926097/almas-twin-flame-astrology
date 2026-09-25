@@ -18,7 +18,7 @@ from .core import (
     score_model,
     supported_gate,
 )
-from .handlers import default_handlers
+from .handlers import configured_handlers, default_handlers
 from .module_contract import (
     ExecutionStatus,
     ModuleContext,
@@ -102,6 +102,7 @@ __all__ = [
     "score_model",
     "supported_gate",
     "default_handlers",
+    "configured_handlers",
     "ExecutionStatus",
     "ModuleContext",
     "ModuleHandler",
