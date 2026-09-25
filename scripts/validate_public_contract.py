@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 import sys
 
@@ -14,7 +15,7 @@ REQUIRED_FILES = [
     "VERSION",
     "VALIDATION_STATUS.md",
     "docs/PUBLICATION_POLICY.md",
-    "docs/DUAL_ENGINE_ARCHITECTURE.md",
+    "docs/history/DUAL_ENGINE_ARCHITECTURE.md",
     "docs/MODULE_ARCHITECTURE.md",
     "docs/SOURCE_INTEGRATION_PLAN.md",
     "docs/SOURCE_GAPS.md",
@@ -52,7 +53,7 @@ REQUIRED_FILES = [
     "schemas/common-task-differential.schema.json",
     "schemas/clause-assembly.schema.json",
     "schemas/fulfillment-mechanisms.schema.json",
-    "manifests/module-manifest.json",
+    "manifests/analysis-pipeline-manifest.json",
     "manifests/almas-module-manifest.json",
     "manifests/causal-type-registry.json",
     "manifests/cross-model-discriminator-registry.json",
@@ -179,8 +180,8 @@ def main() -> int:
             fail(f"missing required file: {rel}")
 
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    if version != "1.10.0":
-        fail(f"unexpected root VERSION: {version}")
+    if re.fullmatch(r"\d+\.\d+\.\d+", version) is None:
+        fail(f"root VERSION is not semantic versioning: {version}")
 
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -275,7 +276,7 @@ def main() -> int:
     fulfillment_registry = load_json("manifests/fulfillment-mechanisms-registry.json")
     fulfillment_example = load_json("examples/fulfillment-mechanisms.synthetic.json")
     pipeline_manifest = load_json("manifests/preincarnation-pipeline-manifest.json")
-    module_manifest = load_json("manifests/module-manifest.json")
+    analysis_pipeline_manifest = load_json("manifests/analysis-pipeline-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
     source_audit = load_json("reference/source-normalization-audit.json")
@@ -322,13 +323,29 @@ def main() -> int:
     if not {"AB1_NO_ASTEROIDS","AB2_NO_TEMPORALITY","AB8_INDIVIDUAL_ONLY"}.issubset(ab_runs):
         fail("contract ablation fixture must include AB1 and AB2 and AB8")
 
-    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.9.0":
-        fail("preincarnation reconstruction schema must expose schema_version 1.9.0")
+    preincarnation_schema_version = (
+        preincarnation_schema.get("properties", {})
+        .get("schema_version", {})
+        .get("const")
+    )
+    if not preincarnation_schema_version:
+        fail("preincarnation reconstruction schema lacks schema_version const")
+    if preincarnation_example.get("schema_version") != preincarnation_schema_version:
+        fail(
+            "preincarnation synthetic fixture version diverges from "
+            f"preincarnation schema: {preincarnation_example.get('schema_version')} "
+            f"!= {preincarnation_schema_version}"
+        )
 
-    if clause_assembly_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.1.0":
-        fail("clause assembly schema must expose 1.1.0")
-    if clause_assembly_example.get("schema_version") != "1.1.0":
-        fail("clause assembly fixture must expose schema_version 1.1.0")
+    clause_schema_version = (
+        clause_assembly_schema.get("properties", {})
+        .get("schema_version", {})
+        .get("const")
+    )
+    if not clause_schema_version:
+        fail("clause assembly schema lacks schema_version const")
+    if clause_assembly_example.get("schema_version") != clause_schema_version:
+        fail("clause assembly fixture version diverges from clause schema")
     required_clause_fields = {
         "resolution_level",
         "reconstructed_contract_content",
@@ -351,17 +368,19 @@ def main() -> int:
             if claim_ref not in {x.get("claim_id") for x in doctrinal_claim_fixture.get("claims", [])}:
                 fail(f"clause references unknown doctrinal claim: {clause.get('id')} -> {claim_ref}")
 
-    if preincarnation_example.get("schema_version") != "1.9.0":
-        fail("preincarnation synthetic fixture must expose 1.9.0")
     nested_clause = preincarnation_example.get("clause_assembly", {})
-    if nested_clause.get("schema_version") != "1.1.0":
-        fail("nested clause assembly fixture must expose 1.1.0")
+    if nested_clause.get("schema_version") != clause_schema_version:
+        fail("nested clause assembly fixture version diverges from clause schema")
 
-    modules = module_manifest.get("modules", [])
+    if analysis_pipeline_manifest.get("manifest_version") != "1.0.0":
+        fail("analysis pipeline manifest must expose manifest_version 1.0.0")
+    if analysis_pipeline_manifest.get("mode") != "FULL":
+        fail("analysis pipeline manifest must expose FULL mode")
+    modules = analysis_pipeline_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
     expected_ids = [f"M{i:02d}" for i in range(32)]
     if ids != expected_ids:
-        fail("module manifest must contain ordered M00..M31 exactly once")
+        fail("analysis pipeline manifest must contain ordered M00..M31 exactly once")
 
     discriminators = discriminator_registry.get("discriminators", [])
     if not discriminators:
@@ -374,7 +393,7 @@ def main() -> int:
         fail("source registry is empty")
 
     if source_registry.get("registry_version") != version:
-        fail("source registry version must match public VERSION during v1.4 normalization")
+        fail("source registry version diverges from root VERSION")
 
     if almas_module_manifest.get("architecture") != "single_skill_modular":
         fail("ALMAS architecture must be single_skill_modular")
@@ -701,9 +720,6 @@ def main() -> int:
                 if source_id not in source_ids:
                     fail(f"unknown source id in {stage_name}: {source_id}")
 
-    if preincarnation_example.get("schema_version") != "1.8.0":
-        fail("synthetic preincarnation example must use schema_version 1.8.0")
-
     required_example_keys = {
         "origin",
         "agreement_motive",
@@ -733,17 +749,17 @@ def main() -> int:
         fail("individual tasks schema must expose schema_version 1.0.0")
     if common_task_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("common task schema must expose schema_version 1.0.0")
-    if clause_assembly_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
-        fail("clause assembly schema must expose schema_version 1.0.0")
     if fulfillment_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("fulfillment mechanisms schema must expose schema_version 1.0.0")
 
     if pipeline_manifest.get("pipeline_version") != "1.0.0":
         fail("preincarnation pipeline manifest must expose pipeline_version 1.0.0")
-    if pipeline_manifest.get("soul_contract_version") != soul_version:
-        fail("pipeline manifest soul_contract_version diverges from Soul Contract VERSION")
-    if pipeline_manifest.get("preincarnation_schema_version") != "1.8.0":
-        fail("pipeline manifest preincarnation schema version must be 1.8.0")
+    if pipeline_manifest.get("almas_version") != version:
+        fail("preincarnation pipeline almas_version diverges from root VERSION")
+    if not pipeline_manifest.get("contract_engine_revision"):
+        fail("preincarnation pipeline must expose contract_engine_revision")
+    if pipeline_manifest.get("preincarnation_schema_version") != preincarnation_schema_version:
+        fail("preincarnation pipeline schema version diverges from preincarnation schema")
 
     expected_pipeline_stages = [
         "ORIGIN",
@@ -1073,7 +1089,7 @@ def main() -> int:
 
     print("ALMAS public contract validation: PASS")
     print(f"Astrology package: {version}")
-    print(f"Soul-contract skill: {soul_version}")
+    print(f"Contract module: {contract_module_version}")
     print(f"Modules: {len(modules)}")
     print(f"Discriminators registered: {len(discriminators)}")
     print(f"Source entries: {len(source_registry.get('entries', []))}")
