@@ -45,6 +45,8 @@ REQUIRED_FILES = [
     "schemas/structural-ablation-output.schema.json",
     "schemas/time-sensitivity-output.schema.json",
     "schemas/null-model-output.schema.json",
+    "schemas/temporal-activation-output.schema.json",
+    "schemas/documentary-event-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
     "schemas/module-execution.schema.json",
@@ -144,6 +146,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/robustness_handlers.py",
+    "src/almas_tfa/temporal_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -189,6 +192,7 @@ REQUIRED_FILES = [
     "tests/test_counterevidence_handlers.py",
     "tests/test_ablation_handlers.py",
     "tests/test_robustness_handlers.py",
+    "tests/test_temporal_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -315,6 +319,8 @@ def main() -> int:
     structural_ablation_schema = load_json("schemas/structural-ablation-output.schema.json")
     time_sensitivity_schema = load_json("schemas/time-sensitivity-output.schema.json")
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
+    temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
+    documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -428,6 +434,15 @@ def main() -> int:
         fail("M24 null-model output must forbid metaphysical probability")
     if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
         fail("M24 must not generate undeclared null sampling")
+
+    if temporal_activation_schema.get("properties", {}).get("structural_score_modified", {}).get("const") is not False:
+        fail("M26 must not modify structural scoring")
+    if temporal_activation_schema.get("properties", {}).get("aggregation_weights_applied", {}).get("const") is not False:
+        fail("M26 must not invent IAT aggregation weights")
+    if documentary_event_output_schema.get("properties", {}).get("structural_mutation_allowed", {}).get("const") is not False:
+        fail("M27 must forbid retrospective structural mutation")
+    if documentary_event_output_schema.get("properties", {}).get("append_only_validated", {}).get("const") is not True:
+        fail("M27 must validate append-only event history")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
