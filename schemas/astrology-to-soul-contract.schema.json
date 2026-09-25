@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/astrology-to-soul-contract.schema.json",
-  "title": "ALMAS Astrology to Soul Contract Bridge",
+  "title": "ALMAS · Puente de astrología a contrato preencarnatorio",
   "type": "object",
   "required": [
     "bridge_version",
@@ -14,20 +14,38 @@
     "robustness"
   ],
   "properties": {
-    "bridge_version": {"const": "1.0.0"},
-    "source_engine": {"const": "almas-metaphysical-relationship-astrology"},
-    "source_version": {"type": "string"},
-    "analysis_id": {"type": ["string", "null"]},
+    "bridge_version": {
+      "const": "1.0.0"
+    },
+    "source_engine": {
+      "const": "almas-metaphysical-relationship-astrology"
+    },
+    "source_version": {
+      "type": "string"
+    },
+    "analysis_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "subjects": {
       "type": "array",
       "minItems": 2,
       "maxItems": 2,
       "items": {
         "type": "object",
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
-          "id": {"type": "string"},
-          "public_case": {"type": "boolean", "default": false}
+          "id": {
+            "type": "string"
+          },
+          "public_case": {
+            "type": "boolean",
+            "default": false
+          }
         },
         "additionalProperties": false
       }
@@ -36,33 +54,62 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "direction", "strength", "technique_families", "canonical_refs"],
+        "required": [
+          "id",
+          "direction",
+          "strength",
+          "technique_families",
+          "canonical_refs"
+        ],
         "properties": {
-          "id": {"type": "string"},
-          "direction": {
-            "enum": ["A_EN_B", "B_EN_A", "CAMPO_COMUN", "BILATERAL"]
+          "id": {
+            "type": "string"
           },
-          "strength": {"type": "number", "minimum": 0, "maximum": 1},
+          "direction": {
+            "enum": [
+              "A_EN_B",
+              "B_EN_A",
+              "CAMPO_COMUN",
+              "BILATERAL"
+            ]
+          },
+          "strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
           "pillar_loadings": {
             "type": "object",
-            "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
           },
           "technique_families": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "semantic_tags": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "canonical_refs": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "minItems": 1
           },
-          "birth_time_sensitive": {"type": "boolean"}
+          "birth_time_sensitive": {
+            "type": "boolean"
+          }
         },
         "additionalProperties": true
       }
@@ -70,28 +117,82 @@
     "model_scores": {
       "type": "object",
       "properties": {
-        "AF": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
-        "KA": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
-        "AG": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
-        "LG": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+        "AF": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "KA": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "AG": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "LG": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        }
       },
       "additionalProperties": false
     },
-    "ontology": {"type": "object"},
+    "ontology": {
+      "type": "object"
+    },
     "temporal_activations": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["root_id", "family", "anchored"],
+        "required": [
+          "root_id",
+          "family",
+          "anchored"
+        ],
         "properties": {
-          "root_id": {"type": "string"},
-          "family": {"type": "string"},
-          "anchored": {"type": "boolean"},
-          "strength": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
-          "date_or_period": {"type": ["string", "null"]},
+          "root_id": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "anchored": {
+            "type": "boolean"
+          },
+          "strength": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "date_or_period": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "canonical_refs": {
             "type": "array",
-            "items": {"type": "string"}
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": true
@@ -99,13 +200,21 @@
     },
     "counterevidence": {
       "type": "array",
-      "items": {"type": "object"}
+      "items": {
+        "type": "object"
+      }
     },
-    "coverage": {"type": "object"},
-    "robustness": {"type": "object"},
+    "coverage": {
+      "type": "object"
+    },
+    "robustness": {
+      "type": "object"
+    },
     "limitations": {
       "type": "array",
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     }
   },
   "additionalProperties": true
