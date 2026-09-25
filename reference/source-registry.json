@@ -270,7 +270,8 @@
         "SOUL_CONTRACT",
         "SOUL_PLAN",
         "PREINCARNATIONAL_CHOICE",
-        "NEW_AGE_THEODICY"
+        "NEW_AGE_THEODICY",
+        "CONTEMPORARY_SOUL_CONTRACT_USAGE"
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
@@ -297,10 +298,15 @@
       "source_role": "ACADEMIC_ANALYSIS",
       "tradition": "Academic study of contemporary spirituality",
       "concepts": [
-        "SOULMATE_EXPERIENCE"
+        "SOULMATE_EXPERIENCE",
+        "RECOGNITION_PHENOMENOLOGY",
+        "SYNCHRONICITY_REPORT",
+        "TRANSFORMATION_REPORT",
+        "TWIN_FLAME_EMIC_USAGE"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use according to stated license: CC BY-NC-ND 4.0."
+      "rights_note": "Use according to stated license: CC BY-NC-ND 4.0.",
+      "verification_note": "Peer-reviewed open-access study verified; convenience sample of 140 naturally occurring responses in a New Age Facebook group. It documents reported phenomena and explicitly does not provide population-level prevalence or ontological verification."
     },
     {
       "id": "crane_draconic_astrology_1987",
@@ -591,7 +597,9 @@
       ],
       "tradition": "Academic study of Western esotericism/New Age",
       "concepts": [
-        "NEW_AGE_RELIGION"
+        "NEW_AGE_RELIGION",
+        "WESTERN_ESOTERICISM_CONTEXT",
+        "REINCARNATION_NEW_AGE"
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
