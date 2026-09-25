@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/agreement-motive-differential.schema.json",
-  "title": "ALMAS Agreement Motive Differential",
+  "title": "ALMAS · Diferencial del motivo del acuerdo",
   "type": "object",
   "required": [
     "schema_version",
@@ -18,48 +18,192 @@
     "why_not_more_specific"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {
+      "const": "1.0.0"
+    },
     "resolution_level": {
-      "enum": ["M1_FUNCTION","M2_DIRECTION_SCOPE","M3_PREBIRTH_MECHANISM","UNRESOLVED"]
+      "enum": [
+        "M1_FUNCTION",
+        "M2_DIRECTION_SCOPE",
+        "M3_PREBIRTH_MECHANISM",
+        "UNRESOLVED"
+      ]
     },
     "overall_state": {
-      "enum": ["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
     },
-    "primary_motives": {"type":"array","items":{"type":"string"},"uniqueItems":true},
-    "secondary_motives": {"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "primary_motives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "secondary_motives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "motives": {
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":["id","state","direction","independent_roots","reason_not_higher"],
-        "properties":{
-          "id":{"type":"string"},
-          "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
-          "direction":{"enum":["A_EN_B","B_EN_A","BILATERAL","CAMPO_COMUN","TRANSPERSONAL","NO_EVALUABLE"]},
-          "priority":{"enum":["PRIMARY","SECONDARY","CORROBORATIVE","INSUFFICIENT","NO_EVALUABLE"]},
-          "independent_roots":{"type":"array","items":{"type":"string"}},
-          "coverage":{"type":["number","null"],"minimum":0,"maximum":100},
-          "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
-          "r_min":{"type":["number","null"],"minimum":0,"maximum":1},
-          "doctrinal_sources":{"type":"array","items":{"type":"string"}},
-          "counterevidence":{"type":"array","items":{"type":"string"}},
-          "reason_not_higher":{"type":["string","null"]}
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "state",
+          "direction",
+          "independent_roots",
+          "reason_not_higher"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "A_EN_B",
+              "B_EN_A",
+              "BILATERAL",
+              "CAMPO_COMUN",
+              "TRANSPERSONAL",
+              "NO_EVALUABLE"
+            ]
+          },
+          "priority": {
+            "enum": [
+              "PRIMARY",
+              "SECONDARY",
+              "CORROBORATIVE",
+              "INSUFFICIENT",
+              "NO_EVALUABLE"
+            ]
+          },
+          "independent_roots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "robustness": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "r_min": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "doctrinal_sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "counterevidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason_not_higher": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         },
-        "additionalProperties":true
+        "additionalProperties": true
       }
     },
-    "evidence_families":{
-      "type":"array",
-      "items":{"enum":["MF1_TAREA_PREVIA","MF2_ADECUACION_DEL_ACTIVADOR","MF3_RECIPROCIDAD","MF4_CAMPO_COMUN","MF5_REPETICION_RECTIFICATORIA","MF6_EXTERNALIZACION_SERVICIO","MF7_RECONOCIMIENTO_CONTINUIDAD","MF8_MATERIALIZACION"]},
-      "uniqueItems":true
+    "evidence_families": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "MF1_TAREA_PREVIA",
+          "MF2_ADECUACION_DEL_ACTIVADOR",
+          "MF3_RECIPROCIDAD",
+          "MF4_CAMPO_COMUN",
+          "MF5_REPETICION_RECTIFICATORIA",
+          "MF6_EXTERNALIZACION_SERVICIO",
+          "MF7_RECONOCIMIENTO_CONTINUIDAD",
+          "MF8_MATERIALIZACION"
+        ]
+      },
+      "uniqueItems": true
     },
-    "discriminators":{"type":"array","items":{"type":"object"}},
-    "doctrinal_mechanisms":{"type":"array","items":{"type":"object"}},
-    "competing_explanations":{"type":"array","items":{"type":"string"}},
-    "counterevidence":{"type":"array","items":{"type":"string"}},
-    "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
-    "why_primary":{"type":["string","null"]},
-    "why_not_more_specific":{"type":"string"}
+    "discriminators": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "doctrinal_mechanisms": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "competing_explanations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "robustness": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "why_primary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "why_not_more_specific": {
+      "type": "string"
+    }
   },
-  "additionalProperties":true
+  "additionalProperties": true
 }
