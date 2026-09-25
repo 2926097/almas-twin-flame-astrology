@@ -85,6 +85,7 @@ manifests/
   almas-module-manifest.json
   analysis-pipeline-manifest.json
   preincarnation-pipeline-manifest.json
+  execution-registry.json
 schemas/
 reference/
 examples/
@@ -95,14 +96,17 @@ public_cases/
 
 ## Núcleo Python
 
-El paquete incluye un núcleo determinista para:
+El paquete incluye un núcleo determinista y una primera infraestructura de orquestación interna para:
 
 - agregación de pilares;
 - IEM AF/KA/AG/LG;
 - aplicación única de ICE;
 - gate estructural `SUPPORTED`;
 - IDD mediante Jensen–Shannon;
-- componentes de robustez e IRC.
+- componentes de robustez e IRC;
+- contrato común de módulos;
+- validación de la secuencia M00–M31;
+- ejecución secuencial de handlers registrados con protección contra sobrescritura canónica.
 
 Instalación local:
 
