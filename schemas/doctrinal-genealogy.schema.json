@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/doctrinal-genealogy.schema.json",
+  "title": "ALMAS Doctrinal Genealogy",
+  "type": "object",
+  "required": [
+    "genealogy_version",
+    "almas_version",
+    "edges"
+  ],
+  "properties": {
+    "genealogy_version": {
+      "type": "string"
+    },
+    "almas_version": {
+      "type": "string"
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "relation",
+          "status",
+          "note"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "relation": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE",
+              "E_PROJECT_HYPOTHESIS"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
