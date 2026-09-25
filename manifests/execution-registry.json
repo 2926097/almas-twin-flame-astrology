@@ -61,15 +61,18 @@
     },
     {
       "id": "M10",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/draconic_handlers.py:m10_individual_draconics"
     },
     {
       "id": "M11",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/draconic_handlers.py:m11_natal_draconic_cross"
     },
     {
       "id": "M12",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/draconic_handlers.py:m12_draconic_draconic"
     },
     {
       "id": "M13",
