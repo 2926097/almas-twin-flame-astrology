@@ -35,6 +35,7 @@ from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplica
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
 from .robustness_handlers import m23_time_sensitivity, m24_null_models, wilson_interval
+from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -79,6 +80,8 @@ __all__ = [
     "m23_time_sensitivity",
     "m24_null_models",
     "wilson_interval",
+    "m26_temporal_activation",
+    "m27_dated_events",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
