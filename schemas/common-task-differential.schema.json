@@ -1,7 +1,7 @@
 {
  "$schema":"https://json-schema.org/draft/2020-12/schema",
  "$id":"https://example.invalid/almas/common-task-differential.schema.json",
- "title":"ALMAS Common Task Differential",
+ "title":"ALMAS · Diferencial de tarea común",
  "type":"object",
  "required":["schema_version","overall_state","primary_common_tasks","secondary_common_tasks","tasks","evidence_families","discriminators","competing_explanations","counterevidence","why_not_more_specific"],
  "properties":{
