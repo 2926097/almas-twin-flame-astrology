@@ -46,7 +46,7 @@
     }
   },
   "limitations": [
-    "This output does not calculate astronomy, aspects, roots, null models or timing.",
-    "Model scores are structural compatibility indices, not metaphysical probabilities."
+    "Esta salida no calcula astronomía, aspectos, raíces, modelos nulos ni temporalidad.",
+    "Las puntuaciones de modelo son índices de compatibilidad estructural, no probabilidades metafísicas."
   ]
 }
