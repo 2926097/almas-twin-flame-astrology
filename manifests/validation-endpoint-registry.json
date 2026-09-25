@@ -5,42 +5,42 @@
     {
       "id": "EV1_REPRODUCIBILITY",
       "primary": true,
-      "description": "Same frozen input/version yields same canonical output within declared tolerances."
+      "description": "La misma entrada y versión congeladas producen la misma salida canónica dentro de las tolerancias declaradas."
     },
     {
       "id": "EV2_FALSE_SPECIFICITY",
       "primary": true,
-      "description": "Strong ontology cannot be SUPPORTED without validated discriminators."
+      "description": "Una ontología fuerte no puede alcanzar SUPPORTED sin discriminadores validados."
     },
     {
       "id": "EV3_AMBIGUITY_PRESERVATION",
       "primary": true,
-      "description": "INSUFFICIENT is preserved when competing models remain observationally equivalent."
+      "description": "INSUFFICIENT se conserva cuando los modelos competidores siguen siendo observacionalmente equivalentes."
     },
     {
       "id": "EV4_CORE_SURVIVAL",
       "primary": true,
-      "description": "Conclusions are audited under AB0-AB8 and birth-time perturbation."
+      "description": "Las conclusiones se auditan bajo AB0–AB8 y perturbación de hora natal."
     },
     {
       "id": "EV5_CONTRACT_SPECIFICITY",
       "primary": true,
-      "description": "Individual task, karma, catalysis, functional contract and literal bilateral agreement remain distinct."
+      "description": "Tarea individual, karma, catálisis, contrato funcional y acuerdo bilateral literal permanecen diferenciados."
     },
     {
       "id": "EV6_LABEL_INDEPENDENCE",
       "primary": true,
-      "description": "Structural classification is invariant to later disclosure of emic labels."
+      "description": "La clasificación estructural es invariante frente a la revelación posterior de etiquetas emic."
     },
     {
       "id": "EV7_DOCTRINAL_ATTRIBUTION",
       "primary": true,
-      "description": "C/D claims satisfy doctrinal gate and source constraints."
+      "description": "Las afirmaciones C/D satisfacen el gate doctrinal y las restricciones de fuente."
     },
     {
       "id": "EV8_TEMPORAL_ANCHORING",
       "primary": true,
-      "description": "Temporal evidence does not create absent structural clauses."
+      "description": "La evidencia temporal no crea cláusulas estructurales ausentes."
     }
   ],
   "error_types": [
