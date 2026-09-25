@@ -41,6 +41,7 @@ REQUIRED_FILES = [
     "schemas/lots-output.schema.json",
     "schemas/secondary-symbolic-output.schema.json",
     "schemas/independent-roots.schema.json",
+    "schemas/counterevidence-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
     "schemas/module-execution.schema.json",
@@ -137,6 +138,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/lot_handlers.py",
     "src/almas_tfa/secondary_handlers.py",
     "src/almas_tfa/evidence_handlers.py",
+    "src/almas_tfa/counterevidence_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -179,6 +181,7 @@ REQUIRED_FILES = [
     "tests/test_lot_handlers.py",
     "tests/test_secondary_handlers.py",
     "tests/test_evidence_handlers.py",
+    "tests/test_counterevidence_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -301,6 +304,7 @@ def main() -> int:
     evidence_graph_schema = load_json("schemas/evidence-graph.schema.json")
     deduplicated_evidence_schema = load_json("schemas/deduplicated-evidence.schema.json")
     independent_roots_schema = load_json("schemas/independent-roots.schema.json")
+    counterevidence_output_schema = load_json("schemas/counterevidence-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -399,6 +403,9 @@ def main() -> int:
         fail("deduplicated evidence schema must require retained")
     if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
         fail("independent roots must remain unweighted until an explicit strength policy exists")
+
+    if counterevidence_output_schema.get("properties", {}).get("missing_data_penalized", {}).get("const") is not False:
+        fail("counterevidence schema must forbid missing-data penalty")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
