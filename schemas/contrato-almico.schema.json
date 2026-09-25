@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Contrato álmico ALMAS",
+  "title": "ALMAS · Contrato preencarnatorio",
   "type": "object",
   "required": [
     "version",
