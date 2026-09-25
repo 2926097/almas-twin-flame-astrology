@@ -1,20 +1,45 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/counterevidence-output.schema.json",
-  "title":"ALMAS Counterevidence Output",
-  "type":"object",
-  "required":[
-    "models","suppressed","ice_state","ice_by_model","missing_data_penalized"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/counterevidence-output.schema.json",
+  "title": "ALMAS · Salida de contraevidencia",
+  "type": "object",
+  "required": [
+    "models",
+    "suppressed",
+    "ice_state",
+    "ice_by_model",
+    "missing_data_penalized"
   ],
-  "properties":{
-    "models":{"type":"object"},
-    "suppressed":{"type":"array","items":{"type":"object"}},
-    "ice_state":{"enum":["PRECOMPUTED","NOT_CALCULATED"]},
-    "ice_by_model":{
-      "type":["object","null"],
-      "additionalProperties":{"type":"number","minimum":0,"maximum":100}
+  "properties": {
+    "models": {
+      "type": "object"
     },
-    "missing_data_penalized":{"const":false}
+    "suppressed": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "ice_state": {
+      "enum": [
+        "PRECOMPUTED",
+        "NOT_CALCULATED"
+      ]
+    },
+    "ice_by_model": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "missing_data_penalized": {
+      "const": false
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
