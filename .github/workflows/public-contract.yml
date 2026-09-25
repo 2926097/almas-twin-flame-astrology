@@ -1,4 +1,4 @@
-name: Public contract
+name: Contrato público
 
 on:
   push:
@@ -13,13 +13,13 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Obtener repositorio
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Validate ALMAS public contract
+      - name: Validar contrato público de ALMAS
         run: python scripts/validate_public_contract.py
