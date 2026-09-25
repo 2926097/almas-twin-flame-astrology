@@ -2,7 +2,7 @@
 
 ## Prioridad alta
 
-1. **Cábala luriana**: verificar ediciones/pasajes de Sha'ar ha-Gilgulim sobre raíces del alma, causas de retorno y zivug; añadir bibliografía académica especializada.
+1. **Cábala luriana — PARCIALMENTE CUBIERTO**: Sha'ar HaGilgulim 8, 20 y 39 ya están verificados en texto fuente; se añadieron Magid y Fishbane como apoyo académico. Pendiente ampliar ediciones críticas, tikkun, ibbur y estudios específicos sobre zivug.
 2. **Historia de twin soul / twin flame**: establecer cronología documental de usos anteriores a Summit Lighthouse y distinguir literatura, ocultismo y doctrina institucional.
 3. **Espiritismo**: completar Kardec sobre misiones, simpatías/antipatías y relaciones entre espíritus.
 4. **Teosofía y post-Teosofía**: separar Mónada, alma, rayos y cualquier afirmación real sobre pares.
