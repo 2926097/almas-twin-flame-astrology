@@ -1,4 +1,4 @@
-name: Python core
+name: Núcleo Python
 
 on:
   push:
@@ -13,19 +13,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Obtener repositorio
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install package
+      - name: Instalar paquete
         run: python -m pip install -e .
 
-      - name: Run core tests
+      - name: Ejecutar pruebas del núcleo
         run: python -m unittest discover -s tests -p "test_*.py" -v
 
-      - name: Validate public contract
+      - name: Validar contrato público
         run: python scripts/validate_public_contract.py
