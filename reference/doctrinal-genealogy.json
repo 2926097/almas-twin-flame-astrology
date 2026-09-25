@@ -316,6 +316,62 @@
       "relation": "NO_DIRECT_DOCTRINAL_IDENTITY",
       "status": "INSUFFICIENT",
       "note": "A nodal transformation technique does not establish reincarnation."
+    },
+    {
+      "from": "RECOGNITION_PHENOMENOLOGY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+      "status": "INSUFFICIENT",
+      "note": "Instant recognition can occur in relationships participants call soulmate/twin flame but does not establish origin."
+    },
+    {
+      "from": "SYNCHRONICITY_REPORT",
+      "to": "SOUL_CONTRACT",
+      "relation": "PHENOMENOLOGY_NOT_CAUSAL_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "Reported synchronicity may inform lived meaning or chronology but does not prove a pre-birth agreement."
+    },
+    {
+      "from": "TRANSFORMATION_REPORT",
+      "to": "KARMIC_RELATIONSHIP",
+      "relation": "FUNCTIONAL_OVERLAP_NOT_DIAGNOSIS",
+      "status": "COMPATIBLE",
+      "note": "Transformation is compatible with karmic/evolutionary interpretations but is not specific enough to diagnose them."
+    },
+    {
+      "from": "TRANSFORMATION_REPORT",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_DISCRIMINATING_PHENOMENOLOGY",
+      "status": "INSUFFICIENT",
+      "note": "Transformative impact appears across multiple relationship forms and cannot discriminate twin-flame origin."
+    },
+    {
+      "from": "TWIN_FLAME_EMIC_USAGE",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+      "status": "INSUFFICIENT",
+      "note": "A participant or community label is D_CONTEMPORARY_USAGE, not C_DOCTRINE or ontological validation."
+    },
+    {
+      "from": "NEW_AGE_THEODICY",
+      "to": "PREINCARNATIONAL_CHOICE",
+      "relation": "MODERN_REINTERPRETATION_NOT_IDENTITY",
+      "status": "COMPATIBLE",
+      "note": "Soul-contract theodicy shares pre-birth planning themes but should not be presented as Kardec's doctrine."
+    },
+    {
+      "from": "CONTEMPORARY_SOUL_CONTRACT_USAGE",
+      "to": "SOUL_CONTRACT",
+      "relation": "EMIC_USAGE_TO_PROJECT_MODEL",
+      "status": "COMPATIBLE",
+      "note": "ALMAS may study contemporary soul-contract vocabulary but its astrological reconstruction is independently defined."
+    },
+    {
+      "from": "NEW_AGE_RELIGION",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "HISTORICAL_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "New Age scholarship contextualizes modern esoteric synthesis but does not validate a specific doctrine."
     }
   ]
 }
