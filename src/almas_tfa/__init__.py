@@ -42,7 +42,7 @@ from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate
-from .final_handlers import m31_report
+from .report_model_handlers import m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
