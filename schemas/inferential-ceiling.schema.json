@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/inferential-ceiling.schema.json",
-  "title": "ALMAS Inferential Ceiling Synthetic Cases",
+  "title": "ALMAS · Casos sintéticos de techo inferencial",
   "type": "object",
   "required": [
     "schema_version",
