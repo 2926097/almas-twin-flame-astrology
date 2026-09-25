@@ -201,7 +201,17 @@ Si la política no existe, IAT permanece `NOT_CALCULATED`. Si la política exist
 
 M26 fija `structural_score_modified=false`, `structural_roots_created=false` y `real_world_event_prediction_made=false`. Una ventana futura sólo describe activación potencial de una raíz; no autoriza inferir contacto, mensaje, reconciliación, separación, decisión, consentimiento, reunión o cierre.
 
-`M27` consume `documentary_event_ledger` con `analysis_freeze_ref`. Valida IDs únicos, correcciones append-only, calidad documental, privacidad y funciones probatorias. Los vínculos a raíces desconocidas se registran como no resueltos; nunca crean una raíz. Sólo los eventos `PUBLIC_VERIFIABLE` o `SYNTHETIC` quedan marcados como exportables públicamente.
+`M27` consume `documentary_event_ledger` con `analysis_freeze_ref` y aplica la secuencia `ESTRUCTURA_CONGELADA → EVENTO_DOCUMENTADO → FUNCIÓN_PROBATORIA`. Valida IDs únicos, sujetos, precisión temporal, calidad documental declarada, privacidad, referencias a raíces/cláusulas y correcciones append-only. Una corrección nunca borra el registro anterior: éste queda `SUPERSEDED` y conserva `superseded_by_event_id`.
+
+La coherencia de `date_precision` se audita sin inventar fechas. DQ1 exige al menos una referencia documental y DQ3 al menos dos referencias para sostener la etiqueta declarada; si el respaldo mínimo no existe, la calidad original se conserva pero se registra una incidencia en `documentary_quality_issues`. La independencia de fuentes para DQ3 sólo se marca `DECLARED` cuando la entrada la declara expresamente; de otro modo permanece `NOT_VERIFIED`.
+
+Los roles `ACTIVATION_CORROBORATION`, `FULFILLMENT_EVIDENCE` y `COUNTEREVIDENCE` disponen de trazabilidad de destino. Corroborar activación exige una raíz o cláusula resuelta; cumplimiento exige cláusula resuelta; contraevidencia exige destino resuelto o `counterevidence_effect`. Los demás roles pueden documentar viabilidad, reciprocidad, fenomenología o contexto sin crear estructura.
+
+M27 audita también los `event_refs` procedentes de M26 y separa enlaces resueltos de referencias temporales sin evento documental. Sólo `PUBLIC_VERIFIABLE` y `SYNTHETIC` son exportables públicamente; `PRIVATE_AUTHORIZED` y `PRIVATE_RESTRICTED` permanecen restringidos.
+
+El firewall documental queda fijado en `structural_mutation_allowed=false`, `clause_creation_allowed=false`, `origin_elevation_allowed=false` y `astrology_backfill_allowed=false`. Cada evento replica estos límites. `fact_statement` e `interpretations` permanecen separados.
+
+`analysis_freeze_ref` es obligatorio y se conserva, pero la salida declara `analysis_freeze_reference_verified=false` mientras no exista un registro canónico ejecutable de congelación; M27 no simula esa verificación.
 
 ## M09 · consonancia de cartas relacionales
 
