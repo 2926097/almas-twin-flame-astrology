@@ -57,6 +57,83 @@
       "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
       "status": "INSUFFICIENT",
       "note": "La experiencia reportada no discrimina origen metafísico."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "PREINCARNATIONAL_TRIAL",
+      "relation": "DOCTRINAL_SPECIALIZATION",
+      "status": "SUPPORTED",
+      "note": "Kardec explicitly situates choice before incarnation at the level of the type of trial, not every detail."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "MISSION_PREINCARNATIONAL",
+      "relation": "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+      "status": "SUPPORTED",
+      "note": "Kardec treats chosen trials and requested missions in distinct passages; ALMAS must not collapse them."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "FREE_WILL_PREINCARNATIONAL",
+      "relation": "DOCTRINAL_CONSTRAINT",
+      "status": "SUPPORTED",
+      "note": "Choice of general trials coexists with freedom in contingent actions and outcomes."
+    },
+    {
+      "from": "PREINCARNATIONAL_TRIAL",
+      "to": "SOUL_CONTRACT",
+      "relation": "INSUFFICIENT_FOR_BILATERAL_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "A chosen type of trial does not establish that another specific soul contracted to provide it."
+    },
+    {
+      "from": "MISSION_PREINCARNATIONAL",
+      "to": "SOUL_CONTRACT",
+      "relation": "INSUFFICIENT_FOR_BILATERAL_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "A requested mission can be individual or collective and does not by itself establish a dyadic soul contract."
+    },
+    {
+      "from": "LIFE_BETWEEN_LIVES",
+      "to": "SOUL_PLAN",
+      "relation": "METHOD_GENEALOGY",
+      "status": "COMPATIBLE",
+      "note": "Regression/interlife literature is a major modern vehicle for reported pre-birth planning."
+    },
+    {
+      "from": "SOUL_PLAN",
+      "to": "SOUL_CONTRACT",
+      "relation": "BROADER_TO_NARROWER",
+      "status": "COMPATIBLE",
+      "note": "A soul plan may include relationships, but a bilateral contract is a more specific hypothesis."
+    },
+    {
+      "from": "SACRED_CONTRACT",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Myss's sacred contract concerns personal purpose and archetypal structure; it is not automatically a bilateral preincarnational pact."
+    },
+    {
+      "from": "KARMIC_RELATIONSHIP",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_EXPLANATION",
+      "status": "INSUFFICIENT",
+      "note": "Continuity across lives can explain relational significance without requiring a consciously planned bilateral contract."
+    },
+    {
+      "from": "SOUL_GROUP",
+      "to": "SOUL_CONTRACT",
+      "relation": "CONTEXT_NOT_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "Membership in a soul-group model does not establish a specific contract between two members."
+    },
+    {
+      "from": "FREE_WILL_PREINCARNATIONAL",
+      "to": "SOUL_CONTRACT",
+      "relation": "OUTCOME_CONSTRAINT",
+      "status": "SUPPORTED",
+      "note": "Even under a contract hypothesis, outcomes remain contingent; contract function and encarnated result must be separated."
     }
   ]
 }
