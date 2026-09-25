@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/raw-input.schema.json",
-  "title": "ALMAS Raw Relationship Input",
+  "title": "ALMAS · Entrada relacional bruta",
   "type": "object",
   "required": [
     "subjects"
