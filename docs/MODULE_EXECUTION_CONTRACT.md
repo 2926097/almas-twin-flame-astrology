@@ -174,3 +174,7 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 `M26` exige señales con familia temporal, intensidad y estado de ventana. Sólo una señal que referencia un `root_id` existente puede quedar anclada. Los coeficientes normativos son 1.00 para repetición directa, 0.90 para activación de raíz relacional, 0.70 para endpoint y 0 para señal no anclada. Dentro de una misma raíz/familia temporal conserva la señal de mayor fuerza efectiva. Los atacires no preregistrados quedan `EXPLORATORY`. M26 no modifica IEM y no calcula IAT mientras no existan pesos de agregación preregistrados.
 
 `M27` consume `documentary_event_ledger` con `analysis_freeze_ref`. Valida IDs únicos, correcciones append-only, calidad documental, privacidad y funciones probatorias. Los vínculos a raíces desconocidas se registran como no resueltos; nunca crean una raíz. Sólo los eventos `PUBLIC_VERIFIABLE` o `SYNTHETIC` quedan marcados como exportables públicamente.
+
+## M09 · consonancia de cartas relacionales
+
+`M09` compara puntos homólogos entre compuesta y Davison únicamente bajo una `relationship_chart_consonance_policy` explícita. Toda observación pertenece a una única familia de dependencia `RELCHART`. El módulo no define una puntuación global de consonancia: `consonance_score=null` y `score_state=NOT_DEFINED` mientras no exista una regla preregistrada.
