@@ -37,6 +37,7 @@ from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
 from .robustness_handlers import m23_time_sensitivity, m24_null_models, wilson_interval
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
+from .final_handlers import m28_doctrine_hermeneutics, m29_viability_reciprocity, m30_report_gate, m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -84,6 +85,10 @@ __all__ = [
     "wilson_interval",
     "m26_temporal_activation",
     "m27_dated_events",
+    "m28_doctrine_hermeneutics",
+    "m29_viability_reciprocity",
+    "m30_report_gate",
+    "m31_report",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
