@@ -38,6 +38,7 @@ REQUIRED_FILES = [
     "schemas/davison-output.schema.json",
     "schemas/draconic-output.schema.json",
     "schemas/draconic-cross-output.schema.json",
+    "schemas/lots-output.schema.json",
     "schemas/module-execution.schema.json",
     "schemas/precomputed-pillars.schema.json",
     "schemas/precomputed-result.schema.json",
@@ -129,6 +130,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/symmetry_handlers.py",
     "src/almas_tfa/relationship_chart_handlers.py",
     "src/almas_tfa/draconic_handlers.py",
+    "src/almas_tfa/lot_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -168,6 +170,7 @@ REQUIRED_FILES = [
     "tests/test_symmetry_handlers.py",
     "tests/test_relationship_charts.py",
     "tests/test_draconic_handlers.py",
+    "tests/test_lot_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -285,6 +288,7 @@ def main() -> int:
     davison_schema = load_json("schemas/davison-output.schema.json")
     draconic_schema = load_json("schemas/draconic-output.schema.json")
     draconic_cross_schema = load_json("schemas/draconic-cross-output.schema.json")
+    lots_schema = load_json("schemas/lots-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -370,6 +374,9 @@ def main() -> int:
         fail("draconic schema must require charts")
     if "contacts" not in draconic_cross_schema.get("required", []):
         fail("draconic cross schema must require contacts")
+
+    if "subjects" not in lots_schema.get("required", []):
+        fail("lots schema must require subjects")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
