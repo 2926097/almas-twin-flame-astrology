@@ -14,26 +14,26 @@ MODELS = ("AF", "KA", "AG", "LG")
 
 
 def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
-    """Analyze precomputed ALMAS pillar values.
+    """Analiza valores de pilares ALMAS previamente calculados.
 
-    This function does not calculate astronomical positions or evidence roots.
-    It consumes already-derived pillar percentages and optional root attributions.
+    Esta función no calcula posiciones astronómicas ni raíces de evidencia.
+    Consume porcentajes de pilares ya derivados y atribuciones opcionales de raíces.
     """
     pillars = payload.get("pillars")
     if not isinstance(pillars, Mapping):
-        raise ValueError("payload.pillars must be an object")
+        raise ValueError("payload.pillars debe ser un objeto")
 
     ice_by_model = payload.get("ice_by_model", {})
     if ice_by_model is None:
         ice_by_model = {}
     if not isinstance(ice_by_model, Mapping):
-        raise ValueError("payload.ice_by_model must be an object")
+        raise ValueError("payload.ice_by_model debe ser un objeto")
 
     contradictions = payload.get("essential_contradictions", {})
     if contradictions is None:
         contradictions = {}
     if not isinstance(contradictions, Mapping):
-        raise ValueError("payload.essential_contradictions must be an object")
+        raise ValueError("payload.essential_contradictions debe ser un objeto")
 
     icc = payload.get("icc")
     irc = payload.get("irc")
@@ -45,8 +45,8 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
         "models": {},
         "pairwise_idd": {},
         "limitations": [
-            "This output does not calculate astronomy, aspects, roots, null models or timing.",
-            "Model scores are structural compatibility indices, not metaphysical probabilities.",
+            "Esta salida no calcula astronomía, aspectos, raíces, modelos nulos ni temporalidad.",
+            "Las puntuaciones de modelos son índices de compatibilidad estructural, no probabilidades metafísicas.",
         ],
     }
 
@@ -83,7 +83,7 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
     if attributions is None:
         attributions = {}
     if not isinstance(attributions, Mapping):
-        raise ValueError("payload.attributions must be an object")
+        raise ValueError("payload.attributions debe ser un objeto")
 
     for a, b in combinations(MODELS, 2):
         av = attributions.get(a)
