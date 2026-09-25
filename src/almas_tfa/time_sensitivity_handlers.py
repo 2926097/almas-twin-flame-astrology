@@ -7,91 +7,64 @@ from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_e
 
 
 def m23_time_sensitivity(context: ModuleContext) -> ModuleResult:
-    """M23: calcula robustez horaria desde resúmenes de perturbación preregistrados.
+    """M23: calcula el componente de robustez horaria preregistrado.
 
-    M23 no decide cómo estimar delta90. Esa estadística debe llegar ya calculada
-    por el protocolo de perturbación utilizado, junto con G (fracción de
-    corridas que preservan la banda interpretativa preregistrada).
+    M23 no genera perturbaciones ni estima delta90. Consume un resumen
+    preregistrado y aplica exclusivamente la fórmula normativa de ALMAS:
+
+        R_X = exp(-delta90 / 20) * sqrt(G)
     """
 
-    families = context.raw_input.get("time_sensitivity_families")
-    if not isinstance(families, list) or not families:
+    summary = context.raw_input.get("time_sensitivity_summary")
+    if not isinstance(summary, Mapping):
         return not_evaluable_result(
             "M23",
-            "Faltan time_sensitivity_families preregistradas.",
+            "Falta time_sensitivity_summary preregistrado.",
         )
 
-    output_families: list[dict[str, Any]] = []
-    components: list[float] = []
+    preregistration_ref = summary.get("preregistration_ref")
+    if not isinstance(preregistration_ref, str) or not preregistration_ref:
+        raise ValueError("preregistration_ref es obligatorio.")
 
-    for index, raw in enumerate(families, start=1):
-        if not isinstance(raw, Mapping):
-            raise ValueError(
-                f"time_sensitivity_families[{index - 1}] debe ser un objeto."
-            )
+    if summary.get("delta90") is None:
+        raise ValueError("delta90 es obligatorio.")
+    if summary.get("preserved_fraction") is None:
+        raise ValueError("preserved_fraction es obligatorio.")
 
-        family_id = raw.get("id")
-        if not isinstance(family_id, str) or not family_id:
-            raise ValueError(f"Familia {index}: id es obligatorio.")
+    delta90 = float(summary["delta90"])
+    preserved_fraction = float(summary["preserved_fraction"])
+    component = robustness_component(delta90, preserved_fraction)
 
-        delta90 = raw.get("delta90")
-        preserved_fraction = raw.get("preserved_fraction")
-        if delta90 is None or preserved_fraction is None:
-            raise ValueError(
-                f"{family_id}: delta90 y preserved_fraction son obligatorios."
-            )
+    perturbation_count = summary.get("perturbation_count")
+    if perturbation_count is not None:
+        if (
+            isinstance(perturbation_count, bool)
+            or int(perturbation_count) != perturbation_count
+            or int(perturbation_count) <= 0
+        ):
+            raise ValueError("perturbation_count debe ser entero positivo.")
+        perturbation_count = int(perturbation_count)
 
-        delta90 = float(delta90)
-        preserved_fraction = float(preserved_fraction)
-        component = robustness_component(delta90, preserved_fraction)
+    perturbation_rule = summary.get("perturbation_rule")
+    if perturbation_rule is not None and not isinstance(
+        perturbation_rule, (str, Mapping)
+    ):
+        raise ValueError("perturbation_rule debe ser string, objeto o null.")
 
-        n_runs = raw.get("n_runs")
-        if n_runs is not None:
-            if isinstance(n_runs, bool) or int(n_runs) != n_runs or int(n_runs) <= 0:
-                raise ValueError(f"{family_id}: n_runs debe ser entero positivo.")
-            n_runs = int(n_runs)
-
-        window_minutes = raw.get("window_minutes")
-        if window_minutes is not None:
-            window_minutes = float(window_minutes)
-            if window_minutes < 0:
-                raise ValueError(
-                    f"{family_id}: window_minutes no puede ser negativo."
-                )
-
-        subjects = raw.get("subjects")
-        if subjects is not None:
-            if not isinstance(subjects, list) or not all(
-                isinstance(x, str) and x for x in subjects
-            ):
-                raise ValueError(
-                    f"{family_id}: subjects debe ser una lista de IDs."
-                )
-
-        output_families.append(
-            {
-                "id": family_id,
-                "delta90": delta90,
-                "preserved_fraction": preserved_fraction,
-                "robustness_component": component,
-                "n_runs": n_runs,
-                "window_minutes": window_minutes,
-                "subjects": list(subjects) if isinstance(subjects, list) else [],
-                "metric": raw.get("metric"),
-                "band_rule": raw.get("band_rule"),
-                "source_ref": raw.get("source_ref"),
-            }
-        )
-        components.append(component)
-
-    output_families.sort(key=lambda item: item["id"])
-    output = {
-        "families": output_families,
-        "component_count": len(components),
-        "components": components,
-        "formula": "exp(-delta90/20) * sqrt(G)",
-        "delta90_estimation": "EXTERNAL_PREREGISTERED",
-        "aggregated_irc": None,
+    output: dict[str, Any] = {
+        "preregistration_ref": preregistration_ref,
+        "subject_scope": summary.get("subject_scope"),
+        "perturbation_rule": (
+            dict(perturbation_rule)
+            if isinstance(perturbation_rule, Mapping)
+            else perturbation_rule
+        ),
+        "metric": summary.get("metric"),
+        "delta90": delta90,
+        "preserved_fraction": preserved_fraction,
+        "perturbation_count": perturbation_count,
+        "robustness_component": component,
+        "perturbations_generated_by_m23": False,
     }
 
     return ModuleResult(
@@ -100,7 +73,7 @@ def m23_time_sensitivity(context: ModuleContext) -> ModuleResult:
         payload=output,
         canonical_updates={"time_sensitivity": output},
         limitations=(
-            "M23 no estima delta90 a partir de muestras: exige un resumen preregistrado.",
-            "M23 no calcula IRC agregado; esa agregación pertenece a M25.",
+            "M23 no estima delta90 ni genera perturbaciones; exige un resumen preregistrado.",
+            "El componente se integra en IRC únicamente en M25.",
         ),
     )
