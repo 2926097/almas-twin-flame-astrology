@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial del origen de las almas
+# ALMAS · Contrato Preencarnatorio · Motor diferencial del origen de las almas
 
 ## 1. Finalidad
 
