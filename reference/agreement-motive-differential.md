@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial del motivo del acuerdo
+# ALMAS · Contrato Preencarnatorio · Motor diferencial del motivo del acuerdo
 
 ## 1. Finalidad
 
