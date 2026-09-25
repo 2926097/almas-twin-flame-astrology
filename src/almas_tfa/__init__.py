@@ -3,6 +3,7 @@
 from .analysis import analyze_precomputed
 from .astrology_backend import AstrologyBackend, NatalRequest, natal_request_from_subject
 from .astrology_handlers import make_m02_natal
+from .astrology_geometry import angular_distance, house_for_longitude, match_declared_aspect, normalize_longitude, zodiac_sign
 from .core import (
     MODEL_PILLARS,
     SUPPORTED_THRESHOLDS,
@@ -24,6 +25,7 @@ from .module_contract import (
     ModuleHandler,
     ModuleResult,
 )
+from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -38,6 +40,13 @@ __all__ = [
     "NatalRequest",
     "natal_request_from_subject",
     "make_m02_natal",
+    "normalize_longitude",
+    "angular_distance",
+    "zodiac_sign",
+    "match_declared_aspect",
+    "house_for_longitude",
+    "m03_synastry",
+    "m04_nodes_angles_houses_regencies",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
