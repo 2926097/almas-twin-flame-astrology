@@ -15,3 +15,15 @@
 13. Cierre no equivale necesariamente a separación.
 14. La sombra no se confunde con la función contractual.
 15. El relato final se redacta después de cerrar la matriz de cláusulas.
+
+
+## Cadena contractual v1.1
+
+16. Toda cláusula declara `resolution_level`, contenido reconstruido, mecanismo de activación y prueba contractual.
+17. El contenido reconstruido nunca se presenta como transcripción literal pre-natal.
+18. El mecanismo de activación debe apuntar a raíces/tareas previas, no sólo a un evento posterior.
+19. La prueba contractual se define antes de usar acontecimientos como evidencia de cumplimiento.
+20. Toda cláusula referencia al menos un claim trazable mediante Claim Contract v2 cuando formula una afirmación metafísica.
+21. `allowed_conclusion` no puede superar `inferential_ceiling`.
+22. El techo por defecto de una cláusula astrológica es R2_RELATIONAL_PREINCARNATIONAL_FUNCTION.
+23. R3 requiere discriminador independiente validado; R4 no puede alcanzar SUPPORTED desde astrología.
