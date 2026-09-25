@@ -2,45 +2,45 @@
   "manifest_version": "1.0.0",
   "almas_version": "1.11.0",
   "status": "PREREGISTRATION_INFRASTRUCTURE",
-  "principle": "Cases used to discover or tune rules are excluded from holdout validation of those rules.",
+  "principle": "Los casos utilizados para descubrir o ajustar reglas quedan excluidos de la validación holdout de esas mismas reglas.",
   "private_development_cases": {
     "published": false,
     "identifiers_withheld": true,
     "eligible_as_external_holdout": false,
-    "note": "Private development cases remain outside the public repository and cannot validate rules they helped create."
+    "note": "Los casos privados de desarrollo permanecen fuera del repositorio público y no pueden validar reglas que ayudaron a crear."
   },
   "cohorts": [
     {
       "id": "C1_STABLE_LONG_TERM",
-      "target_role": "positive documentary diversity",
+      "target_role": "diversidad documental positiva",
       "minimum_target_cases": 5
     },
     {
       "id": "C2_SEPARATED_CLOSED",
-      "target_role": "outcome diversity",
+      "target_role": "diversidad de desenlaces",
       "minimum_target_cases": 5
     },
     {
       "id": "C3_NON_ROMANTIC_DEEP",
-      "target_role": "romance-specificity control",
+      "target_role": "control de especificidad romántica",
       "minimum_target_cases": 5
     },
     {
       "id": "C4_ORDINARY_CONTROL",
-      "target_role": "false-specificity control",
+      "target_role": "control de falsa especificidad",
       "minimum_target_cases": 10
     },
     {
       "id": "C5_EMIC_SOUL_LABEL",
-      "target_role": "label-independence test",
+      "target_role": "prueba de independencia de etiqueta",
       "minimum_target_cases": 5
     },
     {
       "id": "C6_SYNTHETIC_CONTROL",
-      "target_role": "pipeline/null control",
+      "target_role": "control de pipeline/modelo nulo",
       "minimum_target_cases": 20
     }
   ],
   "real_cases": [],
-  "freeze_rule": "Populate real_cases before running the frozen confirmatory analysis; changing membership after viewing outputs invalidates confirmatory status."
+  "freeze_rule": "Poblar real_cases antes de ejecutar el análisis confirmatorio congelado; modificar la membresía después de ver las salidas invalida el estado confirmatorio."
 }
