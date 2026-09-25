@@ -1,0 +1,46 @@
+{
+  "manifest_version": "1.0.0",
+  "almas_version": "1.9.0",
+  "status": "PREREGISTRATION_INFRASTRUCTURE",
+  "principle": "Cases used to discover or tune rules are excluded from holdout validation of those rules.",
+  "private_development_cases": {
+    "published": false,
+    "identifiers_withheld": true,
+    "eligible_as_external_holdout": false,
+    "note": "Private development cases remain outside the public repository and cannot validate rules they helped create."
+  },
+  "cohorts": [
+    {
+      "id": "C1_STABLE_LONG_TERM",
+      "target_role": "positive documentary diversity",
+      "minimum_target_cases": 5
+    },
+    {
+      "id": "C2_SEPARATED_CLOSED",
+      "target_role": "outcome diversity",
+      "minimum_target_cases": 5
+    },
+    {
+      "id": "C3_NON_ROMANTIC_DEEP",
+      "target_role": "romance-specificity control",
+      "minimum_target_cases": 5
+    },
+    {
+      "id": "C4_ORDINARY_CONTROL",
+      "target_role": "false-specificity control",
+      "minimum_target_cases": 10
+    },
+    {
+      "id": "C5_EMIC_SOUL_LABEL",
+      "target_role": "label-independence test",
+      "minimum_target_cases": 5
+    },
+    {
+      "id": "C6_SYNTHETIC_CONTROL",
+      "target_role": "pipeline/null control",
+      "minimum_target_cases": 20
+    }
+  ],
+  "real_cases": [],
+  "freeze_rule": "Populate real_cases before running the frozen confirmatory analysis; changing membership after viewing outputs invalidates confirmatory status."
+}
