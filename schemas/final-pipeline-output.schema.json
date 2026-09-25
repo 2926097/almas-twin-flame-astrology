@@ -11,20 +11,7 @@
       "$ref": "viability-reciprocity-output.schema.json"
     },
     "report_gate": {
-      "type": "object",
-      "required": [
-        "state",
-        "missing_fields",
-        "failed_modules",
-        "reportable",
-        "canonical_values_mutated"
-      ],
-      "properties": {
-        "canonical_values_mutated": {
-          "const": false
-        }
-      },
-      "additionalProperties": true
+      "$ref": "report-gate-output.schema.json"
     },
     "report_document_model": {
       "type": "object",
