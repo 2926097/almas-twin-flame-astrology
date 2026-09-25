@@ -455,7 +455,26 @@ def main() -> int:
             if concept_id not in concept_ids:
                 fail(f"ontology axis references unknown concept: {axis.get('id')} -> {concept_id}")
 
+    required_mapping_fields = {
+        "concept_id",
+        "metaphysical_variable",
+        "source_basis",
+        "operationalization_class",
+        "admissible_astrology",
+        "inadmissible_inferences",
+        "source_alignment",
+        "validation_state",
+        "inferential_ceiling",
+        "structural_score_policy",
+        "dependencies",
+        "required_gates",
+        "discriminating_power",
+        "forbidden_upgrade",
+    }
     for mapping in doctrine_map.get("mappings", []):
+        missing = required_mapping_fields - set(mapping)
+        if missing:
+            fail(f"doctrine-to-astrology mapping missing fields for {mapping.get('concept_id')}: {sorted(missing)}")
         if mapping.get("concept_id") not in concept_ids:
             fail(f"doctrine-to-astrology map references unknown concept: {mapping.get('concept_id')}")
         if not mapping.get("operationalization_class"):
@@ -495,6 +514,23 @@ def main() -> int:
             fail(f"mapping exists but coverage is not MAPPED: {concept_id} -> {state}")
         if state == "BOUNDARY_ONLY" and concept_id in mapping_ids:
             fail(f"boundary concept must not generate astrological mapping: {concept_id}")
+
+
+    if cross_discriminators.get("almas_version") != version:
+        fail("cross-model discriminator registry version diverges from root VERSION")
+    binding_ids = {x.get("concept_id") for x in cross_discriminators.get("ceiling_bindings", [])}
+    required_ceiling_bindings = {
+        "SOUL_CONTRACT",
+        "TWIN_FLAME_ORIGIN",
+        "ZIVUG",
+        "SOUL_ROOT",
+        "MONAD",
+        "SPLIT_PRIMORDIAL_BEING",
+        "GILGUL",
+        "DRACONIC_ASTROLOGY",
+    }
+    if not required_ceiling_bindings.issubset(binding_ids):
+        fail("cross-model discriminator registry lacks required inferential-ceiling bindings")
 
     specificity_ids = {x.get("id") for x in causal_registry.get("specificity_levels", [])}
     if specificity_ids != {"C0_GENERIC","C1_TARGETED","C2_MULTIROOT","C3_PAIR_SPECIFIC_EMERGENT"}:
