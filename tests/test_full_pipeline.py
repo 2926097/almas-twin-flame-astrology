@@ -297,20 +297,38 @@ class TestFullPipelineSynthetic(unittest.TestCase):
             },
             "null_model_runs": [
                 {
-                    "run_id": "NULL1",
+                    "id": "NULL1",
                     "null_model": "PAIR_SHUFFLE",
                     "preregistration_ref": "NULL-FULL-001",
-                    "frozen_before_inspection": True,
-                    "trials": 1000,
-                    "hits": 50,
-                    "wilson_z": 1.96,
-                    "observed_statistic": 88,
+                    "feature_set_ref": "FEATURES-FULL-001",
+                    "orb_policy_ref": "ORBS-FULL-001",
+                    "event_set_ref": "EVENTS-FULL-001",
+                    "generator_ref": "GEN-FULL-001",
+                    "statistic_id": "ROOT_COUNT",
+                    "observed_value": 88,
+                    "tail": "GREATER_OR_EQUAL",
+                    "n": 1000,
+                    "extreme_count": 50,
                 }
             ],
-            "robustness_components": {
-                "ABLATION": 0.85,
-                "PARAMETER": 0.9,
-            },
+            "robustness_component_summaries": [
+                {
+                    "id": "ABLATION_CORE",
+                    "kind": "ABLATION",
+                    "value": 0.85,
+                    "source_module": "M22",
+                    "preregistration_ref": "ROB-FULL-AB",
+                    "derivation_ref": "ABLATION-RULE-FULL",
+                },
+                {
+                    "id": "PARAMETER",
+                    "kind": "PARAMETER_PERTURBATION",
+                    "value": 0.9,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "ROB-FULL-P",
+                    "derivation_ref": "PARAM-RULE-FULL",
+                },
+            ],
             "temporal_signals": [
                 {
                     "signal_id": "T1",
