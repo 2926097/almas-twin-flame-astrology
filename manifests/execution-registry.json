@@ -111,7 +111,8 @@
     },
     {
       "id": "M20",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/counterevidence_handlers.py:m20_counterevidence"
     },
     {
       "id": "M21",
