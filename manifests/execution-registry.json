@@ -37,11 +37,13 @@
     },
     {
       "id": "M05",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/symmetry_handlers.py:m05_declinations"
     },
     {
       "id": "M06",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/symmetry_handlers.py:m06_antiscia"
     },
     {
       "id": "M07",
