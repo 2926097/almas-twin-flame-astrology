@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/doctrinal-claim.schema.json",
+  "title": "ALMAS Doctrinal Claim",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "statement",
+    "epistemic_class",
+    "source_relation",
+    "source_ids",
+    "status",
+    "limitations"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string"
+    },
+    "epistemic_class": {
+      "enum": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "C_DOCTRINE",
+        "D_CONTEMPORARY_USAGE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    "concept_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_relation": {
+      "enum": [
+        "DIRECT_DOCTRINE",
+        "ACADEMIC_DESCRIPTION",
+        "HISTORICAL_ANTECEDENT",
+        "COMPARATIVE_ANALOGUE",
+        "CONTEMPORARY_USAGE",
+        "PROJECT_OPERATIONALIZATION",
+        "PROJECT_SYNTHESIS"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "astrological_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
