@@ -67,6 +67,8 @@ REQUIRED_FILES = [
     "reference/concept-registry.json",
     "reference/doctrinal-genealogy.json",
     "reference/twin-flame-genealogy-matrix.md",
+    "reference/contemporary-phenomenology-matrix.md",
+    "reference/esoteric-draconic-astrology-matrix.md",
     "reference/lurianic-kabbalah-matrix.md",
     "reference/preincarnation-planning-matrix.md",
     "reference/ontology-registry.json",
