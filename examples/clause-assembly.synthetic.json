@@ -57,8 +57,8 @@
       "reason_not_higher": null,
       "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
       "reconstructed_contract_content": "A relationship-specific function confronts the autonomy/closeness polarity without predetermining a romantic outcome.",
-      "activation_mechanism": "A directional activator contacts a preexisting autonomy task and the common field repeats the same polarity.",
-      "contract_test": "Can closeness and autonomy coexist without control or reactive withdrawal?",
+      "activation_mechanism": "Un activador direccional contacta una tarea preexistente de autonomía y el campo común repite la misma polaridad.",
+      "contract_test": "¿Pueden coexistir cercanía y autonomía sin control ni retirada reactiva?",
       "claim_refs": [
         "CLAIM_CONTRACT_R2"
       ],
@@ -106,9 +106,9 @@
       "robustness": 82,
       "r_min": 0.7,
       "counterevidence": [],
-      "reason_not_higher": "Current synthetic fixture contains no documented post-activation integration facts.",
+      "reason_not_higher": "Los datos sintéticos actuales no contienen hechos documentados de integración posteriores a la activación.",
       "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
-      "reconstructed_contract_content": "The relationship-specific function tests whether symbolic meaning can become embodied in coherent choices and conduct.",
+      "reconstructed_contract_content": "La función específica de la relación pone a prueba si el significado simbólico puede encarnarse en elecciones y conductas coherentes.",
       "activation_mechanism": "Relational structure and role-task alignment connect symbolic integration with Saturnian/embodiment functions.",
       "contract_test": "Can meaning become observable form without requiring a predetermined romantic result?",
       "claim_refs": [
@@ -152,11 +152,11 @@
       "robustness": 80,
       "r_min": 0.68,
       "counterevidence": [],
-      "reason_not_higher": "Only one strong independent directional root is present.",
+      "reason_not_higher": "Sólo está presente una raíz direccional independiente fuerte.",
       "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
-      "reconstructed_contract_content": "The relationship-specific function brings ambiguity into explicit communication and truth-testing.",
-      "activation_mechanism": "A directional communication root activates a preexisting truth task and is repeated in the common learning field.",
-      "contract_test": "Can meaning be named without coercion, unilateral interpretation or crisis-dependent communication?",
+      "reconstructed_contract_content": "La función específica de la relación lleva la ambigüedad hacia comunicación explícita y contraste con la verdad.",
+      "activation_mechanism": "Una raíz direccional de comunicación activa una tarea preexistente de verdad y se repite en el campo común de aprendizaje.",
+      "contract_test": "¿Puede nombrarse el significado sin coacción, interpretación unilateral ni comunicación dependiente de la crisis?",
       "claim_refs": [
         "CLAIM_CONTRACT_R2"
       ],
@@ -211,6 +211,6 @@
   "counterevidence": [],
   "robustness": 83,
   "vertical_coherence": 90,
-  "why_selected": "The synthetic clauses are traceable to upstream motive, role, task and root structures.",
-  "why_not_more_specific": "Some clause boundaries remain dependent because the same structural roots contribute to more than one functional expression."
+  "why_selected": "Las cláusulas sintéticas son trazables hacia estructuras previas de motivo, rol, tarea y raíz.",
+  "why_not_more_specific": "Algunos límites entre cláusulas siguen siendo dependientes porque las mismas raíces estructurales contribuyen a más de una expresión funcional."
 }
