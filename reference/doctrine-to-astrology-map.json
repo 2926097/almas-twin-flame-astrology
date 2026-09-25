@@ -1,5 +1,5 @@
 {
-  "map_version": "1.1.0",
+  "map_version": "1.2.0",
   "almas_version": "1.9.1",
   "principles": [
     "Doctrine defines concepts and limits; it does not contribute structural score by mere existence.",
@@ -28,6 +28,27 @@
         "specific event was literally selected before birth",
         "exact date was pre-agreed",
         "single synastry aspect proves pre-birth choice"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
+      "validation_state": "FUNCTIONAL_OPERATIONALIZATION_NOT_EXTERNALLY_VALIDATED",
+      "inferential_ceiling": "PREEXISTING_THEME_COMPATIBLE_WITH_PREBIRTH_CHOICE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "natal_structure",
+        "nodes",
+        "saturn",
+        "optional_individual_draconic"
+      ],
+      "required_gates": [
+        "task_exists_before_partner",
+        "survives_partner_ablation",
+        "no_event_specific_claim"
+      ],
+      "discriminating_power": "LOW_FUNCTIONAL",
+      "forbidden_upgrade": [
+        "literal_event_selection",
+        "detailed_life_script",
+        "specific_partner_contract"
       ]
     },
     {
@@ -48,6 +69,26 @@
         "every relationship has shared mission",
         "mission implies shared origin",
         "10th_or_11th_house contact alone proves mission"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
+      "validation_state": "FUNCTIONAL_OPERATIONALIZATION_NOT_EXTERNALLY_VALIDATED",
+      "inferential_ceiling": "MISSION_SERVICE_THEME_COMPATIBLE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "individual_task",
+        "collective_or_service_context",
+        "relational_emergence_optional"
+      ],
+      "required_gates": [
+        "mission_exists_independently",
+        "no_origin_inference",
+        "documentary_externalization_if_embodied"
+      ],
+      "discriminating_power": "FUNCTION_ONLY",
+      "forbidden_upgrade": [
+        "shared_origin",
+        "bilateral_contract",
+        "romantic_destiny"
       ]
     },
     {
@@ -71,6 +112,27 @@
         "south_node_contact alone proves a past life",
         "draconic contact alone proves reincarnation",
         "continuity automatically means twin flame"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
+      "validation_state": "CONTINUITY_OPERATIONALIZATION_NOT_ONTOLOGICALLY_VALIDATED",
+      "inferential_ceiling": "INTERINCARNATIONAL_CONTINUITY_MODEL_COMPATIBLE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "nodes",
+        "saturn_chiron_pluto",
+        "crossed_draconic",
+        "independent_recurrence"
+      ],
+      "required_gates": [
+        "multiple_independent_roots",
+        "no_single_node_proof",
+        "draconic_dependency_discounted"
+      ],
+      "discriminating_power": "HISTORY_CONTINUITY_ONLY",
+      "forbidden_upgrade": [
+        "literal_past_life_identity",
+        "twin_flame_origin",
+        "bilateral_contract"
       ]
     },
     {
@@ -93,6 +155,28 @@
         "zivug equals twin flame",
         "one Venus-Node contact proves true pair",
         "pairing doctrine proves current romantic viability"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
+      "validation_state": "PAIRING_OPERATIONALIZATION_NOT_ONTOLOGICALLY_VALIDATED",
+      "inferential_ceiling": "PAIRING_ARCHITECTURE_COMPATIBLE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "bilateral_core_roots",
+        "luminaries_nodes",
+        "relationship_chart_family",
+        "crossed_draconic"
+      ],
+      "required_gates": [
+        "bilaterality",
+        "pair_specificity",
+        "ablation_survival",
+        "current_viability_separate"
+      ],
+      "discriminating_power": "PAIRING_NOT_ORIGIN",
+      "forbidden_upgrade": [
+        "twin_flame_equivalence",
+        "unique_shared_origin",
+        "current_romantic_viability"
       ]
     },
     {
@@ -114,6 +198,27 @@
         "soul root automatically means romantic pair",
         "soul root automatically means one unique counterpart",
         "rare structure equals proof of shared root"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
+      "validation_state": "RELATED_ROOT_OPERATIONALIZATION_NOT_ONTOLOGICALLY_VALIDATED",
+      "inferential_ceiling": "RELATED_OR_SHARED_ROOT_MODEL_COMPATIBLE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "multi_layer_recurrence",
+        "nodal_regents",
+        "bilateral_roots",
+        "null_model_pair_specificity"
+      ],
+      "required_gates": [
+        "network_alternative_tested",
+        "nonromantic_roles_considered",
+        "unique_dyad_not_assumed"
+      ],
+      "discriminating_power": "ORIGIN_FAMILY_WEAK",
+      "forbidden_upgrade": [
+        "unique_romantic_counterpart",
+        "monadic_pair",
+        "twin_flame_origin"
       ]
     },
     {
@@ -131,6 +236,23 @@
         "Blavatsky teaches romantic monadic pairs",
         "Monad equals twin flame",
         "any astrological signature currently validates monadic-pair ontology"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_COMPARATIVE_ONLY",
+      "validation_state": "NO_VALIDATED_RELATIONAL_ASTROLOGICAL_OPERATIONALIZATION",
+      "inferential_ceiling": "NOT_EVALUABLE_FOR_MONADIC_PAIR",
+      "structural_score_policy": "ZERO_DIRECT_SCORE",
+      "dependencies": [
+        "comparative_shared_origin_family_only"
+      ],
+      "required_gates": [
+        "theosophical_monad_kept_distinct",
+        "no_romantic_dyad_inference"
+      ],
+      "discriminating_power": "NONE_ONTOLOGICAL",
+      "forbidden_upgrade": [
+        "monadic_pair",
+        "twin_flame_origin",
+        "romantic_counterpart"
       ]
     },
     {
@@ -157,6 +279,28 @@
         "masculine_feminine polarity proves twin flame",
         "low null frequency is probability of twin flame",
         "O3 unique dyadic origin can be SUPPORTED without validated discriminator"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_ASTROLOGY_PROJECT_ONLY",
+      "validation_state": "ONTOLOGICAL_DISCRIMINATOR_NOT_VALIDATED",
+      "inferential_ceiling": "COMPATIBLE_OR_INSUFFICIENT_UNIQUE_DYADIC_ORIGIN",
+      "structural_score_policy": "MODEL_SCORE_MAY_DESCRIBE_FIT_NOT_PROBABILITY",
+      "dependencies": [
+        "pair_specificity",
+        "bilateral_recurrence",
+        "origin_roots",
+        "ablation",
+        "null_model"
+      ],
+      "required_gates": [
+        "validated_origin_discriminator_required_for_SUPPORTED",
+        "phenomenology_excluded_from_origin_score",
+        "mission_excluded_as_origin_proof"
+      ],
+      "discriminating_power": "NOT_VALIDATED_AGAINST_NEIGHBOR_ORIGINS",
+      "forbidden_upgrade": [
+        "SUPPORTED_unique_origin_without_discriminator",
+        "probability_from_rarity",
+        "mission_as_origin_proof"
       ]
     },
     {
@@ -175,6 +319,23 @@
       "inadmissible_inferences": [
         "Plato or Brihadaranyaka teaches modern twin flames",
         "mirror symmetry proves literal split soul"
+      ],
+      "source_alignment": "COMPARATIVE_ANTECEDENT_ONLY",
+      "validation_state": "NO_DIRECT_RELATIONAL_ASTROLOGICAL_VALIDATION",
+      "inferential_ceiling": "COMPARATIVE_MODEL_COMPATIBLE",
+      "structural_score_policy": "ZERO_DIRECT_DOCTRINAL_SCORE",
+      "dependencies": [
+        "symmetry_complementarity_exploratory",
+        "shared_origin_family"
+      ],
+      "required_gates": [
+        "historical_nonidentity_preserved",
+        "literal_split_not_inferred"
+      ],
+      "discriminating_power": "NONE_SPECIFIC",
+      "forbidden_upgrade": [
+        "literal_split_soul",
+        "twin_flame_identity"
       ]
     },
     {
@@ -196,6 +357,30 @@
         "academic documentation proves contracts exist",
         "astrology reconstructs literal pre-birth wording",
         "contract implies shared origin or romantic permanence"
+      ],
+      "source_alignment": "ACADEMIC_DOCUMENTATION_METHOD_PROJECT",
+      "validation_state": "FUNCTIONAL_CONTRACT_ARCHITECTURE_OPERATIONAL_LITERAL_AGREEMENT_NOT_VALIDATED",
+      "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "structural_score_policy": "IAP_DESCRIBES_ARCHITECTURE_NOT_EXISTENCE_PROBABILITY",
+      "dependencies": [
+        "preexisting_tasks",
+        "specific_activator",
+        "directional_roles",
+        "common_task",
+        "clause_genealogy",
+        "fulfillment_signature"
+      ],
+      "required_gates": [
+        "C1_C6_chain",
+        "partner_ablation",
+        "contract_vs_generic_karma",
+        "contract_vs_catalysis"
+      ],
+      "discriminating_power": "FUNCTIONAL_CONTRACT_ONLY",
+      "forbidden_upgrade": [
+        "R3_bilateral_literal_agreement",
+        "literal_prebirth_wording",
+        "romantic_permanence"
       ]
     },
     {
@@ -214,6 +399,26 @@
       "inadmissible_inferences": [
         "Myss method is identical to Kardec or Lurianic doctrine",
         "archetypal role proves bilateral agreement"
+      ],
+      "source_alignment": "IDENTIFIED_CONTEMPORARY_METHOD_PLUS_PROJECT",
+      "validation_state": "METHOD_CONTEXT_NOT_EXTERNALLY_VALIDATED_ASTROLOGICALLY",
+      "inferential_ceiling": "ARCHETYPAL_PURPOSE_COMPATIBLE",
+      "structural_score_policy": "NO_DIRECT_METHOD_POINTS",
+      "dependencies": [
+        "individual_archetypal_tasks",
+        "role_patterns",
+        "mission_context",
+        "documented_choice_points"
+      ],
+      "required_gates": [
+        "method_specificity_disclosed",
+        "not_equated_with_kardec_or_luria"
+      ],
+      "discriminating_power": "LOW_FUNCTIONAL",
+      "forbidden_upgrade": [
+        "bilateral_agreement",
+        "universal_doctrine",
+        "astrological_proof"
       ]
     },
     {
@@ -234,6 +439,26 @@
         "every hardship was planned",
         "future decision is fixed",
         "plan removes free will"
+      ],
+      "source_alignment": "CONTEMPORARY_MODEL_ACADEMICALLY_DOCUMENTED_PLUS_PROJECT",
+      "validation_state": "PLAN_OPERATIONALIZATION_NOT_EXTERNALLY_VALIDATED",
+      "inferential_ceiling": "PREBIRTH_PLAN_MODEL_COMPATIBLE",
+      "structural_score_policy": "NO_DIRECT_SOURCE_POINTS",
+      "dependencies": [
+        "preexisting_tasks",
+        "major_challenges",
+        "relational_activation",
+        "documented_choice_points"
+      ],
+      "required_gates": [
+        "free_will_preserved",
+        "event_details_not_predetermined"
+      ],
+      "discriminating_power": "LOW_FUNCTIONAL",
+      "forbidden_upgrade": [
+        "all_hardship_planned",
+        "fixed_future",
+        "specific_partner_contract_without_chain"
       ]
     },
     {
@@ -252,6 +477,22 @@
       "inadmissible_inferences": [
         "regression reports independently verify interlife planning",
         "astrology validates regression content without separate evidence"
+      ],
+      "source_alignment": "IDENTIFIED_METHOD_CONTEXT_ONLY",
+      "validation_state": "NO_DIRECT_ASTROLOGICAL_VALIDATION",
+      "inferential_ceiling": "COMPARATIVE_PLANNING_CONTEXT_ONLY",
+      "structural_score_policy": "ZERO_STRUCTURAL_SCORE",
+      "dependencies": [
+        "none_for_structural_scoring"
+      ],
+      "required_gates": [
+        "method_origin_disclosed",
+        "reports_not_treated_as_independent_verification"
+      ],
+      "discriminating_power": "NONE_STRUCTURAL",
+      "forbidden_upgrade": [
+        "interlife_fact_verified",
+        "specific_contract_validated"
       ]
     },
     {
@@ -268,6 +509,23 @@
       "inadmissible_inferences": [
         "Swedenborg teaches reincarnational soul contracts",
         "providential pair equals twin flame"
+      ],
+      "source_alignment": "DOCTRINE_EXPLICIT_COMPARATIVE_PROJECT",
+      "validation_state": "NO_VALIDATED_ASTROLOGICAL_PAIRING_DISCRIMINATOR",
+      "inferential_ceiling": "PROVIDENTIAL_PAIRING_MODEL_COMPATIBLE",
+      "structural_score_policy": "ZERO_DIRECT_DOCTRINAL_SCORE",
+      "dependencies": [
+        "pairing_architecture_comparative",
+        "relationship_chart_coherence"
+      ],
+      "required_gates": [
+        "reincarnation_not_imported",
+        "twin_flame_not_equated"
+      ],
+      "discriminating_power": "LOW_COMPARATIVE",
+      "forbidden_upgrade": [
+        "twin_flame",
+        "reincarnational_contract"
       ]
     },
     {
@@ -284,6 +542,22 @@
       "inadmissible_inferences": [
         "recognition or synchronicity proves ontology",
         "subjective experience modifies IEM or origin score"
+      ],
+      "source_alignment": "ACADEMIC_PHENOMENOLOGY",
+      "validation_state": "DOCUMENTARY_PHENOMENOLOGY_ONLY",
+      "inferential_ceiling": "PHENOMENOLOGY_SUPPORTED_IF_DOCUMENTED",
+      "structural_score_policy": "ZERO_ORIGIN_CONTRACT_SCORE",
+      "dependencies": [
+        "documented_reports_only"
+      ],
+      "required_gates": [
+        "phenomenology_separate_from_ontology"
+      ],
+      "discriminating_power": "NONE_ONTOLOGICAL",
+      "forbidden_upgrade": [
+        "origin",
+        "contract",
+        "twin_flame"
       ]
     },
     {
@@ -302,6 +576,26 @@
       "inadmissible_inferences": [
         "draconic chart independently proves soul contract",
         "draconic nodal anchors count as independent recurrence"
+      ],
+      "source_alignment": "IDENTIFIED_ASTROLOGICAL_TECHNIQUE",
+      "validation_state": "TECHNIQUE_DOCUMENTED_METAPHYSICAL_INTERPRETATION_PROJECT_DEPENDENT",
+      "inferential_ceiling": "CORROBORATIVE_NODAL_REFRAMING",
+      "structural_score_policy": "DEPENDENCY_DISCOUNT_REQUIRED",
+      "dependencies": [
+        "lunar_node_rotation",
+        "natal_chart",
+        "cross_chart_comparison"
+      ],
+      "required_gates": [
+        "node_dependency_declared",
+        "draconic_draconic_corroborative",
+        "no_independent_root_duplication"
+      ],
+      "discriminating_power": "CORROBORATIVE_ONLY",
+      "forbidden_upgrade": [
+        "past_life_proof",
+        "soul_contract_proof",
+        "independent_recurrence_from_nodal_anchors"
       ]
     }
   ],
@@ -766,5 +1060,12 @@
       "coverage_state": "CONTEXT_ONLY",
       "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
     }
-  ]
+  ],
+  "audit_summary": {
+    "audited_concepts": 15,
+    "doctrine_explicit_sources": 10,
+    "academic_or_method_context_sources": 5,
+    "ontological_discriminators_validated": 0,
+    "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory."
+  }
 }
