@@ -303,12 +303,12 @@ def main() -> int:
     examples_policy = (ROOT / "examples/README.md").read_text(encoding="utf-8")
     public_cases_policy = (ROOT / "public_cases/README.md").read_text(encoding="utf-8")
 
-    if "already public" not in publication_policy:
-        fail("publication policy must define the already-public case rule")
-    if "synthetic" not in examples_policy.lower():
-        fail("examples policy must identify default fixtures as synthetic")
-    if "independently verifiable" not in public_cases_policy:
-        fail("public case policy must require independent verification")
+    if "ya sean públicos" not in publication_policy:
+        fail("la política de publicación debe definir la regla de datos ya públicos")
+    if "sintétic" not in examples_policy.lower():
+        fail("la política de ejemplos debe identificar los fixtures predeterminados como sintéticos")
+    if "independientemente verificables" not in public_cases_policy:
+        fail("la política de casos públicos debe exigir verificación independiente")
 
     contract_module = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     contract_module_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
