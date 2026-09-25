@@ -91,7 +91,9 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Alice Bailey / Lucis Trust esotericism",
       "concepts": [
-        "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY"
+        "SOUL_ONTOLOGY_BAILEY",
+        "SOUL_PERSONALITY_RELATION",
+        "MONAD_SOUL_PERSONALITY"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
@@ -319,10 +321,12 @@
       "source_role": "IDENTIFIED_METHOD",
       "tradition": "Modern astrology",
       "concepts": [
-        "DRACONIC_ASTROLOGY"
+        "DRACONIC_ASTROLOGY",
+        "DRACONIC_METHOD_MODERN"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Open British National Bibliography verifies title, author, Aquarian publisher, 1987 date, ISBN 0850305594 and 224-page book; Astrological Association also lists Crane's 1987 conference recording on draconic astrology."
     },
     {
       "id": "bailey_esoteric_astrology_1951",
@@ -341,10 +345,15 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Alice Bailey / Lucis Trust esotericism",
       "concepts": [
-        "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY"
+        "ESOTERIC_ASTROLOGY",
+        "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
+        "SOUL_PERSONALITY_RELATION",
+        "EVOLUTIONARY_STAGE_ASTROLOGY"
       ],
-      "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Copyright Lucis Trust; use official online access and short analytical quotation only as permitted.",
+      "passage": "Esoteric Astrology, especially Chapters I-II and sections on spiritual unfoldment",
+      "verification_note": "Official Lucis Trust online text verifies the 1951 work and its explicit framing of astrology in relation to spiritual unfoldment, soul, personality and evolutionary stage."
     },
     {
       "id": "prophet_twin_flames_qa_part1",
