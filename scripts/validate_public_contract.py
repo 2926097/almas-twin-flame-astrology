@@ -199,6 +199,7 @@ REQUIRED_FILES = [
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
+    "tests/test_full_pipeline.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
