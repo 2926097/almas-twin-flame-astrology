@@ -3,15 +3,15 @@
   "doctrinal_discriminators": [
     {
       "id": "D_PAIR_UNIQUENESS",
-      "meaning": "Doctrine requires one unique counterpart."
+      "meaning": "La doctrina exige una contraparte única."
     },
     {
       "id": "D_DIVISION_OF_ONE",
-      "meaning": "Doctrine explicitly derives two beings from one prior unity."
+      "meaning": "La doctrina deriva explícitamente dos seres de una unidad previa."
     },
     {
       "id": "D_SHARED_ROOT",
-      "meaning": "Doctrine describes common or related soul roots."
+      "meaning": "La doctrina describe raíces del alma comunes o relacionadas."
     },
     {
       "id": "D_PREBIRTH_PAIRING",
@@ -35,7 +35,7 @@
     },
     {
       "id": "D_TIKKUN",
-      "meaning": "Rectification is constitutive of the relationship model."
+      "meaning": "La rectificación es constitutiva del modelo relacional."
     }
   ],
   "astrology_discriminators": [
@@ -47,7 +47,7 @@
         "F1_CONTINUIDAD",
         "F5_CONTINUIDAD_INTERENCARNACIONAL"
       ],
-      "note": "Operational project discriminator; does not identify a specific shared-origin ontology."
+      "note": "Discriminador operativo del proyecto; no identifica una ontología específica de origen compartido."
     },
     {
       "id": "A_GROUP_VS_RELATED_ROOT",
@@ -85,5 +85,5 @@
       "resolution_level": "O3_UNIQUE_DYADIC"
     }
   ],
-  "gate_rule": "No O3 subtype may be SUPPORTED unless at least one relevant A_* discriminator is VALIDATED and separates it from its principal competing models."
+  "gate_rule": "Ningún subtipo O3 puede alcanzar SUPPORTED salvo que al menos un discriminador A_* pertinente esté VALIDATED y lo separe de sus principales modelos competidores."
 }
