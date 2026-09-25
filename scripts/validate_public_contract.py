@@ -1410,9 +1410,20 @@ def main() -> int:
         fail("canonical schema must expose exactly AF, KA, AG, LG model slots")
 
     for model, spec in model_props.items():
-        state_enum = spec.get("properties", {}).get("state", {}).get("enum", [])
+        resolved_spec = spec
+        ref = spec.get("$ref")
+        if ref == "#/$defs/model_result":
+            resolved_spec = canonical_schema.get("$defs", {}).get("model_result", {})
+        state_enum = (
+            resolved_spec.get("properties", {})
+            .get("state", {})
+            .get("enum", [])
+        )
         if set(state_enum) != EXPECTED_STATES:
             fail(f"{model} state enum diverges from normative states")
+        required_model_fields = set(resolved_spec.get("required", []))
+        if not {"iem", "state"}.issubset(required_model_fields):
+            fail(f"{model} model contract must require iem and state")
 
     subject_items = raw_schema.get("properties", {}).get("subjects", {})
     if subject_items.get("minItems") != 2 or subject_items.get("maxItems") != 2:
