@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/relationship-chart-consonance.schema.json",
+  "title": "ALMAS · Consonancia de cartas relacionales",
+  "type": "object",
+  "required": [
+    "dependency_family",
+    "policy",
+    "contacts",
+    "contact_count",
+    "unavailable_points",
+    "consonance_score",
+    "score_state"
+  ],
+  "properties": {
+    "dependency_family": {
+      "const": "RELCHART"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "contact_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "unavailable_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "consonance_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "score_state": {
+      "const": "NOT_DEFINED"
+    }
+  },
+  "additionalProperties": false
+}

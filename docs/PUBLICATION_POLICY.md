@@ -1,26 +1,26 @@
-# Publication policy
+# Política de publicación
 
-The public repository separates three admissible classes of material.
+El repositorio público separa tres clases admisibles de material.
 
-## 1. Generalized material
+## 1. Material generalizado
 
-Methodological rules, formulas, schemas, ontologies, source policies, reusable code and documentation may be published when they are written independently of any identifiable private case.
+Las reglas metodológicas, fórmulas, schemas, ontologías, políticas de fuentes, código reutilizable y documentación pueden publicarse cuando están redactados independientemente de cualquier caso privado identificable.
 
-## 2. Synthetic material
+## 2. Material sintético
 
-Examples, fixtures, unit tests and demonstrations may use artificial data. Synthetic material must be clearly identified as synthetic and must not be a disguised copy, light perturbation or reversible encoding of a private real case.
+Los ejemplos, fixtures, tests unitarios y demostraciones pueden utilizar datos artificiales. El material sintético debe identificarse claramente como tal y no puede ser una copia encubierta, una perturbación ligera o una codificación reversible de un caso real privado.
 
-## 3. Public real-world material
+## 3. Material real público
 
-A real case may be included only when the underlying facts or data are already public and independently verifiable from a cited public source. Such material must:
+Un caso real sólo puede incluirse cuando los hechos o datos subyacentes ya sean públicos e independientemente verificables mediante una fuente pública citada. Ese material debe:
 
-- identify the public source and retrieval/bibliographic provenance;
-- distinguish source facts from ALMAS calculations and interpretation;
-- remain separate from the synthetic validation corpus;
-- never be used to retrofit thresholds, weights, gates or ontological rules to obtain a desired classification.
+- identificar la fuente pública y su procedencia bibliográfica o de recuperación;
+- distinguir hechos de fuente, cálculos ALMAS e interpretación;
+- permanecer separado del corpus sintético de validación;
+- no utilizarse nunca para reajustar umbrales, pesos, gates o reglas ontológicas con el fin de obtener una clasificación deseada.
 
-## Excluded material
+## Material excluido
 
-The repository must not publish non-public personal data, private communications, private birth data, unpublished relationship events, private charts, private reports or case-specific outputs derived from information that is not already public.
+El repositorio no debe publicar datos personales no públicos, comunicaciones privadas, datos natales privados, eventos relacionales no publicados, cartas privadas, informes privados ni salidas específicas de casos derivadas de información que no sea ya pública.
 
-Access to private material does not make it public. A generalized methodological insight derived during private research may be published only after the rule is restated independently of the private case and validated without embedding private identifiers or values.
+El acceso a material privado no lo convierte en público. Un hallazgo metodológico generalizado surgido durante investigación privada sólo puede publicarse después de reformular la regla de forma independiente al caso privado y validarla sin incorporar identificadores ni valores privados.

@@ -1,29 +1,29 @@
 {
   "corpus_version": "1.0.0",
-  "purpose": "Trace literary and symbolic transmission of soul-pair, spiritual-affinity, fated-love, division/reunion and metaphysical relationship motifs without treating literature as doctrine.",
+  "purpose": "Trazar la transmisión literaria y simbólica de motivos de pareja de almas, afinidad espiritual, amor destinado, división/reunión y relación metafísica sin tratar la literatura como doctrina.",
   "rules": [
-    "Literary evidence may establish terminology, motifs, reception and genealogy.",
-    "Literary evidence does not by itself establish doctrine or metaphysical ontology.",
-    "A literary motif cannot create an astrological rule.",
-    "Direct textual evidence is preferred to summaries.",
-    "When authorship or dating is disputed, preserve the uncertainty explicitly."
+    "La evidencia literaria puede establecer terminología, motivos, recepción y genealogía.",
+    "La evidencia literaria no establece por sí sola doctrina ni ontología metafísica.",
+    "Un motivo literario no puede crear una regla astrológica.",
+    "Se prefiere la evidencia textual directa frente a los resúmenes.",
+    "Cuando autoría o datación sean discutidas, conservar explícitamente la incertidumbre."
   ],
   "works": [
     {
       "id": "plato_symposium_aristophanes_literary",
       "author": "Plato",
       "work": "Symposium",
-      "date_note": "4th century BCE",
+      "date_note": "siglo IV a. C.",
       "source_role": "PHILOSOPHICAL_LITERARY_ANTECEDENT",
       "locator": "189c-193d",
       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
       "motifs": [
-        "division of an original whole",
-        "search for the lost half",
-        "recognition/reunion"
+        "división de una totalidad original",
+        "búsqueda de la mitad perdida",
+        "reconocimiento/reunión"
       ],
-      "relevance": "Major ancient antecedent for later half-soul imagery.",
-      "caution": "The speech is a dramatic/philosophical myth within Plato's dialogue, not a modern twin-flame doctrine."
+      "relevance": "Antecedente antiguo principal de imágenes posteriores de media alma.",
+      "caution": "El discurso es un mito dramático/filosófico dentro del diálogo de Platón, no una doctrina moderna de llamas gemelas."
     },
     {
       "id": "dante_vita_nuova_1294",
@@ -33,13 +33,13 @@
       "source_role": "LITERARY_MYSTICAL_PRIMARY",
       "url": "https://www.gutenberg.org/ebooks/41085",
       "motifs": [
-        "recognition",
-        "idealized beloved",
-        "love as spiritual transformation",
-        "beloved as mediator toward divine reality"
+        "reconocimiento",
+        "amada idealizada",
+        "amor como transformación espiritual",
+        "amada como mediadora hacia la realidad divina"
       ],
-      "relevance": "Important Western literary example of human love becoming a vehicle for spiritual ascent and transformation.",
-      "caution": "Beatrice should not be retrofitted automatically into soulmate, twin-flame or pre-birth-contract doctrine."
+      "relevance": "Ejemplo literario occidental importante del amor humano convertido en vehículo de ascenso y transformación espiritual.",
+      "caution": "No debe reinterpretarse automáticamente a Beatriz como alma gemela, llama gemela o doctrina de contrato prenatal."
     },
     {
       "id": "goethe_elective_affinities_1809",
@@ -49,12 +49,12 @@
       "source_role": "LITERARY_PRIMARY",
       "url": "https://www.gutenberg.org/ebooks/10604",
       "motifs": [
-        "affinity",
-        "attraction as quasi-natural law",
-        "conflict between social form and compelling bond"
+        "afinidad",
+        "atracción como ley cuasinatural",
+        "conflicto entre forma social y vínculo imperioso"
       ],
-      "relevance": "Influential literary metaphor for relational affinity using chemical attraction as an analogy.",
-      "caution": "It is not a reincarnation or soul-contract doctrine."
+      "relevance": "Metáfora literaria influyente de la afinidad relacional mediante la analogía de la atracción química.",
+      "caution": "No es una doctrina de reencarnación ni de contrato álmico."
     },
     {
       "id": "coleridge_soul_mate_1822",
@@ -65,11 +65,11 @@
       "secondary_locator": "https://www.etymonline.com/word/soulmate",
       "motifs": [
         "soul-mate",
-        "spiritual compatibility in marriage"
+        "compatibilidad espiritual en el matrimonio"
       ],
-      "relevance": "Earliest widely cited English attestation of 'soul mate' currently identified in standard lexical histories.",
+      "relevance": "Primera atestiguación inglesa ampliamente citada de 'soul mate' identificada actualmente en historias léxicas estándar.",
       "verification_status": "PRIMARY_EDITION_LOCATOR_PENDING",
-      "caution": "Lexical coinage does not establish split-soul or reincarnational doctrine."
+      "caution": "La acuñación léxica no establece una doctrina de alma escindida ni de reencarnación."
     },
     {
       "id": "corelli_romance_two_worlds_1886_literary",
@@ -86,65 +86,65 @@
         "half a flame that seeks the other half"
       ],
       "motifs": [
-        "dual soul",
-        "half-flame",
-        "spiritual counterpart",
-        "postmortem reunion",
-        "spiritual affinity"
+        "alma dual",
+        "media llama",
+        "contraparte espiritual",
+        "reunión post mortem",
+        "afinidad espiritual"
       ],
-      "relevance": "Major documented Victorian source for exact twin-flame and twin-soul vocabulary before twentieth-century institutionalized twin-flame teachings.",
-      "caution": "Treat as literary-esoteric transmission, not institutional doctrine; do not claim absolute first use without broader corpus proof."
+      "relevance": "Fuente victoriana documentada principal para el vocabulario exacto twin-flame y twin-soul anterior a enseñanzas institucionalizadas del siglo XX.",
+      "caution": "Tratarla como transmisión literario-esotérica, no como doctrina institucional; no afirmar prioridad absoluta sin una investigación de corpus más amplia."
     },
     {
       "id": "mackay_twin_soul_1887_literary",
-      "author": "Charles Mackay (traditional attribution; possible Marie Corelli collaboration)",
+      "author": "Charles Mackay (atribución tradicional; posible colaboración de Marie Corelli)",
       "work": "The Twin Soul; or, The Strange Experiences of Mr. Rameses",
       "date": "1887",
       "source_role": "LITERARY_PRIMARY",
       "url": "https://openlibrary.org/works/OL2987304W/The_twin_soul_or_The_strange_experiences_of_Mr._Rameses",
       "motifs": [
         "twin soul",
-        "Victorian occult romance",
-        "paired-soul vocabulary"
+        "romance ocultista victoriano",
+        "vocabulario de almas emparejadas"
       ],
-      "relevance": "Demonstrates explicit late-Victorian circulation of 'twin soul' as a literary title and motif.",
-      "authorship_note": "Dobson and Turner (2025) argue Mackay is likely the primary author but find evidence compatible with Corelli collaboration.",
-      "caution": "Authorship is not fully settled; literary circulation is the relevant fact."
+      "relevance": "Demuestra circulación victoriana tardía explícita de 'twin soul' como título y motivo literario.",
+      "authorship_note": "Dobson y Turner (2025) sostienen que Mackay es probablemente el autor principal, aunque encuentran evidencia compatible con colaboración de Corelli.",
+      "caution": "La autoría no está completamente resuelta; el hecho relevante es la circulación literaria."
     }
   ],
   "research_queue": [
     {
-      "area": "Sufi literary corpus",
+      "area": "Corpus literario sufí",
       "targets": [
         "Rumi / Shams",
-        "Ibn Arabi love imagery"
+        "imaginería amorosa de Ibn Arabi"
       ],
-      "requirement": "Use primary text plus academic commentary; separate divine-beloved mysticism from dyadic soulmate doctrine."
+      "requirement": "Usar texto primario y comentario académico; separar el misticismo del Amado divino de una doctrina diádica de almas gemelas."
     },
     {
-      "area": "Christian mystical literature",
+      "area": "Literatura mística cristiana",
       "targets": [
         "Hadewijch",
-        "Mechthild of Magdeburg",
-        "John of the Cross",
-        "Teresa of Avila"
+        "Mechthild de Magdeburgo",
+        "Juan de la Cruz",
+        "Teresa de Ávila"
       ],
-      "requirement": "Treat mystical marriage primarily as soul-God relation unless a text explicitly supports another structure."
+      "requirement": "Tratar el matrimonio místico principalmente como relación alma–Dios salvo que un texto sostenga explícitamente otra estructura."
     },
     {
-      "area": "Victorian occult fiction",
+      "area": "Ficción ocultista victoriana",
       "targets": [
-        "Marie Corelli later novels",
-        "Theosophical and Spiritualist fiction"
+        "novelas posteriores de Marie Corelli",
+        "ficción teosófica y espiritista"
       ],
-      "requirement": "Trace terminology and reception, not doctrine by association."
+      "requirement": "Trazar terminología y recepción, no doctrina por asociación."
     },
     {
-      "area": "Modern metaphysical fiction/nonfiction boundary",
+      "area": "Frontera moderna entre ficción y no ficción metafísica",
       "targets": [
-        "New Age novels and channelled literature"
+        "novelas New Age y literatura canalizada"
       ],
-      "requirement": "Classify clearly as fiction, emic teaching or identified method."
+      "requirement": "Clasificar claramente como ficción, enseñanza emic o método identificado."
     }
   ]
 }

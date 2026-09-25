@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/doctrinal-genealogy.schema.json",
-  "title": "ALMAS Doctrinal Genealogy",
+  "title": "ALMAS · Genealogía doctrinal",
   "type": "object",
   "required": [
     "genealogy_version",

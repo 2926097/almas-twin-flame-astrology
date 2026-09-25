@@ -12,17 +12,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="almas-score",
         description=(
-            "Score AF/KA/AG/LG from precomputed ALMAS pillar values. "
-            "This command does not calculate astronomical positions."
+            "Calcula AF/KA/AG/LG a partir de valores de pilares ALMAS precomputados. "
+            "Este comando no calcula posiciones astronómicas."
         ),
     )
-    parser.add_argument("input", type=Path, help="Input JSON file")
+    parser.add_argument("input", type=Path, help="Archivo JSON de entrada")
     parser.add_argument(
         "-o",
         "--output",
         type=Path,
         default=None,
-        help="Write JSON output to this file instead of stdout",
+        help="Escribe la salida JSON en este archivo en lugar de stdout",
     )
     return parser
 

@@ -1,7 +1,7 @@
 {
   "registry_version": "2.0.0",
-  "almas_version": "1.10.1",
-  "principle": "Independent axes; no axis automatically determines another.",
+  "almas_version": "1.11.0",
+  "principle": "Ejes independientes; ningún eje determina automáticamente otro.",
   "states": [
     "SUPPORTED",
     "COMPATIBLE",
@@ -25,7 +25,7 @@
         "INDETERMINATE"
       ],
       "source_registry": "manifests/origin-model-registry.json",
-      "rule": "Origin must not be inferred from contract, intensity, mission or phenomenology alone."
+      "rule": "El origen no debe inferirse únicamente desde contrato, intensidad, misión o fenomenología."
     },
     {
       "id": "PREINCARNATION_CONTRACT",
@@ -45,7 +45,7 @@
         "SACRED_CONTRACT",
         "SOUL_PLAN"
       ],
-      "rule": "A contract does not establish shared origin or romantic permanence."
+      "rule": "Un contrato no establece origen compartido ni permanencia romántica."
     },
     {
       "id": "HISTORY_CONTINUITY",
@@ -64,7 +64,7 @@
         "KARMIC_RELATIONSHIP",
         "ZIVUG"
       ],
-      "rule": "History/continuity is separate from origin and contract."
+      "rule": "Historia/continuidad es independiente de origen y contrato."
     },
     {
       "id": "FUNCTION",
@@ -82,7 +82,7 @@
         "LIBERATION",
         "CLOSURE_FUNCTION"
       ],
-      "rule": "Functions are multi-valued and non-hierarchical."
+      "rule": "Las funciones pueden ser múltiples y no son jerárquicas."
     },
     {
       "id": "PHENOMENOLOGY",
@@ -100,7 +100,7 @@
       "concept_ids": [
         "SOULMATE_EXPERIENCE"
       ],
-      "rule": "Phenomenology never upgrades ontology by itself."
+      "rule": "La fenomenología nunca eleva por sí sola la ontología."
     },
     {
       "id": "POLARITY",
@@ -115,7 +115,7 @@
         "MIXED",
         "INDETERMINATE"
       ],
-      "rule": "Masculine/feminine doctrinal polarity must be source-specific; it is not inferred from sex/gender."
+      "rule": "La polaridad doctrinal masculino/femenino debe ser específica de la fuente; no se infiere desde sexo/género."
     },
     {
       "id": "MODALITY",
@@ -143,7 +143,7 @@
         "CLOSURE",
         "INDETERMINATE"
       ],
-      "rule": "Phase is temporal/functional and does not determine final viability."
+      "rule": "La fase es temporal/funcional y no determina la viabilidad final."
     },
     {
       "id": "REAL_VIABILITY",
@@ -169,7 +169,7 @@
         "NOT_EVALUABLE"
       ],
       "evidence_type": "DOCUMENTARY_REAL_WORLD",
-      "rule": "Astrological reciprocity is not a substitute for current interpersonal reciprocity."
+      "rule": "La reciprocidad astrológica no sustituye la reciprocidad interpersonal actual."
     }
   ],
   "non_implication_rules": [

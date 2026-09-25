@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/clause-assembly.schema.json",
-  "title": "ALMAS Soul Contract Clause Assembly",
+  "title": "ALMAS · Ensamblaje de cláusulas del contrato preencarnatorio",
   "type": "object",
   "required": [
     "schema_version",

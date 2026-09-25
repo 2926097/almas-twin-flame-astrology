@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/final-pipeline-output.schema.json",
+  "title": "ALMAS · Salida final del pipeline",
+  "type": "object",
+  "properties": {
+    "doctrine_hermeneutics": {
+      "$ref": "doctrine-hermeneutics-output.schema.json"
+    },
+    "viability_reciprocity": {
+      "$ref": "viability-reciprocity-output.schema.json"
+    },
+    "report_gate": {
+      "$ref": "report-gate-output.schema.json"
+    },
+    "report_document_model": {
+      "$ref": "report-document-model.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

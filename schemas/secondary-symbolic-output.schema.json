@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/secondary-symbolic-output.schema.json",
+  "title": "ALMAS · Salida de capa simbólica secundaria",
+  "type": "object",
+  "required": [
+    "subjects",
+    "point_ids",
+    "support_only",
+    "aspect_policy",
+    "missing_points_by_subject",
+    "contacts",
+    "contact_count"
+  ],
+  "properties": {
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "point_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "support_only": {
+      "const": true
+    },
+    "aspect_policy": {
+      "type": "object"
+    },
+    "missing_points_by_subject": {
+      "type": "object"
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "contact_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

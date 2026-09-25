@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/robustness-output.schema.json",
+  "title": "ALMAS · Salida del Índice de Robustez",
+  "type": "object",
+  "required": [
+    "irc",
+    "r_min",
+    "components",
+    "component_count",
+    "time_sensitivity_state",
+    "ablation_state",
+    "null_model_state",
+    "null_model_rarity_used_as_robustness",
+    "formula",
+    "r_min_formula"
+  ],
+  "properties": {
+    "irc": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "r_min": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "value",
+          "source_module",
+          "preregistration_ref",
+          "derivation_ref",
+          "note",
+          "auto_derived"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "BIRTH_TIME",
+              "ABLATION",
+              "PARAMETER_PERTURBATION",
+              "IDD_STABILITY",
+              "VALIDATED_DISCRIMINATOR"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "source_module": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preregistration_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "derivation_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "auto_derived": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "component_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "time_sensitivity_state": {
+      "enum": [
+        "ABSENT",
+        "INCLUDED"
+      ]
+    },
+    "ablation_state": {
+      "enum": [
+        "ABSENT",
+        "AVAILABLE_NOT_QUANTIFIED",
+        "INCLUDED_PREREGISTERED"
+      ]
+    },
+    "null_model_state": {
+      "enum": [
+        "ABSENT",
+        "AVAILABLE_EXCLUDED_FROM_IRC"
+      ]
+    },
+    "null_model_rarity_used_as_robustness": {
+      "const": false
+    },
+    "formula": {
+      "const": "100 * geometric_mean(applicable_R_i)"
+    },
+    "r_min_formula": {
+      "const": "min(applicable_R_i)"
+    }
+  },
+  "additionalProperties": false
+}

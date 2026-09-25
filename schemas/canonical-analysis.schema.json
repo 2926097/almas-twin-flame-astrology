@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/canonical-analysis.schema.json",
-  "title": "ALMAS Canonical Analysis",
+  "title": "ALMAS · Análisis canónico",
   "type": "object",
   "required": [
     "schema_version",
@@ -34,94 +34,19 @@
       "type": "object",
       "properties": {
         "AF": {
-          "type": "object",
-          "properties": {
-            "iem": {
-              "type": [
-                "number",
-                "null"
-              ],
-              "minimum": 0,
-              "maximum": 100
-            },
-            "state": {
-              "enum": [
-                "SUPPORTED",
-                "COMPATIBLE",
-                "INSUFFICIENT",
-                "CONTRADICTED",
-                "NOT_EVALUABLE"
-              ]
-            }
-          }
+          "$ref": "#/$defs/model_result"
         },
         "KA": {
-          "type": "object",
-          "properties": {
-            "iem": {
-              "type": [
-                "number",
-                "null"
-              ],
-              "minimum": 0,
-              "maximum": 100
-            },
-            "state": {
-              "enum": [
-                "SUPPORTED",
-                "COMPATIBLE",
-                "INSUFFICIENT",
-                "CONTRADICTED",
-                "NOT_EVALUABLE"
-              ]
-            }
-          }
+          "$ref": "#/$defs/model_result"
         },
         "AG": {
-          "type": "object",
-          "properties": {
-            "iem": {
-              "type": [
-                "number",
-                "null"
-              ],
-              "minimum": 0,
-              "maximum": 100
-            },
-            "state": {
-              "enum": [
-                "SUPPORTED",
-                "COMPATIBLE",
-                "INSUFFICIENT",
-                "CONTRADICTED",
-                "NOT_EVALUABLE"
-              ]
-            }
-          }
+          "$ref": "#/$defs/model_result"
         },
         "LG": {
-          "type": "object",
-          "properties": {
-            "iem": {
-              "type": [
-                "number",
-                "null"
-              ],
-              "minimum": 0,
-              "maximum": 100
-            },
-            "state": {
-              "enum": [
-                "SUPPORTED",
-                "COMPATIBLE",
-                "INSUFFICIENT",
-                "CONTRADICTED",
-                "NOT_EVALUABLE"
-              ]
-            }
-          }
+          "$ref": "#/$defs/model_result"
         }
-      }
+      },
+      "additionalProperties": true
     },
     "indices": {
       "type": "object",
@@ -199,5 +124,60 @@
       }
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+  "$defs": {
+    "model_result": {
+      "type": "object",
+      "required": [
+        "iem",
+        "state"
+      ],
+      "properties": {
+        "iem": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "state": {
+          "enum": [
+            "SUPPORTED",
+            "COMPATIBLE",
+            "INSUFFICIENT",
+            "CONTRADICTED",
+            "NOT_EVALUABLE"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "analysis_mode": {
+            "const": "FULL"
+          }
+        },
+        "required": [
+          "analysis_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "models": {
+            "required": [
+              "AF",
+              "KA",
+              "AG",
+              "LG"
+            ]
+          }
+        }
+      }
+    }
+  ]
 }

@@ -1,21 +1,21 @@
-# Metrics
+# Métricas
 
 ## IEM — Índice de Encaje del Modelo
-Structural compatibility with AF, KA, AG or LG. It is not a metaphysical probability.
+Compatibilidad estructural con AF, KA, AG o LG. No es una probabilidad metafísica.
 
 ## IDD — Índice de Discriminación Diagnóstica
-Distributional separation between evidence architectures of competing models. Legacy alias: IDE.
+Separación distribucional entre arquitecturas de evidencia de modelos competidores. Alias histórico: IDE.
 
 ## IRC — Índice de Robustez de la Clasificación
-Stability under birth-time perturbation, ablation, parameter variation and other preregistered perturbations.
+Estabilidad frente a perturbación de hora natal, ablación, variación de parámetros y otras perturbaciones preregistradas.
 
 ## IAT — Índice de Activación Temporal
-Strength of independent temporal activations anchored to pre-existing structural roots. IAT does not alter IEM.
+Fuerza de activaciones temporales independientes ancladas a raíces estructurales preexistentes. IAT no altera IEM.
 
 ## ICC — Índice de Cobertura Canónica
-Completeness of required analytical domains. Missing data lower coverage or evaluability; they are not contradictions.
+Completitud de los dominios analíticos requeridos. Los datos ausentes reducen cobertura o evaluabilidad; no son contradicciones.
 
 ## ICE — Índice de Contraevidencia Estructural
-Explicit contradictory evidence, applied once and dependency-aware.
+Evidencia contradictoria explícita, aplicada una sola vez y con control de dependencia.
 
-The normative formulas and gates are defined in `SKILL.md`.
+Las fórmulas y gates normativos están definidos en `SKILL.md`.

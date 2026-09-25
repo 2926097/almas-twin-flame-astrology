@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/independent-roots.schema.json",
+  "title": "ALMAS · Raíces independientes",
+  "type": "object",
+  "required": [
+    "roots",
+    "root_count",
+    "strength_policy_applied"
+  ],
+  "properties": {
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "root_id",
+          "root_key",
+          "evidence_ids",
+          "dependency_families",
+          "independent_family_count",
+          "core_eligible",
+          "core_evidence_ids",
+          "support_evidence_ids",
+          "max_exactness",
+          "strength",
+          "strength_state"
+        ],
+        "properties": {
+          "strength": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "strength_state": {
+            "enum": [
+              "NOT_CALCULATED",
+              "CALCULATED"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "root_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "strength_policy_applied": {
+      "const": false
+    }
+  },
+  "additionalProperties": false
+}

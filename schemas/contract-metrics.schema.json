@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/contract-metrics.schema.json",
-  "title": "ALMAS Contract Metrics",
+  "title": "ALMAS · Métricas contractuales",
   "type": "object",
   "required": [
     "schema_version",

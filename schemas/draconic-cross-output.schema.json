@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/draconic-cross-output.schema.json",
+  "title": "ALMAS · Contactos dracónicos cruzados",
+  "type": "object",
+  "required": [
+    "subjects",
+    "policy",
+    "contacts",
+    "contact_count"
+  ],
+  "properties": {
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "object"
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "contact_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "corroborative_only": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.10.1",
+  "registry_version": "1.11.0",
   "entries": [
     {
       "id": "plato_symposium_aristophanes",
@@ -10,15 +10,15 @@
       "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
       "supports": [
-        "Aristophanes' myth of originally whole humans divided and seeking reunion",
-        "historical antecedent for later split-pair imagery"
+        "mito de Aristófanes sobre seres humanos originalmente íntegros, divididos y orientados a la reunión",
+        "antecedente histórico de imágenes posteriores de pareja escindida"
       ],
       "does_not_support": [
-        "identity with modern twin-flame doctrine",
-        "astrological diagnostic rules"
+        "identidad con la doctrina moderna de llamas gemelas",
+        "reglas diagnósticas astrológicas"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Classical Greek philosophy",
+      "tradition": "Filosofía griega clásica",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
       ],
@@ -46,18 +46,18 @@
       "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
       "url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
       "supports": [
-        "a cosmogonic passage in which a primordial self divides into husband and wife",
-        "comparative analogue for division/reunion motifs"
+        "pasaje cosmogónico en el que un yo primordial se divide en marido y mujer",
+        "análogo comparativo para motivos de división/reunión"
       ],
       "does_not_support": [
-        "a modern twin-flame taxonomy",
-        "one unique romantic counterpart for every contemporary person",
-        "astrological verification"
+        "una taxonomía moderna de llamas gemelas",
+        "una única contraparte romántica para toda persona contemporánea",
+        "verificación astrológica"
       ],
       "translation_note": "Max Müller, The Upanishads, Part II, Sacred Books of the East vol. XV, Oxford, Clarendon Press, 1884. Passage 1.4.3 cross-checked against Sanskrit/transliteration in modern text repositories.",
       "source_role": "DOCTRINAL_PRIMARY",
       "verification_status": "VERIFIED_PRIMARY",
-      "tradition": "Upanishadic Hindu tradition",
+      "tradition": "Tradición hindú upanishádica",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
       ],
@@ -83,13 +83,13 @@
       "date": "1888",
       "url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
       "supports": [
-        "Theosophical use of Monad terminology within evolutionary/cosmological doctrine"
+        "uso teosófico de la terminología Mónada dentro de una doctrina evolutiva/cosmológica"
       ],
       "does_not_support": [
-        "automatic equivalence between Theosophical Monad and a romantic twin-flame pair"
+        "equivalencia automática entre la Mónada teosófica y una pareja romántica de llamas gemelas"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Theosophy",
+      "tradition": "Teosofía",
       "concepts": [
         "MONAD",
         "THEOSOPHICAL_MONAD"
@@ -117,14 +117,14 @@
       "passage": "Chapter II, Question 1: What is the soul?",
       "url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
       "supports": [
-        "a distinct esoteric account of spirit, soul, personality and embodied form",
-        "comparative soul ontology"
+        "exposición esotérica diferenciada de espíritu, alma, personalidad y forma encarnada",
+        "ontología comparativa del alma"
       ],
       "does_not_support": [
-        "automatic attribution of a canonical romantic twin-flame doctrine to Bailey"
+        "atribución automática a Bailey de una doctrina romántica canónica de llamas gemelas"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Alice Bailey / Lucis Trust esotericism",
+      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
       "concepts": [
         "SOUL_ONTOLOGY_BAILEY",
         "SOUL_PERSONALITY_RELATION",
@@ -149,12 +149,12 @@
       "work": "Soulmates and Twin Flames",
       "url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
       "supports": [
-        "explicit modern distinction among twin flames, soul mates and karmic relationships",
-        "doctrine that twin flames were created together in a single fiery ovoid and differentiated into masculine/feminine polarity"
+        "distinción moderna explícita entre llamas gemelas, almas gemelas y relaciones kármicas",
+        "doctrina según la cual las llamas gemelas fueron creadas juntas en un único ovoide ígneo y diferenciadas en polaridad masculina/femenina"
       ],
       "does_not_support": [
-        "scientific validation of the doctrine",
-        "astrological proof that any specific pair belongs to the category"
+        "validación científica de la doctrina",
+        "prueba astrológica de que una pareja concreta pertenezca a la categoría"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
@@ -187,12 +187,12 @@
       "passage": "Twin flame",
       "url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
       "supports": [
-        "organizational definition of twin flame as masculine or feminine counterpart conceived from the same white-fire body",
-        "bibliographic pointers to 1978, 1985 and later Summit Lighthouse materials"
+        "definición organizacional de llama gemela como contraparte masculina o femenina concebida del mismo cuerpo de fuego blanco",
+        "referencias bibliográficas a materiales de Summit Lighthouse de 1978, 1985 y posteriores"
       ],
       "does_not_support": [
-        "historical priority over all earlier uses of twin-flame language",
-        "astrological diagnostic criteria"
+        "prioridad histórica sobre todos los usos anteriores del lenguaje twin-flame",
+        "criterios diagnósticos astrológicos"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
@@ -225,14 +225,14 @@
       "pages": "783-800",
       "url": "https://academic.oup.com/edited-volume/34355/chapter-abstract/291451698",
       "supports": [
-        "academic contextualization of modern Western esotericism and New Age spirituality"
+        "contextualización académica del esoterismo occidental moderno y la espiritualidad New Age"
       ],
       "does_not_support": [
-        "a specific twin-flame metaphysics",
-        "astrological validation"
+        "una metafísica específica de llamas gemelas",
+        "validación astrológica"
       ],
       "source_role": "ACADEMIC_ANALYSIS",
-      "tradition": "Academic study of Western esotericism",
+      "tradition": "Estudio académico del esoterismo occidental",
       "concepts": [
         "NEW_AGE_RELIGION"
       ],
@@ -257,15 +257,15 @@
       "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/139/book-twothe-spirit-world/chapter-vispirit-life/choice-of-trials",
       "download_url": "https://www.loc.gov/item/03019928/",
       "supports": [
-        "explicit Spiritist doctrine that spirits choose the type of trials before incarnation",
-        "distinction between general type of trial and contingent details"
+        "doctrina espiritista explícita de que los espíritus eligen el tipo de pruebas antes de la encarnación",
+        "distinción entre el tipo general de prueba y sus detalles contingentes"
       ],
       "does_not_support": [
-        "a bilateral romantic soul contract",
-        "astrological extraction of contract clauses"
+        "un contrato álmico romántico bilateral",
+        "extracción astrológica de cláusulas contractuales"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Spiritism",
+      "tradition": "Espiritismo",
       "concepts": [
         "PREINCARNATIONAL_CHOICE",
         "PREINCARNATIONAL_TRIAL",
@@ -294,15 +294,15 @@
       "passage": "Lech Lecha 32:346-351",
       "url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
       "supports": [
-        "paired souls before embodiment",
-        "separation and later matching/reunion imagery"
+        "almas emparejadas antes de la encarnación",
+        "imaginería de separación y posterior emparejamiento/reunión"
       ],
       "does_not_support": [
-        "identity with modern twin-flame doctrine",
-        "an astrological contract-reading method"
+        "identidad con la doctrina moderna de llamas gemelas",
+        "un método astrológico de lectura contractual"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Zoharic Kabbalah",
+      "tradition": "Cábala zohárica",
       "concepts": [
         "SOUL_PAIRING",
         "ZIVUG",
@@ -334,15 +334,15 @@
       "passage": "Sotah 2a:9",
       "url": "https://www.sefaria.org/Sotah.2a.9",
       "supports": [
-        "pre-birth heavenly matching motif in rabbinic literature"
+        "motivo de emparejamiento celestial prenatal en la literatura rabínica"
       ],
       "does_not_support": [
-        "split-soul ontology",
-        "modern twin-flame astrology"
+        "ontología de alma escindida",
+        "astrología moderna de llamas gemelas"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
       "verification_note": "William Davidson Edition in Sefaria states a pre-formation heavenly proclamation for a first match and distinguishes it from a second match tied to conduct.",
-      "tradition": "Rabbinic Judaism / Babylonian Talmud",
+      "tradition": "Judaísmo rabínico / Talmud de Babilonia",
       "concepts": [
         "PRENATAL_PAIRING",
         "FIRST_SECOND_ZIVUG"
@@ -373,15 +373,15 @@
       "doi": "10.1080/13537903.2014.945724",
       "url": "https://www.tandfonline.com/doi/full/10.1080/13537903.2014.945724",
       "supports": [
-        "academic documentation of soul-contract/pre-birth-plan discourse in contemporary New Age religion",
-        "genealogy through interlife regression literature and reincarnation/evolution themes"
+        "documentación académica del discurso sobre contrato álmico/plan prenatal en la religión New Age contemporánea",
+        "genealogía a través de literatura de regresión intervidas y temas de reencarnación/evolución"
       ],
       "does_not_support": [
-        "empirical proof that soul contracts exist",
-        "astrological validation of a contract"
+        "prueba empírica de que existan contratos álmicos",
+        "validación astrológica de un contrato"
       ],
       "source_role": "ACADEMIC_ANALYSIS",
-      "tradition": "Academic study of New Age religion",
+      "tradition": "Estudio académico de la religión New Age",
       "concepts": [
         "SOUL_CONTRACT",
         "SOUL_PLAN",
@@ -415,15 +415,15 @@
       "url": "https://hdl.handle.net/11250/2994583",
       "license": "CC BY-NC-ND 4.0",
       "supports": [
-        "empirical documentation of experiences reported in relationships participants call soulmates",
-        "reported motifs including instant recognition, synchronicity, transformation and archetypal integration"
+        "documentación empírica de experiencias reportadas en relaciones que los participantes denominan almas gemelas",
+        "motivos reportados que incluyen reconocimiento instantáneo, sincronicidad, transformación e integración arquetípica"
       ],
       "does_not_support": [
-        "objective verification of soulmate ontology",
-        "twin-flame or soul-contract diagnostic criteria"
+        "verificación objetiva de la ontología soulmate",
+        "criterios diagnósticos de llamas gemelas o contrato álmico"
       ],
       "source_role": "ACADEMIC_ANALYSIS",
-      "tradition": "Academic study of contemporary spirituality",
+      "tradition": "Estudio académico de la espiritualidad contemporánea",
       "concepts": [
         "SOULMATE_EXPERIENCE",
         "RECOGNITION_PHENOMENOLOGY",
@@ -455,14 +455,14 @@
       "isbn": "0850305594",
       "url": "https://obnb.uk/p8110748-draconic-astrology-an-introduction-to-the-use-of-draconic-charts-in-astrological-interpretation",
       "supports": [
-        "identified modern source for draconic astrological practice"
+        "fuente moderna identificada para la práctica de astrología dracónica"
       ],
       "does_not_support": [
-        "ancient origin of the modern draconic method",
-        "literal proof of soul contracts"
+        "origen antiguo del método dracónico moderno",
+        "prueba literal de contratos álmicos"
       ],
       "source_role": "IDENTIFIED_METHOD",
-      "tradition": "Modern astrology",
+      "tradition": "Astrología moderna",
       "concepts": [
         "DRACONIC_ASTROLOGY",
         "DRACONIC_METHOD_MODERN"
@@ -492,14 +492,14 @@
       "date": "1951",
       "url": "https://www.lucistrust.org/online_books/esoteric_astrology_obooks",
       "supports": [
-        "explicit esoteric-astrology framework relating astrology to soul development and energies"
+        "marco explícito de astrología esotérica que relaciona la astrología con el desarrollo y las energías del alma"
       ],
       "does_not_support": [
-        "a canonical soul-contract chart",
-        "automatic twin-flame doctrine"
+        "una carta canónica de contrato álmico",
+        "doctrina automática de llamas gemelas"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Alice Bailey / Lucis Trust esotericism",
+      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
       "concepts": [
         "ESOTERIC_ASTROLOGY",
         "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
@@ -526,12 +526,12 @@
       "work": "Soul Mates and Twin Flames: Q and A Part 1",
       "url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
       "supports": [
-        "explicit modern doctrine of twin flames originating from one white-fire ovoid",
-        "explicit differentiation of twin flames, soul mates and karmic relationships"
+        "doctrina moderna explícita de llamas gemelas originadas en un único ovoide de fuego blanco",
+        "diferenciación explícita entre llamas gemelas, almas gemelas y relaciones kármicas"
       ],
       "does_not_support": [
-        "scientific validation",
-        "astrological proof of a specific pair"
+        "validación científica",
+        "prueba astrológica de una pareja concreta"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
@@ -568,15 +568,15 @@
         "https://www.eswedenborg.com/writings/static/d5686/229.htm"
       ],
       "supports": [
-        "doctrine that true conjugial love can unite two souls and minds as one",
-        "doctrine of providentially provided correspondences or partners, including recognition imagery"
+        "doctrina según la cual el verdadero amor conyugal puede unir dos almas y mentes como una",
+        "doctrina de correspondencias o parejas provistas providencialmente, incluida imaginería de reconocimiento"
       ],
       "does_not_support": [
-        "reincarnational soul contracts",
-        "modern twin-flame taxonomy",
-        "astrological identification of a unique counterpart"
+        "contratos álmicos reencarnacionistas",
+        "taxonomía moderna de llamas gemelas",
+        "identificación astrológica de una contraparte única"
       ],
-      "tradition": "Swedenborgian Christianity",
+      "tradition": "Cristianismo swedenborgiano",
       "concepts": [
         "CONJUGIAL_PAIRING"
       ],
@@ -606,15 +606,15 @@
       "date": "1924",
       "url": "https://rsarchive.org/Karma/",
       "supports": [
-        "explicit anthroposophical doctrine of reincarnation and karmic relationships across successive earthly lives",
-        "individual karmic connections considered through lives and the interval between death and rebirth"
+        "doctrina antroposófica explícita de reencarnación y relaciones kármicas a través de vidas terrenales sucesivas",
+        "conexiones kármicas individuales consideradas a través de vidas y del intervalo entre muerte y renacimiento"
       ],
       "does_not_support": [
-        "a standardized pre-birth bilateral contract schema",
-        "modern twin-flame taxonomy",
-        "ALMAS astrological scoring rules"
+        "un esquema estandarizado de contrato bilateral prenatal",
+        "taxonomía moderna de llamas gemelas",
+        "reglas de puntuación astrológica de ALMAS"
       ],
-      "tradition": "Anthroposophy",
+      "tradition": "Antroposofía",
       "concepts": [
         "KARMIC_RELATIONSHIP",
         "REINCARNATIONAL_CONTINUITY"
@@ -642,14 +642,14 @@
       "publisher": "Bantam Books",
       "url": "https://search.worldcat.org/cs/title/life-before-life/oclc/1035926140",
       "supports": [
-        "identified regression-based literature on reported pre-birth experience",
-        "questions about choosing incarnation, family/friends, timing of birth and reasons for earthly life"
+        "literatura de regresión identificada sobre experiencias prenatales reportadas",
+        "preguntas sobre elección de encarnación, familia/amigos, momento del nacimiento y razones para la vida terrenal"
       ],
       "does_not_support": [
-        "independent empirical verification of pre-birth planning",
-        "astrological extraction of specific soul-contract clauses"
+        "verificación empírica independiente de la planificación prenatal",
+        "extracción astrológica de cláusulas específicas de contrato álmico"
       ],
-      "tradition": "Regression / pre-birth research literature",
+      "tradition": "Literatura de regresión e investigación prenatal",
       "concepts": [
         "LIFE_BETWEEN_LIVES",
         "PREINCARNATIONAL_CHOICE",
@@ -682,14 +682,14 @@
       "publisher": "Doubleday",
       "url": "https://books.google.com/books/about/Life_Between_Life.html?id=3ATXAAAAMAAJ",
       "supports": [
-        "identified regression literature describing a between-life state and reported life choices or karmic planning",
-        "important source in the later genealogy of interlife planning literature"
+        "literatura de regresión identificada que describe un estado intervidas y elecciones vitales o planificación kármica reportadas",
+        "fuente importante en la genealogía posterior de la literatura de planificación intervidas"
       ],
       "does_not_support": [
-        "scientific consensus that between-life memories are verified",
-        "a unique romantic soul-contract ontology"
+        "consenso científico de que los recuerdos intervidas estén verificados",
+        "una ontología romántica única de contrato álmico"
       ],
-      "tradition": "Regression / interlife literature",
+      "tradition": "Literatura de regresión e intervidas",
       "concepts": [
         "LIFE_BETWEEN_LIVES",
         "SOUL_PLAN",
@@ -720,14 +720,14 @@
       "date": "1994",
       "url": "https://www.newtoninstitute.org/publication/journey-of-the-souls/",
       "supports": [
-        "identified Life Between Lives regression corpus describing guides, soul groups, life review and reported life planning",
-        "major source for later New Age/interlife planning vocabulary"
+        "corpus identificado de regresión Life Between Lives que describe guías, grupos de almas, revisión de vida y planificación vital reportada",
+        "fuente principal para vocabulario posterior New Age/de planificación intervidas"
       ],
       "does_not_support": [
-        "independent empirical proof of soul groups or pre-birth plans",
-        "astrological validation of a contract"
+        "prueba empírica independiente de grupos de almas o planes prenatales",
+        "validación astrológica de un contrato"
       ],
-      "tradition": "Life Between Lives regression",
+      "tradition": "Regresión Life Between Lives",
       "concepts": [
         "LIFE_BETWEEN_LIVES",
         "SOUL_GROUP",
@@ -761,15 +761,15 @@
       "publisher": "Harmony Books",
       "url": "https://books.google.com/books/about/Sacred_Contracts.html?id=HmEHAAAACAAJ",
       "supports": [
-        "explicit contemporary model of a sacred contract agreed by the soul before birth",
-        "relationships and life mission as components of an overarching sacred contract",
-        "archetypal method for interpreting purpose"
+        "modelo contemporáneo explícito de contrato sagrado acordado por el alma antes del nacimiento",
+        "relaciones y misión vital como componentes de un contrato sagrado global",
+        "método arquetípico para interpretar propósito"
       ],
       "does_not_support": [
-        "reincarnational proof of a bilateral contract between a specific pair",
-        "astrological diagnostic criteria"
+        "prueba reencarnacionista de un contrato bilateral entre una pareja concreta",
+        "criterios diagnósticos astrológicos"
       ],
-      "tradition": "Contemporary New Age / archetypal spirituality",
+      "tradition": "New Age contemporáneo / espiritualidad arquetípica",
       "concepts": [
         "SACRED_CONTRACT",
         "PREINCARNATIONAL_CHOICE",
@@ -803,14 +803,14 @@
       "publisher": "North Atlantic Books",
       "url": "https://www.penguinrandomhouse.com/books/162921/your-souls-plan-by-robert-schwartz/",
       "supports": [
-        "explicit contemporary pre-birth planning model in which souls plan major challenges and relationships for growth",
-        "modern soul-plan literature useful for the contract-engine genealogy"
+        "modelo contemporáneo explícito de planificación prenatal en el que las almas planifican grandes desafíos y relaciones para crecer",
+        "literatura moderna de plan del alma útil para la genealogía del motor contractual"
       ],
       "does_not_support": [
-        "independent empirical proof that a specific event was planned before birth",
-        "astrological verification"
+        "prueba empírica independiente de que un evento concreto fuese planificado antes del nacimiento",
+        "verificación astrológica"
       ],
-      "tradition": "Contemporary pre-birth planning literature",
+      "tradition": "Literatura contemporánea de planificación prenatal",
       "concepts": [
         "SOUL_PLAN",
         "PREINCARNATIONAL_CHOICE",
@@ -844,14 +844,14 @@
       "publisher": "Brill / SUNY Press",
       "url": "https://www.jstor.org/stable/jj.18255037",
       "supports": [
-        "academic historical framework for New Age religion and its Western esoteric antecedents",
-        "context for reincarnation, channeling, esotericism and modern metaphysical synthesis"
+        "marco histórico académico para la religión New Age y sus antecedentes esotéricos occidentales",
+        "contexto para reencarnación, canalización, esoterismo y síntesis metafísica moderna"
       ],
       "does_not_support": [
-        "any specific twin-flame doctrine as historically continuous from antiquity",
-        "astrological validation"
+        "una doctrina específica de llamas gemelas como continuidad histórica desde la Antigüedad",
+        "validación astrológica"
       ],
-      "tradition": "Academic study of Western esotericism/New Age",
+      "tradition": "Estudio académico del esoterismo occidental/New Age",
       "concepts": [
         "NEW_AGE_RELIGION",
         "WESTERN_ESOTERICISM_CONTEXT",
@@ -882,16 +882,16 @@
         "Twin Soul passages around lines 1819 and 1844"
       ],
       "supports": [
-        "documented literary use in 1886 of the exact expressions Twin Flame, Twin-Flame, Twin-Flames and Twin Soul",
-        "literary model of an incomplete soul as half a flame seeking a counterpart",
-        "spiritual-affinity and postmortem reunion imagery"
+        "uso literario documentado en 1886 de las expresiones exactas Twin Flame, Twin-Flame, Twin-Flames y Twin Soul",
+        "modelo literario de un alma incompleta como media llama que busca una contraparte",
+        "imaginería de afinidad espiritual y reunión post mortem"
       ],
       "does_not_support": [
-        "institutional doctrine",
-        "historical priority over every possible earlier use without further corpus research",
-        "astrological diagnostic criteria"
+        "doctrina institucional",
+        "prioridad histórica sobre cualquier uso anterior posible sin ampliar la investigación de corpus",
+        "criterios diagnósticos astrológicos"
       ],
-      "tradition": "Victorian esoteric fiction",
+      "tradition": "Ficción esotérica victoriana",
       "concepts": [
         "TWIN_FLAME_LITERARY_GENEALOGY",
         "DUAL_SOUL_LITERARY_MODEL"
@@ -918,14 +918,14 @@
       "date": "1887-02",
       "url": "https://iapsop.com/archive/materials/theosophist/theosophist_v8_n89_february_1887.pdf",
       "supports": [
-        "contemporary 1887 reception explicitly noting Corelli's twin-flame motif",
-        "evidence that the phrase was visible in occult literary discourse before later twentieth-century twin-flame movements"
+        "recepción contemporánea de 1887 que señala explícitamente el motivo twin-flame de Corelli",
+        "evidencia de que la expresión circulaba en discurso literario ocultista antes de movimientos twin-flame posteriores del siglo XX"
       ],
       "does_not_support": [
-        "Theosophical endorsement of Corelli's twin-flame model",
-        "proof that Theosophy originated the doctrine"
+        "adhesión teosófica al modelo twin-flame de Corelli",
+        "prueba de que la Teosofía originara la doctrina"
       ],
-      "tradition": "Theosophical historical reception",
+      "tradition": "Recepción histórica teosófica",
       "concepts": [
         "TWIN_FLAME_LITERARY_GENEALOGY",
         "HISTORICAL_RECEPTION"
@@ -952,14 +952,14 @@
       "date": "1887",
       "url": "https://openlibrary.org/works/OL2987304W/The_twin_soul_or_The_strange_experiences_of_Mr._Rameses",
       "supports": [
-        "late-Victorian literary circulation of the explicit 'twin soul' expression",
-        "historical literary genealogy of paired-soul language"
+        "circulación literaria victoriana tardía de la expresión explícita 'twin soul'",
+        "genealogía literaria histórica del lenguaje de almas emparejadas"
       ],
       "does_not_support": [
-        "settled sole authorship by Mackay",
-        "doctrinal authority"
+        "autoría única de Mackay definitivamente establecida",
+        "autoridad doctrinal"
       ],
-      "tradition": "Victorian esoteric fiction",
+      "tradition": "Ficción esotérica victoriana",
       "concepts": [
         "TWIN_SOUL_LITERARY_GENEALOGY"
       ],
@@ -987,15 +987,15 @@
       "doi": "10.3366/vic.2025.0581",
       "url": "https://research.birmingham.ac.uk/en/publications/twin-souls-twin-pens-charles-mackay-marie-corelli-and-the-authors/",
       "supports": [
-        "peer-reviewed literary-historical analysis of The Twin Soul (1887)",
-        "evidence for possible Corelli collaboration while retaining Mackay as likely primary author",
-        "context for Victorian literary transmission of twin-soul motifs"
+        "análisis histórico-literario revisado por pares de The Twin Soul (1887)",
+        "evidencia de posible colaboración de Corelli manteniendo a Mackay como autor principal probable",
+        "contexto para la transmisión literaria victoriana de motivos twin-soul"
       ],
       "does_not_support": [
-        "metaphysical truth of twin-soul doctrine",
-        "astrological criteria"
+        "verdad metafísica de la doctrina twin-soul",
+        "criterios astrológicos"
       ],
-      "tradition": "Academic literary history",
+      "tradition": "Historia literaria académica",
       "concepts": [
         "TWIN_SOUL_LITERARY_GENEALOGY",
         "AUTHORSHIP_HISTORY"
@@ -1016,18 +1016,18 @@
       "id": "vital_shaar_hagilgulim_1_soul_levels",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Lurianic Kabbalah",
+      "tradition": "Cábala luriana",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Sha'ar HaGilgulim",
       "passage": "Chapter 1",
       "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.1/",
       "supports": [
-        "fivefold soul terminology Nefesh, Ruach, Neshamah, Chayah, Yechidah",
-        "Lurianic anthropology linking the human soul to the four worlds"
+        "terminología quíntuple del alma: Nefesh, Ruach, Neshamah, Chayah y Yechidah",
+        "antropología luriana que vincula el alma humana con los cuatro mundos"
       ],
       "does_not_support": [
-        "modern twin-flame terminology",
-        "a literal pre-birth bilateral contract for every relationship"
+        "terminología moderna de llamas gemelas",
+        "un contrato bilateral prenatal literal para toda relación"
       ],
       "concepts": [
         "SOUL_ROOT",
@@ -1049,18 +1049,18 @@
       "id": "vital_shaar_hagilgulim_8_reasons_for_return",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Lurianic Kabbalah",
+      "tradition": "Cábala luriana",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Sha'ar HaGilgulim",
       "passage": "Chapter 8",
       "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.8",
       "supports": [
-        "multiple reasons for gilgul including rectification of transgression, completion of a missing mitzvah, and returning for the sake of others",
-        "explicit statement that a soul may return in order to take its bat zug when it did not merit doing so previously"
+        "múltiples razones para el gilgul, incluida rectificación de transgresiones, cumplimiento de una mitzvá pendiente y retorno por el bien de otros",
+        "afirmación explícita de que un alma puede regresar para tomar a su bat zug cuando antes no lo mereció"
       ],
       "does_not_support": [
-        "identity with modern twin-flame doctrine",
-        "astrological proof that a specific pair is a bat zug"
+        "identidad con la doctrina moderna de llamas gemelas",
+        "prueba astrológica de que una pareja concreta sea bat zug"
       ],
       "concepts": [
         "GILGUL",
@@ -1090,19 +1090,19 @@
       "id": "vital_shaar_hagilgulim_20_zivug",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Lurianic Kabbalah",
+      "tradition": "Cábala luriana",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Sha'ar HaGilgulim",
       "passage": "Chapter 20, opening discussion of first and second zivug",
       "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20",
       "supports": [
-        "distinction between first and second zivug",
-        "teaching that a true bat zug may reincarnate again with the same soul",
-        "second zivug can mean the second union of the same true pair across gilgul rather than necessarily a different spouse"
+        "distinción entre primer y segundo zivug",
+        "enseñanza de que una verdadera bat zug puede reencarnar de nuevo con la misma alma",
+        "el segundo zivug puede significar la segunda unión de la misma pareja verdadera a través del gilgul y no necesariamente un cónyuge distinto"
       ],
       "does_not_support": [
-        "modern twin-flame taxonomy",
-        "claim that every intense relationship is a reincarnated true pair"
+        "taxonomía moderna de llamas gemelas",
+        "afirmación de que toda relación intensa sea una pareja verdadera reencarnada"
       ],
       "concepts": [
         "GILGUL",
@@ -1132,19 +1132,19 @@
       "id": "vital_shaar_hagilgulim_39_soul_roots",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Lurianic Kabbalah",
+      "tradition": "Cábala luriana",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Sha'ar HaGilgulim",
       "passage": "Chapter 39",
       "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.39",
       "supports": [
-        "explicit discourse on shared or related soul roots",
-        "examples of enduring connections among souls across roles such as parent-child and teacher-student",
-        "language of true bat zug in relation to soul-root structures"
+        "discurso explícito sobre raíces del alma compartidas o relacionadas",
+        "ejemplos de conexiones duraderas entre almas a través de roles como padre-hijo y maestro-alumno",
+        "lenguaje de verdadera bat zug en relación con estructuras de raíz del alma"
       ],
       "does_not_support": [
-        "a simple one-to-one equation between soul root and romantic twin flame",
-        "astrological diagnostic rules"
+        "ecuación simple uno-a-uno entre raíz del alma y llama gemela romántica",
+        "reglas diagnósticas astrológicas"
       ],
       "concepts": [
         "SOUL_ROOT",
@@ -1173,17 +1173,17 @@
       "id": "vital_sefer_etz_chaim",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Lurianic Kabbalah",
+      "tradition": "Cábala luriana",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Sefer Etz Chaim",
       "url": "https://www.sefaria.org/Sefer_Etz_Chaim",
       "supports": [
-        "core Lurianic cosmological architecture",
-        "framework of worlds, partzufim, emanation, rupture and rectificatory dynamics necessary for interpreting tikkun and zivug"
+        "arquitectura cosmológica luriana central",
+        "marco de mundos, partzufim, emanación, ruptura y dinámicas rectificatorias necesario para interpretar tikkun y zivug"
       ],
       "does_not_support": [
-        "modern romantic twin-flame doctrine",
-        "direct astrological classification of relationships"
+        "doctrina romántica moderna de llamas gemelas",
+        "clasificación astrológica directa de relaciones"
       ],
       "concepts": [
         "TIKKUN",
@@ -1206,17 +1206,17 @@
       "id": "vital_pri_etz_chaim",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Lurianic Kabbalah",
+      "tradition": "Cábala luriana",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Pri Etz Chaim",
       "url": "https://www.sefaria.org/Pri_Etz_Chaim",
       "supports": [
-        "Lurianic ritual and theurgical elaboration of zivug, male-female divine configurations and rectificatory union",
-        "important context for understanding symbolic union language within the Lurianic system"
+        "elaboración ritual y teúrgica luriana de zivug, configuraciones divinas masculino-femeninas y unión rectificatoria",
+        "contexto importante para comprender el lenguaje simbólico de unión dentro del sistema luriano"
       ],
       "does_not_support": [
-        "automatic mapping of divine partzufim onto a human romantic couple",
-        "modern twin-flame diagnosis"
+        "mapeo automático de partzufim divinos sobre una pareja romántica humana",
+        "diagnóstico moderno de llamas gemelas"
       ],
       "concepts": [
         "TIKKUN",
@@ -1245,14 +1245,14 @@
       "pages": "249-272",
       "url": "https://www.jstor.org/stable/jj.21761189.14",
       "supports": [
-        "academic analysis of gilgul in Hayyim Vital and later Jewish thought",
-        "context for Lurianic reincarnation as a system affecting identity and soul relations"
+        "análisis académico del gilgul en Hayyim Vital y el pensamiento judío posterior",
+        "contexto para la reencarnación luriana como sistema que afecta identidad y relaciones entre almas"
       ],
       "does_not_support": [
-        "modern twin-flame doctrine",
-        "ALMAS astrological rules"
+        "doctrina moderna de llamas gemelas",
+        "reglas astrológicas ALMAS"
       ],
-      "tradition": "Academic study of Jewish reincarnation",
+      "tradition": "Estudio académico de la reencarnación judía",
       "concepts": [
         "GILGUL",
         "SOUL_IDENTITY",
@@ -1277,20 +1277,20 @@
       "id": "kardec_spirits_book_missions_572_573",
       "priority": "P1_PRIMARY",
       "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Spiritism",
+      "tradition": "Espiritismo",
       "author": "Allan Kardec",
       "work": "The Spirits' Book",
       "passage": "Book II, Chapter X, questions 572-573",
       "date": "1857",
       "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
       "supports": [
-        "doctrine that a spirit may request a mission before incarnation",
-        "possibility that several spirits seek the same mission but not all are accepted",
-        "incarnate missions as service, instruction, advancement and contribution to providential purposes"
+        "doctrina de que un espíritu puede solicitar una misión antes de la encarnación",
+        "posibilidad de que varios espíritus busquen la misma misión sin que todos sean aceptados",
+        "misiones encarnadas como servicio, instrucción, progreso y contribución a fines providenciales"
       ],
       "does_not_support": [
-        "a fixed bilateral romantic contract for every relationship",
-        "ALMAS astrological rules for assigning roles"
+        "un contrato romántico bilateral fijo para toda relación",
+        "reglas astrológicas ALMAS para asignar roles"
       ],
       "concepts": [
         "MISSION_PREINCARNATIONAL",
@@ -1322,14 +1322,14 @@
       "work": "What Is a Twin Flame?",
       "url": "https://summitlighthouse.org/what-is-a-twin-flame/",
       "supports": [
-        "explicit doctrine that twin flames originate from the same original white-fire ovoid",
-        "explicit doctrine of two counterpart spirit spheres and masculine/feminine polarity",
-        "explicit claim that the pair shares a unique electronic blueprint",
-        "doctrinal basis for a pair-specific origin model distinct from generic affinity"
+        "doctrina explícita de que las llamas gemelas se originan en el mismo ovoide original de fuego blanco",
+        "doctrina explícita de dos esferas espirituales contraparte y polaridad masculina/femenina",
+        "afirmación explícita de que la pareja comparte un diseño electrónico único",
+        "base doctrinal para un modelo de origen específico de pareja distinto de la afinidad genérica"
       ],
       "does_not_support": [
-        "astrological identification of a specific twin-flame pair",
-        "equivalence with Lurianic zivug, Theosophical Monad, or Victorian literary twin-flame usage"
+        "identificación astrológica de una pareja concreta de llamas gemelas",
+        "equivalencia con zivug luriano, Mónada teosófica o uso literario victoriano de twin flame"
       ],
       "concepts": [
         "TWIN_FLAME_ORIGIN"
@@ -1356,7 +1356,7 @@
       "id": "fishbane_personal_identity_lurianic_gilgul_2024",
       "priority": "P2_ACADEMIC",
       "source_role": "ACADEMIC_ANALYSIS",
-      "tradition": "Academic study of Lurianic Kabbalah",
+      "tradition": "Estudio académico de la Cábala luriana",
       "author": "Eitan P. Fishbane",
       "work": "Personal Identity and the Ontology of the Soul: Aspects of Reincarnation in Ḥayyim Vital’s Shaʿar ha-Gilgulim",
       "date": "2024",
@@ -1370,12 +1370,12 @@
         "LURIANIC_KABBALAH"
       ],
       "supports": [
-        "academic analysis of personal identity and reincarnation in Hayyim Vital's Sha'ar ha-Gilgulim",
-        "scholarly context for interpreting Lurianic soul ontology without importing modern New Age categories"
+        "análisis académico de identidad personal y reencarnación en Sha'ar ha-Gilgulim de Hayyim Vital",
+        "contexto académico para interpretar la ontología luriana del alma sin importar categorías modernas New Age"
       ],
       "does_not_support": [
-        "modern twin-flame terminology as a Lurianic doctrine",
-        "ALMAS astrological diagnostic rules"
+        "terminología moderna de llamas gemelas como doctrina luriana",
+        "reglas diagnósticas astrológicas ALMAS"
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
@@ -1391,7 +1391,7 @@
       "id": "blaquier_draconic_astrology_2017_2021",
       "priority": "P4_IDENTIFIED_METHOD",
       "source_role": "IDENTIFIED_METHOD",
-      "tradition": "Modern draconic astrology",
+      "tradition": "Astrología dracónica moderna",
       "author": "María Blaquier",
       "work": "Draconic Astrology – Getting in Touch with our Deeper Self",
       "date": "2017; republished 2021",
@@ -1410,15 +1410,15 @@
         "DRACONIC_METHOD_MODERN"
       ],
       "supports": [
-        "modern draconic technique sets the tropical North Node at 0 degrees Aries",
-        "the same angular shift is applied to the remaining tropical chart positions",
-        "Mean versus True Node is a methodological choice with small positional differences",
-        "draconic technique is explicitly node-dependent and derived from the tropical chart"
+        "la técnica dracónica moderna coloca el Nodo Norte tropical en 0 grados de Aries",
+        "se aplica el mismo desplazamiento angular al resto de posiciones de la carta tropical",
+        "Nodo Medio frente a Nodo Verdadero es una elección metodológica con pequeñas diferencias posicionales",
+        "la técnica dracónica depende explícitamente del nodo y deriva de la carta tropical"
       ],
       "does_not_support": [
-        "draconic contacts independently prove reincarnation",
-        "draconic contacts independently prove a soul contract",
-        "a specific draconic signature validates twin-flame ontology"
+        "los contactos dracónicos prueban independientemente reencarnación",
+        "los contactos dracónicos prueban independientemente un contrato álmico",
+        "una firma dracónica específica valida la ontología de llamas gemelas"
       ],
       "translation_note": null,
       "verification_status": "VERIFIED_PRIMARY",

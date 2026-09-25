@@ -1,6 +1,6 @@
 {
   "audit_version": "1.0.0",
-  "almas_version": "1.10.1",
+  "almas_version": "1.11.0",
   "date": "2026-09-25",
   "sources_total": 38,
   "concepts_total": 92,
@@ -23,9 +23,9 @@
   },
   "phase_1_status": "CLOSED_BASELINE",
   "notes": [
-    "Bibliographic optional fields such as pages, DOI, license or local hash remain nullable when not applicable or unavailable.",
-    "Future source additions must preserve source↔concept↔genealogy integrity.",
-    "A source defines provenance/meaning/limits and never adds astrological score merely by existing.",
-    "Mapped doctrine-to-astrology source_basis entries must carry an explicit verification anchor."
+    "Los campos bibliográficos opcionales, como páginas, DOI, licencia o hash local, pueden permanecer nulos cuando no sean aplicables o no estén disponibles.",
+    "Las futuras incorporaciones de fuentes deben preservar la integridad fuente↔concepto↔genealogía.",
+    "Una fuente define procedencia, significado y límites; nunca añade puntuación astrológica por el mero hecho de existir.",
+    "Las entradas source_basis mapeadas de doctrina→astrología deben incluir un ancla de verificación explícita."
   ]
 }

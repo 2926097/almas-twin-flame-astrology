@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "almas-twin-flame-astrology"
-version = "1.10.1"
-description = "Public scoring and validation core for ALMAS Metaphysical Relationship Astrology"
+version = "1.11.0"
+description = "Núcleo público de puntuación, validación y orquestación para la Astrología Metafísica Relacional ALMAS"
 requires-python = ">=3.10"
 authors = [{name = "Proyecto ALMAS"}]
 readme = "README.md"

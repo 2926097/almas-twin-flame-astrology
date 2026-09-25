@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/preincarnation-contract-chain.schema.json",
-  "title": "ALMAS Preincarnation Contract Causal Chain",
+  "title": "ALMAS · Cadena causal del contrato preencarnatorio",
   "type": "object",
   "required": [
     "schema_version",

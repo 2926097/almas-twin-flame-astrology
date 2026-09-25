@@ -1,6 +1,6 @@
 # ALMAS · Informe de anclas de los mapeos doctrinales
 
-**Base:** ALMAS 1.10.1  
+**Base:** ALMAS 1.11.0  
 **Fuentes utilizadas por los 15 mapeos:** 24
 
 ## Distribución

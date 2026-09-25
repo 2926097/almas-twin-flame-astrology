@@ -109,7 +109,7 @@
     {
       "id": "C3_PAIR_SPECIFIC_EMERGENT",
       "max_state": "SUPPORTED_IF_GATES_PASS",
-      "note": "Does not imply unique ontological pair."
+      "note": "No implica una pareja ontológica única."
     }
   ]
 }

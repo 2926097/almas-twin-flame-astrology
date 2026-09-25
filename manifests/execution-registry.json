@@ -1,0 +1,174 @@
+{
+  "registry_version": "1.0.0",
+  "almas_public_version": "1.11.0",
+  "purpose": "Registrar el grado de implementación ejecutable de cada etapa M00-M31 sin confundir especificación normativa con código disponible.",
+  "status_legend": {
+    "ORCHESTRATOR_NATIVE": "Resuelto por infraestructura del orquestador.",
+    "LIBRARY_AVAILABLE": "Existe lógica reutilizable en la librería, pero todavía no un handler completo de pipeline.",
+    "SPECIFIED": "Existe especificación normativa, schema, referencia o invariantes, pero no handler ejecutable completo.",
+    "EXECUTABLE_HANDLER": "Existe un handler completo registrado para esta etapa.",
+    "BACKEND_REQUIRED": "Existe contrato/handler, pero requiere un backend astronómico inyectado."
+  },
+  "modules": [
+    {
+      "id": "M00",
+      "status": "ORCHESTRATOR_NATIVE",
+      "implementation": "src/almas_tfa/orchestrator.py"
+    },
+    {
+      "id": "M01",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/handlers.py:m01_data_quality"
+    },
+    {
+      "id": "M02",
+      "status": "BACKEND_REQUIRED",
+      "implementation": "src/almas_tfa/astrology_handlers.py:make_m02_natal"
+    },
+    {
+      "id": "M03",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relational_handlers.py:m03_synastry"
+    },
+    {
+      "id": "M04",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relational_handlers.py:m04_nodes_angles_houses_regencies"
+    },
+    {
+      "id": "M05",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/symmetry_handlers.py:m05_declinations"
+    },
+    {
+      "id": "M06",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/symmetry_handlers.py:m06_antiscia"
+    },
+    {
+      "id": "M07",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relationship_chart_handlers.py:m07_composite"
+    },
+    {
+      "id": "M08",
+      "status": "BACKEND_REQUIRED",
+      "implementation": "src/almas_tfa/relationship_chart_handlers.py:make_m08_davison"
+    },
+    {
+      "id": "M09",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relationship_consonance.py:m09_relationship_chart_consonance"
+    },
+    {
+      "id": "M10",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/draconic_handlers.py:m10_individual_draconics"
+    },
+    {
+      "id": "M11",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/draconic_handlers.py:m11_natal_draconic_cross"
+    },
+    {
+      "id": "M12",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/draconic_handlers.py:m12_draconic_draconic"
+    },
+    {
+      "id": "M13",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/lot_handlers.py:m13_lots"
+    },
+    {
+      "id": "M14",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/secondary_handlers.py:m14_secondary_symbolic"
+    },
+    {
+      "id": "M15",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/evidence_handlers.py:m15_evidence_extraction"
+    },
+    {
+      "id": "M16",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/evidence_handlers.py:m16_dependency_deduplication"
+    },
+    {
+      "id": "M17",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/evidence_handlers.py:m17_independent_roots"
+    },
+    {
+      "id": "M18",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/core.py:pillar_score"
+    },
+    {
+      "id": "M19",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/core.py:score_model"
+    },
+    {
+      "id": "M20",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/counterevidence_handlers.py:m20_counterevidence"
+    },
+    {
+      "id": "M21",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/core.py:diagnostic_discrimination"
+    },
+    {
+      "id": "M22",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/ablation_handlers.py:m22_ablation"
+    },
+    {
+      "id": "M23",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/time_sensitivity_handlers.py:m23_time_sensitivity"
+    },
+    {
+      "id": "M24",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/null_model_handlers.py:m24_null_models"
+    },
+    {
+      "id": "M25",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/robustness_index_handlers.py:m25_robustness"
+    },
+    {
+      "id": "M26",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/temporal_handlers.py:m26_temporal_activation"
+    },
+    {
+      "id": "M27",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/temporal_handlers.py:m27_dated_events"
+    },
+    {
+      "id": "M28",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/doctrine_handlers.py:m28_doctrine_hermeneutics"
+    },
+    {
+      "id": "M29",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/reality_handlers.py:m29_viability_reciprocity"
+    },
+    {
+      "id": "M30",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/report_gate_handlers.py:m30_report_gate"
+    },
+    {
+      "id": "M31",
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/report_model_handlers.py:m31_report"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/composite-output.schema.json",
+  "title": "ALMAS · Salida de carta compuesta de puntos medios",
+  "type": "object",
+  "required": [
+    "subjects",
+    "policy",
+    "positions",
+    "angles",
+    "ambiguous_points",
+    "houses_calculated"
+  ],
+  "properties": {
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "object"
+    },
+    "positions": {
+      "type": "object"
+    },
+    "angles": {
+      "type": "object"
+    },
+    "ambiguous_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "houses_calculated": {
+      "const": false
+    }
+  },
+  "additionalProperties": false
+}

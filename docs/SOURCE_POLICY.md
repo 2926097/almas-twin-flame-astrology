@@ -1,85 +1,132 @@
-# Source and doctrine policy
+# Política de fuentes y doctrina
 
-ALMAS separates historical/documentary provenance from project interpretation.
+ALMAS separa la procedencia histórica/documental de la interpretación del proyecto.
 
-## Evidence classes
+## Clases epistemológicas
 
-- **A_CALCULATED** — astronomical, geometric or documentary datum.
-- **B_TECHNIQUE** — explicitly defined astrological/statistical procedure.
-- **C_DOCTRINE** — claim demonstrably present in an identified source or school.
-- **D_CONTEMPORARY_USAGE** — current emic/New-Age/community vocabulary.
-- **E_PROJECT_HYPOTHESIS** — ALMAS operational synthesis.
+- **A_CALCULATED** — dato astronómico, geométrico o documental calculado/verificado.
+- **B_TECHNIQUE** — procedimiento astrológico, estadístico o técnico definido de forma explícita.
+- **C_DOCTRINE** — afirmación demostrablemente presente en una fuente o escuela identificada.
+- **D_CONTEMPORARY_USAGE** — vocabulario o uso emic/New Age/comunitario contemporáneo.
+- **E_PROJECT_HYPOTHESIS** — síntesis u operacionalización propia de ALMAS.
 
-E must never be presented as C.
+E nunca puede presentarse como C.
 
-## Source priority
+## Prioridad de fuentes
 
-- **P1_PRIMARY** — primary text, official corpus or direct doctrinal source.
-- **P2_ACADEMIC** — academic specialist/history of religions/esotericism.
-- **P3_HISTORICAL_TECHNICAL** — historical or professional astrological source.
-- **P4_IDENTIFIED_METHOD** — named contemporary author with an explicit method.
-- **P5_EMIC** — community/source useful for documenting living usage.
-- **P6_WEAK_UNVERIFIED** — anonymous, SEO, unattributed or otherwise weak material.
+- **P1_PRIMARY** — texto primario, corpus oficial o fuente doctrinal directa.
+- **P2_ACADEMIC** — investigación académica especializada, historia de las religiones o estudios del esoterismo.
+- **P3_HISTORICAL_TECHNICAL** — fuente histórica o técnica astrológica/esotérica.
+- **P4_IDENTIFIED_METHOD** — autor contemporáneo identificado con método explícito.
+- **P5_EMIC** — fuente útil para documentar uso vivo de una comunidad.
+- **P6_WEAK_UNVERIFIED** — material anónimo, SEO, no atribuido o débil/no verificado.
 
-## Non-equivalence rule
+Prioridad y función son variables distintas. Una fuente puede ser P1 y, aun así, ser literaria en lugar de doctrinal.
 
-Similar motifs across traditions do not establish doctrinal identity.
+## Roles de fuente
 
-Examples:
+- **DOCTRINAL_PRIMARY** — texto primario de una enseñanza religiosa, mística o esotérica.
+- **ACADEMIC_ANALYSIS** — estudio académico o histórico especializado.
+- **ACADEMIC_CONTEXT** — contextualización académica.
+- **HISTORICAL_TECHNICAL** — material técnico histórico.
+- **IDENTIFIED_METHOD** — autor/escuela moderna con procedimiento explícito.
+- **EMIC_USAGE** — fuente que documenta uso vivo de una comunidad.
+- **LITERARY_ESOTERIC_PRIMARY** — obra literaria que desarrolla explícitamente motivos esotéricos/metafísicos.
+- **LITERARY_PRIMARY** — obra literaria útil para genealogía simbólica o lexical.
+- **LITERARY_CRITICISM** — investigación sobre transmisión y recepción literaria.
+- **HISTORICAL_RECEPTION** — reseña, prensa o recepción histórica.
+- **LEXICAL_HISTORY** — fuente útil para historia de términos y vocabulario.
+- **WEAK_UNVERIFIED** — fuente débil o no verificada.
 
-- Plato's Aristophanes myth may be compared with modern split-pair imagery, but it is not itself a modern twin-flame doctrine.
-- Theosophical Monad terminology does not by itself establish a romantic monadic-pair doctrine.
-- Alice Bailey's soul/personality/monadic framework should not be rewritten as a twin-flame taxonomy without an explicit textual basis.
-- The Summit Lighthouse/Elizabeth Clare Prophet corpus contains an explicit modern twin-flame doctrine and must therefore be treated differently from earlier analogues.
-- Hindu, Buddhist, Kabbalistic, Christian mystical and Sufi comparanda must retain their own doctrinal context.
+## Regla de no equivalencia
 
-## Citation trace
+Motivos parecidos entre tradiciones no establecen identidad doctrinal.
 
-For every material doctrinal claim, record where possible:
+Ejemplos:
 
-- author or attributed source;
-- work/title;
-- approximate date;
-- passage/page/section;
-- source class;
-- URL or bibliographic locator;
-- what the source explicitly supports;
-- what the source does **not** support.
+- El mito de Aristófanes en Platón puede compararse con imágenes modernas de división/reunión, pero no es por sí mismo una doctrina moderna de llamas gemelas.
+- La terminología de Mónada teosófica no demuestra una doctrina romántica de pareja monádica.
+- La arquitectura mónada–alma–personalidad de Alice Bailey no debe reescribirse como taxonomía de llamas gemelas sin base textual explícita.
+- El corpus de Summit Lighthouse/Elizabeth Clare Prophet sí contiene una doctrina moderna explícita de twin flames y debe tratarse de forma distinta a antecedentes o analogías anteriores.
+- Los comparanda hindúes, budistas, cabalísticos, cristianos o sufíes conservan su contexto doctrinal propio.
 
-The machine-readable starter registry is in `reference/source-registry.json`.
+M28 no puede inferir identidad entre dos conceptos sólo porque existan semejanzas funcionales, fenomenológicas o terminológicas. Cuando se afirma identidad doctrinal debe declararse el par mediante `concept_id` + `identity_target_concept_id` y no puede existir una relación genealógica explícita de no equivalencia.
 
+## Trazabilidad mínima
 
-## Source role
+Para cada afirmación doctrinal material se registrará, cuando sea posible:
 
-Priority and function are different variables. A source may be primary yet literary rather than doctrinal.
+- autor o fuente atribuida;
+- obra/título;
+- fecha;
+- pasaje, página o sección;
+- prioridad P1–P6;
+- rol de la fuente;
+- localizador bibliográfico/URL;
+- qué sostiene explícitamente;
+- qué no sostiene;
+- estado de verificación;
+- tipo y alcance del ancla.
 
-Use one of:
+El registro canónico está en `reference/source-registry.json`.
 
-- **DOCTRINAL_PRIMARY** — primary text of a religious, mystical or esoteric teaching.
-- **ACADEMIC_ANALYSIS** — peer-reviewed or scholarly historical/contextual study.
-- **HISTORICAL_TECHNICAL** — historical astrological/esoteric technical material.
-- **IDENTIFIED_METHOD** — named modern author or school with an explicit procedure.
-- **LITERARY_ESOTERIC_PRIMARY** — literary work that explicitly develops esoteric/metaphysical motifs.
-- **LITERARY_PRIMARY** — literary work useful for symbolic or lexical genealogy.
-- **LITERARY_CRITICISM** — scholarship about literary transmission/reception.
-- **HISTORICAL_RECEPTION** — contemporary review, periodical or reception evidence.
-- **LEXICAL_HISTORY** — source useful for terminology history.
-- **EMIC** — source documenting living community usage.
+## Gate de doctrina directa
 
-A literary primary source can be historically decisive for terminology while contributing **zero doctrinal authority**.
+Una afirmación `C_DOCTRINE + DIRECT_DOCTRINE` marcada `SUPPORTED` requiere:
 
-## Literary corpus rule
+1. `source_registry` con metadatos completos;
+2. al menos una fuente `P1_PRIMARY`;
+3. `source_role=DOCTRINAL_PRIMARY`;
+4. `verification_status=VERIFIED_PRIMARY`;
+5. `evidence_scope=DOCTRINAL_CLAIM`;
+6. ancla verificable registrada y citada por el claim;
+7. `source_support_refs` que apunte al índice concreto de `supports[]`;
+8. `does_not_support_checked=true`.
 
-Literature is used for:
-- genealogy of terms and motifs;
-- transmission of metaphysical imaginaries;
-- comparison of recognition, division/reunion, fate, spiritual affinity, reincarnation and pre-birth planning narratives;
-- historical bridges between doctrine and later popular spirituality.
+`source_support_refs` aporta trazabilidad reproducible hacia el alcance declarado de la fuente. No sustituye la revisión filológica o histórica del pasaje.
 
-Literature is not automatically used to:
-- establish doctrine;
-- create an astrological rule;
-- validate an ontological category;
-- prove historical continuity between unrelated traditions.
+## Descripción académica
 
-The curated literary layer is stored separately in `reference/literary-corpus.json`.
+`ACADEMIC_DESCRIPTION` no se convierte en doctrina primaria. Requiere al menos una fuente P2 académica con ancla y alcance adecuados. Puede sostener una descripción histórica, sociológica o fenomenológica, no validar ontología.
+
+## Uso contemporáneo
+
+`D_CONTEMPORARY_USAGE` documenta cómo una comunidad, autor o corriente usa un término. Puede apoyarse en fuentes académicas, emic o métodos contemporáneos identificados. La salida mantiene siempre:
+
+`contemporary_usage_promoted_to_ontology=false`.
+
+## Hipótesis ALMAS
+
+Una `E_PROJECT_HYPOTHESIS`:
+
+- se declara como construcción del proyecto;
+- conserva fuentes y alternativas;
+- no puede usar `DIRECT_DOCTRINE`;
+- no puede atribuir a una fuente la operacionalización astrológica creada por ALMAS;
+- mantiene `project_hypothesis_promoted_to_doctrine=false`.
+
+## Regla de no acumulación
+
+El número de fuentes no se convierte en puntuación estructural.
+
+`N_FUENTES ≠ FUERZA_ASTROLOGICA`
+
+La redundancia documental puede aumentar la confianza en una atribución histórica o doctrinal, pero no en la presencia del fenómeno en un caso particular.
+
+## Regla del corpus literario
+
+La literatura puede usarse para:
+
+- genealogía de términos y motivos;
+- transmisión de imaginarios metafísicos;
+- comparación de reconocimiento, división/reunión, destino, afinidad espiritual, reencarnación y planificación preencarnatoria;
+- puentes históricos entre doctrina y espiritualidad popular.
+
+No puede usarse automáticamente para:
+
+- establecer doctrina;
+- crear reglas astrológicas;
+- validar categorías ontológicas;
+- demostrar continuidad histórica entre tradiciones distintas.
+
+El corpus literario curado se conserva separadamente en `reference/literary-corpus.json`.

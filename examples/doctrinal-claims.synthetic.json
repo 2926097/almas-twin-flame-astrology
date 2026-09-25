@@ -26,7 +26,15 @@
       "alternatives": [],
       "limitations": [
         "Does not establish detailed life scripting or a specific bilateral relationship contract."
-      ]
+      ],
+      "asserts_doctrinal_identity": false,
+      "source_support_refs": [
+        {
+          "source_id": "kardec_spirits_book_choice_trials",
+          "support_index": 0
+        }
+      ],
+      "does_not_support_checked": true
     },
     {
       "schema_version": "2.0.0",
@@ -61,7 +69,8 @@
       ],
       "limitations": [
         "Astrology does not establish literal mutual negotiation before birth."
-      ]
+      ],
+      "asserts_doctrinal_identity": false
     },
     {
       "schema_version": "2.0.0",
@@ -90,7 +99,8 @@
       "alternatives": [],
       "limitations": [
         "Technical calculation does not validate metaphysical interpretations of past lives, contracts or soul origin."
-      ]
+      ],
+      "asserts_doctrinal_identity": false
     }
   ]
 }

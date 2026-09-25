@@ -1,13 +1,13 @@
-# Public provenance and versioning
+# Procedencia pública y versionado
 
-Version `1.0.0` is the public semantic-version baseline for the repository.
+La versión `1.0.0` constituye la línea base pública de versionado semántico del repositorio.
 
-The public repository is method-first and excludes non-public case material. Provenance records the origin of published rules, source references, code changes, synthetic fixtures and any real case material whose underlying data are already public and independently verifiable.
+El repositorio público prioriza el método y excluye material de casos no públicos. La procedencia registra el origen de reglas publicadas, referencias de fuentes, cambios de código, fixtures sintéticos y cualquier material de casos reales cuyos datos subyacentes ya sean públicos e independientemente verificables.
 
-Future public changes use semantic versioning:
+Los cambios públicos posteriores usan versionado semántico:
 
-- **PATCH** — implementation or documentation correction that does not change the declared methodology.
-- **MINOR** — backward-compatible new module, source layer, optional technique or generalized capability.
-- **MAJOR** — change to ontology, scoring formula, gates, independence rules or canonical contracts.
+- **PATCH** — corrección de implementación o documentación que no modifica la metodología declarada.
+- **MINOR** — módulo nuevo compatible hacia atrás, capa de fuentes, técnica opcional o capacidad generalizada.
+- **MAJOR** — cambio de ontología, fórmula de puntuación, gates, reglas de independencia o contratos canónicos.
 
-Every methodological change should remain reproducible from generalized inputs or explicitly synthetic fixtures. Public real-world case studies may be documented separately when their source data are already public and cited; private case material remains outside the repository's publication scope.
+Todo cambio metodológico debe seguir siendo reproducible a partir de entradas generalizadas o fixtures explícitamente sintéticos. Los estudios de casos reales públicos pueden documentarse por separado cuando sus datos de origen ya sean públicos y estén citados; el material de casos privados permanece fuera del alcance de publicación del repositorio.

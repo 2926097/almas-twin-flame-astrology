@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/concept-registry.schema.json",
-  "title": "ALMAS Concept Registry",
+  "title": "ALMAS · Registro de conceptos",
   "type": "object",
   "required": [
     "registry_version",

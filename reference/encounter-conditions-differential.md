@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial de condiciones de encuentro
+# ALMAS · Contrato Preencarnatorio · Motor diferencial de condiciones de encuentro
 
 ## 1. Finalidad
 

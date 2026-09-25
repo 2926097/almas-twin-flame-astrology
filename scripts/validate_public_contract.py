@@ -17,6 +17,8 @@ REQUIRED_FILES = [
     "docs/PUBLICATION_POLICY.md",
     "docs/history/DUAL_ENGINE_ARCHITECTURE.md",
     "docs/MODULE_ARCHITECTURE.md",
+    "docs/MODULE_EXECUTION_CONTRACT.md",
+    "docs/ASTRONOMY_BACKEND_DECISION.md",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -27,6 +29,35 @@ REQUIRED_FILES = [
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/natal-chart.schema.json",
+    "schemas/synastry-output.schema.json",
+    "schemas/natal-context-output.schema.json",
+    "schemas/declination-output.schema.json",
+    "schemas/antiscia-output.schema.json",
+    "schemas/composite-output.schema.json",
+    "schemas/davison-output.schema.json",
+    "schemas/relationship-chart-consonance.schema.json",
+    "schemas/draconic-output.schema.json",
+    "schemas/draconic-cross-output.schema.json",
+    "schemas/lots-output.schema.json",
+    "schemas/secondary-symbolic-output.schema.json",
+    "schemas/independent-roots.schema.json",
+    "schemas/counterevidence-output.schema.json",
+    "schemas/structural-ablation-output.schema.json",
+    "schemas/time-sensitivity-output.schema.json",
+    "schemas/null-model-output.schema.json",
+    "schemas/robustness-output.schema.json",
+    "schemas/temporal-activation-output.schema.json",
+    "schemas/documentary-event-output.schema.json",
+    "schemas/doctrine-hermeneutics-output.schema.json",
+    "schemas/viability-reciprocity-assessment.schema.json",
+    "schemas/viability-reciprocity-output.schema.json",
+    "schemas/report-gate-output.schema.json",
+    "schemas/report-document-model.schema.json",
+    "schemas/final-pipeline-output.schema.json",
+    "schemas/deduplicated-evidence.schema.json",
+    "schemas/evidence-graph.schema.json",
+    "schemas/module-execution.schema.json",
     "schemas/precomputed-pillars.schema.json",
     "schemas/precomputed-result.schema.json",
     "schemas/astrology-to-soul-contract.schema.json",
@@ -54,6 +85,7 @@ REQUIRED_FILES = [
     "schemas/clause-assembly.schema.json",
     "schemas/fulfillment-mechanisms.schema.json",
     "manifests/analysis-pipeline-manifest.json",
+    "manifests/execution-registry.json",
     "manifests/almas-module-manifest.json",
     "manifests/causal-type-registry.json",
     "manifests/cross-model-discriminator-registry.json",
@@ -86,6 +118,9 @@ REQUIRED_FILES = [
     "reference/contract-free-will.md",
     "reference/contract-temporality-v2.md",
     "reference/documentary-events.md",
+    "reference/viability-reciprocity.md",
+    "reference/report-gate.md",
+    "reference/report-document-model.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -106,6 +141,32 @@ REQUIRED_FILES = [
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/cli.py",
+    "src/almas_tfa/module_contract.py",
+    "src/almas_tfa/orchestrator.py",
+    "src/almas_tfa/handlers.py",
+    "src/almas_tfa/astrology_backend.py",
+    "src/almas_tfa/astrology_handlers.py",
+    "src/almas_tfa/astrology_geometry.py",
+    "src/almas_tfa/relational_handlers.py",
+    "src/almas_tfa/symmetry_handlers.py",
+    "src/almas_tfa/relationship_chart_handlers.py",
+    "src/almas_tfa/relationship_consonance.py",
+    "src/almas_tfa/draconic_handlers.py",
+    "src/almas_tfa/lot_handlers.py",
+    "src/almas_tfa/secondary_handlers.py",
+    "src/almas_tfa/evidence_handlers.py",
+    "src/almas_tfa/counterevidence_handlers.py",
+    "src/almas_tfa/ablation_handlers.py",
+    "src/almas_tfa/time_sensitivity_handlers.py",
+    "src/almas_tfa/null_model_handlers.py",
+    "src/almas_tfa/robustness_handlers.py",
+    "src/almas_tfa/robustness_index_handlers.py",
+    "src/almas_tfa/temporal_handlers.py",
+    "src/almas_tfa/doctrine_handlers.py",
+    "src/almas_tfa/reality_handlers.py",
+    "src/almas_tfa/report_gate_handlers.py",
+    "src/almas_tfa/report_model_handlers.py",
+    "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -121,6 +182,9 @@ REQUIRED_FILES = [
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/DOCTRINAL_CLAIM_V2_INVARIANTS.md",
+    "tests/VIABILITY_RECIPROCITY_INVARIANTS.md",
+    "tests/REPORT_GATE_INVARIANTS.md",
+    "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -138,6 +202,25 @@ REQUIRED_FILES = [
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
     "tests/test_core.py",
     "tests/test_analysis.py",
+    "tests/test_orchestrator.py",
+    "tests/test_handlers.py",
+    "tests/test_astrology_backend.py",
+    "tests/test_relational_handlers.py",
+    "tests/test_symmetry_handlers.py",
+    "tests/test_relationship_charts.py",
+    "tests/test_relationship_consonance.py",
+    "tests/test_draconic_handlers.py",
+    "tests/test_lot_handlers.py",
+    "tests/test_secondary_handlers.py",
+    "tests/test_evidence_handlers.py",
+    "tests/test_counterevidence_handlers.py",
+    "tests/test_ablation_handlers.py",
+    "tests/test_time_sensitivity_handlers.py",
+    "tests/test_null_model_handlers.py",
+    "tests/test_robustness_handlers.py",
+    "tests/test_temporal_handlers.py",
+    "tests/test_final_handlers.py",
+    "tests/test_full_pipeline.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -189,7 +272,7 @@ def main() -> int:
 
     for needle in [
         f"version: {version}",
-        "Metaphysical research stance",
+        "Enfoque de investigación metafísica",
         "IEM",
         "IDD",
         "IRC",
@@ -220,12 +303,12 @@ def main() -> int:
     examples_policy = (ROOT / "examples/README.md").read_text(encoding="utf-8")
     public_cases_policy = (ROOT / "public_cases/README.md").read_text(encoding="utf-8")
 
-    if "already public" not in publication_policy:
-        fail("publication policy must define the already-public case rule")
-    if "synthetic" not in examples_policy.lower():
-        fail("examples policy must identify default fixtures as synthetic")
-    if "independently verifiable" not in public_cases_policy:
-        fail("public case policy must require independent verification")
+    if "ya sean públicos" not in publication_policy:
+        fail("la política de publicación debe definir la regla de datos ya públicos")
+    if "sintétic" not in examples_policy.lower():
+        fail("la política de ejemplos debe identificar los fixtures predeterminados como sintéticos")
+    if "independientemente verificables" not in public_cases_policy:
+        fail("la política de casos públicos debe exigir verificación independiente")
 
     contract_module = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     contract_module_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
@@ -246,6 +329,36 @@ def main() -> int:
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
+    natal_chart_schema = load_json("schemas/natal-chart.schema.json")
+    synastry_schema = load_json("schemas/synastry-output.schema.json")
+    natal_context_schema = load_json("schemas/natal-context-output.schema.json")
+    declination_schema = load_json("schemas/declination-output.schema.json")
+    antiscia_schema = load_json("schemas/antiscia-output.schema.json")
+    composite_schema = load_json("schemas/composite-output.schema.json")
+    davison_schema = load_json("schemas/davison-output.schema.json")
+    relationship_chart_consonance_schema = load_json("schemas/relationship-chart-consonance.schema.json")
+    draconic_schema = load_json("schemas/draconic-output.schema.json")
+    draconic_cross_schema = load_json("schemas/draconic-cross-output.schema.json")
+    lots_schema = load_json("schemas/lots-output.schema.json")
+    secondary_symbolic_schema = load_json("schemas/secondary-symbolic-output.schema.json")
+    evidence_graph_schema = load_json("schemas/evidence-graph.schema.json")
+    deduplicated_evidence_schema = load_json("schemas/deduplicated-evidence.schema.json")
+    independent_roots_schema = load_json("schemas/independent-roots.schema.json")
+    counterevidence_output_schema = load_json("schemas/counterevidence-output.schema.json")
+    structural_ablation_schema = load_json("schemas/structural-ablation-output.schema.json")
+    time_sensitivity_schema = load_json("schemas/time-sensitivity-output.schema.json")
+    null_model_schema = load_json("schemas/null-model-output.schema.json")
+    robustness_output_schema = load_json("schemas/robustness-output.schema.json")
+    null_model_output_schema = load_json("schemas/null-model-output.schema.json")
+    temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
+    documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
+    doctrine_output_schema = load_json("schemas/doctrine-hermeneutics-output.schema.json")
+    viability_input_schema = load_json("schemas/viability-reciprocity-assessment.schema.json")
+    viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
+    report_gate_schema = load_json("schemas/report-gate-output.schema.json")
+    report_document_model_schema = load_json("schemas/report-document-model.schema.json")
+    final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
+    module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
     bridge_schema = load_json("schemas/astrology-to-soul-contract.schema.json")
@@ -277,6 +390,7 @@ def main() -> int:
     fulfillment_example = load_json("examples/fulfillment-mechanisms.synthetic.json")
     pipeline_manifest = load_json("manifests/preincarnation-pipeline-manifest.json")
     analysis_pipeline_manifest = load_json("manifests/analysis-pipeline-manifest.json")
+    execution_registry = load_json("manifests/execution-registry.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
     source_audit = load_json("reference/source-normalization-audit.json")
@@ -304,6 +418,243 @@ def main() -> int:
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
 
+    natal_required = set(natal_chart_schema.get("required", []))
+    if not {"subject_id", "timed", "backend_id", "backend_version", "positions"}.issubset(natal_required):
+        fail("natal chart schema lacks required canonical fields")
+
+    syn_required = set(synastry_schema.get("required", []))
+    if not {"subjects", "aspect_policy", "contacts", "contact_count"}.issubset(syn_required):
+        fail("synastry schema lacks required canonical fields")
+
+    if "subjects" not in natal_context_schema.get("required", []):
+        fail("natal context schema must require subjects")
+
+    if "contacts" not in declination_schema.get("required", []):
+        fail("declination schema must require contacts")
+    if "contacts" not in antiscia_schema.get("required", []):
+        fail("antiscia schema must require contacts")
+
+    if "positions" not in composite_schema.get("required", []):
+        fail("composite schema must require positions")
+    if "chart" not in davison_schema.get("required", []):
+        fail("davison schema must require chart")
+
+    if relationship_chart_consonance_schema.get("properties", {}).get("dependency_family", {}).get("const") != "RELCHART":
+        fail("M09 must remain in the single RELCHART dependency family")
+    if relationship_chart_consonance_schema.get("properties", {}).get("score_state", {}).get("const") != "NOT_DEFINED":
+        fail("M09 must not invent an unregistered consonance score")
+
+    if "charts" not in draconic_schema.get("required", []):
+        fail("draconic schema must require charts")
+    if "contacts" not in draconic_cross_schema.get("required", []):
+        fail("draconic cross schema must require contacts")
+
+    if "subjects" not in lots_schema.get("required", []):
+        fail("lots schema must require subjects")
+
+    if secondary_symbolic_schema.get("properties", {}).get("support_only", {}).get("const") is not True:
+        fail("secondary symbolic schema must freeze support_only=true")
+
+    if evidence_graph_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
+        fail("evidence graph must declare strength_policy_applied=false")
+    if "retained" not in deduplicated_evidence_schema.get("required", []):
+        fail("deduplicated evidence schema must require retained")
+    if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
+        fail("independent roots must remain unweighted until an explicit strength policy exists")
+
+    if counterevidence_output_schema.get("properties", {}).get("missing_data_penalized", {}).get("const") is not False:
+        fail("counterevidence schema must forbid missing-data penalty")
+
+    if structural_ablation_schema.get("properties", {}).get("structural_only", {}).get("const") is not True:
+        fail("structural ablation must declare structural_only=true")
+    if structural_ablation_schema.get("properties", {}).get("dependency_classes_assigned", {}).get("const") is not False:
+        fail("structural ablation must not assign contractual dependency classes")
+
+    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
+        fail("time sensitivity must not generate perturbations internally")
+    if not {"preregistration_ref", "delta90", "preserved_fraction", "robustness_component"}.issubset(
+        set(time_sensitivity_schema.get("required", []))
+    ):
+        fail("time sensitivity schema lacks preregistered robustness fields")
+
+    if null_model_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
+        fail("null model schema must forbid metaphysical probability")
+    if null_model_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
+        fail("M24 must not generate null sampling internally")
+    null_runs = null_model_schema.get("properties", {}).get("runs", {})
+    if null_runs.get("minItems") != 1:
+        fail("null model schema must require at least one run")
+
+    robustness_props = robustness_output_schema.get("properties", {})
+    if robustness_props.get("null_model_rarity_used_as_robustness", {}).get("const") is not False:
+        fail("M25 must forbid null-model rarity as robustness")
+    if robustness_props.get("components", {}).get("minItems") != 1:
+        fail("M25 robustness schema must require at least one component")
+    allowed_m25_kinds = set(
+        robustness_props.get("components", {})
+        .get("items", {})
+        .get("properties", {})
+        .get("kind", {})
+        .get("enum", [])
+    )
+    if "NULL_RARITY" in allowed_m25_kinds or "NULL_MODEL_FREQUENCY" in allowed_m25_kinds:
+        fail("M25 must not admit null rarity as a robustness component")
+
+    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
+        fail("M23 must not generate perturbations implicitly")
+    if null_model_output_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
+        fail("M24 null-model output must forbid metaphysical probability")
+    if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
+        fail("M24 must not generate undeclared null sampling")
+
+    temporal_props = temporal_activation_schema.get("properties", {})
+    if temporal_props.get("structural_score_modified", {}).get("const") is not False:
+        fail("M26 must not modify structural scoring")
+    if temporal_props.get("structural_roots_created", {}).get("const") is not False:
+        fail("M26 must not create structural roots")
+    if temporal_props.get("real_world_event_prediction_made", {}).get("const") is not False:
+        fail("M26 must not predict real-world events")
+    if temporal_props.get("aggregation_weights_applied", {}).get("type") != "boolean":
+        fail("M26 aggregation_weights_applied must reflect whether preregistered weights were actually used")
+    if "iat_policy" not in temporal_activation_schema.get("required", []):
+        fail("M26 must expose the IAT aggregation policy when applicable")
+    signal_props = (
+        temporal_props.get("signals", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    if signal_props.get("creates_structural_root", {}).get("const") is not False:
+        fail("M26 temporal signals must never create structural roots")
+    if signal_props.get("predicts_real_world_event", {}).get("const") is not False:
+        fail("M26 temporal signals must never predict real-world events")
+    documentary_props = documentary_event_output_schema.get("properties", {})
+    if documentary_props.get("structural_mutation_allowed", {}).get("const") is not False:
+        fail("M27 must forbid retrospective structural mutation")
+    if documentary_props.get("clause_creation_allowed", {}).get("const") is not False:
+        fail("M27 must forbid retrospective clause creation")
+    if documentary_props.get("origin_elevation_allowed", {}).get("const") is not False:
+        fail("M27 must forbid origin elevation from documentary events")
+    if documentary_props.get("astrology_backfill_allowed", {}).get("const") is not False:
+        fail("M27 must forbid astrology backfill from known events")
+    if documentary_props.get("append_only_validated", {}).get("const") is not True:
+        fail("M27 must validate append-only event history")
+    if documentary_props.get("public_export_policy_enforced", {}).get("const") is not True:
+        fail("M27 must enforce public/private export policy")
+    if documentary_props.get("analysis_freeze_reference_verified", {}).get("const") is not False:
+        fail("M27 must not claim freeze verification before a canonical freeze registry exists")
+    documentary_event_props = (
+        documentary_props.get("events", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    for field in (
+        "creates_structural_root",
+        "creates_clause",
+        "elevates_origin",
+        "astrology_backfill_allowed",
+    ):
+        if documentary_event_props.get(field, {}).get("const") is not False:
+            fail(f"M27 event field {field} must remain false")
+    if documentary_event_props.get("fact_interpretation_separated", {}).get("const") is not True:
+        fail("M27 must keep fact and interpretation separate")
+
+    final_props = final_pipeline_output_schema.get("properties", {})
+    doctrine_ref = final_props.get("doctrine_hermeneutics", {}).get("$ref")
+    if doctrine_ref != "doctrine-hermeneutics-output.schema.json":
+        fail("final pipeline must reference canonical M28 output schema")
+
+    doctrine_props = doctrine_output_schema.get("properties", {})
+    if doctrine_props.get("doctrine_adds_structural_score", {}).get("const") is not False:
+        fail("M28 doctrine must not add structural score")
+    if doctrine_props.get("source_count_used_as_structural_weight", {}).get("const") is not False:
+        fail("M28 source count must not become structural weight")
+    if doctrine_props.get("epistemic_separation_enforced", {}).get("const") is not True:
+        fail("M28 must enforce A/B/C/D/E epistemic separation")
+    if doctrine_props.get("non_equivalence_enforced", {}).get("const") is not True:
+        fail("M28 must enforce non-equivalence across traditions")
+    if doctrine_props.get("contemporary_usage_promoted_to_ontology", {}).get("const") is not False:
+        fail("M28 contemporary usage must not become ontology")
+    if doctrine_props.get("project_hypothesis_promoted_to_doctrine", {}).get("const") is not False:
+        fail("M28 project hypothesis must not become doctrine")
+    if doctrine_props.get("cross_tradition_identity_inferred", {}).get("const") is not False:
+        fail("M28 must not infer cross-tradition doctrinal identity")
+    viability_ref = final_props.get("viability_reciprocity", {}).get("$ref")
+    if viability_ref != "viability-reciprocity-output.schema.json":
+        fail("final pipeline must reference canonical M29 output schema")
+
+    viability_props = viability_output_schema.get("properties", {})
+    if viability_props.get("factual_basis_only", {}).get("const") is not True:
+        fail("M29 must require factual basis only")
+    for field in (
+        "astrology_used_as_real_world_fact",
+        "metaphysical_claim_used_as_real_world_fact",
+        "phase_used_as_viability",
+        "phenomenology_used_as_reciprocity_fact",
+        "absence_used_as_asymmetry",
+        "mental_states_inferred",
+        "consent_inferred",
+        "fidelity_inferred",
+        "future_decisions_inferred",
+    ):
+        if viability_props.get(field, {}).get("const") is not False:
+            fail(f"M29 firewall field {field} must remain false")
+
+    viability_input_required = set(viability_input_schema.get("required", []))
+    for field in ("assessment_ref", "as_of_date", "subjects", "real_viability", "reciprocity"):
+        if field not in viability_input_required:
+            fail(f"M29 input schema missing required field: {field}")
+    subject_schema = viability_input_schema.get("properties", {}).get("subjects", {})
+    if subject_schema.get("minItems") != 2 or subject_schema.get("maxItems") != 2:
+        fail("M29 must require exactly two subjects")
+    report_gate_ref = final_props.get("report_gate", {}).get("$ref")
+    if report_gate_ref != "report-gate-output.schema.json":
+        fail("final pipeline must reference canonical M30 report gate schema")
+
+    report_gate_props = report_gate_schema.get("properties", {})
+    if report_gate_props.get("canonical_values_mutated", {}).get("const") is not False:
+        fail("M30 report gate must not mutate canonical values")
+    if set(report_gate_props.get("state", {}).get("enum", [])) != {"READY", "PARTIAL", "BLOCKED"}:
+        fail("M30 must expose READY/PARTIAL/BLOCKED states")
+    if report_gate_props.get("canonical_source_conflict", {}).get("type") != "boolean":
+        fail("M30 must expose canonical source conflict state")
+    if "blocking_issues" not in report_gate_schema.get("required", []):
+        fail("M30 must expose blocking issues")
+    if "degradation_reasons" not in report_gate_schema.get("required", []):
+        fail("M30 must expose degradation reasons")
+    if "canonical_fingerprint" not in report_gate_schema.get("required", []):
+        fail("M30 must fingerprint the canonical analysis")
+    report_model_ref = final_props.get("report_document_model", {}).get("$ref")
+    if report_model_ref != "report-document-model.schema.json":
+        fail("final pipeline must reference canonical M31 report document model schema")
+
+    report_model_props = report_document_model_schema.get("properties", {})
+    if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
+        fail("M31 must reference canonical_analysis as its sole analytical source")
+    if report_model_props.get("canonical_fingerprint_verified", {}).get("const") is not True:
+        fail("M31 must verify the M30 canonical fingerprint")
+    for field in (
+        "canonical_values_embedded",
+        "canonical_values_mutated",
+        "prose_generated",
+        "render_profile_selected",
+        "rendered_document_created",
+        "docx_created",
+        "pdf_created",
+        "pdf_preflight_performed",
+    ):
+        if report_model_props.get(field, {}).get("const") is not False:
+            fail(f"M31 field {field} must remain false")
+    if report_model_props.get("publication_pipeline_required", {}).get("const") is not True:
+        fail("M31 must require a separate publication pipeline")
+    section_schema = report_model_props.get("sections", {})
+    if section_schema.get("minItems") != 11 or section_schema.get("maxItems") != 11:
+        fail("M31 must expose exactly eleven report sections")
+    section_props = section_schema.get("items", {}).get("properties", {})
+    if section_props.get("canonical_values_embedded", {}).get("const") is not False:
+        fail("M31 sections must reference paths without embedding canonical values")
+    if section_props.get("narrative_generated", {}).get("const") is not False:
+        fail("M31 sections must not generate narrative")
+
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
 
@@ -312,6 +663,12 @@ def main() -> int:
 
     if doctrinal_claim_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
         fail("doctrinal claim schema must expose 2.0.0")
+
+    claim_props = doctrinal_claim_schema.get("properties", {})
+    if "source_support_refs" not in claim_props or "does_not_support_checked" not in claim_props:
+        fail("DIRECT_DOCTRINE claim contract must require source support traceability fields")
+    if "identity_target_concept_id" not in claim_props:
+        fail("doctrinal identity claims must declare an identity target concept")
 
 
     if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
@@ -381,6 +738,29 @@ def main() -> int:
     expected_ids = [f"M{i:02d}" for i in range(32)]
     if ids != expected_ids:
         fail("analysis pipeline manifest must contain ordered M00..M31 exactly once")
+
+    execution_ids = [m.get("id") for m in execution_registry.get("modules", [])]
+    if execution_registry.get("registry_version") != "1.0.0":
+        fail("execution registry must expose registry_version 1.0.0")
+    if execution_registry.get("almas_public_version") != version:
+        fail("execution registry version diverges from VERSION")
+    if execution_ids != expected_ids:
+        fail("execution registry must contain ordered M00..M31 exactly once")
+    allowed_execution_status = {"ORCHESTRATOR_NATIVE", "EXECUTABLE_HANDLER", "BACKEND_REQUIRED", "LIBRARY_AVAILABLE", "SPECIFIED"}
+    for module in execution_registry.get("modules", []):
+        if module.get("status") not in allowed_execution_status:
+            fail(f"unknown execution registry status: {module.get('id')} -> {module.get('status')}")
+        if module.get("status") in {"ORCHESTRATOR_NATIVE", "EXECUTABLE_HANDLER", "BACKEND_REQUIRED", "LIBRARY_AVAILABLE"} and not module.get("implementation"):
+            fail(f"implemented execution entry lacks implementation reference: {module.get('id')}")
+
+    module_status_enum = set(
+        module_execution_schema.get("properties", {}).get("status", {}).get("enum", [])
+    )
+    expected_module_status = {
+        "COMPLETED", "SKIPPED", "NOT_APPLICABLE", "NOT_EVALUABLE", "FAILED"
+    }
+    if module_status_enum != expected_module_status:
+        fail("module execution schema status enum diverges from runtime contract")
 
     discriminators = discriminator_registry.get("discriminators", [])
     if not discriminators:
@@ -1064,9 +1444,20 @@ def main() -> int:
         fail("canonical schema must expose exactly AF, KA, AG, LG model slots")
 
     for model, spec in model_props.items():
-        state_enum = spec.get("properties", {}).get("state", {}).get("enum", [])
+        resolved_spec = spec
+        ref = spec.get("$ref")
+        if ref == "#/$defs/model_result":
+            resolved_spec = canonical_schema.get("$defs", {}).get("model_result", {})
+        state_enum = (
+            resolved_spec.get("properties", {})
+            .get("state", {})
+            .get("enum", [])
+        )
         if set(state_enum) != EXPECTED_STATES:
             fail(f"{model} state enum diverges from normative states")
+        required_model_fields = set(resolved_spec.get("required", []))
+        if not {"iem", "state"}.issubset(required_model_fields):
+            fail(f"{model} model contract must require iem and state")
 
     subject_items = raw_schema.get("properties", {}).get("subjects", {})
     if subject_items.get("minItems") != 2 or subject_items.get("maxItems") != 2:
@@ -1084,6 +1475,31 @@ def main() -> int:
 
     if set(example_result.get("models", {})) != {"AF", "KA", "AG", "LG"}:
         fail("example precomputed result does not contain all four models")
+
+    forbidden_schema_title_fragments = (
+        " Output",
+        " Input",
+        " Differential",
+        " Contract",
+        " Registry",
+        " Analysis",
+        " Reconstruction",
+        " Causality",
+        " Selection",
+        " Case",
+        " Run",
+        " Chart",
+        " Contacts",
+        " Layer",
+        " Metrics",
+    )
+    for schema_path in sorted((ROOT / "schemas").glob("*.schema.json")):
+        schema_obj = load_json(schema_path)
+        title = schema_obj.get("title")
+        if not isinstance(title, str) or not title.startswith("ALMAS ·"):
+            fail(f"el schema {schema_path.name} debe declarar un título humano español con prefijo 'ALMAS ·'")
+        if any(fragment in title for fragment in forbidden_schema_title_fragments):
+            fail(f"el schema {schema_path.name} conserva un título humano en inglés: {title}")
 
     print("ALMAS public contract validation: PASS")
     print(f"Astrology package: {version}")

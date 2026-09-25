@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/evidence-graph.schema.json",
+  "title": "ALMAS · Grafo de evidencia",
+  "type": "object",
+  "required": [
+    "items",
+    "count",
+    "strength_policy_applied"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "source_module",
+          "canonical_source",
+          "technique_family",
+          "dependency_family",
+          "support_only",
+          "core_eligible",
+          "directional",
+          "root_key",
+          "exactness",
+          "contact"
+        ]
+      }
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "strength_policy_applied": {
+      "const": false
+    }
+  },
+  "additionalProperties": false
+}
