@@ -52,6 +52,7 @@ REQUIRED_FILES = [
     "schemas/doctrine-hermeneutics-output.schema.json",
     "schemas/viability-reciprocity-assessment.schema.json",
     "schemas/viability-reciprocity-output.schema.json",
+    "schemas/report-gate-output.schema.json",
     "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
@@ -117,6 +118,7 @@ REQUIRED_FILES = [
     "reference/contract-temporality-v2.md",
     "reference/documentary-events.md",
     "reference/viability-reciprocity.md",
+    "reference/report-gate.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -160,6 +162,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/temporal_handlers.py",
     "src/almas_tfa/doctrine_handlers.py",
     "src/almas_tfa/reality_handlers.py",
+    "src/almas_tfa/report_gate_handlers.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -177,6 +180,7 @@ REQUIRED_FILES = [
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
     "tests/DOCTRINAL_CLAIM_V2_INVARIANTS.md",
     "tests/VIABILITY_RECIPROCITY_INVARIANTS.md",
+    "tests/REPORT_GATE_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -347,6 +351,7 @@ def main() -> int:
     doctrine_output_schema = load_json("schemas/doctrine-hermeneutics-output.schema.json")
     viability_input_schema = load_json("schemas/viability-reciprocity-assessment.schema.json")
     viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
+    report_gate_schema = load_json("schemas/report-gate-output.schema.json")
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
@@ -596,8 +601,23 @@ def main() -> int:
     subject_schema = viability_input_schema.get("properties", {}).get("subjects", {})
     if subject_schema.get("minItems") != 2 or subject_schema.get("maxItems") != 2:
         fail("M29 must require exactly two subjects")
-    if final_props.get("report_gate", {}).get("properties", {}).get("canonical_values_mutated", {}).get("const") is not False:
+    report_gate_ref = final_props.get("report_gate", {}).get("$ref")
+    if report_gate_ref != "report-gate-output.schema.json":
+        fail("final pipeline must reference canonical M30 report gate schema")
+
+    report_gate_props = report_gate_schema.get("properties", {})
+    if report_gate_props.get("canonical_values_mutated", {}).get("const") is not False:
         fail("M30 report gate must not mutate canonical values")
+    if set(report_gate_props.get("state", {}).get("enum", [])) != {"READY", "PARTIAL", "BLOCKED"}:
+        fail("M30 must expose READY/PARTIAL/BLOCKED states")
+    if report_gate_props.get("canonical_source_conflict", {}).get("type") != "boolean":
+        fail("M30 must expose canonical source conflict state")
+    if "blocking_issues" not in report_gate_schema.get("required", []):
+        fail("M30 must expose blocking issues")
+    if "degradation_reasons" not in report_gate_schema.get("required", []):
+        fail("M30 must expose degradation reasons")
+    if "canonical_fingerprint" not in report_gate_schema.get("required", []):
+        fail("M30 must fingerprint the canonical analysis")
     if final_props.get("report_document_model", {}).get("properties", {}).get("rendered_document_created", {}).get("const") is not False:
         fail("M31 must remain a document-model stage, not hidden rendering")
 
