@@ -11,22 +11,22 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Capa | Estado |
 |---|---|
 | Metodología normativa | Publicada |
-| Schemas raw/canonical | Publicados |
+| Schemas de entrada bruta/canónica | Publicados |
 | Manifiesto arquitectónico | `manifests/almas-module-manifest.json` |
 | Pipeline FULL M00–M31 | `manifests/analysis-pipeline-manifest.json` |
-| Bridge astrología→contrato | v1.0.0 |
+| Puente astrología→contrato | v1.0.0 |
 | Reconstrucción preencarnatoria | schema v1.9.0 |
-| Clause assembly | schema v1.1.0 |
-| Doctrinal Claim | schema v2.0.0 |
-| Ontología multiaxial | registry/schema v2.0.0 |
+| Ensamblaje de cláusulas | schema v1.1.0 |
+| Afirmación doctrinal | schema v2.0.0 |
+| Ontología multiaxial | registro/schema v2.0.0 |
 | Contrato causal | v2.0.0 |
 | Temporalidad contractual | v2.0.0 |
-| Orquestador M00–M31 | Publicado y probado end-to-end con fixture sintético |
-| M30 report gate | READY/PARTIAL/BLOCKED + fingerprint canónico |
-| M31 report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
+| Orquestador M00–M31 | Publicado y probado de extremo a extremo con fixture sintético |
+| M30 · gate de informe | READY/PARTIAL/BLOCKED + fingerprint canónico |
+| M31 · report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
 | M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
-| Núcleo Python IEM/IDD/IRC | Publicado y unit-tested |
-| CLI de pilares precomputados | Publicada y unit-tested |
+| Núcleo Python IEM/IDD/IRC | Publicado y probado unitariamente |
+| CLI de pilares precomputados | Publicada y probada unitariamente |
 | Corpus doctrinal | 38 fuentes / 92 conceptos / 73 relaciones |
 | Fixtures sintéticos | Publicados |
 | Casos privados | Excluidos |
@@ -36,13 +36,13 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 La suite Python contiene **133 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
 
-El workflow `Python core` ejecuta:
+El workflow `Núcleo Python` ejecuta:
 
 1. instalación editable del paquete;
 2. `python -m unittest discover -s tests -p "test_*.py" -v`;
 3. el validador del contrato público.
 
-El workflow `Public contract` ejecuta de forma independiente:
+El workflow `Contrato público` ejecuta de forma independiente:
 
 `python scripts/validate_public_contract.py`
 
@@ -54,7 +54,7 @@ El validador comprueba, entre otros:
 - integridad fuente↔concepto↔genealogía;
 - correspondencia schema↔fixture;
 - techos inferenciales;
-- claims doctrinales;
+- afirmaciones doctrinales;
 - discriminadores;
 - pipeline preencarnatorio;
 - contratos de ejecución M00–M31;
@@ -65,8 +65,8 @@ La validación automatizada demuestra coherencia de implementación con las regl
 
 ## Validación externa
 
-**Infraestructura:** PREREGISTRATION READY.  
-**Holdout externo real:** NOT YET EXECUTED.
+**Infraestructura:** LISTA PARA PRERREGISTRO.  
+**Holdout externo real:** NO EJECUTADO.
 
 La infraestructura incluye:
 
@@ -75,7 +75,7 @@ La infraestructura incluye:
 - manifiesto de cohortes;
 - endpoints EV1–EV8;
 - flujo ciego estructura → apertura documental;
-- controles de contaminación/case-fitting;
-- fixture sintético de smoke test.
+- controles de contaminación/ajuste al caso;
+- fixture sintético de prueba de humo.
 
-Hasta ejecutar cohortes holdout reales preregistradas, ALMAS no declara validación empírica externa de twin-flame, soulmate, soul-contract u otras ontologías metafísicas.
+Hasta ejecutar cohortes holdout reales preregistradas, ALMAS no declara validación empírica externa de llama gemela, alma gemela, contrato álmico u otras ontologías metafísicas.
