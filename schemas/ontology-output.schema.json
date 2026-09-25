@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/ontology-output.schema.json",
-  "title": "ALMAS Multiaxial Ontology Output",
+  "title": "ALMAS · Salida de ontología multiaxial",
   "type": "object",
   "required": [
     "schema_version",
