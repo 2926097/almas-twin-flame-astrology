@@ -6,7 +6,8 @@
     "ORCHESTRATOR_NATIVE": "Resuelto por infraestructura del orquestador.",
     "LIBRARY_AVAILABLE": "Existe lógica reutilizable en la librería, pero todavía no un handler completo de pipeline.",
     "SPECIFIED": "Existe especificación normativa, schema, referencia o invariantes, pero no handler ejecutable completo.",
-    "EXECUTABLE_HANDLER": "Existe un handler completo registrado para esta etapa."
+    "EXECUTABLE_HANDLER": "Existe un handler completo registrado para esta etapa.",
+    "BACKEND_REQUIRED": "Existe contrato/handler, pero requiere un backend astronómico inyectado."
   },
   "modules": [
     {
@@ -21,7 +22,8 @@
     },
     {
       "id": "M02",
-      "status": "SPECIFIED"
+      "status": "BACKEND_REQUIRED",
+      "implementation": "src/almas_tfa/astrology_handlers.py:make_m02_natal"
     },
     {
       "id": "M03",
