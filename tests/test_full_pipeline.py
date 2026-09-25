@@ -158,7 +158,14 @@ class TestFullPipelineSynthetic(unittest.TestCase):
         canonical_analysis = {
             "schema_version": "1.0.0",
             "analysis_mode": "FULL",
-            "evidence": [],
+            "evidence": [
+                {
+                    "evidence_id": "CANONICAL_E1",
+                    "source_module": "M17",
+                    "root_id": "R0001",
+                    "note": "Synthetic canonical evidence for report-gate traceability."
+                }
+            ],
             "models": {
                 "AF": {"iem": 80, "state": "COMPATIBLE"},
                 "KA": {"iem": 70, "state": "COMPATIBLE"},
