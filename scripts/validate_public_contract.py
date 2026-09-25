@@ -36,6 +36,7 @@ REQUIRED_FILES = [
     "schemas/antiscia-output.schema.json",
     "schemas/composite-output.schema.json",
     "schemas/davison-output.schema.json",
+    "schemas/relationship-chart-consonance.schema.json",
     "schemas/draconic-output.schema.json",
     "schemas/draconic-cross-output.schema.json",
     "schemas/lots-output.schema.json",
@@ -139,6 +140,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/relational_handlers.py",
     "src/almas_tfa/symmetry_handlers.py",
     "src/almas_tfa/relationship_chart_handlers.py",
+    "src/almas_tfa/relationship_consonance.py",
     "src/almas_tfa/draconic_handlers.py",
     "src/almas_tfa/lot_handlers.py",
     "src/almas_tfa/secondary_handlers.py",
@@ -185,6 +187,7 @@ REQUIRED_FILES = [
     "tests/test_relational_handlers.py",
     "tests/test_symmetry_handlers.py",
     "tests/test_relationship_charts.py",
+    "tests/test_relationship_consonance.py",
     "tests/test_draconic_handlers.py",
     "tests/test_lot_handlers.py",
     "tests/test_secondary_handlers.py",
@@ -308,6 +311,7 @@ def main() -> int:
     antiscia_schema = load_json("schemas/antiscia-output.schema.json")
     composite_schema = load_json("schemas/composite-output.schema.json")
     davison_schema = load_json("schemas/davison-output.schema.json")
+    relationship_chart_consonance_schema = load_json("schemas/relationship-chart-consonance.schema.json")
     draconic_schema = load_json("schemas/draconic-output.schema.json")
     draconic_cross_schema = load_json("schemas/draconic-cross-output.schema.json")
     lots_schema = load_json("schemas/lots-output.schema.json")
@@ -401,6 +405,11 @@ def main() -> int:
         fail("composite schema must require positions")
     if "chart" not in davison_schema.get("required", []):
         fail("davison schema must require chart")
+
+    if relationship_chart_consonance_schema.get("properties", {}).get("dependency_family", {}).get("const") != "RELCHART":
+        fail("M09 must remain in the single RELCHART dependency family")
+    if relationship_chart_consonance_schema.get("properties", {}).get("score_state", {}).get("const") != "NOT_DEFINED":
+        fail("M09 must not invent an unregistered consonance score")
 
     if "charts" not in draconic_schema.get("required", []):
         fail("draconic schema must require charts")
