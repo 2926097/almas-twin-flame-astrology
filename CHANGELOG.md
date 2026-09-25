@@ -11,7 +11,9 @@
 - Añade activación temporal anclada, ledger documental append-only y separación estricta entre estructura, temporalidad y hechos.
 - Añade firewalls ejecutables para doctrina A–E, viabilidad/reciprocidad factual y reporting derivado sólo de `canonical_analysis`.
 - Añade una prueba sintética FULL que ejecuta M00–M31 de extremo a extremo.
-- La suite Python alcanza 75 tests deterministas en esta release.
+- M30 distingue `READY`, `PARTIAL` y `BLOCKED`, calcula fingerprint canónico y bloquea divergencias raw/snapshot.
+- M31 cierra el pipeline analítico con un `report_document_model` de 11 secciones, sin incrustar valores ni renderizar documentos.
+- La suite Python alcanza 133 tests deterministas en esta release.
 - Mantiene sin cambios las fórmulas públicas IEM/IDD/IRC, los thresholds, la ontología y los discriminadores existentes.
 - No convierte rareza, intensidad, temporalidad, doctrina ni capas `support_only` en probabilidad o prueba metafísica.
 
@@ -260,17 +262,17 @@
 
 ## 1.0.0 — 2026-09-24
 
-First public GitHub release.
+Primera release pública en GitHub.
 
-- Defines the generalized AF/KA/AG/LG structural compatibility model.
-- Defines IEM, IDD/IDE alias, IRC, IAT, ICC and ICE.
-- Defines dependency-aware roots, pillars, counterevidence, null-model, ablation and birth-time robustness rules.
-- Defines synastry, declination, antiscia, composite, Davison, draconic and temporal layers at specification level.
-- Defines comparative doctrine, hermeneutic synthesis and multidimensional relational ontology.
-- Defines the canonical-analysis → report-model → publication contract.
-- Adds a dependency-free Python scoring core for pillar aggregation, IEM, IDD and IRC.
-- Adds a precomputed-pillar API and `almas-score` command-line interface.
-- Adds formal input/output JSON Schemas.
-- Adds **14 deterministic unit tests** and GitHub Actions CI.
-- Adds public module/discriminator manifests and source-provenance registry.
-- Establishes a publication boundary: generalized rules and synthetic fixtures by default; real cases are permitted only when their underlying data are already public, independently verifiable and cited. Private/non-public case material is excluded.
+- Define el modelo generalizado de compatibilidad estructural AF/KA/AG/LG.
+- Define IEM, IDD/alias IDE, IRC, IAT, ICC e ICE.
+- Define raíces con control de dependencia, pilares, contraevidencia, modelos nulos, ablación y robustez frente a hora natal.
+- Define a nivel de especificación sinastría, declinaciones, antiscios, compuesta, Davison, dracónica y capas temporales.
+- Define doctrina comparada, síntesis hermenéutica y ontología relacional multidimensional.
+- Define el contrato análisis canónico → modelo de informe → publicación.
+- Añade un núcleo Python sin dependencias externas para agregación de pilares, IEM, IDD e IRC.
+- Añade API de pilares precomputados y la interfaz de línea de comandos `almas-score`.
+- Añade schemas JSON formales de entrada/salida.
+- Añade **14 tests unitarios deterministas** y CI con GitHub Actions.
+- Añade manifiestos públicos de módulos/discriminadores y registro de procedencia de fuentes.
+- Establece la frontera de publicación: reglas generalizadas y fixtures sintéticos por defecto; los casos reales sólo se permiten cuando sus datos subyacentes ya son públicos, independientemente verificables y citados. El material privado/no público queda excluido.
