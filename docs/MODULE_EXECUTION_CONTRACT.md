@@ -205,3 +205,26 @@ El módulo aplica exclusivamente la fórmula normativa:
 M23 no genera perturbaciones, no estima `delta90` a partir de muestras y no elige una convención de percentil no definida por la skill. La salida conserva la referencia de preregistro y queda marcada `perturbations_generated_by_m23=false`.
 
 El componente calculado es un componente de robustez; la agregación final de IRC corresponde a M25.
+
+
+## M24 · modelos nulos y rareza estructural
+
+`M24` evalúa una o varias corridas nulas preregistradas mediante `null_model_runs`. Cada corrida debe conservar:
+
+- `preregistration_ref`;
+- tipo de modelo nulo;
+- `feature_set_ref`;
+- `orb_policy_ref`;
+- `event_set_ref`;
+- `generator_ref`;
+- estadístico observado;
+- regla de extremo (`tail`);
+- muestras nulas o, alternativamente, `n` y `extreme_count`.
+
+Los tipos admitidos son `MATCHED_AGE`, `WITHIN_YEAR`, `MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`, `EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`.
+
+Cuando se suministran muestras, M24 cuenta cuántas son tan o más extremas que el valor observado conforme a la regla preregistrada. La frecuencia estructural es `extreme_count / n` y se acompaña de un intervalo de Wilson al nivel de confianza declarado.
+
+M24 no genera el universo nulo: `sampling_generated_by_m24=false`. Esto evita que el módulo improvise reglas de emparejamiento, fechas o ciclos después de inspeccionar el caso.
+
+La salida fija `metaphysical_probability=false`. Una frecuencia baja describe rareza estructural bajo el modelo nulo declarado y no se convierte en probabilidad de soulmate, llama gemela, origen compartido ni ninguna otra ontología.
