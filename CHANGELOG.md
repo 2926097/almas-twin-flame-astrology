@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.9.4 — 2026-09-25
+
+### Claim contract v2
+- Eleva `schemas/doctrinal-claim.schema.json` a 2.0.0.
+- Toda afirmación relevante transporta clase A–E, alcance, fuentes, anclas, techo inferencial, estado del discriminador y conclusión permitida.
+- La narrativa debe publicar `allowed_conclusion`, no un `requested_conclusion` que exceda el techo.
+- Añade ejemplos sintéticos para doctrina explícita, contrato R2 y técnica dracónica.
+- Integra el claim contract v2 en el gate doctrinal y en CI.
+- Refuerza la separación entre técnica verificada y ontología no validada.
+
 ## 1.9.3 — 2026-09-25
 
 ### Anclas documentales y dracónica
