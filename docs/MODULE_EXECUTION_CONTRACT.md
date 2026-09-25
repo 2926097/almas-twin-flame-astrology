@@ -185,7 +185,21 @@ La salida canónica está definida por `schemas/robustness-output.schema.json`.
 
 ## M26 y M27 · activación temporal y hechos documentales
 
-`M26` exige señales con familia temporal, intensidad y estado de ventana. Sólo una señal que referencia un `root_id` existente puede quedar anclada. Los coeficientes normativos son 1.00 para repetición directa, 0.90 para activación de raíz relacional, 0.70 para endpoint y 0 para señal no anclada. Dentro de una misma raíz/familia temporal conserva la señal de mayor fuerza efectiva. Los atacires no preregistrados quedan `EXPLORATORY`. M26 no modifica IEM y no calcula IAT mientras no existan pesos de agregación preregistrados.
+`M26` exige señales con familia temporal, intensidad y estado de ventana. Sólo una señal que referencia un `root_id` existente puede quedar anclada. Los coeficientes normativos permanecen: 1.00 para repetición directa, 0.90 para activación de raíz relacional, 0.70 para endpoint y 0 para señal no anclada.
+
+Cada señal conserva `structural_family`, `exactitude_orb` y `preregistered_window_rule`. Una señal sólo es `iat_eligible=true` cuando está anclada, preregistrada, posee trazabilidad completa, no es `EXPLORATORY/UNANCHORED` y su fuerza efectiva es mayor que cero.
+
+Dentro de una misma raíz/familia temporal se conserva únicamente la señal de mayor `effective_strength = strength × K`. La recurrencia temporal se registra sólo cuando una misma raíz aparece en dos o más familias temporales independientes; repetir fechas del mismo ciclo no crea familias nuevas.
+
+IAT puede calcularse únicamente si existe `iat_aggregation_policy` con `preregistration_ref`, `window_scope_ref`, pesos por familia, pesos por raíz y `formula=WEIGHTED_MEAN_EFFECTIVE_STRENGTH`. La operacionalización usada es:
+
+`IAT = 100 × Σ(w_i × effective_strength_i) / Σ(w_i)`
+
+con `w_i = family_weight × root_weight`.
+
+Si la política no existe, IAT permanece `NOT_CALCULATED`. Si la política existe pero omite el peso de una señal elegible, la ejecución se rechaza en lugar de ignorarla silenciosamente.
+
+M26 fija `structural_score_modified=false`, `structural_roots_created=false` y `real_world_event_prediction_made=false`. Una ventana futura sólo describe activación potencial de una raíz; no autoriza inferir contacto, mensaje, reconciliación, separación, decisión, consentimiento, reunión o cierre.
 
 `M27` consume `documentary_event_ledger` con `analysis_freeze_ref`. Valida IDs únicos, correcciones append-only, calidad documental, privacidad y funciones probatorias. Los vínculos a raíces desconocidas se registran como no resueltos; nunca crean una raíz. Sólo los eventos `PUBLIC_VERIFIABLE` o `SYNTHETIC` quedan marcados como exportables públicamente.
 
