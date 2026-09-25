@@ -1,4 +1,4 @@
-"""Public ALMAS Twin-Flame Astrology scoring core."""
+"""Public ALMAS relational-astrology scoring core."""
 
 from .analysis import analyze_precomputed
 from .core import (
