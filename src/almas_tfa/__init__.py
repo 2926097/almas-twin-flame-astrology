@@ -28,6 +28,7 @@ from .module_contract import (
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .symmetry_handlers import antiscion_longitude, contra_antiscion_longitude, m05_declinations, m06_antiscia
 from .relationship_chart_handlers import DavisonBackend, DavisonRequest, circular_midpoint, m07_composite, make_m08_davison
+from .relationship_consonance import m09_relationship_chart_consonance
 from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cross, m12_draconic_draconic
 from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
@@ -66,6 +67,7 @@ __all__ = [
     "DavisonRequest",
     "DavisonBackend",
     "make_m08_davison",
+    "m09_relationship_chart_consonance",
     "m10_individual_draconics",
     "m11_natal_draconic_cross",
     "m12_draconic_draconic",
