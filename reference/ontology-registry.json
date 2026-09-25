@@ -1,6 +1,6 @@
 {
   "registry_version": "2.0.0",
-  "almas_version": "1.9.3",
+  "almas_version": "1.9.4",
   "principle": "Independent axes; no axis automatically determines another.",
   "states": [
     "SUPPORTED",
