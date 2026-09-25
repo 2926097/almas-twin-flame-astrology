@@ -1,0 +1,96 @@
+{
+  "schema_version": "2.0.0",
+  "claims": [
+    {
+      "schema_version": "2.0.0",
+      "claim_id": "CLAIM_KARDEC_CHOICE",
+      "statement": "Kardec explicitly teaches choice of the general type of trials before corporeal existence.",
+      "epistemic_class": "C_DOCTRINE",
+      "claim_scope": "DOCTRINAL_ATTRIBUTION",
+      "concept_id": "PREINCARNATIONAL_CHOICE",
+      "source_relation": "DIRECT_DOCTRINE",
+      "source_ids": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "source_anchor_refs": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "astrological_refs": [],
+      "status": "SUPPORTED",
+      "requested_conclusion": "PREINCARNATIONAL_CHOICE_DOCTRINE",
+      "allowed_conclusion": "Doctrine explicitly supports general preincarnational choice of trials.",
+      "inferential_ceiling": "DIRECT_DOCTRINE_ONLY",
+      "discriminator_id": null,
+      "discriminator_state": "NOT_APPLICABLE",
+      "ceiling_enforced": true,
+      "alternatives": [],
+      "limitations": [
+        "Does not establish detailed life scripting or a specific bilateral relationship contract."
+      ]
+    },
+    {
+      "schema_version": "2.0.0",
+      "claim_id": "CLAIM_CONTRACT_R2",
+      "statement": "The relational architecture is compatible with a preincarnational contractual function.",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "claim_scope": "PROJECT_SYNTHESIS",
+      "concept_id": "SOUL_CONTRACT",
+      "source_relation": "PROJECT_SYNTHESIS",
+      "source_ids": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "source_anchor_refs": [
+        "kwilecki_soul_contract_theodicy_2014"
+      ],
+      "astrological_refs": [
+        "C1_C6_CHAIN",
+        "PARTNER_ABLATION",
+        "DIRECTIONAL_ROLES",
+        "COMMON_TASK"
+      ],
+      "status": "COMPATIBLE",
+      "requested_conclusion": "R3_BILATERAL_AGREEMENT_MODEL",
+      "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "discriminator_id": "X_R2_FUNCTION_VS_R3_BILATERAL_AGREEMENT",
+      "discriminator_state": "NOT_VALIDATED",
+      "ceiling_enforced": true,
+      "alternatives": [
+        "GENERIC_KARMIC_CONTINUITY",
+        "CATALYTIC_FUNCTION_ONLY"
+      ],
+      "limitations": [
+        "Astrology does not establish literal mutual negotiation before birth."
+      ]
+    },
+    {
+      "schema_version": "2.0.0",
+      "claim_id": "CLAIM_DRACONIC_TECHNIQUE",
+      "statement": "The draconic chart is calculated by setting the tropical North Node to 0° Aries and shifting the chart accordingly.",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scope": "TECHNIQUE_DESCRIPTION",
+      "concept_id": "DRACONIC_ASTROLOGY",
+      "source_relation": "PROJECT_OPERATIONALIZATION",
+      "source_ids": [
+        "blaquier_draconic_astrology_2017_2021"
+      ],
+      "source_anchor_refs": [
+        "blaquier_draconic_astrology_2017_2021"
+      ],
+      "astrological_refs": [
+        "DRACONIC_FORMULA"
+      ],
+      "status": "SUPPORTED",
+      "requested_conclusion": "TECHNIQUE_CALCULATION",
+      "allowed_conclusion": "TECHNIQUE_CALCULATION",
+      "inferential_ceiling": "CORROBORATIVE_NODAL_REFRAMING",
+      "discriminator_id": null,
+      "discriminator_state": "NOT_APPLICABLE",
+      "ceiling_enforced": true,
+      "alternatives": [],
+      "limitations": [
+        "Technical calculation does not validate metaphysical interpretations of past lives, contracts or soul origin."
+      ]
+    }
+  ]
+}
