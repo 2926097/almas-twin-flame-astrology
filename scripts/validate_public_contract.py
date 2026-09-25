@@ -43,6 +43,8 @@ REQUIRED_FILES = [
     "schemas/independent-roots.schema.json",
     "schemas/counterevidence-output.schema.json",
     "schemas/structural-ablation-output.schema.json",
+    "schemas/time-sensitivity-output.schema.json",
+    "schemas/null-model-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
     "schemas/module-execution.schema.json",
@@ -141,6 +143,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/evidence_handlers.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
+    "src/almas_tfa/robustness_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -185,6 +188,7 @@ REQUIRED_FILES = [
     "tests/test_evidence_handlers.py",
     "tests/test_counterevidence_handlers.py",
     "tests/test_ablation_handlers.py",
+    "tests/test_robustness_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -309,6 +313,8 @@ def main() -> int:
     independent_roots_schema = load_json("schemas/independent-roots.schema.json")
     counterevidence_output_schema = load_json("schemas/counterevidence-output.schema.json")
     structural_ablation_schema = load_json("schemas/structural-ablation-output.schema.json")
+    time_sensitivity_schema = load_json("schemas/time-sensitivity-output.schema.json")
+    null_model_output_schema = load_json("schemas/null-model-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -415,6 +421,13 @@ def main() -> int:
         fail("structural ablation must declare structural_only=true")
     if structural_ablation_schema.get("properties", {}).get("dependency_classes_assigned", {}).get("const") is not False:
         fail("structural ablation must not assign contractual dependency classes")
+
+    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
+        fail("M23 must not generate perturbations implicitly")
+    if null_model_output_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
+        fail("M24 null-model output must forbid metaphysical probability")
+    if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
+        fail("M24 must not generate undeclared null sampling")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
