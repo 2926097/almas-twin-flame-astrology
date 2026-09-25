@@ -1,64 +1,262 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/role-selection-differential.schema.json",
-  "title":"ALMAS Preincarnational Role Selection Differential",
-  "type":"object",
-  "required":[
-    "schema_version","overall_state","roles","primary_roles","secondary_roles",
-    "mechanisms","evidence_families","discriminators","competing_role_models",
-    "counterevidence","why_not_more_specific"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/role-selection-differential.schema.json",
+  "title": "ALMAS · Diferencial de selección de roles preencarnatorios",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "overall_state",
+    "roles",
+    "primary_roles",
+    "secondary_roles",
+    "mechanisms",
+    "evidence_families",
+    "discriminators",
+    "competing_role_models",
+    "counterevidence",
+    "why_not_more_specific"
   ],
-  "properties":{
-    "schema_version":{"const":"1.0.0"},
-    "overall_state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
-    "roles":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":["id","state","direction","intensity","receiver","independent_roots","reason_not_higher"],
-        "properties":{
-          "id":{"enum":["ACTIVADOR","CATALIZADOR","ESPEJO","MEMORIA","ESTRUCTURADOR","LIBERADOR","CONFRONTADOR","PORTADOR_DE_VULNERABILIDAD","INTEGRADOR","MEDIADOR","TESTIGO","COMPANERO_DE_APRENDIZAJE"]},
-          "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
-          "direction":{"enum":["A_EN_B","B_EN_A","CAMPO_COMUN","BILATERAL","NO_EVALUABLE"]},
-          "intensity":{"enum":["PRIMARIO","SECUNDARIO","CORROBORATIVO","INSUFICIENTE","NO_EVALUABLE"]},
-          "receiver":{"enum":["A","B","CAMPO_COMUN","AMBOS","NO_EVALUABLE"]},
-          "independent_roots":{"type":"array","items":{"type":"string"}},
-          "motive_refs":{"type":"array","items":{"type":"string"}},
-          "clause_refs":{"type":"array","items":{"type":"string"}},
-          "coverage":{"type":["number","null"],"minimum":0,"maximum":100},
-          "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
-          "r_min":{"type":["number","null"],"minimum":0,"maximum":1},
-          "counterevidence":{"type":"array","items":{"type":"string"}},
-          "reason_not_higher":{"type":["string","null"]}
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "overall_state": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "state",
+          "direction",
+          "intensity",
+          "receiver",
+          "independent_roots",
+          "reason_not_higher"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "ACTIVADOR",
+              "CATALIZADOR",
+              "ESPEJO",
+              "MEMORIA",
+              "ESTRUCTURADOR",
+              "LIBERADOR",
+              "CONFRONTADOR",
+              "PORTADOR_DE_VULNERABILIDAD",
+              "INTEGRADOR",
+              "MEDIADOR",
+              "TESTIGO",
+              "COMPANERO_DE_APRENDIZAJE"
+            ]
+          },
+          "state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "A_EN_B",
+              "B_EN_A",
+              "CAMPO_COMUN",
+              "BILATERAL",
+              "NO_EVALUABLE"
+            ]
+          },
+          "intensity": {
+            "enum": [
+              "PRIMARIO",
+              "SECUNDARIO",
+              "CORROBORATIVO",
+              "INSUFICIENTE",
+              "NO_EVALUABLE"
+            ]
+          },
+          "receiver": {
+            "enum": [
+              "A",
+              "B",
+              "CAMPO_COMUN",
+              "AMBOS",
+              "NO_EVALUABLE"
+            ]
+          },
+          "independent_roots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "motive_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clause_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "robustness": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "r_min": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "counterevidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason_not_higher": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         },
-        "additionalProperties":true
+        "additionalProperties": true
       }
     },
-    "primary_roles":{"type":"array","items":{"type":"string"},"uniqueItems":true},
-    "secondary_roles":{"type":"array","items":{"type":"string"},"uniqueItems":true},
-    "mechanisms":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":["id","state"],
-        "properties":{
-          "id":{"enum":["RS_REQUESTED_MISSION","RS_MUTUAL_AGREEMENT","RS_GROUP_COORDINATION","RS_KARMIC_RETURN_FOR_OTHER","RS_PROVIDENTIAL_ASSIGNMENT","RS_ARCHETYPAL_PATTERNING","RS_EMERGENT","RS_INDETERMINATE"]},
-          "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
-          "source_ids":{"type":"array","items":{"type":"string"}}
+    "primary_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "secondary_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "mechanisms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "RS_REQUESTED_MISSION",
+              "RS_MUTUAL_AGREEMENT",
+              "RS_GROUP_COORDINATION",
+              "RS_KARMIC_RETURN_FOR_OTHER",
+              "RS_PROVIDENTIAL_ASSIGNMENT",
+              "RS_ARCHETYPAL_PATTERNING",
+              "RS_EMERGENT",
+              "RS_INDETERMINATE"
+            ]
+          },
+          "state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     },
-    "evidence_families":{
-      "type":"array",
-      "items":{"enum":["RF1_TAREA_RECEPTORA","RF2_ESPECIFICIDAD_ACTIVADOR","RF3_DIRECCIONALIDAD","RF4_COMPLEMENTARIEDAD_RECIPROCA","RF5_CAMPO_COMUN","RF6_RECURRENCIA","RF7_EXTERNALIZACION","RF8_CAMBIO_DE_FASE"]},
-      "uniqueItems":true
+    "evidence_families": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "RF1_TAREA_RECEPTORA",
+          "RF2_ESPECIFICIDAD_ACTIVADOR",
+          "RF3_DIRECCIONALIDAD",
+          "RF4_COMPLEMENTARIEDAD_RECIPROCA",
+          "RF5_CAMPO_COMUN",
+          "RF6_RECURRENCIA",
+          "RF7_EXTERNALIZACION",
+          "RF8_CAMBIO_DE_FASE"
+        ]
+      },
+      "uniqueItems": true
     },
-    "discriminators":{"type":"array","items":{"type":"object"}},
-    "competing_role_models":{"type":"array","items":{"type":"string"}},
-    "counterevidence":{"type":"array","items":{"type":"string"}},
-    "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
-    "why_selected":{"type":["string","null"]},
-    "why_not_more_specific":{"type":"string"}
+    "discriminators": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "competing_role_models": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "robustness": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "why_selected": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "why_not_more_specific": {
+      "type": "string"
+    }
   },
-  "additionalProperties":true
+  "additionalProperties": true
 }
