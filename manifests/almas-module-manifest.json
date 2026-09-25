@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_public_version": "1.8.4",
+  "almas_public_version": "1.9.0",
   "architecture": "single_skill_modular",
   "root_skill": {
     "id": "almas-twin-flame-astrology",
@@ -54,7 +54,10 @@
       "id": "M_VALIDATION",
       "name": "Dependencia, ablación, robustez y contraevidencia",
       "status": "CORE",
-      "entrypoint": "tests/INVARIANTS.md"
+      "entrypoint": "tests/INVARIANTS.md",
+      "external_validation": "docs/EXTERNAL_VALIDATION_PROTOCOL.md",
+      "validation_endpoints": "manifests/validation-endpoint-registry.json",
+      "validation_cohorts": "manifests/validation-cohort-manifest.json"
     },
     {
       "id": "M_REPORTING",
