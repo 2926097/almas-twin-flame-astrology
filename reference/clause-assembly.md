@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor de ensamblaje diferencial de cláusulas
+# ALMAS · Contrato Preencarnatorio · Motor de ensamblaje diferencial de cláusulas
 
 ## 1. Finalidad
 
