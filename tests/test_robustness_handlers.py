@@ -1,158 +1,183 @@
 import math
 import unittest
 
-from almas_tfa.handlers import m25_robustness
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
-from almas_tfa.robustness_handlers import (
-    m23_time_sensitivity,
-    m24_null_models,
-    wilson_interval,
-)
+from almas_tfa.robustness_index_handlers import m25_robustness
 
 
-def ctx(module_id, raw):
+def context(raw=None, canonical=None):
     return ModuleContext(
-        module_id=module_id,
-        module_name=module_id,
+        module_id="M25",
+        module_name="robustness",
         mode="FULL",
-        raw_input=raw,
-        canonical_snapshot={},
+        raw_input=raw or {},
+        canonical_snapshot=canonical or {},
         prior_results={},
     )
 
 
-class TestTimeSensitivity(unittest.TestCase):
-    def test_m23_applies_normative_component_formula(self):
-        result = m23_time_sensitivity(
-            ctx(
-                "M23",
-                {
-                    "time_sensitivity_summary": {
-                        "preregistration_ref": "TS-001",
-                        "subject_scope": "BOTH",
-                        "perturbation_rule": "synthetic ±30m",
-                        "metric": "IEM_BAND",
-                        "delta90": 10.0,
-                        "preserved_fraction": 0.81,
-                        "perturbation_count": 100,
-                    }
-                },
-            )
-        )
-        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
-        component = result.canonical_updates["time_sensitivity"][
-            "robustness_component"
-        ]
-        self.assertAlmostEqual(component, math.exp(-0.5) * 0.9)
-
-    def test_m23_does_not_generate_perturbations(self):
-        result = m23_time_sensitivity(
-            ctx(
-                "M23",
-                {
-                    "time_sensitivity_summary": {
-                        "preregistration_ref": "TS-001",
-                        "delta90": 0,
-                        "preserved_fraction": 1,
-                    }
-                },
-            )
-        )
-        self.assertFalse(
-            result.canonical_updates["time_sensitivity"][
-                "perturbations_generated_by_m23"
-            ]
-        )
-
-
-class TestRobustnessAggregation(unittest.TestCase):
-    def test_m25_can_consume_m23_component_without_null_rarity(self):
-        time_result = m23_time_sensitivity(
-            ctx(
-                "M23",
-                {
-                    "time_sensitivity_summary": {
-                        "preregistration_ref": "TS-002",
-                        "delta90": 5.0,
-                        "preserved_fraction": 1.0,
-                    }
-                },
-            )
-        )
-        context = ModuleContext(
-            module_id="M25",
-            module_name="robustness",
-            mode="FULL",
-            raw_input={},
-            canonical_snapshot={
-                "time_sensitivity": time_result.canonical_updates[
-                    "time_sensitivity"
-                ],
-                "null_models": {
-                    "runs": [
-                        {"frequency": 0.001}
-                    ]
-                },
-            },
-            prior_results={},
-        )
-        result = m25_robustness(context)
+class TestRobustnessIndex(unittest.TestCase):
+    def test_m23_enters_automatically(self):
+        canonical = {
+            "time_sensitivity": {
+                "preregistration_ref": "TS-001",
+                "robustness_component": 0.8,
+            }
+        }
+        result = m25_robustness(context(canonical=canonical))
         output = result.canonical_updates["robustness_index"]
-        self.assertIn("BIRTH_TIME", output["component_map"])
-        self.assertFalse(output["null_model_rarity_used_as_robustness"])
 
-
-class TestNullModels(unittest.TestCase):
-    def test_wilson_interval(self):
-        low, high = wilson_interval(50, 100, 1.96)
-        self.assertLess(low, 0.5)
-        self.assertGreater(high, 0.5)
-
-    def test_m24_reports_frequency_not_metaphysical_probability(self):
-        result = m24_null_models(
-            ctx(
-                "M24",
-                {
-                    "null_model_runs": [
-                        {
-                            "run_id": "N1",
-                            "null_model": "PAIR_SHUFFLE",
-                            "preregistration_ref": "NULL-001",
-                            "frozen_before_inspection": True,
-                            "trials": 1000,
-                            "hits": 25,
-                            "wilson_z": 1.96,
-                            "observed_statistic": 87.2,
-                        }
-                    ]
-                },
-            )
-        )
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
-        output = result.canonical_updates["null_models"]
-        self.assertFalse(output["metaphysical_probability"])
-        self.assertFalse(output["sampling_generated_by_m24"])
-        self.assertAlmostEqual(output["runs"][0]["frequency"], 0.025)
-        self.assertIsNotNone(output["runs"][0]["wilson_interval"])
+        self.assertEqual(output["component_count"], 1)
+        self.assertAlmostEqual(output["irc"], 80.0)
+        self.assertAlmostEqual(output["r_min"], 0.8)
+        self.assertEqual(output["time_sensitivity_state"], "INCLUDED")
 
-    def test_confirmatory_null_must_be_frozen(self):
+    def test_ablation_requires_preregistered_conversion_and_m22(self):
+        canonical = {
+            "ablation": {
+                "runs": [],
+                "root_survival": [],
+                "structural_only": True,
+                "dependency_classes_assigned": False,
+            }
+        }
+        raw = {
+            "robustness_component_summaries": [
+                {
+                    "id": "ABLATION_CORE",
+                    "kind": "ABLATION",
+                    "value": 0.85,
+                    "source_module": "M22",
+                    "preregistration_ref": "ROB-AB-001",
+                    "derivation_ref": "ABLATION-RULE-V1",
+                }
+            ]
+        }
+        result = m25_robustness(context(raw, canonical))
+        output = result.canonical_updates["robustness_index"]
+
+        self.assertEqual(
+            output["ablation_state"],
+            "INCLUDED_PREREGISTERED",
+        )
+        self.assertAlmostEqual(output["irc"], 85.0)
+
+    def test_m22_available_without_mapping_is_not_silently_scored(self):
+        canonical = {
+            "ablation": {"runs": []},
+            "time_sensitivity": {
+                "preregistration_ref": "TS-002",
+                "robustness_component": 0.9,
+            },
+        }
+        result = m25_robustness(context(canonical=canonical))
+        output = result.canonical_updates["robustness_index"]
+
+        self.assertEqual(
+            output["ablation_state"],
+            "AVAILABLE_NOT_QUANTIFIED",
+        )
+        self.assertEqual(output["component_count"], 1)
+
+    def test_multiple_components_use_geometric_mean_and_rmin(self):
+        canonical = {
+            "time_sensitivity": {
+                "preregistration_ref": "TS-003",
+                "robustness_component": 0.8,
+            },
+            "ablation": {"runs": []},
+        }
+        raw = {
+            "robustness_component_summaries": [
+                {
+                    "id": "ABLATION_CORE",
+                    "kind": "ABLATION",
+                    "value": 0.9,
+                    "source_module": "M22",
+                    "preregistration_ref": "ROB-AB-002",
+                    "derivation_ref": "ABLATION-RULE-V1",
+                },
+                {
+                    "id": "PARAMETERS",
+                    "kind": "PARAMETER_PERTURBATION",
+                    "value": 0.72,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "ROB-P-001",
+                    "derivation_ref": "PARAM-RULE-V1",
+                },
+            ]
+        }
+        result = m25_robustness(context(raw, canonical))
+        output = result.canonical_updates["robustness_index"]
+
+        expected = 100.0 * (0.8 * 0.9 * 0.72) ** (1 / 3)
+        self.assertAlmostEqual(output["irc"], expected)
+        self.assertAlmostEqual(output["r_min"], 0.72)
+
+    def test_null_model_rarity_is_always_excluded(self):
+        canonical = {
+            "null_models": {
+                "runs": [
+                    {"structural_frequency": 0.001}
+                ]
+            },
+            "time_sensitivity": {
+                "preregistration_ref": "TS-004",
+                "robustness_component": 1.0,
+            },
+        }
+        result = m25_robustness(context(canonical=canonical))
+        output = result.canonical_updates["robustness_index"]
+
+        self.assertEqual(
+            output["null_model_state"],
+            "AVAILABLE_EXCLUDED_FROM_IRC",
+        )
+        self.assertFalse(output["null_model_rarity_used_as_robustness"])
+        self.assertAlmostEqual(output["irc"], 100.0)
+
+    def test_m24_cannot_be_smuggled_in_as_component(self):
+        raw = {
+            "robustness_component_summaries": [
+                {
+                    "id": "BAD_NULL",
+                    "kind": "PARAMETER_PERTURBATION",
+                    "value": 0.99,
+                    "source_module": "M24",
+                    "preregistration_ref": "BAD",
+                    "derivation_ref": "BAD",
+                }
+            ]
+        }
         with self.assertRaises(ValueError):
-            m24_null_models(
-                ctx(
-                    "M24",
-                    {
-                        "null_model_runs": [
-                            {
-                                "null_model": "PAIR_SHUFFLE",
-                                "preregistration_ref": "NULL-001",
-                                "frozen_before_inspection": False,
-                                "trials": 100,
-                                "hits": 10,
-                            }
-                        ]
-                    },
-                )
-            )
+            m25_robustness(context(raw=raw))
+
+    def test_birth_time_cannot_override_m23(self):
+        canonical = {
+            "time_sensitivity": {
+                "preregistration_ref": "TS-005",
+                "robustness_component": 0.8,
+            }
+        }
+        raw = {
+            "robustness_component_summaries": [
+                {
+                    "id": "BIRTH_TIME_2",
+                    "kind": "BIRTH_TIME",
+                    "value": 1.0,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "TS-ALT",
+                    "derivation_ref": "ALT",
+                }
+            ]
+        }
+        with self.assertRaises(ValueError):
+            m25_robustness(context(raw, canonical))
+
+    def test_no_components_is_not_evaluable(self):
+        result = m25_robustness(context())
+        self.assertEqual(result.status, ExecutionStatus.NOT_EVALUABLE)
 
 
 if __name__ == "__main__":
