@@ -49,6 +49,7 @@ REQUIRED_FILES = [
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
+    "schemas/doctrine-hermeneutics-output.schema.json",
     "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
@@ -154,6 +155,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/robustness_handlers.py",
     "src/almas_tfa/robustness_index_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
+    "src/almas_tfa/doctrine_handlers.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -337,6 +339,7 @@ def main() -> int:
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
+    doctrine_output_schema = load_json("schemas/doctrine-hermeneutics-output.schema.json")
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
@@ -539,8 +542,25 @@ def main() -> int:
         fail("M27 must keep fact and interpretation separate")
 
     final_props = final_pipeline_output_schema.get("properties", {})
-    if final_props.get("doctrine_hermeneutics", {}).get("properties", {}).get("doctrine_adds_structural_score", {}).get("const") is not False:
+    doctrine_ref = final_props.get("doctrine_hermeneutics", {}).get("$ref")
+    if doctrine_ref != "doctrine-hermeneutics-output.schema.json":
+        fail("final pipeline must reference canonical M28 output schema")
+
+    doctrine_props = doctrine_output_schema.get("properties", {})
+    if doctrine_props.get("doctrine_adds_structural_score", {}).get("const") is not False:
         fail("M28 doctrine must not add structural score")
+    if doctrine_props.get("source_count_used_as_structural_weight", {}).get("const") is not False:
+        fail("M28 source count must not become structural weight")
+    if doctrine_props.get("epistemic_separation_enforced", {}).get("const") is not True:
+        fail("M28 must enforce A/B/C/D/E epistemic separation")
+    if doctrine_props.get("non_equivalence_enforced", {}).get("const") is not True:
+        fail("M28 must enforce non-equivalence across traditions")
+    if doctrine_props.get("contemporary_usage_promoted_to_ontology", {}).get("const") is not False:
+        fail("M28 contemporary usage must not become ontology")
+    if doctrine_props.get("project_hypothesis_promoted_to_doctrine", {}).get("const") is not False:
+        fail("M28 project hypothesis must not become doctrine")
+    if doctrine_props.get("cross_tradition_identity_inferred", {}).get("const") is not False:
+        fail("M28 must not infer cross-tradition doctrinal identity")
     if final_props.get("viability_reciprocity", {}).get("properties", {}).get("astrology_used_as_real_world_fact", {}).get("const") is not False:
         fail("M29 must not substitute astrology for real-world facts")
     if final_props.get("report_gate", {}).get("properties", {}).get("canonical_values_mutated", {}).get("const") is not False:
@@ -556,6 +576,12 @@ def main() -> int:
 
     if doctrinal_claim_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
         fail("doctrinal claim schema must expose 2.0.0")
+
+    claim_props = doctrinal_claim_schema.get("properties", {})
+    if "source_support_refs" not in claim_props or "does_not_support_checked" not in claim_props:
+        fail("DIRECT_DOCTRINE claim contract must require source support traceability fields")
+    if "identity_target_concept_id" not in claim_props:
+        fail("doctrinal identity claims must declare an identity target concept")
 
 
     if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
