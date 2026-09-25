@@ -26,89 +26,211 @@ class TestTemporalActivation(unittest.TestCase):
             }
         }
 
-    def test_unanchored_signal_has_zero_k(self):
+    def signal(
+        self,
+        signal_id,
+        *,
+        root_id="R0001",
+        family="TTRANSIT",
+        activation_class="DIRECT_REPETITION",
+        strength=1.0,
+        window_status="CURRENT_ACTIVE",
+        preregistered=True,
+        structural_family="SYN",
+        exactitude_orb=0.5,
+        preregistered_window_rule="WINDOW-RULE-V1",
+    ):
+        return {
+            "signal_id": signal_id,
+            "root_id": root_id,
+            "temporal_family": family,
+            "activation_class": activation_class,
+            "strength": strength,
+            "window_status": window_status,
+            "preregistered": preregistered,
+            "structural_family": structural_family,
+            "exactitude_orb": exactitude_orb,
+            "preregistered_window_rule": preregistered_window_rule,
+        }
+
+    def test_unanchored_signal_has_zero_k_and_never_enters_iat(self):
+        raw_signal = self.signal("T1", root_id="UNKNOWN")
         result = m26_temporal_activation(
-            context(
-                "M26",
-                {
-                    "temporal_signals": [
-                        {
-                            "signal_id": "T1",
-                            "root_id": "UNKNOWN",
-                            "temporal_family": "TTRANSIT",
-                            "activation_class": "DIRECT_REPETITION",
-                            "strength": 1.0,
-                            "window_status": "CURRENT_ACTIVE",
-                            "preregistered": True,
-                        }
-                    ]
-                },
-                self.canonical,
-            )
+            context("M26", {"temporal_signals": [raw_signal]}, self.canonical)
         )
-        signal = result.canonical_updates["temporal_activation"]["signals"][0]
+        output = result.canonical_updates["temporal_activation"]
+        signal = output["signals"][0]
+
         self.assertFalse(signal["anchored"])
         self.assertEqual(signal["k"], 0.0)
         self.assertEqual(signal["window_status"], "UNANCHORED")
+        self.assertFalse(signal["iat_eligible"])
+        self.assertIsNone(output["iat"])
+        self.assertFalse(output["structural_roots_created"])
 
     def test_same_root_family_keeps_strongest(self):
+        signals = [
+            self.signal(
+                "T1",
+                activation_class="RELATIONAL_ROOT_ACTIVATION",
+                strength=0.5,
+            ),
+            self.signal(
+                "T2",
+                activation_class="DIRECT_REPETITION",
+                strength=0.8,
+            ),
+        ]
         result = m26_temporal_activation(
-            context(
-                "M26",
-                {
-                    "temporal_signals": [
-                        {
-                            "signal_id": "T1",
-                            "root_id": "R0001",
-                            "temporal_family": "TTRANSIT",
-                            "activation_class": "RELATIONAL_ROOT_ACTIVATION",
-                            "strength": 0.5,
-                            "window_status": "CURRENT_ACTIVE",
-                            "preregistered": True,
-                        },
-                        {
-                            "signal_id": "T2",
-                            "root_id": "R0001",
-                            "temporal_family": "TTRANSIT",
-                            "activation_class": "DIRECT_REPETITION",
-                            "strength": 0.8,
-                            "window_status": "CURRENT_ACTIVE",
-                            "preregistered": True,
-                        },
-                    ]
-                },
-                self.canonical,
-            )
+            context("M26", {"temporal_signals": signals}, self.canonical)
         )
         output = result.canonical_updates["temporal_activation"]
+
         self.assertEqual(len(output["selected_independent_signals"]), 1)
-        self.assertEqual(output["selected_independent_signals"][0]["signal_id"], "T2")
+        self.assertEqual(
+            output["selected_independent_signals"][0]["signal_id"],
+            "T2",
+        )
         self.assertEqual(len(output["suppressed"]), 1)
         self.assertIsNone(output["iat"])
+        self.assertEqual(output["iat_state"], "NOT_CALCULATED")
+        self.assertFalse(output["aggregation_weights_applied"])
+
+    def test_unregistered_atacir_is_exploratory_and_not_iat_eligible(self):
+        signal = self.signal(
+            "A1",
+            root_id="R0002",
+            family="TATACIR",
+            activation_class="ENDPOINT_ACTIVATION",
+            strength=0.8,
+            window_status="PROSPECTIVE_ACTIVATION",
+            preregistered=False,
+        )
+        result = m26_temporal_activation(
+            context("M26", {"temporal_signals": [signal]}, self.canonical)
+        )
+        item = result.canonical_updates["temporal_activation"]["signals"][0]
+
+        self.assertEqual(item["window_status"], "EXPLORATORY")
+        self.assertFalse(item["iat_eligible"])
+
+    def test_incomplete_traceability_excludes_signal_from_iat(self):
+        signal = self.signal(
+            "T1",
+            preregistered_window_rule=None,
+        )
+        result = m26_temporal_activation(
+            context("M26", {"temporal_signals": [signal]}, self.canonical)
+        )
+        item = result.canonical_updates["temporal_activation"]["signals"][0]
+
+        self.assertFalse(item["traceability_complete"])
+        self.assertFalse(item["iat_eligible"])
+        self.assertIn(
+            "preregistered_window_rule",
+            item["missing_traceability"],
+        )
+
+    def test_iat_requires_explicit_preregistered_weights(self):
+        signals = [
+            self.signal(
+                "T1",
+                root_id="R0001",
+                family="TTRANSIT",
+                activation_class="DIRECT_REPETITION",
+                strength=0.8,
+            ),
+            self.signal(
+                "T2",
+                root_id="R0002",
+                family="TPROG",
+                activation_class="RELATIONAL_ROOT_ACTIVATION",
+                strength=1.0,
+            ),
+        ]
+        raw = {
+            "temporal_signals": signals,
+            "iat_aggregation_policy": {
+                "preregistration_ref": "IAT-PREREG-001",
+                "window_scope_ref": "WINDOW-2030",
+                "formula": "WEIGHTED_MEAN_EFFECTIVE_STRENGTH",
+                "family_weights": {
+                    "TTRANSIT": 1.0,
+                    "TPROG": 2.0,
+                },
+                "root_weights": {
+                    "R0001": 1.0,
+                    "R0002": 0.5,
+                },
+            },
+        }
+        result = m26_temporal_activation(
+            context("M26", raw, self.canonical)
+        )
+        output = result.canonical_updates["temporal_activation"]
+
+        # T1 = 0.8*1.0, weight 1*1 = 1
+        # T2 = 1.0*0.9, weight 2*0.5 = 1
+        self.assertAlmostEqual(output["iat"], 85.0)
+        self.assertEqual(output["iat_state"], "CALCULATED")
+        self.assertTrue(output["aggregation_weights_applied"])
+        self.assertEqual(
+            output["iat_policy"]["preregistration_ref"],
+            "IAT-PREREG-001",
+        )
+
+    def test_missing_weight_for_eligible_signal_is_rejected(self):
+        signal = self.signal("T1", family="TECLIPSE")
+        raw = {
+            "temporal_signals": [signal],
+            "iat_aggregation_policy": {
+                "preregistration_ref": "IAT-PREREG-002",
+                "window_scope_ref": "WINDOW-X",
+                "formula": "WEIGHTED_MEAN_EFFECTIVE_STRENGTH",
+                "family_weights": {"TTRANSIT": 1.0},
+                "root_weights": {"R0001": 1.0},
+            },
+        }
+        with self.assertRaises(ValueError):
+            m26_temporal_activation(
+                context("M26", raw, self.canonical)
+            )
+
+    def test_recurrence_requires_independent_temporal_families(self):
+        signals = [
+            self.signal("T1", family="TTRANSIT", strength=0.7),
+            self.signal("T2", family="TPROG", strength=0.8),
+            self.signal("T3", family="TTRANSIT", strength=0.9),
+        ]
+        result = m26_temporal_activation(
+            context("M26", {"temporal_signals": signals}, self.canonical)
+        )
+        summary = result.canonical_updates["temporal_activation"][
+            "root_activation_summary"
+        ][0]
+
+        self.assertEqual(summary["independent_family_count"], 2)
+        self.assertTrue(
+            summary["recurring_across_independent_families"]
+        )
+
+    def test_future_window_never_predicts_real_world_event(self):
+        signal = self.signal(
+            "F1",
+            window_status="PROSPECTIVE_ACTIVATION",
+        )
+        result = m26_temporal_activation(
+            context("M26", {"temporal_signals": [signal]}, self.canonical)
+        )
+        output = result.canonical_updates["temporal_activation"]
+
+        self.assertFalse(output["real_world_event_prediction_made"])
+        self.assertFalse(
+            output["signals"][0]["predicts_real_world_event"]
+        )
         self.assertFalse(output["structural_score_modified"])
 
-    def test_unregistered_atacir_is_exploratory(self):
-        result = m26_temporal_activation(
-            context(
-                "M26",
-                {
-                    "temporal_signals": [
-                        {
-                            "signal_id": "A1",
-                            "root_id": "R0002",
-                            "temporal_family": "TATACIR",
-                            "activation_class": "ENDPOINT_ACTIVATION",
-                            "strength": 0.8,
-                            "window_status": "PROSPECTIVE_ACTIVATION",
-                            "preregistered": False,
-                        }
-                    ]
-                },
-                self.canonical,
-            )
-        )
-        signal = result.canonical_updates["temporal_activation"]["signals"][0]
-        self.assertEqual(signal["window_status"], "EXPLORATORY")
+
 
 
 class TestDocumentaryEvents(unittest.TestCase):
