@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Motor diferencial de tarea común
+# ALMAS · Contrato Preencarnatorio · Motor diferencial de tarea común
 
 ## 1. Finalidad
 
