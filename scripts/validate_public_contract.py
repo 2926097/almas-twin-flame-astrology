@@ -112,6 +112,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
     "src/almas_tfa/handlers.py",
+    "src/almas_tfa/astrology_backend.py",
+    "src/almas_tfa/astrology_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -146,6 +148,7 @@ REQUIRED_FILES = [
     "tests/test_analysis.py",
     "tests/test_orchestrator.py",
     "tests/test_handlers.py",
+    "tests/test_astrology_backend.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -399,11 +402,11 @@ def main() -> int:
         fail("execution registry version diverges from VERSION")
     if execution_ids != expected_ids:
         fail("execution registry must contain ordered M00..M31 exactly once")
-    allowed_execution_status = {"ORCHESTRATOR_NATIVE", "EXECUTABLE_HANDLER", "LIBRARY_AVAILABLE", "SPECIFIED"}
+    allowed_execution_status = {"ORCHESTRATOR_NATIVE", "EXECUTABLE_HANDLER", "BACKEND_REQUIRED", "LIBRARY_AVAILABLE", "SPECIFIED"}
     for module in execution_registry.get("modules", []):
         if module.get("status") not in allowed_execution_status:
             fail(f"unknown execution registry status: {module.get('id')} -> {module.get('status')}")
-        if module.get("status") in {"ORCHESTRATOR_NATIVE", "EXECUTABLE_HANDLER", "LIBRARY_AVAILABLE"} and not module.get("implementation"):
+        if module.get("status") in {"ORCHESTRATOR_NATIVE", "EXECUTABLE_HANDLER", "BACKEND_REQUIRED", "LIBRARY_AVAILABLE"} and not module.get("implementation"):
             fail(f"implemented execution entry lacks implementation reference: {module.get('id')}")
 
     module_status_enum = set(
