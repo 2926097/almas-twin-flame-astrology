@@ -32,8 +32,145 @@ WINDOW_STATUSES = {
 }
 
 
+def _nonnegative_weight(value: Any, label: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError(f"{label} debe ser numérico.")
+    value = float(value)
+    if value < 0.0:
+        raise ValueError(f"{label} no puede ser negativo.")
+    return value
+
+
+def _signal_traceability(raw: Mapping[str, Any], signal_id: str) -> tuple[bool, list[str]]:
+    missing: list[str] = []
+
+    structural_family = raw.get("structural_family")
+    if not isinstance(structural_family, str) or not structural_family:
+        missing.append("structural_family")
+
+    exactitude_orb = raw.get("exactitude_orb")
+    if (
+        isinstance(exactitude_orb, bool)
+        or not isinstance(exactitude_orb, (int, float))
+        or float(exactitude_orb) < 0.0
+    ):
+        missing.append("exactitude_orb")
+
+    rule = raw.get("preregistered_window_rule")
+    if not isinstance(rule, str) or not rule:
+        missing.append("preregistered_window_rule")
+
+    return not missing, missing
+
+
+def _calculate_iat(
+    selected: list[dict[str, Any]],
+    policy: Mapping[str, Any] | None,
+) -> tuple[float | None, str, bool, dict[str, Any] | None, list[str]]:
+    """Agrega señales independientes sólo bajo pesos preregistrados."""
+
+    eligible = [
+        item
+        for item in selected
+        if item["iat_eligible"]
+    ]
+    eligible_ids = [item["signal_id"] for item in eligible]
+
+    if not eligible:
+        return None, "NOT_CALCULATED", False, None, eligible_ids
+
+    if policy is None:
+        return None, "NOT_CALCULATED", False, None, eligible_ids
+
+    preregistration_ref = policy.get("preregistration_ref")
+    if not isinstance(preregistration_ref, str) or not preregistration_ref:
+        raise ValueError(
+            "iat_aggregation_policy.preregistration_ref es obligatorio."
+        )
+
+    if policy.get("formula") != "WEIGHTED_MEAN_EFFECTIVE_STRENGTH":
+        raise ValueError(
+            "M26 sólo admite formula=WEIGHTED_MEAN_EFFECTIVE_STRENGTH."
+        )
+
+    window_scope_ref = policy.get("window_scope_ref")
+    if not isinstance(window_scope_ref, str) or not window_scope_ref:
+        raise ValueError(
+            "iat_aggregation_policy.window_scope_ref es obligatorio."
+        )
+
+    family_weights = policy.get("family_weights")
+    root_weights = policy.get("root_weights")
+    if not isinstance(family_weights, Mapping) or not isinstance(root_weights, Mapping):
+        raise ValueError(
+            "iat_aggregation_policy debe declarar family_weights y root_weights."
+        )
+
+    weighted_sum = 0.0
+    total_weight = 0.0
+    applied: list[dict[str, Any]] = []
+
+    for signal in eligible:
+        family = signal["temporal_family"]
+        root_id = signal["root_id"]
+
+        if family not in family_weights:
+            raise ValueError(
+                f"Falta peso preregistrado para la familia temporal {family}."
+            )
+        if root_id not in root_weights:
+            raise ValueError(
+                f"Falta peso preregistrado para la raíz {root_id}."
+            )
+
+        family_weight = _nonnegative_weight(
+            family_weights[family],
+            f"family_weights[{family}]",
+        )
+        root_weight = _nonnegative_weight(
+            root_weights[root_id],
+            f"root_weights[{root_id}]",
+        )
+        combined_weight = family_weight * root_weight
+
+        weighted_sum += combined_weight * signal["effective_strength"]
+        total_weight += combined_weight
+        applied.append(
+            {
+                "signal_id": signal["signal_id"],
+                "root_id": root_id,
+                "temporal_family": family,
+                "family_weight": family_weight,
+                "root_weight": root_weight,
+                "combined_weight": combined_weight,
+                "effective_strength": signal["effective_strength"],
+            }
+        )
+
+    if total_weight <= 0.0:
+        raise ValueError(
+            "La suma de pesos combinados del IAT debe ser mayor que cero."
+        )
+
+    iat = 100.0 * weighted_sum / total_weight
+    policy_output = {
+        "preregistration_ref": preregistration_ref,
+        "window_scope_ref": window_scope_ref,
+        "formula": "WEIGHTED_MEAN_EFFECTIVE_STRENGTH",
+        "family_weights": {
+            str(k): float(v) for k, v in family_weights.items()
+        },
+        "root_weights": {
+            str(k): float(v) for k, v in root_weights.items()
+        },
+        "applied_signal_weights": applied,
+    }
+
+    return iat, "CALCULATED", True, policy_output, eligible_ids
+
+
 def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
-    """M26: normaliza activaciones temporales ancladas a raíces preexistentes."""
+    """M26: normaliza activaciones ancladas y calcula IAT sólo con pesos preregistrados."""
 
     signals = context.raw_input.get("temporal_signals")
     if not isinstance(signals, list) or not signals:
@@ -51,11 +188,17 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
     }
 
     normalized: list[dict[str, Any]] = []
+    seen_signal_ids: set[str] = set()
+
     for index, raw in enumerate(signals, start=1):
         if not isinstance(raw, Mapping):
             raise ValueError("Cada temporal_signal debe ser un objeto.")
 
         signal_id = str(raw.get("signal_id") or f"TEMP_{index:04d}")
+        if signal_id in seen_signal_ids:
+            raise ValueError(f"signal_id duplicado: {signal_id}")
+        seen_signal_ids.add(signal_id)
+
         family = raw.get("temporal_family")
         if family not in TEMPORAL_FAMILIES:
             raise ValueError(
@@ -91,8 +234,21 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
         if not anchored:
             status = "UNANCHORED"
 
+        traceability_complete, missing_traceability = _signal_traceability(
+            raw,
+            signal_id,
+        )
+
         k = ACTIVATION_COEFFICIENTS[activation_class]
         effective_strength = strength * k
+
+        iat_eligible = (
+            anchored
+            and preregistered
+            and traceability_complete
+            and status not in {"EXPLORATORY", "UNANCHORED"}
+            and effective_strength > 0.0
+        )
 
         normalized.append(
             {
@@ -114,6 +270,11 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
                 "window_status": status,
                 "date_or_period": raw.get("date_or_period"),
                 "event_refs": list(raw.get("event_refs", [])),
+                "traceability_complete": traceability_complete,
+                "missing_traceability": missing_traceability,
+                "iat_eligible": iat_eligible,
+                "creates_structural_root": False,
+                "predicts_real_world_event": False,
             }
         )
 
@@ -141,25 +302,66 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
             duplicate["suppression_reason"] = "SAME_ROOT_AND_TEMPORAL_FAMILY"
             suppressed.append(duplicate)
 
+    root_families: dict[str, set[str]] = defaultdict(set)
+    root_signal_ids: dict[str, list[str]] = defaultdict(list)
+    for signal in selected:
+        if signal["iat_eligible"] and signal["root_id"]:
+            root_families[signal["root_id"]].add(signal["temporal_family"])
+            root_signal_ids[signal["root_id"]].append(signal["signal_id"])
+
+    root_activation_summary = [
+        {
+            "root_id": root_id,
+            "independent_temporal_families": sorted(families),
+            "independent_family_count": len(families),
+            "selected_signal_ids": sorted(root_signal_ids[root_id]),
+            "recurring_across_independent_families": len(families) >= 2,
+        }
+        for root_id, families in sorted(root_families.items())
+    ]
+
+    aggregation_policy = context.raw_input.get("iat_aggregation_policy")
+    if aggregation_policy is not None and not isinstance(
+        aggregation_policy,
+        Mapping,
+    ):
+        raise ValueError("iat_aggregation_policy debe ser un objeto.")
+
+    iat, iat_state, weights_applied, policy_output, eligible_ids = _calculate_iat(
+        selected,
+        aggregation_policy,
+    )
+
     output = {
         "signals": normalized,
         "selected_independent_signals": selected,
         "suppressed": suppressed,
-        "iat": None,
-        "iat_state": "NOT_CALCULATED",
-        "aggregation_weights_applied": False,
+        "root_activation_summary": root_activation_summary,
+        "iat_eligible_signal_ids": eligible_ids,
+        "iat": iat,
+        "iat_state": iat_state,
+        "iat_policy": policy_output,
+        "aggregation_weights_applied": weights_applied,
         "structural_score_modified": False,
+        "structural_roots_created": False,
+        "real_world_event_prediction_made": False,
     }
+
+    limitations = [
+        "La temporalidad no modifica IEM ni crea raíces estructurales.",
+        "Una ventana futura describe activación potencial de una raíz, no contacto, decisión, consentimiento, reunión o cierre.",
+    ]
+    if iat_state == "NOT_CALCULATED":
+        limitations.append(
+            "IAT no se calcula sin señales elegibles y una política de agregación preregistrada."
+        )
 
     return ModuleResult(
         module_id="M26",
         status=ExecutionStatus.COMPLETED,
         payload=output,
         canonical_updates={"temporal_activation": output},
-        limitations=(
-            "M26 aplica anclaje, K y deduplicación temporal, pero no calcula IAT sin pesos de agregación preregistrados.",
-            "La temporalidad no modifica IEM ni crea raíces estructurales.",
-        ),
+        limitations=tuple(limitations),
     )
 
 
