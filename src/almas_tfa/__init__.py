@@ -34,6 +34,7 @@ from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
+from .robustness_handlers import m23_time_sensitivity, m24_null_models, wilson_interval
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -75,6 +76,9 @@ __all__ = [
     "m20_counterevidence",
     "ABLATION_RUNS",
     "m22_ablation",
+    "m23_time_sensitivity",
+    "m24_null_models",
+    "wilson_interval",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
