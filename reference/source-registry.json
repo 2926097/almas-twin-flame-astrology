@@ -31,7 +31,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Symposium 189c-193d, Aristophanes' speech: myth of primordial humans divided and seeking reunion.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "brihadaranyaka_1_4_3",
@@ -64,7 +68,11 @@
       "download_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
       "license": null,
       "local_file": null,
-      "sha256": null
+      "sha256": null,
+      "verification_anchor": "Brihadaranyaka Upanishad 1.4.3 in Max Müller's 1884 translation: primordial self dividing into husband and wife.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "blavatsky_secret_doctrine_monads",
@@ -95,7 +103,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "The Secret Doctrine, vol. I, section 'Additional Facts and Explanations Concerning the Globes and the Monads', around p. 170 in the cited edition.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "bailey_esoteric_psychology_soul",
@@ -268,7 +280,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Book II, ch. VI, questions 258-259: choice of the general kind of trials before corporeal existence and distinction from contingent details.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/139/book-twothe-spirit-world/chapter-vispirit-life/choice-of-trials",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "zohar_lech_lecha_32_346_350",
@@ -304,7 +320,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Zohar, Lech Lecha 32:346-351: paired-soul imagery and separation/reunion motifs within the Zoharic framework.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "talmud_sotah_2a_9",
@@ -337,7 +357,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Sotah 2a:9: prenatal proclamation/matching motif and discussion of pairing.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.sefaria.org/Sotah.2a.9",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "kwilecki_soul_contract_theodicy_2014",
@@ -1056,7 +1080,11 @@
       "download_url": null,
       "license": null,
       "local_file": null,
-      "sha256": null
+      "sha256": null,
+      "verification_anchor": "Sha'ar HaGilgulim, ch. 8: reasons for return/gilgul and functions extending beyond a simplistic one-life account.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.8",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "vital_shaar_hagilgulim_20_zivug",
@@ -1094,7 +1122,11 @@
       "download_url": null,
       "license": null,
       "local_file": null,
-      "sha256": null
+      "sha256": null,
+      "verification_anchor": "Sha'ar HaGilgulim, ch. 20: opening discussion of first and second zivug and relational pairing within the Lurianic framework.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "vital_shaar_hagilgulim_39_soul_roots",
@@ -1131,7 +1163,11 @@
       "download_url": null,
       "license": null,
       "local_file": null,
-      "sha256": null
+      "sha256": null,
+      "verification_anchor": "Sha'ar HaGilgulim, ch. 39: soul roots and relational continuities, including non-romantic forms such as teacher–student relations.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.39",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "vital_sefer_etz_chaim",
@@ -1231,7 +1267,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Academic chapter pp. 249-272 on gilgul and identity boundaries in Lurianic Kabbalah.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.jstor.org/stable/jj.21761189.14",
+      "evidence_scope": "ACADEMIC_DESCRIPTION"
     },
     {
       "id": "kardec_spirits_book_missions_572_573",
@@ -1267,7 +1307,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Book II, ch. X, questions 572-573: missions of incarnated spirits and their relation to service/advancement.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "summit_lighthouse_what_is_twin_flame",
