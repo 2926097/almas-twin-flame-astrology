@@ -152,19 +152,23 @@
     },
     {
       "id": "M28",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/final_handlers.py:m28_doctrine_hermeneutics"
     },
     {
       "id": "M29",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/final_handlers.py:m29_viability_reciprocity"
     },
     {
       "id": "M30",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/final_handlers.py:m30_report_gate"
     },
     {
       "id": "M31",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/final_handlers.py:m31_report"
     }
   ]
 }
