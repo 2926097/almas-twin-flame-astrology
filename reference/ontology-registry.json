@@ -1,7 +1,7 @@
 {
   "registry_version": "2.0.0",
-  "almas_version": "1.10.1",
-  "principle": "Independent axes; no axis automatically determines another.",
+  "almas_version": "1.10.2",
+  "principle": "Ejes independientes; ningún eje determina automáticamente a otro.",
   "states": [
     "SUPPORTED",
     "COMPATIBLE",
