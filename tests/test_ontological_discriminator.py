@@ -217,7 +217,15 @@ class TestOntologicalDiscriminator(unittest.TestCase):
 
     def test_missing_minimum_data_is_not_evaluable(self):
         result = discriminate_ontology(
-            [],
+            [
+                observation(
+                    "L3-IGNORED-WHEN-DATA-FAIL",
+                    ("SOULMATE_MODEL", "TWIN_FLAME_MODEL"),
+                    "L3_VALIDATED",
+                    "SEPARATES",
+                    excluded_model="SOULMATE_MODEL",
+                )
+            ],
             minimum_data_evaluable=False,
         )
 
@@ -225,6 +233,64 @@ class TestOntologicalDiscriminator(unittest.TestCase):
         self.assertEqual(result["epistemic_state"], "NOT_EVALUABLE")
         self.assertEqual(result["classification"], "INDETERMINATE")
         self.assertEqual(result["equivalence_classes"], [])
+        self.assertEqual(result["confirmed_exclusions"], [])
+        self.assertEqual(
+            result["surviving_models"],
+            [
+                "SOULMATE_MODEL",
+                "MONADIC_ORIGIN",
+                "SPLIT_SOUL",
+                "TWIN_FLAME_MODEL",
+            ],
+        )
+
+    def test_conflict_between_excluded_models_does_not_block_identifiability(self):
+        result = discriminate_ontology(
+            [
+                observation(
+                    "L3-SM",
+                    ("SOULMATE_MODEL", "MONADIC_ORIGIN"),
+                    "L3_VALIDATED",
+                    "SEPARATES",
+                    excluded_model="MONADIC_ORIGIN",
+                ),
+                observation(
+                    "L3-SP",
+                    ("SOULMATE_MODEL", "SPLIT_SOUL"),
+                    "L3_VALIDATED",
+                    "SEPARATES",
+                    excluded_model="SPLIT_SOUL",
+                ),
+                observation(
+                    "L3-ST",
+                    ("SOULMATE_MODEL", "TWIN_FLAME_MODEL"),
+                    "L3_VALIDATED",
+                    "SEPARATES",
+                    excluded_model="TWIN_FLAME_MODEL",
+                ),
+                observation(
+                    "L3-MP-A",
+                    ("MONADIC_ORIGIN", "SPLIT_SOUL"),
+                    "L3_VALIDATED",
+                    "SEPARATES",
+                    excluded_model="MONADIC_ORIGIN",
+                    root_key="MP_A",
+                ),
+                observation(
+                    "L3-MP-B",
+                    ("MONADIC_ORIGIN", "SPLIT_SOUL"),
+                    "L3_VALIDATED",
+                    "SEPARATES",
+                    excluded_model="SPLIT_SOUL",
+                    root_key="MP_B",
+                ),
+            ]
+        )
+
+        self.assertEqual(result["surviving_models"], ["SOULMATE_MODEL"])
+        self.assertEqual(result["identifiability_state"], "IDENTIFIABLE")
+        self.assertEqual(result["epistemic_state"], "COMPATIBLE")
+        self.assertGreaterEqual(len(result["conflicts"]), 1)
 
     def test_all_shared_origin_survivors_never_force_specific_model(self):
         result = discriminate_ontology(
