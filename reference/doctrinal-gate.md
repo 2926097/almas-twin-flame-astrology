@@ -125,3 +125,47 @@ Diez fuentes que repitan una doctrina no equivalen a diez evidencias astrológic
 `N_FUENTES ≠ FUERZA_ASTROLOGICA`
 
 La redundancia documental puede aumentar confianza en la **atribución doctrinal**, no en la presencia del fenómeno en un caso.
+
+
+## 9. Claim contract v2
+
+Toda afirmación doctrinal, técnica o metafísica importante debe poder serializarse mediante `schemas/doctrinal-claim.schema.json` versión 2.0.0.
+
+Campos adicionales obligatorios:
+
+- `claim_scope`;
+- `source_anchor_refs`;
+- `requested_conclusion`;
+- `allowed_conclusion`;
+- `inferential_ceiling`;
+- `discriminator_id`;
+- `discriminator_state`;
+- `ceiling_enforced=true`.
+
+### Regla de redacción
+
+La frase publicada debe corresponder a `allowed_conclusion`, no a `requested_conclusion`, cuando ésta exceda el techo.
+
+Ejemplo:
+
+`requested_conclusion = R3_BILATERAL_AGREEMENT_MODEL`
+
+pero
+
+`allowed_conclusion = R2_RELATIONAL_PREINCARNATIONAL_FUNCTION`
+
+si el discriminador R2→R3 sigue `NOT_VALIDATED`.
+
+### Regla de fuente
+
+Cada `source_anchor_ref` debe existir en `source-registry.json` y tener:
+
+- `verification_anchor`;
+- `verification_anchor_type`;
+- `evidence_scope`.
+
+### Regla de técnica
+
+Un claim `B_TECHNIQUE` puede ser `SUPPORTED` respecto de un procedimiento de cálculo aunque la interpretación metafísica asociada permanezca `INSUFFICIENT`.
+
+La técnica y la ontología son variables independientes.
