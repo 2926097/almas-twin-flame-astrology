@@ -22,6 +22,8 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Contrato causal | v2.0.0 |
 | Temporalidad contractual | v2.0.0 |
 | Orquestador M00–M31 | Publicado y probado end-to-end con fixture sintético |
+| M30 report gate | READY/PARTIAL/BLOCKED + fingerprint canónico |
+| M31 report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
 | M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
 | Núcleo Python IEM/IDD/IRC | Publicado y unit-tested |
 | CLI de pilares precomputados | Publicada y unit-tested |
@@ -32,7 +34,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **75 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
+La suite Python contiene **133 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
 
 El workflow `Python core` ejecuta:
 
