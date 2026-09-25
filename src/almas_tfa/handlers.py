@@ -16,6 +16,7 @@ from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_e
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .symmetry_handlers import m05_declinations, m06_antiscia
 from .relationship_chart_handlers import m07_composite
+from .relationship_consonance import m09_relationship_chart_consonance
 from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cross, m12_draconic_draconic
 from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
@@ -341,6 +342,7 @@ def default_handlers():
         "M05": m05_declinations,
         "M06": m06_antiscia,
         "M07": m07_composite,
+        "M09": m09_relationship_chart_consonance,
         "M10": m10_individual_draconics,
         "M11": m11_natal_draconic_cross,
         "M12": m12_draconic_draconic,
