@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.invalid/almas/draconic-output.schema.json",
+  "title":"ALMAS Individual Draconic Charts",
+  "type":"object",
+  "required":["policy","charts"],
+  "properties":{
+    "policy":{"type":"object"},
+    "charts":{"type":"object"}
+  },
+  "additionalProperties":false
+}
