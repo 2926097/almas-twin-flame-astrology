@@ -15,6 +15,7 @@ from .core import (
     score_model,
     supported_gate,
 )
+from .handlers import default_handlers
 from .module_contract import (
     ExecutionStatus,
     ModuleContext,
@@ -43,6 +44,7 @@ __all__ = [
     "robustness_index",
     "score_model",
     "supported_gate",
+    "default_handlers",
     "ExecutionStatus",
     "ModuleContext",
     "ModuleHandler",
