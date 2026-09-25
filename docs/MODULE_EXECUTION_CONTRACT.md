@@ -168,3 +168,9 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 `M24` resume corridas nulas ya generadas bajo uno de los modelos admitidos por la skill. Exige `preregistration_ref` y `frozen_before_inspection=true`, calcula la frecuencia `hits/trials` y, cuando se declara `wilson_z`, el intervalo Wilson correspondiente. La salida fija `metaphysical_probability=false` y `sampling_generated_by_m24=false`.
 
 `M25` puede incorporar automáticamente el componente `BIRTH_TIME` de M23 junto con otros componentes preregistrados y calcula `IRC` y `R_min` con la fórmula existente. La rareza de M24 no se incorpora a IRC por defecto.
+
+## M26 y M27 · activación temporal y hechos documentales
+
+`M26` exige señales con familia temporal, intensidad y estado de ventana. Sólo una señal que referencia un `root_id` existente puede quedar anclada. Los coeficientes normativos son 1.00 para repetición directa, 0.90 para activación de raíz relacional, 0.70 para endpoint y 0 para señal no anclada. Dentro de una misma raíz/familia temporal conserva la señal de mayor fuerza efectiva. Los atacires no preregistrados quedan `EXPLORATORY`. M26 no modifica IEM y no calcula IAT mientras no existan pesos de agregación preregistrados.
+
+`M27` consume `documentary_event_ledger` con `analysis_freeze_ref`. Valida IDs únicos, correcciones append-only, calidad documental, privacidad y funciones probatorias. Los vínculos a raíces desconocidas se registran como no resueltos; nunca crean una raíz. Sólo los eventos `PUBLIC_VERIFIABLE` o `SYNTHETIC` quedan marcados como exportables públicamente.
