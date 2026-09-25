@@ -6,7 +6,7 @@
 2. **Historia de twin soul / twin flame — PARCIALMENTE CUBIERTO**: Corelli 1886, The Theosophist 1887, The Twin Soul 1887 y Dobson/Turner 2025 ya permiten separar genealogía literaria de doctrina Summit Lighthouse. Pendiente ampliar el arco 1888–1970 y documentar transmisiones intermedias.
 3. **Espiritismo**: completar Kardec sobre misiones, simpatías/antipatías y relaciones entre espíritus.
 4. **Teosofía y post-Teosofía**: separar Mónada, alma, rayos y cualquier afirmación real sobre pares.
-5. **Astrología dracónica**: documentar historia técnica, fórmula, autores y fecha de aparición moderna.
+5. **Astrología dracónica — PARCIALMENTE CUBIERTO**: Pamela Crane 1987 está verificada como fuente moderna identificada y se ha formalizado la dependencia nodal. Pendiente rastrear antecedentes anteriores a Crane y comparar otras escuelas dracónicas.
 
 ## Prioridad media
 
