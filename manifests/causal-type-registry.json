@@ -11,7 +11,7 @@
     },
     {
       "id": "CAUSA_DE_CATALISIS",
-      "function": "accelerate reorganization of a pre-existing structure",
+      "function": "acelerar la reorganización de una estructura preexistente",
       "allowed_axes": [
         "FUNCTION",
         "PREINCARNATION_CONTRACT"
@@ -27,7 +27,7 @@
     },
     {
       "id": "CAUSA_DE_ENCARNACION",
-      "function": "bring ideal/transpersonal content into form, limit and responsibility",
+      "function": "llevar contenido ideal/transpersonal a forma, límite y responsabilidad",
       "allowed_axes": [
         "FUNCTION",
         "PREINCARNATION_CONTRACT"
@@ -35,7 +35,7 @@
     },
     {
       "id": "CAUSA_DE_RECIPROCIDAD",
-      "function": "activate mutuality, alterity, balance or bilateral choice",
+      "function": "activar mutualidad, alteridad, equilibrio o elección bilateral",
       "allowed_axes": [
         "FUNCTION",
         "RECIPROCITY",
@@ -44,7 +44,7 @@
     },
     {
       "id": "CAUSA_DE_VERDAD",
-      "function": "force articulation of ambiguity, silence or differentiated meaning",
+      "function": "forzar la articulación de ambigüedad, silencio o significado diferenciado",
       "allowed_axes": [
         "FUNCTION",
         "PREINCARNATION_CONTRACT"
@@ -60,7 +60,7 @@
     },
     {
       "id": "CAUSA_DE_LIBERACION",
-      "function": "make an exhausted form or defense available for change",
+      "function": "hacer disponible para el cambio una forma o defensa agotada",
       "allowed_axes": [
         "FUNCTION",
         "PREINCARNATION_CONTRACT"
@@ -77,7 +77,7 @@
     },
     {
       "id": "CAUSA_DE_MISION",
-      "function": "activate service or mission beyond the dyad",
+      "function": "activar servicio o misión más allá de la díada",
       "allowed_axes": [
         "FUNCTION",
         "PREINCARNATION_CONTRACT"
@@ -86,7 +86,7 @@
     },
     {
       "id": "CAUSA_INDETERMINADA",
-      "function": "causal function cannot be discriminated",
+      "function": "la función causal no puede discriminarse",
       "allowed_axes": [
         "FUNCTION",
         "PREINCARNATION_CONTRACT"
@@ -109,7 +109,7 @@
     {
       "id": "C3_PAIR_SPECIFIC_EMERGENT",
       "max_state": "SUPPORTED_IF_GATES_PASS",
-      "note": "Does not imply unique ontological pair."
+      "note": "No implica una pareja ontológica única."
     }
   ]
 }
