@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/precomputed-pillars.schema.json",
-  "title": "ALMAS Precomputed Pillars Input",
+  "title": "ALMAS · Entrada de pilares precalculados",
   "type": "object",
   "required": ["pillars"],
   "properties": {
