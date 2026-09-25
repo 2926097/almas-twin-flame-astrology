@@ -40,7 +40,7 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
     r_min = payload.get("r_min")
 
     results: dict[str, Any] = {
-        "public_version": "1.9.3",
+        "public_version": "1.9.4",
         "input_mode": "PRECOMPUTED_PILLARS",
         "models": {},
         "pairwise_idd": {},
