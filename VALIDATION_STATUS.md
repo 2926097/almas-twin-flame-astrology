@@ -1,6 +1,6 @@
 # Validation status
 
-## Public v1.9.2
+## Public v1.9.3
 
 The repository validates generalized rules with synthetic test fixtures. Real public case studies, if added, are documentary/illustrative material and are not used as hidden validation fixtures or as a basis for case-fitted rules.
 
