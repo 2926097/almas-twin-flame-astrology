@@ -464,6 +464,38 @@ def main() -> int:
             if source_id not in source_ids:
                 fail(f"doctrine-to-astrology mapping references unknown source: {source_id}")
 
+
+    mapping_ids = {m.get("concept_id") for m in doctrine_map.get("mappings", [])}
+    coverage = doctrine_map.get("coverage", [])
+    coverage_ids_list = [x.get("concept_id") for x in coverage]
+    if len(coverage_ids_list) != len(set(coverage_ids_list)):
+        fail("doctrine-to-astrology coverage contains duplicate concept ids")
+    coverage_ids = set(coverage_ids_list)
+    if coverage_ids != concept_ids:
+        missing = concept_ids - coverage_ids
+        extra_ids = coverage_ids - concept_ids
+        fail(f"doctrine-to-astrology coverage must account for every concept exactly once; missing={sorted(missing)} extra={sorted(extra_ids)}")
+
+    allowed_coverage_states = {
+        "MAPPED",
+        "CONTEXT_ONLY",
+        "BOUNDARY_ONLY",
+        "TECHNIQUE_CONTEXT_ONLY",
+        "PROJECT_INTERNAL",
+        "NOT_OPERATIONALIZED",
+    }
+    coverage_by_id = {x.get("concept_id"): x for x in coverage}
+    for concept_id, item in coverage_by_id.items():
+        state = item.get("coverage_state")
+        if state not in allowed_coverage_states:
+            fail(f"invalid doctrine-to-astrology coverage state: {concept_id} -> {state}")
+        if state == "MAPPED" and concept_id not in mapping_ids:
+            fail(f"coverage marks MAPPED without mapping: {concept_id}")
+        if concept_id in mapping_ids and state != "MAPPED":
+            fail(f"mapping exists but coverage is not MAPPED: {concept_id} -> {state}")
+        if state == "BOUNDARY_ONLY" and concept_id in mapping_ids:
+            fail(f"boundary concept must not generate astrological mapping: {concept_id}")
+
     specificity_ids = {x.get("id") for x in causal_registry.get("specificity_levels", [])}
     if specificity_ids != {"C0_GENERIC","C1_TARGETED","C2_MULTIROOT","C3_PAIR_SPECIFIC_EMERGENT"}:
         fail("causal specificity registry must define C0..C3")
