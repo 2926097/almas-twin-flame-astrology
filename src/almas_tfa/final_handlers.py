@@ -6,89 +6,10 @@ from typing import Any, Mapping
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
+from .report_gate_handlers import m30_report_gate
 
 
 
-
-CANONICAL_REQUIRED = {
-    "schema_version",
-    "analysis_mode",
-    "evidence",
-    "models",
-    "coverage",
-    "robustness",
-    "counterevidence",
-}
-
-
-def m30_report_gate(context: ModuleContext) -> ModuleResult:
-    """M30: comprueba que el informe derive de un análisis canónico suficiente."""
-
-    canonical_analysis = context.raw_input.get("canonical_analysis")
-    source = "RAW_INPUT"
-    if not isinstance(canonical_analysis, Mapping):
-        canonical_analysis = context.canonical_snapshot.get("canonical_analysis")
-        source = "CANONICAL_SNAPSHOT"
-
-    if not isinstance(canonical_analysis, Mapping):
-        output = {
-            "state": "BLOCKED",
-            "source": None,
-            "missing_fields": sorted(CANONICAL_REQUIRED),
-            "failed_modules": [],
-            "reportable": False,
-            "reason": "No existe canonical_analysis.",
-        }
-        return ModuleResult(
-            module_id="M30",
-            status=ExecutionStatus.COMPLETED,
-            payload=output,
-            canonical_updates={"report_gate": output},
-        )
-
-    missing = sorted(CANONICAL_REQUIRED - set(canonical_analysis))
-    failed_modules = sorted(
-        module_id
-        for module_id, result in context.prior_results.items()
-        if result.status is ExecutionStatus.FAILED
-    )
-
-    analysis_mode = canonical_analysis.get("analysis_mode")
-    partial_mode = analysis_mode in {"TARGETED", "TEMPORAL"}
-
-    if failed_modules or missing:
-        state = "BLOCKED"
-        reportable = False
-    elif partial_mode:
-        state = "PARTIAL"
-        reportable = True
-    else:
-        state = "READY"
-        reportable = True
-
-    output = {
-        "state": state,
-        "source": source,
-        "missing_fields": missing,
-        "failed_modules": failed_modules,
-        "reportable": reportable,
-        "analysis_mode": analysis_mode,
-        "canonical_values_mutated": False,
-    }
-
-    updates = {"report_gate": output}
-    if source == "RAW_INPUT":
-        updates["canonical_analysis"] = deepcopy(dict(canonical_analysis))
-
-    return ModuleResult(
-        module_id="M30",
-        status=ExecutionStatus.COMPLETED,
-        payload=output,
-        canonical_updates=updates,
-        limitations=(
-            "M30 valida suficiencia formal; no corrige ni reinterpreta valores canónicos.",
-        ),
-    )
 
 
 REPORT_SECTIONS = (
