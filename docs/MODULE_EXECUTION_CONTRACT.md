@@ -136,3 +136,7 @@ Los contratos de salida están en `schemas/synastry-output.schema.json` y `schem
 `M13` es un evaluador declarativo de fórmulas. Cada lote debe declarar `id`, `source_ref` y una fórmula o variantes `DAY/NIGHT`. Si existen variantes, `lot_policy.sect_by_subject` debe indicar el sect de cada sujeto. ALMAS no escoge fórmulas ni invierte términos de forma implícita.
 
 La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0–360°. Los puntos pueden proceder de posiciones natales o ángulos canónicos.
+
+## M14 · capa simbólica secundaria
+
+`M14` sólo procesa `point_ids` expresamente declarados en `secondary_symbolic_policy`. La política debe contener `support_only=true`; cualquier intento de desactivarlo se rechaza. Los contactos se calculan con una política de aspectos propia y quedan etiquetados individualmente como `support_only`.
