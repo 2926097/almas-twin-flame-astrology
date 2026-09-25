@@ -1,6 +1,6 @@
 ---
 name: almas-twin-flame-astrology
-description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
+description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
 version: 1.11.0
 author: Proyecto ALMAS
 metadata:
@@ -10,42 +10,42 @@ metadata:
 
 # ALMAS · Astrología Metafísica Relacional v1.11.0
 
-## 0. Public release status
+## 0. Estado de la release pública
 
-This is the public `1.11.0` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
+Ésta es la release pública `1.11.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
-### Metaphysical research stance
+### Enfoque de investigación metafísica
 
-ALMAS uses astrology as a **metaphysical method of inquiry** into soul architecture, relational origin/history/function, karmic or dharmic continuity, polarity, activation, integration and other defined metaphysical dimensions. The methodological controls in this skill are quality controls inside that paradigm: they prevent dependency inflation, case-fitting and unsupported ontological jumps; they are not a rejection of metaphysical inquiry.
+ALMAS utiliza la astrología como **método metafísico de investigación** de la arquitectura del alma, el origen, historia y función relacional, la continuidad kármica o dhármica, la polaridad, la activación, la integración y otras dimensiones metafísicas definidas. Los controles metodológicos de esta skill son controles de calidad internos al paradigma: evitan inflación por dependencia, ajuste retrospectivo al caso y saltos ontológicos no sustentados; no constituyen una negación de la investigación metafísica.
 
-The skill follows a **calculation → evidence → validation → metaphysical ontology → differential diagnosis → hermeneutics → report** protocol. It is not a single-label detector.
+La skill sigue el protocolo **cálculo → evidencia → validación → ontología metafísica → diagnóstico diferencial → hermenéutica → informe**. No es un detector de etiqueta única.
 
-## 1. Objective
+## 1. Objetivo
 
-Study a relationship through a reproducible multi-layer architecture combining astronomy/astrology, structural validation, temporal activation, comparative doctrine and hermeneutic synthesis.
+Estudiar una relación mediante una arquitectura multicapa reproducible que combine astronomía/astrología, validación estructural, activación temporal, doctrina comparada y síntesis hermenéutica.
 
-The core operational comparison may score four recurrent models:
-- `AF`: almas afines / soul-affinity model.
-- `KA`: vínculo kármico / karmic model.
-- `AG`: almas gemelas / soulmate model.
-- `LG`: llamas gemelas / twin-flame model.
+La comparación operativa central puede puntuar cuatro modelos recurrentes:
+- `AF`: almas afines.
+- `KA`: vínculo kármico.
+- `AG`: almas gemelas / soulmate.
+- `LG`: llamas gemelas / twin flame.
 
-These scores are structural compatibility indices, never metaphysical probabilities. Several models may be compatible simultaneously.
+Estas puntuaciones son índices de compatibilidad estructural, nunca probabilidades metafísicas. Varios modelos pueden ser compatibles simultáneamente.
 
-The broader ontology must not be reduced to those four labels. Analyse independent axes such as origin, history, function, polarity, modality, phase, viability and reciprocity. Categories such as monadic pair, split soul, twin ray, sacred partner, hieros gamos, mirror, catalytic, healing, teacher/student and mission/service may be examined where doctrinally relevant, but must not be treated as equivalent or forced into one final label.
+La ontología más amplia no debe reducirse a esas cuatro etiquetas. Deben analizarse ejes independientes como origen, historia, función, polaridad, modalidad, fase, viabilidad y reciprocidad. Categorías como pareja monádica, split soul, twin ray, sacred partner, hieros gamos, espejo, catalítica, sanadora, maestro/alumno y misión/servicio pueden examinarse cuando sean doctrinalmente relevantes, pero no deben tratarse como equivalentes ni forzarse en una única etiqueta final.
 
-## 2. Mandatory epistemic separation
+## 2. Separación epistemológica obligatoria
 
-Every material claim must preserve one class:
-- `A_CALCULATED`: astronomical, geometric or documentary datum.
-- `B_TECHNIQUE`: defined astrological/statistical technique.
-- `C_DOCTRINE`: explicit claim from an identified source or tradition.
-- `D_CONTEMPORARY_USAGE`: current emic/New-Age/community usage.
-- `E_PROJECT_HYPOTHESIS`: operational synthesis created by this project.
+Toda afirmación material debe conservar una clase:
+- `A_CALCULATED`: dato astronómico, geométrico o documental.
+- `B_TECHNIQUE`: técnica astrológica o estadística definida.
+- `C_DOCTRINE`: afirmación explícita de una fuente o tradición identificada.
+- `D_CONTEMPORARY_USAGE`: uso emic, New Age o comunitario contemporáneo.
+- `E_PROJECT_HYPOTHESIS`: síntesis operativa creada por este proyecto.
 
-Never present `E_PROJECT_HYPOTHESIS` as `C_DOCTRINE`.
+Nunca presentar `E_PROJECT_HYPOTHESIS` como `C_DOCTRINE`.
 
-Source hierarchy:
+Jerarquía de fuentes:
 - `P1_PRIMARY`
 - `P2_ACADEMIC`
 - `P3_HISTORICAL_TECHNICAL`
@@ -53,33 +53,33 @@ Source hierarchy:
 - `P5_EMIC`
 - `P6_WEAK_UNVERIFIED`
 
-## 3. Non-negotiable rules
+## 3. Reglas no negociables
 
-1. No single aspect, asteroid, atacir, synchronicity, subjective experience or event may create an ontological category.
-2. Temporal techniques primarily indicate **when** a pre-existing architecture activates. Their direct contribution to structural model scoring is zero.
-3. Intensity, suffering, obsession, destiny-feelings, sexual intensity or perceived telepathy do not automatically elevate a bond to a superior spiritual category.
-4. Statistical rarity under an explicit null model is not metaphysical probability.
-5. Do not infer another person's private thoughts, fidelity, sexuality, mental state, consent or future decisions from astrology or metaphysics.
-6. Real-world facts, consent and boundaries prevail over symbolic interpretation.
-7. Missing data are `NOT_EVALUABLE`, not negative evidence.
-8. Mathematically dependent transformations do not count as independent confirmations.
-9. Normalize ASC/DSC, MC/IC, Node/anti-Node and Vertex/Anti-Vertex when counting structures.
-10. Exclude the draconic chart's own fixed nodal anchors from evidentiary recurrence.
-11. Secondary asteroids are corroborative and cannot create a category absent from stronger structural layers.
-12. Exploratory and confirmatory runs must remain distinguishable.
-13. Counterevidence must be actively searched and applied once.
-14. When two models yield the same observable signature and no validated discriminator exists, return `INSUFFICIENT` rather than forcing a choice.
+1. Ningún aspecto, asteroide, atacir, sincronía, experiencia subjetiva o evento aislado puede crear una categoría ontológica.
+2. Las técnicas temporales indican principalmente **cuándo** se activa una arquitectura preexistente. Su contribución directa a la puntuación estructural es cero.
+3. Intensidad, sufrimiento, obsesión, sensación de destino, intensidad sexual o telepatía percibida no elevan automáticamente un vínculo a una categoría espiritual superior.
+4. La rareza estadística bajo un modelo nulo explícito no es probabilidad metafísica.
+5. No inferir pensamientos privados, fidelidad, sexualidad, estado mental, consentimiento o decisiones futuras de otra persona desde astrología o metafísica.
+6. Los hechos reales, el consentimiento y los límites prevalecen sobre la interpretación simbólica.
+7. Los datos ausentes son `NOT_EVALUABLE`, no evidencia negativa.
+8. Las transformaciones matemáticamente dependientes no cuentan como confirmaciones independientes.
+9. Normalizar ASC/DSC, MC/IC, Nodo/anti-Nodo y Vertex/Anti-Vertex al contar estructuras.
+10. Excluir de la recurrencia probatoria los anclajes nodales fijos propios de la carta dracónica.
+11. Los asteroides secundarios son corroborativos y no pueden crear una categoría ausente en capas estructurales más fuertes.
+12. Las ejecuciones exploratorias y confirmatorias deben permanecer diferenciadas.
+13. La contraevidencia debe buscarse activamente y aplicarse una sola vez.
+14. Cuando dos modelos produzcan la misma firma observable y no exista un discriminador validado, devolver `INSUFFICIENT` en vez de forzar una elección.
 
-## 4. States
+## 4. Estados
 
-Use:
-- `SUPPORTED`: predefined criteria are met.
-- `COMPATIBLE`: evidence is coherent but insufficient for stronger support.
-- `INSUFFICIENT`: competing hypotheses cannot be distinguished.
-- `CONTRADICTED`: relevant evidence is materially incompatible.
-- `NOT_EVALUABLE`: required data are unavailable or unusable.
+Usar:
+- `SUPPORTED`: se cumplen los criterios predefinidos.
+- `COMPATIBLE`: la evidencia es coherente pero insuficiente para un soporte más fuerte.
+- `INSUFFICIENT`: las hipótesis competidoras no pueden distinguirse.
+- `CONTRADICTED`: existe evidencia relevante materialmente incompatible.
+- `NOT_EVALUABLE`: los datos requeridos no están disponibles o no son utilizables.
 
-These are methodological states, not probabilities.
+Son estados metodológicos, no probabilidades.
 
 ## 5. Ontología relacional multiaxial
 
@@ -117,81 +117,81 @@ Evaluar de forma independiente:
 ### RECIPROCITY
 `BILATERAL`, `PARTIAL`, `ASYMMETRIC`, `NOT_EVALUABLE`.
 
-Critical non-implications:
+No implicaciones críticas:
 
-- origin does not imply contract;
-- contract does not imply shared origin or romantic union;
-- continuity does not imply twin flame;
-- function does not imply origin;
-- phenomenology does not imply ontology;
-- mission does not imply shared origin;
-- phase does not imply viability;
-- astrological reciprocity does not substitute current interpersonal reciprocity.
+- origen no implica contrato;
+- contrato no implica origen compartido ni unión romántica;
+- continuidad no implica llama gemela;
+- función no implica origen;
+- fenomenología no implica ontología;
+- misión no implica origen compartido;
+- fase no implica viabilidad;
+- reciprocidad astrológica no sustituye reciprocidad interpersonal actual.
 
-Normative registry: `reference/ontology-registry.json`.
-Output schema: `schemas/ontology-output.schema.json`.
+Registro normativo: `reference/ontology-registry.json`.
+Schema de salida: `schemas/ontology-output.schema.json`.
 
-## 6. Execution modes
+## 6. Modos de ejecución
 
-- `FULL`: all applicable structural, cross-chart, temporal, robustness, doctrinal and reporting modules.
-- `TARGETED`: selected techniques only; output must be marked partial.
-- `TEMPORAL`: temporal activation of a prior structural analysis; otherwise `TEMPORAL_UNANCHORED`.
-- `REPORT`: derives only from canonical analysis.
+- `FULL`: todos los módulos estructurales, cruzados, temporales, de robustez, doctrinales y de reporting aplicables.
+- `TARGETED`: sólo técnicas seleccionadas; la salida debe marcarse como parcial.
+- `TEMPORAL`: activación temporal de un análisis estructural previo; en otro caso `TEMPORAL_UNANCHORED`.
+- `REPORT`: deriva únicamente del análisis canónico.
 
-## 7. Mandatory module graph
+## 7. Grafo obligatorio de módulos
 
-`M00 manifest → M01 data quality → M02 natal → M03 synastry → M04 nodes/angles/houses/regencies → M05 declinations → M06 antiscia/contra-antiscia → M07 composite → M08 Davison → M09 relationship-chart consonance → M10 individual draconics → M11 natal↔draconic → M12 draconic↔draconic → M13 lots → M14 secondary symbolic layer → M15 evidence extraction → M16 dependency/deduplication → M17 independent roots → M18 pillars → M19 structural model indices → M20 counterevidence → M21 differential attribution/discrimination → M22 ablation → M23 time sensitivity → M24 null models → M25 robustness → M26 temporal activation → M27 dated events → M28 doctrine/hermeneutics → M29 viability/reciprocity → M30 report gate → M31 report`.
+`M00 manifiesto → M01 calidad de datos → M02 natal → M03 sinastría → M04 nodos/ángulos/casas/regencias → M05 declinaciones → M06 antiscios/contra-antiscios → M07 compuesta → M08 Davison → M09 consonancia de cartas relacionales → M10 dracónicas individuales → M11 natal↔dracónica → M12 dracónica↔dracónica → M13 lotes → M14 capa simbólica secundaria → M15 extracción de evidencia → M16 dependencia/deduplicación → M17 raíces independientes → M18 pilares → M19 índices de modelos estructurales → M20 contraevidencia → M21 atribución/discriminación diferencial → M22 ablación → M23 sensibilidad horaria → M24 modelos nulos → M25 robustez → M26 activación temporal → M27 eventos fechados → M28 doctrina/hermenéutica → M29 viabilidad/reciprocidad → M30 gate de informe → M31 modelo documental`.
 
-A calculable required module omitted in `FULL` blocks a full result. A genuinely impossible module is `NOT_EVALUABLE` and must not be replaced by zero.
+La omisión de un módulo calculable requerido en `FULL` bloquea un resultado completo. Un módulo genuinamente imposible es `NOT_EVALUABLE` y no debe sustituirse por cero.
 
-## 8. Astrological scope
+## 8. Alcance astrológico
 
-Include, where data allow:
-- tropical natal charts;
-- complete synastry;
-- signs, houses, cusps and rulerships;
-- lunar nodes and angles;
-- declinations/parallels/contra-parallels;
-- antiscia and contra-antiscia;
-- midpoint composite;
-- Davison relationship chart;
-- individual draconic charts;
-- natal↔draconic in both directions;
-- draconic↔draconic as corroborative layer;
-- Hellenistic lots with formula and source;
-- secondary asteroids as support-only;
-- progressions;
-- solar arc;
-- C360 and exploratory atacires;
-- transits/eclipses;
-- event charts;
-- recurrent-degree roots;
-- Monte Carlo/null models;
-- ablation;
-- birth-time robustness.
+Incluir, cuando los datos lo permitan:
+- cartas natales tropicales;
+- sinastría completa;
+- signos, casas, cúspides y regencias;
+- nodos lunares y ángulos;
+- declinaciones/paralelos/contra-paralelos;
+- antiscios y contra-antiscios;
+- compuesta de puntos medios;
+- carta relacional Davison;
+- cartas dracónicas individuales;
+- natal↔dracónica en ambas direcciones;
+- dracónica↔dracónica como capa corroborativa;
+- lotes helenísticos con fórmula y fuente;
+- asteroides secundarios como `support_only`;
+- progresiones;
+- arco solar;
+- C360 y atacires exploratorios;
+- tránsitos/eclipses;
+- cartas de eventos;
+- raíces de grados recurrentes;
+- Monte Carlo/modelos nulos;
+- ablación;
+- robustez frente a hora natal.
 
-Dependency rules:
-- Composite and Davison belong to one `RELCHART` family for independence accounting.
-- Draconic↔draconic is corroborative, not independently core-eligible by default.
-- Secondary asteroids are `support_only=true`.
-- Houses and signs contextualize roots; they do not create ontological roots alone.
+Reglas de dependencia:
+- Compuesta y Davison pertenecen a una única familia `RELCHART` para el cómputo de independencia.
+- Dracónica↔dracónica es corroborativa y no es elegible por defecto como núcleo independiente.
+- Los asteroides secundarios son `support_only=true`.
+- Casas y signos contextualizan raíces; no crean por sí solos raíces ontológicas.
 
-## 9. Evidence strength
+## 9. Fuerza de evidencia
 
-For a contact within a declared orb:
+Para un contacto dentro de un orbe declarado:
 
 `F = max(0, 1 - (distance/orb_limit)^2)`
 
 `S = F × technique_reliability × birth_time_factor × aspect_coefficient`
 
-Raw pillar loadings satisfy `sum(loadings) <= 1`.
-For scoring, normalize within each evidence item:
+Las cargas brutas de pilares cumplen `sum(loadings) <= 1`.
+Para puntuar, normalizar dentro de cada elemento de evidencia:
 
 `L*_p = L_p / max(L)`
 
 `contribution_p = S × L*_p`.
 
-## 10. Pillars
+## 10. Pilares
 
 - `PA`: Afinidad estructural.
 - `PK`: Continuidad kármica.
@@ -202,262 +202,261 @@ For scoring, normalize within each evidence item:
 - `PS`: Misión/servicio.
 - `PU`: Singularidad diádica, experimental.
 
-For each pillar, use the three strongest independent roots `r1 >= r2 >= r3`:
+Para cada pilar, usar las tres raíces independientes más fuertes `r1 >= r2 >= r3`:
 
 `P = 100 × (r1 + 0.5r2 + (1/3)r3) / (1 + 0.5 + 1/3)`.
 
-## 11. Core model compatibility index — IEM
+## 11. Índice de Encaje del Modelo — IEM
 
 `IEM` = **Índice de Encaje del Modelo**.
 
-Core pillars:
+Pilares esenciales:
 - AF: PA, PR.
 - KA: PK, PT.
 - AG: PA, PE, PR, PX.
 - LG: PA, PE, PR, PX, PT.
 
-Support pillars:
+Pilares de apoyo:
 - AF: PE, PX.
 - KA: PX, PR, PE.
 - AG: PK, PT, PS.
 - LG: PK, PS, PU.
 
-`CORE` = geometric mean of evaluable essential pillars in [0,1].
+`CORE` = media geométrica de pilares esenciales evaluables en [0,1].
 
-`SUPPORT` = arithmetic mean of evaluable support pillars.
+`SUPPORT` = media aritmética de pilares de apoyo evaluables.
 
 `IEM_pre = 100 × CORE × (0.90 + 0.10 × SUPPORT)`
 
 `IEM_final = IEM_pre × (1 - 0.30 × ICE/100)`
 
-IEMs are independent and do not sum to 100.
+Los IEM son independientes y no suman 100.
 
-## 12. Differential discrimination — IDD
+## 12. Discriminación diferencial — IDD
 
-`IDD` = **Índice de Discriminación Diagnóstica**. `IDE` may appear as a legacy alias for `IDD`.
+`IDD` = **Índice de Discriminación Diagnóstica**. `IDE` puede aparecer como alias histórico de `IDD`.
 
-Use Shapley attribution over `IEM_pre` to estimate which independent roots distinguish models. Exact attribution is preferred for small root sets; deterministic permutation approximation may be used for larger sets with convergence checks.
+Usar atribución Shapley sobre `IEM_pre` para estimar qué raíces independientes distinguen modelos. Se prefiere la atribución exacta para conjuntos pequeños de raíces; para conjuntos mayores puede usarse una aproximación determinista por permutaciones con control de convergencia.
 
-Normalize primary root contributions by model and compare distributions with Jensen-Shannon divergence. A practical 0–100 form is:
+Normalizar las contribuciones primarias por modelo y comparar distribuciones mediante divergencia Jensen–Shannon. Una forma práctica 0–100 es:
 
 `IDD(m,n) = 100 × sqrt(JSD_base2(p_m, p_n))`.
 
-Interpretive bands:
-- `<15`: substantial overlap;
-- `15–29`: transitional distinction;
-- `30–49`: material distinction;
-- `>=50`: very marked distinction.
+Bandas interpretativas:
+- `<15`: solapamiento sustancial;
+- `15–29`: distinción transicional;
+- `30–49`: distinción material;
+- `>=50`: distinción muy marcada.
 
-IDD measures separation of evidence architecture, not metaphysical truth.
+IDD mide separación de arquitecturas de evidencia, no verdad metafísica.
 
-## 13. Robustness — IRC
+## 13. Robustez — IRC
 
 `IRC` = **Índice de Robustez de la Clasificación**.
 
-Applicable components may include birth-time robustness, layer ablation, parameter perturbation, IDD stability and validated discriminators where available.
+Los componentes aplicables pueden incluir robustez frente a hora natal, ablación de capas, perturbación de parámetros, estabilidad de IDD y discriminadores validados cuando existan.
 
-For perturbation family X:
+Para la familia de perturbación X:
 
 `R_X = exp(-delta90/20) × sqrt(G)`
 
-where `G` is the fraction preserving preregistered interpretive bands.
+donde `G` es la fracción que preserva las bandas interpretativas preregistradas.
 
 `IRC = 100 × geometric_mean(applicable R_i)`
 
 `R_min = min(applicable R_i)`.
 
-## 14. Temporal activation — IAT
+## 14. Activación temporal — IAT
 
 `IAT` = **Índice de Activación Temporal**.
 
-A temporal signal contributes only when anchored to a pre-existing structural root.
+Una señal temporal contribuye sólo cuando está anclada a una raíz estructural preexistente.
 
-Classes:
-- direct repetition: K=1.00;
-- relational root activation: K=0.90;
-- endpoint activation: K=0.70;
-- unanchored: K=0.
+Clases:
+- repetición directa: K=1.00;
+- activación de raíz relacional: K=0.90;
+- activación de endpoint: K=0.70;
+- no anclada: K=0.
 
-Primary temporal families:
-- `TPROG`: secondary progressions;
-- `TDIR`: solar arc and related directed family;
-- `TTRANSIT`: transits;
-- `TECLIPSE`: eclipses under declared rules;
-- `TREL`: progressed/directed composite or Davison.
+Familias temporales primarias:
+- `TPROG`: progresiones secundarias;
+- `TDIR`: arco solar y familia dirigida relacionada;
+- `TTRANSIT`: tránsitos;
+- `TECLIPSE`: eclipses bajo reglas declaradas;
+- `TREL`: compuesta o Davison progresada/dirigida.
 
-Within one root/family keep the strongest signal. Aggregate independent temporal families and roots using preregistered weights. IAT never modifies IEM.
+Dentro de una raíz/familia conservar la señal más fuerte. Agregar familias temporales y raíces independientes mediante pesos preregistrados. IAT nunca modifica IEM.
 
-## 15. Coverage — ICC
+## 15. Cobertura — ICC
 
 `ICC` = **Índice de Cobertura Canónica**.
 
-Dependency-aware domains:
-1. natal foundation;
-2. synastry/nodes;
-3. angles/houses/rulership;
-4. symmetries;
-5. relationship charts;
-6. draconic layers;
-7. lots/secondary symbolic.
+Dominios conscientes de dependencia:
+1. base natal;
+2. sinastría/nodos;
+3. ángulos/casas/regencias;
+4. simetrías;
+5. cartas relacionales;
+6. capas dracónicas;
+7. lotes/capa simbólica secundaria.
 
-Each domain quality q may be 1 complete, 0.5 degraded, 0 not evaluable.
+La calidad q de cada dominio puede ser 1 completa, 0.5 degradada, 0 no evaluable.
 
 `ICC = 100 × sum(q) / 7`.
 
-Temporal and documentary coverage may be reported separately as `ICC_T` and `ICC_D`.
+La cobertura temporal y documental puede informarse separadamente como `ICC_T` e `ICC_D`.
 
-## 16. Counterevidence — ICE
+## 16. Contraevidencia — ICE
 
 `ICE` = **Índice de Contraevidencia Estructural**.
 
-ICE measures explicit contradictions or structural incompatibilities. It is not a penalty for missing data and must not double-count the same contradiction through dependent layers.
+ICE mide contradicciones explícitas o incompatibilidades estructurales. No penaliza datos ausentes y no debe contar dos veces la misma contradicción a través de capas dependientes.
 
-## 17. Structural support gate
+## 17. Gate de soporte estructural
 
-A model may be marked `SUPPORTED` only when all preregistered minimums are met, including adequate IEM, core strength, coverage, robustness, minimum perturbation resilience, evaluability of essential pillars and absence of essential contradiction.
+Un modelo sólo puede marcarse `SUPPORTED` cuando se cumplen todos los mínimos preregistrados, incluidos IEM suficiente, fuerza de núcleo, cobertura, robustez, resiliencia mínima a perturbaciones, evaluabilidad de pilares esenciales y ausencia de contradicción esencial.
 
-The public default for v1.0.0 is:
+Los umbrales públicos vigentes, heredados desde v1.0.0, son:
 - `IEM_final >= 75`;
 - `CORE >= 0.65`;
 - `ICC >= 80`;
 - `IRC >= 70`;
 - `R_min >= 0.50`;
-- no essential contradiction;
-- essential pillars evaluable.
+- ausencia de contradicción esencial;
+- pilares esenciales evaluables.
 
-This is structural support within the model, not metaphysical proof.
+Es soporte estructural dentro del modelo, no prueba metafísica.
 
-## 18. Discriminator registry
+## 18. Registro de discriminadores
 
-A binary discriminator may only be used when preregistered and validated. If two candidate ontologies remain observationally equivalent under the available evidence, return `INSUFFICIENT`.
+Un discriminador binario sólo puede utilizarse cuando está preregistrado y validado. Si dos ontologías candidatas siguen siendo observacionalmente equivalentes con la evidencia disponible, devolver `INSUFFICIENT`.
 
-Do not turn transformation, mission, mirroring, draconic recurrence, asteroids or a higher LG IEM into an ontological discriminator unless a validated rule exists.
+No convertir transformación, misión, espejo, recurrencia dracónica, asteroides o un IEM LG superior en discriminadores ontológicos salvo que exista una regla validada.
 
-## 19. Null models and rarity
+## 19. Modelos nulos y rareza
 
-Freeze the feature set, orb policy, event set and null model before confirmatory inspection.
+Congelar el conjunto de características, política de orbes, conjunto de eventos y modelo nulo antes de la inspección confirmatoria.
 
-Acceptable null models may include matched-age, within-year, matched-age-clock, ephemeris-date, pair-shuffle, event-date-shift or technique-specific cycle nulls.
+Los modelos nulos aceptables pueden incluir `matched-age`, `within-year`, `matched-age-clock`, `ephemeris-date`, `pair-shuffle`, `event-date-shift` o nulos específicos de ciclo/técnica.
 
-Use Monte Carlo/Wilson intervals where appropriate. Report rarity only as structural frequency under the declared null.
+Usar Monte Carlo e intervalos de Wilson cuando proceda. Informar la rareza sólo como frecuencia estructural bajo el nulo declarado.
 
-## 20. Doctrine and comparative hermeneutics
+## 20. Doctrina y hermenéutica comparada
 
-Do not collapse traditions into equivalence.
+No fusionar tradiciones como si fueran equivalentes.
 
-For every doctrinal comparison identify:
-1. provenance;
-2. primary source or best available authority;
-3. historical meaning;
-4. contemporary usage;
-5. what the source does **not** establish;
-6. whether the correspondence is doctrine or project hypothesis.
+Para cada comparación doctrinal identificar:
+1. procedencia;
+2. fuente primaria o mejor autoridad disponible;
+3. significado histórico;
+4. uso contemporáneo;
+5. qué **no** establece la fuente;
+6. si la correspondencia es doctrina o hipótesis del proyecto.
 
-Relevant corpora may include Platonism/Neoplatonism, Kabbalah, Christian mysticism, Sufism, Hindu/Vedantic/Tantric traditions, Buddhism where appropriate, Spiritism, Theosophy, Alice Bailey, I AM Activity, Summit Lighthouse, New Age and academic studies of esotericism.
+Los corpus relevantes pueden incluir Platonismo/Neoplatonismo, Cábala, misticismo cristiano, sufismo, tradiciones hindúes/Vedanta/Tantra, budismo cuando proceda, espiritismo, Teosofía, Alice Bailey, I AM Activity, Summit Lighthouse, New Age y estudios académicos del esoterismo.
 
-Examples of non-equivalence:
-- Aristophanes' speech in Plato's *Symposium* is an antecedent, not identical to modern twin-flame doctrine.
-- Plotinus does not by itself establish one unique split counterpart.
-- Kabbalistic zivug/gilgul/tikkun are comparanda, not automatically modern twin flames.
-- Christian mystical marriage is primarily soul–God language.
-- Sufi lover/Beloved language must not be automatically retrofitted into modern dyadic soul models.
-- Buddhist anatta/anātman prevents casually importing an enduring split-soul ontology.
+Ejemplos de no equivalencia:
+- El discurso de Aristófanes en el *Banquete* de Platón es un antecedente, no idéntico a la doctrina moderna de llamas gemelas.
+- Plotino no establece por sí solo una contraparte única escindida.
+- Zivug/gilgul/tikkun cabalísticos son comparanda, no llamas gemelas modernas por defecto.
+- El matrimonio místico cristiano se formula principalmente en lenguaje alma–Dios.
+- El lenguaje sufí amante/Amado no debe reinterpretarse automáticamente como modelo diádico moderno del alma.
+- Anatta/anātman budista impide importar sin más una ontología persistente de alma escindida.
 
-Doctrine interprets evidence; doctrine never adds IEM points.
+La doctrina interpreta evidencia; nunca añade puntos IEM.
 
-## 21. Hermeneutic synthesis
+## 21. Síntesis hermenéutica
 
-A complete report must explain:
-- what was found;
-- source and technique;
-- symbolic meaning;
-- compatible models;
-- competing alternatives;
-- contrary evidence;
-- uncertainty and missingness;
-- dependency among techniques;
-- structural versus temporal components;
-- why each final state is adopted.
+Un informe completo debe explicar:
+- qué se encontró;
+- fuente y técnica;
+- significado simbólico;
+- modelos compatibles;
+- alternativas competidoras;
+- evidencia contraria;
+- incertidumbre y datos ausentes;
+- dependencia entre técnicas;
+- componentes estructurales frente a temporales;
+- por qué se adopta cada estado final.
 
-Do not write the report as a table of aspects. Convert technical findings into a coherent account of relational architecture while preserving traceability to canonical evidence.
+No redactar el informe como una tabla de aspectos. Convertir los hallazgos técnicos en una exposición coherente de la arquitectura relacional, conservando trazabilidad hacia la evidencia canónica.
 
-## 22. Canonical/report contract
+## 22. Contrato canónico y de informe
 
-`canonical_analysis.json` is the single analytical truth.
+`canonical_analysis.json` es la única verdad analítica.
 
-`report_document_model.json` may select, order and display canonical values but cannot alter them.
+M30 genera el gate de reportabilidad y el fingerprint canónico. M31 construye `report_document_model.json` exclusivamente como estructura de secciones y rutas hacia la verdad canónica; no incrusta ni modifica valores analíticos.
 
-Recommended report sequence:
-1. synthesis;
-2. data quality and method;
-3. numeric ontology and index definitions;
-4. structural architecture;
-5. relational/cross-chart layers;
-6. differential diagnosis and counterevidence;
-7. temporal activation/events;
-8. robustness/validation;
-9. comparative doctrine/corpus;
-10. final synthesis;
-11. sources and appendices.
+Secuencia canónica de informe:
+1. síntesis ejecutiva;
+2. calidad de datos y método;
+3. ontología numérica y definiciones de índices;
+4. arquitectura estructural;
+5. capas relacionales/cruzadas;
+6. diagnóstico diferencial y contraevidencia;
+7. activación temporal/eventos;
+8. robustez/validación;
+9. doctrina comparada/corpus;
+10. síntesis final;
+11. fuentes y anexos.
 
-Expand acronyms on first appearance. Use quantified bars as presentation aids, never as metaphysical probability meters.
+Expandir las siglas en su primera aparición. Las barras cuantificadas son ayudas de presentación, nunca medidores de probabilidad metafísica.
 
-## 23. PDF/report pipeline
+## 23. Pipeline de informe/PDF
 
-Preferred pipeline:
+Pipeline preferente:
 
-`canonical_analysis.json → report_document_model.json → structured document → PDF → preflight → render every page → inspect → correct → re-render/verify`.
+`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → documento estructurado → PDF → preflight → renderizar todas las páginas → inspeccionar → corregir → re-renderizar/verificar`.
 
-For long reports, DOCX authoring followed by controlled PDF conversion is preferred. Use vertical page orientation unless the target publication format requires otherwise.
+Para informes largos se prefiere la autoría en DOCX seguida de conversión controlada a PDF. Usar orientación vertical salvo que el formato de publicación objetivo requiera otra disposición.
 
-## 24. Validation invariants
+## 24. Invariantes de validación
 
-A release-grade run must verify at minimum:
-- no omitted calculable FULL module;
-- no metaphysical probability;
-- no max-IEM classifier;
-- no temporal or phenomenological contribution to structural IEM;
-- no asteroid-created ontology;
-- dependency/root deduplication;
-- composite/Davison dependency control;
-- missing != zero;
-- ambiguity preserved when discriminators are absent;
-- IDD != validated discriminator;
-- real-world consent/facts prevail;
-- doctrine != project hypothesis;
-- report values equal canonical values.
+Una ejecución de calidad release debe verificar como mínimo:
+- ningún módulo calculable FULL omitido;
+- ninguna probabilidad metafísica;
+- ningún clasificador por IEM máximo;
+- ninguna contribución temporal o fenomenológica al IEM estructural;
+- ninguna ontología creada por asteroides;
+- deduplicación por dependencia/raíz;
+- control de dependencia compuesta/Davison;
+- ausente != cero;
+- ambigüedad preservada cuando faltan discriminadores;
+- IDD != discriminador validado;
+- prevalencia de consentimiento/hechos reales;
+- doctrina != hipótesis del proyecto;
+- valores del informe iguales a los canónicos o, en M31, referencias a rutas sin mutación.
 
-## 25. New-category rule
+## 25. Regla para categorías nuevas
 
-When a new category or technique is proposed:
-1. identify provenance;
-2. compare it with existing categories;
-3. define evidence requirements;
-4. state what cannot be concluded;
-5. integrate it into the ontology;
-6. create reproducible rules;
-7. add tests;
-8. avoid fitting criteria to the case under study;
-9. validate before promoting it to a confirmatory rule.
+Cuando se proponga una categoría o técnica nueva:
+1. identificar procedencia;
+2. compararla con categorías existentes;
+3. definir requisitos de evidencia;
+4. declarar qué no puede concluirse;
+5. integrarla en la ontología;
+6. crear reglas reproducibles;
+7. añadir tests;
+8. evitar ajustar criterios al caso estudiado;
+9. validar antes de promoverla a regla confirmatoria.
 
-## 26. Output standard
+## 26. Estándar de salida
 
-Every full analysis should clearly distinguish:
-- data/documentation;
-- technique;
-- doctrine;
-- contemporary usage;
-- project hypothesis;
-- structural evidence;
-- temporal activation;
-- counterevidence;
-- uncertainty;
-- real-world viability and reciprocity when observable.
+Todo análisis FULL debe distinguir claramente:
+- datos/documentación;
+- técnica;
+- doctrina;
+- uso contemporáneo;
+- hipótesis del proyecto;
+- evidencia estructural;
+- activación temporal;
+- contraevidencia;
+- incertidumbre;
+- viabilidad y reciprocidad reales cuando sean observables.
 
-The objective is not to confirm a prior belief, but to build the broadest, most documented, reproducible and discriminating model possible for studying soul-bond narratives and astrological relationship structures.
+El objetivo no es confirmar una creencia previa, sino construir el modelo más amplio, documentado, reproducible y discriminante posible para estudiar narrativas de vínculos del alma y estructuras astrológicas relacionales.
 
-
-## 32. Interoperabilidad con ALMAS Contrato Álmico
+## 27. Interoperabilidad con ALMAS Contrato Álmico
 
 La reconstrucción de un posible **acuerdo preencarnatorio** se ejecuta en el **módulo interno de Contrato Preencarnatorio** de la misma skill ALMAS.
 
@@ -479,7 +478,7 @@ Reglas de interoperabilidad:
 4. La contraevidencia y la robustez viajan con la evidencia; no se eliminan al pasar al motor contractual.
 5. Los motores internos pueden evolucionar mediante `engine_revision` o `schema_version`, pero heredan una única versión pública desde `VERSION`.
 
-## 33. Convención lingüística pública
+## 28. Convención lingüística pública
 
 La documentación destinada a lectura humana utiliza **terminología española** como forma principal.
 
@@ -499,7 +498,7 @@ Ejemplos:
 Esta convención no obliga a renombrar claves internas de software si ello rompe compatibilidad.
 
 
-## 36. Causa contractual
+## 29. Causa contractual
 
 La causa contractual pertenece al **módulo interno de Contrato Preencarnatorio**. El motor astrológico aporta la tarea previa del receptor, el activador, la geometría, la recurrencia y la robustez necesarias para que el módulo contractual evalúe la causa preencarnatoria.
 
@@ -516,7 +515,7 @@ Tipos de causa: reconocimiento, catálisis, confrontación, encarnación, recipr
 Referencia: `reference/causa-contractual.md`.
 
 
-## 37. Integración doctrinal basada en fuentes
+## 30. Integración doctrinal basada en fuentes
 
 ALMAS mantiene una capa formal de genealogía doctrinal separada de la puntuación astrológica.
 
@@ -542,7 +541,7 @@ Reglas:
 5. Los huecos documentales permanecen `INSUFFICIENT` o `NOT_EVALUABLE`; no se rellenan por semejanza intuitiva.
 
 
-## 38. Cadena causal del contrato preencarnatorio
+## 31. Cadena causal del contrato preencarnatorio
 
 En modo FULL, el módulo contractual debe producir una cadena causal adicional:
 
@@ -568,7 +567,7 @@ Referencia: `reference/contract-causal-architecture-v2.md`.
 Esquema: `schemas/preincarnation-contract-chain.schema.json`.
 
 
-## 39. Traducción doctrina → astrología
+## 32. Traducción doctrina → astrología
 
 Toda correspondencia doctrinal se procesa en tres pasos:
 
@@ -586,7 +585,7 @@ Registro normativo: `reference/doctrine-to-astrology-map.json`.
 Documentación: `docs/DOCTRINE_TO_ASTROLOGY.md`.
 
 
-## 40. Motor de causalidad preencarnatoria
+## 33. Motor de causalidad preencarnatoria
 
 El motor causal evalúa si una persona activa de forma específica una tarea que la otra ya trae.
 
@@ -611,7 +610,7 @@ Registro: `manifests/causal-type-registry.json`.
 Esquema: `schemas/preincarnation-causality.schema.json`.
 
 
-## 41. Discriminación transversal
+## 34. Discriminación transversal
 
 ALMAS distingue entre:
 
@@ -639,7 +638,7 @@ Permanecen `NOT_VALIDATED` como discriminadores ontológicos:
 Registro: `manifests/cross-model-discriminator-registry.json`.
 
 
-## 42. Ablación contractual
+## 35. Ablación contractual
 
 Una ejecución FULL del contrato debe ejecutar la batería:
 
@@ -657,7 +656,7 @@ Clases: `CORE_STABLE`, `MULTILAYER_STABLE`, `DRACONIC_SENSITIVE`, `DRACONIC_DEPE
 Referencia: `reference/contract-ablation.md`.
 
 
-## 43. Métricas contractuales
+## 36. Métricas contractuales
 
 El módulo contractual puede cuantificar arquitectura sin convertirla en probabilidad metafísica.
 
@@ -678,7 +677,7 @@ El módulo contractual puede cuantificar arquitectura sin convertirla en probabi
 Referencia: `reference/contract-metrics.md`.
 
 
-## 44. Libre albedrío contractual
+## 37. Libre albedrío contractual
 
 Cada cláusula contractual debe distinguir:
 
@@ -702,7 +701,7 @@ Toda forma compartida requiere elección y hechos bilaterales. Reconocimiento, c
 Referencia: `reference/contract-free-will.md`.
 
 
-## 45. Temporalidad contractual v2
+## 38. Temporalidad contractual v2
 
 Toda cláusula separa:
 
@@ -736,7 +735,7 @@ IAT mide activación de raíces preexistentes y no modifica IAP.
 Referencia: `reference/contract-temporality-v2.md`.
 
 
-## 46. Hechos y biografía documental
+## 39. Hechos y biografía documental
 
 Los hechos entran sólo después de congelar la estructura.
 
@@ -760,7 +759,7 @@ Referencia: `reference/documentary-events.md`.
 Esquema: `schemas/documentary-event-ledger.schema.json`.
 
 
-## 38. Gate doctrinal
+## 40. Gate doctrinal
 
 Antes de integrar una fuente en una conclusión metafísica, clasificar la relación entre la afirmación y la fuente:
 
@@ -786,7 +785,7 @@ Referencia normativa: `reference/doctrinal-gate.md`.
 
 Objeto recomendado: `schemas/doctrinal-claim.schema.json`.
 
-## 39. Separaciones doctrinales obligatorias v1.4
+## 41. Separaciones doctrinales obligatorias v1.4
 
 ALMAS preserva, entre otras, las siguientes no-equivalencias:
 
@@ -804,7 +803,7 @@ ALMAS preserva, entre otras, las siguientes no-equivalencias:
 Estas separaciones son parte del contrato de regresión de la metodología.
 
 
-## 40. Validación externa y preregistro
+## 42. Validación externa y preregistro
 
 ALMAS distingue estrictamente `DEVELOPMENT_ONLY`, `INTERNAL_REPLICATION`, `EXTERNAL_HOLDOUT`, `FROZEN_CONFIRMATORY`, `RETIRED` y `NOT_EVALUABLE`.
 
@@ -838,7 +837,7 @@ La validación externa evalúa generalización, reproducibilidad y especificidad
 Referencia: `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
 
 
-## 47. Cláusula contractual C4–C8
+## 43. Cláusula contractual C4–C8
 
 Desde ALMAS 1.10.0, toda cláusula contractual debe separar explícitamente:
 
