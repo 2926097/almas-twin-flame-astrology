@@ -1,22 +1,63 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/time-sensitivity-output.schema.json",
-  "title":"ALMAS Time Sensitivity Output",
-  "type":"object",
-  "required":[
-    "preregistration_ref","delta90","preserved_fraction",
-    "robustness_component","perturbations_generated_by_m23"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/time-sensitivity-output.schema.json",
+  "title": "ALMAS · Salida de sensibilidad horaria",
+  "type": "object",
+  "required": [
+    "preregistration_ref",
+    "delta90",
+    "preserved_fraction",
+    "robustness_component",
+    "perturbations_generated_by_m23"
   ],
-  "properties":{
-    "preregistration_ref":{"type":"string","minLength":1},
-    "subject_scope":{"type":["string","null"]},
-    "perturbation_rule":{"type":["string","object","null"]},
-    "metric":{"type":["string","null"]},
-    "delta90":{"type":"number","minimum":0},
-    "preserved_fraction":{"type":"number","minimum":0,"maximum":1},
-    "perturbation_count":{"type":["integer","null"],"minimum":1},
-    "robustness_component":{"type":"number","minimum":0,"maximum":1},
-    "perturbations_generated_by_m23":{"const":false}
+  "properties": {
+    "preregistration_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "perturbation_rule": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ]
+    },
+    "metric": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "delta90": {
+      "type": "number",
+      "minimum": 0
+    },
+    "preserved_fraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "perturbation_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "robustness_component": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "perturbations_generated_by_m23": {
+      "const": false
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
