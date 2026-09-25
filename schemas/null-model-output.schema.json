@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.invalid/almas/null-model-output.schema.json",
+  "title":"ALMAS Null Model Output",
+  "type":"object",
+  "required":[
+    "runs","run_count","metaphysical_probability","sampling_generated_by_m24"
+  ],
+  "properties":{
+    "runs":{"type":"array","items":{"type":"object"}},
+    "run_count":{"type":"integer","minimum":1},
+    "metaphysical_probability":{"const":false},
+    "sampling_generated_by_m24":{"const":false}
+  },
+  "additionalProperties":false
+}
