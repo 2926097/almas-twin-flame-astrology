@@ -1,7 +1,7 @@
 {
   "registry_version": "1.1.0",
   "almas_version": "1.11.0",
-  "policy": "Functional discriminators may separate observable architectures without proving metaphysical truth. Every doctrine-to-astrology mapping has an inferential ceiling. Model score, rarity, recurrence or technique count cannot override that ceiling. Ontological subtype claims require an independently validated discriminator.",
+  "policy": "Los discriminadores funcionales pueden separar arquitecturas observables sin demostrar verdad metafísica. Todo mapeo doctrina→astrología tiene un techo inferencial. Puntuación de modelo, rareza, recurrencia o número de técnicas no pueden superar ese techo. Las afirmaciones de subtipo ontológico requieren un discriminador validado de forma independiente.",
   "discriminators": [
     {
       "id": "X_CONTINUITY_VS_NEW",
@@ -67,7 +67,7 @@
         "MISSION_SERVICE",
         "SHARED_ORIGIN"
       ],
-      "rule": "Mission/service evidence remains FUNCTION unless an independent ORIGIN discriminator is satisfied."
+      "rule": "La evidencia de misión/servicio permanece en FUNCTION salvo que se satisfaga un discriminador ORIGIN independiente."
     },
     {
       "id": "X_PHENOMENOLOGY_VS_ONTOLOGY",
@@ -77,7 +77,7 @@
         "PHENOMENOLOGY",
         "ORIGIN"
       ],
-      "rule": "Recognition, synchronicity, transpersonal meaning and intensity cannot elevate origin state."
+      "rule": "Reconocimiento, sincronicidad, significado transpersonal e intensidad no pueden elevar el estado de origen."
     },
     {
       "id": "X_PAIRING_VS_SHARED_ORIGIN",
@@ -87,7 +87,7 @@
         "PRENATAL_PAIRING_OR_ZIVUG",
         "SHARED_ORIGIN"
       ],
-      "rule": "A doctrine may pair two souls without stating they originate from one source."
+      "rule": "Una doctrina puede emparejar dos almas sin afirmar que se originen en una misma fuente."
     },
     {
       "id": "X_R2_FUNCTION_VS_R3_BILATERAL_AGREEMENT",
@@ -97,7 +97,7 @@
         "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
         "R3_BILATERAL_AGREEMENT_MODEL"
       ],
-      "missing_validation": "No validated astrological discriminator establishes that both parties literally agreed before birth."
+      "missing_validation": "Ningún discriminador astrológico validado establece que ambas partes acordaran literalmente algo antes del nacimiento."
     },
     {
       "id": "X_SOUL_ROOT_VS_ZIVUG",
@@ -152,7 +152,7 @@
         "AG",
         "LG"
       ],
-      "rule": "Transformation, mission, mirroring, draconic recurrence, asteroids and IEM magnitude are not validated AG/LG discriminators."
+      "rule": "Transformación, misión, espejo, recurrencia dracónica, asteroides y magnitud IEM no son discriminadores AG/LG validados."
     }
   ],
   "fallback_rules": [
