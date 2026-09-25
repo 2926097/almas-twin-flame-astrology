@@ -118,3 +118,9 @@ Los contratos de salida están en `schemas/synastry-output.schema.json` y `schem
 `M05` calcula paralelos mediante `|dec_A-dec_B|` y contra-paralelos mediante `|dec_A+dec_B|`. Requiere `declination_policy` con los orbes aplicables; no existe orbe implícito.
 
 `M06` calcula el antiscio como `(180°-λ) mod 360°` y el contra-antiscio como el punto opuesto al antiscio. Requiere `antiscia_policy` con los orbes declarados. La salida registra geometría y exactitud; su conversión en evidencia pertenece a M15–M17.
+
+## M07 y M08 · cartas relacionales
+
+`M07` implementa una compuesta de puntos medios sobre los puntos compartidos de ambas cartas. Requiere `composite_policy.midpoint_mode=SHORTEST_ARC`. Una oposición exacta no se resuelve silenciosamente: `opposition_tie_break` puede quedar en `NOT_EVALUABLE` o declarar expresamente una de las dos soluciones.
+
+`M08` dispone de contrato y handler inyectable mediante `DavisonBackend`, pero permanece `BACKEND_REQUIRED`. Para evitar geocodificación implícita exige hora, zona horaria y coordenadas numéricas de ambos sujetos, además de una `davison_policy` registrada.
