@@ -4,7 +4,7 @@
     {
       "schema_version": "2.0.0",
       "claim_id": "CLAIM_KARDEC_CHOICE",
-      "statement": "Kardec explicitly teaches choice of the general type of trials before corporeal existence.",
+      "statement": "Kardec enseña explícitamente la elección del tipo general de pruebas antes de la existencia corporal.",
       "epistemic_class": "C_DOCTRINE",
       "claim_scope": "DOCTRINAL_ATTRIBUTION",
       "concept_id": "PREINCARNATIONAL_CHOICE",
@@ -18,20 +18,20 @@
       "astrological_refs": [],
       "status": "SUPPORTED",
       "requested_conclusion": "PREINCARNATIONAL_CHOICE_DOCTRINE",
-      "allowed_conclusion": "Doctrine explicitly supports general preincarnational choice of trials.",
+      "allowed_conclusion": "La doctrina respalda explícitamente la elección preencarnatoria general de pruebas.",
       "inferential_ceiling": "DIRECT_DOCTRINE_ONLY",
       "discriminator_id": null,
       "discriminator_state": "NOT_APPLICABLE",
       "ceiling_enforced": true,
       "alternatives": [],
       "limitations": [
-        "Does not establish detailed life scripting or a specific bilateral relationship contract."
+        "No establece un guion vital detallado ni un contrato relacional bilateral específico."
       ]
     },
     {
       "schema_version": "2.0.0",
       "claim_id": "CLAIM_CONTRACT_R2",
-      "statement": "The relational architecture is compatible with a preincarnational contractual function.",
+      "statement": "La arquitectura relacional es compatible con una función contractual preencarnatoria.",
       "epistemic_class": "E_PROJECT_HYPOTHESIS",
       "claim_scope": "PROJECT_SYNTHESIS",
       "concept_id": "SOUL_CONTRACT",
@@ -60,13 +60,13 @@
         "CATALYTIC_FUNCTION_ONLY"
       ],
       "limitations": [
-        "Astrology does not establish literal mutual negotiation before birth."
+        "La astrología no establece una negociación mutua literal antes del nacimiento."
       ]
     },
     {
       "schema_version": "2.0.0",
       "claim_id": "CLAIM_DRACONIC_TECHNIQUE",
-      "statement": "The draconic chart is calculated by setting the tropical North Node to 0° Aries and shifting the chart accordingly.",
+      "statement": "La carta dracónica se calcula situando el Nodo Norte tropical en 0° de Aries y desplazando la carta en consecuencia.",
       "epistemic_class": "B_TECHNIQUE",
       "claim_scope": "TECHNIQUE_DESCRIPTION",
       "concept_id": "DRACONIC_ASTROLOGY",
@@ -89,7 +89,7 @@
       "ceiling_enforced": true,
       "alternatives": [],
       "limitations": [
-        "Technical calculation does not validate metaphysical interpretations of past lives, contracts or soul origin."
+        "El cálculo técnico no valida interpretaciones metafísicas sobre vidas pasadas, contratos u origen del alma."
       ]
     }
   ]
