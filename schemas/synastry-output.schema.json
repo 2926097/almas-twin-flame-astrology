@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/synastry-output.schema.json",
+  "title": "ALMAS Synastry Geometry Output",
+  "type": "object",
+  "required": ["subjects", "aspect_policy", "contacts", "contact_count"],
+  "properties": {
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "string"}
+    },
+    "aspect_policy": {"type": "object"},
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "subject_a","point_a","longitude_a",
+          "subject_b","point_b","longitude_b",
+          "aspect","angle","distance","orb","orb_limit","exactness"
+        ],
+        "properties": {
+          "subject_a":{"type":"string"},
+          "point_a":{"type":"string"},
+          "point_a_type":{"type":["string","null"]},
+          "longitude_a":{"type":"number"},
+          "subject_b":{"type":"string"},
+          "point_b":{"type":"string"},
+          "point_b_type":{"type":["string","null"]},
+          "longitude_b":{"type":"number"},
+          "aspect":{"type":"string"},
+          "angle":{"type":"number","minimum":0,"maximum":180},
+          "distance":{"type":"number","minimum":0,"maximum":180},
+          "orb":{"type":"number","minimum":0},
+          "orb_limit":{"type":"number","minimum":0},
+          "exactness":{"type":"number","minimum":0,"maximum":1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "contact_count":{"type":"integer","minimum":0}
+  },
+  "additionalProperties": false
+}
