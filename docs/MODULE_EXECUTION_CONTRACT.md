@@ -167,7 +167,21 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 
 `M24` resume corridas nulas ya generadas bajo uno de los modelos admitidos por la skill. Exige `preregistration_ref` y `frozen_before_inspection=true`, calcula la frecuencia `hits/trials` y, cuando se declara `wilson_z`, el intervalo Wilson correspondiente. La salida fija `metaphysical_probability=false` y `sampling_generated_by_m24=false`.
 
-`M25` puede incorporar automáticamente el componente `BIRTH_TIME` de M23 junto con otros componentes preregistrados y calcula `IRC` y `R_min` con la fórmula existente. La rareza de M24 no se incorpora a IRC por defecto.
+`M25` es el único agregador canónico de robustez. Incorpora automáticamente el componente `BIRTH_TIME` de M23 porque su derivación está normativamente definida. Otros componentes deben entrar mediante `robustness_component_summaries` y declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
+
+Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR`.
+
+La presencia de M22 no crea automáticamente un número de robustez: si existe ablación pero no una regla preregistrada que la convierta en un componente 0–1, M25 registra `ablation_state=AVAILABLE_NOT_QUANTIFIED`. Sólo una conversión explícita con `source_module=M22` puede entrar como `ABLATION`.
+
+M24 queda excluido del IRC: `null_model_rarity_used_as_robustness=false`. La rareza estructural bajo un modelo nulo y la robustez frente a perturbaciones son magnitudes distintas.
+
+La agregación normativa permanece sin cambios:
+
+`IRC = 100 × geometric_mean(applicable_R_i)`
+
+`R_min = min(applicable_R_i)`.
+
+La salida canónica está definida por `schemas/robustness-output.schema.json`.
 
 ## M26 y M27 · activación temporal y hechos documentales
 
