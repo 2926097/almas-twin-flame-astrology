@@ -1386,6 +1386,46 @@
       "local_file": null,
       "sha256": null,
       "translation_note": null
+    },
+    {
+      "id": "blaquier_draconic_astrology_2017_2021",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Modern draconic astrology",
+      "author": "María Blaquier",
+      "work": "Draconic Astrology – Getting in Touch with our Deeper Self",
+      "date": "2017; republished 2021",
+      "date_note": "Originally published in The Astrological Journal students' section in October 2017; republished by Astro.com/Astrodienst in 2021.",
+      "passage": "Introductory definition and section 'How to Calculate the Draconic Chart'",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrology/aa_article210601_e.htm",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Copyright María Blaquier; article republished by Astro.com with permission. Register/link only; do not redistribute full text.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "DRACONIC_ASTROLOGY",
+        "DRACONIC_METHOD_MODERN"
+      ],
+      "supports": [
+        "modern draconic technique sets the tropical North Node at 0 degrees Aries",
+        "the same angular shift is applied to the remaining tropical chart positions",
+        "Mean versus True Node is a methodological choice with small positional differences",
+        "draconic technique is explicitly node-dependent and derived from the tropical chart"
+      ],
+      "does_not_support": [
+        "draconic contacts independently prove reincarnation",
+        "draconic contacts independently prove a soul contract",
+        "a specific draconic signature validates twin-flame ontology"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Published technical section explains calculation by using the tropical North Node as 0° Aries and shifting the chart accordingly.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrology/aa_article210601_e.htm?pa=tr2",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-24-origin-differential-1"
