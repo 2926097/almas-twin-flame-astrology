@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/declination-output.schema.json",
+  "title": "ALMAS Declination Contacts Output",
+  "type": "object",
+  "required": ["subjects", "policy", "contacts", "contact_count"],
+  "properties": {
+    "subjects":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"string"}},
+    "policy":{"type":"object"},
+    "contacts":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "required":[
+          "subject_a","point_a","declination_a",
+          "subject_b","point_b","declination_b",
+          "relation","orb","orb_limit","exactness"
+        ],
+        "properties":{
+          "relation":{"enum":["PARALLEL","CONTRA_PARALLEL"]},
+          "orb":{"type":"number","minimum":0},
+          "orb_limit":{"type":"number","minimum":0},
+          "exactness":{"type":"number","minimum":0,"maximum":1}
+        },
+        "additionalProperties":true
+      }
+    },
+    "contact_count":{"type":"integer","minimum":0}
+  },
+  "additionalProperties":false
+}
