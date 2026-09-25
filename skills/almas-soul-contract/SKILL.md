@@ -1,7 +1,7 @@
 ---
 name: almas-preincarnation-contract-module
 description: Specialized internal ALMAS module for reconstructing possible preincarnational agreements from canonical astrological architecture, doctrine, chronology, counterevidence and documented facts.
-version: 1.8.4
+version: 1.9.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -550,3 +550,19 @@ La cadena reutiliza los motores existentes; no vuelve a contar evidencia.
 La salida debe ajustarse a `schemas/preincarnation-contract-chain.schema.json`.
 
 El contenido literal de supuestas promesas, frases, fechas o desenlaces pre-natales permanece `NOT_EVALUABLE` desde astrología.
+
+
+## 25. Validación externa del módulo contractual
+
+Las cláusulas, causas, roles y modelos de origen derivados durante desarrollo no se consideran externamente validados hasta superar un holdout preregistrado.
+
+Reglas:
+
+1. un caso usado para construir una cláusula es `DEVELOPMENT_ONLY` para esa cláusula;
+2. un IAP alto no constituye ground truth;
+3. una autoetiqueta twin-flame/soulmate no valida el modelo;
+4. AB0–AB8 se ejecuta en holdout sin reajustar criterios;
+5. discriminadores `NOT_VALIDATED` no pueden elevar una ontología fuerte a `SUPPORTED`;
+6. toda promoción de regla exige replicación independiente.
+
+Referencia: `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
