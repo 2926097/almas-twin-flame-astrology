@@ -119,6 +119,7 @@ REQUIRED_FILES = [
     "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
+    "tests/DOCTRINAL_CLAIM_V2_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -138,6 +139,7 @@ REQUIRED_FILES = [
     "tests/test_analysis.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
+    "examples/doctrinal-claims.synthetic.json",
     "examples/inferential-ceiling.synthetic.json",
     "examples/preincarnation-reconstruction.synthetic.json",
     "examples/origin-differential.synthetic.json",
@@ -287,6 +289,8 @@ def main() -> int:
     contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
     contract_ablation_example = load_json("examples/contract-ablation.synthetic.json")
     doctrine_map = load_json("reference/doctrine-to-astrology-map.json")
+    doctrinal_claim_schema = load_json("schemas/doctrinal-claim.schema.json")
+    doctrinal_claim_fixture = load_json("examples/doctrinal-claims.synthetic.json")
     inferential_ceiling_fixture = load_json("examples/inferential-ceiling.synthetic.json")
     causal_registry = load_json("manifests/causal-type-registry.json")
     cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
@@ -304,6 +308,10 @@ def main() -> int:
 
     if bridge_schema.get("properties", {}).get("bridge_version", {}).get("const") != "1.0.0":
         fail("astrology-to-soul-contract bridge must expose bridge_version 1.0.0")
+
+    if doctrinal_claim_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
+        fail("doctrinal claim schema must expose 2.0.0")
+
 
     if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
         fail("contract causal chain schema must expose 2.0.0")
@@ -511,6 +519,54 @@ def main() -> int:
     # Blaquier technical source verifies calculation, not metaphysical ontology.
     if draconic_mapping.get("inferential_ceiling") != "CORROBORATIVE_NODAL_REFRAMING":
         fail("Blaquier technical source must not raise draconic inferential ceiling")
+
+    if doctrinal_claim_fixture.get("schema_version") != "2.0.0":
+        fail("doctrinal claim fixture must expose schema_version 2.0.0")
+    claim_ids = [x.get("claim_id") for x in doctrinal_claim_fixture.get("claims", [])]
+    if len(claim_ids) != len(set(claim_ids)):
+        fail("doctrinal claim fixture contains duplicate claim ids")
+    required_claim_fields = {
+        "schema_version",
+        "claim_id",
+        "statement",
+        "epistemic_class",
+        "claim_scope",
+        "source_relation",
+        "source_ids",
+        "source_anchor_refs",
+        "status",
+        "limitations",
+        "inferential_ceiling",
+        "discriminator_state",
+        "allowed_conclusion",
+        "ceiling_enforced",
+    }
+    for claim in doctrinal_claim_fixture.get("claims", []):
+        missing = required_claim_fields - set(claim)
+        if missing:
+            fail(f"doctrinal claim fixture missing fields for {claim.get('claim_id')}: {sorted(missing)}")
+        if claim.get("ceiling_enforced") is not True:
+            fail(f"doctrinal claim must enforce ceiling: {claim.get('claim_id')}")
+        for source_id in claim.get("source_ids", []):
+            if source_id not in source_ids:
+                fail(f"doctrinal claim references unknown source: {source_id}")
+        for source_id in claim.get("source_anchor_refs", []):
+            source_entry = next(
+                (entry for entry in source_registry.get("entries", []) if entry.get("id") == source_id),
+                None,
+            )
+            if source_entry is None:
+                fail(f"doctrinal claim anchor references unknown source: {source_id}")
+            if not source_entry.get("verification_anchor") or not source_entry.get("verification_anchor_type"):
+                fail(f"doctrinal claim anchor lacks verified source anchor: {source_id}")
+        concept_id = claim.get("concept_id")
+        if concept_id is not None and concept_id not in concept_ids:
+            fail(f"doctrinal claim references unknown concept: {concept_id}")
+        if claim.get("discriminator_state") == "NOT_VALIDATED":
+            requested = claim.get("requested_conclusion")
+            allowed = claim.get("allowed_conclusion")
+            if requested and requested == allowed:
+                fail(f"NOT_VALIDATED discriminator cannot leave requested upgrade unchanged: {claim.get('claim_id')}")
 
     mapping_ids = {m.get("concept_id") for m in doctrine_map.get("mappings", [])}
     coverage = doctrine_map.get("coverage", [])
