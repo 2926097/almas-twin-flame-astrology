@@ -68,7 +68,8 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Theosophy",
       "concepts": [
-        "MONAD"
+        "MONAD",
+        "THEOSOPHICAL_MONAD"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
@@ -114,8 +115,9 @@
       "concepts": [
         "TWIN_FLAME_ORIGIN"
       ],
-      "verification_status": "PENDING",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
     },
     {
       "id": "summit_lighthouse_glossary_twin_flame",
@@ -137,8 +139,9 @@
       "concepts": [
         "TWIN_FLAME_ORIGIN"
       ],
-      "verification_status": "PENDING",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
     },
     {
       "id": "granholm_sociology_esotericism",
@@ -362,8 +365,9 @@
       "concepts": [
         "TWIN_FLAME_ORIGIN"
       ],
-      "verification_status": "PENDING",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
     },
     {
       "id": "swedenborg_conjugial_love_1768",
@@ -607,10 +611,13 @@
       ],
       "tradition": "Victorian esoteric fiction",
       "concepts": [
-        "TWIN_FLAME_LITERARY_GENEALOGY"
+        "TWIN_FLAME_LITERARY_GENEALOGY",
+        "DUAL_SOUL_LITERARY_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
+      "verification_note": "Project Gutenberg text verifies explicit 'Twin-Flame' language and a literary half-flame/counterpart model in A Romance of Two Worlds."
     },
     {
       "id": "theosophist_occultism_modern_literature_1887",
@@ -630,10 +637,13 @@
       ],
       "tradition": "Theosophical historical reception",
       "concepts": [
-        "TWIN_FLAME_LITERARY_GENEALOGY"
+        "TWIN_FLAME_LITERARY_GENEALOGY",
+        "HISTORICAL_RECEPTION"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "passage": "Occultism in Modern Literature (7), The Theosophist, vol. 8, February 1887, p. 266ff.",
+      "verification_note": "Contemporary Theosophist reception explicitly discusses 'true mates', 'twin-flames' and 'companion-spirits' as themes in occult literature; this is reception evidence, not doctrinal endorsement."
     },
     {
       "id": "mackay_twin_soul_1887",
@@ -653,10 +663,11 @@
       ],
       "tradition": "Victorian esoteric fiction",
       "concepts": [
-        "TWIN_FLAME_LITERARY_GENEALOGY"
+        "TWIN_SOUL_LITERARY_GENEALOGY"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "1887 work and title verified bibliographically; authorship remains historically contested and is handled with the 2025 Dobson-Turner study."
     },
     {
       "id": "dobson_turner_twin_souls_2025",
@@ -679,10 +690,12 @@
       ],
       "tradition": "Academic literary history",
       "concepts": [
-        "TWIN_FLAME_LITERARY_GENEALOGY"
+        "TWIN_SOUL_LITERARY_GENEALOGY",
+        "AUTHORSHIP_HISTORY"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Peer-reviewed 2025 article verifies the authorship problem and argues for likely Mackay primary authorship with evidence of Corelli collaboration."
     },
     {
       "id": "vital_shaar_hagilgulim_1_soul_levels",
@@ -920,7 +933,8 @@
         "TWIN_FLAME_ORIGIN"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression."
     },
     {
       "id": "fishbane_personal_identity_lurianic_gilgul_2024",
