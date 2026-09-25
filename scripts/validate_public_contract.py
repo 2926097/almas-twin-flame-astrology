@@ -1476,6 +1476,31 @@ def main() -> int:
     if set(example_result.get("models", {})) != {"AF", "KA", "AG", "LG"}:
         fail("example precomputed result does not contain all four models")
 
+    forbidden_schema_title_fragments = (
+        " Output",
+        " Input",
+        " Differential",
+        " Contract",
+        " Registry",
+        " Analysis",
+        " Reconstruction",
+        " Causality",
+        " Selection",
+        " Case",
+        " Run",
+        " Chart",
+        " Contacts",
+        " Layer",
+        " Metrics",
+    )
+    for schema_path in sorted((ROOT / "schemas").glob("*.schema.json")):
+        schema_obj = load_json(schema_path)
+        title = schema_obj.get("title")
+        if not isinstance(title, str) or not title.startswith("ALMAS ·"):
+            fail(f"el schema {schema_path.name} debe declarar un título humano español con prefijo 'ALMAS ·'")
+        if any(fragment in title for fragment in forbidden_schema_title_fragments):
+            fail(f"el schema {schema_path.name} conserva un título humano en inglés: {title}")
+
     print("ALMAS public contract validation: PASS")
     print(f"Astrology package: {version}")
     print(f"Contract module: {contract_module_version}")
