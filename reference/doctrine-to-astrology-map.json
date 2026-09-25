@@ -564,7 +564,8 @@
       "concept_id": "DRACONIC_ASTROLOGY",
       "metaphysical_variable": "NODAL_REFRAMING_TECHNIQUE",
       "source_basis": [
-        "crane_draconic_astrology_1987"
+        "crane_draconic_astrology_1987",
+        "blaquier_draconic_astrology_2017_2021"
       ],
       "operationalization_class": "B_TECHNIQUE",
       "admissible_astrology": [
@@ -575,21 +576,26 @@
       ],
       "inadmissible_inferences": [
         "draconic chart independently proves soul contract",
-        "draconic nodal anchors count as independent recurrence"
+        "draconic nodal anchors count as independent recurrence",
+        "technical verification of the calculation validates reincarnation or soul ontology"
       ],
-      "source_alignment": "IDENTIFIED_ASTROLOGICAL_TECHNIQUE",
-      "validation_state": "TECHNIQUE_DOCUMENTED_METAPHYSICAL_INTERPRETATION_PROJECT_DEPENDENT",
+      "source_alignment": "IDENTIFIED_ASTROLOGICAL_TECHNIQUE_FORMULA_VERIFIED_INTERPRETATION_PROJECT_DEPENDENT",
+      "validation_state": "CALCULATION_METHOD_VERIFIED_METAPHYSICAL_INTERPRETATION_NOT_EXTERNALLY_VALIDATED",
       "inferential_ceiling": "CORROBORATIVE_NODAL_REFRAMING",
       "structural_score_policy": "DEPENDENCY_DISCOUNT_REQUIRED",
       "dependencies": [
         "lunar_node_rotation",
-        "natal_chart",
+        "tropical_chart",
+        "node_choice_mean_or_true",
         "cross_chart_comparison"
       ],
       "required_gates": [
         "node_dependency_declared",
+        "formula_or_software_method_documented",
+        "mean_or_true_node_choice_recorded",
         "draconic_draconic_corroborative",
-        "no_independent_root_duplication"
+        "no_independent_root_duplication",
+        "metaphysical_interpretation_marked_D_or_E"
       ],
       "discriminating_power": "CORROBORATIVE_ONLY",
       "forbidden_upgrade": [
