@@ -3,6 +3,7 @@
 ## 1.9.2 — 2026-09-25
 
 ### Auditoría doctrina → astrología
+- Añade casos sintéticos negativos que deben impedir sobreinferencia aunque los indicadores sean extremos.
 - Audita los 15 conceptos que sí tienen traducción astrológica.
 - Añade `source_alignment`, `validation_state`, `inferential_ceiling`, `structural_score_policy`, dependencias, gates, poder discriminante y upgrades prohibidos.
 - Establece que score, rareza, recurrencia o número de técnicas nunca pueden superar el techo inferencial.
