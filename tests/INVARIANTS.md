@@ -1,31 +1,31 @@
-# Release invariants / regression checklist
+# Invariantes de release / lista de regresión
 
-A release is not valid if any critical invariant fails.
+Una release no es válida si falla cualquier invariante crítico.
 
-- [ ] No omitted calculable FULL module.
-- [ ] No metaphysical probability claim.
-- [ ] No `max(IEM)` single-label classifier.
-- [ ] No direct temporal or phenomenological contribution to structural IEM.
-- [ ] No asteroid-created ontology.
-- [ ] Dependency and root deduplication enforced.
-- [ ] Composite/Davison dependence controlled.
-- [ ] Missing data remain distinct from zero/absence.
-- [ ] Ambiguity preserved when no validated discriminator exists.
-- [ ] IDD is not misrepresented as a validated ontological discriminator.
-- [ ] Counterevidence is applied once.
-- [ ] Real-world consent and facts override symbolic interpretation.
-- [ ] Doctrine is separated from contemporary usage and project hypothesis.
-- [ ] Report values equal canonical values.
-- [ ] Acronyms are expanded on first appearance in human-facing reports.
-
+- [ ] Ningún módulo `FULL` calculable omitido.
+- [ ] Ninguna afirmación de probabilidad metafísica.
+- [ ] Ningún clasificador de etiqueta única por `max(IEM)`.
+- [ ] Ninguna contribución temporal o fenomenológica directa al IEM estructural.
+- [ ] Ninguna ontología creada por asteroides.
+- [ ] Deduplicación de dependencias y raíces aplicada.
+- [ ] Dependencia compuesta/Davison controlada.
+- [ ] Los datos ausentes siguen siendo distintos de cero/ausencia.
+- [ ] La ambigüedad se conserva cuando no existe un discriminador validado.
+- [ ] IDD no se presenta erróneamente como discriminador ontológico validado.
+- [ ] La contraevidencia se aplica una sola vez.
+- [ ] El consentimiento y los hechos del mundo real prevalecen sobre la interpretación simbólica.
+- [ ] La doctrina se separa del uso contemporáneo y de la hipótesis del proyecto.
+- [ ] Los valores del informe coinciden con los valores canónicos.
+- [ ] Los acrónimos se desarrollan en su primera aparición en informes destinados a personas.
 
 ## Arquitectura y fuentes v1.4
 
-- [ ] **Single public skill:** ALMAS no declara una segunda skill pública.
-- [ ] Todos los módulos heredan `VERSION`; revisiones internas usan `engine_revision` o `schema_version`.
+- [ ] **Skill pública única:** ALMAS no declara una segunda skill pública.
+- [ ] Todos los módulos heredan `VERSION`; las revisiones internas usan `engine_revision` o `schema_version`.
 - [ ] El módulo contractual consume evidencia astrológica canónica y no la recalcula silenciosamente.
 - [ ] Las fuentes no añaden puntos estructurales por existir.
 - [ ] Todo concepto doctrinal conserva fuentes y relaciones de no-equivalencia.
 - [ ] Todo identificador de fuente usado por un concepto existe en `source-registry.json`.
 - [ ] Toda arista de genealogía referencia conceptos existentes.
-- [ ] Los huecos documentales permanecen INSUFFICIENT/NOT_EVALUABLE.
+- [ ] Los huecos documentales permanecen `INSUFFICIENT`/`NOT_EVALUABLE`.
+- [ ] Todo texto destinado a lectura humana se redacta en español, salvo identificadores técnicos necesarios para compatibilidad.
