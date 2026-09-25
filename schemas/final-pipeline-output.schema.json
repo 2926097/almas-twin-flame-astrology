@@ -8,22 +8,7 @@
       "$ref": "doctrine-hermeneutics-output.schema.json"
     },
     "viability_reciprocity": {
-      "type": "object",
-      "required": [
-        "real_viability",
-        "reciprocity",
-        "astrology_used_as_real_world_fact",
-        "future_decisions_inferred"
-      ],
-      "properties": {
-        "astrology_used_as_real_world_fact": {
-          "const": false
-        },
-        "future_decisions_inferred": {
-          "const": false
-        }
-      },
-      "additionalProperties": true
+      "$ref": "viability-reciprocity-output.schema.json"
     },
     "report_gate": {
       "type": "object",
