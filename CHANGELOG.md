@@ -3,6 +3,7 @@
 ## 1.9.1 — 2026-09-25
 
 ### Corpus doctrinal y CI
+- Cobertura doctrina→astrología explícita para los 92 conceptos: 15 mapeados, 35 no operacionalizados, 29 límites, 9 contexto y 4 técnicas-contexto.
 - Cierra la cobertura concepto↔fuente: 37 fuentes, 92 conceptos y 73 relaciones doctrinales.
 - Elimina el último estado PARTIAL al verificar Brihadaranyaka Upanishad 1.4.3 con la edición pública de Max Müller.
 - Añade 20 conceptos que ya eran usados por el corpus pero aún no estaban formalmente definidos.
