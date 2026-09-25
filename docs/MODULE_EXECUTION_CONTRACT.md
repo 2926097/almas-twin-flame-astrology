@@ -96,3 +96,11 @@ La primera integración conecta al pipeline lógica ya existente sin cambiar sus
 - `M25` — robustez: reutiliza `robustness_index` sobre componentes preregistrados.
 
 Estos adaptadores viven en `src/almas_tfa/handlers.py`. Las etapas restantes continúan explícitamente como no implementadas hasta disponer de un motor reproducible.
+
+## Frontera de M02 · carta natal
+
+`src/almas_tfa/astrology_backend.py` define un protocolo `AstrologyBackend` y una solicitud `NatalRequest`. `src/almas_tfa/astrology_handlers.py` aporta `make_m02_natal(backend)`.
+
+Esta frontera permite probar y sustituir el motor astronómico sin acoplar el núcleo ALMAS a una dependencia concreta. Una carta sin hora conserva posiciones que el backend pueda calcular, pero el handler registra explícitamente que casas y ángulos no deben tratarse como fiables.
+
+El registro de ejecución marca M02 como `BACKEND_REQUIRED`: la interfaz y el handler existen, pero todavía no se ha incorporado un backend astronómico de producción.
