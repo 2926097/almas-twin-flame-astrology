@@ -40,6 +40,9 @@ REQUIRED_FILES = [
     "schemas/draconic-cross-output.schema.json",
     "schemas/lots-output.schema.json",
     "schemas/secondary-symbolic-output.schema.json",
+    "schemas/independent-roots.schema.json",
+    "schemas/deduplicated-evidence.schema.json",
+    "schemas/evidence-graph.schema.json",
     "schemas/module-execution.schema.json",
     "schemas/precomputed-pillars.schema.json",
     "schemas/precomputed-result.schema.json",
@@ -133,6 +136,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/draconic_handlers.py",
     "src/almas_tfa/lot_handlers.py",
     "src/almas_tfa/secondary_handlers.py",
+    "src/almas_tfa/evidence_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -174,6 +178,7 @@ REQUIRED_FILES = [
     "tests/test_draconic_handlers.py",
     "tests/test_lot_handlers.py",
     "tests/test_secondary_handlers.py",
+    "tests/test_evidence_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -293,6 +298,9 @@ def main() -> int:
     draconic_cross_schema = load_json("schemas/draconic-cross-output.schema.json")
     lots_schema = load_json("schemas/lots-output.schema.json")
     secondary_symbolic_schema = load_json("schemas/secondary-symbolic-output.schema.json")
+    evidence_graph_schema = load_json("schemas/evidence-graph.schema.json")
+    deduplicated_evidence_schema = load_json("schemas/deduplicated-evidence.schema.json")
+    independent_roots_schema = load_json("schemas/independent-roots.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -384,6 +392,13 @@ def main() -> int:
 
     if secondary_symbolic_schema.get("properties", {}).get("support_only", {}).get("const") is not True:
         fail("secondary symbolic schema must freeze support_only=true")
+
+    if evidence_graph_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
+        fail("evidence graph must declare strength_policy_applied=false")
+    if "retained" not in deduplicated_evidence_schema.get("required", []):
+        fail("deduplicated evidence schema must require retained")
+    if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
+        fail("independent roots must remain unweighted until an explicit strength policy exists")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
