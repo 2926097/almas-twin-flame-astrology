@@ -1,6 +1,6 @@
 {
-  "registry_version": "1.1.0",
-  "almas_version": "1.9.0",
+  "registry_version": "1.2.0",
+  "almas_version": "1.4.0",
   "concepts": [
     {
       "id": "PREINCARNATIONAL_CHOICE",
@@ -17,7 +17,11 @@
         "PRENATAL_PAIRING",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Puede fundamentar doctrinalmente la posibilidad de propósito previo; no define por sí sola un contrato bilateral."
+      "almas_use": "Puede fundamentar doctrinalmente la posibilidad de propósito previo; no define por sí sola un contrato bilateral.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_CONTRACT",
@@ -32,7 +36,11 @@
         "KARMIC_CONTINUITY",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "ALMAS reconstruye una arquitectura contractual como E_HIPOTESIS_PROYECTO; no atribuye su gramática astrológica a las fuentes."
+      "almas_use": "ALMAS reconstruye una arquitectura contractual como E_HIPOTESIS_PROYECTO; no atribuye su gramática astrológica a las fuentes.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "PRENATAL_PAIRING",
@@ -47,7 +55,11 @@
         "TWIN_FLAME_ORIGIN",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Informa el eje historia/origen cuando la tradición concreta lo sostiene; no demuestra una pareja única moderna."
+      "almas_use": "Informa el eje historia/origen cuando la tradición concreta lo sostiene; no demuestra una pareja única moderna.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_PAIRING",
@@ -62,7 +74,11 @@
         "TWIN_FLAME_ORIGIN",
         "SPLIT_SOUL"
       ],
-      "almas_use": "Comparando tradiciones, se mantiene separado del lenguaje moderno de twin flame salvo puente documental explícito."
+      "almas_use": "Comparando tradiciones, se mantiene separado del lenguaje moderno de twin flame salvo puente documental explícito.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SPLIT_PRIMORDIAL_BEING",
@@ -78,7 +94,11 @@
         "SOUL_PAIRING",
         "MONAD"
       ],
-      "almas_use": "Antecedente comparativo. No se usa como prueba histórica directa de la doctrina twin flame."
+      "almas_use": "Antecedente comparativo. No se usa como prueba histórica directa de la doctrina twin flame.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "MONAD",
@@ -93,7 +113,11 @@
         "TWIN_FLAME_ORIGIN",
         "SPLIT_SOUL"
       ],
-      "almas_use": "Todo modelo monádico debe citar la tradición específica y no derivarse sólo del término Mónada."
+      "almas_use": "Todo modelo monádico debe citar la tradición específica y no derivarse sólo del término Mónada.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
@@ -108,7 +132,11 @@
         "SOUL_CONTRACT",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Aporta contexto doctrinal a la lectura evolutiva; no prescribe las fórmulas contractuales ALMAS."
+      "almas_use": "Aporta contexto doctrinal a la lectura evolutiva; no prescribe las fórmulas contractuales ALMAS.",
+      "concept_class": "TECHNICAL_METHOD",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "TWIN_FLAME_ORIGIN",
@@ -127,7 +155,11 @@
         "SPLIT_PRIMORDIAL_BEING",
         "MONAD"
       ],
-      "almas_use": "Modelo doctrinal de origen. Debe mantenerse separado de contrato, función y viabilidad."
+      "almas_use": "Modelo doctrinal de origen. Debe mantenerse separado de contrato, función y viabilidad.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOULMATE_EXPERIENCE",
@@ -141,7 +173,11 @@
         "TWIN_FLAME_ORIGIN",
         "OBJECTIVE_ONTOLOGY"
       ],
-      "almas_use": "Sirve para comparar experiencia emic/fenomenología, no como verificación ontológica."
+      "almas_use": "Sirve para comparar experiencia emic/fenomenología, no como verificación ontológica.",
+      "concept_class": "PHENOMENOLOGY",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "DRACONIC_ASTROLOGY",
@@ -156,7 +192,10 @@
         "PAST_LIFE_PROOF",
         "SOUL_CONTRACT_PROOF"
       ],
-      "almas_use": "Capa técnica de recurrencia nodal; por defecto corroborativa y su dependencia matemática debe controlarse."
+      "almas_use": "Capa técnica de recurrencia nodal; por defecto corroborativa y su dependencia matemática debe controlarse.",
+      "concept_class": "TECHNICAL_METHOD",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "GILGUL",
@@ -174,7 +213,11 @@
         "SOUL_CONTRACT",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Informa historia/continuidad y reparación; no implica por sí sola origen compartido."
+      "almas_use": "Informa historia/continuidad y reparación; no implica por sí sola origen compartido.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "ZIVUG",
@@ -190,7 +233,11 @@
         "TWIN_FLAME_ORIGIN",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Se usa como categoría doctrinal propia; no se traduce automáticamente por llama gemela."
+      "almas_use": "Se usa como categoría doctrinal propia; no se traduce automáticamente por llama gemela.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_ROOT",
@@ -207,7 +254,11 @@
         "TWIN_FLAME_ORIGIN",
         "SOUL_PAIRING"
       ],
-      "almas_use": "Puede informar origen relacionado/grupal; requiere discriminadores propios."
+      "almas_use": "Puede informar origen relacionado/grupal; requiere discriminadores propios.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "TIKKUN",
@@ -225,7 +276,11 @@
         "WOUND_REPAIR",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Antecedente doctrinal para reparación/rectificación, manteniendo su contexto cabalístico."
+      "almas_use": "Antecedente doctrinal para reparación/rectificación, manteniendo su contexto cabalístico.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "MISSION_PREINCARNATIONAL",
@@ -239,7 +294,11 @@
         "SOUL_CONTRACT",
         "MISSION_SERVICE_RELATIONAL"
       ],
-      "almas_use": "Informa propósito/misión; una misión individual no implica acuerdo bilateral."
+      "almas_use": "Informa propósito/misión; una misión individual no implica acuerdo bilateral.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "KARMIC_RELATIONSHIP",
@@ -253,7 +312,11 @@
         "SOUL_CONTRACT",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Modelo de historia/función distinto del origen compartido."
+      "almas_use": "Modelo de historia/función distinto del origen compartido.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "CONJUGIAL_PAIRING",
@@ -268,7 +331,11 @@
         "TWIN_FLAME_ORIGIN",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Comparando parejas providenciales sin convertirlas en reencarnación o twin flame."
+      "almas_use": "Comparando parejas providenciales sin convertirlas en reencarnación o twin flame.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "LIFE_BETWEEN_LIVES",
@@ -287,7 +354,10 @@
         "PREINCARNATIONAL_CHOICE",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Genealogía moderna del plan prenatal; su evidencia es de método identificado/emic, no doctrina universal."
+      "almas_use": "Genealogía moderna del plan prenatal; su evidencia es de método identificado/emic, no doctrina universal.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SACRED_CONTRACT",
@@ -302,7 +372,10 @@
         "SOUL_CONTRACT",
         "PREINCARNATIONAL_CHOICE"
       ],
-      "almas_use": "Fuente moderna identificada para propósito/compromiso previo; no fuente de técnica astrológica ALMAS."
+      "almas_use": "Fuente moderna identificada para propósito/compromiso previo; no fuente de técnica astrológica ALMAS.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_PLAN",
@@ -319,7 +392,10 @@
         "SOUL_CONTRACT",
         "KARMIC_RELATIONSHIP"
       ],
-      "almas_use": "Contextualiza planificación prenatal moderna."
+      "almas_use": "Contextualiza planificación prenatal moderna.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_GROUP",
@@ -335,7 +411,10 @@
         "MONAD",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Modelo contemporáneo; no se equipara a raíz luriana ni Mónada."
+      "almas_use": "Modelo contemporáneo; no se equipara a raíz luriana ni Mónada.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "TWIN_FLAME_LITERARY_GENEALOGY",
@@ -354,7 +433,10 @@
       "not_equivalent_to": [
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Documenta historia del vocabulario, no continuidad doctrinal automática."
+      "almas_use": "Documenta historia del vocabulario, no continuidad doctrinal automática.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "method_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "NEW_AGE_RELIGION",
@@ -369,7 +451,11 @@
         "WESTERN_ESOTERICISM_ALL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Contexto académico para usos contemporáneos."
+      "almas_use": "Contexto académico para usos contemporáneos.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "PREINCARNATIONAL_TRIAL",
@@ -384,7 +470,11 @@
         "MISSION_PREINCARNATIONAL",
         "DETAILED_LIFE_SCRIPT"
       ],
-      "almas_use": "Separa la elección de una clase de experiencia de un guion detallado o de una relación concreta."
+      "almas_use": "Separa la elección de una clase de experiencia de un guion detallado o de una relación concreta.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "FREE_WILL_PREINCARNATIONAL",
@@ -398,7 +488,11 @@
         "DETAILED_LIFE_SCRIPT",
         "FATALISM"
       ],
-      "almas_use": "Base doctrinal para separar arquitectura previa de desenlace encarnado."
+      "almas_use": "Base doctrinal para separar arquitectura previa de desenlace encarnado.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "BAT_ZUG",
@@ -414,7 +508,11 @@
         "SOULMATE_EXPERIENCE",
         "SPLIT_SOUL"
       ],
-      "almas_use": "Puede alimentar el modelo ZIVUG_TRUE_PAIR, pero no autoriza a etiquetarlo como twin flame."
+      "almas_use": "Puede alimentar el modelo ZIVUG_TRUE_PAIR, pero no autoriza a etiquetarlo como twin flame.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "FIRST_SECOND_ZIVUG",
@@ -429,7 +527,11 @@
         "FIRST_SECOND_SPOUSE_SIMPLE",
         "TWIN_FLAME_PHASE"
       ],
-      "almas_use": "ALMAS debe conservar la diferencia entre el uso talmúdico y la reinterpretación luriana."
+      "almas_use": "ALMAS debe conservar la diferencia entre el uso talmúdico y la reinterpretación luriana.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_NETWORK",
@@ -445,7 +547,11 @@
         "DYADIC_SOUL_CONTRACT",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Evita reducir toda relación profunda a una díada exclusiva."
+      "almas_use": "Evita reducir toda relación profunda a una díada exclusiva.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "method_sources": [],
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "TWIN_SOUL_LITERARY_GENEALOGY",
@@ -463,7 +569,10 @@
         "SOUL_PAIRING",
         "BAT_ZUG"
       ],
-      "almas_use": "Antecedente terminológico e imaginativo; no se convierte automáticamente en ontología ALMAS."
+      "almas_use": "Antecedente terminológico e imaginativo; no se convierte automáticamente en ontología ALMAS.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "DUAL_SOUL_LITERARY_MODEL",
@@ -479,7 +588,10 @@
         "TWIN_FLAME_ORIGIN",
         "SPLIT_SOUL"
       ],
-      "almas_use": "Se conserva como motivo literario específico, separado de Platón, Upanishads y doctrinas institucionales posteriores."
+      "almas_use": "Se conserva como motivo literario específico, separado de Platón, Upanishads y doctrinas institucionales posteriores.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "THEOSOPHICAL_MONAD",
@@ -495,7 +607,10 @@
         "TWIN_FLAME_ORIGIN",
         "MONADIC_PAIR"
       ],
-      "almas_use": "Toda inferencia de pareja monádica requiere una fuente adicional; la Mónada de Blavatsky no equivale por sí sola a una díada romántica."
+      "almas_use": "Toda inferencia de pareja monádica requiere una fuente adicional; la Mónada de Blavatsky no equivale por sí sola a una díada romántica.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "HISTORICAL_RECEPTION",
@@ -509,7 +624,10 @@
       "not_equivalent_to": [
         "DOCTRINAL_ENDORSEMENT"
       ],
-      "almas_use": "Sirve para genealogía histórica y circulación conceptual, no para atribuir doctrina al medio receptor."
+      "almas_use": "Sirve para genealogía histórica y circulación conceptual, no para atribuir doctrina al medio receptor.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "ESOTERIC_ASTROLOGY",
@@ -525,7 +643,10 @@
         "SOUL_CONTRACT_ASTROLOGY",
         "TWIN_FLAME_ASTROLOGY"
       ],
-      "almas_use": "Aporta marco de alma/desarrollo; las técnicas relacionales ALMAS requieren fuentes y reglas propias."
+      "almas_use": "Aporta marco de alma/desarrollo; las técnicas relacionales ALMAS requieren fuentes y reglas propias.",
+      "concept_class": "TECHNICAL_METHOD",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_ONTOLOGY_BAILEY",
@@ -542,7 +663,10 @@
         "SOUL_ROOT",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Marco comparativo para niveles del ser; no se traduce automáticamente en parejas o contratos."
+      "almas_use": "Marco comparativo para niveles del ser; no se traduce automáticamente en parejas o contratos.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SOUL_PERSONALITY_RELATION",
@@ -558,7 +682,10 @@
         "DIVINE_MASCULINE_FEMININE",
         "RELATIONAL_POLARITY"
       ],
-      "almas_use": "Puede informar lecturas individuales evolutivas; no es una polaridad de pareja."
+      "almas_use": "Puede informar lecturas individuales evolutivas; no es una polaridad de pareja.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "EVOLUTIONARY_STAGE_ASTROLOGY",
@@ -573,7 +700,10 @@
         "RELATIONSHIP_PHASE",
         "TWIN_FLAME_PHASE"
       ],
-      "almas_use": "Puede modular hermenéutica individual, pero no debe utilizarse para jerarquizar personas sin criterios explícitos."
+      "almas_use": "Puede modular hermenéutica individual, pero no debe utilizarse para jerarquizar personas sin criterios explícitos.",
+      "concept_class": "TECHNICAL_METHOD",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "DRACONIC_METHOD_MODERN",
@@ -589,7 +719,10 @@
         "PAST_LIFE_PROOF",
         "SOUL_CONTRACT_PROOF"
       ],
-      "almas_use": "ALMAS la usa como transformación nodal dependiente y capa corroborativa, nunca como evidencia independiente automática."
+      "almas_use": "ALMAS la usa como transformación nodal dependiente y capa corroborativa, nunca como evidencia independiente automática.",
+      "concept_class": "TECHNICAL_METHOD",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "RECOGNITION_PHENOMENOLOGY",
@@ -605,7 +738,10 @@
         "TWIN_FLAME_ORIGIN",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Se registra como experiencia/uso contemporáneo; puede compararse con arquitectura astrológica pero no define ontología."
+      "almas_use": "Se registra como experiencia/uso contemporáneo; puede compararse con arquitectura astrológica pero no define ontología.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "SYNCHRONICITY_REPORT",
@@ -621,7 +757,10 @@
         "TWIN_FLAME_ORIGIN",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Puede formar parte de la cronología emic, pero no añade raíz estructural ni categoría."
+      "almas_use": "Puede formar parte de la cronología emic, pero no añade raíz estructural ni categoría.",
+      "concept_class": "PHENOMENOLOGY",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "TRANSFORMATION_REPORT",
@@ -637,7 +776,10 @@
         "TIKKUN",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Informa función vivida/documentada y puede contrastarse con PT; no discrimina origen."
+      "almas_use": "Informa función vivida/documentada y puede contrastarse con PT; no discrimina origen.",
+      "concept_class": "PHENOMENOLOGY",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "TWIN_FLAME_EMIC_USAGE",
@@ -652,7 +794,10 @@
         "TWIN_FLAME_ORIGIN",
         "TWIN_FLAME_ASTROLOGICAL_MODEL"
       ],
-      "almas_use": "Se conserva como D_USO_CONTEMPORANEO y nunca como confirmación de LG."
+      "almas_use": "Se conserva como D_USO_CONTEMPORANEO y nunca como confirmación de LG.",
+      "concept_class": "PHENOMENOLOGY",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "NEW_AGE_THEODICY",
@@ -668,7 +813,10 @@
         "KARMIC_RELATIONSHIP",
         "SOUL_CONTRACT_PROOF"
       ],
-      "almas_use": "Contextualiza el uso moderno del contrato álmico y ayuda a distinguirlo de doctrinas históricas anteriores."
+      "almas_use": "Contextualiza el uso moderno del contrato álmico y ayuda a distinguirlo de doctrinas históricas anteriores.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
     },
     {
       "id": "CONTEMPORARY_SOUL_CONTRACT_USAGE",
@@ -685,7 +833,387 @@
         "LURIANIC_ZIVUG",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Pertenece a D_USO_CONTEMPORANEO salvo cuando una fuente primaria específica formula su propia doctrina."
+      "almas_use": "Pertenece a D_USO_CONTEMPORANEO salvo cuando una fuente primaria específica formula su propia doctrina.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "historical_sources": [],
+      "status": "DEFINED"
+    },
+    {
+      "id": "KARMIC_CONTINUITY",
+      "label_es": "continuidad kármica",
+      "definition": "Continuidad simbólica o doctrinal entre encarnaciones o relaciones, sin implicar por sí sola contrato bilateral.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "SPLIT_SOUL",
+      "label_es": "alma dividida",
+      "definition": "Modelo en el que una misma entidad originaria se divide literalmente en dos almas o contrapartes.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "MONADIC_PAIR",
+      "label_es": "pareja monádica",
+      "definition": "Modelo contemporáneo o esotérico de dos almas vinculadas por una misma Mónada; requiere fuente específica y no se deriva automáticamente de la Mónada teosófica.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "SOULMATE",
+      "label_es": "alma gemela / soulmate",
+      "definition": "Etiqueta relacional amplia cuyo contenido doctrinal varía según tradición y uso contemporáneo.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "OBJECTIVE_ONTOLOGY",
+      "label_es": "ontología objetiva verificada",
+      "definition": "Afirmación de que una categoría metafísica ha sido demostrada como entidad objetiva independiente de la experiencia o doctrina.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "PAST_LIFE_PROOF",
+      "label_es": "prueba de vida pasada",
+      "definition": "Afirmación fuerte de que una técnica o experiencia demuestra literalmente una encarnación previa concreta.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "SOUL_CONTRACT_PROOF",
+      "label_es": "prueba de contrato álmico",
+      "definition": "Afirmación fuerte de que una técnica demuestra literalmente la existencia de un acuerdo preencarnatorio.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "WOUND_REPAIR",
+      "label_es": "herida y reparación",
+      "definition": "Categoría funcional ALMAS sobre exposición e integración de vulnerabilidad; no equivalente a tikkun.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "MISSION_SERVICE_RELATIONAL",
+      "label_es": "misión o servicio relacional",
+      "definition": "Función compartida orientada a una obra, servicio o contribución observable más allá de la díada.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "WESTERN_ESOTERICISM_ALL",
+      "label_es": "esoterismo occidental en su conjunto",
+      "definition": "Categoría histórica amplia que no debe reducirse a New Age ni a una doctrina específica.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "DETAILED_LIFE_SCRIPT",
+      "label_es": "guion vital detallado",
+      "definition": "Modelo fuerte según el cual acontecimientos concretos de la vida estarían predeterminados antes del nacimiento.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "FATALISM",
+      "label_es": "fatalismo",
+      "definition": "Modelo donde los resultados están determinados de manera necesaria y el libre albedrío carece de función efectiva.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "FIRST_SECOND_SPOUSE_SIMPLE",
+      "label_es": "primer/segundo cónyuge literal",
+      "definition": "Lectura simplificada que identifica primer/segundo zivug con primer/segundo matrimonio cronológico.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "TWIN_FLAME_PHASE",
+      "label_es": "fase de llama gemela",
+      "definition": "Modelo contemporáneo de etapas del vínculo twin flame, como reconocimiento, separación o reunión.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "DYADIC_SOUL_CONTRACT",
+      "label_es": "contrato álmico diádico",
+      "definition": "Acuerdo preencarnatorio hipotético específicamente entre dos almas, distinto de redes o grupos de almas.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "DOCTRINAL_ENDORSEMENT",
+      "label_es": "adhesión doctrinal",
+      "definition": "Aprobación explícita de una doctrina por una fuente o tradición, distinta de mera recepción histórica.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "RELATIONSHIP_ASTROLOGY",
+      "label_es": "astrología relacional",
+      "definition": "Conjunto de técnicas astrológicas destinadas a analizar relaciones entre cartas o entidades relacionales.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "SOUL_CONTRACT_ASTROLOGY",
+      "label_es": "astrología del contrato álmico",
+      "definition": "Operacionalización ALMAS que intenta reconstruir funciones contractuales desde arquitectura astrológica.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "TWIN_FLAME_ASTROLOGY",
+      "label_es": "astrología de llamas gemelas",
+      "definition": "Modelo astrológico que intenta evaluar compatibilidad con doctrinas o usos de llama gemela.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "DIVINE_MASCULINE_FEMININE",
+      "label_es": "divino masculino/femenino",
+      "definition": "Modelo arquetípico contemporáneo de polaridades espirituales, no equivalente automáticamente a sexo, género o alma-personalidad.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "RELATIONAL_POLARITY",
+      "label_es": "polaridad relacional",
+      "definition": "Eje analítico de complementariedad, semejanza, espejo, erotismo o arquetipo en una relación.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "RELATIONSHIP_PHASE",
+      "label_es": "fase relacional",
+      "definition": "Estado temporal de un vínculo definido por hechos y/o activación, distinto de etapa evolutiva del alma.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "ANCIENT_DRACONIC_TRADITION",
+      "label_es": "tradición dracónica antigua",
+      "definition": "Afirmación histórica de que el método dracónico moderno deriva de una tradición astrológica antigua específica.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "CAUSAL_PROOF",
+      "label_es": "prueba causal",
+      "definition": "Afirmación de que una asociación, sincronía o correlación demuestra causalidad.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "OBJECTIVE_METAPHYSICAL_STATUS",
+      "label_es": "estatus metafísico objetivo",
+      "definition": "Afirmación de que una experiencia permite clasificar objetivamente el tipo ontológico de un vínculo.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "TWIN_FLAME_ASTROLOGICAL_MODEL",
+      "label_es": "modelo astrológico llama gemela",
+      "definition": "Modelo operacional que intenta distinguir firmas compatibles con la categoría llama gemela.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "SPIRITIST_TRIAL_DOCTRINE",
+      "label_es": "doctrina espiritista de las pruebas",
+      "definition": "Doctrina kardecista específica sobre elección y vivencia de pruebas, distinta del soul contract New Age.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "KARDEC_PREINCARNATIONAL_CHOICE",
+      "label_es": "elección preencarnatoria kardecista",
+      "definition": "Forma específica de elección de pruebas/condiciones en el Espiritismo de Kardec.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+    },
+    {
+      "id": "LURIANIC_ZIVUG",
+      "label_es": "zivug luriano",
+      "definition": "Concepción de emparejamiento dentro de la Cábala luriana, con su propia ontología de raíces, gilgul y tikkun.",
+      "concept_class": "BOUNDARY",
+      "status": "DEFINED_FOR_DISCRIMINATION",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
     }
   ]
 }
