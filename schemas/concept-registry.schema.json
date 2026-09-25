@@ -23,6 +23,12 @@
           "id",
           "label_es",
           "definition",
+          "concept_class",
+          "status",
+          "primary_sources",
+          "academic_sources",
+          "method_sources",
+          "historical_sources",
           "not_equivalent_to",
           "almas_use"
         ],
@@ -39,6 +45,24 @@
             "type": "string",
             "minLength": 1
           },
+          "concept_class": {
+            "enum": [
+              "DOCTRINAL_ANALYTIC",
+              "TECHNICAL_METHOD",
+              "PHENOMENOLOGY",
+              "HISTORICAL_GENEALOGY",
+              "BOUNDARY",
+              "PROJECT_MODEL"
+            ]
+          },
+          "status": {
+            "enum": [
+              "DEFINED",
+              "DEFINED_FOR_DISCRIMINATION",
+              "PROVISIONAL",
+              "DEPRECATED"
+            ]
+          },
           "primary_sources": {
             "type": "array",
             "items": {
@@ -54,6 +78,13 @@
             "uniqueItems": true
           },
           "method_sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "historical_sources": {
             "type": "array",
             "items": {
               "type": "string"
