@@ -1,18 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/doctrinal-claim.schema.json",
-  "title": "ALMAS Doctrinal Claim",
+  "title": "ALMAS Doctrinal / Metaphysical Claim v2",
   "type": "object",
   "required": [
+    "schema_version",
     "claim_id",
     "statement",
     "epistemic_class",
+    "claim_scope",
     "source_relation",
     "source_ids",
+    "source_anchor_refs",
     "status",
-    "limitations"
+    "limitations",
+    "inferential_ceiling",
+    "discriminator_state",
+    "allowed_conclusion",
+    "ceiling_enforced"
   ],
   "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
     "claim_id": {
       "type": "string"
     },
@@ -26,6 +36,16 @@
         "C_DOCTRINE",
         "D_CONTEMPORARY_USAGE",
         "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    "claim_scope": {
+      "enum": [
+        "CALCULATED_FACT",
+        "TECHNIQUE_DESCRIPTION",
+        "DOCTRINAL_ATTRIBUTION",
+        "CONTEMPORARY_USAGE",
+        "PROJECT_OPERATIONALIZATION",
+        "PROJECT_SYNTHESIS"
       ]
     },
     "concept_id": {
@@ -52,6 +72,13 @@
       },
       "uniqueItems": true
     },
+    "source_anchor_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "astrological_refs": {
       "type": "array",
       "items": {
@@ -67,6 +94,37 @@
         "CONTRADICTED",
         "NOT_EVALUABLE"
       ]
+    },
+    "requested_conclusion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "allowed_conclusion": {
+      "type": "string"
+    },
+    "inferential_ceiling": {
+      "type": "string"
+    },
+    "discriminator_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "discriminator_state": {
+      "enum": [
+        "VALIDATED",
+        "OPERATIONAL_FUNCTIONAL_ONLY",
+        "OPERATIONAL_EPISTEMIC",
+        "DOCTRINAL_ONLY",
+        "NOT_VALIDATED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "ceiling_enforced": {
+      "const": true
     },
     "alternatives": {
       "type": "array",
