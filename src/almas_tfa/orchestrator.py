@@ -106,6 +106,32 @@ class Orchestrator:
             module_name = str(spec["name"])
             handler = self._handlers.get(module_id)
 
+            if handler is None and module_id == "M00":
+                result = ModuleResult(
+                    module_id="M00",
+                    status=ExecutionStatus.COMPLETED,
+                    payload={
+                        "manifest_version": manifest.get("manifest_version"),
+                        "pipeline_mode": manifest.get("mode"),
+                        "module_ids": [m.get("id") for m in modules],
+                    },
+                    canonical_updates={
+                        "execution_manifest": {
+                            "manifest_version": manifest.get("manifest_version"),
+                            "pipeline_mode": manifest.get("mode"),
+                            "module_ids": [m.get("id") for m in modules],
+                        }
+                    },
+                )
+                self._apply_updates(
+                    module_id,
+                    result,
+                    canonical=canonical,
+                    ownership=ownership,
+                )
+                results[module_id] = result
+                continue
+
             if handler is None:
                 results[module_id] = not_evaluable_result(
                     module_id,
