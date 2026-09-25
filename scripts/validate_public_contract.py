@@ -48,6 +48,7 @@ REQUIRED_FILES = [
     "schemas/null-model-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
+    "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
     "schemas/module-execution.schema.json",
@@ -149,6 +150,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/robustness_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
+    "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -196,6 +198,7 @@ REQUIRED_FILES = [
     "tests/test_ablation_handlers.py",
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
+    "tests/test_final_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -325,6 +328,7 @@ def main() -> int:
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
+    final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -452,6 +456,16 @@ def main() -> int:
         fail("M27 must forbid retrospective structural mutation")
     if documentary_event_output_schema.get("properties", {}).get("append_only_validated", {}).get("const") is not True:
         fail("M27 must validate append-only event history")
+
+    final_props = final_pipeline_output_schema.get("properties", {})
+    if final_props.get("doctrine_hermeneutics", {}).get("properties", {}).get("doctrine_adds_structural_score", {}).get("const") is not False:
+        fail("M28 doctrine must not add structural score")
+    if final_props.get("viability_reciprocity", {}).get("properties", {}).get("astrology_used_as_real_world_fact", {}).get("const") is not False:
+        fail("M29 must not substitute astrology for real-world facts")
+    if final_props.get("report_gate", {}).get("properties", {}).get("canonical_values_mutated", {}).get("const") is not False:
+        fail("M30 report gate must not mutate canonical values")
+    if final_props.get("report_document_model", {}).get("properties", {}).get("rendered_document_created", {}).get("const") is not False:
+        fail("M31 must remain a document-model stage, not hidden rendering")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
