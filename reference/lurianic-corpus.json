@@ -1,8 +1,8 @@
 {
   "corpus_version": "1.0.0",
-  "tradition": "Lurianic Kabbalah",
+  "tradition": "Cábala luriana",
   "primary_gateway": "Sefaria",
-  "purpose": "Provide a dedicated Lurianic layer for ALMAS research on gilgul, tikkun, soul roots, zivug and recurrent relational bonds.",
+  "purpose": "Proporcionar una capa luriana específica para la investigación ALMAS sobre gilgul, tikkun, raíces del alma, zivug y vínculos relacionales recurrentes.",
   "core_texts": [
     {
       "work": "Sha'ar HaGilgulim",
@@ -13,32 +13,32 @@
           "passage": "1",
           "topics": [
             "Nefesh/Ruach/Neshamah/Chayah/Yechidah",
-            "soul structure"
+            "estructura del alma"
           ]
         },
         {
           "passage": "8",
           "topics": [
-            "reasons for gilgul",
-            "rectification",
-            "return for others",
-            "return for bat zug"
+            "razones del gilgul",
+            "rectificación",
+            "retorno por otros",
+            "retorno por bat zug"
           ]
         },
         {
           "passage": "20",
           "topics": [
-            "first/second zivug",
-            "true bat zug",
-            "reincarnation with same partner"
+            "primer/segundo zivug",
+            "verdadera bat zug",
+            "reencarnación con la misma pareja"
           ]
         },
         {
           "passage": "39",
           "topics": [
-            "soul roots",
-            "enduring relational links",
-            "true bat zug examples"
+            "raíces del alma",
+            "vínculos relacionales duraderos",
+            "ejemplos de verdadera bat zug"
           ]
         }
       ]
@@ -48,11 +48,11 @@
       "compiler": "Hayyim Vital",
       "teacher": "Isaac Luria",
       "topics": [
-        "cosmology",
+        "cosmología",
         "partzufim",
         "tikkun",
-        "worlds",
-        "rectificatory dynamics"
+        "mundos",
+        "dinámicas rectificatorias"
       ]
     },
     {
@@ -61,47 +61,47 @@
       "teacher": "Isaac Luria",
       "topics": [
         "zivug",
-        "ritual/theurgical union",
-        "male-female divine configurations",
+        "unión ritual/teúrgica",
+        "configuraciones divinas masculino-femeninas",
         "tikkun"
       ]
     }
   ],
   "almas_mapping": {
     "ORIGIN": [
-      "soul roots",
-      "paired or related soul structures"
+      "raíces del alma",
+      "estructuras de almas emparejadas o relacionadas"
     ],
     "HISTORY": [
       "gilgul",
-      "recurrent pairing",
-      "unfinished prior union"
+      "emparejamiento recurrente",
+      "unión previa inconclusa"
     ],
     "FUNCTION": [
       "tikkun",
-      "repair of self",
-      "repair for others"
+      "reparación de sí",
+      "reparación por otros"
     ],
     "POLARITY": [
       "zivug",
-      "male/female symbolic dynamics"
+      "dinámicas simbólicas masculino/femenino"
     ],
     "CONTRACT": [
-      "return for another",
-      "return to take bat zug",
-      "task carried across incarnations"
+      "retorno por otra persona",
+      "retorno para tomar a la bat zug",
+      "tarea transportada entre encarnaciones"
     ],
     "PHASE": [
-      "first zivug",
-      "second zivug",
-      "rectification across reincarnation"
+      "primer zivug",
+      "segundo zivug",
+      "rectificación a través de la reencarnación"
     ]
   },
   "controls": [
-    "Do not equate zivug automatically with modern twin flame.",
-    "Do not equate shared soul root automatically with one unique romantic counterpart.",
-    "Separate divine-theurgical zivug from human relational zivug.",
-    "Treat Sha'ar HaGilgulim as primary doctrinal evidence for reincarnation and paired-soul continuity.",
-    "Use academic scholarship to contextualize Lurianic terminology and historical development."
+    "No equiparar automáticamente zivug con la llama gemela moderna.",
+    "No equiparar automáticamente una raíz del alma compartida con una única contraparte romántica.",
+    "Separar el zivug divino-teúrgico del zivug relacional humano.",
+    "Tratar Sha'ar HaGilgulim como evidencia doctrinal primaria para reencarnación y continuidad de almas emparejadas.",
+    "Usar investigación académica para contextualizar la terminología luriana y su desarrollo histórico."
   ]
 }
