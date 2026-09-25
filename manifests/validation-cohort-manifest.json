@@ -1,13 +1,13 @@
 {
   "manifest_version": "1.0.0",
-  "almas_version": "1.10.1",
+  "almas_version": "1.10.2",
   "status": "PREREGISTRATION_INFRASTRUCTURE",
-  "principle": "Cases used to discover or tune rules are excluded from holdout validation of those rules.",
+  "principle": "Los casos utilizados para descubrir o ajustar reglas quedan excluidos de la validación de reserva de esas mismas reglas.",
   "private_development_cases": {
     "published": false,
     "identifiers_withheld": true,
     "eligible_as_external_holdout": false,
-    "note": "Private development cases remain outside the public repository and cannot validate rules they helped create."
+    "note": "Los casos privados de desarrollo permanecen fuera del repositorio público y no pueden validar reglas que ayudaron a crear."
   },
   "cohorts": [
     {
@@ -42,5 +42,5 @@
     }
   ],
   "real_cases": [],
-  "freeze_rule": "Populate real_cases before running the frozen confirmatory analysis; changing membership after viewing outputs invalidates confirmatory status."
+  "freeze_rule": "Debe completarse real_cases antes de ejecutar el análisis confirmatorio congelado; cambiar la composición después de ver las salidas invalida el estatus confirmatorio."
 }
