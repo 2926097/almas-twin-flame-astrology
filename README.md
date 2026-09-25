@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.8.4  
+**Versión pública:** 1.9.0  
 **Status:** research specification / reproducible interpretive framework
 
 ALMAS is a multidisciplinary framework for studying relationship astrology and soul-bond models without reducing a relationship to a single label. It combines synastry, composite and Davison charts, draconic layers, traditional mirror techniques, temporal activation, null-model rarity, ablation, birth-time robustness, comparative doctrine and hermeneutic reporting.
@@ -106,3 +106,14 @@ La arquitectura normativa está en `docs/MODULE_ARCHITECTURE.md`. El orden ejecu
 ## Fase 1 · Fuentes y genealogía doctrinal
 
 ALMAS v1.4.0 inicia la normalización del corpus documental mediante `schemas/source-registry.schema.json` y `docs/SOURCE_INTEGRATION_PLAN.md`. Las fuentes definen procedencia, significado y límites doctrinales; nunca añaden puntuación astrológica por su mera existencia.
+
+
+## Validación externa
+
+ALMAS 1.9.0 incorpora infraestructura de preregistro y holdout. Los casos de desarrollo, replicación interna y holdout externo quedan separados.
+
+Los casos privados usados para desarrollar reglas no pueden validarlas externamente y no se publican.
+
+**Estado actual:** infraestructura de validación publicada; todavía no se declara validación externa empírica de las ontologías hasta ejecutar cohortes reales preregistradas.
+
+Véase `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
