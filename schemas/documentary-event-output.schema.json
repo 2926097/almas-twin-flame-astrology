@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.invalid/almas/documentary-event-output.schema.json",
+  "title":"ALMAS Validated Documentary Events Output",
+  "type":"object",
+  "required":[
+    "schema_version","analysis_freeze_ref","events","event_count","role_counts",
+    "unresolved_root_refs","structural_mutation_allowed","append_only_validated"
+  ],
+  "properties":{
+    "schema_version":{"const":"1.0.0"},
+    "analysis_freeze_ref":{"type":"string","minLength":1},
+    "events":{"type":"array","items":{"type":"object"}},
+    "event_count":{"type":"integer","minimum":0},
+    "role_counts":{"type":"object"},
+    "unresolved_root_refs":{"type":"array","items":{"type":"object"}},
+    "structural_mutation_allowed":{"const":false},
+    "append_only_validated":{"const":true}
+  },
+  "additionalProperties":false
+}
