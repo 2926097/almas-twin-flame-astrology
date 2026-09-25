@@ -192,3 +192,16 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 ## Ejecución FULL sintética M00–M31
 
 `configured_handlers(astrology_backend=..., davison_backend=...)` permite inyectar explícitamente los backends de M02 y M08 sobre el registro estándar. La prueba `tests/test_full_pipeline.py` ejecuta las 32 etapas en orden con entradas sintéticas declaradas y exige estado `COMPLETED` para M00–M31, además de verificar que el modelo documental no modifique la verdad canónica.
+
+
+## M23 · sensibilidad horaria
+
+`M23` consume un resumen de perturbación previamente calculado y preregistrado. La entrada `time_sensitivity_summary` debe declarar al menos `preregistration_ref`, `delta90` y `preserved_fraction` (G).
+
+El módulo aplica exclusivamente la fórmula normativa:
+
+`R_X = exp(-delta90/20) × sqrt(G)`.
+
+M23 no genera perturbaciones, no estima `delta90` a partir de muestras y no elige una convención de percentil no definida por la skill. La salida conserva la referencia de preregistro y queda marcada `perturbations_generated_by_m23=false`.
+
+El componente calculado es un componente de robustez; la agregación final de IRC corresponde a M25.
