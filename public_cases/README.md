@@ -1,15 +1,15 @@
-# Public case studies
+# Estudios de casos públicos
 
-This directory is reserved for real-world case studies whose underlying data are **already public and independently verifiable**.
+Este directorio está reservado para estudios de casos reales cuyos datos subyacentes sean **ya públicos e independientemente verificables**.
 
-Each public case must include:
+Cada caso público debe incluir:
 
-- a case identifier and descriptive title;
-- the exact public source(s) for each biographical or event datum;
-- retrieval date or bibliographic locator;
-- separation between source facts, calculated data, technique and interpretation;
-- a statement that the case was not used to tune thresholds, weights, gates or ontology.
+- identificador del caso y título descriptivo;
+- fuente o fuentes públicas exactas para cada dato biográfico o de evento;
+- fecha de recuperación o localizador bibliográfico;
+- separación entre hechos de fuente, datos calculados, técnica e interpretación;
+- declaración de que el caso no se utilizó para ajustar umbrales, pesos, gates u ontología.
 
-Material obtained from private conversations, private files, unpublished correspondence, non-public birth records or non-public relationship history is not admissible here merely because a contributor has access to it.
+El material obtenido de conversaciones privadas, archivos privados, correspondencia no publicada, registros natales no públicos o historia relacional no pública no es admisible aquí por el mero hecho de que un colaborador tenga acceso a él.
 
-Synthetic fixtures belong in `examples/`, not in this directory.
+Los fixtures sintéticos pertenecen a `examples/`, no a este directorio.
