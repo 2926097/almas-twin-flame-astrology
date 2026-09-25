@@ -29,7 +29,8 @@ from .time_sensitivity_handlers import m23_time_sensitivity
 from .null_model_handlers import m24_null_models
 from .robustness_index_handlers import m25_robustness
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
-from .final_handlers import m28_doctrine_hermeneutics, m29_viability_reciprocity, m30_report_gate, m31_report
+from .doctrine_handlers import m28_doctrine_hermeneutics
+from .final_handlers import m29_viability_reciprocity, m30_report_gate, m31_report
 
 
 MODELS = ("AF", "KA", "AG", "LG")
