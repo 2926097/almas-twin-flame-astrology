@@ -370,6 +370,35 @@
         "TWIN_FLAME_ORIGIN"
       ],
       "almas_use": "Contexto académico para usos contemporáneos."
+    },
+    {
+      "id": "PREINCARNATIONAL_TRIAL",
+      "label_es": "prueba preencarnatoria",
+      "definition": "Tipo general de prueba, lucha o circunstancia elegida antes de encarnar dentro de una doctrina que preserve libertad respecto de los detalles.",
+      "primary_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "SOUL_CONTRACT",
+        "MISSION_PREINCARNATIONAL",
+        "DETAILED_LIFE_SCRIPT"
+      ],
+      "almas_use": "Separa la elección de una clase de experiencia de un guion detallado o de una relación concreta."
+    },
+    {
+      "id": "FREE_WILL_PREINCARNATIONAL",
+      "label_es": "libre albedrío dentro de la planificación preencarnatoria",
+      "definition": "Modelo en el que la elección previa de condiciones generales no determina todos los acontecimientos ni las respuestas posteriores.",
+      "primary_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "academic_sources": [],
+      "not_equivalent_to": [
+        "DETAILED_LIFE_SCRIPT",
+        "FATALISM"
+      ],
+      "almas_use": "Base doctrinal para separar arquitectura previa de desenlace encarnado."
     }
   ]
 }
