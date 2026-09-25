@@ -15,6 +15,7 @@ from .core import (
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .symmetry_handlers import m05_declinations, m06_antiscia
+from .relationship_chart_handlers import m07_composite
 
 
 MODELS = ("AF", "KA", "AG", "LG")
@@ -300,6 +301,7 @@ def default_handlers():
         "M04": m04_nodes_angles_houses_regencies,
         "M05": m05_declinations,
         "M06": m06_antiscia,
+        "M07": m07_composite,
         "M18": m18_pillars,
         "M19": m19_structural_model_indices,
         "M21": m21_differential_discrimination,
