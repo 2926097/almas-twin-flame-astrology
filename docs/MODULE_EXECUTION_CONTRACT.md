@@ -85,3 +85,14 @@ La secuencia recomendada es:
 `contrato común → orquestador → adaptadores de lógica existente → cálculo/evidencia → ontología → contrato → temporalidad → reporting`.
 
 No se modifican en este paso fórmulas, pesos, umbrales, modelos ontológicos ni discriminadores.
+
+## Adaptadores ejecutables iniciales
+
+La primera integración conecta al pipeline lógica ya existente sin cambiar sus fórmulas:
+
+- `M18` — pilares: acepta pilares precomputados o deriva el valor de un pilar desde intensidades de raíces mediante `pillar_score`;
+- `M19` — índices estructurales: reutiliza `score_model` y `supported_gate`;
+- `M21` — discriminación diferencial: reutiliza `diagnostic_discrimination` e `idd_band`;
+- `M25` — robustez: reutiliza `robustness_index` sobre componentes preregistrados.
+
+Estos adaptadores viven en `src/almas_tfa/handlers.py`. Las etapas restantes continúan explícitamente como no implementadas hasta disponer de un motor reproducible.
