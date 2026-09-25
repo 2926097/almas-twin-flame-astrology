@@ -188,3 +188,7 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 `M30` es el gate de reportabilidad. Sólo autoriza un informe cuando existe un `canonical_analysis` con los campos mínimos del contrato y no hay módulos previos en estado `FAILED`. Los modos TARGETED/TEMPORAL quedan marcados `PARTIAL`.
 
 `M31` crea únicamente `report_document_model`: once secciones con rutas hacia la verdad canónica. No altera valores ni renderiza DOCX/PDF de forma oculta.
+
+## Ejecución FULL sintética M00–M31
+
+`configured_handlers(astrology_backend=..., davison_backend=...)` permite inyectar explícitamente los backends de M02 y M08 sobre el registro estándar. La prueba `tests/test_full_pipeline.py` ejecuta las 32 etapas en orden con entradas sintéticas declaradas y exige estado `COMPLETED` para M00–M31, además de verificar que el modelo documental no modifique la verdad canónica.
