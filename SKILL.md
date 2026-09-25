@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.8.4
+version: 1.9.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.8.4
+# ALMAS · Astrología Metafísica Relacional v1.9.0
 
 ## 0. Public release status
 
-This is the public `1.8.4` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
+This is the public `1.9.0` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
 
 ### Metaphysical research stance
 
@@ -798,3 +798,37 @@ ALMAS preserva, entre otras, las siguientes no-equivalencias:
 - reconocimiento/sincronicidad/transformación reportados ≠ ontología.
 
 Estas separaciones son parte del contrato de regresión de la metodología.
+
+
+## 40. Validación externa y preregistro
+
+ALMAS distingue estrictamente `DEVELOPMENT_ONLY`, `INTERNAL_REPLICATION`, `EXTERNAL_HOLDOUT`, `FROZEN_CONFIRMATORY`, `RETIRED` y `NOT_EVALUABLE`.
+
+Un caso que haya intervenido en descubrir, ajustar o seleccionar una regla no puede validar externamente esa misma regla en la versión correspondiente.
+
+Flujo preferente:
+
+`BLIND_STRUCTURAL → DOCUMENTARY_OPENING → FINAL_AUDIT`.
+
+Las autoetiquetas soulmate/twin-flame pertenecen a `D_CONTEMPORARY_USAGE` y nunca constituyen ground truth ontológico.
+
+Endpoints primarios:
+
+- `EV1_REPRODUCIBILITY`
+- `EV2_FALSE_SPECIFICITY`
+- `EV3_AMBIGUITY_PRESERVATION`
+- `EV4_CORE_SURVIVAL`
+- `EV5_CONTRACT_SPECIFICITY`
+- `EV6_LABEL_INDEPENDENCE`
+- `EV7_DOCTRINAL_ATTRIBUTION`
+- `EV8_TEMPORAL_ANCHORING`
+
+Errores metodológicos explícitos:
+
+`FALSE_SPECIFICITY`, `DEPENDENCY_INFLATION`, `NARRATIVE_LEAKAGE`, `DOCTRINAL_OVERREACH`, `TEMPORAL_CREATION`, `LABEL_LEAKAGE`, `CASE_FITTING`, `PRIVACY_BREACH`.
+
+`CASE_FITTING` invalida el estatus confirmatorio de la ejecución.
+
+La validación externa evalúa generalización, reproducibilidad y especificidad metodológica. No se presenta como demostración experimental de una ontología metafísica.
+
+Referencia: `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
