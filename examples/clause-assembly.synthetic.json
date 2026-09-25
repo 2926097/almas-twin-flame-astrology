@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "overall_state": "COMPATIBLE",
   "essential_clauses": [
     "CL_LIBERTAD_AUTONOMIA",
@@ -54,7 +54,16 @@
       "robustness": 85,
       "r_min": 0.74,
       "counterevidence": [],
-      "reason_not_higher": null
+      "reason_not_higher": null,
+      "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "reconstructed_contract_content": "A relationship-specific function confronts the autonomy/closeness polarity without predetermining a romantic outcome.",
+      "activation_mechanism": "A directional activator contacts a preexisting autonomy task and the common field repeats the same polarity.",
+      "contract_test": "Can closeness and autonomy coexist without control or reactive withdrawal?",
+      "claim_refs": [
+        "CLAIM_CONTRACT_R2"
+      ],
+      "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
     },
     {
       "id": "CL_INTEGRACION_ENCARNACION",
@@ -97,7 +106,16 @@
       "robustness": 82,
       "r_min": 0.7,
       "counterevidence": [],
-      "reason_not_higher": "Current synthetic fixture contains no documented post-activation integration facts."
+      "reason_not_higher": "Current synthetic fixture contains no documented post-activation integration facts.",
+      "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "reconstructed_contract_content": "The relationship-specific function tests whether symbolic meaning can become embodied in coherent choices and conduct.",
+      "activation_mechanism": "Relational structure and role-task alignment connect symbolic integration with Saturnian/embodiment functions.",
+      "contract_test": "Can meaning become observable form without requiring a predetermined romantic result?",
+      "claim_refs": [
+        "CLAIM_CONTRACT_R2"
+      ],
+      "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
     },
     {
       "id": "CL_COMUNICACION_VERDAD",
@@ -134,7 +152,16 @@
       "robustness": 80,
       "r_min": 0.68,
       "counterevidence": [],
-      "reason_not_higher": "Only one strong independent directional root is present."
+      "reason_not_higher": "Only one strong independent directional root is present.",
+      "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "reconstructed_contract_content": "The relationship-specific function brings ambiguity into explicit communication and truth-testing.",
+      "activation_mechanism": "A directional communication root activates a preexisting truth task and is repeated in the common learning field.",
+      "contract_test": "Can meaning be named without coercion, unilateral interpretation or crisis-dependent communication?",
+      "claim_refs": [
+        "CLAIM_CONTRACT_R2"
+      ],
+      "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
     }
   ],
   "overlap_matrix": [
