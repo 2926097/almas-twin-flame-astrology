@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/module-execution.schema.json",
-  "title": "ALMAS Module Execution Result",
+  "title": "ALMAS · Resultado de ejecución modular",
   "type": "object",
   "required": [
     "module_id",
