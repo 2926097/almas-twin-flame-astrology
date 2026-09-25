@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/final-pipeline-output.schema.json",
-  "title": "ALMAS Final Pipeline Outputs",
+  "title": "ALMAS · Salida final del pipeline",
   "type": "object",
   "properties": {
     "doctrine_hermeneutics": {
