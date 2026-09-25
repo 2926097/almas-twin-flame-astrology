@@ -40,7 +40,17 @@ Toda conclusión material debe indicar, cuando proceda:
 
 Un estado PARTIAL debe reflejar sus `degradation_reasons` en el documento. No se ocultan módulos no evaluables, datos ausentes ni limitaciones del análisis.
 
-## Orden recomendado
+## Modelo documental M31
+
+M31 no redacta el informe. Produce un modelo documental trazable que conserva el `canonical_fingerprint` aprobado por M30 y vuelve a verificarlo antes de construir la estructura.
+
+Si el fingerprint ya no coincide, M31 rechaza la ejecución.
+
+El modelo contiene exactamente once secciones. Cada una declara rutas obligatorias/opcionales, disponibilidad y clases epistemológicas permitidas. Sus estados posibles son `READY`, `PARTIAL` y `NOT_AVAILABLE`.
+
+M31 fija `canonical_values_embedded=false`, `prose_generated=false`, `rendered_document_created=false`, `docx_created=false`, `pdf_created=false` y `publication_pipeline_required=true`.
+
+## Orden canónico
 
 1. Síntesis ejecutiva.
 2. Calidad de datos y método.
@@ -70,7 +80,7 @@ No se convierten rareza estadística, intensidad, sincronicidad, doctrina o acti
 
 ## Publicación
 
-M31 construye el modelo documental; la renderización DOCX/PDF es una fase de publicación posterior.
+M31 cierra el pipeline analítico M00–M31. La autoría narrativa, selección de formato, maquetación, DOCX, PDF y preflight comienzan únicamente después de M31.
 
 La secuencia de publicación debe respetar:
 
