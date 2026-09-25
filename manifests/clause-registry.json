@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "clauses": [
     "CL_ENCUENTRO_RECONOCIMIENTO",
     "CL_VINCULO_AMOROSO",
@@ -43,5 +43,13 @@
       "id": "CLD8_UNIQUE_CLAUSE",
       "status": "NOT_VALIDATED"
     }
-  ]
+  ],
+  "contract_resolution_levels": [
+    "R0_NOT_EVALUABLE",
+    "R1_PREINCARNATIONAL_THEME",
+    "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+    "R3_BILATERAL_AGREEMENT_MODEL",
+    "R4_LITERAL_CONTENT"
+  ],
+  "default_clause_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
 }
