@@ -1,4 +1,4 @@
-# Referencia normativa · ALMAS Soul Contract
+# Referencia normativa · ALMAS · Contrato Preencarnatorio
 
 ## 1. Finalidad
 
