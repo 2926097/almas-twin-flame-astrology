@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/validation-case.schema.json",
+  "title": "ALMAS Validation Case",
+  "type": "object",
+  "required": [
+    "case_id",
+    "case_kind",
+    "validation_status",
+    "selection_status",
+    "data_provenance",
+    "label_blinding",
+    "allowed_inputs"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_kind": {
+      "enum": [
+        "PUBLIC_REAL",
+        "SYNTHETIC",
+        "NULL_SHUFFLE"
+      ]
+    },
+    "cohort": {
+      "enum": [
+        "C1_STABLE_LONG_TERM",
+        "C2_SEPARATED_CLOSED",
+        "C3_NON_ROMANTIC_DEEP",
+        "C4_ORDINARY_CONTROL",
+        "C5_EMIC_SOUL_LABEL",
+        "C6_SYNTHETIC_CONTROL",
+        "UNASSIGNED"
+      ]
+    },
+    "validation_status": {
+      "enum": [
+        "DEVELOPMENT_ONLY",
+        "INTERNAL_REPLICATION",
+        "EXTERNAL_HOLDOUT",
+        "FROZEN_CONFIRMATORY",
+        "RETIRED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "selection_status": {
+      "enum": [
+        "PREREGISTERED",
+        "POST_HOC",
+        "SYNTHETIC_FIXTURE"
+      ]
+    },
+    "contamination": {
+      "type": "boolean"
+    },
+    "contamination_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_type",
+          "public",
+          "independently_verifiable"
+        ],
+        "properties": {
+          "source_type": {
+            "type": "string"
+          },
+          "public": {
+            "type": "boolean"
+          },
+          "independently_verifiable": {
+            "type": "boolean"
+          },
+          "locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "label_blinding": {
+      "enum": [
+        "BLINDED",
+        "PARTIALLY_BLINDED",
+        "UNBLINDED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "emic_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "forbidden_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "documentary_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
