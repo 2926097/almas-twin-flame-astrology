@@ -154,3 +154,9 @@ La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0�
 `M20` acepta sólo `EXPLICIT_CONTRADICTION` y `STRUCTURAL_INCOMPATIBILITY`. La ausencia de datos no puede entrar como contraevidencia. Las contradicciones se deduplican por `modelo + dependency_family + contradiction_key`.
 
 El módulo no inventa una fórmula de ICE. Si la entrada contiene `ice_by_model`, se conserva con `ice_state=PRECOMPUTED`; en caso contrario queda `NOT_CALCULATED`. Esto mantiene compatibilidad con el núcleo histórico sin ocultar que M19 precede a M20 en el pipeline vigente.
+
+## M22 · ablación estructural
+
+`M22` ejecuta AB0–AB8 sobre la evidencia deduplicada y las raíces independientes. Registra evidencia y raíces supervivientes/perdidas y una fracción de supervivencia por corrida. `AB7_TROPICAL_PLANETARY_CORE` conserva únicamente sinastría tropical entre luminarias/planetas principales; `AB8_INDIVIDUAL_ONLY` conserva sólo evidencia intrapersonal si existiera.
+
+La salida se marca `structural_only=true` y `dependency_classes_assigned=false`. Las clases contractuales CORE_STABLE, DRACONIC_DEPENDENT, RELCHART_SENSITIVE, etc., no se infieren automáticamente a partir de esta matriz hasta disponer de las unidades contractuales correspondientes.
