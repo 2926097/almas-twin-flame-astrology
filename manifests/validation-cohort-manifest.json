@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_version": "1.9.2",
+  "almas_version": "1.9.3",
   "status": "PREREGISTRATION_INFRASTRUCTURE",
   "principle": "Cases used to discover or tune rules are excluded from holdout validation of those rules.",
   "private_development_cases": {
