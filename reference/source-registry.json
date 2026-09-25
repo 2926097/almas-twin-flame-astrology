@@ -210,10 +210,13 @@
       "tradition": "Zoharic Kabbalah",
       "concepts": [
         "SOUL_PAIRING",
-        "ZIVUG"
+        "ZIVUG",
+        "PAIRED_SOULS",
+        "SEPARATION_REUNION"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "English Soncino version in Sefaria explicitly presents souls as paired before descent, separated, and later joined; it also preserves a merit/action qualification."
     },
     {
       "id": "talmud_sotah_2a_9",
@@ -230,11 +233,11 @@
         "modern twin-flame astrology"
       ],
       "source_role": "DOCTRINAL_PRIMARY",
-      "verification_note": "Exact Sefaria locator corrected; passage concerns a heavenly proclamation before fetal formation and distinguishes first and second matches.",
+      "verification_note": "William Davidson Edition in Sefaria states a pre-formation heavenly proclamation for a first match and distinguishes it from a second match tied to conduct.",
       "tradition": "Rabbinic Judaism / Babylonian Talmud",
       "concepts": [
         "PRENATAL_PAIRING",
-        "ZIVUG"
+        "FIRST_SECOND_ZIVUG"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
@@ -725,10 +728,14 @@
       "concepts": [
         "GILGUL",
         "TIKKUN",
-        "ZIVUG"
+        "ZIVUG",
+        "BAT_ZUG",
+        "RETURN_FOR_OTHERS"
       ],
-      "verification_status": "PARTIAL",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Source-language text verified in Sefaria. It distinguishes several causes of gilgul, including rectification, completing a missing commandment, returning for others, and in some cases returning to take one's bat zug.",
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; ALMAS records primary-source status without treating an unofficial translation as canonical."
     },
     {
       "id": "vital_shaar_hagilgulim_20_zivug",
@@ -737,8 +744,8 @@
       "tradition": "Lurianic Kabbalah",
       "author": "Hayyim Vital recording teachings of Isaac Luria",
       "work": "Sha'ar HaGilgulim",
-      "passage": "Chapter 20:1",
-      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20.7",
+      "passage": "Chapter 20, opening discussion of first and second zivug",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20",
       "supports": [
         "distinction between first and second zivug",
         "teaching that a true bat zug may reincarnate again with the same soul",
@@ -750,10 +757,15 @@
       ],
       "concepts": [
         "GILGUL",
-        "ZIVUG"
+        "ZIVUG",
+        "BAT_ZUG",
+        "FIRST_SECOND_ZIVUG",
+        "SOUL_ROOT"
       ],
-      "verification_status": "PARTIAL",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Source-language text verified in Sefaria. The opening discussion interprets first/second zivug in reincarnational terms and explicitly treats a repeated union with the same true mate as a possible second zivug.",
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; interpretive summaries must remain tied to the Hebrew source and academic literature."
     },
     {
       "id": "vital_shaar_hagilgulim_39_soul_roots",
@@ -775,10 +787,14 @@
       ],
       "concepts": [
         "SOUL_ROOT",
-        "GILGUL"
+        "GILGUL",
+        "SOUL_NETWORK",
+        "TEACHER_STUDENT_ROOT"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Source-language text verified in Sefaria; chapter contains extensive discussion of soul-root relations, reincarnational links and connections across relational roles.",
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter."
     },
     {
       "id": "vital_sefer_etz_chaim",
@@ -846,10 +862,13 @@
       "tradition": "Academic study of Jewish reincarnation",
       "concepts": [
         "GILGUL",
-        "SOUL_ROOT"
+        "SOUL_IDENTITY",
+        "LURIANIC_KABBALAH"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date": "2024",
+      "doi": "10.1515/9798855800074-012"
     },
     {
       "id": "kardec_spirits_book_missions_572_573",
@@ -902,6 +921,34 @@
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+    },
+    {
+      "id": "fishbane_personal_identity_lurianic_gilgul_2024",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Academic study of Lurianic Kabbalah",
+      "author": "Eitan P. Fishbane",
+      "work": "Personal Identity and the Ontology of the Soul: Aspects of Reincarnation in Ḥayyim Vital’s Shaʿar ha-Gilgulim",
+      "date": "2024",
+      "pages": "203-224",
+      "doi": "10.1515/9798855800074-010",
+      "url": "https://www.degruyter.com/document/doi/10.1515/9798855800074-010/html",
+      "concepts": [
+        "GILGUL",
+        "SOUL_ROOT",
+        "SOUL_IDENTITY",
+        "LURIANIC_KABBALAH"
+      ],
+      "supports": [
+        "academic analysis of personal identity and reincarnation in Hayyim Vital's Sha'ar ha-Gilgulim",
+        "scholarly context for interpreting Lurianic soul ontology without importing modern New Age categories"
+      ],
+      "does_not_support": [
+        "modern twin-flame terminology as a Lurianic doctrine",
+        "ALMAS astrological diagnostic rules"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
     }
   ],
   "registry_revision": "2026-09-24-origin-differential-1"
