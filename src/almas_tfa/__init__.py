@@ -26,6 +26,7 @@ from .module_contract import (
     ModuleResult,
 )
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
+from .symmetry_handlers import antiscion_longitude, contra_antiscion_longitude, m05_declinations, m06_antiscia
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -47,6 +48,10 @@ __all__ = [
     "house_for_longitude",
     "m03_synastry",
     "m04_nodes_angles_houses_regencies",
+    "m05_declinations",
+    "m06_antiscia",
+    "antiscion_longitude",
+    "contra_antiscion_longitude",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
