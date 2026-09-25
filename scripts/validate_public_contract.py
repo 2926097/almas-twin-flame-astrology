@@ -272,7 +272,7 @@ def main() -> int:
 
     for needle in [
         f"version: {version}",
-        "Metaphysical research stance",
+        "Enfoque de investigación metafísica",
         "IEM",
         "IDD",
         "IRC",
