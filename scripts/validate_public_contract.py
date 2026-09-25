@@ -322,8 +322,40 @@ def main() -> int:
     if not {"AB1_NO_ASTEROIDS","AB2_NO_TEMPORALITY","AB8_INDIVIDUAL_ONLY"}.issubset(ab_runs):
         fail("contract ablation fixture must include AB1 and AB2 and AB8")
 
-    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.8.0":
-        fail("preincarnation reconstruction schema must expose schema_version 1.8.0")
+    if preincarnation_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.9.0":
+        fail("preincarnation reconstruction schema must expose schema_version 1.9.0")
+
+    if clause_assembly_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.1.0":
+        fail("clause assembly schema must expose 1.1.0")
+    if clause_assembly_example.get("schema_version") != "1.1.0":
+        fail("clause assembly fixture must expose schema_version 1.1.0")
+    required_clause_fields = {
+        "resolution_level",
+        "reconstructed_contract_content",
+        "activation_mechanism",
+        "contract_test",
+        "claim_refs",
+        "allowed_conclusion",
+        "inferential_ceiling",
+    }
+    for clause in clause_assembly_example.get("clauses", []):
+        missing = required_clause_fields - set(clause)
+        if missing:
+            fail(f"clause fixture missing causal fields for {clause.get('id')}: {sorted(missing)}")
+        if clause.get("resolution_level") == "R4_LITERAL_CONTENT":
+            fail(f"synthetic clause must not assert R4 literal content: {clause.get('id')}")
+        if clause.get("inferential_ceiling") == "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION":
+            if clause.get("allowed_conclusion") != "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION":
+                fail(f"clause allowed conclusion exceeds or disagrees with R2 ceiling: {clause.get('id')}")
+        for claim_ref in clause.get("claim_refs", []):
+            if claim_ref not in {x.get("claim_id") for x in doctrinal_claim_fixture.get("claims", [])}:
+                fail(f"clause references unknown doctrinal claim: {clause.get('id')} -> {claim_ref}")
+
+    if preincarnation_example.get("schema_version") != "1.9.0":
+        fail("preincarnation synthetic fixture must expose 1.9.0")
+    nested_clause = preincarnation_example.get("clause_assembly", {})
+    if nested_clause.get("schema_version") != "1.1.0":
+        fail("nested clause assembly fixture must expose 1.1.0")
 
     modules = module_manifest.get("modules", [])
     ids = [m.get("id") for m in modules]
