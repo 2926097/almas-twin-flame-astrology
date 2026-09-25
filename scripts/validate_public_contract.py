@@ -32,6 +32,8 @@ REQUIRED_FILES = [
     "schemas/natal-chart.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
+    "schemas/declination-output.schema.json",
+    "schemas/antiscia-output.schema.json",
     "schemas/module-execution.schema.json",
     "schemas/precomputed-pillars.schema.json",
     "schemas/precomputed-result.schema.json",
@@ -120,6 +122,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/relational_handlers.py",
+    "src/almas_tfa/symmetry_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -156,6 +159,7 @@ REQUIRED_FILES = [
     "tests/test_handlers.py",
     "tests/test_astrology_backend.py",
     "tests/test_relational_handlers.py",
+    "tests/test_symmetry_handlers.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -267,6 +271,8 @@ def main() -> int:
     natal_chart_schema = load_json("schemas/natal-chart.schema.json")
     synastry_schema = load_json("schemas/synastry-output.schema.json")
     natal_context_schema = load_json("schemas/natal-context-output.schema.json")
+    declination_schema = load_json("schemas/declination-output.schema.json")
+    antiscia_schema = load_json("schemas/antiscia-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -337,6 +343,11 @@ def main() -> int:
 
     if "subjects" not in natal_context_schema.get("required", []):
         fail("natal context schema must require subjects")
+
+    if "contacts" not in declination_schema.get("required", []):
+        fail("declination schema must require contacts")
+    if "contacts" not in antiscia_schema.get("required", []):
+        fail("antiscia schema must require contacts")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
