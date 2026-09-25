@@ -487,10 +487,26 @@ def main() -> int:
     if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
         fail("M24 must not generate undeclared null sampling")
 
-    if temporal_activation_schema.get("properties", {}).get("structural_score_modified", {}).get("const") is not False:
+    temporal_props = temporal_activation_schema.get("properties", {})
+    if temporal_props.get("structural_score_modified", {}).get("const") is not False:
         fail("M26 must not modify structural scoring")
-    if temporal_activation_schema.get("properties", {}).get("aggregation_weights_applied", {}).get("const") is not False:
-        fail("M26 must not invent IAT aggregation weights")
+    if temporal_props.get("structural_roots_created", {}).get("const") is not False:
+        fail("M26 must not create structural roots")
+    if temporal_props.get("real_world_event_prediction_made", {}).get("const") is not False:
+        fail("M26 must not predict real-world events")
+    if temporal_props.get("aggregation_weights_applied", {}).get("type") != "boolean":
+        fail("M26 aggregation_weights_applied must reflect whether preregistered weights were actually used")
+    if "iat_policy" not in temporal_activation_schema.get("required", []):
+        fail("M26 must expose the IAT aggregation policy when applicable")
+    signal_props = (
+        temporal_props.get("signals", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    if signal_props.get("creates_structural_root", {}).get("const") is not False:
+        fail("M26 temporal signals must never create structural roots")
+    if signal_props.get("predicts_real_world_event", {}).get("const") is not False:
+        fail("M26 temporal signals must never predict real-world events")
     if documentary_event_output_schema.get("properties", {}).get("structural_mutation_allowed", {}).get("const") is not False:
         fail("M27 must forbid retrospective structural mutation")
     if documentary_event_output_schema.get("properties", {}).get("append_only_validated", {}).get("const") is not True:
