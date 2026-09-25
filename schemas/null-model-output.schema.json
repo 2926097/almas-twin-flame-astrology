@@ -1,29 +1,50 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/null-model-output.schema.json",
-  "title":"ALMAS Null Model Output",
-  "type":"object",
-  "required":[
-    "runs","run_count","metaphysical_probability","sampling_generated_by_m24"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/null-model-output.schema.json",
+  "title": "ALMAS · Salida de modelos nulos",
+  "type": "object",
+  "required": [
+    "runs",
+    "run_count",
+    "metaphysical_probability",
+    "sampling_generated_by_m24"
   ],
-  "properties":{
-    "runs":{
-      "type":"array",
-      "minItems":1,
-      "items":{
-        "type":"object",
-        "required":[
-          "id","preregistration_ref","null_model","feature_set_ref",
-          "orb_policy_ref","event_set_ref","generator_ref","statistic_id",
-          "observed_value","tail","n","extreme_count","structural_frequency",
-          "wilson_interval","evaluation_source","sampling_generated_by_m24",
+  "properties": {
+    "runs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "preregistration_ref",
+          "null_model",
+          "feature_set_ref",
+          "orb_policy_ref",
+          "event_set_ref",
+          "generator_ref",
+          "statistic_id",
+          "observed_value",
+          "tail",
+          "n",
+          "extreme_count",
+          "structural_frequency",
+          "wilson_interval",
+          "evaluation_source",
+          "sampling_generated_by_m24",
           "interpretation_scope"
         ],
-        "properties":{
-          "id":{"type":"string","minLength":1},
-          "preregistration_ref":{"type":"string","minLength":1},
-          "null_model":{
-            "enum":[
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preregistration_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "null_model": {
+            "enum": [
               "MATCHED_AGE",
               "WITHIN_YEAR",
               "MATCHED_AGE_CLOCK",
@@ -33,50 +54,101 @@
               "TECHNIQUE_SPECIFIC_CYCLE"
             ]
           },
-          "feature_set_ref":{"type":"string","minLength":1},
-          "orb_policy_ref":{"type":"string","minLength":1},
-          "event_set_ref":{"type":"string","minLength":1},
-          "generator_ref":{"type":"string","minLength":1},
-          "statistic_id":{"type":"string","minLength":1},
-          "observed_value":{"type":"number"},
-          "tail":{
-            "enum":[
+          "feature_set_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "orb_policy_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "event_set_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "generator_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statistic_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observed_value": {
+            "type": "number"
+          },
+          "tail": {
+            "enum": [
               "GREATER_OR_EQUAL",
               "LESS_OR_EQUAL",
               "ABS_GREATER_OR_EQUAL"
             ]
           },
-          "n":{"type":"integer","minimum":1},
-          "extreme_count":{"type":"integer","minimum":0},
-          "structural_frequency":{"type":"number","minimum":0,"maximum":1},
-          "wilson_interval":{
-            "type":"object",
-            "required":["confidence_level","lower","upper"],
-            "properties":{
-              "confidence_level":{
-                "type":"number",
-                "exclusiveMinimum":0,
-                "exclusiveMaximum":1
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "extreme_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "structural_frequency": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "wilson_interval": {
+            "type": "object",
+            "required": [
+              "confidence_level",
+              "lower",
+              "upper"
+            ],
+            "properties": {
+              "confidence_level": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "exclusiveMaximum": 1
               },
-              "lower":{"type":"number","minimum":0,"maximum":1},
-              "upper":{"type":"number","minimum":0,"maximum":1}
+              "lower": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "upper": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
             },
-            "additionalProperties":false
+            "additionalProperties": false
           },
-          "evaluation_source":{
-            "enum":["NULL_SAMPLES","PRECOMPUTED_COUNTS"]
+          "evaluation_source": {
+            "enum": [
+              "NULL_SAMPLES",
+              "PRECOMPUTED_COUNTS"
+            ]
           },
-          "sampling_generated_by_m24":{"const":false},
-          "interpretation_scope":{
-            "const":"STRUCTURAL_FREQUENCY_UNDER_DECLARED_NULL"
+          "sampling_generated_by_m24": {
+            "const": false
+          },
+          "interpretation_scope": {
+            "const": "STRUCTURAL_FREQUENCY_UNDER_DECLARED_NULL"
           }
         },
-        "additionalProperties":false
+        "additionalProperties": false
       }
     },
-    "run_count":{"type":"integer","minimum":1},
-    "metaphysical_probability":{"const":false},
-    "sampling_generated_by_m24":{"const":false}
+    "run_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "metaphysical_probability": {
+      "const": false
+    },
+    "sampling_generated_by_m24": {
+      "const": false
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
