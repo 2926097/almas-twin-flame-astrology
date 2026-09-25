@@ -42,7 +42,7 @@
       "coverage": 86,
       "robustness": 82,
       "counterevidence": [],
-      "reason_not_higher": "The fixture shows recurrence but not enough factual change for repair."
+      "reason_not_higher": "Los datos de prueba muestran recurrencia, pero no suficiente cambio factual para reparación."
     },
     {
       "id": "FM_TIKKUN_REPARACION",
@@ -61,9 +61,9 @@
       "coverage": 80,
       "robustness": 78,
       "counterevidence": [
-        "No post-activation fact yet satisfies the preregistered integration signature."
+        "Ningún hecho posterior a la activación satisface todavía la firma de integración preregistrada."
       ],
-      "reason_not_higher": "Functional repair remains unverified in facts."
+      "reason_not_higher": "La reparación funcional permanece sin verificar en los hechos."
     },
     {
       "id": "FM_RUTA_ALTERNATIVA",
@@ -81,7 +81,7 @@
       "coverage": null,
       "robustness": null,
       "counterevidence": [],
-      "reason_not_higher": "Alternative-route language is method-specific and has no validated astrological discriminator."
+      "reason_not_higher": "El lenguaje de ruta alternativa es específico del método y no dispone de discriminador astrológico validado."
     }
   ],
   "clause_status": [
@@ -169,6 +169,6 @@
   ],
   "counterevidence": [],
   "robustness": 81,
-  "why_selected": "The synthetic fixture supports activation and repetition but does not yet document full integration or closure.",
+  "why_selected": "Los datos sintéticos respaldan activación y repetición, pero todavía no documentan integración completa ni cierre.",
   "why_not_more_specific": "No documented facts satisfy a preregistered integration/closure signature, and future completion cannot be inferred from astrology."
 }
