@@ -168,7 +168,7 @@
     {
       "id": "M31",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/final_handlers.py:m31_report"
+      "implementation": "src/almas_tfa/report_model_handlers.py:m31_report"
     }
   ]
 }
