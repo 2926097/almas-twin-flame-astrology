@@ -1,76 +1,73 @@
 # ALMAS · Arquitectura modular única
 
-## Decisión arquitectónica
+## Decisión
 
 ALMAS se publica y versiona como **una única skill**.
 
-Los motores especializados —astrología relacional, doctrina, ontología, contrato preencarnatorio, roles, causalidad, temporalidad, validación e informes— son **módulos internos** de la misma metodología.
+Astrología relacional, ontología, doctrina, contrato preencarnatorio, roles, causalidad, temporalidad, validación y reporting son módulos internos.
 
-No existe una segunda skill pública de “Contrato Álmico”.
+`skills/almas-soul-contract/SKILL.md` se conserva como punto de entrada especializado por compatibilidad, pero no constituye una segunda skill pública.
 
-El archivo `skills/almas-soul-contract/SKILL.md` se conserva como punto de entrada especializado y por compatibilidad histórica, pero su estatus normativo es **módulo**, no skill independiente.
+## Tres manifiestos, tres funciones
+
+- `manifests/almas-module-manifest.json`: arquitectura de alto nivel.
+- `manifests/analysis-pipeline-manifest.json`: módulos ejecutables M00–M31 de un análisis FULL.
+- `manifests/preincarnation-pipeline-manifest.json`: ocho etapas de reconstrucción preencarnatoria.
+
+No son duplicados.
+
+La antigua arquitectura dual se conserva sólo como historia en `docs/history/DUAL_ENGINE_ARCHITECTURE.md`.
 
 ## Flujo canónico
 
 ```text
 FUENTES + DATOS
       ↓
-ASTROLOGÍA METAFÍSICA RELACIONAL
+CÁLCULO ASTROLÓGICO
       ↓
 canonical_analysis.json
       ↓
-ONTOLOGÍA + DIAGNÓSTICO DIFERENCIAL
+EVIDENCIA + VALIDACIÓN
+      ↓
+ONTOLOGÍA MULTIAXIAL
       ↓
 RECONSTRUCCIÓN PREENCARNATORIA
-  ├─ origen
-  ├─ motivo del acuerdo
-  ├─ roles
-  ├─ condiciones de encuentro
-  ├─ tareas individuales
-  ├─ tarea común
-  ├─ cláusulas
-  └─ mecanismos de cumplimiento
-      ↓
-VALIDACIÓN
-  ├─ dependencia
-  ├─ contraevidencia
-  ├─ ablación
-  ├─ sensibilidad horaria
-  └─ robustez
       ↓
 canonical_soul_contract.json
       ↓
-INFORME HERMENÉUTICO
+TEMPORALIDAD / HECHOS / VIABILIDAD
+      ↓
+INFORME
 ```
 
-## Regla de versionado
+El módulo contractual consume evidencia canónica; no recalcula silenciosamente la capa astrológica.
 
-`VERSION` en la raíz es la única versión pública de ALMAS.
+## Versionado
 
-Los módulos pueden tener:
+`VERSION` es el único SemVer público.
+
+Los módulos internos pueden usar:
 
 - `schema_version`;
 - `engine_revision`;
 - `manifest_version`.
 
-No pueden declararse como una segunda skill con SemVer público independiente.
-
 ## Separación epistemológica
 
-Cada afirmación debe conservar su procedencia:
+Cada afirmación conserva:
 
-- A · DATO CALCULADO/documental.
-- B · TÉCNICA.
-- C · DOCTRINA explícita.
-- D · USO CONTEMPORÁNEO.
-- E · HIPÓTESIS DEL PROYECTO.
+- A · dato calculado/documental;
+- B · técnica;
+- C · doctrina explícita;
+- D · uso contemporáneo;
+- E · hipótesis del proyecto.
 
-Las fuentes definen qué conceptos existen doctrinalmente y qué significan. La astrología evalúa si una arquitectura operacionalizada aparece. Una fuente nunca añade puntos por existir.
+Las fuentes definen conceptos y límites. La astrología evalúa operacionalizaciones. Una fuente nunca aporta puntos por existir.
 
-## Regla de desarrollo
+## Desarrollo
 
-Toda nueva función sigue:
+Toda función nueva sigue:
 
-`fuente/problema → definición → evidencia necesaria → límites → regla reproducible → test sintético → validación → incorporación`.
+`problema/fuente → definición → evidencia necesaria → límites → regla reproducible → fixture/test sintético → validación → incorporación`.
 
-Los casos privados pueden descubrir problemas metodológicos, pero no se publican ni se convierten directamente en reglas sin generalización y test.
+Un caso privado puede revelar un problema metodológico, pero sus datos no se publican ni se convierten directamente en regla.
