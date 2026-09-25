@@ -353,7 +353,8 @@ class TestFullPipelineSynthetic(unittest.TestCase):
                         "date_precision": "EXACT_DATE",
                         "fact_statement": "Synthetic viability fact.",
                         "documentary_quality": "DQ3_CORROBORATED_REPORT",
-                        "source_refs": ["S1"],
+                        "source_refs": ["S1", "S1B"],
+                        "source_independence_declared": True,
                         "privacy_class": "SYNTHETIC",
                         "evidence_roles": [
                             "ACTIVATION_CORROBORATION",
@@ -369,7 +370,8 @@ class TestFullPipelineSynthetic(unittest.TestCase):
                         "date_precision": "EXACT_DATE",
                         "fact_statement": "Synthetic reciprocity fact.",
                         "documentary_quality": "DQ3_CORROBORATED_REPORT",
-                        "source_refs": ["S2"],
+                        "source_refs": ["S2", "S2B"],
+                        "source_independence_declared": True,
                         "privacy_class": "SYNTHETIC",
                         "evidence_roles": ["RECIPROCITY_FACT"],
                         "linked_root_refs": ["R0001"],
@@ -425,10 +427,27 @@ class TestFullPipelineSynthetic(unittest.TestCase):
                 ],
             },
             "viability_reciprocity_assessment": {
+                "assessment_ref": "VR-FULL-001",
+                "as_of_date": "2030-05-01",
+                "subjects": ["A", "B"],
                 "real_viability": "STABLE",
                 "reciprocity": "BILATERAL",
-                "viability_event_refs": ["E1"],
-                "reciprocity_event_refs": ["E2"],
+                "viability_basis": [
+                    {
+                        "event_id": "E1",
+                        "basis_kind": "OBSERVED_STABLE_RELATIONSHIP",
+                        "observation_type": "DOCUMENTED_STATUS",
+                        "subject_ids": ["A", "B"],
+                    }
+                ],
+                "reciprocity_basis": [
+                    {
+                        "event_id": "E2",
+                        "basis_kind": "DOCUMENTED_BILATERALITY",
+                        "observation_type": "MUTUAL_AGREEMENT",
+                        "subject_ids": ["A", "B"],
+                    }
+                ],
             },
             "canonical_analysis": canonical_analysis,
         }
