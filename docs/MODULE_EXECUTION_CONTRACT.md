@@ -163,19 +163,23 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 
 ## M23–M25 · sensibilidad, modelos nulos y robustez
 
-`M23` consume un resumen preregistrado de perturbación horaria con `delta90` y `preserved_fraction=G` y aplica exactamente `R_X = exp(-delta90/20) × sqrt(G)`. No genera por sí mismo horas perturbadas.
+`M23` consume un resumen de perturbación previamente calculado y preregistrado. `time_sensitivity_summary` debe declarar al menos `preregistration_ref`, `delta90` y `preserved_fraction=G`. Aplica exactamente:
 
-`M24` resume corridas nulas ya generadas bajo uno de los modelos admitidos por la skill. Exige `preregistration_ref` y `frozen_before_inspection=true`, calcula la frecuencia `hits/trials` y, cuando se declara `wilson_z`, el intervalo Wilson correspondiente. La salida fija `metaphysical_probability=false` y `sampling_generated_by_m24=false`.
+`R_X = exp(-delta90/20) × sqrt(G)`.
 
-`M25` es el único agregador canónico de robustez. Incorpora automáticamente el componente `BIRTH_TIME` de M23 porque su derivación está normativamente definida. Otros componentes deben entrar mediante `robustness_component_summaries` y declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
+M23 no genera perturbaciones, no estima `delta90` a partir de muestras y no improvisa una convención de percentil. El componente resultante pertenece a robustez y su agregación final corresponde a M25.
+
+`M24` evalúa corridas nulas preregistradas. Cada corrida conserva `preregistration_ref`, tipo de modelo nulo, `feature_set_ref`, `orb_policy_ref`, `event_set_ref`, `generator_ref`, estadístico observado, regla de extremo y muestras nulas o `n/extreme_count`. Los tipos admitidos son `MATCHED_AGE`, `WITHIN_YEAR`, `MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`, `EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`.
+
+M24 no genera el universo nulo: `sampling_generated_by_m24=false`. Su frecuencia describe rareza estructural bajo el modelo declarado y fija `metaphysical_probability=false`.
+
+`M25` es el único agregador canónico de robustez. Incorpora automáticamente `BIRTH_TIME` desde M23 porque su derivación está definida. Otros componentes deben declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
 
 Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR`.
 
-La presencia de M22 no crea automáticamente un número de robustez: si existe ablación pero no una regla preregistrada que la convierta en un componente 0–1, M25 registra `ablation_state=AVAILABLE_NOT_QUANTIFIED`. Sólo una conversión explícita con `source_module=M22` puede entrar como `ABLATION`.
+La presencia de M22 no crea automáticamente un componente IRC: sin una regla preregistrada de conversión, M25 registra `ablation_state=AVAILABLE_NOT_QUANTIFIED`. M24 queda excluido del IRC mediante `null_model_rarity_used_as_robustness=false`.
 
-M24 queda excluido del IRC: `null_model_rarity_used_as_robustness=false`. La rareza estructural bajo un modelo nulo y la robustez frente a perturbaciones son magnitudes distintas.
-
-La agregación normativa permanece sin cambios:
+La agregación normativa permanece:
 
 `IRC = 100 × geometric_mean(applicable_R_i)`
 
@@ -230,39 +234,3 @@ El firewall documental queda fijado en `structural_mutation_allowed=false`, `cla
 ## Ejecución FULL sintética M00–M31
 
 `configured_handlers(astrology_backend=..., davison_backend=...)` permite inyectar explícitamente los backends de M02 y M08 sobre el registro estándar. La prueba `tests/test_full_pipeline.py` ejecuta las 32 etapas en orden con entradas sintéticas declaradas y exige estado `COMPLETED` para M00–M31, además de verificar que el modelo documental no modifique la verdad canónica.
-
-
-## M23 · sensibilidad horaria
-
-`M23` consume un resumen de perturbación previamente calculado y preregistrado. La entrada `time_sensitivity_summary` debe declarar al menos `preregistration_ref`, `delta90` y `preserved_fraction` (G).
-
-El módulo aplica exclusivamente la fórmula normativa:
-
-`R_X = exp(-delta90/20) × sqrt(G)`.
-
-M23 no genera perturbaciones, no estima `delta90` a partir de muestras y no elige una convención de percentil no definida por la skill. La salida conserva la referencia de preregistro y queda marcada `perturbations_generated_by_m23=false`.
-
-El componente calculado es un componente de robustez; la agregación final de IRC corresponde a M25.
-
-
-## M24 · modelos nulos y rareza estructural
-
-`M24` evalúa una o varias corridas nulas preregistradas mediante `null_model_runs`. Cada corrida debe conservar:
-
-- `preregistration_ref`;
-- tipo de modelo nulo;
-- `feature_set_ref`;
-- `orb_policy_ref`;
-- `event_set_ref`;
-- `generator_ref`;
-- estadístico observado;
-- regla de extremo (`tail`);
-- muestras nulas o, alternativamente, `n` y `extreme_count`.
-
-Los tipos admitidos son `MATCHED_AGE`, `WITHIN_YEAR`, `MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`, `EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`.
-
-Cuando se suministran muestras, M24 cuenta cuántas son tan o más extremas que el valor observado conforme a la regla preregistrada. La frecuencia estructural es `extreme_count / n` y se acompaña de un intervalo de Wilson al nivel de confianza declarado.
-
-M24 no genera el universo nulo: `sampling_generated_by_m24=false`. Esto evita que el módulo improvise reglas de emparejamiento, fechas o ciclos después de inspeccionar el caso.
-
-La salida fija `metaphysical_probability=false`. Una frecuencia baja describe rareza estructural bajo el modelo nulo declarado y no se convierte en probabilidad de soulmate, llama gemela, origen compartido ni ninguna otra ontología.
