@@ -169,6 +169,42 @@
               "PARTIAL",
               "PENDING"
             ]
+          },
+          "verification_anchor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_anchor_type": {
+            "enum": [
+              "EXACT_PASSAGE",
+              "SECTION",
+              "CHAPTER",
+              "ABSTRACT",
+              "TABLE_OF_CONTENTS",
+              "AUTHOR_SUMMARY",
+              "PUBLISHER_SUMMARY",
+              "METADATA_ONLY",
+              null
+            ]
+          },
+          "verification_anchor_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_scope": {
+            "enum": [
+              "DOCTRINAL_CLAIM",
+              "METHOD_DESCRIPTION",
+              "ACADEMIC_DESCRIPTION",
+              "HISTORICAL_CONTEXT",
+              "PHENOMENOLOGY",
+              "BIBLIOGRAPHIC_ONLY",
+              null
+            ]
           }
         },
         "additionalProperties": true
