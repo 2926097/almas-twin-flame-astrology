@@ -47,6 +47,10 @@ class TestDraconicHandlers(unittest.TestCase):
                             "point_type": "NODE",
                         },
                         "SUN": {
+                            "longitude": 330.0,
+                            "point_type": "LUMINARY",
+                        },
+                        "MOON": {
                             "longitude": 232.0,
                             "point_type": "LUMINARY",
                         },
@@ -116,6 +120,10 @@ class TestDraconicHandlers(unittest.TestCase):
         self.assertEqual(m12.status, ExecutionStatus.COMPLETED)
         self.assertGreaterEqual(
             m11.canonical_updates["natal_draconic_cross"]["contact_count"],
+            1,
+        )
+        self.assertGreaterEqual(
+            m12.canonical_updates["draconic_draconic"]["contact_count"],
             1,
         )
         self.assertTrue(
