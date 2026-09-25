@@ -8,13 +8,14 @@ Astrología relacional, ontología, doctrina, contrato preencarnatorio, roles, c
 
 `skills/almas-soul-contract/SKILL.md` se conserva como punto de entrada especializado por compatibilidad, pero no constituye una segunda skill pública.
 
-## Tres manifiestos, tres funciones
+## Registros y manifiestos, funciones diferenciadas
 
 - `manifests/almas-module-manifest.json`: arquitectura de alto nivel.
 - `manifests/analysis-pipeline-manifest.json`: módulos ejecutables M00–M31 de un análisis FULL.
 - `manifests/preincarnation-pipeline-manifest.json`: ocho etapas de reconstrucción preencarnatoria.
+- `manifests/execution-registry.json`: grado de implementación ejecutable de M00–M31.
 
-No son duplicados.
+No son duplicados. El contrato operativo común está documentado en `docs/MODULE_EXECUTION_CONTRACT.md` y materializado en `src/almas_tfa/module_contract.py` y `src/almas_tfa/orchestrator.py`.
 
 La antigua arquitectura dual se conserva sólo como historia en `docs/history/DUAL_ENGINE_ARCHITECTURE.md`.
 
