@@ -48,9 +48,12 @@
           "concept_class": {
             "enum": [
               "DOCTRINAL_ANALYTIC",
+              "DOCTRINAL_FRAMEWORK",
               "TECHNICAL_METHOD",
               "PHENOMENOLOGY",
               "HISTORICAL_GENEALOGY",
+              "ACADEMIC_CONTEXT",
+              "CONTEMPORARY_MODEL",
               "BOUNDARY",
               "PROJECT_MODEL"
             ]
