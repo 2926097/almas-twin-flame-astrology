@@ -32,6 +32,7 @@ from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cros
 from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
+from .counterevidence_handlers import m20_counterevidence
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -70,6 +71,7 @@ __all__ = [
     "m15_evidence_extraction",
     "m16_dependency_deduplication",
     "m17_independent_roots",
+    "m20_counterevidence",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
