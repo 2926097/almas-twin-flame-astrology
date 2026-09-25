@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/doctrinal-claim.schema.json",
-  "title": "ALMAS Doctrinal / Metaphysical Claim v2",
+  "title": "ALMAS · Afirmación doctrinal/metafísica v2",
   "type": "object",
   "required": [
     "schema_version",
