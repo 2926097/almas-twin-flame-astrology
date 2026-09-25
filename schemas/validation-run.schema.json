@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/validation-run.schema.json",
+  "title": "ALMAS Validation Run",
+  "type": "object",
+  "required": [
+    "run_id",
+    "case_id",
+    "almas_version",
+    "commit_sha",
+    "frozen_before_run",
+    "analysis_phase",
+    "endpoints",
+    "errors"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "almas_version": {
+      "type": "string"
+    },
+    "commit_sha": {
+      "type": "string"
+    },
+    "frozen_before_run": {
+      "type": "boolean"
+    },
+    "analysis_phase": {
+      "enum": [
+        "BLIND_STRUCTURAL",
+        "DOCUMENTARY_OPENING",
+        "FINAL_AUDIT"
+      ]
+    },
+    "preregistered_endpoint_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "value": {
+            "type": [
+              "number",
+              "string",
+              "boolean",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "FALSE_SPECIFICITY",
+          "DEPENDENCY_INFLATION",
+          "NARRATIVE_LEAKAGE",
+          "DOCTRINAL_OVERREACH",
+          "TEMPORAL_CREATION",
+          "LABEL_LEAKAGE",
+          "CASE_FITTING",
+          "PRIVACY_BREACH"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "promotion_eligible": {
+      "type": "boolean"
+    },
+    "promotion_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
