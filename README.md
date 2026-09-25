@@ -1,7 +1,7 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.10.1  
-**Estado:** especificación de investigación reproducible + núcleo de scoring ejecutable
+**Versión pública:** 1.11.0  
+**Estado:** pipeline modular M00–M31 ejecutable + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
 
@@ -31,12 +31,12 @@ ALMAS se publica como **una única skill**. Sus motores son módulos internos:
 
 La arquitectura normativa está en `docs/MODULE_ARCHITECTURE.md`.
 
-Hay dos manifiestos con funciones distintas:
+Los manifiestos y registros principales tienen funciones distintas:
 
 - `manifests/almas-module-manifest.json`: módulos arquitectónicos de ALMAS;
-- `manifests/analysis-pipeline-manifest.json`: secuencia ejecutable M00–M31 de un análisis FULL.
-
-El pipeline preencarnatorio de ocho etapas está en `manifests/preincarnation-pipeline-manifest.json`.
+- `manifests/analysis-pipeline-manifest.json`: secuencia M00–M31 de un análisis FULL;
+- `manifests/preincarnation-pipeline-manifest.json`: pipeline preencarnatorio de ocho etapas;
+- `manifests/execution-registry.json`: estado ejecutable real de cada etapa M00–M31.
 
 ## Modelos e índices
 
@@ -96,7 +96,7 @@ public_cases/
 
 ## Núcleo Python
 
-El paquete incluye un núcleo determinista y una primera infraestructura de orquestación interna para:
+El paquete incluye un orquestador determinista y módulos ejecutables para:
 
 - agregación de pilares;
 - IEM AF/KA/AG/LG;
@@ -106,7 +106,17 @@ El paquete incluye un núcleo determinista y una primera infraestructura de orqu
 - componentes de robustez e IRC;
 - contrato común de módulos;
 - validación de la secuencia M00–M31;
-- ejecución secuencial de handlers registrados con protección contra sobrescritura canónica.
+- ejecución secuencial de handlers registrados con protección contra sobrescritura canónica;
+- geometría de sinastría, casas, declinaciones, antiscios, compuesta, RELCHART y dracónicas;
+- lotes declarativos y capa secundaria `support_only`;
+- grafo de evidencia, deduplicación y raíces independientes;
+- contraevidencia, ablación AB0–AB8, sensibilidad horaria, modelos nulos y robustez;
+- activación temporal y ledger documental;
+- firewalls doctrinales, viabilidad/reciprocidad y gate de reporting.
+
+`M02` (natal) y `M08` (Davison) disponen de contrato ejecutable pero requieren backends astronómicos inyectados. `configured_handlers(...)` permite suministrarlos sin acoplar ALMAS a una biblioteca concreta.
+
+La prueba `tests/test_full_pipeline.py` ejecuta sintéticamente M00–M31 de extremo a extremo.
 
 Instalación local:
 
@@ -135,7 +145,7 @@ Las fuentes definen procedencia, significado y límites. No añaden puntuación 
 ![Public contract](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/public-contract.yml/badge.svg)
 ![Python core](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/python-tests.yml/badge.svg)
 
-La suite Python comprueba el núcleo numérico. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y reglas de inferencia.
+La suite Python contiene 75 tests y cubre núcleo numérico, módulos M00–M31 y una ejecución FULL sintética. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
 
 La infraestructura de validación externa está preregistrada, pero **no se declara validación empírica externa de las ontologías** hasta ejecutar cohortes holdout reales conforme a `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
 

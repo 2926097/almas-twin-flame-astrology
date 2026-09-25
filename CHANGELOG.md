@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.11.0 — 2026-09-25
+
+### Pipeline modular ejecutable M00–M31
+- Añade contrato común de módulos, estados de ejecución y orquestador secuencial con propiedad de namespaces canónicos.
+- Implementa M01 y M03–M31 como handlers ejecutables; M02 natal y M08 Davison quedan como fronteras `BACKEND_REQUIRED` con backend inyectable.
+- Añade geometría reproducible para sinastría, casas, declinaciones, antiscios, compuesta, RELCHART, dracónicas, lotes y capa simbólica secundaria.
+- Convierte contactos en grafo de evidencia, deduplicación por dependencia y raíces independientes sin inventar pesos no preregistrados.
+- Añade contraevidencia explícita, ablación AB0–AB8, sensibilidad horaria, modelos nulos/Wilson y agregación de robustez.
+- Añade activación temporal anclada, ledger documental append-only y separación estricta entre estructura, temporalidad y hechos.
+- Añade firewalls ejecutables para doctrina A–E, viabilidad/reciprocidad factual y reporting derivado sólo de `canonical_analysis`.
+- Añade una prueba sintética FULL que ejecuta M00–M31 de extremo a extremo.
+- La suite Python alcanza 75 tests deterministas en esta release.
+- Mantiene sin cambios las fórmulas públicas IEM/IDD/IRC, los thresholds, la ontología y los discriminadores existentes.
+- No convierte rareza, intensidad, temporalidad, doctrina ni capas `support_only` en probabilidad o prueba metafísica.
+
 ## 1.10.1 — 2026-09-25
 
 ### Depuración integral del repositorio

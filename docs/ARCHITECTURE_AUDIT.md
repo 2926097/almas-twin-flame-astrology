@@ -234,3 +234,28 @@ Clasificación general:
 - idioma del repositorio: **PARCIALMENTE INCONSISTENTE CON LA POLÍTICA ESPAÑOLA**.
 
 La próxima actuación debe ser el **Paso 2: contrato común de módulos + diseño del orquestador interno**, manteniendo intacta la release pública `1.10.1` hasta que exista una modificación funcional que justifique un cambio SemVer.
+
+## 12. Actualización post-auditoría — ALMAS 1.11.0
+
+Las secciones 1–11 anteriores son una fotografía deliberadamente histórica del commit base `8bdd478b69628cc669616de084c11f6226310328` / ALMAS 1.10.1. Las brechas allí descritas motivaron la implementación posterior y no deben leerse como estado actual de 1.11.0.
+
+Estado posterior a la implementación:
+
+- contrato común de módulos: **IMPLEMENTADO**;
+- orquestador M00–M31: **IMPLEMENTADO**;
+- M00: **ORCHESTRATOR_NATIVE**;
+- M01 y M03–M31: **EXECUTABLE_HANDLER**;
+- M02 natal y M08 Davison: **BACKEND_REQUIRED**, con contratos inyectables ya implementados;
+- geometría relacional, simetrías, compuesta, dracónicas, lotes y capa secundaria: **EJECUTABLES**;
+- grafo de evidencia, deduplicación y raíces independientes: **EJECUTABLES**;
+- contraevidencia y ablación AB0–AB8: **EJECUTABLES**;
+- sensibilidad horaria, modelos nulos, Wilson y robustez: **EJECUTABLES**;
+- temporalidad anclada y eventos documentales: **EJECUTABLES**;
+- doctrina/hermenéutica, viabilidad/reciprocidad y gate/modelo de reporting: **EJECUTABLES**;
+- prueba sintética FULL M00–M31: **SUCCESS**;
+- suite Python: **75 tests deterministas, SUCCESS**;
+- contrato público CI: **SUCCESS**.
+
+Persisten deliberadamente límites metodológicos: no existe todavía backend astronómico de producción seleccionado; la fuerza final de raíces no se calcula sin una política preregistrada para fiabilidad/factor horario/coeficiente/cargas; M20 no inventa una fórmula de agregación ICE; M26 no inventa pesos de agregación IAT; y la validación externa holdout continúa pendiente. Estas ausencias se representan como `NOT_CALCULATED`, `NOT_EVALUABLE` o fronteras explícitas, nunca mediante valores simulados.
+
+El objetivo de la fase siguiente deja de ser “hacer ejecutable M00–M31” y pasa a ser **cerrar las políticas cuantitativas aún no preregistradas, seleccionar/validar backend astronómico de producción, normalizar el idioma vivo del repositorio y ejecutar validación externa congelada**.

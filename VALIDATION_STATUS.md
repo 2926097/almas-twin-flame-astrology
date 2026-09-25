@@ -1,5 +1,7 @@
 # Estado de validación
 
+**Versión pública:** 1.11.0
+
 ## Release pública
 
 El repositorio publica una especificación generalizada con fixtures sintéticos y un núcleo Python determinista. Los casos privados/no públicos permanecen excluidos.
@@ -19,6 +21,8 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Ontología multiaxial | registry/schema v2.0.0 |
 | Contrato causal | v2.0.0 |
 | Temporalidad contractual | v2.0.0 |
+| Orquestador M00–M31 | Publicado y probado end-to-end con fixture sintético |
+| M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
 | Núcleo Python IEM/IDD/IRC | Publicado y unit-tested |
 | CLI de pilares precomputados | Publicada y unit-tested |
 | Corpus doctrinal | 38 fuentes / 92 conceptos / 73 relaciones |
@@ -28,7 +32,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **14 tests deterministas** para el núcleo numérico.
+La suite Python contiene **75 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
 
 El workflow `Python core` ejecuta:
 
@@ -51,6 +55,8 @@ El validador comprueba, entre otros:
 - claims doctrinales;
 - discriminadores;
 - pipeline preencarnatorio;
+- contratos de ejecución M00–M31;
+- prueba FULL sintética;
 - reglas de privacidad/publicación.
 
 La validación automatizada demuestra coherencia de implementación con las reglas publicadas. No constituye validación científica de la astrología ni convierte índices de encaje en probabilidades metafísicas.
