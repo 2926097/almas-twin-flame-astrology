@@ -18,6 +18,7 @@ REQUIRED_FILES = [
     "docs/MODULE_ARCHITECTURE.md",
     "docs/SOURCE_INTEGRATION_PLAN.md",
     "docs/SOURCE_GAPS.md",
+    "docs/SOURCE_NORMALIZATION_REPORT.md",
     "docs/DOCTRINE_TO_ASTROLOGY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -65,6 +66,7 @@ REQUIRED_FILES = [
     "manifests/fulfillment-mechanisms-registry.json",
     "manifests/preincarnation-pipeline-manifest.json",
     "reference/source-registry.json",
+    "reference/source-normalization-audit.json",
     "reference/concept-registry.json",
     "reference/doctrinal-genealogy.json",
     "reference/twin-flame-genealogy-matrix.md",
@@ -269,6 +271,7 @@ def main() -> int:
     module_manifest = load_json("manifests/module-manifest.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
+    source_audit = load_json("reference/source-normalization-audit.json")
     source_schema = load_json("schemas/source-registry.schema.json")
     concept_schema = load_json("schemas/concept-registry.schema.json")
     genealogy_schema = load_json("schemas/doctrinal-genealogy.schema.json")
@@ -367,6 +370,48 @@ def main() -> int:
     for edge in doctrinal_genealogy.get("edges", []):
         if edge.get("from") not in concept_ids or edge.get("to") not in concept_ids:
             fail(f"doctrinal genealogy edge references unknown concept: {edge}")
+
+    allowed_concept_classes = set(
+        concept_schema["properties"]["concepts"]["items"]["properties"]["concept_class"]["enum"]
+    )
+    for concept in concept_registry.get("concepts", []):
+        if concept.get("concept_class") not in allowed_concept_classes:
+            fail(f"concept class not admitted by schema: {concept.get('id')} -> {concept.get('concept_class')}")
+
+    allowed_relations = set(
+        genealogy_schema["properties"]["edges"]["items"]["properties"]["relation"]["enum"]
+    )
+    allowed_genealogy_states = set(
+        genealogy_schema["properties"]["edges"]["items"]["properties"]["status"]["enum"]
+    )
+    for edge in doctrinal_genealogy.get("edges", []):
+        if edge.get("relation") not in allowed_relations:
+            fail(f"genealogy relation not admitted by schema: {edge.get('relation')}")
+        if edge.get("status") not in allowed_genealogy_states:
+            fail(f"genealogy status not admitted by schema: {edge.get('status')}")
+
+    partial_sources = [
+        entry.get("id")
+        for entry in source_registry.get("entries", [])
+        if entry.get("verification_status") == "PARTIAL"
+    ]
+    if partial_sources:
+        fail(f"source normalization baseline contains PARTIAL entries: {partial_sources}")
+
+    actual_counts = {
+        "sources_total": len(source_registry.get("entries", [])),
+        "concepts_total": len(concept_registry.get("concepts", [])),
+        "genealogy_edges_total": len(doctrinal_genealogy.get("edges", [])),
+    }
+    for key, value in actual_counts.items():
+        if source_audit.get(key) != value:
+            fail(f"source audit count mismatch for {key}: audit={source_audit.get(key)} actual={value}")
+    if source_audit.get("integrity", {}).get("unknown_concepts_from_sources") != 0:
+        fail("source audit must report zero unknown concepts from sources")
+    if source_audit.get("integrity", {}).get("unknown_sources_from_concepts") != 0:
+        fail("source audit must report zero unknown sources from concepts")
+    if source_audit.get("integrity", {}).get("broken_genealogy_edges") != 0:
+        fail("source audit must report zero broken genealogy edges")
 
     edge_keys = {
         (edge.get("from"), edge.get("to"), edge.get("relation"))
