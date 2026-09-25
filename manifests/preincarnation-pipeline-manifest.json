@@ -2,7 +2,7 @@
   "pipeline_version": "1.0.0",
   "preincarnation_schema_version": "1.9.0",
   "execution_mode": "FULL",
-  "principle": "Astrology is used as a metaphysical inquiry method; each later stage consumes and preserves the traceability of earlier stages.",
+  "principle": "La astrología se utiliza como método metafísico de investigación; cada etapa posterior consume y preserva la trazabilidad de las etapas anteriores.",
   "stages": [
     {
       "order": 1,
@@ -84,7 +84,7 @@
       "depends_on": [
         "individual_natal_architecture"
       ],
-      "special_gate": "Tasks must survive removal of the partner chart to qualify as pre-existing."
+      "special_gate": "Las tareas deben sobrevivir a la retirada de la carta de la otra persona para considerarse preexistentes."
     },
     {
       "order": 6,
@@ -103,7 +103,7 @@
         "relationship_chart_roots",
         "bilateral_roots"
       ],
-      "special_gate": "The common task must pass an emergence test and cannot be a simple sum of individual tasks."
+      "special_gate": "La tarea común debe superar una prueba de emergencia y no puede ser una simple suma de tareas individuales."
     },
     {
       "order": 7,
@@ -124,7 +124,7 @@
         "INDIVIDUAL_TASKS",
         "COMMON_TASK"
       ],
-      "special_gate": "SUPPORTED clauses require vertical genealogy and a preregistered fulfillment signature."
+      "special_gate": "Las cláusulas SUPPORTED requieren genealogía vertical y una firma de cumplimiento preregistrada."
     },
     {
       "order": 8,
@@ -142,12 +142,12 @@
         "anchored_temporal_activations",
         "documented_facts"
       ],
-      "special_gate": "INTEGRATED, TRANSFORMED and CLOSED states require documented post-activation facts."
+      "special_gate": "Los estados INTEGRATED, TRANSFORMED y CLOSED requieren hechos documentados posteriores a la activación."
     }
   ],
   "final_output": "canonical_soul_contract.json",
   "final_schema": "schemas/contrato-almico.schema.json",
-  "narrative_gate": "Narrative synthesis may be generated only after all eight stages are represented, including INSUFFICIENT or NOT_EVALUABLE states where appropriate.",
+  "narrative_gate": "La síntesis narrativa sólo puede generarse después de que las ocho etapas estén representadas, incluidos estados INSUFFICIENT o NOT_EVALUABLE cuando corresponda.",
   "almas_version": "1.11.0",
   "contract_engine_revision": "1.9.0",
   "contract_causal_chain": {
@@ -166,7 +166,7 @@
       "CLAUSES",
       "FULFILLMENT_MECHANISMS"
     ],
-    "origin_relation": "ORIGIN is contextual ontology and is not part of the minimum contract causal chain."
+    "origin_relation": "ORIGIN es ontología contextual y no forma parte de la cadena causal contractual mínima."
   },
   "final_outputs": [
     "canonical_soul_contract.json",
@@ -278,7 +278,7 @@
     "schema": "schemas/documentary-event-ledger.schema.json",
     "invariants": "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
     "synthetic_example": "examples/documentary-event-ledger.synthetic.json",
-    "order_rule": "Runs only after structural analysis freeze.",
+    "order_rule": "Se ejecuta únicamente después de congelar el análisis estructural.",
     "feeds": [
       "contract_temporality",
       "FULFILLMENT_MECHANISMS",
