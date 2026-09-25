@@ -10,3 +10,17 @@
 8. Crane documenta técnica dracónica; no prueba contratos.
 9. Casas/signos contextualizan, no crean por sí solos ontología.
 10. Temporalidad activa variables preexistentes; no las crea.
+
+
+## Techos inferenciales
+
+11. Todo mapeo declara `source_alignment`, `validation_state`, `inferential_ceiling`, `structural_score_policy`, dependencias, gates y upgrades prohibidos.
+12. El score, rareza, recurrencia o número de técnicas nunca supera el techo inferencial.
+13. SOUL_CONTRACT no puede superar R2 desde astrología mientras X_R2_FUNCTION_VS_R3_BILATERAL_AGREEMENT siga NOT_VALIDATED.
+14. TWIN_FLAME_ORIGIN no alcanza SUPPORTED como origen diádico único sin discriminador ontológico validado.
+15. ZIVUG no se eleva a twin flame; SOUL_ROOT no se eleva a díada única.
+16. MONAD no produce pareja monádica desde la astrología actual.
+17. DRACONIC_ASTROLOGY permanece técnica corroborativa y dependiente del eje nodal.
+18. LIFE_BETWEEN_LIVES y SOULMATE_EXPERIENCE tienen cero contribución estructural directa.
+19. Los 92 conceptos deben tener exactamente un estado de cobertura doctrina→astrología.
+20. Un concepto BOUNDARY_ONLY no puede tener mapeo astrológico generativo.
