@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/natal-context-output.schema.json",
+  "title": "ALMAS Natal Context Output",
+  "type": "object",
+  "required": ["subjects"],
+  "properties": {
+    "subjects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "timed",
+          "point_signs",
+          "nodes",
+          "angles",
+          "house_cusps",
+          "house_placements",
+          "rulerships"
+        ],
+        "properties": {
+          "timed":{"type":"boolean"},
+          "point_signs":{"type":"object"},
+          "nodes":{"type":"object"},
+          "angles":{"type":"object"},
+          "house_cusps":{"type":"object"},
+          "house_placements":{"type":"object"},
+          "rulerships":{"type":"object"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
