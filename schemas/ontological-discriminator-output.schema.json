@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/ontological-discriminator-output.schema.json",
+  "title": "ALMAS · Salida del discriminador ontológico autónomo",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mode",
+    "candidate_models",
+    "confirmed_exclusions",
+    "surviving_models",
+    "pairwise_matrix",
+    "equivalence_classes",
+    "identifiability_state",
+    "epistemic_state",
+    "classification",
+    "conflicts",
+    "false_specificity_guard",
+    "rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "mode": {
+      "enum": [
+        "CONFIRMATORY",
+        "EXPLORATORY"
+      ]
+    },
+    "candidate_models": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true
+    },
+    "confirmed_exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "surviving_models": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "pairwise_matrix": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "pair",
+          "coverage",
+          "confirmatory_status",
+          "exploratory_status",
+          "confirmed_excluded_model",
+          "exploratory_excluded_model",
+          "validated_roots",
+          "experimental_roots",
+          "conflicts"
+        ],
+        "properties": {
+          "pair": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "coverage": {
+            "enum": [
+              "COMPLETE",
+              "PARTIAL",
+              "NONE"
+            ]
+          },
+          "confirmatory_status": {
+            "enum": [
+              "SEPARABLE_VALIDATED",
+              "OBSERVATIONALLY_EQUIVALENT",
+              "INSUFFICIENT_EVIDENCE",
+              "NOT_EVALUABLE",
+              "CONFLICTING_EVIDENCE"
+            ]
+          },
+          "exploratory_status": {
+            "enum": [
+              "SEPARABLE_VALIDATED",
+              "SEPARABLE_EXPERIMENTAL",
+              "OBSERVATIONALLY_EQUIVALENT",
+              "INSUFFICIENT_EVIDENCE",
+              "NOT_EVALUABLE",
+              "CONFLICTING_EVIDENCE"
+            ]
+          },
+          "confirmed_excluded_model": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "exploratory_excluded_model": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "validated_roots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "experimental_roots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "equivalence_classes": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "identifiability_state": {
+      "enum": [
+        "IDENTIFIABLE",
+        "PARTIALLY_IDENTIFIABLE",
+        "NON_IDENTIFIABLE",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "epistemic_state": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "classification": {
+      "type": "string"
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "false_specificity_guard": {
+      "type": "boolean"
+    },
+    "rules": {
+      "type": "object",
+      "required": [
+        "l2_can_confirm",
+        "scores_can_break_equivalence",
+        "absence_is_counterevidence_by_default"
+      ],
+      "properties": {
+        "l2_can_confirm": {
+          "const": false
+        },
+        "scores_can_break_equivalence": {
+          "const": false
+        },
+        "absence_is_counterevidence_by_default": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "exploratory_view": {
+      "type": "object",
+      "required": [
+        "excluded_models",
+        "surviving_models",
+        "classification",
+        "experimental_only_exclusions",
+        "conflict",
+        "canonical_decision_unchanged",
+        "warning"
+      ],
+      "properties": {
+        "excluded_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "surviving_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "classification": {
+          "type": "string"
+        },
+        "experimental_only_exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "conflict": {
+          "type": "boolean"
+        },
+        "canonical_decision_unchanged": {
+          "const": true
+        },
+        "warning": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
