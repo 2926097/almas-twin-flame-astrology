@@ -45,7 +45,7 @@
       "robustness": 79,
       "r_min": 0.66,
       "counterevidence": [],
-      "reason_not_higher": "The role is structurally coherent but has less independent recurrence than ACTIVADOR."
+      "reason_not_higher": "El rol es estructuralmente coherente, pero tiene menos recurrencia independiente que ACTIVADOR."
     },
     {
       "id": "INTEGRADOR",
@@ -66,7 +66,7 @@
       "robustness": 78,
       "r_min": 0.65,
       "counterevidence": [],
-      "reason_not_higher": "The role depends substantially on the RELCHART family."
+      "reason_not_higher": "El rol depende sustancialmente de la familia RELCHART."
     }
   ],
   "primary_roles": [
@@ -136,6 +136,6 @@
   ],
   "counterevidence": [],
   "robustness": 82,
-  "why_selected": "Synthetic tasks and activator-fit roots support asymmetric but complementary primary roles.",
-  "why_not_more_specific": "The functional roles are distinguishable, but the exact prebirth mechanism—requested mission, mutual agreement or karmic return—cannot be uniquely determined."
+  "why_selected": "Las tareas sintéticas y las raíces de ajuste del activador respaldan roles primarios asimétricos pero complementarios.",
+  "why_not_more_specific": "Los roles funcionales son distinguibles, pero el mecanismo prenatal exacto —misión solicitada, acuerdo mutuo o retorno kármico— no puede determinarse de forma única."
 }
