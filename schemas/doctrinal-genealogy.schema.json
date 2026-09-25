@@ -34,7 +34,18 @@
             "type": "string"
           },
           "relation": {
-            "type": "string"
+            "enum": [
+              "NON_EQUIVALENT",
+              "PARTIAL_OVERLAP",
+              "COMPARATIVE_ANTECEDENT_ONLY",
+              "COMPARATIVE_ANALOGUE",
+              "CONCEPTUAL_PRECONDITION",
+              "FRAMEWORK_CONTEXT",
+              "PROJECT_OPERATIONALIZATION",
+              "PHENOMENOLOGY_NOT_ONTOLOGY",
+              "HISTORICAL_RECEPTION",
+              "DERIVATION_CLAIM_UNVERIFIED"
+            ]
           },
           "status": {
             "enum": [
