@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/astrology-to-soul-contract.schema.json",
-  "title": "ALMAS Astrology to Soul Contract Bridge",
+  "title": "ALMAS · Puente de astrología a contrato álmico",
   "type": "object",
   "required": [
     "bridge_version",
