@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.10.1 — 2026-09-25
+
+### Depuración integral del repositorio
+- Repara el validador público: elimina checks contradictorios 1.8.0/1.9.0 y 1.0.0/1.1.0.
+- Sustituye versiones internas duplicadas por comprobaciones schema↔fixture dinámicas.
+- Elimina la referencia obsoleta a `soul_contract_version`/`soul_version`.
+- Sincroniza `preincarnation-pipeline-manifest.json` con el schema 1.9.0.
+- Renombra `manifests/module-manifest.json` a `manifests/analysis-pipeline-manifest.json` para distinguir pipeline M00–M31 de arquitectura modular.
+- Archiva la antigua arquitectura dual en `docs/history/`.
+- Archiva los checksums del paquete base v1.0.0 y los retira de la raíz.
+- Elimina el snapshot obsoleto `reference/source-normalization-report.json`; el audit canónico es `reference/source-normalization-audit.json`.
+- Archiva el plan de integración documental ya completado y convierte los huecos en `docs/SOURCE_RESEARCH_BACKLOG.md`.
+- Depura README, arquitectura, estado de validación y normalización de fuentes.
+- No modifica fórmulas, pesos, ontología, thresholds ni discriminadores.
+
 ## 1.10.0 — 2026-09-25
 
 ### Cláusulas contractuales C4–C8
@@ -163,14 +178,14 @@
 - Convierte el antiguo Soul Contract en módulo interno y conserva su 1.9.0 sólo como `engine_revision`.
 - Establece `VERSION` como único SemVer público.
 - Añade `manifests/almas-module-manifest.json` y `docs/MODULE_ARCHITECTURE.md`.
-- Convierte `docs/DUAL_ENGINE_ARCHITECTURE.md` en nota histórica de compatibilidad.
+- Convierte `docs/history/DUAL_ENGINE_ARCHITECTURE.md` como nota histórica de compatibilidad.
 - Añade invariantes CI para impedir que reaparezca la arquitectura dual.
 
 ### Fase 1 · Fuentes y genealogía — iniciada
 - Formaliza `schemas/source-registry.schema.json`.
 - Añade `reference/concept-registry.json`.
 - Añade `reference/doctrinal-genealogy.json`.
-- Añade `docs/SOURCE_INTEGRATION_PLAN.md` y `docs/SOURCE_GAPS.md`.
+- Añade `docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md` y el backlog vivo `docs/SOURCE_RESEARCH_BACKLOG.md`.
 - El registro contiene 36 fuentes en el punto de partida de esta fase.
 - Establece que una fuente define significado/procedencia/límites pero no añade puntuación astrológica por su mera existencia.
 - Normaliza los lotes de planificación preencarnatoria, Cábala luriana, genealogía twin-flame, astrología esotérica/dracónica y fenomenología contemporánea.
