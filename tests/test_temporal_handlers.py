@@ -237,78 +237,252 @@ class TestDocumentaryEvents(unittest.TestCase):
     def setUp(self):
         self.canonical = {
             "independent_roots": {
-                "roots": [{"root_id": "R0001"}]
-            }
+                "roots": [
+                    {"root_id": "R0001"},
+                    {"root_id": "R0002"},
+                ]
+            },
+            "clause_assembly": {
+                "clauses": [
+                    {"id": "CL_COMUNICACION_VERDAD"},
+                    {"id": "CL_LIBERTAD_AUTONOMIA"},
+                ]
+            },
+            "temporal_activation": {
+                "signals": [
+                    {
+                        "signal_id": "T1",
+                        "event_refs": ["E1", "MISSING_EVENT"],
+                    }
+                ]
+            },
         }
 
-    def test_append_only_and_no_structural_creation(self):
+    def event(self, event_id="E1", **overrides):
+        base = {
+            "event_id": event_id,
+            "subjects": ["A", "B"],
+            "event_type": "FIRST_MEETING",
+            "date": "2030-04-12",
+            "date_precision": "EXACT_DATE",
+            "fact_statement": "A y B se encontraron presencialmente.",
+            "documentary_quality": "DQ3_CORROBORATED_REPORT",
+            "source_refs": ["S1", "S2"],
+            "source_independence_declared": True,
+            "privacy_class": "SYNTHETIC",
+            "evidence_roles": ["ACTIVATION_CORROBORATION"],
+            "linked_root_refs": ["R0001"],
+            "linked_clause_refs": [],
+            "interpretations": [],
+        }
+        base.update(overrides)
+        return base
+
+    def run_ledger(self, events, canonical=None):
         raw = {
             "documentary_event_ledger": {
                 "schema_version": "1.0.0",
                 "analysis_freeze_ref": "FREEZE-001",
-                "events": [
-                    {
-                        "event_id": "E1",
-                        "subjects": ["A", "B"],
-                        "event_type": "FIRST_MEETING",
-                        "date": "2030-04-12",
-                        "date_precision": "EXACT_DATE",
-                        "fact_statement": "A y B se encontraron presencialmente.",
-                        "documentary_quality": "DQ3_CORROBORATED_REPORT",
-                        "source_refs": ["S1", "S2"],
-                        "privacy_class": "SYNTHETIC",
-                        "evidence_roles": ["ACTIVATION_CORROBORATION"],
-                        "linked_root_refs": ["R0001"],
-                    },
-                    {
-                        "event_id": "E2",
-                        "subjects": ["A", "B"],
-                        "event_type": "FIRST_MEETING",
-                        "date": "2030-04-13",
-                        "date_precision": "EXACT_DATE",
-                        "fact_statement": "Corrección de la fecha del encuentro.",
-                        "documentary_quality": "DQ1_PRIMARY_DOCUMENT",
-                        "source_refs": ["S3"],
-                        "privacy_class": "SYNTHETIC",
-                        "evidence_roles": ["ACTIVATION_CORROBORATION"],
-                        "linked_root_refs": ["R0001"],
-                        "supersedes_event_id": "E1",
-                        "correction_reason": "Documento primario posterior.",
-                    },
-                ],
+                "events": events,
             }
         }
-        result = m27_dated_events(context("M27", raw, self.canonical))
-        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
+        return m27_dated_events(
+            context("M27", raw, canonical or self.canonical)
+        )
+
+    def test_append_only_correction_preserves_superseded_record(self):
+        first = self.event("E1")
+        correction = self.event(
+            "E2",
+            date="2030-04-13",
+            documentary_quality="DQ1_PRIMARY_DOCUMENT",
+            source_refs=["S3"],
+            source_independence_declared=False,
+            supersedes_event_id="E1",
+            correction_reason="Documento primario posterior.",
+        )
+
+        result = self.run_ledger([first, correction])
         output = result.canonical_updates["documentary_events"]
+
+        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
         self.assertTrue(output["append_only_validated"])
+        self.assertEqual(output["event_count"], 2)
+        self.assertEqual(output["active_event_count"], 1)
+        self.assertEqual(output["superseded_event_count"], 1)
+
+        by_id = {event["event_id"]: event for event in output["events"]}
+        self.assertEqual(by_id["E1"]["record_status"], "SUPERSEDED")
+        self.assertEqual(by_id["E1"]["superseded_by_event_id"], "E2")
+        self.assertEqual(by_id["E2"]["record_status"], "ACTIVE")
+
+    def test_no_event_can_create_structure_clause_or_origin(self):
+        result = self.run_ledger([self.event("E1")])
+        output = result.canonical_updates["documentary_events"]
+        event = output["events"][0]
+
         self.assertFalse(output["structural_mutation_allowed"])
-        self.assertFalse(output["events"][0]["creates_structural_root"])
+        self.assertFalse(output["clause_creation_allowed"])
+        self.assertFalse(output["origin_elevation_allowed"])
+        self.assertFalse(output["astrology_backfill_allowed"])
+        self.assertFalse(event["creates_structural_root"])
+        self.assertFalse(event["creates_clause"])
+        self.assertFalse(event["elevates_origin"])
+        self.assertFalse(event["astrology_backfill_allowed"])
+
+    def test_date_precision_mismatch_is_reported_not_rewritten(self):
+        event = self.event(
+            "E1",
+            date=None,
+            date_precision="EXACT_DATE",
+        )
+        result = self.run_ledger([event])
+        output = result.canonical_updates["documentary_events"]
+
+        self.assertFalse(
+            output["events"][0]["date_precision_contract_met"]
+        )
+        self.assertEqual(len(output["date_contract_issues"]), 1)
+
+    def test_documentary_quality_claim_can_be_flagged_without_silent_downgrade(self):
+        event = self.event(
+            "E1",
+            documentary_quality="DQ3_CORROBORATED_REPORT",
+            source_refs=["ONLY_ONE"],
+            source_independence_declared=False,
+        )
+        result = self.run_ledger([event])
+        output = result.canonical_updates["documentary_events"]
+        normalized = output["events"][0]
+
+        self.assertEqual(
+            normalized["documentary_quality"],
+            "DQ3_CORROBORATED_REPORT",
+        )
+        self.assertFalse(normalized["documentary_quality_contract_met"])
+        self.assertEqual(
+            normalized["source_independence_state"],
+            "NOT_VERIFIED",
+        )
+        self.assertEqual(len(output["documentary_quality_issues"]), 1)
+
+    def test_activation_role_requires_resolved_root_or_clause(self):
+        event = self.event(
+            "E1",
+            linked_root_refs=["UNKNOWN_ROOT"],
+        )
+        result = self.run_ledger([event])
+        output = result.canonical_updates["documentary_events"]
+        trace = output["events"][0]["role_traceability"][
+            "ACTIVATION_CORROBORATION"
+        ]
+
+        self.assertFalse(trace["target_traceability_complete"])
+        self.assertEqual(trace["state"], "UNRESOLVED_TARGET")
+        self.assertEqual(len(output["unresolved_root_refs"]), 1)
+        self.assertEqual(len(output["role_traceability_issues"]), 1)
+
+    def test_fulfillment_role_requires_resolved_clause(self):
+        event = self.event(
+            "E1",
+            evidence_roles=["FULFILLMENT_EVIDENCE"],
+            linked_root_refs=[],
+            linked_clause_refs=["CL_COMUNICACION_VERDAD"],
+        )
+        result = self.run_ledger([event])
+        output = result.canonical_updates["documentary_events"]
+        trace = output["events"][0]["role_traceability"][
+            "FULFILLMENT_EVIDENCE"
+        ]
+
+        self.assertTrue(trace["target_traceability_complete"])
+        self.assertEqual(trace["state"], "RESOLVED_CLAUSE_TARGET")
+        self.assertEqual(
+            output["events"][0]["resolved_clause_refs"],
+            ["CL_COMUNICACION_VERDAD"],
+        )
+
+    def test_missing_clause_registry_is_not_fabricated(self):
+        canonical = {
+            "independent_roots": self.canonical["independent_roots"]
+        }
+        event = self.event(
+            "E1",
+            evidence_roles=["FULFILLMENT_EVIDENCE"],
+            linked_root_refs=[],
+            linked_clause_refs=["CL_COMUNICACION_VERDAD"],
+        )
+        result = self.run_ledger([event], canonical=canonical)
+        output = result.canonical_updates["documentary_events"]
+
+        self.assertEqual(
+            output["clause_reference_registry_state"],
+            "NOT_AVAILABLE",
+        )
+        self.assertEqual(len(output["unresolved_clause_refs"]), 1)
+        trace = output["events"][0]["role_traceability"][
+            "FULFILLMENT_EVIDENCE"
+        ]
+        self.assertFalse(trace["target_traceability_complete"])
+
+    def test_private_events_are_not_public_exportable(self):
+        private_event = self.event(
+            "E1",
+            privacy_class="PRIVATE_RESTRICTED",
+        )
+        result = self.run_ledger([private_event])
+        output = result.canonical_updates["documentary_events"]
+
+        self.assertFalse(output["events"][0]["public_exportable"])
+        self.assertEqual(output["public_event_ids"], [])
+        self.assertEqual(output["restricted_event_ids"], ["E1"])
+        self.assertTrue(output["public_export_policy_enforced"])
+
+    def test_temporal_event_backreferences_are_audited(self):
+        result = self.run_ledger([self.event("E1")])
+        output = result.canonical_updates["documentary_events"]
+
+        self.assertEqual(
+            output["temporal_event_links"],
+            [{"signal_id": "T1", "event_id": "E1"}],
+        )
+        self.assertEqual(
+            output["unresolved_temporal_event_refs"],
+            [{"signal_id": "T1", "event_id": "MISSING_EVENT"}],
+        )
+
+    def test_fact_and_interpretations_remain_separate(self):
+        event = self.event(
+            "E1",
+            interpretations=[
+                {
+                    "claim_class": "PROJECT_SYNTHESIS",
+                    "text": "Lectura simbólica sintética.",
+                }
+            ],
+        )
+        result = self.run_ledger([event])
+        normalized = result.canonical_updates["documentary_events"][
+            "events"
+        ][0]
+
+        self.assertTrue(normalized["fact_interpretation_separated"])
+        self.assertEqual(normalized["interpretation_count"], 1)
+        self.assertEqual(
+            normalized["fact_statement"],
+            "A y B se encontraron presencialmente.",
+        )
 
     def test_correction_must_reference_prior_event(self):
-        raw = {
-            "documentary_event_ledger": {
-                "schema_version": "1.0.0",
-                "analysis_freeze_ref": "FREEZE-001",
-                "events": [
-                    {
-                        "event_id": "E2",
-                        "subjects": ["A"],
-                        "event_type": "OTHER",
-                        "date_precision": "UNKNOWN",
-                        "fact_statement": "Corrección sintética.",
-                        "documentary_quality": "DQ5_UNVERIFIED",
-                        "source_refs": [],
-                        "privacy_class": "SYNTHETIC",
-                        "evidence_roles": ["CONTEXT_ONLY"],
-                        "supersedes_event_id": "E1",
-                        "correction_reason": "test",
-                    }
-                ],
-            }
-        }
+        correction = self.event(
+            "E2",
+            supersedes_event_id="E1",
+            correction_reason="test",
+        )
         with self.assertRaises(ValueError):
-            m27_dated_events(context("M27", raw, self.canonical))
+            self.run_ledger([correction])
+
+
 
 
 if __name__ == "__main__":
