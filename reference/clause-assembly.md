@@ -54,7 +54,10 @@ No todas las referencias tienen que estar presentes con igual peso, pero una cl�
 Cada cláusula se expresa mediante:
 
 ACTOR_O_CAMPO
+→ CONTENIDO_RECONSTRUIDO
+→ MECANISMO_DE_ACTIVACION
 → FUNCION
+→ PRUEBA_CONTRACTUAL
 → OBJETIVO_ALMICO
 → SOMBRA
 → REQUISITO_DE_INTEGRACION
@@ -73,6 +76,32 @@ Campos mínimos:
 - robustez;
 - estado epistemológico;
 - estado temporal.
+
+## 4.1. Capas C4–C8
+
+Desde schema 1.1.0 cada cláusula debe distinguir explícitamente:
+
+- `resolution_level` — R0–R4;
+- `reconstructed_contract_content` — contenido funcional reconstruido, nunca transcripción literal;
+- `activation_mechanism` — cómo la arquitectura pone en marcha la cláusula;
+- `contract_test` — polaridad o prueba que debe atravesarse;
+- `integration_requirement` — capacidad que debe integrarse;
+- `fulfillment_signature` — cambio observable que permitiría evaluar cumplimiento;
+- `claim_refs` — afirmaciones doctrinales/metafísicas trazables mediante Claim Contract v2;
+- `allowed_conclusion`;
+- `inferential_ceiling`.
+
+Correspondencia con la cadena causal:
+
+`C4 ACTIVACION → C5 PRUEBA → C6 INTEGRACION → C7 CUMPLIMIENTO → C8 CIERRE/ALTERNATIVA`.
+
+### Regla de nivel
+
+Por defecto una cláusula derivada astrológicamente no puede superar:
+
+`R2_RELATIONAL_PREINCARNATIONAL_FUNCTION`.
+
+R3 exige un discriminador independiente de acuerdo bilateral; R4 permanece no evaluable desde astrología.
 
 ## 5. Familias de evidencia
 
