@@ -27,11 +27,13 @@
     },
     {
       "id": "M03",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relational_handlers.py:m03_synastry"
     },
     {
       "id": "M04",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relational_handlers.py:m04_nodes_angles_houses_regencies"
     },
     {
       "id": "M05",
