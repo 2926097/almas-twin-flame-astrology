@@ -1,6 +1,7 @@
 import math
 import unittest
 
+from almas_tfa.handlers import m25_robustness
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
 from almas_tfa.robustness_handlers import (
     m23_time_sensitivity,
@@ -62,6 +63,43 @@ class TestTimeSensitivity(unittest.TestCase):
                 "perturbations_generated_by_m23"
             ]
         )
+
+
+class TestRobustnessAggregation(unittest.TestCase):
+    def test_m25_can_consume_m23_component_without_null_rarity(self):
+        time_result = m23_time_sensitivity(
+            ctx(
+                "M23",
+                {
+                    "time_sensitivity_summary": {
+                        "preregistration_ref": "TS-002",
+                        "delta90": 5.0,
+                        "preserved_fraction": 1.0,
+                    }
+                },
+            )
+        )
+        context = ModuleContext(
+            module_id="M25",
+            module_name="robustness",
+            mode="FULL",
+            raw_input={},
+            canonical_snapshot={
+                "time_sensitivity": time_result.canonical_updates[
+                    "time_sensitivity"
+                ],
+                "null_models": {
+                    "runs": [
+                        {"frequency": 0.001}
+                    ]
+                },
+            },
+            prior_results={},
+        )
+        result = m25_robustness(context)
+        output = result.canonical_updates["robustness_index"]
+        self.assertIn("BIRTH_TIME", output["component_map"])
+        self.assertFalse(output["null_model_rarity_used_as_robustness"])
 
 
 class TestNullModels(unittest.TestCase):
