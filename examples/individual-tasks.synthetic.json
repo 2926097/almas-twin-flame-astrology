@@ -35,7 +35,7 @@
           "robustness": 84,
           "r_min": 0.72,
           "counterevidence": [],
-          "reason_not_higher": "Secondary overlap with autonomy."
+          "reason_not_higher": "Solapamiento secundario con autonomía."
         }
       ],
       "evidence_families": [
@@ -51,7 +51,7 @@
       "counterevidence": [],
       "robustness": 86,
       "why_selected": "Synthetic natal architecture preserves autonomy/boundary themes without partner data.",
-      "why_not_more_specific": "The task can be described through overlapping autonomy and boundary formulations."
+      "why_not_more_specific": "La tarea puede describirse mediante formulaciones solapadas de autonomía y límites."
     },
     "B": {
       "state": "PREVIA_FUERTE",
@@ -101,7 +101,7 @@
       "counterevidence": [],
       "robustness": 84,
       "why_selected": "Synthetic natal architecture preserves vulnerability/truth themes without partner data.",
-      "why_not_more_specific": "Truth and communication remain partially overlapping task formulations."
+      "why_not_more_specific": "Verdad y comunicación permanecen como formulaciones de tarea parcialmente solapadas."
     }
   },
   "cross_activation": [
