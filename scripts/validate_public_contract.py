@@ -29,6 +29,8 @@ REQUIRED_FILES = [
     "schemas/astrology-to-soul-contract.schema.json",
     "schemas/contrato-almico.schema.json",
     "schemas/source-registry.schema.json",
+    "schemas/doctrinal-genealogy.schema.json",
+    "schemas/concept-registry.schema.json",
     "schemas/ontology-output.schema.json",
     "schemas/preincarnation-contract-chain.schema.json",
     "schemas/preincarnation-causality.schema.json",
@@ -64,6 +66,9 @@ REQUIRED_FILES = [
     "reference/source-registry.json",
     "reference/concept-registry.json",
     "reference/doctrinal-genealogy.json",
+    "reference/twin-flame-genealogy-matrix.md",
+    "reference/lurianic-kabbalah-matrix.md",
+    "reference/preincarnation-planning-matrix.md",
     "reference/ontology-registry.json",
     "reference/contract-causal-architecture-v2.md",
     "reference/preincarnation-causality-engine.md",
@@ -94,6 +99,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/cli.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
+    "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
     "tests/ONTOLOGY_V2_INVARIANTS.md",
     "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
     "tests/PREINCARNATION_CAUSALITY_INVARIANTS.md",
@@ -259,6 +265,8 @@ def main() -> int:
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
     source_schema = load_json("schemas/source-registry.schema.json")
+    concept_schema = load_json("schemas/concept-registry.schema.json")
+    genealogy_schema = load_json("schemas/doctrinal-genealogy.schema.json")
     concept_registry = load_json("reference/concept-registry.json")
     doctrinal_genealogy = load_json("reference/doctrinal-genealogy.json")
     ontology_registry = load_json("reference/ontology-registry.json")
@@ -354,6 +362,28 @@ def main() -> int:
     for edge in doctrinal_genealogy.get("edges", []):
         if edge.get("from") not in concept_ids or edge.get("to") not in concept_ids:
             fail(f"doctrinal genealogy edge references unknown concept: {edge}")
+
+    edge_keys = {
+        (edge.get("from"), edge.get("to"), edge.get("relation"))
+        for edge in doctrinal_genealogy.get("edges", [])
+    }
+    required_non_equivalences = {
+        ("ZIVUG", "TWIN_FLAME_ORIGIN", "NON_EQUIVALENT"),
+        ("SOUL_ROOT", "MONAD", "NON_EQUIVALENT"),
+        ("THEOSOPHICAL_MONAD", "TWIN_FLAME_ORIGIN", "NON_EQUIVALENT"),
+        ("BAT_ZUG", "TWIN_FLAME_ORIGIN", "NON_EQUIVALENT"),
+    }
+    missing_edges = required_non_equivalences - edge_keys
+    if missing_edges:
+        fail(f"missing mandatory doctrinal non-equivalence edges: {sorted(missing_edges)}")
+
+    if not any(
+        edge.get("from") == "TWIN_FLAME_LITERARY_GENEALOGY"
+        and edge.get("to") == "TWIN_FLAME_ORIGIN"
+        and edge.get("relation") == "TERMINOLOGICAL_ANTECEDENT_NOT_DOCTRINAL_IDENTITY"
+        for edge in doctrinal_genealogy.get("edges", [])
+    ):
+        fail("Victorian twin-flame terminology must remain separate from later doctrinal codification")
 
     ontology_axes = {a.get("id") for a in ontology_registry.get("axes", [])}
     required_axes = {
