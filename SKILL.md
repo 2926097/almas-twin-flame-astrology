@@ -832,3 +832,35 @@ Errores metodológicos explícitos:
 La validación externa evalúa generalización, reproducibilidad y especificidad metodológica. No se presenta como demostración experimental de una ontología metafísica.
 
 Referencia: `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
+
+
+## 47. Cláusula contractual C4–C8
+
+Desde ALMAS 1.10.0, toda cláusula contractual debe separar explícitamente:
+
+`CONTENIDO_RECONSTRUIDO → MECANISMO_DE_ACTIVACION → PRUEBA_CONTRACTUAL → INTEGRACION → CUMPLIMIENTO`.
+
+Campos normativos:
+
+- `resolution_level` — R0–R4;
+- `reconstructed_contract_content`;
+- `activation_mechanism`;
+- `contract_test`;
+- `integration_requirement`;
+- `fulfillment_signature`;
+- `claim_refs`;
+- `allowed_conclusion`;
+- `inferential_ceiling`.
+
+Reglas:
+
+1. El contenido reconstruido es siempre una formulación hermenéutica, no una transcripción literal pre-natal.
+2. El mecanismo debe remontarse a tarea previa + activador + raíces; un evento posterior no puede crear la cláusula.
+3. La prueba contractual se define antes de evaluar hechos de integración.
+4. Las frases del informe se subordinan a Claim Contract v2.
+5. Por defecto, una cláusula astrológicamente reconstruida no supera `R2_RELATIONAL_PREINCARNATIONAL_FUNCTION`.
+6. R3 exige discriminador independiente validado.
+7. R4 no alcanza `SUPPORTED` desde astrología.
+
+Schema: `schemas/clause-assembly.schema.json` v1.1.0.  
+Reconstrucción: `schemas/preincarnation-reconstruction.schema.json` v1.9.0.
