@@ -1,9 +1,9 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/report-document-model.schema.json",
-  "title":"ALMAS Report Document Model",
-  "type":"object",
-  "required":[
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/report-document-model.schema.json",
+  "title": "ALMAS · Modelo documental de informe",
+  "type": "object",
+  "required": [
     "model_version",
     "document_kind",
     "language",
@@ -27,33 +27,57 @@
     "pdf_preflight_performed",
     "publication_pipeline_required"
   ],
-  "properties":{
-    "model_version":{"const":"1.0.0"},
-    "document_kind":{"const":"ALMAS_ANALYTICAL_REPORT_MODEL"},
-    "language":{"const":"es"},
-    "analysis_mode":{
-      "enum":["FULL","TARGETED","TEMPORAL","REPORT"]
+  "properties": {
+    "model_version": {
+      "const": "1.0.0"
     },
-    "report_state":{"enum":["READY","PARTIAL"]},
-    "partial_disclosure_required":{"type":"boolean"},
-    "degradation_reasons":{
-      "type":"array",
-      "uniqueItems":true,
-      "items":{"type":"string"}
+    "document_kind": {
+      "const": "ALMAS_ANALYTICAL_REPORT_MODEL"
     },
-    "canonical_source":{"const":"canonical_analysis"},
-    "canonical_fingerprint":{
-      "type":"string",
-      "pattern":"^[0-9a-f]{64}$"
+    "language": {
+      "const": "es"
     },
-    "canonical_fingerprint_verified":{"const":true},
-    "sections":{
-      "type":"array",
-      "minItems":11,
-      "maxItems":11,
-      "items":{
-        "type":"object",
-        "required":[
+    "analysis_mode": {
+      "enum": [
+        "FULL",
+        "TARGETED",
+        "TEMPORAL",
+        "REPORT"
+      ]
+    },
+    "report_state": {
+      "enum": [
+        "READY",
+        "PARTIAL"
+      ]
+    },
+    "partial_disclosure_required": {
+      "type": "boolean"
+    },
+    "degradation_reasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_source": {
+      "const": "canonical_analysis"
+    },
+    "canonical_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "canonical_fingerprint_verified": {
+      "const": true
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "type": "object",
+        "required": [
           "section_id",
           "order",
           "title",
@@ -68,9 +92,9 @@
           "canonical_values_embedded",
           "narrative_generated"
         ],
-        "properties":{
-          "section_id":{
-            "enum":[
+        "properties": {
+          "section_id": {
+            "enum": [
               "S01_SYNTHESIS",
               "S02_DATA_METHOD",
               "S03_NUMERIC_ONTOLOGY",
@@ -84,41 +108,67 @@
               "S11_SOURCES_APPENDICES"
             ]
           },
-          "order":{"type":"integer","minimum":1,"maximum":11},
-          "title":{"type":"string","minLength":1},
-          "purpose":{"type":"string","minLength":1},
-          "section_state":{"enum":["READY","PARTIAL","NOT_AVAILABLE"]},
-          "required_paths":{
-            "type":"array",
-            "items":{"type":"string"},
-            "uniqueItems":true
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 11
           },
-          "optional_paths":{
-            "type":"array",
-            "items":{"type":"string"},
-            "uniqueItems":true
+          "title": {
+            "type": "string",
+            "minLength": 1
           },
-          "available_paths":{
-            "type":"array",
-            "items":{"type":"string"},
-            "uniqueItems":true
+          "purpose": {
+            "type": "string",
+            "minLength": 1
           },
-          "missing_required_paths":{
-            "type":"array",
-            "items":{"type":"string"},
-            "uniqueItems":true
+          "section_state": {
+            "enum": [
+              "READY",
+              "PARTIAL",
+              "NOT_AVAILABLE"
+            ]
           },
-          "missing_optional_paths":{
-            "type":"array",
-            "items":{"type":"string"},
-            "uniqueItems":true
+          "required_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
-          "epistemic_classes_allowed":{
-            "type":"array",
-            "minItems":1,
-            "uniqueItems":true,
-            "items":{
-              "enum":[
+          "optional_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "available_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "missing_required_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "missing_optional_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "epistemic_classes_allowed": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
                 "A_CALCULATED",
                 "B_TECHNIQUE",
                 "C_DOCTRINE",
@@ -127,52 +177,112 @@
               ]
             }
           },
-          "canonical_values_embedded":{"const":false},
-          "narrative_generated":{"const":false}
+          "canonical_values_embedded": {
+            "const": false
+          },
+          "narrative_generated": {
+            "const": false
+          }
         },
-        "additionalProperties":false
+        "additionalProperties": false
       }
     },
-    "section_counts":{
-      "type":"object",
-      "required":["READY","PARTIAL","NOT_AVAILABLE"],
-      "properties":{
-        "READY":{"type":"integer","minimum":0,"maximum":11},
-        "PARTIAL":{"type":"integer","minimum":0,"maximum":11},
-        "NOT_AVAILABLE":{"type":"integer","minimum":0,"maximum":11}
+    "section_counts": {
+      "type": "object",
+      "required": [
+        "READY",
+        "PARTIAL",
+        "NOT_AVAILABLE"
+      ],
+      "properties": {
+        "READY": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11
+        },
+        "PARTIAL": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11
+        },
+        "NOT_AVAILABLE": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11
+        }
       },
-      "additionalProperties":false
+      "additionalProperties": false
     },
-    "section_order_fixed":{"const":true},
-    "canonical_values_embedded":{"const":false},
-    "canonical_values_mutated":{"const":false},
-    "prose_generated":{"const":false},
-    "render_profile_selected":{"const":false},
-    "rendered_document_created":{"const":false},
-    "docx_created":{"const":false},
-    "pdf_created":{"const":false},
-    "pdf_preflight_performed":{"const":false},
-    "publication_pipeline_required":{"const":true}
+    "section_order_fixed": {
+      "const": true
+    },
+    "canonical_values_embedded": {
+      "const": false
+    },
+    "canonical_values_mutated": {
+      "const": false
+    },
+    "prose_generated": {
+      "const": false
+    },
+    "render_profile_selected": {
+      "const": false
+    },
+    "rendered_document_created": {
+      "const": false
+    },
+    "docx_created": {
+      "const": false
+    },
+    "pdf_created": {
+      "const": false
+    },
+    "pdf_preflight_performed": {
+      "const": false
+    },
+    "publication_pipeline_required": {
+      "const": true
+    }
   },
-  "allOf":[
+  "allOf": [
     {
-      "if":{"properties":{"report_state":{"const":"READY"}}},
-      "then":{
-        "properties":{
-          "partial_disclosure_required":{"const":false},
-          "degradation_reasons":{"maxItems":0}
+      "if": {
+        "properties": {
+          "report_state": {
+            "const": "READY"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "partial_disclosure_required": {
+            "const": false
+          },
+          "degradation_reasons": {
+            "maxItems": 0
+          }
         }
       }
     },
     {
-      "if":{"properties":{"report_state":{"const":"PARTIAL"}}},
-      "then":{
-        "properties":{
-          "partial_disclosure_required":{"const":true},
-          "degradation_reasons":{"minItems":1}
+      "if": {
+        "properties": {
+          "report_state": {
+            "const": "PARTIAL"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "partial_disclosure_required": {
+            "const": true
+          },
+          "degradation_reasons": {
+            "minItems": 1
+          }
         }
       }
     }
   ],
-  "additionalProperties":false
+  "additionalProperties": false
 }
