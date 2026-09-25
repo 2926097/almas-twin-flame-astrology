@@ -169,3 +169,79 @@ Cada `source_anchor_ref` debe existir en `source-registry.json` y tener:
 Un claim `B_TECHNIQUE` puede ser `SUPPORTED` respecto de un procedimiento de cálculo aunque la interpretación metafísica asociada permanezca `INSUFFICIENT`.
 
 La técnica y la ontología son variables independientes.
+
+
+## 10. Gate ejecutable M28
+
+La implementación canónica vive en `src/almas_tfa/doctrine_handlers.py`.
+
+### Doctrina directa
+
+Un claim `C_DOCTRINE + DIRECT_DOCTRINE` debe aportar metadatos completos de fuente y, cuando se publica como atribución doctrinal fuerte, satisfacer:
+
+- `P1_PRIMARY`;
+- `source_role=DOCTRINAL_PRIMARY`;
+- `verification_status=VERIFIED_PRIMARY`;
+- `evidence_scope=DOCTRINAL_CLAIM`;
+- ancla de verificación registrada;
+- una referencia efectiva en `source_anchor_refs`;
+- `source_support_refs` hacia el índice concreto de `supports[]`;
+- `does_not_support_checked=true`.
+
+Formato:
+
+```json
+{
+  "source_support_refs": [
+    {
+      "source_id": "SOURCE_ID",
+      "support_index": 0
+    }
+  ],
+  "does_not_support_checked": true
+}
+```
+
+La referencia al índice de `supports[]` hace reproducible qué alcance atribuido a la fuente sustenta el claim. No automatiza la exégesis del pasaje.
+
+### Descripción académica
+
+`ACADEMIC_DESCRIPTION` requiere una fuente P2 académica con ancla y alcance compatibles. Describe una tradición, genealogía, contexto o fenomenología; no se convierte en autoridad doctrinal primaria.
+
+### Uso contemporáneo
+
+`D_CONTEMPORARY_USAGE` documenta uso vivo. Nunca produce por sí mismo una categoría ontológica y la salida conserva `contemporary_usage_promoted_to_ontology=false`.
+
+### Identidad entre conceptos
+
+Si se pretende afirmar identidad doctrinal entre dos conceptos, el claim debe declarar:
+
+- `asserts_doctrinal_identity=true`;
+- `concept_id`;
+- `identity_target_concept_id`.
+
+La identidad se rechaza cuando:
+
+- `source_relation` es comparativa, histórica, académica, de uso contemporáneo o de síntesis del proyecto;
+- las fuentes pertenecen a tradiciones distintas;
+- la genealogía contiene para ese par una relación explícita como `NON_EQUIVALENT`, `COMPARATIVE_ANTECEDENT_ONLY`, `NO_DIRECT_DOCTRINAL_IDENTITY` u otra relación de no identidad.
+
+### Técnica frente a ontología
+
+`PROJECT_OPERATIONALIZATION` puede aparecer en:
+
+- `B_TECHNIQUE`, cuando describe una operacionalización o cálculo técnico;
+- `E_PROJECT_HYPOTHESIS`, cuando ALMAS transforma doctrina/datos/técnica en una inferencia metafísica propia.
+
+Que una técnica sea `SUPPORTED` no eleva automáticamente la interpretación metafísica asociada.
+
+### No ponderación por número de fuentes
+
+M28 fija:
+
+- `doctrine_adds_structural_score=false`;
+- `source_count_used_as_structural_weight=false`;
+- `cross_tradition_identity_inferred=false`;
+- `project_hypothesis_promoted_to_doctrine=false`.
+
+La doctrina interpreta una arquitectura ya calculada; no la fabrica.
