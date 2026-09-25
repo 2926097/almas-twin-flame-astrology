@@ -39,8 +39,8 @@
       "author": "Brihadaranyaka Upanishad",
       "work": "Brihadaranyaka Upanishad",
       "passage": "1.4.3",
-      "date_note": "Ancient Upanishadic text; dating varies by scholarship",
-      "url": "https://gita.pub/upanishad/brihadaranyaka/verse/1-4-3/",
+      "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
+      "url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
       "supports": [
         "a cosmogonic passage in which a primordial self divides into husband and wife",
         "comparative analogue for division/reunion motifs"
@@ -50,18 +50,18 @@
         "one unique romantic counterpart for every contemporary person",
         "astrological verification"
       ],
-      "translation_note": "Online translation used as locator; critical editions/translations should be preferred in formal scholarship.",
+      "translation_note": "Max Müller, The Upanishads, Part II, Sacred Books of the East vol. XV, Oxford, Clarendon Press, 1884. Passage 1.4.3 cross-checked against Sanskrit/transliteration in modern text repositories.",
       "source_role": "DOCTRINAL_PRIMARY",
-      "verification_status": "PARTIAL",
+      "verification_status": "VERIFIED_PRIMARY",
       "tradition": "Upanishadic Hindu tradition",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
       ],
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "rights_note": "Max Müller's 1884 English translation is public-domain material; verify platform-specific reuse terms for scans/transcriptions.",
       "date": null,
       "pages": null,
       "doi": null,
-      "download_url": null,
+      "download_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
       "license": null,
       "local_file": null,
       "sha256": null
