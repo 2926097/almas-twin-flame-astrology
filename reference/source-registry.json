@@ -154,14 +154,18 @@
       "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
       "date": null,
       "date_note": null,
-      "passage": null,
+      "passage": "Sections 'Twin Flames', 'Soul Mates', and 'Karmic Relationship'",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Official doctrinal differentiation among twin flames, soul mates and karmic relationships; twin flames are described as created together in a single fiery ovoid.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "summit_lighthouse_glossary_twin_flame",
@@ -194,7 +198,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Glossary entry 'Twin flame'.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "granholm_sociology_esotericism",
@@ -361,12 +369,16 @@
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "verification_note": "Journal metadata and abstract verify the 2014 article, pages 411-424, and its definition of soul-contract theodicy as pre-birth plans for growth.",
       "date_note": null,
-      "passage": null,
+      "passage": "Abstract and introductory framing, pp. 411-424",
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "The abstract defines soul-contract theodicy as a contemporary New Age explanation in which pre-birth plans/contracts are believed to accelerate soul growth; the article analyzes primary sources rather than asserting ontological truth.",
+      "verification_anchor_type": "ABSTRACT",
+      "verification_anchor_url": "https://www.tandfonline.com/doi/abs/10.1080/13537903.2014.945724",
+      "evidence_scope": "ACADEMIC_DESCRIPTION"
     },
     {
       "id": "stokke_spiritual_love_relations_2021",
@@ -399,11 +411,15 @@
       "rights_note": "Use according to stated license: CC BY-NC-ND 4.0.",
       "verification_note": "Peer-reviewed open-access study verified; convenience sample of 140 naturally occurring responses in a New Age Facebook group. It documents reported phenomena and explicitly does not provide population-level prevalence or ontological verification.",
       "date_note": null,
-      "passage": null,
+      "passage": "Abstract; study of 140 responses, pp. 130-144",
       "download_url": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Open-access abstract identifies a naturalistic observation study of 140 responses in a New Age Facebook group concerning self-described soulmate experiences.",
+      "verification_anchor_type": "ABSTRACT",
+      "verification_anchor_url": "https://www.tandfonline.com/doi/pdf/10.1080/20440243.2021.1955454",
+      "evidence_scope": "PHENOMENOLOGY"
     },
     {
       "id": "crane_draconic_astrology_1987",
@@ -431,14 +447,18 @@
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "verification_note": "Open British National Bibliography verifies title, author, Aquarian publisher, 1987 date, ISBN 0850305594 and 224-page book; Astrological Association also lists Crane's 1987 conference recording on draconic astrology.",
       "date_note": null,
-      "passage": null,
+      "passage": "Bibliographic record for the 1987 Aquarian publication",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Bibliographic metadata verifies Crane's book as an identified modern source on using draconic charts in astrological interpretation; detailed chapter-level claims remain unverified from the present corpus.",
+      "verification_anchor_type": "METADATA_ONLY",
+      "verification_anchor_url": "https://obnb.uk/p8110748-draconic-astrology-an-introduction-to-the-use-of-draconic-charts-in-astrological-interpretation",
+      "evidence_scope": "BIBLIOGRAPHIC_ONLY"
     },
     {
       "id": "bailey_esoteric_astrology_1951",
@@ -539,7 +559,7 @@
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "date_note": null,
-      "passage": null,
+      "passage": "Conjugial Love §229; contextual support §§50, 83",
       "pages": null,
       "doi": null,
       "url": null,
@@ -547,7 +567,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "§229 states that for those desiring truly conjugial love, the Lord provides similitudes and describes couples meeting and recognizing fitness under Divine Providence.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.e-swedenborg.com/writings/static/d5686/229.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "steiner_karmic_relationships_1924",
@@ -611,14 +635,18 @@
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "date_note": null,
-      "passage": null,
+      "passage": "Ch. 3 'Choosing to Live Again'; Ch. 4 'Choosing the Twentieth Century and Choosing One's Sex'; Ch. 5 'Why Are We Here on Earth? Have We Known Our Family and Friends in Other Lifetimes?'",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "The published table of contents and bibliographic descriptions show Wambach's group-hypnosis inquiry into pre-birth choice, timing/sex, purpose and prior relational familiarity.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://openlibrary.org/books/OL9473935M/Life_Before_Life",
+      "evidence_scope": "METHOD_DESCRIPTION"
     },
     {
       "id": "whitton_fisher_life_between_life_1986",
@@ -646,14 +674,18 @@
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "date_note": null,
-      "passage": null,
+      "passage": "Publisher/Google Books description and contents",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Bibliographic description characterizes the book as reporting individually made life choices in a between-life Bardo and explanations for life's burdens.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Life_Between_Life.html?id=3ATXAAAAMAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
     },
     {
       "id": "newton_journey_of_souls_1994",
@@ -682,14 +714,18 @@
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "verification_note": "Michael Newton Institute confirms 1994 publication and identifies life selection, choosing a new body, soul groups and rebirth as core contents.",
       "date_note": null,
-      "passage": null,
+      "passage": "Chapters 12 'Life Selection', 13 'Choosing a New Body', 14 'Preparation for Embarkation'",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Official Michael Newton Institute book page identifies life selection, choosing a new body, soul groups, soulmate recognition and purpose among the book's reported between-life themes.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://www.newtoninstitute.org/publication/journey-of-the-souls/",
+      "evidence_scope": "METHOD_DESCRIPTION"
     },
     {
       "id": "myss_sacred_contracts_2001",
@@ -720,14 +756,18 @@
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "verification_note": "Google Books metadata describes a sacred contract agreed before birth and an archetypal method for interpreting purpose and significant encounters.",
       "date_note": null,
-      "passage": null,
+      "passage": "Book chapter 'What Is a Sacred Contract?' (TOC begins p. 11); official author resource 'Sacred Contracts and Your Archetypes'",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Myss explicitly describes a Sacred Contract as made by the soul before birth, including lessons and key relationships, and frames its interpretation through archetypes.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://myss.com/free-resources/sacred-contracts-and-your-archetypes/",
+      "evidence_scope": "METHOD_DESCRIPTION"
     },
     {
       "id": "schwartz_your_souls_plan_2009",
@@ -757,14 +797,18 @@
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
       "verification_note": "Publisher metadata confirms the book's explicit pre-birth planning framework.",
       "date_note": null,
-      "passage": null,
+      "passage": "Official author summary of the book premise; related author essays on pre-birth planning and free will",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Schwartz presents the book as exploring the premise that major life challenges may be planned before birth and explicitly discusses preserving free will within that model.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://yoursoulsplan.com/do-we-plan-our-life-challenges-before-were-born/",
+      "evidence_scope": "METHOD_DESCRIPTION"
     },
     {
       "id": "hanegraaff_new_age_religion_1996",
@@ -1251,14 +1295,18 @@
       "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
       "date": null,
       "date_note": null,
-      "passage": null,
+      "passage": "Section 'Your Twin Flame – Your Perfect Love'",
       "pages": null,
       "doi": null,
       "download_url": null,
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Official Summit Lighthouse explanation that twin flames originate from one original white-fire ovoid divided into two spheres, with positive/masculine and negative/feminine polarity.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/what-is-a-twin-flame/",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "fishbane_personal_identity_lurianic_gilgul_2024",
