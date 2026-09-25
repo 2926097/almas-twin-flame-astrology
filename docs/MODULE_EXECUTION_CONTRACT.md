@@ -148,3 +148,9 @@ La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0�
 `M16` deduplica dentro de la misma `dependency_family + root_key`, reteniendo de forma determinista la observación de mayor exactitud y conservando las suprimidas con su razón. Los pares ASC/DSC, MC/IC, NN/SN y Vertex/Anti-Vertex se normalizan como ejes para impedir inflar evidencia equivalente; en aspectos angulares, 0°/180° y 60°/120° se reducen por simetría del eje.
 
 `M17` agrupa la evidencia deduplicada en raíces estructurales conservadoras. Separa `core_evidence_ids` de `support_evidence_ids` y deja `strength=null / NOT_CALCULATED` hasta que exista una política explícita para la fórmula `S = F × technique_reliability × birth_time_factor × aspect_coefficient`.
+
+## M20 · contraevidencia
+
+`M20` acepta sólo `EXPLICIT_CONTRADICTION` y `STRUCTURAL_INCOMPATIBILITY`. La ausencia de datos no puede entrar como contraevidencia. Las contradicciones se deduplican por `modelo + dependency_family + contradiction_key`.
+
+El módulo no inventa una fórmula de ICE. Si la entrada contiene `ice_by_model`, se conserva con `ice_state=PRECOMPUTED`; en caso contrario queda `NOT_CALCULATED`. Esto mantiene compatibilidad con el núcleo histórico sin ocultar que M19 precede a M20 en el pipeline vigente.
