@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date
 from itertools import combinations
 from typing import Any, Mapping
 
@@ -16,6 +17,107 @@ from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_e
 
 MODELS = ("AF", "KA", "AG", "LG")
 PILLARS = ("PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU")
+
+
+
+def m01_data_quality(context: ModuleContext) -> ModuleResult:
+    """M01: evalúa completitud factual sin convertir ausencia en contradicción."""
+
+    subjects = context.raw_input.get("subjects")
+    if not isinstance(subjects, list) or len(subjects) != 2:
+        return not_evaluable_result(
+            "M01",
+            "La entrada relacional debe contener exactamente dos subjects.",
+        )
+
+    evaluated = []
+    degraded_reasons = []
+    dates_complete = True
+    timed_layers_evaluable = True
+
+    for index, subject in enumerate(subjects):
+        if not isinstance(subject, Mapping):
+            raise ValueError(f"subjects[{index}] debe ser un objeto.")
+
+        subject_id = str(subject.get("id") or f"subject_{index + 1}")
+        birth_date = subject.get("birth_date")
+        date_valid = False
+        if isinstance(birth_date, str):
+            try:
+                date.fromisoformat(birth_date)
+                date_valid = True
+            except ValueError:
+                date_valid = False
+
+        if not date_valid:
+            dates_complete = False
+            degraded_reasons.append(f"{subject_id}: birth_date ausente o inválida.")
+
+        birth_time = subject.get("birth_time")
+        has_birth_time = isinstance(birth_time, str) and bool(birth_time.strip())
+        has_timezone = isinstance(subject.get("timezone"), str) and bool(
+            subject.get("timezone").strip()
+        )
+        has_place = isinstance(subject.get("place"), str) and bool(
+            subject.get("place").strip()
+        )
+        latitude = subject.get("latitude")
+        longitude = subject.get("longitude")
+        has_coordinates = (
+            isinstance(latitude, (int, float))
+            and not isinstance(latitude, bool)
+            and -90 <= float(latitude) <= 90
+            and isinstance(longitude, (int, float))
+            and not isinstance(longitude, bool)
+            and -180 <= float(longitude) <= 180
+        )
+        location_available = has_coordinates or has_place
+        timed_subject_evaluable = (
+            date_valid and has_birth_time and has_timezone and location_available
+        )
+
+        if not timed_subject_evaluable:
+            timed_layers_evaluable = False
+            missing = []
+            if not has_birth_time:
+                missing.append("birth_time")
+            if not has_timezone:
+                missing.append("timezone")
+            if not location_available:
+                missing.append("place/coordinates")
+            if missing:
+                degraded_reasons.append(
+                    f"{subject_id}: capas horarias degradadas por {', '.join(missing)}."
+                )
+
+        evaluated.append(
+            {
+                "id": subject_id,
+                "birth_date_valid": date_valid,
+                "birth_time_present": has_birth_time,
+                "timezone_present": has_timezone,
+                "location_available": location_available,
+                "coordinates_valid": has_coordinates,
+                "time_reliability": subject.get("time_reliability"),
+                "timed_layers_evaluable": timed_subject_evaluable,
+            }
+        )
+
+    output = {
+        "subjects": evaluated,
+        "untimed_layers_evaluable": dates_complete,
+        "timed_layers_evaluable": dates_complete and timed_layers_evaluable,
+        "degraded_reasons": degraded_reasons,
+        "missing_data_are_counterevidence": False,
+    }
+
+    return ModuleResult(
+        module_id="M01",
+        status=ExecutionStatus.COMPLETED,
+        payload=output,
+        canonical_updates={"data_quality": output},
+        limitations=tuple(degraded_reasons),
+    )
 
 
 def m18_pillars(context: ModuleContext) -> ModuleResult:
@@ -191,6 +293,7 @@ def default_handlers():
     """Handlers ejecutables disponibles sin alterar el resto del pipeline."""
 
     return {
+        "M01": m01_data_quality,
         "M18": m18_pillars,
         "M19": m19_structural_model_indices,
         "M21": m21_differential_discrimination,
