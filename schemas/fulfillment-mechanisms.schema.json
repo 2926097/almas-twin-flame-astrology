@@ -1,77 +1,243 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/fulfillment-mechanisms.schema.json",
-  "title":"ALMAS Fulfillment Mechanisms",
-  "type":"object",
-  "required":[
-    "schema_version","overall_state","mechanisms","clause_status","evidence_families",
-    "discriminators","factual_evidence","temporal_evidence","competing_explanations",
-    "counterevidence","why_not_more_specific"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/fulfillment-mechanisms.schema.json",
+  "title": "ALMAS · Mecanismos de cumplimiento",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "overall_state",
+    "mechanisms",
+    "clause_status",
+    "evidence_families",
+    "discriminators",
+    "factual_evidence",
+    "temporal_evidence",
+    "competing_explanations",
+    "counterevidence",
+    "why_not_more_specific"
   ],
-  "properties":{
-    "schema_version":{"const":"1.0.0"},
-    "overall_state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
-    "mechanisms":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":["id","state","clause_refs","functional_state","reason_not_higher"],
-        "properties":{
-          "id":{"enum":[
-            "FM_ACTIVACION","FM_REPETICION","FM_RECIPROCIDAD","FM_CATALISIS",
-            "FM_ENCARNACION","FM_TIKKUN_REPARACION","FM_SERVICIO","FM_LIBERACION",
-            "FM_TRANSFORMACION_MODALIDAD","FM_CIERRE","FM_RUTA_ALTERNATIVA","FM_APLAZAMIENTO"
-          ]},
-          "state":{"enum":["SUPPORTED","COMPATIBLE","INSUFFICIENT","CONTRADICTED","NOT_EVALUABLE"]},
-          "clause_refs":{"type":"array","items":{"type":"string"}},
-          "functional_state":{"enum":[
-            "LATENTE","ACTIVADA","EN_REPETICION","EN_INTEGRACION","INTEGRADA",
-            "TRANSFORMADA","CERRADA","APLAZADA","NO_EVALUABLE"
-          ]},
-          "temporal_refs":{"type":"array","items":{"type":"string"}},
-          "fact_refs":{"type":"array","items":{"type":"string"}},
-          "source_ids":{"type":"array","items":{"type":"string"}},
-          "coverage":{"type":["number","null"],"minimum":0,"maximum":100},
-          "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
-          "counterevidence":{"type":"array","items":{"type":"string"}},
-          "reason_not_higher":{"type":["string","null"]}
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "overall_state": {
+      "enum": [
+        "SUPPORTED",
+        "COMPATIBLE",
+        "INSUFFICIENT",
+        "CONTRADICTED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "mechanisms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "state",
+          "clause_refs",
+          "functional_state",
+          "reason_not_higher"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "FM_ACTIVACION",
+              "FM_REPETICION",
+              "FM_RECIPROCIDAD",
+              "FM_CATALISIS",
+              "FM_ENCARNACION",
+              "FM_TIKKUN_REPARACION",
+              "FM_SERVICIO",
+              "FM_LIBERACION",
+              "FM_TRANSFORMACION_MODALIDAD",
+              "FM_CIERRE",
+              "FM_RUTA_ALTERNATIVA",
+              "FM_APLAZAMIENTO"
+            ]
+          },
+          "state": {
+            "enum": [
+              "SUPPORTED",
+              "COMPATIBLE",
+              "INSUFFICIENT",
+              "CONTRADICTED",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "clause_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "functional_state": {
+            "enum": [
+              "LATENTE",
+              "ACTIVADA",
+              "EN_REPETICION",
+              "EN_INTEGRACION",
+              "INTEGRADA",
+              "TRANSFORMADA",
+              "CERRADA",
+              "APLAZADA",
+              "NO_EVALUABLE"
+            ]
+          },
+          "temporal_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fact_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coverage": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "robustness": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 100
+          },
+          "counterevidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason_not_higher": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         },
-        "additionalProperties":true
+        "additionalProperties": true
       }
     },
-    "clause_status":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":["clause_id","functional_state"],
-        "properties":{
-          "clause_id":{"type":"string"},
-          "functional_state":{"enum":[
-            "LATENTE","ACTIVADA","EN_REPETICION","EN_INTEGRACION","INTEGRADA",
-            "TRANSFORMADA","CERRADA","APLAZADA","NO_EVALUABLE"
-          ]},
-          "fulfillment_signature_met":{"type":["boolean","null"]},
-          "fact_refs":{"type":"array","items":{"type":"string"}}
+    "clause_status": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "clause_id",
+          "functional_state"
+        ],
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "functional_state": {
+            "enum": [
+              "LATENTE",
+              "ACTIVADA",
+              "EN_REPETICION",
+              "EN_INTEGRACION",
+              "INTEGRADA",
+              "TRANSFORMADA",
+              "CERRADA",
+              "APLAZADA",
+              "NO_EVALUABLE"
+            ]
+          },
+          "fulfillment_signature_met": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "fact_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     },
-    "evidence_families":{
-      "type":"array",
-      "items":{"enum":[
-        "FMF1_ANCLAJE_CLAUSULA","FMF2_RECURRENCIA_TEMPORAL","FMF3_CAMBIO_FACTUAL",
-        "FMF4_FIRMA_INTEGRACION","FMF5_EXTERNALIZACION","FMF6_CAMBIO_MODALIDAD",
-        "FMF7_CESE_REPETICION","FMF8_CONTRAEVIDENCIA"
-      ]},
-      "uniqueItems":true
+    "evidence_families": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "FMF1_ANCLAJE_CLAUSULA",
+          "FMF2_RECURRENCIA_TEMPORAL",
+          "FMF3_CAMBIO_FACTUAL",
+          "FMF4_FIRMA_INTEGRACION",
+          "FMF5_EXTERNALIZACION",
+          "FMF6_CAMBIO_MODALIDAD",
+          "FMF7_CESE_REPETICION",
+          "FMF8_CONTRAEVIDENCIA"
+        ]
+      },
+      "uniqueItems": true
     },
-    "discriminators":{"type":"array","items":{"type":"object"}},
-    "factual_evidence":{"type":"array","items":{"type":"object"}},
-    "temporal_evidence":{"type":"array","items":{"type":"object"}},
-    "competing_explanations":{"type":"array","items":{"type":"string"}},
-    "counterevidence":{"type":"array","items":{"type":"string"}},
-    "robustness":{"type":["number","null"],"minimum":0,"maximum":100},
-    "why_selected":{"type":["string","null"]},
-    "why_not_more_specific":{"type":"string"}
+    "discriminators": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "factual_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "temporal_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "competing_explanations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "robustness": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "why_selected": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "why_not_more_specific": {
+      "type": "string"
+    }
   },
-  "additionalProperties":true
+  "additionalProperties": true
 }
