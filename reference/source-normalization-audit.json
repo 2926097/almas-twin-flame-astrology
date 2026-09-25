@@ -2,17 +2,17 @@
   "audit_version": "1.0.0",
   "almas_version": "1.9.2",
   "date": "2026-09-25",
-  "sources_total": 37,
+  "sources_total": 38,
   "concepts_total": 92,
   "genealogy_edges_total": 73,
   "by_priority": {
     "P1_PRIMARY": 23,
     "P2_ACADEMIC": 7,
-    "P4_IDENTIFIED_METHOD": 6,
-    "P3_HISTORICAL_TECHNICAL": 1
+    "P3_HISTORICAL_TECHNICAL": 1,
+    "P4_IDENTIFIED_METHOD": 7
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 20,
+    "VERIFIED_PRIMARY": 21,
     "VERIFIED_METADATA": 17
   },
   "integrity": {
@@ -25,6 +25,7 @@
   "notes": [
     "Bibliographic optional fields such as pages, DOI, license or local hash remain nullable when not applicable or unavailable.",
     "Future source additions must preserve source↔concept↔genealogy integrity.",
-    "A source defines provenance/meaning/limits and never adds astrological score merely by existing."
+    "A source defines provenance/meaning/limits and never adds astrological score merely by existing.",
+    "Mapped doctrine-to-astrology source_basis entries must carry an explicit verification anchor."
   ]
 }
