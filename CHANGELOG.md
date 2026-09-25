@@ -113,6 +113,9 @@
 - Añade `docs/SOURCE_INTEGRATION_PLAN.md` y `docs/SOURCE_GAPS.md`.
 - El registro contiene 36 fuentes en el punto de partida de esta fase.
 - Establece que una fuente define significado/procedencia/límites pero no añade puntuación astrológica por su mera existencia.
+- Normaliza los lotes de planificación preencarnatoria, Cábala luriana, genealogía twin-flame, astrología esotérica/dracónica y fenomenología contemporánea.
+- Añade **Gate doctrinal** para distinguir doctrina directa, descripción académica, antecedente histórico, analogía, uso contemporáneo y operacionalización ALMAS.
+- Añade no-equivalencias críticas como zivug ≠ twin flame, soul-root ≠ Monad y experiencia emic ≠ ontología.
 
 ## 1.3.1 — 2026-09-24
 
