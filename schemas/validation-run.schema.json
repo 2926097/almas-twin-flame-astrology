@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/validation-run.schema.json",
-  "title": "ALMAS Validation Run",
+  "title": "ALMAS · Ejecución de validación",
   "type": "object",
   "required": [
     "run_id",
