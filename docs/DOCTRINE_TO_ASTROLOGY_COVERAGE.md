@@ -1,6 +1,6 @@
 # ALMAS · Cobertura doctrina → astrología
 
-**Versión:** 1.9.1
+**Versión:** 1.9.2
 
 La existencia de un concepto doctrinal no obliga a crear una regla astrológica.
 
