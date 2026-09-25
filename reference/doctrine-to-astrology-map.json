@@ -1,12 +1,12 @@
 {
   "map_version": "1.2.0",
-  "almas_version": "1.10.1",
+  "almas_version": "1.10.2",
   "principles": [
-    "Doctrine defines concepts and limits; it does not contribute structural score by mere existence.",
-    "Astrological mappings created by ALMAS are E_PROJECT_HYPOTHESIS unless the cited source explicitly supplies the technique.",
-    "Houses, signs and asteroids may contextualize but cannot independently create an ontological conclusion.",
-    "Temporal techniques can activate a pre-existing variable but cannot create it.",
-    "Every registered concept must have an explicit mapping-coverage state, including deliberate non-operationalization."
+    "La doctrina define conceptos y límites; su mera existencia no aporta puntuación estructural.",
+    "Los mapeos astrológicos creados por ALMAS son E_PROJECT_HYPOTHESIS salvo que la fuente citada proporcione explícitamente la técnica.",
+    "Casas, signos y asteroides pueden contextualizar, pero no crear de forma independiente una conclusión ontológica.",
+    "Las técnicas temporales pueden activar una variable preexistente, pero no crearla.",
+    "Todo concepto registrado debe tener un estado explícito de cobertura de mapeo, incluida la no operacionalización deliberada."
   ],
   "mappings": [
     {
@@ -27,7 +27,7 @@
       "inadmissible_inferences": [
         "specific event was literally selected before birth",
         "exact date was pre-agreed",
-        "single synastry aspect proves pre-birth choice"
+        "un único aspecto de sinastría demuestra elección prenatal"
       ],
       "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
       "validation_state": "FUNCTIONAL_OPERATIONALIZATION_NOT_EXTERNALLY_VALIDATED",
@@ -66,9 +66,9 @@
         "externalization_events_as_documentary_corroboration"
       ],
       "inadmissible_inferences": [
-        "every relationship has shared mission",
-        "mission implies shared origin",
-        "10th_or_11th_house contact alone proves mission"
+        "toda relación tiene misión compartida",
+        "la misión implica origen compartido",
+        "un contacto aislado con casa 10 u 11 demuestra misión"
       ],
       "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
       "validation_state": "FUNCTIONAL_OPERATIONALIZATION_NOT_EXTERNALLY_VALIDATED",
@@ -154,7 +154,7 @@
       "inadmissible_inferences": [
         "zivug equals twin flame",
         "one Venus-Node contact proves true pair",
-        "pairing doctrine proves current romantic viability"
+        "la doctrina de emparejamiento demuestra viabilidad romántica actual"
       ],
       "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
       "validation_state": "PAIRING_OPERATIONALIZATION_NOT_ONTOLOGICALLY_VALIDATED",
@@ -195,9 +195,9 @@
         "null_model_pair_specificity"
       ],
       "inadmissible_inferences": [
-        "soul root automatically means romantic pair",
-        "soul root automatically means one unique counterpart",
-        "rare structure equals proof of shared root"
+        "raíz del alma significa automáticamente pareja romántica",
+        "raíz del alma significa automáticamente una contraparte única",
+        "estructura rara equivale a prueba de raíz compartida"
       ],
       "source_alignment": "DOCTRINE_EXPLICIT_METHOD_PROJECT",
       "validation_state": "RELATED_ROOT_OPERATIONALIZATION_NOT_ONTOLOGICALLY_VALIDATED",
@@ -229,8 +229,8 @@
       ],
       "operationalization_class": "COMPARATIVE_E_PROJECT_HYPOTHESIS",
       "admissible_astrology": [
-        "same evidence families used for shared-origin differential",
-        "only as comparative model with explicit non-equivalence controls"
+        "se usan las mismas familias de evidencia para el diferencial de origen compartido",
+        "sólo como modelo comparativo con controles explícitos de no-equivalencia"
       ],
       "inadmissible_inferences": [
         "Blavatsky teaches romantic monadic pairs",
@@ -275,10 +275,10 @@
       ],
       "inadmissible_inferences": [
         "intensity proves twin flame",
-        "shared mission proves twin flame",
+        "la misión compartida demuestra llama gemela",
         "masculine_feminine polarity proves twin flame",
-        "low null frequency is probability of twin flame",
-        "O3 unique dyadic origin can be SUPPORTED without validated discriminator"
+        "una frecuencia baja bajo el modelo nulo es probabilidad de llama gemela",
+        "un origen diádico único O3 puede ser SUPPORTED sin discriminador validado"
       ],
       "source_alignment": "DOCTRINE_EXPLICIT_ASTROLOGY_PROJECT_ONLY",
       "validation_state": "ONTOLOGICAL_DISCRIMINATOR_NOT_VALIDATED",
@@ -317,8 +317,8 @@
         "shared_origin_differential"
       ],
       "inadmissible_inferences": [
-        "Plato or Brihadaranyaka teaches modern twin flames",
-        "mirror symmetry proves literal split soul"
+        "Platón o Brihadaranyaka enseñan llamas gemelas modernas",
+        "la simetría espejo demuestra literalmente alma dividida"
       ],
       "source_alignment": "COMPARATIVE_ANTECEDENT_ONLY",
       "validation_state": "NO_DIRECT_RELATIONAL_ASTROLOGICAL_VALIDATION",
@@ -356,7 +356,7 @@
       "inadmissible_inferences": [
         "academic documentation proves contracts exist",
         "astrology reconstructs literal pre-birth wording",
-        "contract implies shared origin or romantic permanence"
+        "el contrato implica origen compartido o permanencia romántica"
       ],
       "source_alignment": "ACADEMIC_DOCUMENTATION_METHOD_PROJECT",
       "validation_state": "FUNCTIONAL_CONTRACT_ARCHITECTURE_OPERATIONAL_LITERAL_AGREEMENT_NOT_VALIDATED",
@@ -397,8 +397,8 @@
         "choice_point_documentation"
       ],
       "inadmissible_inferences": [
-        "Myss method is identical to Kardec or Lurianic doctrine",
-        "archetypal role proves bilateral agreement"
+        "el método de Myss es idéntico a Kardec o a la doctrina luriana",
+        "el rol arquetípico demuestra acuerdo bilateral"
       ],
       "source_alignment": "IDENTIFIED_CONTEMPORARY_METHOD_PLUS_PROJECT",
       "validation_state": "METHOD_CONTEXT_NOT_EXTERNALLY_VALIDATED_ASTROLOGICALLY",
@@ -437,7 +437,7 @@
       ],
       "inadmissible_inferences": [
         "every hardship was planned",
-        "future decision is fixed",
+        "la decisión futura está fijada",
         "plan removes free will"
       ],
       "source_alignment": "CONTEMPORARY_MODEL_ACADEMICALLY_DOCUMENTED_PLUS_PROJECT",
@@ -471,12 +471,12 @@
       ],
       "operationalization_class": "IDENTIFIED_METHOD_CONTEXT",
       "admissible_astrology": [
-        "used only as comparative planning model",
+        "se usa únicamente como modelo comparativo de planificación",
         "no direct scoring contribution"
       ],
       "inadmissible_inferences": [
         "regression reports independently verify interlife planning",
-        "astrology validates regression content without separate evidence"
+        "la astrología valida contenido de regresión sin evidencia separada"
       ],
       "source_alignment": "IDENTIFIED_METHOD_CONTEXT_ONLY",
       "validation_state": "NO_DIRECT_ASTROLOGICAL_VALIDATION",
@@ -507,7 +507,7 @@
         "relationship_chart_coherence"
       ],
       "inadmissible_inferences": [
-        "Swedenborg teaches reincarnational soul contracts",
+        "Swedenborg enseña contratos álmicos reencarnatorios",
         "providential pair equals twin flame"
       ],
       "source_alignment": "DOCTRINE_EXPLICIT_COMPARATIVE_PROJECT",
@@ -540,8 +540,8 @@
         "may_be_compared_to_temporal_or_symbolic_patterns_after_documentation"
       ],
       "inadmissible_inferences": [
-        "recognition or synchronicity proves ontology",
-        "subjective experience modifies IEM or origin score"
+        "reconocimiento o sincronicidad demuestran ontología",
+        "la experiencia subjetiva modifica el IEM o la puntuación de origen"
       ],
       "source_alignment": "ACADEMIC_PHENOMENOLOGY",
       "validation_state": "DOCUMENTARY_PHENOMENOLOGY_ONLY",
@@ -575,9 +575,9 @@
         "draconic_to_draconic_corroborative"
       ],
       "inadmissible_inferences": [
-        "draconic chart independently proves soul contract",
-        "draconic nodal anchors count as independent recurrence",
-        "technical verification of the calculation validates reincarnation or soul ontology"
+        "la carta dracónica demuestra independientemente un contrato álmico",
+        "los anclajes nodales dracónicos cuentan como recurrencia independiente",
+        "la verificación técnica del cálculo valida reencarnación u ontología del alma"
       ],
       "source_alignment": "IDENTIFIED_ASTROLOGICAL_TECHNIQUE_FORMULA_VERIFIED_INTERPRETATION_PROJECT_DEPENDENT",
       "validation_state": "CALCULATION_METHOD_VERIFIED_METAPHYSICAL_INTERPRETATION_NOT_EXTERNALLY_VALIDATED",
@@ -609,12 +609,12 @@
     {
       "concept_id": "PREINCARNATIONAL_CHOICE",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SOUL_CONTRACT",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "PRENATAL_PAIRING",
@@ -629,47 +629,47 @@
     {
       "concept_id": "SPLIT_PRIMORDIAL_BEING",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "MONAD",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
       "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
-      "reason": "Technique concept is documented but has no separate metaphysical-variable mapping beyond its technical use."
+      "reason": "El concepto técnico está documentado, pero no tiene un mapeo separado a variable metafísica más allá de su uso técnico."
     },
     {
       "concept_id": "TWIN_FLAME_ORIGIN",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SOULMATE_EXPERIENCE",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "DRACONIC_ASTROLOGY",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "GILGUL",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "ZIVUG",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SOUL_ROOT",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "TIKKUN",
@@ -679,7 +679,7 @@
     {
       "concept_id": "MISSION_PREINCARNATIONAL",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "KARMIC_RELATIONSHIP",
@@ -689,22 +689,22 @@
     {
       "concept_id": "CONJUGIAL_PAIRING",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "LIFE_BETWEEN_LIVES",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SACRED_CONTRACT",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SOUL_PLAN",
       "coverage_state": "MAPPED",
-      "reason": "Concept has an explicit doctrine-to-astrology mapping with admissible and inadmissible inferences."
+      "reason": "El concepto tiene un mapeo explícito doctrina→astrología con inferencias admisibles e inadmisibles."
     },
     {
       "concept_id": "SOUL_GROUP",
@@ -714,7 +714,7 @@
     {
       "concept_id": "TWIN_FLAME_LITERARY_GENEALOGY",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "NEW_AGE_RELIGION",
@@ -749,7 +749,7 @@
     {
       "concept_id": "TWIN_SOUL_LITERARY_GENEALOGY",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "DUAL_SOUL_LITERARY_MODEL",
@@ -764,12 +764,12 @@
     {
       "concept_id": "HISTORICAL_RECEPTION",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "ESOTERIC_ASTROLOGY",
       "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
-      "reason": "Technique concept is documented but has no separate metaphysical-variable mapping beyond its technical use."
+      "reason": "El concepto técnico está documentado, pero no tiene un mapeo separado a variable metafísica más allá de su uso técnico."
     },
     {
       "concept_id": "SOUL_ONTOLOGY_BAILEY",
@@ -784,12 +784,12 @@
     {
       "concept_id": "EVOLUTIONARY_STAGE_ASTROLOGY",
       "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
-      "reason": "Technique concept is documented but has no separate metaphysical-variable mapping beyond its technical use."
+      "reason": "El concepto técnico está documentado, pero no tiene un mapeo separado a variable metafísica más allá de su uso técnico."
     },
     {
       "concept_id": "DRACONIC_METHOD_MODERN",
       "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
-      "reason": "Technique concept is documented but has no separate metaphysical-variable mapping beyond its technical use."
+      "reason": "El concepto técnico está documentado, pero no tiene un mapeo separado a variable metafísica más allá de su uso técnico."
     },
     {
       "concept_id": "RECOGNITION_PHENOMENOLOGY",
@@ -799,17 +799,17 @@
     {
       "concept_id": "SYNCHRONICITY_REPORT",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "TRANSFORMATION_REPORT",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "TWIN_FLAME_EMIC_USAGE",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "NEW_AGE_THEODICY",
@@ -824,147 +824,147 @@
     {
       "concept_id": "KARMIC_CONTINUITY",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "SPLIT_SOUL",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "MONADIC_PAIR",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "SOULMATE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "OBJECTIVE_ONTOLOGY",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "PAST_LIFE_PROOF",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "SOUL_CONTRACT_PROOF",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "WOUND_REPAIR",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "MISSION_SERVICE_RELATIONAL",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "WESTERN_ESOTERICISM_ALL",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "DETAILED_LIFE_SCRIPT",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "FATALISM",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "FIRST_SECOND_SPOUSE_SIMPLE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "TWIN_FLAME_PHASE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "DYADIC_SOUL_CONTRACT",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "DOCTRINAL_ENDORSEMENT",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "RELATIONSHIP_ASTROLOGY",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "SOUL_CONTRACT_ASTROLOGY",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "TWIN_FLAME_ASTROLOGY",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "DIVINE_MASCULINE_FEMININE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "RELATIONAL_POLARITY",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "RELATIONSHIP_PHASE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "ANCIENT_DRACONIC_TRADITION",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "CAUSAL_PROOF",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "OBJECTIVE_METAPHYSICAL_STATUS",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "TWIN_FLAME_ASTROLOGICAL_MODEL",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "SPIRITIST_TRIAL_DOCTRINE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "KARDEC_PREINCARNATIONAL_CHOICE",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "LURIANIC_ZIVUG",
       "coverage_state": "BOUNDARY_ONLY",
-      "reason": "Concept exists to prohibit or delimit an inference and must not generate astrological evidence."
+      "reason": "El concepto existe para prohibir o delimitar una inferencia y no debe generar evidencia astrológica."
     },
     {
       "concept_id": "ARCHETYPAL_PURPOSE",
@@ -974,7 +974,7 @@
     {
       "concept_id": "AUTHORSHIP_HISTORY",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "BODY_SELECTION",
@@ -1029,7 +1029,7 @@
     {
       "concept_id": "REINCARNATION_NEW_AGE",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     },
     {
       "concept_id": "RELATIONAL_PURPOSE",
@@ -1064,7 +1064,7 @@
     {
       "concept_id": "WESTERN_ESOTERICISM_CONTEXT",
       "coverage_state": "CONTEXT_ONLY",
-      "reason": "Concept contextualizes history, scholarship or experience; it does not create structural astrological scoring."
+      "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
     }
   ],
   "audit_summary": {
