@@ -86,15 +86,18 @@
     },
     {
       "id": "M15",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/evidence_handlers.py:m15_evidence_extraction"
     },
     {
       "id": "M16",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/evidence_handlers.py:m16_dependency_deduplication"
     },
     {
       "id": "M17",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/evidence_handlers.py:m17_independent_roots"
     },
     {
       "id": "M18",
