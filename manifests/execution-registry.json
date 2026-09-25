@@ -76,7 +76,8 @@
     },
     {
       "id": "M13",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/lot_handlers.py:m13_lots"
     },
     {
       "id": "M14",
