@@ -703,47 +703,241 @@ class TestViabilityReciprocity(unittest.TestCase):
 
 
 class TestReportingFirewall(unittest.TestCase):
-    def setUp(self):
-        self.canonical_analysis = {
+    def canonical(self, mode="FULL", **overrides):
+        data = {
             "schema_version": "1.0.0",
-            "analysis_mode": "FULL",
+            "analysis_mode": mode,
             "evidence": [],
-            "models": {},
-            "coverage": {},
-            "robustness": {},
+            "models": {
+                "AF": {"iem": None, "state": "NOT_EVALUABLE"},
+                "KA": {"iem": None, "state": "NOT_EVALUABLE"},
+                "AG": {"iem": None, "state": "NOT_EVALUABLE"},
+                "LG": {"iem": None, "state": "NOT_EVALUABLE"},
+            },
+            "indices": {
+                "IDD": None,
+                "IAT": None,
+                "ICC": 90,
+                "IRC": 80,
+                "ICE": None,
+            },
+            "coverage": {"ICC": 90},
+            "robustness": {"IRC": 80},
             "counterevidence": [],
+            "ontology": {},
+            "doctrine": [],
+            "temporal": {},
+            "limitations": [],
         }
+        data.update(overrides)
+        return data
 
-    def test_m30_copies_without_mutating_canonical_input(self):
-        result = m30_report_gate(
-            ctx("M30", {"canonical_analysis": self.canonical_analysis})
-        )
-        self.assertTrue(result.canonical_updates["report_gate"]["reportable"])
-        self.assertFalse(
-            result.canonical_updates["report_gate"]["canonical_values_mutated"]
-        )
-        self.assertEqual(
-            result.canonical_updates["canonical_analysis"],
-            self.canonical_analysis,
-        )
-
-    def test_failed_prior_module_blocks_report(self):
-        prior = {
-            "M10": ModuleResult(
-                module_id="M10",
-                status=ExecutionStatus.FAILED,
+    def completed_trace(self):
+        return {
+            f"M{i:02d}": ModuleResult(
+                module_id=f"M{i:02d}",
+                status=ExecutionStatus.COMPLETED,
             )
+            for i in range(30)
         }
+
+    def test_valid_full_with_complete_trace_is_ready(self):
         result = m30_report_gate(
             ctx(
                 "M30",
-                {"canonical_analysis": self.canonical_analysis},
+                {"canonical_analysis": self.canonical()},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertTrue(gate["reportable"])
+        self.assertEqual(gate["state"], "READY")
+        self.assertEqual(gate["execution_trace_state"], "AVAILABLE")
+        self.assertFalse(gate["canonical_values_mutated"])
+        self.assertIsNotNone(gate["canonical_fingerprint"])
+
+    def test_imported_canonical_without_trace_is_partial_not_blocked(self):
+        canonical = self.canonical()
+        result = m30_report_gate(
+            ctx("M30", {"canonical_analysis": canonical})
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertTrue(gate["reportable"])
+        self.assertEqual(gate["state"], "PARTIAL")
+        self.assertIn(
+            "EXECUTION_TRACE_UNAVAILABLE",
+            gate["degradation_reasons"],
+        )
+        self.assertEqual(
+            result.canonical_updates["canonical_analysis"],
+            canonical,
+        )
+
+    def test_failed_prior_module_blocks_report(self):
+        prior = self.completed_trace()
+        prior["M10"] = ModuleResult(
+            module_id="M10",
+            status=ExecutionStatus.FAILED,
+        )
+        result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": self.canonical()},
                 prior=prior,
             )
         )
-        self.assertFalse(result.canonical_updates["report_gate"]["reportable"])
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertFalse(gate["reportable"])
+        self.assertEqual(gate["state"], "BLOCKED")
+        self.assertIn("FAILED_PRIOR_MODULES", gate["blocking_issues"])
+        self.assertEqual(gate["failed_modules"], ["M10"])
+
+    def test_not_evaluable_prior_module_degrades_to_partial(self):
+        prior = self.completed_trace()
+        prior["M05"] = ModuleResult(
+            module_id="M05",
+            status=ExecutionStatus.NOT_EVALUABLE,
+        )
+        result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": self.canonical()},
+                prior=prior,
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertTrue(gate["reportable"])
+        self.assertEqual(gate["state"], "PARTIAL")
+        self.assertIn(
+            "PRIOR_MODULES_NOT_EVALUABLE",
+            gate["degradation_reasons"],
+        )
+        self.assertEqual(gate["not_evaluable_modules"], ["M05"])
+
+    def test_targeted_and_temporal_are_partial_by_scope(self):
+        for mode in ("TARGETED", "TEMPORAL"):
+            result = m30_report_gate(
+                ctx(
+                    "M30",
+                    {"canonical_analysis": self.canonical(mode=mode)},
+                    prior=self.completed_trace(),
+                )
+            )
+            gate = result.canonical_updates["report_gate"]
+
+            self.assertTrue(gate["reportable"])
+            self.assertEqual(gate["state"], "PARTIAL")
+            self.assertIn(
+                f"PARTIAL_ANALYSIS_MODE:{mode}",
+                gate["degradation_reasons"],
+            )
+
+    def test_full_missing_model_is_blocked(self):
+        canonical = self.canonical()
+        del canonical["models"]["LG"]
+
+        result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertFalse(gate["reportable"])
+        self.assertEqual(gate["state"], "BLOCKED")
+        self.assertIn(
+            "FULL_MISSING_MODELS:LG",
+            gate["blocking_issues"],
+        )
+
+    def test_positive_model_claim_requires_canonical_evidence(self):
+        canonical = self.canonical()
+        canonical["models"]["AF"] = {
+            "iem": 80,
+            "state": "COMPATIBLE",
+        }
+
+        result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertFalse(gate["reportable"])
+        self.assertIn(
+            "POSITIVE_MODEL_CLAIM_WITHOUT_EVIDENCE",
+            gate["blocking_issues"],
+        )
+
+    def test_not_evaluable_model_cannot_keep_numeric_iem(self):
+        canonical = self.canonical()
+        canonical["models"]["AF"] = {
+            "iem": 50,
+            "state": "NOT_EVALUABLE",
+        }
+
+        result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertFalse(gate["reportable"])
+        self.assertIn(
+            "AF:NOT_EVALUABLE_WITH_NUMERIC_IEM",
+            gate["blocking_issues"],
+        )
+
+    def test_raw_and_snapshot_conflict_blocks_without_overwrite(self):
+        raw = self.canonical()
+        snapshot = self.canonical()
+        snapshot["analysis_mode"] = "REPORT"
+
+        result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": raw},
+                canonical={"canonical_analysis": snapshot},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertEqual(gate["state"], "BLOCKED")
+        self.assertTrue(gate["canonical_source_conflict"])
+        self.assertEqual(gate["source"], "CONFLICT")
+        self.assertNotIn(
+            "canonical_analysis",
+            result.canonical_updates,
+        )
+
+    def test_absent_canonical_blocks(self):
+        result = m30_report_gate(
+            ctx("M30", prior=self.completed_trace())
+        )
+        gate = result.canonical_updates["report_gate"]
+
+        self.assertFalse(gate["reportable"])
+        self.assertEqual(gate["state"], "BLOCKED")
+        self.assertIn(
+            "CANONICAL_ANALYSIS_ABSENT",
+            gate["blocking_issues"],
+        )
 
     def test_m31_builds_reference_model_only(self):
+        canonical = self.canonical()
         gate = {
             "reportable": True,
             "state": "READY",
@@ -752,7 +946,7 @@ class TestReportingFirewall(unittest.TestCase):
             ctx(
                 "M31",
                 canonical={
-                    "canonical_analysis": self.canonical_analysis,
+                    "canonical_analysis": canonical,
                     "report_gate": gate,
                 },
             )
@@ -762,6 +956,8 @@ class TestReportingFirewall(unittest.TestCase):
         self.assertEqual(len(model["sections"]), 11)
         self.assertFalse(model["canonical_values_mutated"])
         self.assertFalse(model["rendered_document_created"])
+
+
 
 
 if __name__ == "__main__":
