@@ -1,4 +1,4 @@
-# ALMAS Soul Contract · Reconstrucción preencarnatoria
+# ALMAS · Contrato Preencarnatorio · Reconstrucción preencarnatoria
 
 ## 1. Objetivo
 
