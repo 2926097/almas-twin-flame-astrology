@@ -1,6 +1,6 @@
 # Validation status
 
-## Public v1.8.4
+## Public v1.9.0
 
 The repository validates generalized rules with synthetic test fixtures. Real public case studies, if added, are documentary/illustrative material and are not used as hidden validation fixtures or as a basis for case-fitted rules.
 
@@ -17,7 +17,7 @@ Current public layers:
 | Public static contract validator | Published; CI enabled |
 | Deterministic pillar/IEM/IDD/IRC scoring core | Published; unit-tested |
 | Precomputed-pillar CLI | Published; unit-tested |
-| ALMAS Soul Contract skill | Published; independent v1.9.0 |
+| Módulo de Contrato Preencarnatorio | Published; internal module |
 | Astrology→Soul Contract bridge | Published; contract v1.0.0 |
 | Preincarnation reconstruction | Published; complete eight-stage schema v1.8.0 |
 | Soul-origin differential engine | Published; model/discriminator registries and schema v1.0.0 |
@@ -39,3 +39,22 @@ The public Python suite contains **14 deterministic unit tests** using synthetic
 A separate public-contract workflow verifies the repository structure and publication contract.
 
 Public validation establishes implementation consistency with the declared rules. It does not validate astrology scientifically and does not convert model scores into metaphysical probabilities.
+
+
+## External validation status
+
+**Infrastructure status:** PREREGISTRATION READY.
+
+**Real external holdout status:** NOT YET EXECUTED.
+
+Published in 1.9.0:
+
+- external-validation protocol;
+- validation case/run schemas;
+- cohort preregistration manifest;
+- endpoint registry EV1–EV8;
+- blind structural → documentary opening workflow;
+- contamination and case-fitting rules;
+- synthetic smoke fixture.
+
+This infrastructure does not by itself constitute empirical validation of twin-flame, soulmate, soul-contract or other metaphysical ontologies.
