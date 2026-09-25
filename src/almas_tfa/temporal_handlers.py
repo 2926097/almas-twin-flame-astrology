@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from datetime import date, datetime
+import re
 from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
@@ -391,8 +393,122 @@ EVIDENCE_ROLES = {
 }
 
 
+def _date_precision_contract(
+    event_id: str,
+    precision: str,
+    raw_date: Any,
+    raw_range: Any,
+) -> tuple[bool, str | None]:
+    """Valida presencia/formato mínimo sin inventar precisión temporal."""
+
+    if precision == "UNKNOWN":
+        return True, None
+
+    if precision == "RANGE":
+        if not isinstance(raw_range, str) or not raw_range.strip():
+            return False, "date_range requerido para RANGE"
+        return True, None
+
+    if not isinstance(raw_date, str) or not raw_date.strip():
+        return False, f"date requerido para {precision}"
+
+    value = raw_date.strip()
+    try:
+        if precision == "EXACT_DATETIME":
+            datetime.fromisoformat(value.replace("Z", "+00:00"))
+        elif precision == "EXACT_DATE":
+            date.fromisoformat(value)
+        elif precision == "MONTH":
+            if re.fullmatch(r"\d{4}-\d{2}", value) is None:
+                raise ValueError
+            month = int(value[-2:])
+            if not 1 <= month <= 12:
+                raise ValueError
+        elif precision == "YEAR":
+            if re.fullmatch(r"\d{4}", value) is None:
+                raise ValueError
+        elif precision == "APPROXIMATE":
+            pass
+        else:
+            return False, f"date_precision no soportada: {precision}"
+    except ValueError:
+        return False, f"formato de date incompatible con {precision}"
+
+    return True, None
+
+
+def _known_clause_ids(canonical: Mapping[str, Any]) -> tuple[set[str], str]:
+    """Recupera IDs de cláusula si la arquitectura contractual está disponible."""
+
+    candidates: list[Any] = []
+
+    direct = canonical.get("clause_assembly")
+    if isinstance(direct, Mapping):
+        candidates.append(direct.get("clauses"))
+
+    reconstruction = canonical.get("preincarnation_reconstruction")
+    if isinstance(reconstruction, Mapping):
+        assembly = reconstruction.get("clause_assembly")
+        if isinstance(assembly, Mapping):
+            candidates.append(assembly.get("clauses"))
+        candidates.append(reconstruction.get("clauses"))
+
+    clauses_direct = canonical.get("clauses")
+    candidates.append(clauses_direct)
+
+    ids: set[str] = set()
+    for candidate in candidates:
+        if not isinstance(candidate, list):
+            continue
+        for clause in candidate:
+            if isinstance(clause, Mapping) and clause.get("id"):
+                ids.add(str(clause["id"]))
+
+    return ids, ("AVAILABLE" if ids else "NOT_AVAILABLE")
+
+
+def _role_target_state(
+    role: str,
+    *,
+    resolved_roots: list[str],
+    unresolved_roots: list[str],
+    resolved_clauses: list[str],
+    unresolved_clauses: list[str],
+    counterevidence_effect: Any,
+    clause_registry_state: str,
+) -> tuple[bool, str]:
+    """Evalúa trazabilidad del destino del rol, no verdad metafísica."""
+
+    if role == "ACTIVATION_CORROBORATION":
+        if resolved_roots or resolved_clauses:
+            return True, "RESOLVED_TARGET"
+        if unresolved_roots or unresolved_clauses:
+            return False, "UNRESOLVED_TARGET"
+        return False, "MISSING_ROOT_OR_CLAUSE_TARGET"
+
+    if role == "FULFILLMENT_EVIDENCE":
+        if resolved_clauses:
+            return True, "RESOLVED_CLAUSE_TARGET"
+        if unresolved_clauses:
+            return False, "UNRESOLVED_CLAUSE_TARGET"
+        if clause_registry_state == "NOT_AVAILABLE":
+            return False, "CLAUSE_REGISTRY_NOT_AVAILABLE"
+        return False, "MISSING_CLAUSE_TARGET"
+
+    if role == "COUNTEREVIDENCE":
+        if resolved_roots or resolved_clauses:
+            return True, "RESOLVED_TARGET"
+        if isinstance(counterevidence_effect, str) and counterevidence_effect.strip():
+            return True, "DECLARED_COUNTEREVIDENCE_EFFECT"
+        if unresolved_roots or unresolved_clauses:
+            return False, "UNRESOLVED_TARGET"
+        return False, "MISSING_COUNTEREVIDENCE_TARGET"
+
+    return True, "NO_STRUCTURAL_TARGET_REQUIRED"
+
+
 def m27_dated_events(context: ModuleContext) -> ModuleResult:
-    """M27: valida el ledger documental sin modificar arquitectura congelada."""
+    """M27: valida hechos documentales sin reescribir la estructura congelada."""
 
     ledger = context.raw_input.get("documentary_event_ledger")
     if not isinstance(ledger, Mapping):
@@ -402,7 +518,9 @@ def m27_dated_events(context: ModuleContext) -> ModuleResult:
         )
 
     if ledger.get("schema_version") != "1.0.0":
-        raise ValueError("M27 requiere documentary_event_ledger schema_version=1.0.0.")
+        raise ValueError(
+            "M27 requiere documentary_event_ledger schema_version=1.0.0."
+        )
 
     freeze_ref = ledger.get("analysis_freeze_ref")
     if not isinstance(freeze_ref, str) or not freeze_ref:
@@ -419,10 +537,19 @@ def m27_dated_events(context: ModuleContext) -> ModuleResult:
         for root in roots or []
         if isinstance(root, Mapping) and root.get("root_id")
     }
+    root_registry_state = "AVAILABLE" if known_roots else "NOT_AVAILABLE"
+
+    known_clauses, clause_registry_state = _known_clause_ids(
+        context.canonical_snapshot
+    )
 
     seen: set[str] = set()
     normalized: list[dict[str, Any]] = []
     unresolved_root_refs: list[dict[str, str]] = []
+    unresolved_clause_refs: list[dict[str, str]] = []
+    date_contract_issues: list[dict[str, str]] = []
+    role_traceability_issues: list[dict[str, str]] = []
+    documentary_quality_issues: list[dict[str, str]] = []
 
     for raw in events:
         if not isinstance(raw, Mapping):
@@ -434,8 +561,19 @@ def m27_dated_events(context: ModuleContext) -> ModuleResult:
         if event_id in seen:
             raise ValueError(f"event_id duplicado: {event_id}")
 
+        subjects = raw.get("subjects")
+        if (
+            not isinstance(subjects, list)
+            or not subjects
+            or any(not isinstance(x, str) or not x for x in subjects)
+        ):
+            raise ValueError(f"{event_id}: subjects debe contener IDs válidos.")
+        if len(set(subjects)) != len(subjects):
+            raise ValueError(f"{event_id}: subjects contiene duplicados.")
+
         supersedes = raw.get("supersedes_event_id")
-        if supersedes is not None:
+        is_correction = supersedes is not None
+        if is_correction:
             if not isinstance(supersedes, str) or supersedes not in seen:
                 raise ValueError(
                     f"{event_id}: supersedes_event_id debe referir un evento previo."
@@ -445,64 +583,287 @@ def m27_dated_events(context: ModuleContext) -> ModuleResult:
                     f"{event_id}: una corrección requiere correction_reason."
                 )
 
-        if raw.get("event_type") not in EVENT_TYPES:
+        event_type = raw.get("event_type")
+        if event_type not in EVENT_TYPES:
             raise ValueError(f"{event_id}: event_type inválido.")
-        if raw.get("date_precision") not in DATE_PRECISIONS:
+
+        precision = raw.get("date_precision")
+        if precision not in DATE_PRECISIONS:
             raise ValueError(f"{event_id}: date_precision inválida.")
-        if raw.get("documentary_quality") not in DOCUMENTARY_QUALITIES:
+
+        date_contract_met, date_issue = _date_precision_contract(
+            event_id,
+            precision,
+            raw.get("date"),
+            raw.get("date_range"),
+        )
+        if not date_contract_met and date_issue:
+            date_contract_issues.append(
+                {"event_id": event_id, "issue": date_issue}
+            )
+
+        quality = raw.get("documentary_quality")
+        if quality not in DOCUMENTARY_QUALITIES:
             raise ValueError(f"{event_id}: documentary_quality inválida.")
-        if raw.get("privacy_class") not in PRIVACY_CLASSES:
+
+        privacy_class = raw.get("privacy_class")
+        if privacy_class not in PRIVACY_CLASSES:
             raise ValueError(f"{event_id}: privacy_class inválida.")
 
         roles = raw.get("evidence_roles")
-        if not isinstance(roles, list) or any(role not in EVIDENCE_ROLES for role in roles):
+        if (
+            not isinstance(roles, list)
+            or any(role not in EVIDENCE_ROLES for role in roles)
+        ):
             raise ValueError(f"{event_id}: evidence_roles inválidos.")
+        if len(set(roles)) != len(roles):
+            raise ValueError(f"{event_id}: evidence_roles contiene duplicados.")
 
         fact_statement = raw.get("fact_statement")
         if not isinstance(fact_statement, str) or not fact_statement.strip():
             raise ValueError(f"{event_id}: fact_statement es obligatorio.")
 
+        source_refs = raw.get("source_refs")
+        if (
+            not isinstance(source_refs, list)
+            or any(not isinstance(ref, str) or not ref for ref in source_refs)
+        ):
+            raise ValueError(f"{event_id}: source_refs debe ser una lista de IDs.")
+        if len(set(source_refs)) != len(source_refs):
+            raise ValueError(f"{event_id}: source_refs contiene duplicados.")
+
+        minimum_sources = 0
+        if quality == "DQ1_PRIMARY_DOCUMENT":
+            minimum_sources = 1
+        elif quality == "DQ3_CORROBORATED_REPORT":
+            minimum_sources = 2
+
+        source_count_requirement_met = len(source_refs) >= minimum_sources
+        if not source_count_requirement_met:
+            documentary_quality_issues.append(
+                {
+                    "event_id": event_id,
+                    "issue": (
+                        f"{quality} requiere al menos {minimum_sources} "
+                        "source_refs para sostener la etiqueta declarada."
+                    ),
+                }
+            )
+
+        independence_state = "NOT_APPLICABLE"
+        if quality == "DQ3_CORROBORATED_REPORT":
+            independence_state = (
+                "DECLARED"
+                if raw.get("source_independence_declared") is True
+                else "NOT_VERIFIED"
+            )
+
+        if is_correction and not source_refs:
+            documentary_quality_issues.append(
+                {
+                    "event_id": event_id,
+                    "issue": "Una corrección append-only debe aportar source_refs.",
+                }
+            )
+
+        interpretations = raw.get("interpretations", [])
+        if not isinstance(interpretations, list) or any(
+            not isinstance(item, Mapping) for item in interpretations
+        ):
+            raise ValueError(
+                f"{event_id}: interpretations debe ser una lista de objetos."
+            )
+
         linked_roots = [
             str(root_id) for root_id in raw.get("linked_root_refs", [])
         ]
-        for root_id in linked_roots:
-            if root_id not in known_roots:
-                unresolved_root_refs.append(
-                    {"event_id": event_id, "root_id": root_id}
+        linked_clauses = [
+            str(clause_id) for clause_id in raw.get("linked_clause_refs", [])
+        ]
+        if len(set(linked_roots)) != len(linked_roots):
+            raise ValueError(f"{event_id}: linked_root_refs contiene duplicados.")
+        if len(set(linked_clauses)) != len(linked_clauses):
+            raise ValueError(f"{event_id}: linked_clause_refs contiene duplicados.")
+
+        resolved_roots = [
+            root_id for root_id in linked_roots if root_id in known_roots
+        ]
+        unresolved_roots = [
+            root_id for root_id in linked_roots if root_id not in known_roots
+        ]
+        for root_id in unresolved_roots:
+            unresolved_root_refs.append(
+                {"event_id": event_id, "root_id": root_id}
+            )
+
+        resolved_clauses = [
+            clause_id for clause_id in linked_clauses if clause_id in known_clauses
+        ]
+        unresolved_clauses = [
+            clause_id for clause_id in linked_clauses if clause_id not in known_clauses
+        ]
+        for clause_id in unresolved_clauses:
+            unresolved_clause_refs.append(
+                {"event_id": event_id, "clause_id": clause_id}
+            )
+
+        role_traceability: dict[str, Any] = {}
+        for role in roles:
+            complete, state = _role_target_state(
+                role,
+                resolved_roots=resolved_roots,
+                unresolved_roots=unresolved_roots,
+                resolved_clauses=resolved_clauses,
+                unresolved_clauses=unresolved_clauses,
+                counterevidence_effect=raw.get("counterevidence_effect"),
+                clause_registry_state=clause_registry_state,
+            )
+            role_traceability[role] = {
+                "target_traceability_complete": complete,
+                "state": state,
+            }
+            if not complete:
+                role_traceability_issues.append(
+                    {
+                        "event_id": event_id,
+                        "role": role,
+                        "issue": state,
+                    }
                 )
 
         item = dict(raw)
+        item["subjects"] = list(subjects)
+        item["source_refs"] = list(source_refs)
+        item["evidence_roles"] = list(roles)
         item["linked_root_refs"] = linked_roots
-        item["public_exportable"] = raw.get("privacy_class") in {
+        item["linked_clause_refs"] = linked_clauses
+        item["resolved_root_refs"] = resolved_roots
+        item["unresolved_root_refs"] = unresolved_roots
+        item["resolved_clause_refs"] = resolved_clauses
+        item["unresolved_clause_refs"] = unresolved_clauses
+        item["date_precision_contract_met"] = date_contract_met
+        item["documentary_quality_contract_met"] = (
+            source_count_requirement_met
+            and (not is_correction or bool(source_refs))
+        )
+        item["source_independence_state"] = independence_state
+        item["role_traceability"] = role_traceability
+        item["fact_interpretation_separated"] = True
+        item["interpretation_count"] = len(interpretations)
+        item["is_correction"] = is_correction
+        item["public_exportable"] = privacy_class in {
             "PUBLIC_VERIFIABLE",
             "SYNTHETIC",
         }
         item["creates_structural_root"] = False
+        item["creates_clause"] = False
+        item["elevates_origin"] = False
+        item["astrology_backfill_allowed"] = False
         normalized.append(item)
         seen.add(event_id)
+
+    superseded_by: dict[str, str] = {}
+    for event in normalized:
+        supersedes = event.get("supersedes_event_id")
+        if isinstance(supersedes, str):
+            superseded_by[supersedes] = event["event_id"]
+
+    for event in normalized:
+        event["record_status"] = (
+            "SUPERSEDED"
+            if event["event_id"] in superseded_by
+            else "ACTIVE"
+        )
+        event["superseded_by_event_id"] = superseded_by.get(event["event_id"])
 
     role_counts: dict[str, int] = defaultdict(int)
     for event in normalized:
         for role in event["evidence_roles"]:
             role_counts[str(role)] += 1
 
+    temporal = context.canonical_snapshot.get("temporal_activation")
+    unresolved_temporal_event_refs: list[dict[str, str]] = []
+    temporal_event_links: list[dict[str, str]] = []
+    event_ids = {event["event_id"] for event in normalized}
+
+    if isinstance(temporal, Mapping):
+        temporal_signals = temporal.get("signals")
+        if isinstance(temporal_signals, list):
+            for signal in temporal_signals:
+                if not isinstance(signal, Mapping):
+                    continue
+                signal_id = str(signal.get("signal_id") or "")
+                for event_ref in signal.get("event_refs", []):
+                    event_ref = str(event_ref)
+                    if event_ref in event_ids:
+                        temporal_event_links.append(
+                            {
+                                "signal_id": signal_id,
+                                "event_id": event_ref,
+                            }
+                        )
+                    else:
+                        unresolved_temporal_event_refs.append(
+                            {
+                                "signal_id": signal_id,
+                                "event_id": event_ref,
+                            }
+                        )
+
+    public_event_ids = [
+        event["event_id"] for event in normalized if event["public_exportable"]
+    ]
+    restricted_event_ids = [
+        event["event_id"] for event in normalized if not event["public_exportable"]
+    ]
+
     output = {
         "schema_version": "1.0.0",
         "analysis_freeze_ref": freeze_ref,
+        "analysis_freeze_reference_declared": True,
+        "analysis_freeze_reference_verified": False,
+        "root_reference_registry_state": root_registry_state,
+        "clause_reference_registry_state": clause_registry_state,
         "events": normalized,
         "event_count": len(normalized),
+        "active_event_count": sum(
+            1 for event in normalized if event["record_status"] == "ACTIVE"
+        ),
+        "superseded_event_count": sum(
+            1 for event in normalized if event["record_status"] == "SUPERSEDED"
+        ),
         "role_counts": dict(sorted(role_counts.items())),
         "unresolved_root_refs": unresolved_root_refs,
+        "unresolved_clause_refs": unresolved_clause_refs,
+        "date_contract_issues": date_contract_issues,
+        "role_traceability_issues": role_traceability_issues,
+        "documentary_quality_issues": documentary_quality_issues,
+        "temporal_event_links": temporal_event_links,
+        "unresolved_temporal_event_refs": unresolved_temporal_event_refs,
+        "public_event_ids": public_event_ids,
+        "restricted_event_ids": restricted_event_ids,
         "structural_mutation_allowed": False,
+        "clause_creation_allowed": False,
+        "origin_elevation_allowed": False,
+        "astrology_backfill_allowed": False,
+        "public_export_policy_enforced": True,
         "append_only_validated": True,
     }
+
+    limitations = [
+        "Los hechos pueden corroborar, refutar o describir viabilidad/reciprocidad; no crean retrospectivamente raíces, cláusulas u origen.",
+        "analysis_freeze_ref queda declarado pero no verificado criptográfica o canónicamente porque todavía no existe un registro de freeze ejecutable.",
+    ]
+    if clause_registry_state == "NOT_AVAILABLE":
+        limitations.append(
+            "No existe un registro canónico de cláusulas disponible en esta ejecución; sus referencias no pueden resolverse."
+        )
 
     return ModuleResult(
         module_id="M27",
         status=ExecutionStatus.COMPLETED,
         payload=output,
         canonical_updates={"documentary_events": output},
-        limitations=(
-            "Los eventos pueden corroborar activación, cumplimiento, viabilidad o reciprocidad; no crean retrospectivamente raíces o cláusulas.",
-        ),
+        limitations=tuple(limitations),
     )
+
