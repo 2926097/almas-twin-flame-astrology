@@ -53,6 +53,7 @@ REQUIRED_FILES = [
     "schemas/viability-reciprocity-assessment.schema.json",
     "schemas/viability-reciprocity-output.schema.json",
     "schemas/report-gate-output.schema.json",
+    "schemas/report-document-model.schema.json",
     "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
@@ -119,6 +120,7 @@ REQUIRED_FILES = [
     "reference/documentary-events.md",
     "reference/viability-reciprocity.md",
     "reference/report-gate.md",
+    "reference/report-document-model.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -163,6 +165,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/doctrine_handlers.py",
     "src/almas_tfa/reality_handlers.py",
     "src/almas_tfa/report_gate_handlers.py",
+    "src/almas_tfa/report_model_handlers.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -181,6 +184,7 @@ REQUIRED_FILES = [
     "tests/DOCTRINAL_CLAIM_V2_INVARIANTS.md",
     "tests/VIABILITY_RECIPROCITY_INVARIANTS.md",
     "tests/REPORT_GATE_INVARIANTS.md",
+    "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -352,6 +356,7 @@ def main() -> int:
     viability_input_schema = load_json("schemas/viability-reciprocity-assessment.schema.json")
     viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
     report_gate_schema = load_json("schemas/report-gate-output.schema.json")
+    report_document_model_schema = load_json("schemas/report-document-model.schema.json")
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
@@ -618,8 +623,37 @@ def main() -> int:
         fail("M30 must expose degradation reasons")
     if "canonical_fingerprint" not in report_gate_schema.get("required", []):
         fail("M30 must fingerprint the canonical analysis")
-    if final_props.get("report_document_model", {}).get("properties", {}).get("rendered_document_created", {}).get("const") is not False:
-        fail("M31 must remain a document-model stage, not hidden rendering")
+    report_model_ref = final_props.get("report_document_model", {}).get("$ref")
+    if report_model_ref != "report-document-model.schema.json":
+        fail("final pipeline must reference canonical M31 report document model schema")
+
+    report_model_props = report_document_model_schema.get("properties", {})
+    if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
+        fail("M31 must reference canonical_analysis as its sole analytical source")
+    if report_model_props.get("canonical_fingerprint_verified", {}).get("const") is not True:
+        fail("M31 must verify the M30 canonical fingerprint")
+    for field in (
+        "canonical_values_embedded",
+        "canonical_values_mutated",
+        "prose_generated",
+        "render_profile_selected",
+        "rendered_document_created",
+        "docx_created",
+        "pdf_created",
+        "pdf_preflight_performed",
+    ):
+        if report_model_props.get(field, {}).get("const") is not False:
+            fail(f"M31 field {field} must remain false")
+    if report_model_props.get("publication_pipeline_required", {}).get("const") is not True:
+        fail("M31 must require a separate publication pipeline")
+    section_schema = report_model_props.get("sections", {})
+    if section_schema.get("minItems") != 11 or section_schema.get("maxItems") != 11:
+        fail("M31 must expose exactly eleven report sections")
+    section_props = section_schema.get("items", {}).get("properties", {})
+    if section_props.get("canonical_values_embedded", {}).get("const") is not False:
+        fail("M31 sections must reference paths without embedding canonical values")
+    if section_props.get("narrative_generated", {}).get("const") is not False:
+        fail("M31 sections must not generate narrative")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
