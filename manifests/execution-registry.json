@@ -121,7 +121,8 @@
     },
     {
       "id": "M22",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/ablation_handlers.py:m22_ablation"
     },
     {
       "id": "M23",
