@@ -17,6 +17,7 @@ REQUIRED_FILES = [
     "docs/PUBLICATION_POLICY.md",
     "docs/history/DUAL_ENGINE_ARCHITECTURE.md",
     "docs/MODULE_ARCHITECTURE.md",
+    "docs/MODULE_EXECUTION_CONTRACT.md",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -27,6 +28,7 @@ REQUIRED_FILES = [
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/module-execution.schema.json",
     "schemas/precomputed-pillars.schema.json",
     "schemas/precomputed-result.schema.json",
     "schemas/astrology-to-soul-contract.schema.json",
@@ -54,6 +56,7 @@ REQUIRED_FILES = [
     "schemas/clause-assembly.schema.json",
     "schemas/fulfillment-mechanisms.schema.json",
     "manifests/analysis-pipeline-manifest.json",
+    "manifests/execution-registry.json",
     "manifests/almas-module-manifest.json",
     "manifests/causal-type-registry.json",
     "manifests/cross-model-discriminator-registry.json",
@@ -106,6 +109,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/cli.py",
+    "src/almas_tfa/module_contract.py",
+    "src/almas_tfa/orchestrator.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
     "tests/DOCTRINAL_GENEALOGY_INVARIANTS.md",
@@ -138,6 +143,7 @@ REQUIRED_FILES = [
     "tests/ROLES_PREENCARNATORIOS_INVARIANTS.md",
     "tests/test_core.py",
     "tests/test_analysis.py",
+    "tests/test_orchestrator.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -246,6 +252,7 @@ def main() -> int:
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
+    module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
     bridge_schema = load_json("schemas/astrology-to-soul-contract.schema.json")
@@ -277,6 +284,7 @@ def main() -> int:
     fulfillment_example = load_json("examples/fulfillment-mechanisms.synthetic.json")
     pipeline_manifest = load_json("manifests/preincarnation-pipeline-manifest.json")
     analysis_pipeline_manifest = load_json("manifests/analysis-pipeline-manifest.json")
+    execution_registry = load_json("manifests/execution-registry.json")
     discriminator_registry = load_json("manifests/differential-discriminator-registry.json")
     source_registry = load_json("reference/source-registry.json")
     source_audit = load_json("reference/source-normalization-audit.json")
@@ -381,6 +389,29 @@ def main() -> int:
     expected_ids = [f"M{i:02d}" for i in range(32)]
     if ids != expected_ids:
         fail("analysis pipeline manifest must contain ordered M00..M31 exactly once")
+
+    execution_ids = [m.get("id") for m in execution_registry.get("modules", [])]
+    if execution_registry.get("registry_version") != "1.0.0":
+        fail("execution registry must expose registry_version 1.0.0")
+    if execution_registry.get("almas_public_version") != version:
+        fail("execution registry version diverges from VERSION")
+    if execution_ids != expected_ids:
+        fail("execution registry must contain ordered M00..M31 exactly once")
+    allowed_execution_status = {"ORCHESTRATOR_NATIVE", "LIBRARY_AVAILABLE", "SPECIFIED"}
+    for module in execution_registry.get("modules", []):
+        if module.get("status") not in allowed_execution_status:
+            fail(f"unknown execution registry status: {module.get('id')} -> {module.get('status')}")
+        if module.get("status") in {"ORCHESTRATOR_NATIVE", "LIBRARY_AVAILABLE"} and not module.get("implementation"):
+            fail(f"implemented execution entry lacks implementation reference: {module.get('id')}")
+
+    module_status_enum = set(
+        module_execution_schema.get("properties", {}).get("status", {}).get("enum", [])
+    )
+    expected_module_status = {
+        "COMPLETED", "SKIPPED", "NOT_APPLICABLE", "NOT_EVALUABLE", "FAILED"
+    }
+    if module_status_enum != expected_module_status:
+        fail("module execution schema status enum diverges from runtime contract")
 
     discriminators = discriminator_registry.get("discriminators", [])
     if not discriminators:
