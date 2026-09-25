@@ -81,7 +81,8 @@
     },
     {
       "id": "M14",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/secondary_handlers.py:m14_secondary_symbolic"
     },
     {
       "id": "M15",
