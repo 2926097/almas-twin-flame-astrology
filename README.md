@@ -112,7 +112,8 @@ El paquete incluye un orquestador determinista y módulos ejecutables para:
 - grafo de evidencia, deduplicación y raíces independientes;
 - contraevidencia, ablación AB0–AB8, sensibilidad horaria, modelos nulos y robustez;
 - activación temporal y ledger documental;
-- firewalls doctrinales, viabilidad/reciprocidad y gate de reporting.
+- firewalls doctrinales, viabilidad/reciprocidad y gate de reporting;
+- modelo documental M31 con fingerprint canónico y 11 secciones trazables.
 
 `M02` (natal) y `M08` (Davison) disponen de contrato ejecutable pero requieren backends astronómicos inyectados. `configured_handlers(...)` permite suministrarlos sin acoplar ALMAS a una biblioteca concreta.
 
@@ -145,7 +146,7 @@ Las fuentes definen procedencia, significado y límites. No añaden puntuación 
 ![Public contract](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/public-contract.yml/badge.svg)
 ![Python core](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/python-tests.yml/badge.svg)
 
-La suite Python contiene 75 tests y cubre núcleo numérico, módulos M00–M31 y una ejecución FULL sintética. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
+La suite Python contiene 133 tests y cubre núcleo numérico, módulos M00–M31 y una ejecución FULL sintética. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
 
 La infraestructura de validación externa está preregistrada, pero **no se declara validación empírica externa de las ontologías** hasta ejecutar cohortes holdout reales conforme a `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
 
