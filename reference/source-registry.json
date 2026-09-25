@@ -183,10 +183,13 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Spiritism",
       "concepts": [
-        "PREINCARNATIONAL_CHOICE"
+        "PREINCARNATIONAL_CHOICE",
+        "PREINCARNATIONAL_TRIAL",
+        "FREE_WILL_PREINCARNATIONAL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Primary doctrinal locator verified in KardecPedia; reproduce only within the rights of the specific edition/translation.",
+      "verification_note": "Questions 258-259 explicitly distinguish choice of the type of trial from contingent life details."
     },
     {
       "id": "zohar_lech_lecha_32_346_350",
@@ -257,11 +260,13 @@
       "tradition": "Academic study of New Age religion",
       "concepts": [
         "SOUL_CONTRACT",
-        "LIFE_BETWEEN_LIVES",
-        "SOUL_PLAN"
+        "SOUL_PLAN",
+        "PREINCARNATIONAL_CHOICE",
+        "NEW_AGE_THEODICY"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Journal metadata and abstract verify the 2014 article, pages 411-424, and its definition of soul-contract theodicy as pre-birth plans for growth."
     },
     {
       "id": "stokke_spiritual_love_relations_2021",
@@ -407,10 +412,12 @@
       ],
       "tradition": "Anthroposophy",
       "concepts": [
-        "KARMIC_RELATIONSHIP"
+        "KARMIC_RELATIONSHIP",
+        "REINCARNATIONAL_CONTINUITY"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Rudolf Steiner Archive verifies GA 235-240 as 1924 karmic-relationship lecture cycles."
     },
     {
       "id": "wambach_life_before_life_1979",
@@ -432,7 +439,9 @@
       "tradition": "Regression / pre-birth research literature",
       "concepts": [
         "LIFE_BETWEEN_LIVES",
-        "PREINCARNATIONAL_CHOICE"
+        "PREINCARNATIONAL_CHOICE",
+        "FAMILY_SELECTION",
+        "INCARNATION_TIMING"
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
@@ -457,7 +466,8 @@
       "tradition": "Regression / interlife literature",
       "concepts": [
         "LIFE_BETWEEN_LIVES",
-        "SOUL_PLAN"
+        "SOUL_PLAN",
+        "KARMIC_PLANNING"
       ],
       "verification_status": "VERIFIED_METADATA",
       "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
@@ -482,10 +492,12 @@
       "concepts": [
         "LIFE_BETWEEN_LIVES",
         "SOUL_GROUP",
-        "SOUL_PLAN"
+        "SOUL_PLAN",
+        "BODY_SELECTION"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Michael Newton Institute confirms 1994 publication and identifies life selection, choosing a new body, soul groups and rebirth as core contents."
     },
     {
       "id": "myss_sacred_contracts_2001",
@@ -508,10 +520,13 @@
       "tradition": "Contemporary New Age / archetypal spirituality",
       "concepts": [
         "SACRED_CONTRACT",
-        "PREINCARNATIONAL_CHOICE"
+        "PREINCARNATIONAL_CHOICE",
+        "ARCHETYPAL_PURPOSE",
+        "RELATIONAL_PURPOSE"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Google Books metadata describes a sacred contract agreed before birth and an archetypal method for interpreting purpose and significant encounters."
     },
     {
       "id": "schwartz_your_souls_plan_2009",
@@ -533,10 +548,13 @@
       "tradition": "Contemporary pre-birth planning literature",
       "concepts": [
         "SOUL_PLAN",
-        "PREINCARNATIONAL_CHOICE"
+        "PREINCARNATIONAL_CHOICE",
+        "PLANNED_CHALLENGES",
+        "PLANNED_RELATIONSHIPS"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license."
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Publisher metadata confirms the book's explicit pre-birth planning framework."
     },
     {
       "id": "hanegraaff_new_age_religion_1996",
@@ -853,10 +871,13 @@
         "ALMAS astrological rules for assigning roles"
       ],
       "concepts": [
-        "MISSION_PREINCARNATIONAL"
+        "MISSION_PREINCARNATIONAL",
+        "PREINCARNATIONAL_CHOICE",
+        "SERVICE_MISSION"
       ],
-      "verification_status": "PENDING",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation."
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Questions 572-573 explicitly state that a spirit may request a mission and describe missions of incarnate spirits."
     },
     {
       "id": "summit_lighthouse_what_is_twin_flame",
