@@ -938,10 +938,15 @@ class TestReportingFirewall(unittest.TestCase):
 
     def test_m31_builds_reference_model_only(self):
         canonical = self.canonical()
-        gate = {
-            "reportable": True,
-            "state": "READY",
-        }
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
         result = m31_report(
             ctx(
                 "M31",
@@ -953,9 +958,165 @@ class TestReportingFirewall(unittest.TestCase):
         )
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
         model = result.canonical_updates["report_document_model"]
+
+        self.assertEqual(model["report_state"], "READY")
         self.assertEqual(len(model["sections"]), 11)
+        self.assertEqual(
+            sum(model["section_counts"].values()),
+            11,
+        )
+        self.assertTrue(model["canonical_fingerprint_verified"])
+        self.assertEqual(
+            model["canonical_fingerprint"],
+            gate["canonical_fingerprint"],
+        )
+        self.assertFalse(model["canonical_values_embedded"])
         self.assertFalse(model["canonical_values_mutated"])
+        self.assertFalse(model["prose_generated"])
         self.assertFalse(model["rendered_document_created"])
+        self.assertFalse(model["docx_created"])
+        self.assertFalse(model["pdf_created"])
+        self.assertFalse(model["pdf_preflight_performed"])
+
+    def test_m31_partial_inherits_degradation_reasons(self):
+        canonical = self.canonical(mode="TARGETED")
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+        self.assertEqual(gate["state"], "PARTIAL")
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        model = result.canonical_updates["report_document_model"]
+
+        self.assertEqual(model["report_state"], "PARTIAL")
+        self.assertTrue(model["partial_disclosure_required"])
+        self.assertEqual(
+            model["degradation_reasons"],
+            gate["degradation_reasons"],
+        )
+
+    def test_m31_section_availability_is_explicit(self):
+        canonical = self.canonical(mode="TARGETED")
+        del canonical["doctrine"]
+        del canonical["temporal"]
+
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        model = result.canonical_updates["report_document_model"]
+        by_id = {
+            section["section_id"]: section
+            for section in model["sections"]
+        }
+
+        self.assertEqual(
+            by_id["S07_TEMPORAL"]["section_state"],
+            "NOT_AVAILABLE",
+        )
+        self.assertEqual(
+            by_id["S09_DOCTRINE"]["section_state"],
+            "NOT_AVAILABLE",
+        )
+        self.assertIn(
+            "temporal",
+            by_id["S07_TEMPORAL"]["missing_required_paths"],
+        )
+        self.assertIn(
+            "doctrine",
+            by_id["S09_DOCTRINE"]["missing_required_paths"],
+        )
+
+    def test_m31_rejects_canonical_changed_after_m30(self):
+        canonical = self.canonical()
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        changed = self.canonical()
+        changed["limitations"] = ["Changed after gate."]
+
+        with self.assertRaises(ValueError):
+            m31_report(
+                ctx(
+                    "M31",
+                    canonical={
+                        "canonical_analysis": changed,
+                        "report_gate": gate,
+                    },
+                )
+            )
+
+    def test_m31_requires_m30_fingerprint(self):
+        canonical = self.canonical()
+        gate = {
+            "reportable": True,
+            "state": "READY",
+            "canonical_fingerprint": None,
+            "degradation_reasons": [],
+        }
+        with self.assertRaises(ValueError):
+            m31_report(
+                ctx(
+                    "M31",
+                    canonical={
+                        "canonical_analysis": canonical,
+                        "report_gate": gate,
+                    },
+                )
+            )
+
+    def test_m31_blocked_gate_is_not_evaluable(self):
+        canonical = self.canonical()
+        gate = {
+            "reportable": False,
+            "state": "BLOCKED",
+            "canonical_fingerprint": None,
+            "degradation_reasons": [],
+        }
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        self.assertEqual(result.status, ExecutionStatus.NOT_EVALUABLE)
+        self.assertNotIn("report_document_model", result.canonical_updates)
 
 
 
