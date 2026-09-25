@@ -158,7 +158,7 @@
     {
       "id": "M29",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/final_handlers.py:m29_viability_reciprocity"
+      "implementation": "src/almas_tfa/reality_handlers.py:m29_viability_reciprocity"
     },
     {
       "id": "M30",
