@@ -510,6 +510,86 @@
         "DOCTRINAL_ENDORSEMENT"
       ],
       "almas_use": "Sirve para genealogía histórica y circulación conceptual, no para atribuir doctrina al medio receptor."
+    },
+    {
+      "id": "ESOTERIC_ASTROLOGY",
+      "label_es": "astrología esotérica",
+      "definition": "Marco astrológico que interpreta signos, planetas, rayos y ciclos en relación con desarrollo espiritual, alma y propósito.",
+      "primary_sources": [
+        "bailey_esoteric_astrology_1951"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "RELATIONSHIP_ASTROLOGY",
+        "SOUL_CONTRACT_ASTROLOGY",
+        "TWIN_FLAME_ASTROLOGY"
+      ],
+      "almas_use": "Aporta marco de alma/desarrollo; las técnicas relacionales ALMAS requieren fuentes y reglas propias."
+    },
+    {
+      "id": "SOUL_ONTOLOGY_BAILEY",
+      "label_es": "ontología del alma en Bailey",
+      "definition": "Distinción y relación entre espíritu/Mónada, alma y personalidad dentro del corpus Bailey.",
+      "primary_sources": [
+        "bailey_esoteric_psychology_soul",
+        "bailey_esoteric_astrology_1951"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SOUL_ROOT",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Marco comparativo para niveles del ser; no se traduce automáticamente en parejas o contratos."
+    },
+    {
+      "id": "SOUL_PERSONALITY_RELATION",
+      "label_es": "relación alma-personalidad",
+      "definition": "Modelo esotérico en el que la personalidad y el alma representan niveles o focos distintos del desarrollo humano.",
+      "primary_sources": [
+        "bailey_esoteric_psychology_soul",
+        "bailey_esoteric_astrology_1951"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "DIVINE_MASCULINE_FEMININE",
+        "RELATIONAL_POLARITY"
+      ],
+      "almas_use": "Puede informar lecturas individuales evolutivas; no es una polaridad de pareja."
+    },
+    {
+      "id": "EVOLUTIONARY_STAGE_ASTROLOGY",
+      "label_es": "astrología según etapa evolutiva",
+      "definition": "Idea de que la interpretación astrológica cambia según el grado de desarrollo o foco de conciencia del individuo.",
+      "primary_sources": [
+        "bailey_esoteric_astrology_1951"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "not_equivalent_to": [
+        "RELATIONSHIP_PHASE",
+        "TWIN_FLAME_PHASE"
+      ],
+      "almas_use": "Puede modular hermenéutica individual, pero no debe utilizarse para jerarquizar personas sin criterios explícitos."
+    },
+    {
+      "id": "DRACONIC_METHOD_MODERN",
+      "label_es": "método dracónico moderno",
+      "definition": "Uso moderno de cartas dracónicas como técnica interpretativa nodal documentada en bibliografía astrológica contemporánea.",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "crane_draconic_astrology_1987"
+      ],
+      "not_equivalent_to": [
+        "ANCIENT_DRACONIC_TRADITION",
+        "PAST_LIFE_PROOF",
+        "SOUL_CONTRACT_PROOF"
+      ],
+      "almas_use": "ALMAS la usa como transformación nodal dependiente y capa corroborativa, nunca como evidencia independiente automática."
     }
   ]
 }
