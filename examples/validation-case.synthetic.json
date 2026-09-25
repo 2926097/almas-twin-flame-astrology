@@ -1,0 +1,31 @@
+{
+  "case_id": "SYNTHETIC_VALIDATION_001",
+  "case_kind": "SYNTHETIC",
+  "cohort": "C6_SYNTHETIC_CONTROL",
+  "validation_status": "INTERNAL_REPLICATION",
+  "selection_status": "SYNTHETIC_FIXTURE",
+  "contamination": false,
+  "contamination_notes": [],
+  "data_provenance": [
+    {
+      "source_type": "synthetic_fixture",
+      "public": true,
+      "independently_verifiable": true,
+      "locator": "examples/validation-case.synthetic.json"
+    }
+  ],
+  "label_blinding": "NOT_APPLICABLE",
+  "emic_labels": [],
+  "allowed_inputs": [
+    "synthetic_birth_data",
+    "synthetic_relationship_metadata"
+  ],
+  "forbidden_inputs": [
+    "private_case_values",
+    "post_hoc_labels"
+  ],
+  "documentary_outcomes": [],
+  "notes": [
+    "Fixture validates schema and pipeline only; it is not evidence for metaphysical accuracy."
+  ]
+}
