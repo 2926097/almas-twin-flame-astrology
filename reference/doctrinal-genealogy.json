@@ -1,5 +1,5 @@
 {
-  "genealogy_version": "1.0.0",
+  "genealogy_version": "1.1.0",
   "almas_version": "1.9.0",
   "edges": [
     {
@@ -372,6 +372,146 @@
       "relation": "HISTORICAL_CONTEXT",
       "status": "COMPATIBLE",
       "note": "New Age scholarship contextualizes modern esoteric synthesis but does not validate a specific doctrine."
+    },
+    {
+      "from": "PLANNED_CHALLENGES",
+      "to": "PREINCARNATIONAL_TRIAL",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Modern planned-challenge literature resembles chosen-trial models but belongs to a different genealogy and evidence base."
+    },
+    {
+      "from": "PLANNED_RELATIONSHIPS",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "A planned relationship can be part of a soul plan, but bilateral contractual clauses are a more specific hypothesis."
+    },
+    {
+      "from": "FAMILY_SELECTION",
+      "to": "SOUL_CONTRACT",
+      "relation": "CONTEXT_NOT_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "Reported family selection can provide pre-birth context without proving a dyadic contract with a specific person."
+    },
+    {
+      "from": "BODY_SELECTION",
+      "to": "PREINCARNATIONAL_CHOICE",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Body-selection reports are one modern form of pre-birth choice, not a universal doctrine of preincarnational planning."
+    },
+    {
+      "from": "INCARNATION_TIMING",
+      "to": "PREINCARNATIONAL_CHOICE",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Reported timing choices belong to modern interlife literature and should not be retrofitted into traditions that do not teach them."
+    },
+    {
+      "from": "KARMIC_PLANNING",
+      "to": "KARMIC_RELATIONSHIP",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "Karmic planning can contextualize a relationship interpreted through karma but does not by itself identify a specific karmic pair."
+    },
+    {
+      "from": "KARMIC_PLANNING",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_OR_BROADER_HISTORY",
+      "status": "INSUFFICIENT",
+      "note": "Karmic planning can explain purposeful relational recurrence without requiring a bilateral soul contract."
+    },
+    {
+      "from": "RETURN_FOR_OTHERS",
+      "to": "SERVICE_MISSION",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Returning for others and a service mission can overlap functionally, but arise from distinct Lurianic and Spiritist frameworks."
+    },
+    {
+      "from": "RETURN_FOR_OTHERS",
+      "to": "SOUL_CONTRACT",
+      "relation": "INSUFFICIENT_FOR_BILATERAL_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "Returning for the sake of others does not establish negotiated dyadic contractual content."
+    },
+    {
+      "from": "TEACHER_STUDENT_ROOT",
+      "to": "SOUL_ROOT",
+      "relation": "DOCTRINAL_SPECIALIZATION",
+      "status": "SUPPORTED",
+      "note": "Teacher–student continuity is one relational expression of soul-root structures in the Lurianic corpus."
+    },
+    {
+      "from": "TEACHER_STUDENT_ROOT",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "A persistent teacher–student soul-root relation demonstrates that soul-root continuity is not inherently romantic or dyadic."
+    },
+    {
+      "from": "PAIRED_SOULS",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Paired-soul imagery in the Zohar does not entail the later white-fire-ovoid twin-flame doctrine."
+    },
+    {
+      "from": "SEPARATION_REUNION",
+      "to": "TWIN_FLAME_PHASE",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "A separation/reunion motif in older sources is not automatically the modern runner/chaser or mandatory twin-flame phase model."
+    },
+    {
+      "from": "MONAD_SOUL_PERSONALITY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Monad–soul–personality hierarchy is intrapersonal/cosmological and does not define a romantic counterpart pair."
+    },
+    {
+      "from": "REINCARNATIONAL_CONTINUITY",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_OR_BROADER_HISTORY",
+      "status": "INSUFFICIENT",
+      "note": "Continuity across lives can explain recurring significance without proving prior bilateral planning."
+    },
+    {
+      "from": "RELATIONAL_PURPOSE",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "A relationship may carry purpose without implying negotiated pre-birth clauses between two souls."
+    },
+    {
+      "from": "ARCHETYPAL_PURPOSE",
+      "to": "SOUL_CONTRACT",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "Archetypal purpose can contextualize a life contract model but does not itself establish a dyadic relational contract."
+    },
+    {
+      "from": "LURIANIC_KABBALAH",
+      "to": "NEW_AGE_RELIGION",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Lurianic Kabbalah and New Age religion are historically and doctrinally distinct, even where later movements borrow kabbalistic vocabulary."
+    },
+    {
+      "from": "WESTERN_ESOTERICISM_CONTEXT",
+      "to": "NEW_AGE_RELIGION",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "SUPPORTED",
+      "note": "Academic Western-esotericism scholarship contextualizes New Age formations without identifying the two categories."
+    },
+    {
+      "from": "SOUL_IDENTITY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "DIFFERENT_ANALYTICAL_AXIS",
+      "status": "SUPPORTED",
+      "note": "Questions of soul identity through reincarnation are analytically distinct from claims about a unique dyadic origin."
     }
   ]
 }
