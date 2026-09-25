@@ -6,7 +6,7 @@
       {
         "id": "TA_AUTONOMY",
         "state": "SUPPORTED",
-        "summary": "Integrate autonomy with stable attachment."
+        "summary": "Integrar autonomía con apego estable."
       }
     ],
     "selection_causes": [
@@ -29,7 +29,7 @@
       {
         "id": "TB_RECIPROCITY",
         "state": "SUPPORTED",
-        "summary": "Differentiate familiarity from reciprocity."
+        "summary": "Diferenciar familiaridad de reciprocidad."
       }
     ],
     "selection_causes": [
@@ -49,16 +49,16 @@
   },
   "common_field": {
     "state": "COMPATIBLE",
-    "summary": "Translate intensity and recognition into explicit reciprocal form."
+    "summary": "Traducir intensidad y reconocimiento a una forma recíproca explícita."
   },
   "clauses": [
     {
       "id": "CL_SYNTHETIC_01",
       "state": "COMPATIBLE",
       "granularity": "FUNCTION",
-      "activation_clause": "Activate the tension between closeness and autonomy.",
-      "contract_test": "Can closeness exist without control and autonomy without disappearance?",
-      "expected_integration": "Closeness and autonomy become coexistent capacities.",
+      "activation_clause": "Activar la tensión entre cercanía y autonomía.",
+      "contract_test": "¿Puede existir cercanía sin control y autonomía sin desaparición?",
+      "expected_integration": "Cercanía y autonomía se convierten en capacidades coexistentes.",
       "fulfillment_condition": "Documented behavior shows stable boundaries without repeated rupture.",
       "closure_forms": [
         "EMBODIED_TOGETHER",
@@ -92,12 +92,12 @@
         ]
       },
       "counterevidence": [],
-      "reason_not_higher": "No validated discriminator establishes a literal bilateral pre-birth agreement."
+      "reason_not_higher": "Ningún discriminador validado establece un acuerdo bilateral prenatal literal."
     }
   ],
   "literal_content_state": "NOT_EVALUABLE",
   "global_counterevidence": [],
   "limitations": [
-    "Synthetic fixture; contains no real persons."
+    "Datos sintéticos; no contienen personas reales."
   ]
 }
