@@ -104,3 +104,11 @@ Estos adaptadores viven en `src/almas_tfa/handlers.py`. Las etapas restantes con
 Esta frontera permite probar y sustituir el motor astronómico sin acoplar el núcleo ALMAS a una dependencia concreta. Una carta sin hora conserva posiciones que el backend pueda calcular, pero el handler registra explícitamente que casas y ángulos no deben tratarse como fiables.
 
 El registro de ejecución marca M02 como `BACKEND_REQUIRED`: la interfaz y el handler existen, pero todavía no se ha incorporado un backend astronómico de producción.
+
+## M03 y M04 · geometría relacional y contexto natal
+
+`M03` calcula sinastría geométrica únicamente cuando la entrada proporciona una `aspect_policy` con ángulo y orbe de cada aspecto. No existen orbes implícitos en el motor. La salida conserva distancia angular, orbe, límite y exactitud, pero no transforma por sí sola un contacto en evidencia ontológica.
+
+`M04` deriva signos, identifica nodos por `point_type=NODE`, conserva ángulos, sitúa puntos en casas utilizando exclusivamente las doce cúspides suministradas por el backend y calcula regencias sólo cuando se declara una `rulership_policy`. De este modo no se impone por defecto una escuela tradicional, moderna o híbrida de regencias.
+
+Los contratos de salida están en `schemas/synastry-output.schema.json` y `schemas/natal-context-output.schema.json`.
