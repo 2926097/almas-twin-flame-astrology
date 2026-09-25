@@ -518,7 +518,7 @@ Referencia: `reference/causa-contractual.md`.
 
 ## 37. Integración doctrinal basada en fuentes
 
-ALMAS v1.4.0 inicia una capa formal de genealogía doctrinal.
+ALMAS mantiene una capa formal de genealogía doctrinal separada de la puntuación astrológica.
 
 Archivos normativos:
 
@@ -526,8 +526,12 @@ Archivos normativos:
 - `reference/source-registry.json`;
 - `reference/concept-registry.json`;
 - `reference/doctrinal-genealogy.json`;
-- `docs/SOURCE_INTEGRATION_PLAN.md`;
-- `docs/SOURCE_GAPS.md`.
+- `reference/source-normalization-audit.json`;
+- `docs/SOURCE_POLICY.md`;
+- `docs/SOURCE_ANCHOR_POLICY.md`;
+- `docs/SOURCE_RESEARCH_BACKLOG.md`.
+
+El plan histórico de integración inicial se conserva en `docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md`.
 
 Reglas:
 
