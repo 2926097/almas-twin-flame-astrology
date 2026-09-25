@@ -307,6 +307,7 @@ def _direct_doctrine_gate(
         and source.get("source_role") == "DOCTRINAL_PRIMARY"
         and source.get("verification_status") == "VERIFIED_PRIMARY"
         and source.get("verification_anchor_present") is True
+        and bool(source.get("anchor_refs"))
         and source.get("evidence_scope") == "DOCTRINAL_CLAIM"
     ]
     if not candidates:
@@ -599,6 +600,24 @@ def m28_doctrine_hermeneutics(context: ModuleContext) -> ModuleResult:
             {"claim_id": claim_id, **item}
             for item in claim_unresolved_anchors
         )
+
+        if (
+            status == "SUPPORTED"
+            and source_relation in {
+                "DIRECT_DOCTRINE",
+                "ACADEMIC_DESCRIPTION",
+                "CONTEMPORARY_USAGE",
+            }
+            and (
+                claim_unresolved_sources
+                or claim_unresolved_anchors
+                or support_issues
+            )
+        ):
+            raise ValueError(
+                f"{claim_id}: una atribución SUPPORTED no puede contener "
+                "fuentes, anclas o soportes sin resolver."
+            )
 
         if source_ids and registry_mode == "ABSENT":
             raise ValueError(
