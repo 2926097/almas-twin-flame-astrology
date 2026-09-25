@@ -1,0 +1,127 @@
+# Gate doctrinal ALMAS
+
+## 1. Finalidad
+
+El Gate doctrinal controla la transición entre **fuente** e **interpretación**.
+
+Su objetivo es impedir dos errores:
+
+1. atribuir a una tradición una afirmación que esa tradición no contiene;
+2. convertir una semejanza histórica o simbólica en confirmación astrológica.
+
+## 2. Tipos de relación con la fuente
+
+Toda afirmación doctrinal o hermenéutica debe usar uno de estos estados:
+
+- `DIRECT_DOCTRINE`: la afirmación aparece explícitamente en una fuente primaria identificada.
+- `ACADEMIC_DESCRIPTION`: la afirmación describe un fenómeno, tradición o genealogía mediante una fuente académica.
+- `HISTORICAL_ANTECEDENT`: existe un motivo anterior formalmente comparable, sin identidad doctrinal demostrada.
+- `COMPARATIVE_ANALOGUE`: dos conceptos pueden compararse, pero pertenecen a doctrinas distintas.
+- `CONTEMPORARY_USAGE`: vocabulario o experiencia emic documentada.
+- `PROJECT_OPERATIONALIZATION`: ALMAS transforma un concepto doctrinal en una regla astrológica propia.
+- `PROJECT_SYNTHESIS`: síntesis general creada por ALMAS a partir de múltiples capas.
+
+## 3. Gate por clase epistemológica
+
+### C_DOCTRINE
+
+Para usar `C_DOCTRINE`:
+
+- debe existir al menos una fuente P1 relevante;
+- la afirmación debe encontrarse dentro de `supports`;
+- no puede contradecir `does_not_support`;
+- se registra obra y pasaje cuando sea posible.
+
+### D_CONTEMPORARY_USAGE
+
+Puede apoyarse en:
+
+- estudios académicos de comunidades o experiencias;
+- fuentes emic;
+- autores contemporáneos identificados.
+
+No se transforma en ontología.
+
+### E_PROJECT_HYPOTHESIS
+
+Puede utilizar doctrina, datos y técnica, pero:
+
+- debe declararse explícitamente como construcción ALMAS;
+- debe indicar qué parte procede de cada fuente;
+- debe registrar alternativas;
+- no puede citar una fuente como si ésta enseñara la operacionalización astrológica.
+
+## 4. Gate astrológico
+
+Las fuentes doctrinales no añaden puntos.
+
+La astrología debe satisfacer sus propios requisitos:
+
+`DATO → TÉCNICA → RAÍZ → RECURRENCIA → ROBUSTEZ → ESTADO`
+
+Sólo después se interpreta la raíz usando el corpus doctrinal.
+
+## 5. Gate ontológico
+
+Una categoría de origen o contrato necesita dos componentes independientes:
+
+### Base doctrinal
+Debe existir una definición reproducible del modelo.
+
+### Base astrológica
+Debe existir una firma operacionalizada y evaluable.
+
+Si existe doctrina pero no discriminador astrológico:
+
+`DOCTRINA_DEFINIDA + FIRMA_NO_DISCRIMINANTE → INSUFFICIENT`.
+
+Si existe una firma astrológica pero no base doctrinal clara:
+
+`FIRMA_ESTRUCTURAL + MODELO_DOCTRINAL_AMBIGUO → E_PROJECT_HYPOTHESIS`.
+
+## 6. Ejemplos
+
+### Twin flame
+Summit Lighthouse puede aportar `DIRECT_DOCTRINE` para su propio modelo de origen.
+
+Corelli 1886 aporta `HISTORICAL_ANTECEDENT` o genealogía terminológica, no la misma doctrina.
+
+### Zivug
+Sha'ar HaGilgulim puede aportar `DIRECT_DOCTRINE` dentro de la Cábala luriana.
+
+Compararlo con soulmate/twin flame es `COMPARATIVE_ANALOGUE`.
+
+### Dracónica
+Crane aporta un método identificado.
+
+Usar natal↔dracónica para detectar continuidad preencarnatoria es `PROJECT_OPERATIONALIZATION`.
+
+### Soul contract
+Kwilecki aporta `ACADEMIC_DESCRIPTION` del uso New Age.
+
+La gramática contractual ALMAS es `PROJECT_SYNTHESIS`.
+
+## 7. Objeto canónico
+
+Cada afirmación importante debe poder representarse como:
+
+```text
+claim_id
+statement
+epistemic_class
+concept_id
+source_relation
+source_ids
+astrological_refs
+status
+alternatives
+limitations
+```
+
+## 8. Regla de no acumulación
+
+Diez fuentes que repitan una doctrina no equivalen a diez evidencias astrológicas.
+
+`N_FUENTES ≠ FUERZA_ASTROLOGICA`
+
+La redundancia documental puede aumentar confianza en la **atribución doctrinal**, no en la presencia del fenómeno en un caso.
