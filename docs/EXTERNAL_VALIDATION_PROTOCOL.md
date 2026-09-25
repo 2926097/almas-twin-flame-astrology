@@ -85,7 +85,7 @@ Objetivo: medir sobreclasificación y especificidad.
 ### C5 · Casos emic soulmate/twin-flame
 Sólo si datos y narrativa ya son públicos y verificables.
 
-La autoetiqueta se registra como `D_CONTEMPORARY_USAGE`; nunca es ground truth ontológico.
+La autoetiqueta se registra como `D_CONTEMPORARY_USAGE`; nunca constituye verdad de referencia ontológica.
 
 ### C6 · Controles sintéticos
 Pares artificiales, barajados o generados bajo modelos nulos.
@@ -96,7 +96,7 @@ Objetivo: probar el pipeline, falsos positivos y sensibilidad.
 
 Siempre que sea posible, ejecutar dos pasos:
 
-### Paso A · Blind structural run
+### Paso A · Ejecución estructural ciega
 El motor recibe datos natales/eventuales permitidos, pero no la narrativa relacional ni la autoetiqueta.
 
 Produce y congela:
@@ -109,7 +109,7 @@ Produce y congela:
 - robustez;
 - incertidumbre.
 
-### Paso B · Documentary opening
+### Paso B · Apertura documental
 Sólo después se incorporan hechos públicos preregistrados para evaluar:
 
 - concordancia funcional;
@@ -202,9 +202,9 @@ Una regla puede pasar de `EXPERIMENTAL` a `CONFIRMATORY_ELIGIBLE` sólo si:
 
 `CONFIRMATORY_ELIGIBLE` no significa ontología demostrada.
 
-## 11. Ground truth
+## 11. Verdad de referencia documental
 
-ALMAS no utilizará como ground truth:
+ALMAS no utilizará como verdad de referencia:
 
 - “esta pareja afirma ser twin flame”;
 - “un astrólogo dice que son almas gemelas”;
@@ -215,7 +215,7 @@ ALMAS no utilizará como ground truth:
 - sincronías;
 - éxito o ruptura.
 
-Los ground truths permitidos son sólo variables observables/documentales, por ejemplo:
+Las verdades de referencia permitidas son sólo variables observables/documentales, por ejemplo:
 
 - fechas;
 - duración;
