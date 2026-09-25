@@ -33,6 +33,7 @@ from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .counterevidence_handlers import m20_counterevidence
+from .ablation_handlers import ABLATION_RUNS, m22_ablation
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -72,6 +73,8 @@ __all__ = [
     "m16_dependency_deduplication",
     "m17_independent_roots",
     "m20_counterevidence",
+    "ABLATION_RUNS",
+    "m22_ablation",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",
