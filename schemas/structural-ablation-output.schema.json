@@ -1,25 +1,41 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://example.invalid/almas/structural-ablation-output.schema.json",
-  "title":"ALMAS Structural Ablation Output",
-  "type":"object",
-  "required":[
-    "runs","root_survival","structural_only","dependency_classes_assigned"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/structural-ablation-output.schema.json",
+  "title": "ALMAS · Salida de ablación estructural",
+  "type": "object",
+  "required": [
+    "runs",
+    "root_survival",
+    "structural_only",
+    "dependency_classes_assigned"
   ],
-  "properties":{
-    "runs":{
-      "type":"array",
-      "items":{
-        "type":"object",
-        "required":[
-          "run","surviving_evidence_ids","lost_evidence_ids",
-          "surviving_root_ids","lost_root_ids","survival_fraction"
+  "properties": {
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "run",
+          "surviving_evidence_ids",
+          "lost_evidence_ids",
+          "surviving_root_ids",
+          "lost_root_ids",
+          "survival_fraction"
         ]
       }
     },
-    "root_survival":{"type":"array","items":{"type":"object"}},
-    "structural_only":{"const":true},
-    "dependency_classes_assigned":{"const":false}
+    "root_survival": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "structural_only": {
+      "const": true
+    },
+    "dependency_classes_assigned": {
+      "const": false
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
