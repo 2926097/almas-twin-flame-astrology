@@ -72,7 +72,32 @@ class TestDeterministicHandlers(unittest.TestCase):
                 "AG": {"root_affinity": 1, "root_mirror": 1},
                 "LG": {"root_affinity": 1, "root_transform": 1},
             },
-            "robustness_components": [1.0, 0.81, 0.64],
+            "robustness_component_summaries": [
+                {
+                    "id": "LEGACY_A",
+                    "kind": "PARAMETER_PERTURBATION",
+                    "value": 1.0,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "ROB-TEST-A",
+                    "derivation_ref": "FIXTURE",
+                },
+                {
+                    "id": "LEGACY_B",
+                    "kind": "IDD_STABILITY",
+                    "value": 0.81,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "ROB-TEST-B",
+                    "derivation_ref": "FIXTURE",
+                },
+                {
+                    "id": "LEGACY_C",
+                    "kind": "VALIDATED_DISCRIMINATOR",
+                    "value": 0.64,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "ROB-TEST-C",
+                    "derivation_ref": "FIXTURE",
+                },
+            ],
         }
 
         run = Orchestrator(default_handlers()).run(payload, full_manifest())
