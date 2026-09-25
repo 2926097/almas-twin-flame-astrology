@@ -20,6 +20,7 @@ REQUIRED_FILES = [
     "docs/SOURCE_GAPS.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
     "docs/DOCTRINE_TO_ASTROLOGY.md",
+    "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
     "pyproject.toml",
@@ -118,6 +119,7 @@ REQUIRED_FILES = [
     "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
+    "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
@@ -486,7 +488,29 @@ def main() -> int:
         for source_id in mapping.get("source_basis", []):
             if source_id not in source_ids:
                 fail(f"doctrine-to-astrology mapping references unknown source: {source_id}")
+            source_entry = next(
+                (entry for entry in source_registry.get("entries", []) if entry.get("id") == source_id),
+                None,
+            )
+            if not source_entry.get("verification_anchor") or not source_entry.get("verification_anchor_type"):
+                fail(f"mapped source lacks verification anchor: {source_id}")
+            if not source_entry.get("evidence_scope"):
+                fail(f"mapped source lacks evidence_scope: {source_id}")
 
+
+    draconic_mapping = next(
+        (m for m in doctrine_map.get("mappings", []) if m.get("concept_id") == "DRACONIC_ASTROLOGY"),
+        None,
+    )
+    if draconic_mapping is None:
+        fail("DRACONIC_ASTROLOGY mapping missing")
+    if "blaquier_draconic_astrology_2017_2021" not in draconic_mapping.get("source_basis", []):
+        fail("DRACONIC_ASTROLOGY must include Blaquier technical source for formula verification")
+    if "mean_or_true_node_choice_recorded" not in draconic_mapping.get("required_gates", []):
+        fail("DRACONIC_ASTROLOGY must record Mean/True Node choice")
+    # Blaquier technical source verifies calculation, not metaphysical ontology.
+    if draconic_mapping.get("inferential_ceiling") != "CORROBORATIVE_NODAL_REFRAMING":
+        fail("Blaquier technical source must not raise draconic inferential ceiling")
 
     mapping_ids = {m.get("concept_id") for m in doctrine_map.get("mappings", [])}
     coverage = doctrine_map.get("coverage", [])
