@@ -237,10 +237,18 @@ def _source_audit(
         for anchor_ref in source_anchor_refs
     }
 
+    declared_source_ids = set(source_ids)
     for anchor_ref, source_id in anchor_sources.items():
         if source_id is None:
             unresolved_anchors.append(
                 {"anchor_ref": anchor_ref, "issue": "ANCHOR_SOURCE_NOT_RESOLVED"}
+            )
+        elif source_id not in declared_source_ids:
+            unresolved_anchors.append(
+                {
+                    "anchor_ref": anchor_ref,
+                    "issue": "ANCHOR_SOURCE_NOT_DECLARED_IN_CLAIM",
+                }
             )
 
     for source_id in source_ids:
@@ -346,6 +354,7 @@ def _academic_description_gate(
         if source.get("priority") == "P2_ACADEMIC"
         and source.get("source_role") in ACADEMIC_ROLES
         and source.get("verification_anchor_present") is True
+        and bool(source.get("anchor_refs"))
         and source.get("evidence_scope") in {
             "ACADEMIC_DESCRIPTION",
             "HISTORICAL_CONTEXT",
@@ -384,6 +393,7 @@ def _contemporary_usage_gate(
 
 def _genealogy_audit(
     concept_id: Any,
+    identity_target_concept_id: Any,
     genealogy: Any,
 ) -> tuple[bool, list[dict[str, Any]], list[dict[str, Any]]]:
     if not isinstance(genealogy, Mapping):
@@ -394,20 +404,38 @@ def _genealogy_audit(
         raise ValueError("doctrinal_genealogy.edges debe ser una lista.")
 
     relevant: list[dict[str, Any]] = []
-    non_identity: list[dict[str, Any]] = []
+    pair_non_identity: list[dict[str, Any]] = []
     if not isinstance(concept_id, str) or not concept_id:
-        return True, relevant, non_identity
+        return True, relevant, pair_non_identity
+
+    target = (
+        identity_target_concept_id
+        if isinstance(identity_target_concept_id, str)
+        and identity_target_concept_id
+        else None
+    )
 
     for edge in edges:
         if not isinstance(edge, Mapping):
             raise ValueError("Cada edge doctrinal debe ser un objeto.")
-        if edge.get("from") == concept_id or edge.get("to") == concept_id:
+        edge_from = edge.get("from")
+        edge_to = edge.get("to")
+        if edge_from == concept_id or edge_to == concept_id:
             copied = dict(edge)
             relevant.append(copied)
-            if edge.get("relation") in NON_IDENTITY_GENEALOGY_RELATIONS:
-                non_identity.append(copied)
 
-    return True, relevant, non_identity
+            if target is not None:
+                same_pair = {
+                    str(edge_from),
+                    str(edge_to),
+                } == {concept_id, target}
+                if (
+                    same_pair
+                    and edge.get("relation") in NON_IDENTITY_GENEALOGY_RELATIONS
+                ):
+                    pair_non_identity.append(copied)
+
+    return True, relevant, pair_non_identity
 
 
 def m28_doctrine_hermeneutics(context: ModuleContext) -> ModuleResult:
@@ -548,6 +576,13 @@ def m28_doctrine_hermeneutics(context: ModuleContext) -> ModuleResult:
             registry,
             claim_id,
         )
+        if any(
+            str(item.get("source_id")) not in set(source_ids)
+            for item in support_refs
+        ):
+            raise ValueError(
+                f"{claim_id}: source_support_refs sólo puede referir fuentes declaradas en source_ids."
+            )
         support_ref_issues.extend(support_issues)
 
         source_audit, claim_unresolved_sources, claim_unresolved_anchors = _source_audit(
@@ -638,8 +673,28 @@ def m28_doctrine_hermeneutics(context: ModuleContext) -> ModuleResult:
             )
 
         concept_id = raw.get("concept_id")
+        identity_target_concept_id = raw.get("identity_target_concept_id")
+        asserts_identity = raw.get("asserts_doctrinal_identity") is True
+        if asserts_identity:
+            if not isinstance(concept_id, str) or not concept_id:
+                raise ValueError(
+                    f"{claim_id}: una identidad doctrinal exige concept_id."
+                )
+            if (
+                not isinstance(identity_target_concept_id, str)
+                or not identity_target_concept_id
+            ):
+                raise ValueError(
+                    f"{claim_id}: una identidad doctrinal exige identity_target_concept_id."
+                )
+            if identity_target_concept_id == concept_id:
+                raise ValueError(
+                    f"{claim_id}: identity_target_concept_id debe ser distinto de concept_id."
+                )
+
         genealogy_checked, genealogy_edges, non_identity_edges = _genealogy_audit(
             concept_id,
+            identity_target_concept_id,
             genealogy,
         )
 
@@ -650,7 +705,6 @@ def m28_doctrine_hermeneutics(context: ModuleContext) -> ModuleResult:
                 if source.get("tradition") not in {None, ""}
             }
         )
-        asserts_identity = raw.get("asserts_doctrinal_identity") is True
         relation_forbids_identity = source_relation in NON_IDENTITY_RELATIONS
 
         if asserts_identity and relation_forbids_identity:
@@ -689,13 +743,15 @@ def m28_doctrine_hermeneutics(context: ModuleContext) -> ModuleResult:
         item["contemporary_usage_gate"] = contemporary_gate
         item["genealogy_checked"] = genealogy_checked
         item["genealogy_edges"] = genealogy_edges
+        item["identity_target_concept_id"] = identity_target_concept_id
         item["non_identity_genealogy_edges"] = non_identity_edges
         item["comparative_only"] = source_relation in {
             "HISTORICAL_ANTECEDENT",
             "COMPARATIVE_ANALOGUE",
         }
         item["doctrinal_identity_allowed"] = (
-            source_relation == "DIRECT_DOCTRINE"
+            asserts_identity
+            and source_relation == "DIRECT_DOCTRINE"
             and len(traditions) <= 1
             and not non_identity_edges
         )
