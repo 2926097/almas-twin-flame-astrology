@@ -153,7 +153,7 @@
     {
       "id": "M28",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/final_handlers.py:m28_doctrine_hermeneutics"
+      "implementation": "src/almas_tfa/doctrine_handlers.py:m28_doctrine_hermeneutics"
     },
     {
       "id": "M29",
