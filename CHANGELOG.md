@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.10.0 — 2026-09-25
+
+### Cláusulas contractuales C4–C8
+- Eleva `clause-assembly.schema.json` a 1.1.0.
+- Eleva `preincarnation-reconstruction.schema.json` a 1.9.0.
+- Toda cláusula separa contenido reconstruido, mecanismo de activación, prueba contractual, integración y cumplimiento.
+- Añade `resolution_level`, `claim_refs`, `allowed_conclusion` e `inferential_ceiling` a las cláusulas.
+- El techo por defecto de una cláusula astrológicamente reconstruida es R2_RELATIONAL_PREINCARNATIONAL_FUNCTION.
+- R3 exige discriminador independiente validado; R4 no puede alcanzar SUPPORTED desde astrología.
+- Actualiza fixtures sintéticos, registro de cláusulas, documentación e invariantes.
+- La mejora procede de una necesidad detectada en un caso privado, pero se publica sólo como regla general y test sintético.
+
 ## 1.9.4 — 2026-09-25
 
 ### Claim contract v2
