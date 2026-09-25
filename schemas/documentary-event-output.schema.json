@@ -4,17 +4,154 @@
   "title":"ALMAS Validated Documentary Events Output",
   "type":"object",
   "required":[
-    "schema_version","analysis_freeze_ref","events","event_count","role_counts",
-    "unresolved_root_refs","structural_mutation_allowed","append_only_validated"
+    "schema_version",
+    "analysis_freeze_ref",
+    "analysis_freeze_reference_declared",
+    "analysis_freeze_reference_verified",
+    "root_reference_registry_state",
+    "clause_reference_registry_state",
+    "events",
+    "event_count",
+    "active_event_count",
+    "superseded_event_count",
+    "role_counts",
+    "unresolved_root_refs",
+    "unresolved_clause_refs",
+    "date_contract_issues",
+    "role_traceability_issues",
+    "documentary_quality_issues",
+    "temporal_event_links",
+    "unresolved_temporal_event_refs",
+    "public_event_ids",
+    "restricted_event_ids",
+    "structural_mutation_allowed",
+    "clause_creation_allowed",
+    "origin_elevation_allowed",
+    "astrology_backfill_allowed",
+    "public_export_policy_enforced",
+    "append_only_validated"
   ],
   "properties":{
     "schema_version":{"const":"1.0.0"},
     "analysis_freeze_ref":{"type":"string","minLength":1},
-    "events":{"type":"array","items":{"type":"object"}},
+    "analysis_freeze_reference_declared":{"const":true},
+    "analysis_freeze_reference_verified":{"const":false},
+    "root_reference_registry_state":{"enum":["AVAILABLE","NOT_AVAILABLE"]},
+    "clause_reference_registry_state":{"enum":["AVAILABLE","NOT_AVAILABLE"]},
+    "events":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "required":[
+          "event_id",
+          "subjects",
+          "event_type",
+          "date_precision",
+          "fact_statement",
+          "documentary_quality",
+          "source_refs",
+          "privacy_class",
+          "evidence_roles",
+          "linked_root_refs",
+          "linked_clause_refs",
+          "resolved_root_refs",
+          "unresolved_root_refs",
+          "resolved_clause_refs",
+          "unresolved_clause_refs",
+          "date_precision_contract_met",
+          "documentary_quality_contract_met",
+          "source_independence_state",
+          "role_traceability",
+          "fact_interpretation_separated",
+          "interpretation_count",
+          "is_correction",
+          "public_exportable",
+          "creates_structural_root",
+          "creates_clause",
+          "elevates_origin",
+          "astrology_backfill_allowed",
+          "record_status",
+          "superseded_by_event_id"
+        ],
+        "properties":{
+          "event_id":{"type":"string","minLength":1},
+          "subjects":{
+            "type":"array",
+            "minItems":1,
+            "uniqueItems":true,
+            "items":{"type":"string","minLength":1}
+          },
+          "event_type":{"type":"string"},
+          "date_precision":{"type":"string"},
+          "fact_statement":{"type":"string","minLength":1},
+          "documentary_quality":{"type":"string"},
+          "source_refs":{
+            "type":"array",
+            "uniqueItems":true,
+            "items":{"type":"string","minLength":1}
+          },
+          "privacy_class":{"type":"string"},
+          "evidence_roles":{
+            "type":"array",
+            "uniqueItems":true,
+            "items":{"type":"string"}
+          },
+          "linked_root_refs":{
+            "type":"array",
+            "uniqueItems":true,
+            "items":{"type":"string"}
+          },
+          "linked_clause_refs":{
+            "type":"array",
+            "uniqueItems":true,
+            "items":{"type":"string"}
+          },
+          "resolved_root_refs":{"type":"array","items":{"type":"string"}},
+          "unresolved_root_refs":{"type":"array","items":{"type":"string"}},
+          "resolved_clause_refs":{"type":"array","items":{"type":"string"}},
+          "unresolved_clause_refs":{"type":"array","items":{"type":"string"}},
+          "date_precision_contract_met":{"type":"boolean"},
+          "documentary_quality_contract_met":{"type":"boolean"},
+          "source_independence_state":{
+            "enum":["NOT_APPLICABLE","DECLARED","NOT_VERIFIED"]
+          },
+          "role_traceability":{"type":"object"},
+          "fact_interpretation_separated":{"const":true},
+          "interpretation_count":{"type":"integer","minimum":0},
+          "is_correction":{"type":"boolean"},
+          "public_exportable":{"type":"boolean"},
+          "creates_structural_root":{"const":false},
+          "creates_clause":{"const":false},
+          "elevates_origin":{"const":false},
+          "astrology_backfill_allowed":{"const":false},
+          "record_status":{"enum":["ACTIVE","SUPERSEDED"]},
+          "superseded_by_event_id":{"type":["string","null"]}
+        },
+        "additionalProperties":true
+      }
+    },
     "event_count":{"type":"integer","minimum":0},
+    "active_event_count":{"type":"integer","minimum":0},
+    "superseded_event_count":{"type":"integer","minimum":0},
     "role_counts":{"type":"object"},
     "unresolved_root_refs":{"type":"array","items":{"type":"object"}},
+    "unresolved_clause_refs":{"type":"array","items":{"type":"object"}},
+    "date_contract_issues":{"type":"array","items":{"type":"object"}},
+    "role_traceability_issues":{"type":"array","items":{"type":"object"}},
+    "documentary_quality_issues":{"type":"array","items":{"type":"object"}},
+    "temporal_event_links":{"type":"array","items":{"type":"object"}},
+    "unresolved_temporal_event_refs":{"type":"array","items":{"type":"object"}},
+    "public_event_ids":{
+      "type":"array","uniqueItems":true,"items":{"type":"string"}
+    },
+    "restricted_event_ids":{
+      "type":"array","uniqueItems":true,"items":{"type":"string"}
+    },
     "structural_mutation_allowed":{"const":false},
+    "clause_creation_allowed":{"const":false},
+    "origin_elevation_allowed":{"const":false},
+    "astrology_backfill_allowed":{"const":false},
+    "public_export_policy_enforced":{"const":true},
     "append_only_validated":{"const":true}
   },
   "additionalProperties":false
