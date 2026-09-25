@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/source-registry.schema.json",
-  "title": "ALMAS Source Registry",
+  "title": "ALMAS · Registro de fuentes",
   "type": "object",
   "required": [
     "registry_version",
