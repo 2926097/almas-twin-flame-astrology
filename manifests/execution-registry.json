@@ -126,16 +126,18 @@
     },
     {
       "id": "M23",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/robustness_handlers.py:m23_time_sensitivity"
     },
     {
       "id": "M24",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/robustness_handlers.py:m24_null_models"
     },
     {
       "id": "M25",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/core.py:robustness_index"
+      "implementation": "src/almas_tfa/handlers.py:m25_robustness"
     },
     {
       "id": "M26",
