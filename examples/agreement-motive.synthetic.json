@@ -28,7 +28,7 @@
         "schwartz_your_souls_plan_2009"
       ],
       "counterevidence": [],
-      "reason_not_higher": "The functional motive is well supported, but the prebirth mechanism cannot be uniquely attributed."
+      "reason_not_higher": "El motivo funcional está bien sustentado, pero el mecanismo prenatal no puede atribuirse de forma única."
     },
     {
       "id": "M_TIKKUN_DEL_OTRO",
@@ -46,7 +46,7 @@
         "vital_shaar_hagilgulim_8_reasons_for_return"
       ],
       "counterevidence": [],
-      "reason_not_higher": "AM5_TIKKUN_SELF_VS_OTHER is not validated strongly enough for a unique ontological attribution."
+      "reason_not_higher": "AM5_TIKKUN_SELF_VS_OTHER no está suficientemente validado para una atribución ontológica única."
     },
     {
       "id": "M_CATALISIS_TRANSFORMACION",
@@ -61,7 +61,7 @@
       "r_min": 0.69,
       "doctrinal_sources": [],
       "counterevidence": [],
-      "reason_not_higher": "Catalysis explains activation intensity but not the full contract architecture."
+      "reason_not_higher": "La catálisis explica la intensidad de activación, pero no la arquitectura contractual completa."
     }
   ],
   "evidence_families": [
@@ -123,5 +123,5 @@
   "counterevidence": [],
   "robustness": 80,
   "why_primary": "The synthetic architecture contains prior individual tasks, bilateral activation and a recurrent repair/learning field.",
-  "why_not_more_specific": "No validated astrological discriminator establishes whether the prebirth mechanism was mutual agreement, individual choice, karmic necessity or another doctrinally possible mechanism."
+  "why_not_more_specific": "Ningún discriminador astrológico validado establece si el mecanismo prenatal fue acuerdo mutuo, elección individual, necesidad kármica u otro mecanismo doctrinalmente posible."
 }
