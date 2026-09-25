@@ -57,7 +57,8 @@
     },
     {
       "id": "M09",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relationship_consonance.py:m09_relationship_chart_consonance"
     },
     {
       "id": "M10",
