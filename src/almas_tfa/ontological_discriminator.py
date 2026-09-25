@@ -422,15 +422,25 @@ def discriminate_ontology(
         )
         confirmed_exclusions = set()
 
+    if not minimum_data_evaluable:
+        confirmed_exclusions = set()
+
     surviving_models = [
         model for model in candidates if model not in confirmed_exclusions
+    ]
+
+    active_conflicts = [
+        conflict
+        for conflict in global_conflicts
+        if not conflict.get("pair")
+        or all(model in surviving_models for model in conflict["pair"])
     ]
 
     identifiability_state, epistemic_state = _state_for_survivors(
         candidate_count=len(candidates),
         survivors=surviving_models,
         minimum_data_evaluable=minimum_data_evaluable,
-        conflicts=global_conflicts,
+        conflicts=active_conflicts,
     )
 
     if not minimum_data_evaluable:
@@ -471,14 +481,16 @@ def discriminate_ontology(
 
     if mode == "EXPLORATORY":
         exploratory_exclusions = set(confirmed_exclusions)
-        for assessment in pairwise_matrix.values():
-            if (
-                assessment["exploratory_status"] == "SEPARABLE_EXPERIMENTAL"
-                and assessment["exploratory_excluded_model"] is not None
-            ):
-                exploratory_exclusions.add(
-                    assessment["exploratory_excluded_model"]
-                )
+
+        if minimum_data_evaluable:
+            for assessment in pairwise_matrix.values():
+                if (
+                    assessment["exploratory_status"] == "SEPARABLE_EXPERIMENTAL"
+                    and assessment["exploratory_excluded_model"] is not None
+                ):
+                    exploratory_exclusions.add(
+                        assessment["exploratory_excluded_model"]
+                    )
 
         if exploratory_exclusions == set(candidates):
             exploratory_survivors = list(surviving_models)
