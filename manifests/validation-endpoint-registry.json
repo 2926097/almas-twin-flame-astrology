@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "almas_version": "1.10.0",
+  "almas_version": "1.10.1",
   "endpoints": [
     {
       "id": "EV1_REPRODUCIBILITY",

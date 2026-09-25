@@ -1,6 +1,6 @@
 {
   "pipeline_version": "1.0.0",
-  "preincarnation_schema_version": "1.8.0",
+  "preincarnation_schema_version": "1.9.0",
   "execution_mode": "FULL",
   "principle": "Astrology is used as a metaphysical inquiry method; each later stage consumes and preserves the traceability of earlier stages.",
   "stages": [
@@ -148,7 +148,7 @@
   "final_output": "canonical_soul_contract.json",
   "final_schema": "schemas/contrato-almico.schema.json",
   "narrative_gate": "Narrative synthesis may be generated only after all eight stages are represented, including INSUFFICIENT or NOT_EVALUABLE states where appropriate.",
-  "almas_version": "1.10.0",
+  "almas_version": "1.10.1",
   "contract_engine_revision": "1.9.0",
   "contract_causal_chain": {
     "version": "2.0.0",

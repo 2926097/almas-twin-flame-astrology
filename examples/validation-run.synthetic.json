@@ -1,7 +1,7 @@
 {
   "run_id": "SYNTHETIC_PHASE13_SMOKE_001",
   "case_id": "SYNTHETIC_VALIDATION_001",
-  "almas_version": "1.10.0",
+  "almas_version": "1.10.1",
   "commit_sha": "PREREGISTRATION_FIXTURE",
   "frozen_before_run": false,
   "analysis_phase": "FINAL_AUDIT",

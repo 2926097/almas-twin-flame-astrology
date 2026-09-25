@@ -1,5 +1,12 @@
 # Módulo ALMAS · Contrato Preencarnatorio · historial técnico
 
+> Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.
+
+## ALMAS 1.10.1 — 2026-09-25
+
+- Mantenimiento de repositorio y CI; sin cambios en fórmulas contractuales, cláusulas, gates o `engine_revision`.
+- El módulo continúa heredando la versión pública de la raíz.
+
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz.
 
 ## ALMAS 1.4.0 — 2026-09-24

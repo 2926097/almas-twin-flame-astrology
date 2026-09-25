@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Reproducible multidisciplinary relationship-astrology research skill for soul-bond differential analysis, twin-flame models, karmic and soulmate models, structural/temporal validation, doctrinal comparison, hermeneutics and canonical reports.
-version: 1.10.0
+version: 1.10.1
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.10.0
+# ALMAS · Astrología Metafísica Relacional v1.10.1
 
 ## 0. Public release status
 
-This is the public `1.10.0` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
+This is the public `1.10.1` release of the ALMAS metaphysical relationship-astrology engine. The GitHub distribution prioritizes generalized rules, reusable implementation contracts, public-source provenance and synthetic examples. Real cases may appear only when their underlying data are already public and independently verifiable, with provenance recorded.
 
 ### Metaphysical research stance
 
@@ -518,7 +518,7 @@ Referencia: `reference/causa-contractual.md`.
 
 ## 37. Integración doctrinal basada en fuentes
 
-ALMAS v1.4.0 inicia una capa formal de genealogía doctrinal.
+ALMAS mantiene una capa formal de genealogía doctrinal separada de la puntuación astrológica.
 
 Archivos normativos:
 
@@ -526,8 +526,12 @@ Archivos normativos:
 - `reference/source-registry.json`;
 - `reference/concept-registry.json`;
 - `reference/doctrinal-genealogy.json`;
-- `docs/SOURCE_INTEGRATION_PLAN.md`;
-- `docs/SOURCE_GAPS.md`.
+- `reference/source-normalization-audit.json`;
+- `docs/SOURCE_POLICY.md`;
+- `docs/SOURCE_ANCHOR_POLICY.md`;
+- `docs/SOURCE_RESEARCH_BACKLOG.md`.
+
+El plan histórico de integración inicial se conserva en `docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md`.
 
 Reglas:
 

@@ -1,39 +1,45 @@
-# Architecture · ALMAS v1.4.0
+# Arquitectura de ALMAS
 
-ALMAS is a **single public skill with internal specialized modules**.
+ALMAS es una **única skill pública con módulos internos especializados**.
 
-The normative module manifest is `manifests/almas-module-manifest.json`.
+## Manifiestos normativos
 
-## Layers
+- `manifests/almas-module-manifest.json`: declara los módulos arquitectónicos de la skill.
+- `manifests/analysis-pipeline-manifest.json`: declara la secuencia ejecutable M00–M31 para un análisis FULL.
+- `manifests/preincarnation-pipeline-manifest.json`: declara las ocho etapas de reconstrucción preencarnatoria.
 
-1. **Data and calculation** — birth/event data, ephemerides, chart positions and geometric relations.
-2. **Technique** — synastry, declinations, antiscia, composite, Davison, draconic, lots, timing and statistics.
-3. **Evidence graph** — dependency-aware contacts, independent roots and pillar loading.
-4. **Validation** — null models, Monte Carlo/Wilson intervals, ablation, parameter perturbation and birth-time robustness.
-5. **Ontology** — AF/KA/AG/LG compatibility plus multidimensional relational axes.
-6. **Doctrine and genealogy** — primary sources, academic analysis, historical reception, contemporary usage and explicit non-equivalence links.
-7. **Preincarnation reconstruction** — origin, agreement motive, roles, encounter conditions, individual tasks, common task, clauses and fulfillment mechanisms.
-8. **Temporal/lifecycle layer** — activation, development, integration, transformation and closure, always anchored to pre-existing structure.
-9. **Reporting** — canonical analysis → canonical soul contract → report document model → publication output.
+Estos manifiestos cumplen funciones distintas y no deben fusionarse ni duplicarse.
 
-## Independence rules
+## Capas
 
-- ASC/DSC, MC/IC, NN/SN and Vertex/Anti-Vertex are axis pairs and must not inflate root counts.
-- Composite and Davison belong to one relationship-chart family for independence accounting.
-- Draconic↔draconic is corroborative by default.
-- Secondary asteroids are corroborative/support-only.
-- Signs/houses contextualize a root but do not create one alone.
-- Temporal activation never adds direct structural IEM points.
-- Doctrine never adds structural points merely because a concept exists in a source.
+1. **Datos y cálculo** — datos natales/eventos, posiciones y geometría.
+2. **Técnica** — sinastría, declinaciones, antiscios, compuesta, Davison, dracónica, lotes y temporalidad.
+3. **Grafo de evidencia** — contactos, dependencias y raíces independientes.
+4. **Validación** — modelos nulos, ablación, sensibilidad, robustez y contraevidencia.
+5. **Ontología** — AF/KA/AG/LG y ejes relacionales independientes.
+6. **Doctrina y genealogía** — fuentes primarias, academia, historia, uso contemporáneo y no-equivalencias.
+7. **Reconstrucción preencarnatoria** — origen, motivo, roles, condiciones, tareas, cláusulas y cumplimiento.
+8. **Ciclo temporal/documental** — activación, recurrencia, integración, transformación y cierre.
+9. **Reporting** — canonical → modelo de documento → salida publicada.
 
-## Versioning
+## Reglas de independencia
 
-`VERSION` is the only public ALMAS SemVer.
+- ASC/DSC, MC/IC, NN/SN y Vertex/Anti-Vertex son pares de eje.
+- Compuesta y Davison pertenecen a una misma familia relacional para independencia.
+- Dracónica↔dracónica es corroborativa por defecto.
+- Asteroides secundarios son `support_only`.
+- Casas y signos contextualizan; no crean una raíz ontológica por sí solos.
+- Temporalidad no añade puntos estructurales directos.
+- Doctrina no añade puntuación por su mera existencia.
 
-Internal modules may expose `engine_revision`, `schema_version` or `manifest_version` for compatibility, but not an independent public skill version.
+## Versionado
 
-## Core flow
+`VERSION` es el único SemVer público.
 
-`sources + data → calculation → evidence → validation → ontology → preincarnation reconstruction → lifecycle → report`
+Los componentes internos pueden usar `schema_version`, `manifest_version` o `engine_revision` para compatibilidad técnica.
 
-See `SKILL.md`, `docs/MODULE_ARCHITECTURE.md` and `manifests/almas-module-manifest.json`.
+## Flujo
+
+`fuentes + datos → cálculo → evidencia → validación → ontología → reconstrucción preencarnatoria → ciclo temporal → informe`
+
+Véanse `SKILL.md`, `docs/MODULE_ARCHITECTURE.md` y los manifiestos de `manifests/`.
