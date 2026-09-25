@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "almas_version": "1.10.1",
+  "almas_version": "1.10.2",
   "endpoints": [
     {
       "id": "EV1_REPRODUCIBILITY",
@@ -10,37 +10,37 @@
     {
       "id": "EV2_FALSE_SPECIFICITY",
       "primary": true,
-      "description": "Strong ontology cannot be SUPPORTED without validated discriminators."
+      "description": "Una ontología fuerte no puede alcanzar SUPPORTED sin discriminadores validados."
     },
     {
       "id": "EV3_AMBIGUITY_PRESERVATION",
       "primary": true,
-      "description": "INSUFFICIENT is preserved when competing models remain observationally equivalent."
+      "description": "INSUFFICIENT se conserva cuando los modelos competidores siguen siendo observacionalmente equivalentes."
     },
     {
       "id": "EV4_CORE_SURVIVAL",
       "primary": true,
-      "description": "Conclusions are audited under AB0-AB8 and birth-time perturbation."
+      "description": "Las conclusiones se auditan mediante AB0–AB8 y perturbación de la hora natal."
     },
     {
       "id": "EV5_CONTRACT_SPECIFICITY",
       "primary": true,
-      "description": "Individual task, karma, catalysis, functional contract and literal bilateral agreement remain distinct."
+      "description": "Tarea individual, karma, catálisis, contrato funcional y acuerdo bilateral literal permanecen diferenciados."
     },
     {
       "id": "EV6_LABEL_INDEPENDENCE",
       "primary": true,
-      "description": "Structural classification is invariant to later disclosure of emic labels."
+      "description": "La clasificación estructural permanece invariante ante la revelación posterior de etiquetas émicas."
     },
     {
       "id": "EV7_DOCTRINAL_ATTRIBUTION",
       "primary": true,
-      "description": "C/D claims satisfy doctrinal gate and source constraints."
+      "description": "Las afirmaciones C/D satisfacen el gate doctrinal y las restricciones de fuentes."
     },
     {
       "id": "EV8_TEMPORAL_ANCHORING",
       "primary": true,
-      "description": "Temporal evidence does not create absent structural clauses."
+      "description": "La evidencia temporal no crea cláusulas estructurales ausentes."
     }
   ],
   "error_types": [
