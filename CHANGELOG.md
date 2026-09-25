@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.10.2 — 2026-09-25
+
+### Normalización lingüística y estructural
+- Establece el español como idioma obligatorio de toda prosa destinada a lectura humana.
+- Conserva en inglés únicamente identificadores técnicos, claves, rutas, nombres canónicos y términos cuya traducción rompería compatibilidad.
+- Traduce la especificación principal, CLI, métricas, procedencia, políticas, documentación de ejemplos, mensajes del núcleo Python y nombres visibles de CI.
+- Corrige la numeración discontinua y duplicada de capítulos en `SKILL.md`.
+- Sincroniza superficies de versión a ALMAS 1.10.2.
+- No modifica fórmulas, pesos, umbrales, ontología, discriminadores ni contratos de datos.
+
+
 ## 1.10.1 — 2026-09-25
 
 ### Depuración integral del repositorio
