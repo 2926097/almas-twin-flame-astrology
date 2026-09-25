@@ -148,6 +148,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/evidence_handlers.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
+    "src/almas_tfa/time_sensitivity_handlers.py",
     "src/almas_tfa/robustness_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
     "src/almas_tfa/final_handlers.py",
@@ -196,6 +197,7 @@ REQUIRED_FILES = [
     "tests/test_evidence_handlers.py",
     "tests/test_counterevidence_handlers.py",
     "tests/test_ablation_handlers.py",
+    "tests/test_time_sensitivity_handlers.py",
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
@@ -441,6 +443,13 @@ def main() -> int:
         fail("structural ablation must declare structural_only=true")
     if structural_ablation_schema.get("properties", {}).get("dependency_classes_assigned", {}).get("const") is not False:
         fail("structural ablation must not assign contractual dependency classes")
+
+    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
+        fail("time sensitivity must not generate perturbations internally")
+    if not {"preregistration_ref", "delta90", "preserved_fraction", "robustness_component"}.issubset(
+        set(time_sensitivity_schema.get("required", []))
+    ):
+        fail("time sensitivity schema lacks preregistered robustness fields")
 
     if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
         fail("M23 must not generate perturbations implicitly")
