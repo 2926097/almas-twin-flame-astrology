@@ -34,6 +34,7 @@ REQUIRED_FILES = [
     "schemas/doctrinal-claim.schema.json",
     "schemas/concept-registry.schema.json",
     "schemas/ontology-output.schema.json",
+    "schemas/inferential-ceiling.schema.json",
     "schemas/preincarnation-contract-chain.schema.json",
     "schemas/preincarnation-causality.schema.json",
     "schemas/contract-ablation.schema.json",
@@ -117,6 +118,7 @@ REQUIRED_FILES = [
     "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
     "tests/CROSS_MODEL_DISCRIMINATOR_INVARIANTS.md",
     "tests/DOCTRINE_TO_ASTROLOGY_INVARIANTS.md",
+    "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
     "tests/PREINCARNATION_RECONSTRUCTION_INVARIANTS.md",
     "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
@@ -134,6 +136,7 @@ REQUIRED_FILES = [
     "tests/test_analysis.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
+    "examples/inferential-ceiling.synthetic.json",
     "examples/preincarnation-reconstruction.synthetic.json",
     "examples/origin-differential.synthetic.json",
     "examples/agreement-motive.synthetic.json",
@@ -282,6 +285,7 @@ def main() -> int:
     contract_chain_example = load_json("examples/preincarnation-contract-chain.synthetic.json")
     contract_ablation_example = load_json("examples/contract-ablation.synthetic.json")
     doctrine_map = load_json("reference/doctrine-to-astrology-map.json")
+    inferential_ceiling_fixture = load_json("examples/inferential-ceiling.synthetic.json")
     causal_registry = load_json("manifests/causal-type-registry.json")
     cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
@@ -531,6 +535,29 @@ def main() -> int:
     }
     if not required_ceiling_bindings.issubset(binding_ids):
         fail("cross-model discriminator registry lacks required inferential-ceiling bindings")
+
+    ceiling_case_ids = {x.get("id") for x in inferential_ceiling_fixture.get("cases", [])}
+    required_ceiling_case_ids = {
+        "CEIL_TF_HIGH_SCORE_NO_DISCRIMINATOR",
+        "CEIL_CONTRACT_STRONG_CHAIN_NO_LITERAL_AGREEMENT",
+        "CEIL_DRACONIC_ONLY",
+        "CEIL_SOUL_ROOT_NETWORK_TO_UNIQUE_DYAD",
+        "CEIL_ZIVUG_TO_TWIN_FLAME",
+        "CEIL_MONAD_TO_ROMANTIC_PAIR",
+        "CEIL_PHENOMENOLOGY_TO_ONTOLOGY",
+    }
+    if not required_ceiling_case_ids.issubset(ceiling_case_ids):
+        fail("inferential ceiling fixture lacks mandatory negative cases")
+    for case in inferential_ceiling_fixture.get("cases", []):
+        concept_id = case.get("concept_id")
+        if concept_id not in concept_ids:
+            fail(f"inferential ceiling fixture references unknown concept: {concept_id}")
+        mapped = next((m for m in doctrine_map.get("mappings", []) if m.get("concept_id") == concept_id), None)
+        if mapped is None:
+            fail(f"inferential ceiling fixture concept lacks mapping: {concept_id}")
+        if case.get("expected_ceiling") != mapped.get("inferential_ceiling"):
+            fail(f"inferential ceiling fixture disagrees with mapping for {concept_id}")
+
 
     specificity_ids = {x.get("id") for x in causal_registry.get("specificity_levels", [])}
     if specificity_ids != {"C0_GENERIC","C1_TARGETED","C2_MULTIROOT","C3_PAIR_SPECIFIC_EMERGENT"}:
