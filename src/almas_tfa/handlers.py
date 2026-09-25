@@ -25,6 +25,7 @@ from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import m22_ablation
 from .robustness_handlers import m23_time_sensitivity, m24_null_models
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
+from .final_handlers import m28_doctrine_hermeneutics, m29_viability_reciprocity, m30_report_gate, m31_report
 
 
 MODELS = ("AF", "KA", "AG", "LG")
@@ -361,4 +362,8 @@ def default_handlers():
         "M25": m25_robustness,
         "M26": m26_temporal_activation,
         "M27": m27_dated_events,
+        "M28": m28_doctrine_hermeneutics,
+        "M29": m29_viability_reciprocity,
+        "M30": m30_report_gate,
+        "M31": m31_report,
     }
