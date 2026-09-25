@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.9.1 — 2026-09-25
+
+### Corpus doctrinal y CI
+- Cierra la cobertura concepto↔fuente: 37 fuentes, 92 conceptos y 73 relaciones doctrinales.
+- Elimina el último estado PARTIAL al verificar Brihadaranyaka Upanishad 1.4.3 con la edición pública de Max Müller.
+- Añade 20 conceptos que ya eran usados por el corpus pero aún no estaban formalmente definidos.
+- Alinea los schemas de clases conceptuales y relaciones genealógicas con los registros reales.
+- Añade no-equivalencias y solapamientos para relaciones planificadas, retorno por otros, teacher–student roots, separación/reunión y otros conceptos.
+- Añade auditoría canónica de normalización y comprobaciones CI de integridad fuente↔concepto↔genealogía.
+- Repara la divergencia del validador respecto de la versión pública y sincroniza los metadatos a 1.9.1.
+
 ## 1.8.4 — 2026-09-24
 
 ### Fase 12 · Hechos y biografía documental — completada
