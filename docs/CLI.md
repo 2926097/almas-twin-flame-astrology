@@ -1,36 +1,36 @@
-# Command-line scoring interface
+# Interfaz de puntuación por línea de comandos
 
-The public v1.0.0 CLI works on **precomputed ALMAS pillar values**. It deliberately does not calculate ephemerides, synastry or evidence roots.
+La CLI pública trabaja con **valores de pilares ALMAS ya calculados**. Deliberadamente no calcula efemérides, sinastría ni raíces de evidencia.
 
-## Install
+## Instalación
 
 ```bash
 python -m pip install -e .
 ```
 
-## Run
+## Ejecución
 
 ```bash
 almas-score examples/precomputed-pillars.json
 ```
 
-Write the result to a file:
+Para escribir el resultado en un archivo:
 
 ```bash
 almas-score examples/precomputed-pillars.json -o result.json
 ```
 
-Equivalent module invocation:
+Invocación equivalente como módulo:
 
 ```bash
 python -m almas_tfa.cli examples/precomputed-pillars.json
 ```
 
-## Input
+## Entrada
 
-The input contract is defined by `schemas/precomputed-pillars.schema.json`.
+El contrato de entrada se define en `schemas/precomputed-pillars.schema.json`.
 
-The principal object is `pillars`, using percentages from 0 to 100:
+El objeto principal es `pillars`, con porcentajes de 0 a 100:
 
 - `PA`: afinidad estructural;
 - `PK`: continuidad kármica;
@@ -41,24 +41,24 @@ The principal object is `pillars`, using percentages from 0 to 100:
 - `PS`: misión/servicio;
 - `PU`: singularidad diádica experimental.
 
-Optional fields include per-model ICE, ICC, IRC, R_min, essential-contradiction flags and root-attribution maps for IDD.
+Los campos opcionales incluyen ICE por modelo, ICC, IRC, R_min, indicadores de contradicción esencial y mapas de atribución de raíces para IDD.
 
-## Output
+## Salida
 
-The output contract is defined by `schemas/precomputed-result.schema.json`.
+El contrato de salida se define en `schemas/precomputed-result.schema.json`.
 
-For each of AF, KA, AG and LG the CLI returns:
+Para cada modelo AF, KA, AG y LG, la CLI devuelve:
 
-- normalized CORE;
+- CORE normalizado;
 - SUPPORT;
-- IEM before counterevidence;
+- IEM antes de contraevidencia;
 - ICE;
-- final IEM;
-- essential evaluability;
-- whether the frozen `SUPPORTED` gate is met when ICC/IRC/R_min are supplied.
+- IEM final;
+- evaluabilidad esencial;
+- si se cumple el gate congelado `SUPPORTED` cuando se suministran ICC/IRC/R_min.
 
-Pairwise IDD is produced only for model pairs with supplied attribution maps.
+El IDD por pares sólo se produce para parejas de modelos que dispongan de mapas de atribución.
 
-## Important scope boundary
+## Límite de alcance
 
-The CLI consumes **already calculated** pillars. It does not infer that those pillars are valid. A future verified astronomical/evidence pipeline must supply them under the dependency and provenance rules defined in `SKILL.md`.
+La CLI consume pilares **ya calculados**. No infiere que dichos pilares sean válidos. Un futuro pipeline astronómico/evidencial verificado deberá suministrarlos conforme a las reglas de dependencia y procedencia definidas en `SKILL.md`.
