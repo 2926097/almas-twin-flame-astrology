@@ -31,7 +31,7 @@
         "ZIVUG_TRUE_PAIR",
         "TWIN_SOUL"
       ],
-      "reason_not_higher": "No validated astrological discriminator separates related soul roots from a specific true-pair model."
+      "reason_not_higher": "Ningún discriminador astrológico validado separa raíces del alma relacionadas de un modelo específico de pareja verdadera."
     },
     {
       "model_id": "ZIVUG_TRUE_PAIR",
@@ -62,7 +62,7 @@
         "RELATED_SOUL_ROOTS",
         "TWIN_FLAME_MODEL"
       ],
-      "reason_not_higher": "A_RELATED_ROOT_VS_ZIVUG and A_ZIVUG_VS_TWIN_FLAME are NOT_VALIDATED."
+      "reason_not_higher": "A_RELATED_ROOT_VS_ZIVUG y A_ZIVUG_VS_TWIN_FLAME están NOT_VALIDATED."
     },
     {
       "model_id": "TWIN_FLAME_MODEL",
@@ -88,13 +88,13 @@
         "D_SHARED_MISSION"
       ],
       "counterevidence": [
-        "No independent evidence operationalizes the doctrine-specific unique blueprint requirement."
+        "Ninguna evidencia independiente operacionaliza el requisito doctrinal específico de un patrón único."
       ],
       "competing_models": [
         "ZIVUG_TRUE_PAIR",
         "TWIN_SOUL"
       ],
-      "reason_not_higher": "Doctrine-specific markers such as a unique shared blueprint have no validated astrological discriminator."
+      "reason_not_higher": "Los marcadores doctrinales específicos, como un patrón compartido único, carecen de discriminador astrológico validado."
     }
   ],
   "undifferentiated_output": {
@@ -111,8 +111,8 @@
   },
   "global_counterevidence": [],
   "limitations": [
-    "Synthetic fixture only.",
-    "No ontological probability is inferred."
+    "Sólo datos sintéticos.",
+    "No se infiere ninguna probabilidad ontológica."
   ],
   "resolution_level": "O2_ROOT_FAMILY",
   "evidence_families": [
@@ -134,5 +134,5 @@
     "A_ZIVUG_VS_TWIN_FLAME",
     "A_UNIQUE_DYADIC_ORIGIN"
   ],
-  "why_not_more_specific": "The synthetic fixture reaches O2 because continuity and shared-root architecture are strong, but no validated A_* discriminator establishes a unique dyadic ontology or separates related roots, zivug and twin-flame models."
+  "why_not_more_specific": "Los datos sintéticos alcanzan O2 porque la continuidad y la arquitectura de raíz compartida son fuertes, pero ningún discriminador A_* validado establece una ontología diádica única ni separa raíces relacionadas, zivug y modelos de llamas gemelas."
 }
