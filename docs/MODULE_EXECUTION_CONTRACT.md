@@ -178,3 +178,13 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 ## M09 · consonancia de cartas relacionales
 
 `M09` compara puntos homólogos entre compuesta y Davison únicamente bajo una `relationship_chart_consonance_policy` explícita. Toda observación pertenece a una única familia de dependencia `RELCHART`. El módulo no define una puntuación global de consonancia: `consonance_score=null` y `score_state=NOT_DEFINED` mientras no exista una regla preregistrada.
+
+## M28–M31 · doctrina, realidad factual y publicación
+
+`M28` valida afirmaciones doctrinales/hermenéuticas manteniendo las clases A–E. Las afirmaciones `C_DOCTRINE` exigen fuentes y anclas; una `E_PROJECT_HYPOTHESIS` no puede declararse `DIRECT_DOCTRINE`. La salida fija `doctrine_adds_structural_score=false`.
+
+`M29` limita `REAL_VIABILITY` y `RECIPROCITY` a hechos documentales. Una viabilidad evaluada requiere eventos `VIABILITY_FACT`; una reciprocidad distinta de `NOT_EVALUABLE` requiere eventos `RECIPROCITY_FACT`. La astrología no se acepta como sustituto de estos hechos.
+
+`M30` es el gate de reportabilidad. Sólo autoriza un informe cuando existe un `canonical_analysis` con los campos mínimos del contrato y no hay módulos previos en estado `FAILED`. Los modos TARGETED/TEMPORAL quedan marcados `PARTIAL`.
+
+`M31` crea únicamente `report_document_model`: once secciones con rutas hacia la verdad canónica. No altera valores ni renderiza DOCX/PDF de forma oculta.
