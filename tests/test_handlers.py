@@ -17,6 +17,40 @@ def full_manifest():
 
 
 class TestDeterministicHandlers(unittest.TestCase):
+
+    def test_data_quality_distinguishes_timed_and_untimed_layers(self):
+        payload = {
+            "mode": "FULL",
+            "subjects": [
+                {
+                    "id": "A",
+                    "birth_date": "1977-03-20",
+                    "birth_time": "17:37",
+                    "timezone": "Europe/Madrid",
+                    "place": "Zaragoza, España",
+                    "time_reliability": "A",
+                },
+                {
+                    "id": "B",
+                    "birth_date": "1980-01-01",
+                    "birth_time": None,
+                    "timezone": "America/Santo_Domingo",
+                    "place": "Santo Domingo, República Dominicana",
+                    "time_reliability": "D",
+                },
+            ],
+        }
+
+        run = Orchestrator(default_handlers()).run(payload, full_manifest())
+        quality = run.canonical["data_quality"]
+
+        self.assertEqual(run.results["M01"].status, ExecutionStatus.COMPLETED)
+        self.assertTrue(quality["untimed_layers_evaluable"])
+        self.assertFalse(quality["timed_layers_evaluable"])
+        self.assertFalse(quality["missing_data_are_counterevidence"])
+        self.assertTrue(quality["subjects"][0]["timed_layers_evaluable"])
+        self.assertFalse(quality["subjects"][1]["timed_layers_evaluable"])
+
     def test_precomputed_pipeline_adapters(self):
         payload = {
             "mode": "FULL",
