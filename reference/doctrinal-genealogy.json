@@ -134,6 +134,97 @@
       "relation": "OUTCOME_CONSTRAINT",
       "status": "SUPPORTED",
       "note": "Even under a contract hypothesis, outcomes remain contingent; contract function and encarnated result must be separated."
+    },
+    {
+      "from": "PRENATAL_PAIRING",
+      "to": "ZIVUG",
+      "relation": "HISTORICAL_DOCTRINAL_RELATION",
+      "status": "SUPPORTED",
+      "note": "Sotah 2a supplies an early rabbinic first/second-match framework later reworked in kabbalistic contexts."
+    },
+    {
+      "from": "SOUL_PAIRING",
+      "to": "ZIVUG",
+      "relation": "DOCTRINAL_OVERLAP",
+      "status": "SUPPORTED",
+      "note": "Zoharic paired-soul imagery supplies a strong doctrinal context for later discussion of pairing."
+    },
+    {
+      "from": "ZIVUG",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Zivug is a Jewish/kabbalistic relational category; it does not entail the modern white-fire-ovoid twin-flame doctrine."
+    },
+    {
+      "from": "BAT_ZUG",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "A true/corresponding mate in Lurianic language is not doctrinally identical to modern twin flame."
+    },
+    {
+      "from": "GILGUL",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_OR_BROADER_HISTORY",
+      "status": "INSUFFICIENT",
+      "note": "Reincarnational continuity can explain recurrence without implying a consciously planned bilateral agreement."
+    },
+    {
+      "from": "TIKKUN",
+      "to": "SOUL_CONTRACT",
+      "relation": "FUNCTION_NOT_CONTRACT_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "Rectification can describe function or purpose without establishing that two souls contracted the relationship beforehand."
+    },
+    {
+      "from": "TIKKUN",
+      "to": "MISSION_PREINCARNATIONAL",
+      "relation": "POSSIBLE_FUNCTIONAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Both can involve purpose or repair, but derive from different doctrinal systems and cannot be collapsed."
+    },
+    {
+      "from": "SOUL_ROOT",
+      "to": "MONAD",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Lurianic soul-root structures and Theosophical Monad terminology belong to distinct ontologies."
+    },
+    {
+      "from": "SOUL_ROOT",
+      "to": "SOUL_GROUP",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Both can describe supra-individual relatedness, but their genealogies and structures differ."
+    },
+    {
+      "from": "SOUL_ROOT",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "INSUFFICIENT_FOR_DYADIC_ORIGIN",
+      "status": "INSUFFICIENT",
+      "note": "A shared or related root can involve networks of souls and does not imply a unique romantic counterpart."
+    },
+    {
+      "from": "SOUL_NETWORK",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EXCLUSIVE_NETWORK_VS_DYAD",
+      "status": "SUPPORTED",
+      "note": "Lurianic networks of soul-root relations weaken any automatic inference from related roots to an exclusive dyadic origin."
+    },
+    {
+      "from": "FIRST_SECOND_ZIVUG",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "First/second zivug terminology is not a stage model of twin-flame relationships."
+    },
+    {
+      "from": "BAT_ZUG",
+      "to": "SOUL_CONTRACT",
+      "relation": "PAIRING_NOT_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "A corresponding mate does not by itself establish negotiated preincarnational clauses."
     }
   ]
 }
