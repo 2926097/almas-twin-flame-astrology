@@ -1,4 +1,4 @@
-"""Public ALMAS relational-astrology scoring core."""
+"""Núcleo público de scoring y orquestación modular de ALMAS."""
 
 from .analysis import analyze_precomputed
 from .core import (
@@ -15,6 +15,19 @@ from .core import (
     score_model,
     supported_gate,
 )
+from .module_contract import (
+    ExecutionStatus,
+    ModuleContext,
+    ModuleHandler,
+    ModuleResult,
+)
+from .orchestrator import (
+    CanonicalOverwriteError,
+    OrchestrationRun,
+    Orchestrator,
+    PipelineDefinitionError,
+    validate_pipeline_manifest,
+)
 
 __all__ = [
     "analyze_precomputed",
@@ -30,4 +43,13 @@ __all__ = [
     "robustness_index",
     "score_model",
     "supported_gate",
+    "ExecutionStatus",
+    "ModuleContext",
+    "ModuleHandler",
+    "ModuleResult",
+    "CanonicalOverwriteError",
+    "OrchestrationRun",
+    "Orchestrator",
+    "PipelineDefinitionError",
+    "validate_pipeline_manifest",
 ]
