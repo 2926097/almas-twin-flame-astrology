@@ -29,6 +29,9 @@ REQUIRED_FILES = [
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/natal-chart.schema.json",
+    "schemas/synastry-output.schema.json",
+    "schemas/natal-context-output.schema.json",
     "schemas/module-execution.schema.json",
     "schemas/precomputed-pillars.schema.json",
     "schemas/precomputed-result.schema.json",
@@ -261,6 +264,9 @@ def main() -> int:
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
+    natal_chart_schema = load_json("schemas/natal-chart.schema.json")
+    synastry_schema = load_json("schemas/synastry-output.schema.json")
+    natal_context_schema = load_json("schemas/natal-context-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
     result_schema = load_json("schemas/precomputed-result.schema.json")
@@ -320,6 +326,17 @@ def main() -> int:
 
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
+
+    natal_required = set(natal_chart_schema.get("required", []))
+    if not {"subject_id", "timed", "backend_id", "backend_version", "positions"}.issubset(natal_required):
+        fail("natal chart schema lacks required canonical fields")
+
+    syn_required = set(synastry_schema.get("required", []))
+    if not {"subjects", "aspect_policy", "contacts", "contact_count"}.issubset(syn_required):
+        fail("synastry schema lacks required canonical fields")
+
+    if "subjects" not in natal_context_schema.get("required", []):
+        fail("natal context schema must require subjects")
 
     if result_schema.get("properties", {}).get("public_version", {}).get("const") != version:
         fail("precomputed result public_version diverges from root VERSION")
