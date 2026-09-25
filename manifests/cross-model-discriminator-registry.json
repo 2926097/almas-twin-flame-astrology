@@ -1,7 +1,7 @@
 {
-  "registry_version": "1.0.0",
-  "almas_version": "1.7.0",
-  "policy": "A discriminator may separate functional architectures without proving metaphysical truth. Ontological subtype discrimination requires independent validation.",
+  "registry_version": "1.1.0",
+  "almas_version": "1.9.1",
+  "policy": "Functional discriminators may separate observable architectures without proving metaphysical truth. Every doctrine-to-astrology mapping has an inferential ceiling. Model score, rarity, recurrence or technique count cannot override that ceiling. Ontological subtype claims require an independently validated discriminator.",
   "discriminators": [
     {
       "id": "X_CONTINUITY_VS_NEW",
@@ -167,6 +167,64 @@
     {
       "when": "phenomenology_strong_but_structural_ontology_weak",
       "output": "PHENOMENOLOGY may be SUPPORTED while ORIGIN remains INSUFFICIENT"
+    }
+  ],
+  "ceiling_bindings": [
+    {
+      "concept_id": "SOUL_CONTRACT",
+      "ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "blocked_upgrade": "R3_BILATERAL_AGREEMENT_MODEL",
+      "required_discriminator": "X_R2_FUNCTION_VS_R3_BILATERAL_AGREEMENT",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "TWIN_FLAME_ORIGIN",
+      "ceiling": "COMPATIBLE_OR_INSUFFICIENT_UNIQUE_DYADIC_ORIGIN",
+      "blocked_upgrade": "SUPPORTED_UNIQUE_DYADIC_ORIGIN",
+      "required_discriminator": "ONTOLOGICAL_ORIGIN_DISCRIMINATOR",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "ZIVUG",
+      "ceiling": "PAIRING_ARCHITECTURE_COMPATIBLE",
+      "blocked_upgrade": "ZIVUG_TRUE_PAIR_AS_UNIQUE_ORIGIN",
+      "required_discriminator": "X_SOUL_ROOT_VS_ZIVUG",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "SOUL_ROOT",
+      "ceiling": "RELATED_OR_SHARED_ROOT_MODEL_COMPATIBLE",
+      "blocked_upgrade": "UNIQUE_DYADIC_ORIGIN",
+      "required_discriminator": "X_SOUL_ROOT_VS_ZIVUG",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "MONAD",
+      "ceiling": "NOT_EVALUABLE_FOR_MONADIC_PAIR",
+      "blocked_upgrade": "MONADIC_PAIR",
+      "required_discriminator": "X_MONADIC_VS_RELATED_ROOT",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "SPLIT_PRIMORDIAL_BEING",
+      "ceiling": "COMPARATIVE_MODEL_COMPATIBLE",
+      "blocked_upgrade": "LITERAL_SPLIT_SOUL",
+      "required_discriminator": "X_SPLIT_SOUL_VS_TWIN_FLAME",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "GILGUL",
+      "ceiling": "INTERINCARNATIONAL_CONTINUITY_MODEL_COMPATIBLE",
+      "blocked_upgrade": "LITERAL_PAST_LIFE_IDENTITY",
+      "required_discriminator": "PAST_LIFE_IDENTITY_DISCRIMINATOR",
+      "current_status": "NOT_VALIDATED"
+    },
+    {
+      "concept_id": "DRACONIC_ASTROLOGY",
+      "ceiling": "CORROBORATIVE_NODAL_REFRAMING",
+      "blocked_upgrade": "ONTOLOGICAL_PROOF",
+      "required_discriminator": "NONE_TECHNIQUE_ONLY",
+      "current_status": "NOT_APPLICABLE"
     }
   ]
 }
