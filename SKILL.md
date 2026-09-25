@@ -754,3 +754,47 @@ Clases públicas: `PUBLIC_VERIFIABLE` y `SYNTHETIC`. Los eventos privados no se 
 
 Referencia: `reference/documentary-events.md`.
 Esquema: `schemas/documentary-event-ledger.schema.json`.
+
+
+## 38. Gate doctrinal
+
+Antes de integrar una fuente en una conclusión metafísica, clasificar la relación entre la afirmación y la fuente:
+
+- `DIRECT_DOCTRINE`
+- `ACADEMIC_DESCRIPTION`
+- `HISTORICAL_ANTECEDENT`
+- `COMPARATIVE_ANALOGUE`
+- `CONTEMPORARY_USAGE`
+- `PROJECT_OPERATIONALIZATION`
+- `PROJECT_SYNTHESIS`
+
+Referencia normativa: `reference/doctrinal-gate.md`.
+
+### Reglas
+
+1. `C_DOCTRINE` exige fuente primaria pertinente y trazabilidad.
+2. `D_CONTEMPORARY_USAGE` no confirma ontología.
+3. `PROJECT_OPERATIONALIZATION` y `PROJECT_SYNTHESIS` permanecen `E_PROJECT_HYPOTHESIS`.
+4. El gate doctrinal y el gate astrológico son independientes.
+5. El número de fuentes nunca aumenta IEM, IAP ni la fuerza de una raíz astrológica.
+6. Una categoría con doctrina bien definida pero sin discriminador astrológico suficiente permanece `INSUFFICIENT` en el caso.
+7. Una firma astrológica sin correspondencia doctrinal inequívoca no autoriza a reescribir una tradición histórica.
+
+Objeto recomendado: `schemas/doctrinal-claim.schema.json`.
+
+## 39. Separaciones doctrinales obligatorias v1.4
+
+ALMAS preserva, entre otras, las siguientes no-equivalencias:
+
+- elección preencarnatoria ≠ prueba preencarnatoria ≠ misión ≠ plan del alma ≠ contrato bilateral;
+- gilgul ≠ contrato álmico;
+- zivug ≠ twin flame;
+- bat zug ≠ split soul;
+- raíz del alma luriana ≠ Mónada teosófica;
+- tikkun ≠ reunión romántica;
+- uso literario victoriano de Twin-Flame ≠ doctrina Summit Lighthouse;
+- astrología esotérica de Bailey ≠ astrología contractual ALMAS;
+- carta dracónica ≠ prueba de vidas pasadas;
+- reconocimiento/sincronicidad/transformación reportados ≠ ontología.
+
+Estas separaciones son parte del contrato de regresión de la metodología.
