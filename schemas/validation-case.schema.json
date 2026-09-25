@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/almas/validation-case.schema.json",
-  "title": "ALMAS Validation Case",
+  "title": "ALMAS · Caso de validación",
   "type": "object",
   "required": [
     "case_id",
