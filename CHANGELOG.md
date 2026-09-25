@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.9.3 — 2026-09-25
+
+### Anclas documentales y dracónica
+- Añade `verification_anchor`, tipo de ancla y alcance de evidencia a las fuentes usadas por los mapeos doctrina→astrología.
+- Los 23 documentos que sustentan los 15 mapeos disponen ahora de ancla explícita.
+- Formaliza la política EXACT_PASSAGE / SECTION / CHAPTER / ABSTRACT / AUTHOR_SUMMARY / PUBLISHER_SUMMARY / TABLE_OF_CONTENTS / METADATA_ONLY.
+- Añade a María Blaquier como fuente técnica verificable del cálculo dracónico y separa fórmula técnica de interpretación metafísica.
+- Registra obligatoriamente la elección Mean/True Node en el uso dracónico.
+- Eleva el corpus a 38 fuentes: 23 P1, 7 P2, 1 P3 y 7 P4.
+- Añade CI para impedir que un mapeo use una fuente sin ancla documental.
+- Mantiene la dracónica como reencuadre nodal corroborativo; verificar el cálculo no valida contratos, vidas pasadas u origen álmico.
+- Añade `docs/SOURCE_ANCHOR_POLICY.md` y `docs/MAPPED_SOURCE_ANCHOR_REPORT.md`.
+
 ## 1.9.2 — 2026-09-25
 
 ### Auditoría doctrina → astrología
