@@ -113,6 +113,9 @@
               "type": "string"
             }
           },
+          "source_independence_declared": {
+            "type": "boolean"
+          },
           "privacy_class": {
             "enum": [
               "PUBLIC_VERIFIABLE",
