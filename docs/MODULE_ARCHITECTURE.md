@@ -72,3 +72,7 @@ Toda función nueva sigue:
 `problema/fuente → definición → evidencia necesaria → límites → regla reproducible → fixture/test sintético → validación → incorporación`.
 
 Un caso privado puede revelar un problema metodológico, pero sus datos no se publican ni se convierten directamente en regla.
+
+## Backend astronómico
+
+La frontera de cálculo natal usa un backend inyectable. La decisión y los criterios de selección están en `docs/ASTRONOMY_BACKEND_DECISION.md`. Ninguna dependencia astronómica externa es obligatoria todavía.
