@@ -165,6 +165,12 @@
     },
     "asserts_doctrinal_identity": {
       "type": "boolean"
+    },
+    "identity_target_concept_id": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
   "additionalProperties": false,
@@ -195,6 +201,34 @@
           },
           "does_not_support_checked": {
             "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "asserts_doctrinal_identity": {
+            "const": true
+          }
+        },
+        "required": [
+          "asserts_doctrinal_identity"
+        ]
+      },
+      "then": {
+        "required": [
+          "concept_id",
+          "identity_target_concept_id"
+        ],
+        "properties": {
+          "concept_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "identity_target_concept_id": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }
