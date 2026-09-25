@@ -1,6 +1,6 @@
 # Auditoría de los 15 mapeos doctrina → astrología
 
-**Base:** ALMAS 1.9.4  
+**Base:** ALMAS 1.10.0  
 **Objetivo:** impedir que una correspondencia doctrinal o una técnica astrológica produzca una conclusión metafísica más fuerte que la evidencia disponible.
 
 | Concepto | Fuente principal | Estatus de la traducción astrológica | Techo inferencial |
