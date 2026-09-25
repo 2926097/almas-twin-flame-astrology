@@ -141,11 +141,13 @@
     },
     {
       "id": "M26",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/temporal_handlers.py:m26_temporal_activation"
     },
     {
       "id": "M27",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/temporal_handlers.py:m27_dated_events"
     },
     {
       "id": "M28",
