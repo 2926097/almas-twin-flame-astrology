@@ -1,6 +1,6 @@
 {
   "map_version": "1.0.0",
-  "purpose": "Map preincarnation-reconstruction stages to source-registry entries without treating traditions as equivalent.",
+  "purpose": "Mapear las etapas de reconstrucción preencarnatoria con entradas del registro de fuentes sin tratar las tradiciones como equivalentes.",
   "stages": {
     "ORIGIN": {
       "primary": [
@@ -14,7 +14,7 @@
         "plato_symposium_aristophanes",
         "corelli_romance_two_worlds_1886"
       ],
-      "note": "Sources support distinct models; no automatic equivalence."
+      "note": "Las fuentes sustentan modelos distintos; no existe equivalencia automática."
     },
     "AGREEMENT_MOTIVE": {
       "primary": [
@@ -27,7 +27,7 @@
         "schwartz_your_souls_plan_2009",
         "newton_journey_of_souls_1994"
       ],
-      "note": "Choice of trials, tikkun, mission and modern pre-birth planning are separate doctrinal/method families."
+      "note": "Elección de pruebas, tikkun, misión y planificación prenatal moderna pertenecen a familias doctrinales/metodológicas distintas."
     },
     "ROLE_SELECTION": {
       "primary": [
@@ -78,7 +78,7 @@
       "project_hypothesis": [
         "reference/contrato-almico.md"
       ],
-      "note": "The eight-clause taxonomy is ALMAS E_PROJECT_HYPOTHESIS, not a doctrine copied from one source."
+      "note": "La taxonomía de ocho cláusulas es E_PROJECT_HYPOTHESIS de ALMAS, no una doctrina copiada de una única fuente."
     },
     "FULFILLMENT_MECHANISMS": {
       "primary": [
@@ -90,7 +90,7 @@
         "schwartz_your_souls_plan_2009",
         "newton_journey_of_souls_1994"
       ],
-      "note": "Free-will choice points and alternate plans belong to identified modern methods unless supported by another doctrine."
+      "note": "Los puntos de elección por libre albedrío y los planes alternativos pertenecen a métodos modernos identificados salvo que otra doctrina los sostenga."
     }
   }
 }
