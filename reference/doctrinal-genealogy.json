@@ -274,6 +274,48 @@
       "relation": "COMPARATIVE_MOTIF_ONLY",
       "status": "COMPATIBLE",
       "note": "Division/reunion motifs are comparable but do not establish direct transmission or doctrinal identity."
+    },
+    {
+      "from": "ESOTERIC_ASTROLOGY",
+      "to": "SOUL_CONTRACT",
+      "relation": "FRAMEWORK_NOT_METHOD",
+      "status": "INSUFFICIENT",
+      "note": "Bailey supplies an esoteric soul-development framework, not a dyadic contract-extraction technique."
+    },
+    {
+      "from": "SOUL_ONTOLOGY_BAILEY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Bailey's monad-soul-personality distinctions do not by themselves define a twin-flame pair."
+    },
+    {
+      "from": "SOUL_PERSONALITY_RELATION",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Soul/personality is an intrapersonal ontological relation, not masculine/feminine pair polarity."
+    },
+    {
+      "from": "EVOLUTIONARY_STAGE_ASTROLOGY",
+      "to": "SOULMATE_EXPERIENCE",
+      "relation": "DIFFERENT_ANALYTICAL_AXIS",
+      "status": "SUPPORTED",
+      "note": "Individual evolutionary-stage interpretation is distinct from phenomenology of a relationship."
+    },
+    {
+      "from": "DRACONIC_METHOD_MODERN",
+      "to": "SOUL_CONTRACT",
+      "relation": "PROJECT_OPERATIONALIZATION",
+      "status": "E_PROJECT_HYPOTHESIS",
+      "note": "ALMAS's use of draconic recurrence in contract analysis is a project operationalization, not Crane's doctrine."
+    },
+    {
+      "from": "DRACONIC_METHOD_MODERN",
+      "to": "GILGUL",
+      "relation": "NO_DIRECT_DOCTRINAL_IDENTITY",
+      "status": "INSUFFICIENT",
+      "note": "A nodal transformation technique does not establish reincarnation."
     }
   ]
 }
