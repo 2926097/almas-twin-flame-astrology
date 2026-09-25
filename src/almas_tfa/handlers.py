@@ -23,6 +23,7 @@ from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplica
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import m22_ablation
 from .robustness_handlers import m23_time_sensitivity, m24_null_models
+from .temporal_handlers import m26_temporal_activation, m27_dated_events
 
 
 MODELS = ("AF", "KA", "AG", "LG")
@@ -356,4 +357,6 @@ def default_handlers():
         "M23": m23_time_sensitivity,
         "M24": m24_null_models,
         "M25": m25_robustness,
+        "M26": m26_temporal_activation,
+        "M27": m27_dated_events,
     }
