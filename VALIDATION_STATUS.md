@@ -1,60 +1,73 @@
-# Validation status
+# Estado de validación
 
-## Public v1.10.0
+## Release pública
 
-The repository validates generalized rules with synthetic test fixtures. Real public case studies, if added, are documentary/illustrative material and are not used as hidden validation fixtures or as a basis for case-fitted rules.
+El repositorio publica una especificación generalizada con fixtures sintéticos y un núcleo Python determinista. Los casos privados/no públicos permanecen excluidos.
 
-Current public layers:
+### Capas vigentes
 
-| Layer | Status |
+| Capa | Estado |
 |---|---|
-| Normative methodology | Published |
-| Public raw/canonical schemas | Published |
-| Precomputed scoring input/output schemas | Published |
-| Module manifest | Published |
-| Differential-discriminator registry | Published |
-| Source-provenance policy and registry | Published |
-| Public static contract validator | Published; CI enabled |
-| Deterministic pillar/IEM/IDD/IRC scoring core | Published; unit-tested |
-| Precomputed-pillar CLI | Published; unit-tested |
-| Módulo de Contrato Preencarnatorio | Published; internal module |
-| Astrology→Soul Contract bridge | Published; contract v1.0.0 |
-| Preincarnation reconstruction | Published; complete eight-stage schema v1.8.0 |
-| Soul-origin differential engine | Published; model/discriminator registries and schema v1.0.0 |
-| Agreement-motive differential | Published; motive/discriminator registry and schema v1.0.0 |
-| Role-selection differential | Published; role/mechanism registry and schema v1.0.0 |
-| Encounter-conditions differential | Published; condition/discriminator registry and schema v1.0.0 |
-| Individual-tasks differential | Published; task/independence registry and schema v1.0.0 |
-| Common-task differential | Published; emergence registry and schema v1.0.0 |
-| Clause-assembly engine | Published; eight-clause genealogy schema v1.0.0 |
-| Fulfillment-mechanisms engine | Published; mechanism/factual-state schema v1.0.0 |
-| Synthetic examples | Published |
-| Private/non-public case analyses | Excluded |
-| Public sourced case studies | Permitted outside the synthetic validation corpus |
+| Metodología normativa | Publicada |
+| Schemas raw/canonical | Publicados |
+| Manifiesto arquitectónico | `manifests/almas-module-manifest.json` |
+| Pipeline FULL M00–M31 | `manifests/analysis-pipeline-manifest.json` |
+| Bridge astrología→contrato | v1.0.0 |
+| Reconstrucción preencarnatoria | schema v1.9.0 |
+| Clause assembly | schema v1.1.0 |
+| Doctrinal Claim | schema v2.0.0 |
+| Ontología multiaxial | registry/schema v2.0.0 |
+| Contrato causal | v2.0.0 |
+| Temporalidad contractual | v2.0.0 |
+| Núcleo Python IEM/IDD/IRC | Publicado y unit-tested |
+| CLI de pilares precomputados | Publicada y unit-tested |
+| Corpus doctrinal | 38 fuentes / 92 conceptos / 73 relaciones |
+| Fixtures sintéticos | Publicados |
+| Casos privados | Excluidos |
+| Casos públicos verificables | Admitidos sólo en `public_cases/` |
 
-## Public automated tests
+## Pruebas automatizadas
 
-The public Python suite contains **14 deterministic unit tests** using synthetic values. It covers pillar aggregation, the one-root ceiling, non-simplex IEM behavior, ICE application, missing-essential handling, the SUPPORT gate, IDD overlap/disjoint behavior, robustness aggregation, precomputed-pillar analysis, evaluability handling and the public CLI/API contract.
+La suite Python contiene **14 tests deterministas** para el núcleo numérico.
 
-A separate public-contract workflow verifies the repository structure and publication contract.
+El workflow `Python core` ejecuta:
 
-Public validation establishes implementation consistency with the declared rules. It does not validate astrology scientifically and does not convert model scores into metaphysical probabilities.
+1. instalación editable del paquete;
+2. `python -m unittest discover -s tests -p "test_*.py" -v`;
+3. el validador del contrato público.
 
+El workflow `Public contract` ejecuta de forma independiente:
 
-## External validation status
+`python scripts/validate_public_contract.py`
 
-**Infrastructure status:** PREREGISTRATION READY.
+El validador comprueba, entre otros:
 
-**Real external holdout status:** NOT YET EXECUTED.
+- sincronía de versiones públicas;
+- existencia de archivos normativos;
+- secuencia M00–M31;
+- integridad fuente↔concepto↔genealogía;
+- correspondencia schema↔fixture;
+- techos inferenciales;
+- claims doctrinales;
+- discriminadores;
+- pipeline preencarnatorio;
+- reglas de privacidad/publicación.
 
-Published in 1.9.0:
+La validación automatizada demuestra coherencia de implementación con las reglas publicadas. No constituye validación científica de la astrología ni convierte índices de encaje en probabilidades metafísicas.
 
-- external-validation protocol;
-- validation case/run schemas;
-- cohort preregistration manifest;
-- endpoint registry EV1–EV8;
-- blind structural → documentary opening workflow;
-- contamination and case-fitting rules;
-- synthetic smoke fixture.
+## Validación externa
 
-This infrastructure does not by itself constitute empirical validation of twin-flame, soulmate, soul-contract or other metaphysical ontologies.
+**Infraestructura:** PREREGISTRATION READY.  
+**Holdout externo real:** NOT YET EXECUTED.
+
+La infraestructura incluye:
+
+- protocolo de validación externa;
+- schemas de caso y ejecución;
+- manifiesto de cohortes;
+- endpoints EV1–EV8;
+- flujo ciego estructura → apertura documental;
+- controles de contaminación/case-fitting;
+- fixture sintético de smoke test.
+
+Hasta ejecutar cohortes holdout reales preregistradas, ALMAS no declara validación empírica externa de twin-flame, soulmate, soul-contract u otras ontologías metafísicas.
