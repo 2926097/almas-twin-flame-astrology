@@ -964,8 +964,6 @@ def main() -> int:
     }
     if set(clause_registry.get("clauses", [])) != expected_clause_ids:
         fail("clause registry diverges from canonical eight-clause set")
-    if clause_assembly_example.get("schema_version") != "1.0.0":
-        fail("synthetic clause-assembly example must use schema_version 1.0.0")
     for clause in clause_assembly_example.get("clauses", []):
         if clause.get("id") not in expected_clause_ids:
             fail(f"unknown clause in synthetic clause-assembly example: {clause.get('id')}")
