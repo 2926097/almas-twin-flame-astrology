@@ -16,7 +16,8 @@
     },
     {
       "id": "M01",
-      "status": "SPECIFIED"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/handlers.py:m01_data_quality"
     },
     {
       "id": "M02",
