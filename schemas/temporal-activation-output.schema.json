@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://example.invalid/almas/temporal-activation-output.schema.json",
+  "title":"ALMAS Temporal Activation Output",
+  "type":"object",
+  "required":[
+    "signals","selected_independent_signals","suppressed",
+    "iat","iat_state","aggregation_weights_applied","structural_score_modified"
+  ],
+  "properties":{
+    "signals":{"type":"array","items":{"type":"object"}},
+    "selected_independent_signals":{"type":"array","items":{"type":"object"}},
+    "suppressed":{"type":"array","items":{"type":"object"}},
+    "iat":{"type":["number","null"],"minimum":0,"maximum":100},
+    "iat_state":{"enum":["CALCULATED","NOT_CALCULATED"]},
+    "aggregation_weights_applied":{"const":false},
+    "structural_score_modified":{"const":false}
+  },
+  "additionalProperties":false
+}
