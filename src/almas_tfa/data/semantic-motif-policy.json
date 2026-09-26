@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_SEMANTIC_MOTIF_RECURRENCE_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "purpose": "Detectar recurrencia semántica entre raíces distintas sin exigir identidad literal de root_key.",
+  "principles": {
+    "case_fitting_forbidden": true,
+    "private_case_fitting_forbidden": true,
+    "core_only": true,
+    "support_only_creates_recurrence": false,
+    "one_primary_motif_per_root": true,
+    "dependency_family_deduplication": true,
+    "relchart_is_one_dependency_family": true,
+    "recurrence_requires_distinct_dependency_families": true,
+    "recurrence_strength_rule": "SECOND_STRONGEST_FAMILY",
+    "additional_families_do_not_duplicate_single_motif": true,
+    "px_is_structural_recurrence_not_ontology": true,
+    "ps_requires_recurrent_mission_motif": true,
+    "pu_automatic_attribution_forbidden": true
+  },
+  "point_sets": {
+    "AFFINITY": ["SUN", "MOON", "VENUS", "MARS", "JUPITER", "AXIS_HORIZON"],
+    "PERSONAL_RELATIONAL": ["SUN", "MOON", "MERCURY", "VENUS", "MARS", "JUPITER", "AXIS_HORIZON"],
+    "MEANINGFUL_COUNTERPART": ["SUN", "MOON", "MERCURY", "VENUS", "MARS", "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO", "CHIRON", "AXIS_HORIZON", "AXIS_MERIDIAN", "AXIS_NODES"],
+    "KARMIC_ANCHOR": ["AXIS_NODES", "SATURN"],
+    "MISSION_ANCHOR": ["SUN", "JUPITER", "SATURN", "AXIS_NODES"],
+    "TRANSFORMATION_ANCHOR": ["PLUTO", "URANUS"],
+    "WOUND_ANCHOR": ["CHIRON"],
+    "TRANSPERSONAL_ANCHOR": ["NEPTUNE"]
+  },
+  "relation_sets": {
+    "MIRROR_HARD": ["OPPOSITION", "SQUARE", "CONTRA_PARALLEL", "CONTRA_ANTISCION"],
+    "COHERENT": ["CONJUNCTION", "TRINE", "SEXTILE", "PARALLEL", "ANTISCION"]
+  },
+  "motif_rule_order": [
+    "MISSION_SERVICE",
+    "KARMIC_CONTINUITY",
+    "WOUND_REPAIR",
+    "TRANSFORMATION_POWER",
+    "TRANSPERSONAL_FIELD",
+    "MIRROR_POLARITY",
+    "RELATIONAL_COHERENCE",
+    "STRUCTURAL_AFFINITY"
+  ],
+  "recurrence": {
+    "minimum_independent_families": 2,
+    "px_pillar": "PX",
+    "ps_pillar": "PS",
+    "aggregation": "PILLAR_SCORE_OVER_RECURRENT_MOTIFS"
+  }
+}
