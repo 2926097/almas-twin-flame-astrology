@@ -15,6 +15,7 @@ from .core import (
     score_model,
 )
 from .model_attribution import derive_model_attributions
+from .semantic_motifs import derive_semantic_motifs, load_semantic_motif_policy
 from .time_perturbation import structural_recalculation_snapshot
 
 
@@ -76,15 +77,51 @@ def _pillars_from_root_attributions(
     root_attributions: Sequence[Mapping[str, Any]],
     surviving_root_ids: set[str],
 ) -> dict[str, float | None]:
+    """Reconstruye pilares y vuelve a calcular PX/PS bajo la ablación.
+
+    Los motivos recurrentes no se arrastran desde el baseline: se recalculan
+    con las raíces que realmente sobreviven a cada corrida.
+    """
+
     strengths: dict[str, list[float]] = {
         pillar: [] for pillar in PILLARS if pillar != "PU"
     }
+    surviving_semantic_roots: list[dict[str, Any]] = []
+
     for item in root_attributions:
         if not isinstance(item, Mapping) or not item.get("eligible"):
             continue
         root_id = str(item.get("root_id") or "")
         if root_id not in surviving_root_ids:
             continue
+
+        contributions = item.get("contributions")
+        if isinstance(contributions, Mapping):
+            for pillar, value in contributions.items():
+                pillar = str(pillar)
+                if pillar in {"PX", "PS", "PU"} or pillar not in strengths:
+                    continue
+                strengths[pillar].append(float(value))
+
+        surviving_semantic_roots.append(
+            {
+                "root_id": root_id,
+                "core_eligible": True,
+                "strength_state": "CALCULATED_CORE",
+                "strength": item.get("strength"),
+                "point_ids": list(item.get("point_ids", [])),
+                "relation_ids": list(item.get("relation_ids", [])),
+                "dependency_families": list(
+                    item.get("dependency_families", [])
+                ),
+            }
+        )
+
+    semantic = derive_semantic_motifs(
+        surviving_semantic_roots,
+        policy=load_semantic_motif_policy(),
+    )
+    for item in semantic["motif_attributions"]:
         contributions = item.get("contributions")
         if not isinstance(contributions, Mapping):
             continue
