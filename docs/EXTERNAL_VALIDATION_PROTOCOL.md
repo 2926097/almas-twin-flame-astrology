@@ -457,3 +457,25 @@ El registro canónico PX v3 permanece vacío hasta que exista una regla
 preregistrada independiente de los casos que motivaron esta línea de
 investigación. `FROZEN_FOR_VALIDATION` significa únicamente «lista para ser
 puesta a prueba», no «validada» ni «incorporada al modelo».
+
+
+## 20. Runner holdout PX v3
+
+`ALMAS_PX_V3_HOLDOUT_EVALUATION_V1` ejecuta la fase holdout de un candidato
+previamente congelado.
+
+El runner exige que el candidato sea `FROZEN_FOR_VALIDATION`, que la cohorte
+externa supere S4 y que no exista intersección entre referencias de desarrollo
+y muestras holdout limpias.
+
+Los scores del candidato deben declarar el mismo `formula_ref` congelado y
+cubrir todas las muestras evaluables. Cualquier falta de cobertura, cambio de
+fórmula o solapamiento desarrollo/holdout degrada la ejecución a
+`NOT_EVALUABLE`.
+
+La salida pública contiene únicamente estadísticos agregados y un fingerprint
+SHA-256 de la distribución. No publica identificadores ni valores individuales.
+
+S7 no decide promoción y no puede modificar el registro canónico de candidatos.
+`promotion_decision=FORBIDDEN` y `candidate_validated=false` son invariantes
+de esta fase.
