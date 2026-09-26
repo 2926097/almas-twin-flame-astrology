@@ -30,11 +30,12 @@ from .symmetry_handlers import antiscion_longitude, contra_antiscion_longitude, 
 from .relationship_chart_handlers import DavisonBackend, DavisonRequest, circular_midpoint, m07_composite, make_m08_davison
 from .relationship_consonance import m09_relationship_chart_consonance
 from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cross, m12_draconic_draconic
-from .lot_handlers import m13_lots
+from .lot_handlers import m13_lots, load_default_lot_policy
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .root_strengths import derive_root_strength, evidence_strength, load_root_strength_policy
 from .pillar_attribution import classify_root, derive_pillars_from_roots, load_root_pillar_policy
+from .semantic_motifs import classify_primary_motif, derive_semantic_motif_graph, load_semantic_motif_policy, mission_motifs
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
@@ -49,6 +50,7 @@ from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
 from .canonical_assembly import assemble_canonical_analysis, derive_canonical_coverage, load_canonical_assembly_policy
+from .analysis_profiles import load_analysis_profile_policy, profile_trace_assessment, resolve_analysis_profile
 from .report_model_handlers import m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
@@ -85,6 +87,7 @@ __all__ = [
     "m11_natal_draconic_cross",
     "m12_draconic_draconic",
     "m13_lots",
+    "load_default_lot_policy",
     "m14_secondary_symbolic",
     "m15_evidence_extraction",
     "m16_dependency_deduplication",
@@ -95,6 +98,10 @@ __all__ = [
     "load_root_pillar_policy",
     "classify_root",
     "derive_pillars_from_roots",
+    "load_semantic_motif_policy",
+    "classify_primary_motif",
+    "mission_motifs",
+    "derive_semantic_motif_graph",
     "load_model_attribution_policy",
     "derive_model_attributions",
     "m20_counterevidence",
@@ -123,6 +130,9 @@ __all__ = [
     "load_canonical_assembly_policy",
     "derive_canonical_coverage",
     "assemble_canonical_analysis",
+    "load_analysis_profile_policy",
+    "resolve_analysis_profile",
+    "profile_trace_assessment",
     "m31_report",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
