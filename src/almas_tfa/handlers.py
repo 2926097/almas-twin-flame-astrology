@@ -174,7 +174,7 @@ def m18_pillars(context: ModuleContext) -> ModuleResult:
 
             limitations = [
                 "La atribución raíz→pilar es E_PROJECT_HYPOTHESIS congelada y no una equivalencia doctrinal.",
-                "Cada raíz recibe como máximo un pilar semántico primario; PX es una propiedad ortogonal de recurrencia.",
+                "Cada raíz recibe como máximo un pilar semántico primario; PX y PS se derivan del grafo de motivos semánticos recurrentes.",
                 "PU permanece NOT_EVALUABLE hasta existir un discriminador validado y preregistrado.",
             ]
             if not structural_absence_is_zero:
@@ -315,7 +315,7 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
         and auto_attribution.get("state") == "EVALUABLE"
     ):
         attributions = auto_attribution.get("attributions")
-        attribution_source = "AUTO_SHAPLEY_CANONICAL_ROOTS"
+        attribution_source = "AUTO_SHAPLEY_CANONICAL_UNITS"
     else:
         attributions = context.raw_input.get("attributions")
         if isinstance(attributions, Mapping):
@@ -363,7 +363,7 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
     limitations = []
     diagnostics = []
 
-    if attribution_source == "AUTO_SHAPLEY_CANONICAL_ROOTS":
+    if attribution_source == "AUTO_SHAPLEY_CANONICAL_UNITS":
         limitations.append(
             "IDD mide separación entre arquitecturas de evidencia AF/KA/AG/LG y no es un discriminador ontológico."
         )
@@ -378,7 +378,7 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
                 + "; convergence_state="
                 + str(method.get("convergence_state"))
                 + "; root_count="
-                + str(method.get("root_count"))
+                + str(method.get("unit_count", method.get("root_count")))
             )
 
     if ontological_output is not None:

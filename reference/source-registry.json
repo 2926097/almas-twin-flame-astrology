@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.13.0",
+  "registry_version": "1.14.0",
   "entries": [
     {
       "id": "plato_symposium_aristophanes",
@@ -1433,6 +1433,81 @@
       "verification_anchor": "Published technical section explains calculation by using the tropical North Node as 0° Aries and shifting the chart accordingly.",
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrology/aa_article210601_e.htm?pa=tr2",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "paulus_alexandrinus_introductory_matters_ch23",
+      "priority": "P1_PRIMARY",
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología helenística tardía",
+      "author": "Paulus Alexandrinus",
+      "work": "Introductory Matters",
+      "date": "378",
+      "date_note": "Texto griego tardoantiguo; la política ALMAS usa como anclaje moderno la traducción de Robert Schmidt, Project Hindsight, 1993.",
+      "passage": "Chapter 23, Concerning the Seven Lots in the Panaretus",
+      "pages": "43-44 in the Schmidt/Project Hindsight translation",
+      "url": "https://www.starmedia.ne.jp/bookcont/",
+      "download_url": null,
+      "license": null,
+      "rights_note": "La traducción moderna está sujeta a copyright; ALMAS registra fórmula, procedencia y referencia sin redistribuir el texto.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "LOT_OF_FORTUNE",
+        "LOT_OF_SPIRIT",
+        "SECT_REVERSAL_LOTS"
+      ],
+      "supports": [
+        "fórmula diurna/nocturna explícita del Lote de Fortuna",
+        "fórmula diurna/nocturna explícita del Lote de Espíritu"
+      ],
+      "does_not_support": [
+        "validación empírica de los lotes",
+        "uso de Fortuna o Espíritu como discriminador ontológico de vínculos"
+      ],
+      "translation_note": "Robert Schmidt, translated; Robert Hand, editor; Project Hindsight Greek Track Vol. I.",
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Table of contents and bibliographic record identify chapter 23 as the seven lots; the Schmidt translation is the declared operational edition.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.starmedia.ne.jp/bookcont/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "vettius_valens_anthology_lots",
+      "priority": "P1_PRIMARY",
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología helenística",
+      "author": "Vettius Valens",
+      "work": "Anthology",
+      "date": null,
+      "date_note": "2nd century CE; ALMAS uses modern English translations only as verification editions.",
+      "passage": "Book II, especially sections on Fortune and Daimon/Spirit; Book IV and Book IX for later uses.",
+      "pages": null,
+      "url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
+      "download_url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
+      "license": null,
+      "rights_note": "Use the linked translation according to its stated rights; ALMAS records method and references, not full copyrighted text.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "LOT_OF_FORTUNE",
+        "LOT_OF_SPIRIT",
+        "DAIMON",
+        "SECT_LOTS"
+      ],
+      "supports": [
+        "uso técnico de Fortuna y Daimon/Spirit en la tradición helenística",
+        "corroboración histórica independiente de la centralidad de ambos lotes"
+      ],
+      "does_not_support": [
+        "probabilidad metafísica de tipos de alma",
+        "clasificación moderna de llama gemela"
+      ],
+      "translation_note": "Modern English verification edition; source text is Vettius Valens' Anthology.",
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "The Anthology explicitly treats the Lot of Fortune and Daimon/Spirit in Book II and later books.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
       "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],

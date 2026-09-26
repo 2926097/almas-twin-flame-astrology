@@ -24,6 +24,17 @@
         "REPORT"
       ]
     },
+    "analysis_profile": {
+      "enum": [
+        "FULL_MULTIDISCIPLINARY",
+        "FULL_ASTROLOGY",
+        "TEMPORAL",
+        "SOUL_CONTRACT"
+      ]
+    },
+    "profile_policy_id": {
+      "type": "string"
+    },
     "evidence": {
       "type": "array",
       "items": {
@@ -115,6 +126,12 @@
       }
     },
     "temporal": {
+      "type": "object"
+    },
+    "semantic_motifs": {
+      "type": "object"
+    },
+    "time_sensitivity": {
       "type": "object"
     },
     "limitations": {

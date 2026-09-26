@@ -1596,6 +1596,99 @@
       "almas_use": "Contextualiza genealogías sin afirmar continuidad doctrinal donde sólo existe semejanza.",
       "concept_class": "ACADEMIC_CONTEXT",
       "status": "DEFINED"
+    },
+    {
+      "id": "LOT_OF_FORTUNE",
+      "label_es": "Lote de Fortuna",
+      "definition": "Lote helenístico calculado a partir de Ascendente, Sol y Luna con inversión por secta en la tradición declarada.",
+      "concept_class": "TECHNICAL_METHOD",
+      "status": "DEFINED",
+      "primary_sources": [
+        "paulus_alexandrinus_introductory_matters_ch23",
+        "vettius_valens_anthology_lots"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "LOT_OF_SPIRIT",
+        "SOUL_CONTRACT_PROOF",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "M13 lo trata como técnica histórica explícita; su posición no constituye por sí sola evidencia ontológica relacional."
+    },
+    {
+      "id": "LOT_OF_SPIRIT",
+      "label_es": "Lote de Espíritu / Daimon",
+      "definition": "Lote helenístico de Daimon/Spirit calculado a partir de Ascendente, Sol y Luna con fórmula complementaria por secta.",
+      "concept_class": "TECHNICAL_METHOD",
+      "status": "DEFINED",
+      "primary_sources": [
+        "paulus_alexandrinus_introductory_matters_ch23",
+        "vettius_valens_anthology_lots"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "LOT_OF_FORTUNE",
+        "SOUL_CONTRACT_PROOF",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "M13 puede calcularlo cuando secta y fórmula están declaradas; no prueba misión, contrato o tipo de alma."
+    },
+    {
+      "id": "SECT_REVERSAL_LOTS",
+      "label_es": "inversión de lotes por secta",
+      "definition": "Regla técnica histórica por la que la fórmula de determinados lotes invierte luminarias entre cartas diurnas y nocturnas.",
+      "concept_class": "TECHNICAL_METHOD",
+      "status": "DEFINED",
+      "primary_sources": [
+        "paulus_alexandrinus_introductory_matters_ch23"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SECT_LOTS"
+      ],
+      "almas_use": "Regla de cálculo declarativa; no añade interpretación metafísica por sí misma."
+    },
+    {
+      "id": "DAIMON",
+      "label_es": "Daimon / Espíritu en los lotes helenísticos",
+      "definition": "Nombre y campo técnico asociado al lote de Daimon/Spirit en astrología helenística.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "status": "DEFINED",
+      "primary_sources": [
+        "vettius_valens_anthology_lots"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "MONAD",
+        "HIGHER_SELF",
+        "SOUL_CONTRACT"
+      ],
+      "almas_use": "Conserva el término histórico y evita equipararlo automáticamente con alma, Mónada o Yo Superior."
+    },
+    {
+      "id": "SECT_LOTS",
+      "label_es": "lotes dependientes de secta",
+      "definition": "Familia técnica de lotes cuya fórmula o lectura depende de la condición diurna/nocturna de la carta.",
+      "concept_class": "TECHNICAL_METHOD",
+      "status": "DEFINED",
+      "primary_sources": [
+        "vettius_valens_anthology_lots"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "SECT_REVERSAL_LOTS"
+      ],
+      "almas_use": "Etiqueta técnica de genealogía/metodología; no actúa como discriminador ontológico."
     }
   ]
 }

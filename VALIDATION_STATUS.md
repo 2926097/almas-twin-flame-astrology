@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.13.0
+**Versión pública:** 1.14.0
 
 ## Release pública
 
@@ -25,14 +25,15 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | M30 · gate de informe | READY/PARTIAL/BLOCKED + fingerprint canónico |
 | M31 · report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
 | M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
+| M13 · lotes | `ALMAS_HELLENISTIC_LOTS_V1` como baseline histórica Fortuna/Espíritu |
 | Núcleo Python IEM/IDD/IRC | Publicado y probado unitariamente |
 | Q1 · fuerza automática M17 | `ALMAS_ROOT_STRENGTH_BASELINE_V1` |
-| Q2 · raíz→pilar M18 | `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1` |
-| Q3 · Shapley/IDD M21 | `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` |
-| Q4 · sensibilidad horaria M23 | `ALMAS_BIRTH_TIME_PERTURBATION_V1` |
+| Q2 · raíz→pilar M18 | `ALMAS_ROOT_PILLAR_ATTRIBUTION_V2` + `ALMAS_SEMANTIC_MOTIF_V2` |
+| Q3 · Shapley/IDD M21 | `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2` |
+| Q4 · sensibilidad horaria M23 | `ALMAS_BIRTH_TIME_SENSITIVITY_V2` + curva R5/R15/R30/R60/R120 |
 | Q5 · robustez automática M25 | `ALMAS_ROBUSTNESS_Q5_V1` |
 | Q6 · universo nulo M24 | `ALMAS_NULL_WITHIN_YEAR_V1` |
-| Q7 · ensamblaje canonical/M30 | `ALMAS_CANONICAL_ASSEMBLY_V1` |
+| Q7 · ensamblaje canonical/M30 | `ALMAS_CANONICAL_ASSEMBLY_V2` + `ALMAS_ANALYSIS_PROFILES_V1` |
 | Discriminación ontológica M21 | Ejecutable; separada de IDD; ambigüedad preservada si no existe L3 |
 | Registro de promoción | Activo; `validated_discriminator_ids=[]` |
 | Gate L3 hacia M25 | Ejecutable; ningún discriminador real autorizado actualmente |
@@ -40,14 +41,14 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Genealogía de discriminadores | OD01–OD07 trazados documentalmente |
 | Aislamiento de casos privados | `ALMAS_PUBLIC_DATA_ISOLATION_V1` + manifests exhaustivos |
 | CLI de pilares precomputados | Publicada y probada unitariamente |
-| Corpus doctrinal | 38 fuentes / 92 conceptos / 73 relaciones |
+| Corpus doctrinal | 40 fuentes / 97 conceptos / 73 relaciones |
 | Fixtures sintéticos | Publicados |
 | Casos privados | Excluidos |
 | Casos públicos verificables | Admitidos sólo en `public_cases/` |
 
 ## Pruebas automatizadas
 
-La suite Python contiene **317 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **327 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -78,7 +79,7 @@ La validación automatizada demuestra coherencia de implementación con las regl
 
 ## Validación externa
 
-**Infraestructura:** LISTA PARA PRERREGISTRO. El cierre cuantitativo Q1–Q7 es reproducible dentro del pipeline; la validación externa sigue siendo una capa distinta.  
+**Infraestructura:** LISTA PARA PRERREGISTRO. El cierre cuantitativo Q1–Q7 y la recurrencia semántica/perfiles de 1.14 son reproducibles dentro del pipeline; la validación externa sigue siendo una capa distinta.  
 **Holdout externo real:** NO EJECUTADO.  
 **Discriminadores L3 reales:** NINGUNO.
 

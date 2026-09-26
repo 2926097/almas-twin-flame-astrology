@@ -1,10 +1,55 @@
 from __future__ import annotations
 
+from importlib import resources
+import json
 from typing import Any, Mapping
 
 from .astrology_geometry import normalize_longitude
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .relational_handlers import _chart_points
+
+
+DEFAULT_POLICY_RESOURCE = "hellenistic-lots-policy.json"
+DEFAULT_POLICY_PACKAGE = "almas_tfa"
+
+
+def load_default_lot_policy() -> dict[str, Any]:
+    resource = resources.files(DEFAULT_POLICY_PACKAGE).joinpath("data", DEFAULT_POLICY_RESOURCE)
+    with resource.open("r", encoding="utf-8") as handle:
+        policy = json.load(handle)
+    if policy.get("policy_id") != "ALMAS_HELLENISTIC_LOTS_V1":
+        raise ValueError("Política histórica de lotes desconocida.")
+    return policy
+
+
+def _resolve_sect_from_context(
+    subject_id: str,
+    context: ModuleContext,
+) -> str | None:
+    natal_context = context.canonical_snapshot.get("natal_context")
+    if not isinstance(natal_context, Mapping):
+        return None
+    subjects = natal_context.get("subjects")
+    if not isinstance(subjects, Mapping):
+        return None
+    subject = subjects.get(subject_id)
+    if not isinstance(subject, Mapping):
+        return None
+    placements = subject.get("house_placements")
+    if not isinstance(placements, Mapping):
+        return None
+    sun = placements.get("SUN")
+    if not isinstance(sun, Mapping):
+        return None
+    house = sun.get("house")
+    if isinstance(house, bool) or not isinstance(house, (int, float)):
+        return None
+    house = int(house)
+    if 7 <= house <= 12:
+        return "DAY"
+    if 1 <= house <= 6:
+        return "NIGHT"
+    return None
 
 
 def _resolve_formula(
@@ -69,19 +114,26 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
         return not_evaluable_result("M13", "M13 requiere exactamente dos cartas.")
 
     policy = context.raw_input.get("lot_policy")
+    policy_source = "RAW_INPUT"
     if not isinstance(policy, Mapping):
-        return not_evaluable_result(
-            "M13",
-            "Falta lot_policy con fórmulas y source_ref declarados.",
-        )
+        policy = load_default_lot_policy()
+        policy_source = "ALMAS_HELLENISTIC_LOTS_V1"
 
     lot_specs = policy.get("lots")
     if not isinstance(lot_specs, list) or not lot_specs:
         return not_evaluable_result("M13", "lot_policy.lots está vacío.")
 
-    sect_by_subject = policy.get("sect_by_subject") or {}
-    if not isinstance(sect_by_subject, Mapping):
+    declared_sect = policy.get("sect_by_subject") or {}
+    if not isinstance(declared_sect, Mapping):
         raise ValueError("lot_policy.sect_by_subject debe ser un objeto.")
+
+    sect_by_subject: dict[str, Any] = dict(declared_sect)
+    for subject_id in charts:
+        sid = str(subject_id)
+        if sect_by_subject.get(sid) not in {"DAY", "NIGHT"}:
+            resolved = _resolve_sect_from_context(sid, context)
+            if resolved is not None:
+                sect_by_subject[sid] = resolved
 
     for spec in lot_specs:
         if not isinstance(spec, Mapping):
@@ -95,6 +147,8 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
 
     output: dict[str, Any] = {
         "policy": dict(policy),
+        "policy_source": policy_source,
+        "sect_by_subject": dict(sect_by_subject),
         "subjects": {},
     }
     limitations: list[str] = []
@@ -155,5 +209,14 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
         status=ExecutionStatus.COMPLETED,
         payload=output,
         canonical_updates={"lots": output},
-        limitations=tuple(limitations),
+        limitations=tuple(
+            limitations
+            + (
+                [
+                    "M13 usó la baseline histórica ALMAS_HELLENISTIC_LOTS_V1 para Fortuna/Espíritu; la fórmula histórica no es validación empírica ni discriminador ontológico."
+                ]
+                if policy_source == "ALMAS_HELLENISTIC_LOTS_V1"
+                else []
+            )
+        ),
     )

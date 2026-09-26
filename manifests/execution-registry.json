@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "almas_public_version": "1.13.0",
+  "almas_public_version": "1.14.0",
   "purpose": "Registrar el grado de implementación ejecutable de cada etapa M00-M31 sin confundir especificación normativa con código disponible.",
   "status_legend": {
     "ORCHESTRATOR_NATIVE": "Resuelto por infraestructura del orquestador.",
@@ -78,7 +78,7 @@
     {
       "id": "M13",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/lot_handlers.py:m13_lots"
+      "implementation": "src/almas_tfa/lot_handlers.py:m13_lots + src/almas_tfa/data/hellenistic-lots-policy.json"
     },
     {
       "id": "M14",
@@ -103,7 +103,7 @@
     {
       "id": "M18",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/handlers.py:m18_pillars + src/almas_tfa/pillar_attribution.py"
+      "implementation": "src/almas_tfa/handlers.py:m18_pillars + src/almas_tfa/pillar_attribution.py + src/almas_tfa/semantic_motifs.py"
     },
     {
       "id": "M19",
@@ -118,7 +118,7 @@
     {
       "id": "M21",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/handlers.py:m21_differential_discrimination + src/almas_tfa/model_attribution.py"
+      "implementation": "src/almas_tfa/handlers.py:m21_differential_discrimination + src/almas_tfa/model_attribution.py + semantic motif units"
     },
     {
       "id": "M22",
@@ -128,7 +128,7 @@
     {
       "id": "M23",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/time_sensitivity_handlers.py:make_m23_time_sensitivity + src/almas_tfa/time_perturbation.py"
+      "implementation": "src/almas_tfa/time_sensitivity_handlers.py:make_m23_time_sensitivity + src/almas_tfa/time_perturbation.py + ALMAS_BIRTH_TIME_SENSITIVITY_V2"
     },
     {
       "id": "M24",
@@ -163,7 +163,7 @@
     {
       "id": "M30",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/report_gate_handlers.py:make_m30_report_gate_auto + src/almas_tfa/canonical_assembly.py"
+      "implementation": "src/almas_tfa/report_gate_handlers.py:make_m30_report_gate_auto + src/almas_tfa/canonical_assembly.py + src/almas_tfa/analysis_profiles.py"
     },
     {
       "id": "M31",

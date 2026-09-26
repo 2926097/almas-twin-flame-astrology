@@ -150,7 +150,7 @@ class TestAutomaticTimeSensitivity(unittest.TestCase):
         policy = load_birth_time_perturbation_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_BIRTH_TIME_PERTURBATION_V1",
+            "ALMAS_BIRTH_TIME_SENSITIVITY_V2",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertEqual(
@@ -196,10 +196,10 @@ class TestAutomaticTimeSensitivity(unittest.TestCase):
         self.assertTrue(output["perturbations_generated_by_m23"])
         self.assertEqual(
             output["generator_policy_id"],
-            "ALMAS_BIRTH_TIME_PERTURBATION_V1",
+            "ALMAS_BIRTH_TIME_SENSITIVITY_V2",
         )
 
-    def test_missing_reliability_is_not_evaluable_without_legacy(self):
+    def test_missing_reliability_keeps_diagnostic_curve_without_component(self):
         raw = raw_input()
         raw["subjects"][0]["time_reliability"] = None
         handler = configured_handlers(
@@ -216,9 +216,17 @@ class TestAutomaticTimeSensitivity(unittest.TestCase):
                 prior_results={},
             )
         )
-        self.assertEqual(result.status, ExecutionStatus.NOT_EVALUABLE)
+        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
+        output = result.canonical_updates["time_sensitivity"]
+        self.assertEqual(output["time_reliability_state"], "UNDOCUMENTED")
+        self.assertIsNone(output["robustness_component"])
+        self.assertFalse(output["robustness_component_eligible"])
+        self.assertEqual(
+            set(output["diagnostic_curve_labels"]),
+            {"R5", "R15", "R30", "R60", "R120"},
+        )
 
-    def test_missing_reliability_can_use_explicit_legacy_summary(self):
+    def test_diagnostic_curve_takes_precedence_over_legacy_when_time_is_usable(self):
         raw = raw_input()
         raw["subjects"][0]["time_reliability"] = None
         raw["time_sensitivity_summary"] = {
@@ -242,11 +250,10 @@ class TestAutomaticTimeSensitivity(unittest.TestCase):
             )
         )
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
-        self.assertFalse(
-            result.canonical_updates["time_sensitivity"][
-                "perturbations_generated_by_m23"
-            ]
-        )
+        output = result.canonical_updates["time_sensitivity"]
+        self.assertTrue(output["perturbations_generated_by_m23"])
+        self.assertIsNone(output["robustness_component"])
+        self.assertEqual(output["time_reliability_state"], "UNDOCUMENTED")
 
 
 if __name__ == "__main__":

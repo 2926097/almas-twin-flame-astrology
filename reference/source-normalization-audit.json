@@ -1,19 +1,19 @@
 {
   "audit_version": "1.0.0",
-  "almas_version": "1.11.0",
-  "date": "2026-09-25",
-  "sources_total": 38,
-  "concepts_total": 92,
+  "almas_version": "1.14.0",
+  "date": "2026-09-26",
+  "sources_total": 40,
+  "concepts_total": 97,
   "genealogy_edges_total": 73,
   "by_priority": {
-    "P1_PRIMARY": 23,
+    "P1_PRIMARY": 25,
     "P2_ACADEMIC": 7,
     "P3_HISTORICAL_TECHNICAL": 1,
     "P4_IDENTIFIED_METHOD": 7
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 21,
-    "VERIFIED_METADATA": 17
+    "VERIFIED_PRIMARY": 22,
+    "VERIFIED_METADATA": 18
   },
   "integrity": {
     "unknown_concepts_from_sources": 0,
@@ -26,6 +26,7 @@
     "Los campos bibliográficos opcionales, como páginas, DOI, licencia o hash local, pueden permanecer nulos cuando no sean aplicables o no estén disponibles.",
     "Las futuras incorporaciones de fuentes deben preservar la integridad fuente↔concepto↔genealogía.",
     "Una fuente define procedencia, significado y límites; nunca añade puntuación astrológica por el mero hecho de existir.",
-    "Las entradas source_basis mapeadas de doctrina→astrología deben incluir un ancla de verificación explícita."
+    "Las entradas source_basis mapeadas de doctrina→astrología deben incluir un ancla de verificación explícita.",
+    "ALMAS 1.14.0 añade las fuentes técnicas de Paulus Alexandrinus y Vettius Valens para la baseline histórica de Fortuna/Espíritu; esta ampliación documental no convierte los lotes en discriminadores ontológicos."
   ]
 }

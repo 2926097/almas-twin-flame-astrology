@@ -12,6 +12,9 @@
     "canonical_schema_checked",
     "canonical_source_conflict",
     "analysis_mode",
+    "analysis_profile",
+    "profile_policy_id",
+    "profile_assessment",
     "missing_fields",
     "blocking_issues",
     "degradation_reasons",
@@ -25,7 +28,7 @@
   ],
   "properties": {
     "gate_version": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "state": {
       "enum": [
@@ -58,10 +61,16 @@
       "type": "boolean"
     },
     "analysis_mode": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
+    },
+    "analysis_profile": {
+      "type": ["string", "null"]
+    },
+    "profile_policy_id": {
+      "type": ["string", "null"]
+    },
+    "profile_assessment": {
+      "type": ["object", "null"]
     },
     "missing_fields": {
       "type": "array",

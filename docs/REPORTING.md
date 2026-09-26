@@ -10,11 +10,11 @@ Para informes largos se prefiere una fase de autoría DOCX antes de la conversi�
 
 ## Gate M30
 
-No se redacta un informe analítico sin pasar por M30. En una ejecución FULL configurada de 1.13.0, si `canonical_analysis` no fue suministrado, Q7 puede ensamblarlo desde los namespaces canónicos M01–M29 antes de aplicar el gate. Un canonical explícito nunca se sobrescribe.
+No se redacta un informe analítico sin pasar por M30. En una ejecución configurada, si `canonical_analysis` no fue suministrado, el ensamblador canónico puede construirlo desde los namespaces M01–M29 antes de aplicar el gate. Desde 1.14.0, M30 resuelve además `analysis_profile`. Un canonical explícito nunca se sobrescribe.
 
 Estados:
 
-- **READY** — análisis FULL íntegro y sin degradaciones detectadas;
+- **READY** — análisis íntegro para el `analysis_profile` seleccionado y sin degradaciones requeridas;
 - **PARTIAL** — reportable con limitaciones explícitas;
 - **BLOCKED** — no debe producirse informe analítico.
 
@@ -38,7 +38,14 @@ Toda conclusión material debe indicar, cuando proceda:
 - carácter estructural, temporal o factual;
 - límites inferenciales.
 
-Un estado PARTIAL debe reflejar sus `degradation_reasons` en el documento. No se ocultan módulos no evaluables, datos ausentes ni limitaciones del análisis. El ensamblador Q7 deriva ICC mediante siete dominios q=0/0.5/1 y conserva el IDD global como el mínimo de los IDD por pares evaluables; ambas decisiones son políticas de proyecto explícitas y trazables.
+Un estado PARTIAL debe reflejar sus `degradation_reasons` en el documento. No se ocultan módulos requeridos no evaluables, datos ausentes ni limitaciones del análisis. Los módulos opcionales o excluidos por el perfil no degradan por sí mismos. El informe debe declarar el perfil usado y recordar que `READY` expresa completitud técnica del alcance, no validación metafísica. El ensamblador deriva ICC mediante siete dominios q=0/0.5/1 y conserva el IDD global como el mínimo de los IDD por pares evaluables.
+
+
+## Recurrencia semántica en el informe
+
+Cuando `canonical_analysis.semantic_motifs` existe, el informe debe distinguir explícitamente entre raíz geométrica y motivo semántico. `root_key` conserva identidad técnica; `motif_id` expresa una hipótesis operativa de recurrencia entre familias. PX/PS derivados de motivos no deben narrarse como nuevas raíces independientes ni como prueba de origen compartido.
+
+Cuando M23 publica `time_sensitivity.diagnostic_curve`, deben mostrarse R5/R15/R30/R60/R120 aunque no exista un componente `BIRTH_TIME`. Si la fiabilidad horaria no está documentada, el informe debe indicar que la curva es diagnóstica y que no se agregó una robustez horaria única a IRC.
 
 ## Modelo documental M31
 
@@ -57,7 +64,7 @@ Cuando `canonical_analysis.ontological_discrimination` existe, M31 conserva ruta
 1. Síntesis ejecutiva.
 2. Calidad de datos y método.
 3. Ontología numérica.
-4. Arquitectura estructural.
+4. Arquitectura estructural, raíces y motivos semánticos recurrentes.
 5. Capas relacionales y cruzadas.
 6. Diagnóstico diferencial y contraevidencia.
 7. Activación temporal y eventos.

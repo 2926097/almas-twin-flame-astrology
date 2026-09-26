@@ -1,20 +1,21 @@
 {
-  "schema_version": "1.0.0",
-  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1",
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_HYPOTHESIS",
-  "purpose": "Derivar automáticamente atribuciones por raíz para AF/KA/AG/LG sobre IEM_pre y cerrar IDD sin mapas manuales.",
+  "purpose": "Derivar atribuciones Shapley para AF/KA/AG/LG sobre unidades canónicas de evidencia: raíces independientes y motivos semánticos derivados de PX/PS.",
   "value_function": "IEM_PRE",
   "counterevidence_in_value_function": false,
   "structural_coverage_required": true,
-  "root_unit": "CANONICAL_INDEPENDENT_ROOT",
+  "attribution_unit": "CANONICAL_EVIDENCE_UNIT",
+  "derived_motif_units_are_independent_evidence": false,
   "exact_method": {
     "name": "EXACT_SHAPLEY",
-    "max_roots": 10
+    "max_units": 10
   },
   "approximation_method": {
     "name": "DETERMINISTIC_ANTITHETIC_PERMUTATIONS",
-    "seed": 113013,
+    "seed": 114021,
     "minimum_permutations": 1024,
     "maximum_permutations": 4096,
     "batch_size": 256,
@@ -31,6 +32,7 @@
     "iem_final_not_used_for_attribution": true,
     "ice_not_used_for_attribution": true,
     "temporal_activation_not_used": true,
-    "null_rarity_not_used": true
+    "null_rarity_not_used": true,
+    "motif_units_are_derived_features_not_new_roots": true
   }
 }

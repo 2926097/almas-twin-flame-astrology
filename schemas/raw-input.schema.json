@@ -80,6 +80,15 @@
         "TEMPORAL",
         "REPORT"
       ]
+    },
+    "analysis_profile": {
+      "enum": [
+        "FULL_MULTIDISCIPLINARY",
+        "FULL_ASTROLOGY",
+        "TEMPORAL",
+        "SOUL_CONTRACT",
+        null
+      ]
     }
   },
   "additionalProperties": true

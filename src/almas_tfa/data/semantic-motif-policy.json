@@ -1,0 +1,111 @@
+{
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_SEMANTIC_MOTIF_V2",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "purpose": "Separar identidad geométrica de raíz y recurrencia semántica multitécnica para PX/PS sin multiplicar evidencia dependiente.",
+  "principles": {
+    "case_fitting_forbidden": true,
+    "root_identity_remains_geometric": true,
+    "motif_identity_is_semantic": true,
+    "single_primary_motif_per_root": true,
+    "mission_overlays_excluded_from_generic_px": true,
+    "support_only_cannot_create_core_recurrence": true,
+    "dependency_family_counted_once_per_motif": true,
+    "relchart_is_one_dependency_family": true,
+    "draconic_dd_is_support_only": true,
+    "asteroids_secondary_are_support_only": true,
+    "px_is_not_ontological_probability": true,
+    "ps_is_not_proof_of_shared_mission": true
+  },
+  "minimum_recurrence": {
+    "distinct_dependency_families": 2,
+    "distinct_roots": 2,
+    "allow_single_exact_root_when_multifamily": true
+  },
+  "point_sets": {
+    "MEANINGFUL": [
+      "SUN",
+      "MOON",
+      "MERCURY",
+      "VENUS",
+      "MARS",
+      "JUPITER",
+      "SATURN",
+      "URANUS",
+      "NEPTUNE",
+      "PLUTO",
+      "CHIRON",
+      "AXIS_HORIZON",
+      "AXIS_MERIDIAN",
+      "AXIS_NODES"
+    ],
+    "PERSONAL": [
+      "SUN",
+      "MOON",
+      "MERCURY",
+      "VENUS",
+      "MARS",
+      "JUPITER",
+      "AXIS_HORIZON"
+    ],
+    "AFFINITY": [
+      "SUN",
+      "MOON",
+      "VENUS",
+      "MARS",
+      "JUPITER",
+      "AXIS_HORIZON"
+    ],
+    "TRANSFORMATION": [
+      "PLUTO",
+      "URANUS"
+    ],
+    "TRANSPERSONAL": [
+      "NEPTUNE"
+    ],
+    "KARMIC": [
+      "AXIS_NODES",
+      "SATURN"
+    ]
+  },
+  "relation_sets": {
+    "HARD": [
+      "OPPOSITION",
+      "SQUARE",
+      "CONTRA_PARALLEL",
+      "CONTRA_ANTISCION"
+    ],
+    "COHERENT": [
+      "CONJUNCTION",
+      "TRINE",
+      "SEXTILE",
+      "PARALLEL",
+      "ANTISCION"
+    ]
+  },
+  "primary_motif_order": [
+    "KARMIC_CONTINUITY",
+    "WOUND_REPAIR",
+    "IDENTITY_TRANSFORMATION",
+    "TRANSFORMATION_POWER",
+    "TRANSPERSONAL_FIELD",
+    "EROTIC_POLARITY",
+    "MIRROR_COMPLEMENTARITY",
+    "RELATIONAL_COHERENCE",
+    "STRUCTURAL_AFFINITY"
+  ],
+  "mission_motifs": {
+    "MISSION_SOLAR": "SUN",
+    "MISSION_JOVIAN": "JUPITER",
+    "MISSION_SATURNIAN": "SATURN",
+    "MISSION_NODAL": "AXIS_NODES"
+  },
+  "aggregation": {
+    "family_strength": "MAX_CORE_STRENGTH_WITHIN_DEPENDENCY_FAMILY",
+    "motif_strength": "PILLAR_SCORE_OF_FAMILY_MAXIMA_DIV_100",
+    "px_score": "PILLAR_SCORE_OF_RECURRENT_PRIMARY_MOTIF_STRENGTHS",
+    "ps_score": "PILLAR_SCORE_OF_RECURRENT_MISSION_MOTIF_STRENGTHS",
+    "max_motifs_in_pillar_score": 3
+  }
+}

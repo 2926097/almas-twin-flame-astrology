@@ -204,6 +204,8 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
     if isinstance(time_sensitivity, Mapping):
         value = time_sensitivity.get("robustness_component")
         preregistration_ref = time_sensitivity.get("preregistration_ref")
+        if value is None and time_sensitivity.get("diagnostic_curve"):
+            time_state = "DIAGNOSTIC_ONLY"
         if value is not None:
             if not isinstance(preregistration_ref, str) or not preregistration_ref:
                 raise ValueError(

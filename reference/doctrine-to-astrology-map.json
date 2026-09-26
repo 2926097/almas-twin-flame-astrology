@@ -1,6 +1,6 @@
 {
-  "map_version": "1.2.0",
-  "almas_version": "1.11.0",
+  "map_version": "1.3.0",
+  "almas_version": "1.14.0",
   "principles": [
     "La doctrina define conceptos y límites; su mera existencia no aporta puntuación estructural.",
     "Los mapeos astrológicos creados por ALMAS son E_PROJECT_HYPOTHESIS salvo que la fuente citada proporcione explícitamente la técnica.",
@@ -1065,6 +1065,31 @@
       "concept_id": "WESTERN_ESOTERICISM_CONTEXT",
       "coverage_state": "CONTEXT_ONLY",
       "reason": "El concepto contextualiza historia, investigación o experiencia; no crea puntuación astrológica estructural."
+    },
+    {
+      "concept_id": "LOT_OF_FORTUNE",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "M13 puede calcular el lote mediante fórmula histórica declarada; el concepto técnico no añade por sí mismo puntuación ontológica ni valida un tipo de vínculo."
+    },
+    {
+      "concept_id": "LOT_OF_SPIRIT",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "M13 puede calcular el lote mediante fórmula histórica declarada; su lectura metafísica no se eleva a discriminador de origen o contrato."
+    },
+    {
+      "concept_id": "SECT_REVERSAL_LOTS",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "Regla histórica de cálculo por secta usada para reproducibilidad de M13; no crea evidencia relacional independiente."
+    },
+    {
+      "concept_id": "SECT_LOTS",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "Categoría técnica de lotes dependientes de secta; permanece contextual para el cálculo y no altera IEM por existencia doctrinal."
+    },
+    {
+      "concept_id": "DAIMON",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Término histórico vinculado a Spirit/Daimon; ALMAS evita equipararlo automáticamente con alma, Mónada, Yo Superior o contrato preencarnatorio."
     }
   ],
   "audit_summary": {
@@ -1072,6 +1097,8 @@
     "doctrine_explicit_sources": 10,
     "academic_or_method_context_sources": 5,
     "ontological_discriminators_validated": 0,
-    "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory."
+    "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory.",
+    "coverage_total": 97,
+    "note_1_14": "Fortuna/Espíritu y reglas de secta se registran como técnica/contexto histórico, no como validación ontológica."
   }
 }
