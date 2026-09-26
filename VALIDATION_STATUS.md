@@ -35,7 +35,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **141 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
+La suite Python contiene **143 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -84,7 +84,7 @@ Hasta ejecutar cohortes holdout reales preregistradas, ALMAS no declara validaci
 
 ## Validación de la ampliación personal PDF
 
-La ampliación de informes personales en ALMAS 1.11.0 está cubierta por **8 tests deterministas** adicionales dentro de la suite total de 141.
+La ampliación de informes personales en ALMAS 1.11.0 está cubierta por **10 tests deterministas** adicionales dentro de la suite total de 143.
 
 Se verifican:
 - canonical personal READY/PARTIAL/BLOCKED;
@@ -94,10 +94,12 @@ Se verifican:
 - inmutabilidad del canonical;
 - determinismo de los cinco perfiles;
 - rechazo de perfiles desconocidos;
-- propagación de warnings de cálculo.
+- propagación de warnings de cálculo;
+- rechazo de colecciones de retornos mal tipadas;
+- exclusión del router para capas marcadas explícitamente como no disponibles.
 
 Sobre el HEAD de integración, GitHub Actions ejecutó correctamente:
-- **Núcleo Python: SUCCESS** — 141 tests, OK, y validador público PASS;
+- **Núcleo Python: SUCCESS** — 143 tests, OK, y validador público PASS;
 - **Contrato público: SUCCESS**.
 
 La ampliación no modifica M00–M31, fórmulas IEM/IDD/IRC/IAT/ICC/ICE, thresholds, ontología ni discriminadores.
