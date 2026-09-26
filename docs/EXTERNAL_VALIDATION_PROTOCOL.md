@@ -432,3 +432,28 @@ Una frecuencia externa baja no habilita por sí misma weighting, promoción PX
 v3 ni L3. La política fija `candidate_freeze_enabled=false` y
 `l3_validation=false` hasta que exista una regla candidata congelada y una
 evaluación fuera del conjunto de descubrimiento.
+
+
+## 19. Congelación de candidatos PX v3
+
+ALMAS 1.15 introduce `ALMAS_PX_V3_CANDIDATE_FREEZE_V1`.
+
+La finalidad del gate es impedir que una observación de desarrollo se convierta
+directamente en una regla aplicada al holdout. Toda fórmula candidata debe
+quedar especificada y congelada **antes** de conocer el resultado del holdout.
+
+El candidato declara descriptores, fórmula, dirección esperada, referencias de
+desarrollo, calibración S2, controles sintéticos S3, ablaciones, controles
+negativos y criterios de falsación.
+
+En el momento de congelación:
+
+- `holdout_refs` debe estar vacío;
+- `formula_frozen_before_holdout=true`;
+- `holdout_fitted_thresholds=false`;
+- scoring, weighting y ontología deben permanecer deshabilitados.
+
+El registro canónico PX v3 permanece vacío hasta que exista una regla
+preregistrada independiente de los casos que motivaron esta línea de
+investigación. `FROZEN_FOR_VALIDATION` significa únicamente «lista para ser
+puesta a prueba», no «validada» ni «incorporada al modelo».
