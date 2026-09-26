@@ -206,11 +206,28 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 
 ## M23–M25 · sensibilidad, modelos nulos y robustez
 
-`M23` consume un resumen de perturbación previamente calculado y preregistrado. `time_sensitivity_summary` debe declarar al menos `preregistration_ref`, `delta90` y `preserved_fraction=G`. Aplica exactamente:
+`M23` dispone desde Q4 de dos rutas explícitas. Con backend natal y Davison
+inyectados, genera perturbaciones mediante
+`ALMAS_BIRTH_TIME_PERTURBATION_V1`; sin esos requisitos puede conservar el
+adaptador legacy `time_sensitivity_summary`.
+
+La ruta automática perturba ambas horas locales sobre una parrilla congelada
+según `time_reliability`, recalcula la arquitectura estructural y deriva:
+
+`delta90 = P90_nearest_rank(max |Δ IEM_pre|)`
+
+y
+
+`G = media de preservación de raíces core del baseline`.
+
+Aplica después exactamente:
 
 `R_X = exp(-delta90/20) × sqrt(G)`.
 
-M23 no genera perturbaciones, no estima `delta90` a partir de muestras y no improvisa una convención de percentil. El componente resultante pertenece a robustez y su agregación final corresponde a M25.
+La ruta automática falla cerrado si alguna muestra generada no puede
+recalcularse. No usa ICE, IEM_final, temporalidad, modelos nulos ni IDD.
+La estabilidad de IDD se reserva a un componente separado de M25 para evitar
+doble contabilización.
 
 `M24` evalúa corridas nulas preregistradas. Cada corrida conserva `preregistration_ref`, tipo de modelo nulo, `feature_set_ref`, `orb_policy_ref`, `event_set_ref`, `generator_ref`, estadístico observado, regla de extremo y muestras nulas o `n/extreme_count`. Los tipos admitidos son `MATCHED_AGE`, `WITHIN_YEAR`, `MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`, `EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`.
 
