@@ -813,7 +813,7 @@ class TestReportingFirewall(unittest.TestCase):
         self.assertTrue(gate["reportable"])
         self.assertEqual(gate["state"], "PARTIAL")
         self.assertIn(
-            "PRIOR_MODULES_NOT_EVALUABLE",
+            "PROFILE_REQUIRED_MODULES_NOT_EVALUABLE",
             gate["degradation_reasons"],
         )
         self.assertEqual(gate["not_evaluable_modules"], ["M05"])
