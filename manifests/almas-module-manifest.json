@@ -64,6 +64,16 @@
       "name": "Informe canónico y hermenéutica",
       "status": "CORE",
       "entrypoint": "docs/REPORTING.md"
+    },
+    {
+      "id": "M_PERSONAL_REPORTING",
+      "name": "Informes astrológicos personales PDF",
+      "status": "SUBMODULE",
+      "entrypoint": "skills/almas-personal-pdf/SKILL.md",
+      "schema": "schemas/personal-canonical-analysis.schema.json",
+      "report_profiles": "manifests/personal-report-profile-registry.json",
+      "reference_router": "manifests/personal-report-reference-router.json",
+      "note": "Punto de entrada especializado; hereda VERSION y no constituye una segunda skill pública."
     }
   ],
   "canonical_flow": [
@@ -74,7 +84,8 @@
     "preincarnation_reconstruction",
     "counterevidence_and_validation",
     "canonical_soul_contract",
-    "report_document_model"
+    "report_document_model",
+    "personal_report_publication_profile"
   ],
   "versioning_rule": "Todos los módulos heredan VERSION. Los números históricos internos de motores/esquemas pueden conservarse sólo como schema_version o engine_revision, nunca como una segunda versión pública de skill."
 }
