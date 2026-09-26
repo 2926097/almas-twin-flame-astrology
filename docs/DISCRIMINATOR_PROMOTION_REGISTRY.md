@@ -75,6 +75,26 @@ Si el discriminador produce probabilidades, la calibración debe estar preregist
 
 Los umbrales pertenecen a `E_PROJECT_POLICY`; no son evidencia doctrinal ni probabilidad metafísica.
 
+## Gate de cegamiento y leakage
+
+Todo registro L3 debe incluir `blinding_audit` y superar `ALMAS_BLINDING_LEAKAGE_V1`.
+
+La promoción exige:
+
+- ejecución estructural previa sin etiquetas, narrativa, resultado esperado ni outcome del holdout;
+- separación estricta desarrollo/evaluación;
+- fingerprints SHA-256 de entrada y salida;
+- revelado documental posterior;
+- identidad del fingerprint estructural antes y después del revelado;
+- `LABEL_LEAKAGE=0`;
+- `NARRATIVE_LEAKAGE=0`;
+- `CASE_FITTING=0`;
+- cero cambios de regla posteriores a la apertura del holdout.
+
+M21 aplica además un firewall fail-closed a `ontological_discriminator_input`. Un campo narrativo prohibido no se ignora: la ejecución falla explícitamente.
+
+Este gate es acumulativo con `ALMAS_DISCRIMINANT_VALIDATION_V1`. Un buen rendimiento estadístico no compensa contaminación del holdout, y un protocolo ciego no compensa mala discriminación.
+
 ## Requisito adicional cuando uses_astrology=true
 
 Todo registro declara explícitamente `uses_astrology`.
@@ -229,4 +249,4 @@ No demostraría:
 7. M25 no acepta un L3 que el registro no autorice.
 8. El registro productivo actual contiene cero L3.
 9. Un discriminador con `uses_astrology=true` no autoriza L3 sin `astrology_validation` completa.
-10. Ningún feature astrológico aislado, rareza nula o activación temporal sustituye la validación discriminante independiente.
+10. Ningún feature astrológico aislado, rareza nula o activación temporal sustituye la validación discriminante independiente.\n11. Un L3 no autoriza promoción sin `blinding_audit` completa.\n12. `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE`, `CASE_FITTING` o cambios post-holdout bloquean L3.\n13. El fingerprint estructural debe permanecer idéntico tras el revelado documental.
