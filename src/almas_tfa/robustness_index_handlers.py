@@ -3,6 +3,9 @@ from __future__ import annotations
 from typing import Any, Mapping
 
 from .core import robustness_index
+from .discriminator_promotion_registry import (
+    authorize_promoted_discriminator_component,
+)
 from .module_contract import (
     ExecutionStatus,
     ModuleContext,
@@ -26,29 +29,52 @@ FORBIDDEN_COMPONENT_KINDS = {
 }
 
 
-def _validated_ontology_roots(canonical_snapshot: Mapping[str, Any]) -> set[str]:
-    """Devuelve únicamente raíces L3 confirmatorias presentes en M21."""
+def _validated_ontology_root_pairs(
+    canonical_snapshot: Mapping[str, Any],
+) -> dict[str, tuple[str, str]]:
+    """Mapea raíces L3 confirmatorias de M21 al par que autorizan."""
 
     ontology = canonical_snapshot.get("ontological_discrimination")
     if not isinstance(ontology, Mapping):
-        return set()
+        return {}
 
     matrix = ontology.get("pairwise_matrix")
     if not isinstance(matrix, Mapping):
-        return set()
+        return {}
 
-    roots: set[str] = set()
+    roots: dict[str, tuple[str, str]] = {}
+    ambiguous: set[str] = set()
+
     for assessment in matrix.values():
         if not isinstance(assessment, Mapping):
             continue
         if assessment.get("confirmatory_status") != "SEPARABLE_VALIDATED":
             continue
+
+        pair = assessment.get("pair")
+        if (
+            not isinstance(pair, list)
+            or len(pair) != 2
+            or not all(isinstance(model, str) and model for model in pair)
+        ):
+            continue
+        canonical_pair = tuple(sorted((pair[0], pair[1])))
+
         validated_roots = assessment.get("validated_roots")
         if not isinstance(validated_roots, list):
             continue
+
         for root in validated_roots:
-            if isinstance(root, str) and root:
-                roots.add(root)
+            if not isinstance(root, str) or not root:
+                continue
+            existing = roots.get(root)
+            if existing is not None and existing != canonical_pair:
+                ambiguous.add(root)
+            else:
+                roots[root] = canonical_pair
+
+    for root in ambiguous:
+        roots.pop(root, None)
 
     return roots
 
@@ -81,12 +107,32 @@ def _validate_discriminator_component(
             f"{component_id}: VALIDATED_DISCRIMINATOR requiere root_key trazable."
         )
 
-    validated_roots = _validated_ontology_roots(canonical_snapshot)
-    if root_key not in validated_roots:
+    discriminator_id = raw.get("discriminator_id")
+    if not isinstance(discriminator_id, str) or not discriminator_id:
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere discriminator_id."
+        )
+
+    promotion_ref = raw.get("promotion_ref")
+    if not isinstance(promotion_ref, str) or not promotion_ref:
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere promotion_ref."
+        )
+
+    root_pairs = _validated_ontology_root_pairs(canonical_snapshot)
+    pair = root_pairs.get(root_key)
+    if pair is None:
         raise ValueError(
             f"{component_id}: root_key={root_key!r} no consta como raíz "
-            "L3 confirmatoria en ontological_discrimination."
+            "L3 confirmatoria no ambigua en ontological_discrimination."
         )
+
+    authorize_promoted_discriminator_component(
+        discriminator_id=discriminator_id,
+        promotion_ref=promotion_ref,
+        pair=pair,
+        root_key=root_key,
+    )
 
 
 def _validated_component(raw: Mapping[str, Any], index: int) -> dict[str, Any]:
