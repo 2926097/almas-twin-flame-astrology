@@ -140,7 +140,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Esoteric Psychology, Volume I, Section One, Chapter II, Question 1: 'What is the soul?'",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "summit_lighthouse_soulmates_twin_flames",
@@ -550,7 +554,11 @@
       "license": null,
       "local_file": null,
       "sha256": null,
-      "translation_note": null
+      "translation_note": null,
+      "verification_anchor": "Soul Mates and Twin Flames: Q and A Part 1; official sections defining twin flames, soul mates and karmic relationships.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "swedenborg_conjugial_love_1768",
