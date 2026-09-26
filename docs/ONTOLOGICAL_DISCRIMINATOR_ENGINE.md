@@ -2,7 +2,7 @@
 
 ## Finalidad
 
-Este componente implementa la lógica de identificabilidad definida para ALMAS sin conectarla todavía a M21.
+Este componente implementa la lógica de identificabilidad definida para ALMAS y dispone ya de un adaptador interno opcional dentro de M21.
 
 Su responsabilidad es limitada:
 
@@ -25,7 +25,7 @@ Función pública inicial:
 
 `discriminate_ontology(...)`
 
-El componente permanece deliberadamente fuera de `default_handlers()` y no modifica M21.
+El motor permanece como componente autónomo. M21 lo invoca únicamente a través de `src/almas_tfa/m21_ontology_adapter.py` cuando existe `ontological_discriminator_input`; sin esa entrada, el comportamiento histórico de M21 permanece intacto.
 
 ## Modelos por defecto
 
@@ -245,20 +245,24 @@ Los tests cubren:
 - NOT_EVALUABLE por falta de datos mínimos;
 - guardarraíl de falsa especificidad.
 
-## Relación futura con M21
+## Integración vigente con M21
 
-M21 sigue calculando actualmente IDD sobre atribuciones estructurales AF/KA/AG/LG.
+M21 conserva el IDD sobre atribuciones estructurales AF/KA/AG/LG y añade, de forma opcional, una subcapa ontológica independiente.
 
-Este motor no sustituye todavía ese comportamiento.
+La arquitectura adoptada es:
 
-La integración posterior deberá decidir si:
+`M21 IDD histórico -> pairwise_idd`
 
-1. M21 mantiene IDD y añade una subcapa ontológica;
-2. se crea un adaptador interno dentro de M21;
-3. el motor se ejecuta después de M21 y antes de M22.
+y, cuando existe entrada explícita:
 
-La decisión debe respetar el contrato modular M00–M31 y evitar que IDD numérico sea reinterpretado como ontología.
+`M21 -> m21_ontology_adapter -> discriminate_ontology -> ontological_discrimination`.
+
+El IDD no se transmite al motor ontológico como observable ni como score.
+
+La integración está documentada en:
+
+`docs/M21_ONTOLOGICAL_INTEGRATION.md`.
 
 ## Próximo paso
 
-El Paso 6 deberá ejecutar una auditoría técnica del motor autónomo: tests, schema, edge cases, CI y compatibilidad con Python 3.10. Sólo después debe plantearse la integración con M21.
+El trabajo siguiente deberá conectar exclusivamente discriminadores realmente L3_VALIDATED con M25, manteniendo fuera del IRC confirmatorio cualquier señal L1 o L2.
