@@ -1,13 +1,17 @@
 {
-  "schema_version": "1.0.0",
-  "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V1",
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V2",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_POLICY",
-  "purpose": "Ensamblar canonical_analysis desde namespaces M01-M29 ya calculados, sin recalcular evidencia ni ajustar valores al caso.",
+  "purpose": "Ensamblar canonical_analysis desde namespaces M01-M29 con profile explícito, sin recalcular evidencia ni ajustar valores al caso.",
   "analysis_mode": "FULL",
   "coverage": {
     "formula": "100*sum(q_domain)/7",
-    "allowed_q": [0.0, 0.5, 1.0],
+    "allowed_q": [
+      0,
+      0.5,
+      1
+    ],
     "domains": [
       "BASE_NATAL",
       "SYNASTRY_NODES",
@@ -41,6 +45,8 @@
     "assembler_recalculates_pillars": false,
     "null_rarity_changes_iem": false,
     "temporal_activation_changes_iem": false,
-    "ontological_discrimination_separate_from_AF_KA_AG_LG": true
-  }
+    "ontological_discrimination_separate_from_AF_KA_AG_LG": true,
+    "analysis_profile_explicit_or_defaulted": true
+  },
+  "analysis_profile_default": "FULL_MULTIDISCIPLINARY"
 }
