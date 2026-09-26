@@ -58,4 +58,4 @@ El Paso 12 sólo se cierra si:
 
 ## Siguiente fase
 
-El Paso 13 evaluará la independencia de la astrología: una señal astrológica no podrá actuar como discriminador ontológico salvo validación discriminante independiente, con controles negativos, dependencia de raíces y prueba fuera de muestra.
+El Paso 13 formalizó la independencia de la astrología: una señal astrológica no podrá actuar como discriminador ontológico salvo validación discriminante independiente, con controles negativos, dependencia de raíces y prueba fuera de muestra.
