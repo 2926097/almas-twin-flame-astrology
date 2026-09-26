@@ -1,9 +1,24 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from importlib import resources
+import json
 from typing import Any, Mapping, Sequence
 
 from .core import pillar_score
+
+
+POLICY_RESOURCE = "semantic-motif-policy.json"
+POLICY_PACKAGE = "almas_tfa"
+
+
+def load_semantic_motif_policy() -> dict[str, Any]:
+    resource = resources.files(POLICY_PACKAGE).joinpath("data", POLICY_RESOURCE)
+    with resource.open("r", encoding="utf-8") as handle:
+        policy = json.load(handle)
+    if policy.get("policy_id") != "ALMAS_SEMANTIC_MOTIF_V2":
+        raise ValueError("Política de motivos semánticos desconocida.")
+    return policy
 
 
 PRIMARY_MOTIFS = (
