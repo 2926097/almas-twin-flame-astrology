@@ -36,6 +36,7 @@ from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplica
 from .root_strengths import derive_root_strength, evidence_strength, load_root_strength_policy
 from .pillar_attribution import classify_root, derive_pillars_from_roots, load_root_pillar_policy
 from .semantic_motifs import classify_primary_motif, derive_semantic_motif_graph, load_semantic_motif_policy, mission_motifs
+from .recurrence_quality import derive_recurrence_quality_diagnostics, load_recurrence_quality_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
@@ -102,6 +103,8 @@ __all__ = [
     "classify_primary_motif",
     "mission_motifs",
     "derive_semantic_motif_graph",
+    "load_recurrence_quality_policy",
+    "derive_recurrence_quality_diagnostics",
     "load_model_attribution_policy",
     "derive_model_attributions",
     "m20_counterevidence",
