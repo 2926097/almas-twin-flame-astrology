@@ -1684,8 +1684,10 @@ def main() -> int:
         fail("evidence graph must declare strength_policy_applied=false")
     if "retained" not in deduplicated_evidence_schema.get("required", []):
         fail("deduplicated evidence schema must require retained")
-    if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
-        fail("independent roots must remain unweighted until an explicit strength policy exists")
+    if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not True:
+        fail("independent roots must declare the frozen Q1 strength policy")
+    if independent_roots_schema.get("properties", {}).get("strength_policy_id", {}).get("const") != "ALMAS_ROOT_STRENGTH_BASELINE_V1":
+        fail("independent roots schema must bind ALMAS_ROOT_STRENGTH_BASELINE_V1")
 
     if counterevidence_output_schema.get("properties", {}).get("missing_data_penalized", {}).get("const") is not False:
         fail("counterevidence schema must forbid missing-data penalty")
