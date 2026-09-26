@@ -46,7 +46,8 @@ from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, make_m24_
 from .null_generation import generate_within_year_null_runs, load_null_generation_policy
 from .null_calibration import derive_recurrence_null_calibration, load_recurrence_null_calibration_policy
 from .synthetic_controls import derive_recurrence_synthetic_controls, load_recurrence_synthetic_controls_policy
-from .external_control_cohorts import extract_validated_external_snapshots, load_external_recurrence_cohort_policy, validate_external_recurrence_cohort
+from .external_control_cohorts import extract_clean_external_candidate_snapshots, extract_validated_external_snapshots, load_external_recurrence_cohort_policy, validate_external_recurrence_cohort
+from .external_recurrence_calibration import derive_external_recurrence_calibration, load_external_recurrence_calibration_policy
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -129,6 +130,9 @@ __all__ = [
     "load_external_recurrence_cohort_policy",
     "validate_external_recurrence_cohort",
     "extract_validated_external_snapshots",
+    "extract_clean_external_candidate_snapshots",
+    "load_external_recurrence_calibration_policy",
+    "derive_external_recurrence_calibration",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",
