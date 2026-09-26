@@ -41,7 +41,8 @@ from .ablation_handlers import ABLATION_RUNS, m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensitivity
 from .time_perturbation import generate_birth_time_sensitivity, load_birth_time_perturbation_policy
 from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, wilson_interval
-from .robustness_index_handlers import m25_robustness
+from .robustness_index_handlers import m25_robustness, make_m25_robustness
+from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
@@ -105,6 +106,9 @@ __all__ = [
     "m24_null_models",
     "wilson_interval",
     "m25_robustness",
+    "make_m25_robustness",
+    "load_q5_robustness_policy",
+    "derive_q5_robustness_components",
     "m26_temporal_activation",
     "m27_dated_events",
     "m28_doctrine_hermeneutics",
