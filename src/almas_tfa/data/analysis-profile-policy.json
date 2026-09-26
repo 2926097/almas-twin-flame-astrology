@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_ANALYSIS_PROFILES_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "default_profile": "FULL_MULTIDISCIPLINARY",
+  "principles": {
+    "analysis_profile_is_orthogonal_to_analysis_mode": true,
+    "optional_not_evaluable_does_not_degrade_gate": true,
+    "optional_skipped_does_not_degrade_gate": true,
+    "failed_module_always_blocks": true,
+    "profile_never_upgrades_model_epistemic_state": true,
+    "profile_never_creates_missing_evidence": true
+  },
+  "profiles": {
+    "FULL_MULTIDISCIPLINARY": {
+      "description": "Análisis integral astrológico, temporal, doctrinal y de realidad relacional.",
+      "non_degrading_not_evaluable_modules": [],
+      "non_degrading_skipped_modules": []
+    },
+    "FULL_ASTROLOGY": {
+      "description": "Análisis astrológico estructural completo; doctrina, hechos reales y temporalidad no solicitada quedan fuera de alcance.",
+      "non_degrading_not_evaluable_modules": ["M13", "M14", "M20", "M23", "M26", "M27", "M28", "M29"],
+      "non_degrading_skipped_modules": ["M13", "M14", "M20", "M23", "M26", "M27", "M28", "M29"]
+    },
+    "STRUCTURAL_ASTROLOGY": {
+      "description": "Núcleo estructural sin capas temporales, doctrinales, realidad ni simbología secundaria obligatoria.",
+      "non_degrading_not_evaluable_modules": ["M12", "M13", "M14", "M20", "M23", "M24", "M26", "M27", "M28", "M29"],
+      "non_degrading_skipped_modules": ["M12", "M13", "M14", "M20", "M23", "M24", "M26", "M27", "M28", "M29"]
+    }
+  }
+}
