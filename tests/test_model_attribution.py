@@ -8,33 +8,35 @@ from almas_tfa.model_attribution import (
 )
 
 
-def pillar_attribution(root_attributions, *, complete=True):
+def pillar_attribution(units, *, complete=True):
     return {
         "structural_absence_is_zero": complete,
-        "root_attributions": root_attributions,
+        "attribution_units": units,
     }
 
 
-def attributed(root_id, pillar, value, *, px=None):
-    contributions = {pillar: value}
-    if px is not None:
-        contributions["PX"] = px
+def attributed(unit_id, pillar, value, *, unit_type="ROOT"):
     return {
-        "root_id": root_id,
+        "unit_id": unit_id,
+        "root_id": unit_id,
+        "unit_type": unit_type,
         "eligible": True,
-        "contributions": contributions,
+        "contributions": {pillar: value},
     }
 
 
-class ModelAttributionTests(unittest.TestCase):
+class ModelAttributionV2Tests(unittest.TestCase):
     def test_policy_is_frozen_and_case_fit_forbidden(self):
         policy = load_model_attribution_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1",
+            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertEqual(policy["value_function"], "IEM_PRE")
+        self.assertFalse(
+            policy["derived_motif_units_are_independent_evidence"]
+        )
 
     def test_incomplete_coverage_is_not_evaluable(self):
         result = derive_model_attributions(
@@ -49,57 +51,53 @@ class ModelAttributionTests(unittest.TestCase):
             "INCOMPLETE_STRUCTURAL_COVERAGE",
         )
 
-    def test_exact_shapley_is_used_for_small_root_sets(self):
-        roots = [
+    def test_exact_shapley_uses_small_evidence_unit_sets(self):
+        units = [
             attributed("R1", "PA", 0.9),
             attributed("R2", "PR", 0.8),
             attributed("R3", "PE", 0.7),
-            attributed("R4", "PX", 0.75),
+            attributed("MOTIF:REL", "PX", 0.75, unit_type="SEMANTIC_MOTIF"),
             attributed("R5", "PK", 0.65),
             attributed("R6", "PT", 0.70),
         ]
-        result = derive_model_attributions(pillar_attribution(roots))
+        result = derive_model_attributions(pillar_attribution(units))
         self.assertEqual(result["state"], "EVALUABLE")
         self.assertEqual(
             result["method"]["convergence_state"],
             "EXACT",
         )
-        self.assertEqual(
-            result["method"]["method"],
-            "EXACT_SHAPLEY",
-        )
+        self.assertEqual(result["method"]["method"], "EXACT_SHAPLEY")
+        self.assertEqual(result["motif_unit_count"], 1)
 
     def test_shapley_efficiency_matches_iem_pre(self):
-        roots = [
+        units = [
             attributed("R1", "PA", 0.9),
             attributed("R2", "PR", 0.8),
             attributed("R3", "PE", 0.7),
-            attributed("R4", "PX", 0.75),
+            attributed("MOTIF:REL", "PX", 0.75, unit_type="SEMANTIC_MOTIF"),
             attributed("R5", "PK", 0.65),
             attributed("R6", "PT", 0.70),
         ]
-        result = derive_model_attributions(pillar_attribution(roots))
+        result = derive_model_attributions(pillar_attribution(units))
         for model, error in result["shapley_efficiency_error"].items():
             self.assertLess(error, 1e-8, model)
 
-    def test_model_architectures_produce_different_root_maps(self):
-        roots = [
+    def test_motif_units_make_ag_lg_attribution_possible(self):
+        units = [
             attributed("R1", "PA", 0.9),
             attributed("R2", "PR", 0.8),
             attributed("R3", "PE", 0.7),
-            attributed("R4", "PX", 0.75),
+            attributed("MOTIF:REL", "PX", 0.75, unit_type="SEMANTIC_MOTIF"),
             attributed("R5", "PK", 0.65),
             attributed("R6", "PT", 0.70),
-            attributed("R7", "PS", 0.55),
+            attributed("MOTIF:MISSION", "PS", 0.55, unit_type="SEMANTIC_MOTIF"),
         ]
-        result = derive_model_attributions(pillar_attribution(roots))
-        self.assertNotEqual(
-            result["attributions"]["AF"],
-            result["attributions"]["KA"],
-        )
-        self.assertNotEqual(
+        result = derive_model_attributions(pillar_attribution(units))
+        self.assertTrue(result["attributions"]["AG"])
+        self.assertTrue(result["attributions"]["LG"])
+        self.assertIn(
+            "MOTIF:REL",
             result["attributions"]["AG"],
-            result["attributions"]["LG"],
         )
 
     def test_temporal_or_null_inputs_are_not_part_of_contract(self):
