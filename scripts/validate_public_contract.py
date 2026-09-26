@@ -182,6 +182,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
     "src/almas_tfa/data/birth-time-perturbation-policy.json",
+    "src/almas_tfa/data/robustness-q5-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -201,6 +202,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/pillar_attribution.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
+    "src/almas_tfa/robustness_quantification.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -289,6 +291,7 @@ REQUIRED_FILES = [
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
     "tests/test_time_perturbation.py",
+    "tests/test_robustness_q5.py",
     "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
@@ -436,6 +439,9 @@ def main() -> int:
     )
     birth_time_perturbation_policy = load_json(
         "src/almas_tfa/data/birth-time-perturbation-policy.json"
+    )
+    robustness_q5_policy = load_json(
+        "src/almas_tfa/data/robustness-q5-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -784,6 +790,24 @@ def main() -> int:
         fail("Q4 percentile method must remain NEAREST_RANK")
     if q4_metric.get("preserved_fraction") != "MEAN_BASELINE_CORE_ROOT_RETENTION":
         fail("Q4 preserved_fraction metric changed")
+
+    if robustness_q5_policy.get("policy_id") != "ALMAS_ROBUSTNESS_Q5_V1":
+        fail("Q5 robustness policy id changed")
+    if robustness_q5_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("Q5 robustness policy must remain frozen")
+    if robustness_q5_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("Q5 robustness policy must remain E_PROJECT_POLICY")
+    q5_principles = robustness_q5_policy.get("principles", {})
+    if q5_principles.get("case_fitting_forbidden") is not True:
+        fail("Q5 robustness policy must forbid case fitting")
+    if q5_principles.get("null_rarity_used") is not False:
+        fail("Q5 must exclude null rarity from IRC")
+    if q5_principles.get("validated_discriminator_auto_created") is not False:
+        fail("Q5 must not auto-create L3 discriminator components")
+    if robustness_q5_policy.get("parameter_perturbation", {}).get("orb_scale_factors") != [0.9, 0.95, 1.05, 1.1]:
+        fail("Q5 orb perturbation factors changed")
+    if robustness_q5_policy.get("idd_stability", {}).get("source_samples") != "PARAMETER_PERTURBATION":
+        fail("Q5 IDD stability must reuse parameter perturbation samples")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
@@ -1749,6 +1773,11 @@ def main() -> int:
     )
     if "NULL_RARITY" in allowed_m25_kinds or "NULL_MODEL_FREQUENCY" in allowed_m25_kinds:
         fail("M25 must not admit null rarity as a robustness component")
+    ablation_states = set(
+        robustness_props.get("ablation_state", {}).get("enum", [])
+    )
+    if "INCLUDED_AUTO_Q5" not in ablation_states:
+        fail("M25 schema must expose INCLUDED_AUTO_Q5")
 
     if "generator_policy_id" not in time_sensitivity_schema.get("properties", {}):
         fail("M23 automatic output must expose generator_policy_id")
