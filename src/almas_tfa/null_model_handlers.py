@@ -14,6 +14,10 @@ from .null_generation import (
     generate_within_year_null_runs,
     load_null_generation_policy,
 )
+from .synthetic_controls import (
+    derive_recurrence_synthetic_controls,
+    load_recurrence_synthetic_controls_policy,
+)
 
 
 ALLOWED_NULL_MODELS = {
@@ -298,6 +302,19 @@ def make_m24_null_models(astrology_backend, davison_backend):
                 "Q6 automático no evaluable: " + str(generated.get("reason")),
             )
 
+        roots_obj = context.canonical_snapshot.get("independent_roots")
+        roots = (
+            roots_obj.get("roots")
+            if isinstance(roots_obj, Mapping)
+            else []
+        )
+        if not isinstance(roots, list):
+            roots = []
+        synthetic_controls = derive_recurrence_synthetic_controls(
+            roots,
+            policy=load_recurrence_synthetic_controls_policy(),
+        )
+
         derived_raw = dict(context.raw_input)
         derived_raw["null_model_runs"] = generated["run_specs"]
         derived_context = ModuleContext(
@@ -332,6 +349,7 @@ def make_m24_null_models(astrology_backend, davison_backend):
             "samples_per_subject": generated["samples_per_subject"],
             "sample_manifest": generated["sample_manifest"],
             "recurrence_calibration": generated.get("recurrence_calibration"),
+            "synthetic_recurrence_controls": synthetic_controls,
             "external_population_claim": False,
             "combined_p_value": None,
             "combined_p_value_state": "FORBIDDEN",
@@ -347,11 +365,13 @@ def make_m24_null_models(astrology_backend, davison_backend):
                 "PAIR_SHUFFLE, MATCHED_AGE y MATCHED_AGE_CLOCK requieren un pool externo y no se fabrican desde una sola pareja.",
                 "Las frecuencias se reportan por estadístico y no se combinan en un p-value único.",
                 "La calibración S2 de motivos es diagnóstica; no modifica PX, PS, IEM, IDD, IRC ni ontología.",
+                "Los controles sintéticos S3 son una familia determinista finita; no representan una población ni producen p-values.",
                 "La rareza estructural nunca se interpreta como probabilidad metafísica ni entra en IRC.",
             ),
             diagnostics=(
                 "M24 source=AUTO_WITHIN_YEAR_Q6",
                 "M24 recurrence_calibration=S2_DIAGNOSTIC_ONLY",
+                "M24 synthetic_recurrence_controls=S3_DIAGNOSTIC_ONLY",
             ),
         )
 
