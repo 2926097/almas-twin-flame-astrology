@@ -40,7 +40,8 @@ from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensitivity
 from .time_perturbation import generate_birth_time_sensitivity, load_birth_time_perturbation_policy
-from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, wilson_interval
+from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, make_m24_null_models, wilson_interval
+from .null_generation import generate_within_year_null_runs, load_null_generation_policy
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -104,6 +105,9 @@ __all__ = [
     "generate_birth_time_sensitivity",
     "ALLOWED_NULL_MODELS",
     "m24_null_models",
+    "make_m24_null_models",
+    "load_null_generation_policy",
+    "generate_within_year_null_runs",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",
