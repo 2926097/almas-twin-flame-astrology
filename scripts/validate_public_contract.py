@@ -181,6 +181,9 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/public-data-isolation-policy.json",
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
+    "src/almas_tfa/data/semantic-motif-policy.json",
+    "src/almas_tfa/data/analysis-profile-policy.json",
+    "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
     "src/almas_tfa/data/birth-time-perturbation-policy.json",
     "src/almas_tfa/data/robustness-q5-policy.json",
@@ -203,6 +206,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/evidence_handlers.py",
     "src/almas_tfa/root_strengths.py",
     "src/almas_tfa/pillar_attribution.py",
+    "src/almas_tfa/semantic_motifs.py",
+    "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
     "src/almas_tfa/robustness_quantification.py",
@@ -293,6 +298,7 @@ REQUIRED_FILES = [
     "tests/test_public_data_guard.py",
     "tests/test_root_strengths.py",
     "tests/test_pillar_attribution.py",
+    "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
     "tests/test_time_perturbation.py",
@@ -440,6 +446,15 @@ def main() -> int:
     )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
+    )
+    semantic_motif_policy = load_json(
+        "src/almas_tfa/data/semantic-motif-policy.json"
+    )
+    analysis_profile_policy = load_json(
+        "src/almas_tfa/data/analysis-profile-policy.json"
+    )
+    hellenistic_lots_policy = load_json(
+        "src/almas_tfa/data/hellenistic-lots-policy.json"
     )
     model_attribution_policy = load_json(
         "src/almas_tfa/data/model-attribution-policy.json"
@@ -757,7 +772,7 @@ def main() -> int:
     if root_strength_policy.get("principles", {}).get("case_fitting_forbidden") is not True:
         fail("root strength policy must forbid case fitting")
 
-    if root_pillar_policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1":
+    if root_pillar_policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2":
         fail("root to pillar policy id changed")
     if root_pillar_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("root to pillar policy must remain a frozen experimental baseline")
@@ -770,8 +785,28 @@ def main() -> int:
         fail("root to pillar policy must keep semantic pillar exclusivity")
     if pillar_principles.get("pu_automatic_attribution_forbidden") is not True:
         fail("PU automatic attribution must remain forbidden")
+    if pillar_principles.get("px_derived_from_semantic_motifs") is not True:
+        fail("PX must be derived from semantic motif recurrence in 1.14")
+    if pillar_principles.get("ps_derived_from_mission_motifs") is not True:
+        fail("PS must be derived from mission motif recurrence in 1.14")
 
-    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1":
+    if semantic_motif_policy.get("policy_id") != "ALMAS_SEMANTIC_MOTIF_V2":
+        fail("semantic motif policy id changed")
+    if semantic_motif_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("semantic motif policy must remain frozen")
+    motif_principles = semantic_motif_policy.get("principles", {})
+    if motif_principles.get("case_fitting_forbidden") is not True:
+        fail("semantic motif policy must forbid case fitting")
+    if motif_principles.get("root_identity_remains_geometric") is not True:
+        fail("semantic recurrence must not rewrite root identity")
+    if motif_principles.get("support_only_cannot_create_core_recurrence") is not True:
+        fail("support-only must not create core recurrence")
+    if motif_principles.get("dependency_family_counted_once_per_motif") is not True:
+        fail("semantic recurrence must count each dependency family once")
+    if motif_principles.get("relchart_is_one_dependency_family") is not True:
+        fail("RELCHART must remain a single dependency family")
+
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
     if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("model attribution policy must remain frozen")
@@ -786,8 +821,12 @@ def main() -> int:
         fail("IDD must remain separated from ontological discrimination")
     if attribution_principles.get("ice_not_used_for_attribution") is not True:
         fail("ICE must remain outside Shapley attribution value function")
+    if model_attribution_policy.get("attribution_unit") != "CANONICAL_EVIDENCE_UNIT":
+        fail("1.14 Shapley must operate on canonical evidence units")
+    if model_attribution_policy.get("derived_motif_units_are_independent_evidence") is not False:
+        fail("derived motif units must not be declared independent evidence")
 
-    if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_PERTURBATION_V1":
+    if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_SENSITIVITY_V2":
         fail("birth-time perturbation policy id changed")
     if birth_time_perturbation_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("birth-time perturbation policy must remain frozen")
@@ -803,6 +842,37 @@ def main() -> int:
         fail("Q4 percentile method must remain NEAREST_RANK")
     if q4_metric.get("preserved_fraction") != "MEAN_BASELINE_CORE_ROOT_RETENTION":
         fail("Q4 preserved_fraction metric changed")
+    q4_curve = birth_time_perturbation_policy.get("diagnostic_curve", {})
+    if q4_curve.get("windows_minutes") != [5, 15, 30, 60, 120]:
+        fail("1.14 birth-time diagnostic curve windows changed")
+    if q4_principles.get("missing_time_reliability_allows_diagnostic_curve") is not True:
+        fail("missing reliability must still allow diagnostic time curve")
+    if q4_principles.get("missing_time_reliability_forbids_single_birth_time_component") is not True:
+        fail("undocumented reliability must forbid a single BIRTH_TIME component")
+
+    if analysis_profile_policy.get("policy_id") != "ALMAS_ANALYSIS_PROFILES_V1":
+        fail("analysis profile policy id changed")
+    profile_principles = analysis_profile_policy.get("principles", {})
+    if profile_principles.get("ready_means_profile_complete_not_metaphysically_proven") is not True:
+        fail("READY must mean profile completeness, not metaphysical proof")
+    profiles = analysis_profile_policy.get("profiles", {})
+    if "FULL_ASTROLOGY" not in profiles or "FULL_MULTIDISCIPLINARY" not in profiles:
+        fail("1.14 analysis profiles missing")
+    full_astro = profiles.get("FULL_ASTROLOGY", {})
+    if not {"M26", "M27", "M28", "M29"}.issubset(set(full_astro.get("excluded_modules", []))):
+        fail("FULL_ASTROLOGY must exclude temporal/doctrine/reality modules by default")
+
+    if hellenistic_lots_policy.get("policy_id") != "ALMAS_HELLENISTIC_LOTS_V1":
+        fail("default Hellenistic lots policy id changed")
+    lot_ids = {
+        item.get("id")
+        for item in hellenistic_lots_policy.get("lots", [])
+        if isinstance(item, dict)
+    }
+    if lot_ids != {"FORTUNE", "SPIRIT"}:
+        fail("default historical lots must remain Fortune and Spirit only")
+    if hellenistic_lots_policy.get("principles", {}).get("lot_result_is_not_ontological_discriminator") is not True:
+        fail("historical lots must not become ontological discriminators")
 
     if robustness_q5_policy.get("policy_id") != "ALMAS_ROBUSTNESS_Q5_V1":
         fail("Q5 robustness policy id changed")
@@ -847,7 +917,7 @@ def main() -> int:
     if q6_principles.get("combined_p_value_forbidden") is not True:
         fail("Q6 must forbid combined p-value")
 
-    if canonical_assembly_policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V1":
+    if canonical_assembly_policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V2":
         fail("Q7 canonical assembly policy id changed")
     if canonical_assembly_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("Q7 canonical assembly policy must remain frozen")
@@ -868,6 +938,10 @@ def main() -> int:
         fail("Q7 global IDD aggregation changed")
     if canonical_assembly_policy.get("model_state", {}).get("supported_requires_evaluable_ice") is not True:
         fail("Q7 SUPPORTED must require evaluable ICE")
+    if canonical_assembly_policy.get("model_state", {}).get("supported_requires_birth_time_component_when_timed_architecture") is not True:
+        fail("timed architecture must require BIRTH_TIME for SUPPORTED")
+    if q7_principles.get("ready_is_profile_completeness_not_metaphysical_truth") is not True:
+        fail("canonical READY semantics must remain profile-scoped")
     q7_domains = canonical_assembly_policy.get("coverage", {}).get("domains", [])
     if len(q7_domains) != 7 or len(set(q7_domains)) != 7:
         fail("Q7 canonical coverage must retain seven unique domains")
@@ -1809,10 +1883,13 @@ def main() -> int:
 
     if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("type") != "boolean":
         fail("time sensitivity schema must distinguish automatic and legacy perturbation sources")
-    if not {"preregistration_ref", "delta90", "preserved_fraction", "robustness_component"}.issubset(
+    if not {"preregistration_ref", "delta90", "preserved_fraction", "robustness_component", "robustness_component_eligible"}.issubset(
         set(time_sensitivity_schema.get("required", []))
     ):
-        fail("time sensitivity schema lacks preregistered robustness fields")
+        fail("time sensitivity schema lacks v2 robustness fields")
+    for field in ("diagnostic_curve", "diagnostic_curve_labels", "time_reliability_state"):
+        if field not in time_sensitivity_schema.get("properties", {}):
+            fail(f"time sensitivity schema missing v2 field: {field}")
 
     if null_model_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
         fail("null model schema must forbid metaphysical probability")
@@ -1967,6 +2044,11 @@ def main() -> int:
         fail("M30 must expose degradation reasons")
     if "canonical_fingerprint" not in report_gate_schema.get("required", []):
         fail("M30 must fingerprint the canonical analysis")
+    if report_gate_props.get("gate_version", {}).get("const") != "1.1.0":
+        fail("M30 gate version must be 1.1.0 for profile-aware completeness")
+    for field in ("analysis_profile", "profile_policy_id", "profile_assessment"):
+        if field not in report_gate_schema.get("required", []):
+            fail(f"M30 profile field missing: {field}")
     report_model_ref = final_props.get("report_document_model", {}).get("$ref")
     if report_model_ref != "report-document-model.schema.json":
         fail("final pipeline must reference canonical M31 report document model schema")
