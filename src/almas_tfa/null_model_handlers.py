@@ -10,6 +10,10 @@ from .module_contract import (
     ModuleResult,
     not_evaluable_result,
 )
+from .null_generation import (
+    generate_within_year_null_runs,
+    load_null_generation_policy,
+)
 
 
 ALLOWED_NULL_MODELS = {
@@ -264,6 +268,88 @@ def m24_null_models(context: ModuleContext) -> ModuleResult:
         canonical_updates={"null_models": output},
         limitations=(
             "La frecuencia bajo un modelo nulo es rareza estructural, no probabilidad metafísica.",
-            "M24 no genera los universos nulos; exige generadores y políticas preregistrados.",
+            "La ruta legacy consume muestras o conteos preregistrados externos.",
         ),
     )
+
+
+def make_m24_null_models(astrology_backend, davison_backend):
+    """Construye M24 con generación nula Q6 y fallback legacy.
+
+    Los null_model_runs explícitos conservan prioridad por compatibilidad y
+    para permitir cohortes externas. Si no existen, Q6 genera WITHIN_YEAR de
+    forma determinista con la política congelada del proyecto.
+    """
+
+    def m24_auto(context: ModuleContext) -> ModuleResult:
+        explicit = context.raw_input.get("null_model_runs")
+        if isinstance(explicit, list) and explicit:
+            return m24_null_models(context)
+
+        generated = generate_within_year_null_runs(
+            context.raw_input,
+            astrology_backend=astrology_backend,
+            davison_backend=davison_backend,
+            policy=load_null_generation_policy(),
+        )
+        if generated.get("state") != "EVALUABLE":
+            return not_evaluable_result(
+                "M24",
+                "Q6 automático no evaluable: " + str(generated.get("reason")),
+            )
+
+        derived_raw = dict(context.raw_input)
+        derived_raw["null_model_runs"] = generated["run_specs"]
+        derived_context = ModuleContext(
+            module_id=context.module_id,
+            module_name=context.module_name,
+            mode=context.mode,
+            raw_input=derived_raw,
+            canonical_snapshot=context.canonical_snapshot,
+            prior_results=context.prior_results,
+        )
+        evaluated = m24_null_models(derived_context)
+        if evaluated.status is not ExecutionStatus.COMPLETED:
+            return evaluated
+
+        legacy_output = evaluated.canonical_updates["null_models"]
+        runs = []
+        for run in legacy_output["runs"]:
+            item = dict(run)
+            item["sampling_generated_by_m24"] = True
+            item["generator_policy_id"] = generated["policy_id"]
+            runs.append(item)
+
+        output = {
+            "runs": runs,
+            "run_count": len(runs),
+            "metaphysical_probability": False,
+            "sampling_generated_by_m24": True,
+            "generator_policy_id": generated["policy_id"],
+            "generator_policy_status": generated["policy_status"],
+            "epistemic_class": generated["epistemic_class"],
+            "generated_sample_count": generated["sample_count"],
+            "samples_per_subject": generated["samples_per_subject"],
+            "sample_manifest": generated["sample_manifest"],
+            "external_population_claim": False,
+            "combined_p_value": None,
+            "combined_p_value_state": "FORBIDDEN",
+        }
+
+        return ModuleResult(
+            module_id="M24",
+            status=ExecutionStatus.COMPLETED,
+            payload=output,
+            canonical_updates={"null_models": output},
+            limitations=(
+                "WITHIN_YEAR es un universo nulo autocontenido; no representa una población externa.",
+                "PAIR_SHUFFLE, MATCHED_AGE y MATCHED_AGE_CLOCK requieren un pool externo y no se fabrican desde una sola pareja.",
+                "Las frecuencias se reportan por estadístico y no se combinan en un p-value único.",
+                "La rareza estructural nunca se interpreta como probabilidad metafísica ni entra en IRC.",
+            ),
+            diagnostics=(
+                "M24 source=AUTO_WITHIN_YEAR_Q6",
+            ),
+        )
+
+    return m24_auto
