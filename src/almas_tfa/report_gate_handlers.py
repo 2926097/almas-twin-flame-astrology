@@ -7,6 +7,7 @@ from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult
 from .canonical_assembly import assemble_canonical_analysis, load_canonical_assembly_policy
+from .analysis_profiles import classify_trace_for_profile, resolve_analysis_profile
 
 
 CANONICAL_REQUIRED = {
@@ -232,6 +233,11 @@ def _semantic_checks(
     if mode not in ALLOWED_ANALYSIS_MODES:
         blocking.append("INVALID_ANALYSIS_MODE")
 
+    try:
+        resolve_analysis_profile(canonical.get("analysis_profile"))
+    except ValueError:
+        blocking.append("INVALID_ANALYSIS_PROFILE")
+
     evidence = canonical.get("evidence")
     models = canonical.get("models")
     coverage = canonical.get("coverage")
@@ -449,13 +455,22 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
     if trace["failed_modules"]:
         blocking_issues.append("FAILED_PRIOR_MODULES")
 
+    try:
+        profile = resolve_analysis_profile(
+            canonical_copy.get("analysis_profile")
+        )
+    except ValueError:
+        profile = "FULL_MULTIDISCIPLINARY"
+
+    profile_trace = classify_trace_for_profile(trace, profile)
+
     if trace["state"] == "UNAVAILABLE":
         degradation_reasons.append("EXECUTION_TRACE_UNAVAILABLE")
     else:
-        if trace["not_evaluable_modules"]:
-            degradation_reasons.append("PRIOR_MODULES_NOT_EVALUABLE")
-        if trace["skipped_modules"]:
-            degradation_reasons.append("PRIOR_MODULES_SKIPPED")
+        if profile_trace["required_not_evaluable_modules"]:
+            degradation_reasons.append("PRIOR_REQUIRED_MODULES_NOT_EVALUABLE")
+        if profile_trace["required_skipped_modules"]:
+            degradation_reasons.append("PRIOR_REQUIRED_MODULES_SKIPPED")
 
     mode = canonical_copy.get("analysis_mode")
     blocking_issues = sorted(set(blocking_issues))
@@ -480,6 +495,20 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
         "canonical_schema_checked": True,
         "canonical_source_conflict": False,
         "analysis_mode": mode,
+        "analysis_profile": profile,
+        "profile_policy_id": profile_trace["policy_id"],
+        "profile_required_not_evaluable_modules": profile_trace[
+            "required_not_evaluable_modules"
+        ],
+        "profile_optional_not_evaluable_modules": profile_trace[
+            "optional_not_evaluable_modules"
+        ],
+        "profile_required_skipped_modules": profile_trace[
+            "required_skipped_modules"
+        ],
+        "profile_optional_skipped_modules": profile_trace[
+            "optional_skipped_modules"
+        ],
         "missing_fields": missing,
         "blocking_issues": blocking_issues,
         "degradation_reasons": degradation_reasons,
@@ -503,7 +532,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
         canonical_updates=updates,
         limitations=(
             "M30 valida coherencia y procedencia; no corrige ni reinterpreta valores canónicos.",
-            "NOT_EVALUABLE o SKIPPED degradan a PARTIAL; FAILED bloquea.",
+            "NOT_EVALUABLE o SKIPPED sólo degradan cuando el analysis_profile los declara requeridos; FAILED bloquea siempre.",
             "Una traza de ejecución ausente no invalida el objeto importado, pero impide READY.",
         ),
     )
@@ -530,6 +559,7 @@ def make_m30_report_gate_auto():
         assembled = assemble_canonical_analysis(
             context.canonical_snapshot,
             context.prior_results,
+            analysis_profile=context.raw_input.get("analysis_profile"),
             policy=load_canonical_assembly_policy(),
         )
         if assembled.get("state") != "EVALUABLE":
@@ -580,7 +610,7 @@ def make_m30_report_gate_auto():
             diagnostics=result.diagnostics
             + (
                 "M30 source=AUTO_CANONICAL_ASSEMBLY_Q7",
-                "canonical_assembly_policy=ALMAS_CANONICAL_ASSEMBLY_V1",
+                "canonical_assembly_policy=ALMAS_CANONICAL_ASSEMBLY_V2",
             ),
         )
 
