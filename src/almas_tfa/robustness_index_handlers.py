@@ -26,6 +26,69 @@ FORBIDDEN_COMPONENT_KINDS = {
 }
 
 
+def _validated_ontology_roots(canonical_snapshot: Mapping[str, Any]) -> set[str]:
+    """Devuelve únicamente raíces L3 confirmatorias presentes en M21."""
+
+    ontology = canonical_snapshot.get("ontological_discrimination")
+    if not isinstance(ontology, Mapping):
+        return set()
+
+    matrix = ontology.get("pairwise_matrix")
+    if not isinstance(matrix, Mapping):
+        return set()
+
+    roots: set[str] = set()
+    for assessment in matrix.values():
+        if not isinstance(assessment, Mapping):
+            continue
+        if assessment.get("confirmatory_status") != "SEPARABLE_VALIDATED":
+            continue
+        validated_roots = assessment.get("validated_roots")
+        if not isinstance(validated_roots, list):
+            continue
+        for root in validated_roots:
+            if isinstance(root, str) and root:
+                roots.add(root)
+
+    return roots
+
+
+def _validate_discriminator_component(
+    raw: Mapping[str, Any],
+    component: Mapping[str, Any],
+    canonical_snapshot: Mapping[str, Any],
+) -> None:
+    """Impide que L1/L2 o señales no trazables entren en IRC como L3."""
+
+    component_id = str(component["id"])
+
+    validation_level = raw.get("validation_level")
+    if validation_level != "L3_VALIDATED":
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere "
+            "validation_level=L3_VALIDATED."
+        )
+
+    if component.get("source_module") != "M21":
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR debe declarar "
+            "source_module=M21."
+        )
+
+    root_key = raw.get("root_key")
+    if not isinstance(root_key, str) or not root_key:
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere root_key trazable."
+        )
+
+    validated_roots = _validated_ontology_roots(canonical_snapshot)
+    if root_key not in validated_roots:
+        raise ValueError(
+            f"{component_id}: root_key={root_key!r} no consta como raíz "
+            "L3 confirmatoria en ontological_discrimination."
+        )
+
+
 def _validated_component(raw: Mapping[str, Any], index: int) -> dict[str, Any]:
     component_id = raw.get("id")
     if not isinstance(component_id, str) or not component_id:
@@ -79,6 +142,7 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
     - M23 aporta BIRTH_TIME automáticamente porque su fórmula está definida.
     - M22 sólo puede aportar ABLATION mediante un componente preregistrado.
     - M24 no aporta rareza/frecuencia a IRC.
+    - VALIDATED_DISCRIMINATOR exige L3_VALIDATED y respaldo canónico M21.
     - los demás componentes deben declarar procedencia y derivación.
     """
 
@@ -154,6 +218,13 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
                 )
             ablation_included = True
 
+        if component["kind"] == "VALIDATED_DISCRIMINATOR":
+            _validate_discriminator_component(
+                raw,
+                component,
+                context.canonical_snapshot,
+            )
+
         if component["source_module"] == "M24":
             raise ValueError(
                 f"{component_id}: M24 no puede convertirse en componente IRC."
@@ -206,5 +277,6 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
         limitations=(
             "M22 no se transforma automáticamente en un componente IRC sin regla preregistrada.",
             "La rareza/frecuencia de M24 queda excluida de IRC.",
+            "Sólo discriminadores L3 validados y trazables desde M21 pueden entrar en IRC.",
         ),
     )
