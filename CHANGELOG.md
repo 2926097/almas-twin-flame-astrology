@@ -15,6 +15,7 @@
 - Refuerza el contrato público con schemas, políticas y tests S1–S9.
 - Mantiene PX v2 (`ALMAS_SEMANTIC_MOTIF_V2`) como único score operativo; PX, PS, IEM, IDD, IRC y ontología de producción no cambian por S1–S9.
 - Mantiene `validated_discriminator_ids=[]`, `PX v3 records=[]` y `metaphysical_probability=false`.
+- La suite de release alcanza **394 tests deterministas**.
 - No se declara holdout externo real ejecutado, validación L3 ni validación científica de las ontologías metafísicas.
 
 ## 1.14.0 — 2026-09-26
