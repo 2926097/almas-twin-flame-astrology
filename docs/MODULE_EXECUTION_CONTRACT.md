@@ -76,7 +76,7 @@ Cuando estén implementados los handlers suficientes, determinados módulos publ
 
 Hasta entonces debe distinguirse:
 
-En 1.13, una ejecución configurada con backends y con M01–M29 evaluables puede ensamblar `canonical_analysis` automáticamente antes de M30. Cuando faltan esos requisitos, `orchestration run != canonical_analysis completo` continúa siendo la regla de degradación.
+Desde 1.13, una ejecución configurada con backends puede ensamblar `canonical_analysis` automáticamente antes de M30. En 1.14 la completitud se evalúa además contra `ALMAS_ANALYSIS_PROFILES_V1`: un módulo requerido ausente degrada; un módulo opcional o excluido no degrada por sí mismo. `READY` significa completitud del perfil, no demostración metafísica.
 
 ## Política de implementación
 
@@ -141,9 +141,9 @@ Los contratos de salida están en `schemas/synastry-output.schema.json` y `schem
 
 ## M13 · lotes helenísticos / partes arábigas
 
-`M13` es un evaluador declarativo de fórmulas. Cada lote debe declarar `id`, `source_ref` y una fórmula o variantes `DAY/NIGHT`. Si existen variantes, `lot_policy.sect_by_subject` debe indicar el sect de cada sujeto. ALMAS no escoge fórmulas ni invierte términos de forma implícita.
+`M13` es un evaluador declarativo de fórmulas. Una `lot_policy` explícita conserva prioridad. Si no existe, 1.14 aplica `ALMAS_HELLENISTIC_LOTS_V1`, limitada a Fortuna y Espíritu con inversión diurna/nocturna documentada. El sect se toma de entrada explícita cuando existe y, como fallback operativo, de la posición por casa del Sol respecto del horizonte.
 
-La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0–360°. Los puntos pueden proceder de posiciones natales o ángulos canónicos.
+La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0–360°. La baseline histórica es técnica documentada, no validación empírica ni discriminador ontológico.
 
 ## M14 · capa simbólica secundaria
 
@@ -171,11 +171,7 @@ reserva a M23–M25 para evitar doble penalización.
 ## M18–M21 · pilares, IEM y discriminación
 
 `M18` prioriza `independent_roots` canónicas. La política
-`ALMAS_ROOT_PILLAR_ATTRIBUTION_V1` asigna a cada raíz un único pilar
-semántico primario y permite PX como metapilar ortogonal de recurrencia.
-La precedencia de resolución de solapamientos es
-`PS → PK → PT → PE → PR → PA`. PU permanece `NOT_EVALUABLE` en la
-baseline automática.
+`ALMAS_ROOT_PILLAR_ATTRIBUTION_V2` asigna a cada raíz un único pilar semántico primario entre PK/PT/PE/PR/PA. PX y PS se derivan después mediante `ALMAS_SEMANTIC_MOTIF_V2`: el `root_key` no se reescribe, las raíces se agrupan por motivo semántico y cada familia de dependencia cuenta una sola vez por motivo. RELCHART continúa siendo una sola familia; las capas `support_only` no pueden crear recurrencia core. PU permanece `NOT_EVALUABLE`.
 
 La ausencia sólo se convierte en cero cuando M03, M05, M06, M09 y M11 están
 todos `COMPLETED`. En cobertura incompleta se conserva `None` para impedir
@@ -183,9 +179,7 @@ que missingness funcione como contraevidencia.
 
 `M19` aplica las fórmulas públicas de IEM sin cambios.
 
-`M21` usa Shapley sobre `IEM_pre` para atribuir a cada raíz su contribución
-a AF, KA, AG y LG. Hasta 10 raíces usa cálculo exacto; por encima utiliza
-permutaciones antitéticas deterministas con control de convergencia. ICE,
+`M21` usa Shapley sobre `IEM_pre` para atribuir a cada unidad canónica su contribución a AF, KA, AG y LG. Las unidades pueden ser raíces independientes o features de motivo derivadas para PX/PS; estas últimas no se declaran evidencia independiente. Hasta 10 unidades usa cálculo exacto; por encima utiliza permutaciones antitéticas deterministas con control de convergencia. ICE,
 IEM_final, temporalidad y rareza nula quedan fuera de la función de valor.
 Las distribuciones se comparan por divergencia Jensen–Shannon para obtener IDD.
 
@@ -208,11 +202,9 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 
 `M23` dispone desde Q4 de dos rutas explícitas. Con backend natal y Davison
 inyectados, genera perturbaciones mediante
-`ALMAS_BIRTH_TIME_PERTURBATION_V1`; sin esos requisitos puede conservar el
-adaptador legacy `time_sensitivity_summary`.
+`ALMAS_BIRTH_TIME_SENSITIVITY_V2`; sin esos requisitos puede conservar el adaptador legacy `time_sensitivity_summary`.
 
-La ruta automática perturba ambas horas locales sobre una parrilla congelada
-según `time_reliability`, recalcula la arquitectura estructural y deriva:
+La ruta automática calcula siempre una curva diagnóstica `R5/R15/R30/R60/R120` cuando existen hora, zona y localización. Si además ambos sujetos tienen `time_reliability` A/B/C/D documentada, ejecuta la parrilla agregada correspondiente y deriva:
 
 `delta90 = P90_nearest_rank(max |Δ IEM_pre|)`
 
@@ -224,10 +216,7 @@ Aplica después exactamente:
 
 `R_X = exp(-delta90/20) × sqrt(G)`.
 
-La ruta automática falla cerrado si alguna muestra generada no puede
-recalcularse. No usa ICE, IEM_final, temporalidad, modelos nulos ni IDD.
-La estabilidad de IDD se reserva a un componente separado de M25 para evitar
-doble contabilización.
+La ruta automática falla cerrado si alguna muestra generada no puede recalcularse. Sin fiabilidad documentada, M23 puede quedar `COMPLETED` con curva diagnóstica pero `robustness_component=null`; M25 no inventa `BIRTH_TIME`. No usa ICE, IEM_final, temporalidad, modelos nulos ni IDD. La estabilidad de IDD se reserva a M25.
 
 `M24` admite dos rutas. Si la entrada contiene `null_model_runs`,
 evalúa esas corridas preregistradas como compatibilidad legacy y como vía para
