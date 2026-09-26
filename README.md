@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.13.0  
+**Versión pública:** 1.14.0  
 **Estado:** pipeline modular M00–M31 ejecutable + cierre cuantitativo Q1–Q7 + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
@@ -64,7 +64,7 @@ La ontología completa se analiza por ejes independientes de origen, contrato pr
 
 `canonical_analysis.json` es la verdad analítica de la capa astrológica. El módulo contractual consume esa salida mediante el bridge canónico y no debe recalcular silenciosamente la evidencia.
 
-Desde 1.13.0, una ejecución FULL configurada puede derivar automáticamente fuerza de raíces, pilares, atribuciones Shapley/IDD, sensibilidad horaria, componentes de robustez, un universo nulo autocontenido y `canonical_analysis`. Los adaptadores precomputados se conservan por compatibilidad y para diseños que requieren datos externos.
+Desde 1.14.0, una ejecución FULL configurada puede derivar automáticamente fuerza de raíces, pilares, atribuciones Shapley/IDD, sensibilidad horaria, componentes de robustez, un universo nulo autocontenido y `canonical_analysis`. Los adaptadores precomputados se conservan por compatibilidad y para diseños que requieren datos externos.
 
 ## Repositorio
 
