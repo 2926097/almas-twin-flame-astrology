@@ -60,7 +60,9 @@
       ],
       "validation_design": "Diseño intra-sujeto y entre-sujetos con criterios congelados, holdout y replicación.",
       "promotion_rule": "No puede llegar a L3 hasta demostrar especificidad fuera de muestra y baja tasa de falsos outliers en controles.",
-      "ontological_limit": "Aunque valide especificidad diádica, no demuestra que la díada sea una twin flame; sólo evalúa la predicción operacional de unicidad."
+      "ontological_limit": "Aunque valide especificidad diádica, no demuestra que la díada sea una twin flame; sólo evalúa la predicción operacional de unicidad.",
+      "uses_astrology": true,
+      "astrology_role": "La comparación de especificidad usa datos natales y pipeline estructural; la astrología es material al proxy."
     },
     {
       "id": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
@@ -101,7 +103,9 @@
       ],
       "validation_design": "Preregistro del patrón antes del holdout, Monte Carlo específico de feature-set, ablación y replicación.",
       "promotion_rule": "Puede promoverse sólo si el proxy muestra discriminación fuera de muestra y no depende de una sola familia.",
-      "ontological_limit": "El término blueprint pertenece a la doctrina; el proxy astrológico es una hipótesis ALMAS y no una medición directa del blueprint."
+      "ontological_limit": "El término blueprint pertenece a la doctrina; el proxy astrológico es una hipótesis ALMAS y no una medición directa del blueprint.",
+      "uses_astrology": true,
+      "astrology_role": "El observable es explícitamente astrológico y multicapa; requiere firewall astrológico completo."
     },
     {
       "id": "OD03_BLINDED_DOCTRINAL_CODING",
@@ -143,7 +147,9 @@
       ],
       "validation_design": "Múltiples evaluadores, rúbrica congelada, Cohen/Fleiss kappa o estadístico equivalente, holdout textual y adversarial testing.",
       "promotion_rule": "L3 sólo para separabilidad de constructos; nunca como validación ontológica de una relación real.",
-      "ontological_limit": "Puede validar que las doctrinas son operacionalmente distintas, no que una pareja pertenezca metafísicamente a una de ellas."
+      "ontological_limit": "Puede validar que las doctrinas son operacionalmente distintas, no que una pareja pertenezca metafísicamente a una de ellas.",
+      "uses_astrology": false,
+      "astrology_role": "Clasificación doctrinal ciega; no necesita datos astrológicos."
     },
     {
       "id": "OD04_PROSPECTIVE_MODEL_PREDICTION",
@@ -183,7 +189,9 @@
       ],
       "validation_design": "Preregistro, timestamp, seguimiento prospectivo, scoring definido antes del resultado y replicación.",
       "promotion_rule": "No puede promoverse si las predicciones fueron formuladas después de conocer eventos o si las diferencias entre modelos no estaban congeladas.",
-      "ontological_limit": "La predicción correcta no demuestra origen metafísico; sólo aporta validez predictiva al modelo operacional."
+      "ontological_limit": "La predicción correcta no demuestra origen metafísico; sólo aporta validez predictiva al modelo operacional.",
+      "uses_astrology": true,
+      "astrology_role": "Puede usar activaciones temporales y medidas estructurales astrológicas; se clasifica conservadoramente como dependiente de astrología."
     },
     {
       "id": "OD05_PRIOR_UNITY_DIRECT",
@@ -206,7 +214,9 @@
         "usar regresión o canalización como ground truth",
         "usar autoetiqueta"
       ],
-      "reconsideration_condition": "Sólo reabrir si se define un observable independiente con falsador y validación que no presuponga el modelo."
+      "reconsideration_condition": "Sólo reabrir si se define un observable independiente con falsador y validación que no presuponga el modelo.",
+      "uses_astrology": false,
+      "astrology_role": "Bloqueado por no observabilidad; la astrología está expresamente prohibida como observación directa de origen."
     },
     {
       "id": "OD06_MONADIC_HIERARCHY_DIRECT",
@@ -221,7 +231,9 @@
         "MONADIC_ORIGIN<->TWIN_FLAME_MODEL"
       ],
       "block_reason": "La doctrina monádica es conceptualmente diferenciable, pero no existe un criterio externo independiente para identificar en dos personas una fuente monádica común.",
-      "reconsideration_condition": "Requiere operacionalización no circular y replicable; hasta entonces MONADIC_ORIGIN no puede alcanzar L3."
+      "reconsideration_condition": "Requiere operacionalización no circular y replicable; hasta entonces MONADIC_ORIGIN no puede alcanzar L3.",
+      "uses_astrology": false,
+      "astrology_role": "Bloqueado por ausencia de criterio externo para fuente monádica común."
     },
     {
       "id": "OD07_PHENOMENOLOGY_CLUSTER",
@@ -235,7 +247,9 @@
         "ALL_TARGET_MODELS"
       ],
       "reject_reason": "Estas señales aparecen en múltiples modelos y no generan predicciones diferenciales exclusivas.",
-      "allowed_use": "Describir fenomenología y función; nunca excluir o seleccionar una ontología específica."
+      "allowed_use": "Describir fenomenología y función; nunca excluir o seleccionar una ontología específica.",
+      "uses_astrology": false,
+      "astrology_role": "Fenomenología contemporánea no discriminante; no depende de astrología para su definición."
     }
   ],
   "mandatory_validation_controls": [
@@ -249,11 +263,30 @@
     "out_of_sample_replication",
     "label_leakage_test",
     "narrative_leakage_test",
-    "false_specificity_rate"
+    "false_specificity_rate",
+    "astrology_independence",
+    "non_astrological_external_criterion",
+    "astrology_ablation",
+    "astrology_dependency_audit"
   ],
   "promotion_logic": {
     "L1_to_L2": "Requiere observable reproducible, predicción diferencial, falsador, controles y protocolo preregistrable.",
     "L2_to_L3": "Requiere reglas congeladas, replicación independiente, holdout, especificidad aceptable y ausencia de leakage relevante.",
-    "L3_scope": "La validación conserva el alcance exacto del observable; nunca se amplía automáticamente a verdad metafísica."
+    "L3_scope": "La validación conserva el alcance exacto del observable; nunca se amplía automáticamente a verdad metafísica.",
+    "L2_to_L3_astrology": "Si uses_astrology=true, L3 exige además criterio externo no astrológico, ablación, controles emparejados, auditoría de dependencia, validación fuera de muestra y replicación astrológica específica."
+  },
+  "astrology_independence_policy": {
+    "principle": "Si la astrología afecta materialmente al observable o a la regla de decisión, el discriminador debe declararse uses_astrology=true y no puede promoverse a L3 sin validación astrológica independiente registrada.",
+    "l3_extra_requirements": [
+      "criterio externo no astrológico",
+      "ablación de familias/features astrológicas",
+      "controles emparejados procesados con el mismo pipeline",
+      "auditoría de dependencia y pseudo-replicación",
+      "validación fuera de muestra",
+      "replicación astrológica específica"
+    ],
+    "single_feature_can_confirm": false,
+    "null_rarity_is_metaphysical_probability": false,
+    "temporal_activation_proves_origin": false
   }
 }
