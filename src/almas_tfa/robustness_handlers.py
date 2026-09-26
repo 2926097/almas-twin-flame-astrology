@@ -7,12 +7,13 @@ Las implementaciones canónicas viven en módulos especializados:
 """
 
 from .null_model_handlers import m24_null_models, wilson_interval
-from .robustness_index_handlers import m25_robustness
+from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .time_sensitivity_handlers import m23_time_sensitivity
 
 __all__ = [
     "m23_time_sensitivity",
     "m24_null_models",
     "m25_robustness",
+    "make_m25_robustness",
     "wilson_interval",
 ]
