@@ -200,9 +200,49 @@ sometidos a su gate independiente y no se crean automáticamente.
 Q5 continúa excluyendo rareza nula, temporalidad, ICE e IEM_final de la
 derivación de robustez estructural.
 
+## Fase Q6 · Generación automática de universo nulo estructural
+
+Q6 queda implementada mediante la política congelada
+`ALMAS_NULL_WITHIN_YEAR_V1` y el motor
+`src/almas_tfa/null_generation.py`.
+
+Cuando no se proporcionan `null_model_runs` externos, M24 genera de forma
+determinista un universo nulo `WITHIN_YEAR`. Cada sujeto se perturba por
+separado mientras el otro permanece fijo. Se conservan año natal, hora local,
+zona horaria y localización; sólo se sustituye la fecha de nacimiento por 32
+fechas estratificadas dentro del mismo año. Esto produce 64 muestras en una
+pareja con dos sujetos.
+
+No se usa RNG: el generador toma el centro de cada estrato del calendario,
+excluye la fecha original y conserva una secuencia totalmente reproducible.
+
+Se calculan tres estadísticas independientes:
+
+- `CORE_ROOT_COUNT`;
+- `MAX_IEM_PRE`;
+- `PX_PILLAR_SCORE`.
+
+Cada estadístico genera su propia frecuencia estructural y su intervalo de
+Wilson. Se prohíbe combinarlos en un único p-value.
+
+El null autocontenido no se presenta como población externa. Los modelos
+`PAIR_SHUFFLE`, `MATCHED_AGE` y `MATCHED_AGE_CLOCK` requieren un pool
+externo apropiado y continúan admitiéndose mediante el adaptador explícito
+`null_model_runs`. `EVENT_DATE_SHIFT`, `EPHEMERIS_DATE` y
+`TECHNIQUE_SPECIFIC_CYCLE` requieren políticas específicas y no se fabrican
+desde una sola pareja.
+
+Q6 fija explícitamente:
+
+`metaphysical_probability = false`
+
+`external_population_claim = false`
+
+`combined_p_value_state = FORBIDDEN`
+
+y M25 mantiene la rareza nula completamente fuera de IRC.
+
 ## Próximas fases
 
-Q6: generadores de universos nulos para M24, manteniendo rareza estructural
-separada de IRC y de cualquier probabilidad metafísica.
-
-Q7: actualización del gate FULL, fixtures y release pública 1.13.0.
+Q7: actualización del gate FULL, fixtures, metadatos de versión y release
+pública 1.13.0.
