@@ -36,7 +36,9 @@ Se preservan:
 
 ## Paso 2 · Semantic Motif Graph + perfiles
 
-Objetivo:
+**Completado en la rama de evolución.**
+
+Implementación:
 
 `evidencia → root_key → raíz independiente → semantic_motif → recurrencia`.
 
@@ -57,6 +59,8 @@ Se introduce `analysis_profile` como dimensión ortogonal a
   degradar M30 por ese motivo.
 
 ## Paso 3 · Validación y release
+
+**En ejecución.**
 
 Antes de fusionar 1.14.0:
 
