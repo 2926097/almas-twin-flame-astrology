@@ -2,6 +2,16 @@
 
 ## 1.11.0 — 2026-09-25
 
+### Informes astrológicos personales PDF
+- Integra `skills/almas-personal-pdf/SKILL.md` como punto de entrada interno que hereda VERSION 1.11.0.
+- Añade contrato estable `personal_canonical_analysis.json` con procedencia de cálculo, warnings y fingerprint.
+- Añade router modular de referencias para cargar sólo los dominios relevantes.
+- Añade cinco perfiles de informe: ejecutivo, estándar, crítico completo, atlas técnico y esotérico/cabalístico.
+- Añade API Python para validación, routing y construcción del modelo documental sin incrustar ni mutar valores canónicos.
+- Formaliza B5 176×250 mm como perfil editorial de referencia, con DOCX→PDF, preflight y revisión visual completa.
+- Integra por reimplementación independiente patrones públicos estudiados en wvanderen/astrology-skill, zhuisDEV/lilacsky, adityarya24/astro-skill y aryaminus/astro; no se copia código de terceros ni se añaden nuevas dependencias.
+- Añade schemas, manifiestos, fixture sintético e invariantes específicos sin modificar M00–M31 ni las fórmulas relacionales.
+
 ### Pipeline modular ejecutable M00–M31
 - Añade contrato común de módulos, estados de ejecución y orquestador secuencial con propiedad de namespaces canónicos.
 - Implementa M01 y M03–M31 como handlers ejecutables; M02 natal y M08 Davison quedan como fronteras `BACKEND_REQUIRED` con backend inyectable.
