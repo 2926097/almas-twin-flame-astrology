@@ -2,6 +2,21 @@
 
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.
 
+## ALMAS 1.15.0 — 2026-09-27
+
+- El módulo contractual hereda la release pública 1.15.0 de la raíz.
+- Consume PX/PS v2 sin aplicar los diagnósticos S1–S9 como pesos o cláusulas contractuales.
+- La calibración de recurrencia, los controles nulos/sintéticos y los candidatos PX v3 son metadatos metodológicos; no elevan contrato, origen, misión ni cumplimiento.
+- El registro PX v3 permanece vacío y no existe activación operativa en 1.15.
+- `engine_revision` permanece 1.9.0 y no se modifican cláusulas, gates contractuales ni techos inferenciales.
+
+## ALMAS 1.14.0 — 2026-09-26
+
+- El módulo contractual hereda la release pública 1.14.0 de la raíz.
+- Consume la recurrencia semántica PX/PS v2 y los perfiles de análisis sin recalcular la capa astrológica.
+- Los motivos semánticos no equivalen por sí mismos a cláusulas preencarnatorias ni a origen compartido.
+- `engine_revision` permanece 1.9.0.
+
 ## ALMAS 1.13.0 — 2026-09-26
 
 - El módulo contractual hereda la release pública 1.13.0 de la raíz.
