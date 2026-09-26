@@ -132,6 +132,23 @@ def _path_available(value: Mapping[str, Any], path: str) -> bool:
     return current is not None
 
 
+def _layer_enabled(value: Any) -> bool:
+    if value is None:
+        return False
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, Mapping):
+        if "available" in value:
+            return value.get("available") is True
+        state = value.get("state")
+        if isinstance(state, str):
+            return state.upper() not in {
+                "NOT_AVAILABLE", "NOT_EVALUABLE", "DISABLED", "ABSENT"
+            }
+        return bool(value)
+    return bool(value)
+
+
 def validate_personal_canonical(canonical: Mapping[str, Any]) -> dict[str, Any]:
     blocking: list[str] = []
     degraded: list[str] = []
@@ -183,11 +200,14 @@ def validate_personal_canonical(canonical: Mapping[str, Any]) -> dict[str, Any]:
         blocking.append("LIMITATIONS_MUST_BE_ARRAY")
 
     temporal = canonical.get("temporal")
-    if isinstance(temporal, Mapping):
+    if isinstance(temporal, Mapping) and "returns" in temporal:
         returns = temporal.get("returns")
-        if isinstance(returns, Sequence) and not isinstance(returns, (str, bytes)):
+        if not isinstance(returns, Sequence) or isinstance(returns, (str, bytes)):
+            blocking.append("TEMPORAL_RETURNS_MUST_BE_ARRAY")
+        else:
             for idx, item in enumerate(returns):
                 if not isinstance(item, Mapping):
+                    blocking.append(f"RETURN_{idx}:MUST_BE_OBJECT")
                     continue
                 if item.get("houses_included") is True and not item.get("location_documented"):
                     blocking.append(f"RETURN_{idx}:HOUSES_WITHOUT_DOCUMENTED_LOCATION")
@@ -216,20 +236,20 @@ def route_personal_references(canonical: Mapping[str, Any]) -> list[str]:
             ("esoteric", "esoteric"),
             ("kabbalistic", "kabbalah"),
         ):
-            if structural.get(key):
+            if _layer_enabled(structural.get(key)):
                 domains.add(domain)
 
     secondary = canonical.get("secondary_layers")
     if isinstance(secondary, Mapping):
-        if secondary.get("draconic"):
+        if _layer_enabled(secondary.get("draconic")):
             domains.add("draconic")
-        if secondary.get("lots"):
+        if _layer_enabled(secondary.get("lots")):
             domains.add("lots")
-        if any(secondary.get(k) for k in ("declinations", "antiscia", "midpoints")):
+        if any(_layer_enabled(secondary.get(k)) for k in ("declinations", "antiscia", "midpoints")):
             domains.add("symmetry")
-        if any(secondary.get(k) for k in ("fixed_stars", "parans")):
+        if any(_layer_enabled(secondary.get(k)) for k in ("fixed_stars", "parans")):
             domains.add("fixed_stars")
-        if secondary.get("asteroids"):
+        if _layer_enabled(secondary.get("asteroids")):
             domains.add("asteroids")
 
     if canonical.get("temporal"):
