@@ -186,6 +186,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/semantic-motif-policy.json",
     "src/almas_tfa/data/recurrence-quality-policy.json",
     "src/almas_tfa/data/recurrence-null-calibration-policy.json",
+    "src/almas_tfa/data/recurrence-synthetic-controls-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -213,6 +214,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/semantic_motifs.py",
     "src/almas_tfa/recurrence_quality.py",
     "src/almas_tfa/null_calibration.py",
+    "src/almas_tfa/synthetic_controls.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -306,6 +308,7 @@ REQUIRED_FILES = [
     "tests/test_pillar_attribution.py",
     "tests/test_recurrence_quality.py",
     "tests/test_null_calibration.py",
+    "tests/test_synthetic_controls.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -463,6 +466,9 @@ def main() -> int:
     )
     recurrence_null_calibration_policy = load_json(
         "src/almas_tfa/data/recurrence-null-calibration-policy.json"
+    )
+    recurrence_synthetic_controls_policy = load_json(
+        "src/almas_tfa/data/recurrence-synthetic-controls-policy.json"
     )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
@@ -883,6 +889,48 @@ def main() -> int:
         fail("S2 must forbid metaphysical probability")
     if calibration_principles.get("external_population_claim") is not False:
         fail("S2 self-contained null must not claim external population")
+
+    if recurrence_synthetic_controls_policy.get("policy_id") != "ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1":
+        fail("recurrence synthetic controls policy id changed")
+    if recurrence_synthetic_controls_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("recurrence synthetic controls policy must remain diagnostic")
+    if recurrence_synthetic_controls_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("recurrence synthetic controls policy must remain E_PROJECT_POLICY")
+    synthetic_principles = recurrence_synthetic_controls_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "diagnostic_only",
+        "deterministic_no_rng",
+        "preserve_root_count",
+        "preserve_root_strengths",
+        "preserve_dependency_families",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "external_nulls_required_before_weighting",
+        "development_cases_cannot_define_thresholds",
+    ):
+        if synthetic_principles.get(key) is not True:
+            fail(f"recurrence synthetic control invariant failed: {key}")
+    for key in (
+        "metaphysical_probability",
+        "population_probability_claim",
+        "p_value_claim",
+    ):
+        if synthetic_principles.get(key) is not False:
+            fail(f"recurrence synthetic control field must remain false: {key}")
+    control_ids = [
+        item.get("id")
+        for item in recurrence_synthetic_controls_policy.get("control_families", [])
+        if isinstance(item, dict)
+    ]
+    if control_ids != [
+        "SEMANTIC_SIGNATURE_ROTATION",
+        "DECOUPLED_POINT_RELATION_ROTATION",
+    ]:
+        fail("S3 control family registry changed")
 
     if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
@@ -2022,6 +2070,24 @@ def main() -> int:
     ):
         if calibration_props.get(field, {}).get("const") is not False:
             fail(f"M24 S2 calibration field must remain false: {field}")
+    synthetic_schema = null_model_output_schema.get("properties", {}).get("synthetic_recurrence_controls", {})
+    synthetic_props = synthetic_schema.get("properties", {})
+    if synthetic_props.get("policy_id", {}).get("const") != "ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1":
+        fail("M24 schema must bind the S3 synthetic control policy")
+    for field in (
+        "used_for_weighting",
+        "used_in_px_score",
+        "used_in_ps_score",
+        "used_in_iem",
+        "used_in_idd",
+        "used_in_irc",
+        "used_in_ontology",
+        "metaphysical_probability",
+        "population_probability_claim",
+        "p_value_claim",
+    ):
+        if synthetic_props.get(field, {}).get("const") is not False:
+            fail(f"M24 S3 synthetic control field must remain false: {field}")
 
     temporal_props = temporal_activation_schema.get("properties", {})
     if temporal_props.get("structural_score_modified", {}).get("const") is not False:
