@@ -242,7 +242,56 @@ Q6 fija explícitamente:
 
 y M25 mantiene la rareza nula completamente fuera de IRC.
 
-## Próximas fases
+## Fase Q7 · Ensamblaje canónico y cierre FULL
 
-Q7: actualización del gate FULL, fixtures, metadatos de versión y release
-pública 1.13.0.
+Q7 queda implementada mediante la política congelada
+`ALMAS_CANONICAL_ASSEMBLY_V1` y el motor
+`src/almas_tfa/canonical_assembly.py`.
+
+El cambio elimina el último shim principal del FULL: ya no es necesario
+suministrar manualmente `canonical_analysis` cuando M01–M29 han producido los
+namespaces canónicos requeridos.
+
+El ensamblador no recalcula astrología, raíces ni pilares. Serializa los
+resultados ya producidos, deriva la cobertura canónica ICC mediante siete
+dominios y prepara el objeto que M30 valida y congela mediante fingerprint.
+
+La cobertura utiliza exactamente siete dominios:
+
+1. base natal;
+2. sinastría/nodos;
+3. ángulos/casas;
+4. simetrías;
+5. cartas relacionales;
+6. dracónica;
+7. lotes/capa simbólica secundaria.
+
+Cada dominio recibe q = 1.0, 0.5 o 0.0 según completitud y:
+
+`ICC = 100 × Σq / 7`.
+
+El IDD global de presentación utiliza
+`MIN_EVALUABLE_PAIRWISE_IDD`, conservando además todos los IDD por pares. La
+elección es conservadora: no permite que una separación muy marcada entre dos
+modelos oculte un par que continúe solapado.
+
+Los estados AF/KA/AG/LG se ensamblan a partir de los pilares e ICE ya
+disponibles. `SUPPORTED` sólo puede cerrarse cuando ICE es evaluable y se
+cumple el gate público de IEM, CORE, ICC, IRC y R_min. Si ICE no es evaluable,
+el modelo puede permanecer `COMPATIBLE` pero no elevarse artificialmente a
+`SUPPORTED`.
+
+M30 conserva compatibilidad: un `canonical_analysis` explícito sigue teniendo
+prioridad y nunca se sobrescribe. Sólo cuando no existe se activa el
+ensamblador Q7.
+
+La prueba FULL sintética se ha migrado para retirar los shims cuantitativos
+manuales de Q1–Q7: fuerza de raíces, pilares, atribuciones IDD, sensibilidad
+horaria, universos nulos, componentes de robustez, ICC/IRC/R_min y
+`canonical_analysis` se derivan ahora por el pipeline.
+
+## Estado de cierre
+
+Q1–Q7 forman el cierre cuantitativo de ALMAS 1.13.0. Antes de fusionar la
+release deben sincronizarse los metadatos SemVer, ejecutar la auditoría final y
+obtener SUCCESS en `Núcleo Python` y `Contrato público` sobre el mismo HEAD.
