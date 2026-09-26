@@ -24,6 +24,7 @@ REQUIRED_FILES = [
     "docs/SOURCE_NORMALIZATION_REPORT.md",
     "docs/DOCTRINE_TO_ASTROLOGY.md",
     "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md",
+    "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -191,6 +192,7 @@ REQUIRED_FILES = [
     "tests/REPORT_GATE_INVARIANTS.md",
     "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md",
     "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md",
+    "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -228,6 +230,7 @@ REQUIRED_FILES = [
     "tests/test_final_handlers.py",
     "tests/test_full_pipeline.py",
     "tests/test_ontological_discriminator_adversarial.py",
+    "tests/test_ontological_discriminator_metamorphic.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -477,6 +480,30 @@ def main() -> int:
     ):
         if token not in adversarial_invariants:
             fail("adversarial ontology invariants are incomplete")
+
+    metamorphic_plan = (
+        ROOT / "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "FULL_OUTPUT_IDENTITY",
+        "SEMANTIC_DECISION_IDENTITY",
+        "pair_coverage",
+        "Paso 13",
+    ):
+        if token not in metamorphic_plan:
+            fail("metamorphic ontology test plan is incomplete")
+
+    metamorphic_invariants = (
+        ROOT / "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "MR01",
+        "MR09",
+        "MR11",
+        "L3",
+    ):
+        if token not in metamorphic_invariants:
+            fail("metamorphic ontology invariants are incomplete")
 
     natal_required = set(natal_chart_schema.get("required", []))
     if not {"subject_id", "timed", "backend_id", "backend_version", "positions"}.issubset(natal_required):
