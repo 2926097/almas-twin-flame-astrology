@@ -13,3 +13,17 @@ Si en el futuro se añade un ejemplo real, debe situarse en un corpus de casos p
 ## Diferencial de origen del alma
 
 `origin-differential.synthetic.json` demuestra el motor diferencial de origen con modelos competidores, discriminadores doctrinales, dimensiones astrológicas y el fallback explícito `SHARED_ORIGIN_UNDIFFERENTIATED`. Es completamente sintético.
+
+
+## Manifiesto obligatorio
+
+Todos los JSON de este directorio, salvo el propio manifiesto, deben aparecer exactamente una vez en `examples/manifest.json`.
+
+Cada entrada debe permanecer clasificada como `SYNTHETIC` y declarar:
+
+- `contains_real_person_data=false`;
+- `contains_nonpublic_material=false`;
+- `derived_from_private_case=false`;
+- `reversible_from_private_case=false`.
+
+Un ejemplo no puede convertirse en “sintético” mediante una perturbación ligera de un caso privado.
