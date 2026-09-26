@@ -30,6 +30,7 @@ REQUIRED_FILES = [
     "docs/BLINDING_LEAKAGE_POLICY.md",
     "docs/PROMOTION_STATE_MACHINE.md",
     "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
+    "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -40,6 +41,8 @@ REQUIRED_FILES = [
     "schemas/discriminator-promotion-registry.schema.json",
     "schemas/discriminator-promotion-transition.schema.json",
     "schemas/discriminator-promotion-reporting.schema.json",
+    "schemas/discriminator-source-genealogy.schema.json",
+    "schemas/discriminator-source-genealogy-reporting.schema.json",
     "schemas/discriminant-validation-evidence.schema.json",
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
@@ -160,10 +163,12 @@ REQUIRED_FILES = [
     "src/almas_tfa/blinding_leakage.py",
     "src/almas_tfa/promotion_state_machine.py",
     "src/almas_tfa/promotion_reporting.py",
+    "src/almas_tfa/discriminator_source_genealogy.py",
     "src/almas_tfa/data/discriminator-promotion-registry.json",
     "src/almas_tfa/data/discriminant-validation-policy.json",
     "src/almas_tfa/data/blinding-leakage-policy.json",
     "src/almas_tfa/data/promotion-state-machine-policy.json",
+    "src/almas_tfa/data/discriminator-source-genealogy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -215,6 +220,7 @@ REQUIRED_FILES = [
     "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md",
     "tests/BLINDING_LEAKAGE_INVARIANTS.md",
     "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md",
+    "tests/DISCRIMINATOR_SOURCE_GENEALOGY_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -258,6 +264,7 @@ REQUIRED_FILES = [
     "tests/test_blinding_leakage.py",
     "tests/test_promotion_state_machine.py",
     "tests/test_promotion_reporting.py",
+    "tests/test_discriminator_source_genealogy.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -381,6 +388,9 @@ def main() -> int:
     promotion_state_machine_policy = load_json(
         "src/almas_tfa/data/promotion-state-machine-policy.json"
     )
+    discriminator_source_genealogy = load_json(
+        "src/almas_tfa/data/discriminator-source-genealogy.json"
+    )
     operational_discriminator_candidates = load_json(
         "reference/operational-discriminator-candidates.json"
     )
@@ -414,6 +424,12 @@ def main() -> int:
     report_document_model_schema = load_json("schemas/report-document-model.schema.json")
     promotion_reporting_schema = load_json(
         "schemas/discriminator-promotion-reporting.schema.json"
+    )
+    source_genealogy_schema = load_json(
+        "schemas/discriminator-source-genealogy.schema.json"
+    )
+    source_genealogy_reporting_schema = load_json(
+        "schemas/discriminator-source-genealogy-reporting.schema.json"
     )
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
@@ -500,6 +516,15 @@ def main() -> int:
         != "discriminator-promotion-reporting.schema.json"
     ):
         fail("report document model promotion_reporting schema ref changed")
+    source_genealogy_contract = (
+        promotion_reporting_schema.get("properties", {})
+        .get("source_genealogy", {})
+        .get("anyOf", [])
+    )
+    if {
+        "$ref": "discriminator-source-genealogy-reporting.schema.json"
+    } not in source_genealogy_contract:
+        fail("promotion reporting source_genealogy schema ref changed")
     if promotion_reporting_schema.get("properties", {}).get(
         "methodological_status_only", {}
     ).get("const") is not True:
@@ -630,6 +655,293 @@ def main() -> int:
 
     if discriminator_promotion_registry.get("state_machine_policy_id") != "ALMAS_PROMOTION_STATE_MACHINE_V1":
         fail("promotion registry is not bound to the state-machine policy")
+
+
+    if discriminator_source_genealogy.get("authority") != "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY":
+        fail("discriminator source genealogy authority changed")
+    if discriminator_source_genealogy.get("registry_version") != "1.0.0":
+        fail("discriminator source genealogy registry version changed")
+
+    source_entries = {
+        entry.get("id"): entry
+        for entry in source_registry.get("entries", [])
+    }
+    source_snapshots = {
+        entry.get("id"): entry
+        for entry in discriminator_source_genealogy.get("source_snapshots", [])
+    }
+    if len(source_snapshots) != len(
+        discriminator_source_genealogy.get("source_snapshots", [])
+    ):
+        fail("duplicate source snapshot in discriminator genealogy")
+
+    genealogy_records = {
+        record.get("discriminator_id"): record
+        for record in discriminator_source_genealogy.get("records", [])
+    }
+    operational_candidate_map = {
+        item.get("id"): item
+        for item in operational_discriminator_candidates.get("candidates", [])
+    }
+    if set(genealogy_records) != set(operational_candidate_map):
+        fail(
+            "discriminator source genealogy does not cover "
+            "operational candidates exactly"
+        )
+
+    used_source_ids = set()
+    snapshot_fields = (
+        "priority",
+        "source_role",
+        "tradition",
+        "author",
+        "work",
+        "date",
+        "date_note",
+        "passage",
+        "pages",
+        "verification_status",
+        "verification_anchor",
+        "verification_anchor_type",
+        "verification_anchor_url",
+        "evidence_scope",
+        "concepts",
+    )
+    doctrinal_edge_set = {
+        (
+            edge.get("from"),
+            edge.get("to"),
+            edge.get("relation"),
+            edge.get("status"),
+        )
+        for edge in doctrinal_genealogy.get("edges", [])
+    }
+    concept_map = {
+        item.get("id"): item
+        for item in concept_registry.get("concepts", [])
+    }
+    non_identity_relations = {
+        "NON_EQUIVALENT",
+        "COMPARATIVE_ANTECEDENT_ONLY",
+        "COMPARATIVE_MOTIF_ONLY",
+        "MODERN_REINTERPRETATION_NOT_IDENTITY",
+        "TERMINOLOGICAL_ANTECEDENT_NOT_DOCTRINAL_IDENTITY",
+        "PHENOMENOLOGY_NOT_ONTOLOGY",
+        "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+        "NON_DISCRIMINATING_PHENOMENOLOGY",
+        "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+        "NO_DIRECT_DOCTRINAL_IDENTITY",
+    }
+    expected_genealogy_ceilings = {
+        "OD01_PAIR_SPECIFICITY_NETWORK": "PROJECT_PROXY_ONLY",
+        "OD02_DYADIC_STRUCTURAL_ISOMORPHISM": "PROJECT_PROXY_ONLY",
+        "OD03_BLINDED_DOCTRINAL_CODING": "CONSTRUCT_SEPARABILITY_ONLY",
+        "OD04_PROSPECTIVE_MODEL_PREDICTION": "PROJECT_PROXY_ONLY",
+        "OD05_PRIOR_UNITY_DIRECT": "DOCTRINAL_CONCEPT_ONLY",
+        "OD06_MONADIC_HIERARCHY_DIRECT": "DOCTRINAL_CONCEPT_ONLY",
+        "OD07_PHENOMENOLOGY_CLUSTER": "PHENOMENOLOGY_ONLY",
+    }
+
+    for discriminator_id, record in genealogy_records.items():
+        candidate = operational_candidate_map[discriminator_id]
+        if record.get("derived_from") != candidate.get("derived_from"):
+            fail(f"genealogy derived_from mismatch: {discriminator_id}")
+        if record.get("epistemic_class") != candidate.get("epistemic_class"):
+            fail(f"genealogy epistemic class mismatch: {discriminator_id}")
+        if (
+            record.get("epistemic_ceiling")
+            != expected_genealogy_ceilings[discriminator_id]
+        ):
+            fail(f"genealogy epistemic ceiling mismatch: {discriminator_id}")
+
+        for key in (
+            "source_count_adds_weight",
+            "source_priority_adds_ontological_weight",
+            "cross_tradition_identity_allowed",
+            "direct_case_evidence",
+            "can_change_case_classification",
+            "can_raise_irc",
+        ):
+            if record.get(key) is not False:
+                fail(
+                    f"genealogy firewall changed {key}: "
+                    f"{discriminator_id}"
+                )
+
+        source_usage = record.get("source_usage", [])
+        if not isinstance(source_usage, list) or not source_usage:
+            fail(f"genealogy source_usage missing: {discriminator_id}")
+
+        for usage in source_usage:
+            source_id = usage.get("source_id")
+            used_source_ids.add(source_id)
+            source = source_entries.get(source_id)
+            snapshot = source_snapshots.get(source_id)
+            if not isinstance(source, dict) or not isinstance(snapshot, dict):
+                fail(f"genealogy references unknown source: {source_id}")
+
+            for field in snapshot_fields:
+                if snapshot.get(field) != source.get(field):
+                    fail(f"source snapshot drift {source_id}.{field}")
+
+            source_concepts = set(source.get("concepts", []))
+            if not set(usage.get("concept_refs", [])).issubset(
+                source_concepts
+            ):
+                fail(
+                    f"genealogy concept ref not present in source: "
+                    f"{source_id}"
+                )
+
+            supports = source.get("supports", [])
+            for index in usage.get("support_indexes", []):
+                if (
+                    not isinstance(index, int)
+                    or index < 0
+                    or index >= len(supports)
+                ):
+                    fail(f"invalid supports index for {source_id}")
+
+            limitations = source.get("does_not_support", [])
+            limitation_indexes = usage.get("does_not_support_indexes", [])
+            if (
+                not isinstance(limitation_indexes, list)
+                or not limitation_indexes
+            ):
+                fail(
+                    f"genealogy must preserve does_not_support "
+                    f"for {source_id}"
+                )
+            for index in limitation_indexes:
+                if (
+                    not isinstance(index, int)
+                    or index < 0
+                    or index >= len(limitations)
+                ):
+                    fail(
+                        f"invalid does_not_support index for {source_id}"
+                    )
+
+            if usage.get("direct_case_evidence") is not False:
+                fail(
+                    f"source usage became direct case evidence: "
+                    f"{discriminator_id}"
+                )
+            if usage.get("ontological_validation") is not False:
+                fail(
+                    f"source usage became ontological validation: "
+                    f"{discriminator_id}"
+                )
+
+            if (
+                source.get("priority") == "P1_PRIMARY"
+                and source.get("source_role") == "DOCTRINAL_PRIMARY"
+                and usage.get("relation") in {
+                    "DIRECT_DOCTRINAL_BASIS",
+                    "MONADIC_DOCTRINAL_BASIS",
+                }
+            ):
+                if not source.get("verification_anchor"):
+                    fail(
+                        f"P1 doctrinal genealogy source lacks anchor: "
+                        f"{source_id}"
+                    )
+                if source.get("verification_anchor_type") not in {
+                    "EXACT_PASSAGE",
+                    "SECTION",
+                    "CHAPTER",
+                }:
+                    fail(
+                        f"P1 doctrinal genealogy source has weak anchor: "
+                        f"{source_id}"
+                    )
+                if source.get("evidence_scope") != "DOCTRINAL_CLAIM":
+                    fail(
+                        f"P1 doctrinal genealogy source scope changed: "
+                        f"{source_id}"
+                    )
+
+        for edge in record.get("required_genealogy_edges", []):
+            signature = (
+                edge.get("from"),
+                edge.get("to"),
+                edge.get("relation"),
+                edge.get("status"),
+            )
+            if signature not in doctrinal_edge_set:
+                fail(f"required genealogy edge missing: {signature}")
+
+        for pair in record.get("forbidden_equivalences", []):
+            if not isinstance(pair, list) or len(pair) != 2:
+                fail(
+                    f"invalid forbidden equivalence: {discriminator_id}"
+                )
+            a, b = pair
+            concept_a = concept_map.get(a, {})
+            concept_b = concept_map.get(b, {})
+            concept_backed = (
+                b in set(concept_a.get("not_equivalent_to", []))
+                or a in set(concept_b.get("not_equivalent_to", []))
+            )
+            edge_backed = any(
+                (
+                    (
+                        edge.get("from") == a
+                        and edge.get("to") == b
+                    )
+                    or (
+                        edge.get("from") == b
+                        and edge.get("to") == a
+                    )
+                )
+                and edge.get("relation") in non_identity_relations
+                for edge in doctrinal_genealogy.get("edges", [])
+            )
+            if not (concept_backed or edge_backed):
+                fail(
+                    "forbidden equivalence lacks genealogical backing: "
+                    f"{discriminator_id} {a}<->{b}"
+                )
+
+    if used_source_ids != set(source_snapshots):
+        fail(
+            "source genealogy snapshots must equal "
+            "the exact used source set"
+        )
+
+    if (
+        source_genealogy_schema.get("properties", {})
+        .get("records", {})
+        .get("items", {})
+        .get("properties", {})
+        .get("source_count_adds_weight", {})
+        .get("const")
+        is not False
+    ):
+        fail(
+            "source genealogy schema must keep "
+            "source_count_adds_weight=false"
+        )
+
+    if (
+        source_genealogy_reporting_schema.get("properties", {})
+        .get("source_count_adds_weight", {})
+        .get("const")
+        is not False
+    ):
+        fail(
+            "source genealogy reporting must keep "
+            "source_count_adds_weight=false"
+        )
+    if (
+        source_genealogy_reporting_schema.get("properties", {})
+        .get("source_priority_adds_ontological_weight", {})
+        .get("const")
+        is not False
+    ):
+        fail(
+            "source genealogy reporting must keep priority weight false"
+        )
 
     expected_promotion_evidence_keys = {
         "implementation_refs",
@@ -763,6 +1075,36 @@ def main() -> int:
     ):
         if token not in promotion_machine_doc:
             fail("promotion state-machine documentation is incomplete")
+
+    source_genealogy_doc = (
+        ROOT / "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY",
+        "source_count_adds_weight=false",
+        "does_not_support",
+        "Paso 19",
+    ):
+        if token not in source_genealogy_doc:
+            fail(
+                "discriminator source genealogy documentation "
+                "is incomplete"
+            )
+
+    source_genealogy_invariants = (
+        ROOT / "tests/DISCRIMINATOR_SOURCE_GENEALOGY_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "derived_from",
+        "does_not_support",
+        "PROJECT_PROXY_ONLY",
+        "PHENOMENOLOGY_ONLY",
+    ):
+        if token not in source_genealogy_invariants:
+            fail(
+                "discriminator source genealogy invariants "
+                "are incomplete"
+            )
 
     promotion_reporting_doc = (
         ROOT / "docs/DISCRIMINATOR_PROMOTION_REPORTING.md"
