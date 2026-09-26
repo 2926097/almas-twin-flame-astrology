@@ -241,6 +241,14 @@ inventa poblaciones externas: `PAIR_SHUFFLE`, `MATCHED_AGE` y
 Toda frecuencia M24 describe rareza estructural bajo el nulo declarado.
 `metaphysical_probability=false` y M24 permanece excluido de IRC.
 
+Desde la línea 1.15 S2, la ruta automática WITHIN_YEAR puede adjuntar
+`recurrence_calibration`. Esta subcapa compara los motivos semánticos y sus
+diagnósticos S1 contra las mismas muestras nulas: presencia, fuerza, diversidad
+de clases, dependencia dracónica, entropía, dominancia y supervivencia
+leave-one-out. El resultado es estrictamente `DIAGNOSTIC_ONLY`: no cambia
+PX/PS, IEM, IDD, IRC ni estados ontológicos y no autoriza weighting hasta que
+existan controles externos/holdout preregistrados.
+
 `M25` es el único agregador canónico de robustez. Incorpora automáticamente `BIRTH_TIME` desde M23 porque su derivación está definida. Otros componentes deben declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
 
 Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR`.
