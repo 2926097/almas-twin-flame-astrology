@@ -8,6 +8,10 @@ import json
 from typing import Any, Mapping
 
 from .time_perturbation import structural_recalculation_snapshot
+from .null_calibration import (
+    derive_recurrence_null_calibration,
+    load_recurrence_null_calibration_policy,
+)
 
 
 POLICY_RESOURCE = "null-within-year-policy.json"
@@ -206,6 +210,12 @@ def generate_within_year_null_runs(
             }
         )
 
+    recurrence_calibration = derive_recurrence_null_calibration(
+        baseline,
+        [sample["snapshot"] for sample in generated_samples],
+        policy=load_recurrence_null_calibration_policy(),
+    )
+
     for statistic in statistics:
         if not isinstance(statistic, Mapping):
             raise ValueError("Cada estadístico Q6 debe ser un objeto.")
@@ -247,6 +257,7 @@ def generate_within_year_null_runs(
         "sample_count": len(generated_samples),
         "samples_per_subject": sample_count,
         "sample_manifest": sample_manifest,
+        "recurrence_calibration": recurrence_calibration,
         "generator": dict(spec),
         "metaphysical_probability": False,
         "external_population_claim": False,
