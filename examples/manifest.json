@@ -1,0 +1,209 @@
+{
+  "manifest_version": "1.0.0",
+  "policy_id": "ALMAS_PUBLIC_DATA_ISOLATION_V1",
+  "scope": "examples",
+  "root": "examples",
+  "allowed_classifications": [
+    "SYNTHETIC"
+  ],
+  "artifacts": [
+    {
+      "path": "examples/agreement-motive.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/clause-assembly.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/common-task.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/contract-ablation.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/doctrinal-claims.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/documentary-event-ledger.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/encounter-conditions.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/fulfillment-mechanisms.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/individual-tasks.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/inferential-ceiling.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/origin-differential.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/precomputed-pillars.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/precomputed-result.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/preincarnation-contract-chain.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/preincarnation-reconstruction.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/role-selection.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/validation-case.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "VALIDATION_SMOKE_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/validation-run.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "VALIDATION_SMOKE_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    }
+  ]
+}
