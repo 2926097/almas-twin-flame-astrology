@@ -193,6 +193,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/external-recurrence-calibration-policy.json",
     "src/almas_tfa/data/px-v3-candidate-freeze-policy.json",
     "src/almas_tfa/data/px-v3-candidate-registry.json",
+    "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -224,6 +225,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/external_control_cohorts.py",
     "src/almas_tfa/external_recurrence_calibration.py",
     "src/almas_tfa/px_v3_candidates.py",
+    "src/almas_tfa/px_v3_holdout.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -321,6 +323,7 @@ REQUIRED_FILES = [
     "tests/test_external_control_cohorts.py",
     "tests/test_external_recurrence_calibration.py",
     "tests/test_px_v3_candidates.py",
+    "tests/test_px_v3_holdout.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -493,6 +496,9 @@ def main() -> int:
     )
     px_v3_candidate_registry = load_json(
         "src/almas_tfa/data/px-v3-candidate-registry.json"
+    )
+    px_v3_holdout_evaluation_policy = load_json(
+        "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json"
     )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
@@ -1079,6 +1085,39 @@ def main() -> int:
         fail("canonical PX v3 registry must remain empty before candidate preregistration")
     if px_v3_candidate_registry.get("validated_candidate_ids") != []:
         fail("S6 cannot contain validated PX v3 candidates")
+
+    if px_v3_holdout_evaluation_policy.get("policy_id") != "ALMAS_PX_V3_HOLDOUT_EVALUATION_V1":
+        fail("PX v3 holdout evaluation policy id changed")
+    if px_v3_holdout_evaluation_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("PX v3 holdout evaluation policy must remain protocol-only")
+    if px_v3_holdout_evaluation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("PX v3 holdout evaluation policy must remain E_PROJECT_POLICY")
+    s7_principles = px_v3_holdout_evaluation_policy.get("principles", {})
+    for key in (
+        "candidate_must_be_frozen_for_validation",
+        "cohort_must_pass_s4_firewall",
+        "clean_external_samples_only",
+        "development_overlap_forbidden",
+        "formula_ref_must_match_frozen_candidate",
+        "complete_score_coverage_required",
+        "aggregate_public_output_only",
+        "sample_identifiers_not_exposed",
+        "sample_values_not_exposed",
+        "threshold_fitting_on_holdout_forbidden",
+        "promotion_decision_forbidden",
+    ):
+        if s7_principles.get(key) is not True:
+            fail(f"S7 holdout invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+        "population_probability_claim",
+    ):
+        if s7_principles.get(key) is not False:
+            fail(f"S7 holdout field must remain false: {key}")
     for field in ("scoring_enabled", "weighting_enabled", "ontology_enabled"):
         if px_v3_candidate_registry.get(field) is not False:
             fail(f"PX v3 canonical registry must keep {field}=false")
