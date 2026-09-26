@@ -6,6 +6,7 @@ from importlib.resources import files
 from typing import Any, Mapping, Sequence
 
 from almas_tfa.discriminant_validation import has_complete_discriminant_validation
+from almas_tfa.blinding_leakage import has_complete_blinding_audit
 
 
 REGISTRY_RESOURCE = "data/discriminator-promotion-registry.json"
@@ -117,6 +118,10 @@ def _record_has_complete_l3_evidence(record: Mapping[str, Any]) -> bool:
         discriminant_validation,
         validated_pairs=pairs,
     ):
+        return False
+
+    blinding_audit = record.get("blinding_audit")
+    if not has_complete_blinding_audit(blinding_audit):
         return False
 
     evidence = record.get("validation_evidence")
