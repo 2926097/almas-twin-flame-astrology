@@ -151,15 +151,73 @@ M24 expone `synthetic_recurrence_controls`, siempre con:
 - `population_probability_claim=false`;
 - `p_value_claim=false`.
 
+## S4 · External Recurrence Cohort Firewall
+
+S4 queda implementada mediante
+`ALMAS_EXTERNAL_RECURRENCE_COHORT_V1` y el schema
+`external-recurrence-control-cohort.schema.json`.
+
+La finalidad no es todavía recalibrar PX, sino permitir que ALMAS reciba en
+runtime cohortes externas `PAIR_SHUFFLE`, `MATCHED_AGE` o
+`MATCHED_AGE_CLOCK` sin contaminar el repositorio ni convertir una cohorte
+mal seleccionada en evidencia de validación.
+
+Cada cohorte debe congelar antes de la ejecución:
+
+- `preregistration_ref`;
+- versión ALMAS y commit SHA;
+- `feature_set_ref`;
+- `orb_policy_ref`;
+- regla de emparejamiento;
+- regla de inclusión;
+- muestras y estado de validación.
+
+Cada muestra declara además:
+
+- `validation_status`;
+- `selection_status`;
+- nivel de cegamiento;
+- contaminación;
+- forbidden-field hits;
+- label leakage;
+- narrative leakage;
+- case fitting;
+- snapshot estructural de recurrencia.
+
+Los estados externos sólo se consideran candidatos limpios cuando son
+`EXTERNAL_HOLDOUT` o `FROZEN_CONFIRMATORY`, fueron seleccionados mediante
+`PREREGISTERED`, no presentan contaminación/leakage y contienen el snapshot
+estructural requerido.
+
+Una muestra `DEVELOPMENT_ONLY` puede mantenerse como material de desarrollo,
+pero nunca se convierte en validación externa de la regla que ayudó a crear.
+
+La salida pública de S4 es deliberadamente agregada. No publica:
+
+- `sample_ref`;
+- snapshots individuales;
+- datos natales;
+- identidades privadas.
+
+El acceso a snapshots sólo existe en memoria mediante una función runtime
+separada después de superar el firewall.
+
+S4 fija expresamente:
+
+- `candidate_weighting_enabled=false`;
+- `l3_validation=false`;
+- `metaphysical_probability=false`.
+
+Por tanto, disponer de una cohorte externa limpia no modifica todavía PX/PS ni
+promociona ningún discriminador.
+
 ## Siguientes fases
 
-S4 preparará la capa de controles externos (`PAIR_SHUFFLE`,
-`MATCHED_AGE_CLOCK`) y el protocolo para congelar candidatos PX v3. Ninguna
-regla de weighting podrá promocionarse usando los casos que sirvieron para
-descubrir el problema de saturación.
+S5 conectará, sin pérdida de procedencia, las cohortes externas S4 con el motor
+de calibración de recurrencia. El resultado seguirá siendo diagnóstico hasta
+que exista un diseño preregistrado de comparación fuera de muestra.
 
-S4 podrá modificar PX/PS sólo después de preregistro, controles negativos,
-ablación por familia y validación fuera de muestra.
-
-Los casos usados para descubrir estos problemas permanecen DEVELOPMENT_ONLY
-para cualquier regla derivada de esta línea metodológica.
+S6 podrá congelar candidatos PX v3 sólo si sobreviven S2, S3 y S5, ablación por
+familia, controles negativos y evaluación holdout. Los casos utilizados para
+descubrir el problema de saturación permanecen `DEVELOPMENT_ONLY` y no pueden
+definir thresholds ni validar la misma regla.
