@@ -50,6 +50,7 @@ from .external_control_cohorts import extract_clean_external_candidate_snapshots
 from .external_recurrence_calibration import derive_external_recurrence_calibration, load_external_recurrence_calibration_policy
 from .px_v3_candidates import evaluate_px_v3_candidate, evaluate_px_v3_candidate_registry, load_px_v3_candidate_freeze_policy, load_px_v3_candidate_registry
 from .px_v3_holdout import evaluate_px_v3_holdout, load_px_v3_holdout_evaluation_policy
+from .px_v3_promotion import evaluate_px_v3_promotion, load_px_v3_promotion_gate_policy
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -141,6 +142,8 @@ __all__ = [
     "evaluate_px_v3_candidate_registry",
     "load_px_v3_holdout_evaluation_policy",
     "evaluate_px_v3_holdout",
+    "load_px_v3_promotion_gate_policy",
+    "evaluate_px_v3_promotion",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",
