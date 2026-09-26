@@ -33,7 +33,7 @@ def load_birth_time_perturbation_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_BIRTH_TIME_PERTURBATION_V1":
+    if policy.get("policy_id") != "ALMAS_BIRTH_TIME_SENSITIVITY_V2":
         raise ValueError("Política de perturbación horaria desconocida.")
     return policy
 
@@ -80,7 +80,7 @@ def _offsets_for_subject(
 
     if reliability not in windows:
         raise ValueError(
-            f"{subject_id}: time_reliability debe ser A/B/C/D para Q4."
+            f"{subject_id}: time_reliability debe ser A/B/C/D para el componente BIRTH_TIME."
         )
     spec = windows[reliability]
     if not isinstance(spec, Mapping):
@@ -270,90 +270,27 @@ def _nearest_rank(values: Sequence[float], percentile: float) -> float:
     return ordered[rank - 1]
 
 
-def generate_birth_time_sensitivity(
+def _location_available(subject: Mapping[str, Any]) -> bool:
+    return (
+        isinstance(subject.get("place"), str)
+        and bool(subject.get("place"))
+    ) or (
+        isinstance(subject.get("latitude"), (int, float))
+        and not isinstance(subject.get("latitude"), bool)
+        and isinstance(subject.get("longitude"), (int, float))
+        and not isinstance(subject.get("longitude"), bool)
+    )
+
+
+def _evaluate_grid(
     raw_input: Mapping[str, Any],
+    subjects: Sequence[Mapping[str, Any]],
+    combinations: Sequence[tuple[int, int]],
+    baseline: Mapping[str, Any],
     *,
     astrology_backend,
     davison_backend,
-    policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Genera parrilla horaria, recalcula estructura y deriva delta90/G."""
-
-    if policy is None:
-        policy = load_birth_time_perturbation_policy()
-
-    subjects = raw_input.get("subjects")
-    if not isinstance(subjects, list) or len(subjects) != 2:
-        return {
-            "state": "NOT_EVALUABLE",
-            "reason": "Q4 requiere exactamente dos sujetos.",
-        }
-
-    subject_specs = []
-    offset_vectors = []
-    for subject in subjects:
-        if not isinstance(subject, Mapping):
-            return {
-                "state": "NOT_EVALUABLE",
-                "reason": "Cada subject debe ser un objeto.",
-            }
-        try:
-            _parse_local_datetime(subject)
-            offsets, spec = _offsets_for_subject(subject, policy)
-        except ValueError as exc:
-            return {
-                "state": "NOT_EVALUABLE",
-                "reason": str(exc),
-            }
-
-        if not isinstance(subject.get("timezone"), str) or not subject.get("timezone"):
-            return {
-                "state": "NOT_EVALUABLE",
-                "reason": f"{subject.get('id')}: timezone ausente.",
-            }
-        location_ok = (
-            isinstance(subject.get("place"), str)
-            and bool(subject.get("place"))
-        ) or (
-            isinstance(subject.get("latitude"), (int, float))
-            and not isinstance(subject.get("latitude"), bool)
-            and isinstance(subject.get("longitude"), (int, float))
-            and not isinstance(subject.get("longitude"), bool)
-        )
-        if not location_ok:
-            return {
-                "state": "NOT_EVALUABLE",
-                "reason": f"{subject.get('id')}: localización ausente.",
-            }
-
-        subject_specs.append(spec)
-        offset_vectors.append(offsets)
-
-    combinations = [
-        (offset_a, offset_b)
-        for offset_a in offset_vectors[0]
-        for offset_b in offset_vectors[1]
-    ]
-    max_samples = int(policy["grid"]["maximum_samples"])
-    if len(combinations) - 1 > max_samples:
-        return {
-            "state": "NOT_EVALUABLE",
-            "reason": "La parrilla preregistrada excede maximum_samples.",
-        }
-
-    baseline_raw = deepcopy(dict(raw_input))
-    baseline = _structural_snapshot(
-        baseline_raw,
-        astrology_backend=astrology_backend,
-        davison_backend=davison_backend,
-    )
-    if baseline.get("state") != "EVALUABLE":
-        return {
-            "state": "NOT_EVALUABLE",
-            "reason": "Baseline no evaluable: " + str(baseline.get("reason")),
-            "failed_module": baseline.get("failed_module"),
-        }
-
     baseline_roots = set(baseline["core_root_keys"])
     samples: list[dict[str, Any]] = []
     deltas: list[float] = []
@@ -418,40 +355,302 @@ def generate_birth_time_sensitivity(
             "reason": "La parrilla no produjo perturbaciones no nulas.",
         }
 
-    percentile = float(policy["metric"]["percentile"])
+    return {
+        "state": "EVALUABLE",
+        "samples": samples,
+        "deltas": deltas,
+        "preservation_values": preservation_values,
+    }
+
+
+def _summarize_grid(
+    evaluated: Mapping[str, Any],
+    *,
+    percentile: float,
+) -> dict[str, Any]:
+    deltas = [float(value) for value in evaluated["deltas"]]
+    preservation = [
+        float(value) for value in evaluated["preservation_values"]
+    ]
     delta90 = _nearest_rank(deltas, percentile)
-    preserved_fraction = sum(preservation_values) / len(preservation_values)
+    preserved_fraction = sum(preservation) / len(preservation)
+    from .core import robustness_component
+
+    return {
+        "delta90": delta90,
+        "preserved_fraction": preserved_fraction,
+        "robustness_component": robustness_component(
+            delta90,
+            preserved_fraction,
+        ),
+        "perturbation_count": len(evaluated["samples"]),
+        "samples": list(evaluated["samples"]),
+        "root_preservation_min": min(preservation),
+        "root_preservation_mean": preserved_fraction,
+        "root_preservation_max": max(preservation),
+        "iem_delta_max": max(deltas),
+    }
+
+
+def _diagnostic_curve(
+    raw_input: Mapping[str, Any],
+    subjects: Sequence[Mapping[str, Any]],
+    baseline: Mapping[str, Any],
+    *,
+    astrology_backend,
+    davison_backend,
+    policy: Mapping[str, Any],
+) -> dict[str, Any]:
+    windows = policy["diagnostic_curve"]["windows_minutes"]
+    percentile = float(policy["metric"]["percentile"])
+    curve = []
+
+    for raw_window in windows:
+        window = int(raw_window)
+        offsets = (-window, 0, window)
+        combinations = [
+            (offset_a, offset_b)
+            for offset_a in offsets
+            for offset_b in offsets
+        ]
+        evaluated = _evaluate_grid(
+            raw_input,
+            subjects,
+            combinations,
+            baseline,
+            astrology_backend=astrology_backend,
+            davison_backend=davison_backend,
+        )
+        if evaluated.get("state") != "EVALUABLE":
+            return evaluated
+
+        summary = _summarize_grid(
+            evaluated,
+            percentile=percentile,
+        )
+        curve.append(
+            {
+                "window_minutes": window,
+                "delta90": summary["delta90"],
+                "preserved_fraction": summary["preserved_fraction"],
+                "robustness_component": summary["robustness_component"],
+                "perturbation_count": summary["perturbation_count"],
+            }
+        )
 
     return {
         "state": "EVALUABLE",
+        "sampling": policy["diagnostic_curve"]["sampling"],
+        "curve": curve,
+        "curve_labels": {
+            f"R{item['window_minutes']}": item["robustness_component"]
+            for item in curve
+        },
+    }
+
+
+def generate_birth_time_sensitivity(
+    raw_input: Mapping[str, Any],
+    *,
+    astrology_backend,
+    davison_backend,
+    policy: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Genera curva horaria y, si existe fiabilidad documentada, BIRTH_TIME.
+
+    La curva R5/R15/R30/R60/R120 es diagnóstica y puede calcularse sin una
+    categoría A/B/C/D. El componente único de robustez sólo se emite cuando
+    ambos sujetos declaran una categoría de fiabilidad aceptada.
+    """
+
+    if policy is None:
+        policy = load_birth_time_perturbation_policy()
+
+    subjects = raw_input.get("subjects")
+    if not isinstance(subjects, list) or len(subjects) != 2:
+        return {
+            "state": "NOT_EVALUABLE",
+            "reason": "M23 requiere exactamente dos sujetos.",
+        }
+
+    normalized_subjects: list[Mapping[str, Any]] = []
+    for subject in subjects:
+        if not isinstance(subject, Mapping):
+            return {
+                "state": "NOT_EVALUABLE",
+                "reason": "Cada subject debe ser un objeto.",
+            }
+        try:
+            _parse_local_datetime(subject)
+        except ValueError as exc:
+            return {
+                "state": "NOT_EVALUABLE",
+                "reason": str(exc),
+            }
+
+        if not isinstance(subject.get("timezone"), str) or not subject.get("timezone"):
+            return {
+                "state": "NOT_EVALUABLE",
+                "reason": f"{subject.get('id')}: timezone ausente.",
+            }
+        if not _location_available(subject):
+            return {
+                "state": "NOT_EVALUABLE",
+                "reason": f"{subject.get('id')}: localización ausente.",
+            }
+        normalized_subjects.append(subject)
+
+    baseline = _structural_snapshot(
+        deepcopy(dict(raw_input)),
+        astrology_backend=astrology_backend,
+        davison_backend=davison_backend,
+    )
+    if baseline.get("state") != "EVALUABLE":
+        return {
+            "state": "NOT_EVALUABLE",
+            "reason": "Baseline no evaluable: " + str(baseline.get("reason")),
+            "failed_module": baseline.get("failed_module"),
+        }
+
+    curve = _diagnostic_curve(
+        raw_input,
+        normalized_subjects,
+        baseline,
+        astrology_backend=astrology_backend,
+        davison_backend=davison_backend,
+        policy=policy,
+    )
+    if curve.get("state") != "EVALUABLE":
+        return curve
+
+    windows = policy.get("reliability_windows")
+    if not isinstance(windows, Mapping):
+        raise ValueError("reliability_windows debe ser un objeto.")
+
+    reliabilities = [
+        subject.get("time_reliability")
+        for subject in normalized_subjects
+    ]
+    reliability_documented = all(value in windows for value in reliabilities)
+
+    base_output = {
         "policy_id": policy["policy_id"],
         "policy_status": policy["status"],
         "epistemic_class": policy["epistemic_class"],
         "preregistration_ref": policy["policy_id"],
         "subject_scope": policy["subject_scope"],
-        "perturbation_rule": {
-            "grid_mode": policy["grid"]["mode"],
-            "subjects": subject_specs,
-        },
         "metric": policy["metric"]["delta"],
         "preservation_metric": policy["metric"]["preserved_fraction"],
-        "percentile": percentile,
+        "percentile": float(policy["metric"]["percentile"]),
         "percentile_method": policy["metric"]["percentile_method"],
-        "delta90": delta90,
-        "preserved_fraction": preserved_fraction,
-        "perturbation_count": len(samples),
         "baseline": {
             "iem_pre": baseline["iem_pre"],
             "core_root_count": baseline["core_root_count"],
         },
-        "samples": samples,
-        "root_preservation_min": min(preservation_values),
-        "root_preservation_mean": preserved_fraction,
-        "root_preservation_max": max(preservation_values),
-        "iem_delta_max": max(deltas),
+        "diagnostic_curve": curve["curve"],
+        "diagnostic_curve_labels": curve["curve_labels"],
+        "diagnostic_curve_sampling": curve["sampling"],
+        "time_reliability_state": (
+            "DOCUMENTED" if reliability_documented else "UNDOCUMENTED"
+        ),
         "idd_recomputed": False,
         "ice_used": False,
         "iem_final_used": False,
         "temporal_activation_used": False,
         "null_rarity_used": False,
+    }
+
+    if not reliability_documented:
+        return {
+            **base_output,
+            "state": "DIAGNOSTIC_ONLY",
+            "robustness_component_eligible": False,
+            "robustness_component": None,
+            "delta90": None,
+            "preserved_fraction": None,
+            "perturbation_count": sum(
+                int(item["perturbation_count"])
+                for item in curve["curve"]
+            ),
+            "perturbation_rule": {
+                "grid_mode": policy["diagnostic_curve"]["sampling"],
+                "subjects": [
+                    {
+                        "subject_id": str(subject.get("id") or ""),
+                        "time_reliability": subject.get("time_reliability"),
+                    }
+                    for subject in normalized_subjects
+                ],
+            },
+            "samples": [],
+            "root_preservation_min": min(
+                float(item["preserved_fraction"])
+                for item in curve["curve"]
+            ),
+            "root_preservation_mean": sum(
+                float(item["preserved_fraction"])
+                for item in curve["curve"]
+            ) / len(curve["curve"]),
+            "root_preservation_max": max(
+                float(item["preserved_fraction"])
+                for item in curve["curve"]
+            ),
+            "iem_delta_max": max(
+                float(item["delta90"])
+                for item in curve["curve"]
+            ),
+        }
+
+    subject_specs = []
+    offset_vectors = []
+    for subject in normalized_subjects:
+        offsets, spec = _offsets_for_subject(subject, policy)
+        subject_specs.append(spec)
+        offset_vectors.append(offsets)
+
+    combinations = [
+        (offset_a, offset_b)
+        for offset_a in offset_vectors[0]
+        for offset_b in offset_vectors[1]
+    ]
+    max_samples = int(policy["grid"]["maximum_samples"])
+    if len(combinations) - 1 > max_samples:
+        return {
+            "state": "NOT_EVALUABLE",
+            "reason": "La parrilla preregistrada excede maximum_samples.",
+        }
+
+    evaluated = _evaluate_grid(
+        raw_input,
+        normalized_subjects,
+        combinations,
+        baseline,
+        astrology_backend=astrology_backend,
+        davison_backend=davison_backend,
+    )
+    if evaluated.get("state") != "EVALUABLE":
+        return evaluated
+
+    summary = _summarize_grid(
+        evaluated,
+        percentile=float(policy["metric"]["percentile"]),
+    )
+
+    return {
+        **base_output,
+        "state": "EVALUABLE",
+        "robustness_component_eligible": True,
+        "robustness_component": summary["robustness_component"],
+        "perturbation_rule": {
+            "grid_mode": policy["grid"]["mode"],
+            "subjects": subject_specs,
+        },
+        "delta90": summary["delta90"],
+        "preserved_fraction": summary["preserved_fraction"],
+        "perturbation_count": summary["perturbation_count"],
+        "samples": summary["samples"],
+        "root_preservation_min": summary["root_preservation_min"],
+        "root_preservation_mean": summary["root_preservation_mean"],
+        "root_preservation_max": summary["root_preservation_max"],
+        "iem_delta_max": summary["iem_delta_max"],
     }
