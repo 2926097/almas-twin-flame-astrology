@@ -5,6 +5,8 @@ from functools import lru_cache
 from importlib.resources import files
 from typing import Any, Mapping, Sequence
 
+from almas_tfa.discriminant_validation import has_complete_discriminant_validation
+
 
 REGISTRY_RESOURCE = "data/discriminator-promotion-registry.json"
 VALIDATED_STATUS = "VALIDATED_DISCRIMINATOR"
@@ -108,6 +110,13 @@ def _record_has_complete_l3_evidence(record: Mapping[str, Any]) -> bool:
         if not isinstance(frozen.get(key), str) or not frozen[key]:
             return False
     if not _nonempty_string_list(frozen.get("schema_refs")):
+        return False
+
+    discriminant_validation = record.get("discriminant_validation")
+    if not has_complete_discriminant_validation(
+        discriminant_validation,
+        validated_pairs=pairs,
+    ):
         return False
 
     evidence = record.get("validation_evidence")
