@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_BIRTH_TIME_PERTURBATION_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Generar perturbaciones horarias reproducibles para M23 y derivar el componente BIRTH_TIME sin resúmenes manuales.",
+  "subject_scope": "BOTH",
+  "reliability_windows": {
+    "A": {
+      "window_minutes": 15,
+      "step_minutes": 5
+    },
+    "B": {
+      "window_minutes": 30,
+      "step_minutes": 10
+    },
+    "C": {
+      "window_minutes": 60,
+      "step_minutes": 15
+    },
+    "D": {
+      "window_minutes": 120,
+      "step_minutes": 30
+    }
+  },
+  "grid": {
+    "mode": "CARTESIAN_LOCAL_CIVIL_TIME",
+    "include_zero_per_subject": true,
+    "exclude_all_zero_from_perturbation_samples": true,
+    "maximum_samples": 100
+  },
+  "metric": {
+    "delta": "MAX_ABS_IEM_PRE_CHANGE_ACROSS_AF_KA_AG_LG",
+    "percentile": 0.9,
+    "percentile_method": "NEAREST_RANK",
+    "preserved_fraction": "MEAN_BASELINE_CORE_ROOT_RETENTION"
+  },
+  "structural_recalculation": {
+    "required_modules": [
+      "M02",
+      "M03",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10",
+      "M11",
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19"
+    ],
+    "include_support_only_layers_in_metric": false,
+    "ice_used": false,
+    "iem_final_used": false,
+    "idd_used": false,
+    "temporal_activation_used": false,
+    "null_rarity_used": false
+  },
+  "principles": {
+    "case_fitting_forbidden": true,
+    "missing_time_reliability_is_not_evaluable": true,
+    "untimed_subject_is_not_evaluable": true,
+    "all_generated_samples_must_be_evaluable": true,
+    "same_policy_for_baseline_and_perturbations": true,
+    "local_date_rollover_allowed": true,
+    "birth_time_component_is_not_metaphysical_probability": true
+  }
+}
