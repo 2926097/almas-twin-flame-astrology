@@ -6,9 +6,11 @@ from almas_tfa.handlers import default_handlers
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
 
 
-def root_attr(root_id, pillar, value):
+def root_attr(root_id, pillar, value, *, unit_type="ROOT"):
     return {
+        "unit_id": root_id,
         "root_id": root_id,
+        "unit_type": unit_type,
         "eligible": True,
         "contributions": {pillar: value},
     }
@@ -18,14 +20,14 @@ class M21AutomaticIDDTests(unittest.TestCase):
     def context(self, *, complete=True, legacy=None):
         pillar_attribution = {
             "structural_absence_is_zero": complete,
-            "root_attributions": [
+            "attribution_units": [
                 root_attr("R1", "PA", 0.90),
                 root_attr("R2", "PR", 0.85),
                 root_attr("R3", "PE", 0.80),
-                root_attr("R4", "PX", 0.75),
+                root_attr("MOTIF:PX", "PX", 0.75, unit_type="SEMANTIC_MOTIF"),
                 root_attr("R5", "PK", 0.70),
                 root_attr("R6", "PT", 0.72),
-                root_attr("R7", "PS", 0.60),
+                root_attr("MOTIF:PS", "PS", 0.60, unit_type="SEMANTIC_MOTIF"),
             ],
         }
         raw = {}
@@ -47,7 +49,7 @@ class M21AutomaticIDDTests(unittest.TestCase):
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
         self.assertEqual(
             result.payload["attribution_source"],
-            "AUTO_SHAPLEY_CANONICAL_ROOTS",
+            "AUTO_SHAPLEY_CANONICAL_UNITS",
         )
         self.assertIn("model_attributions", result.canonical_updates)
         self.assertIn("pairwise_idd", result.canonical_updates)
@@ -66,7 +68,7 @@ class M21AutomaticIDDTests(unittest.TestCase):
         )
         self.assertEqual(
             result.payload["attribution_source"],
-            "AUTO_SHAPLEY_CANONICAL_ROOTS",
+            "AUTO_SHAPLEY_CANONICAL_UNITS",
         )
         auto = result.canonical_updates["model_attributions"]["attributions"]
         self.assertNotIn("legacy_a", auto["AF"])
