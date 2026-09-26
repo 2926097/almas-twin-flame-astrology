@@ -47,7 +47,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **314 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **317 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
