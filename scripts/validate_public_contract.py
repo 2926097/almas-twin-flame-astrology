@@ -181,6 +181,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
+    "src/almas_tfa/data/birth-time-perturbation-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -199,6 +200,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/root_strengths.py",
     "src/almas_tfa/pillar_attribution.py",
     "src/almas_tfa/model_attribution.py",
+    "src/almas_tfa/time_perturbation.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -286,6 +288,7 @@ REQUIRED_FILES = [
     "tests/test_pillar_attribution.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
+    "tests/test_time_perturbation.py",
     "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
@@ -430,6 +433,9 @@ def main() -> int:
     )
     model_attribution_policy = load_json(
         "src/almas_tfa/data/model-attribution-policy.json"
+    )
+    birth_time_perturbation_policy = load_json(
+        "src/almas_tfa/data/birth-time-perturbation-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -761,6 +767,23 @@ def main() -> int:
         fail("IDD must remain separated from ontological discrimination")
     if attribution_principles.get("ice_not_used_for_attribution") is not True:
         fail("ICE must remain outside Shapley attribution value function")
+
+    if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_PERTURBATION_V1":
+        fail("birth-time perturbation policy id changed")
+    if birth_time_perturbation_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("birth-time perturbation policy must remain frozen")
+    if birth_time_perturbation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("birth-time perturbation policy must remain E_PROJECT_POLICY")
+    q4_principles = birth_time_perturbation_policy.get("principles", {})
+    if q4_principles.get("case_fitting_forbidden") is not True:
+        fail("birth-time perturbation policy must forbid case fitting")
+    if q4_principles.get("all_generated_samples_must_be_evaluable") is not True:
+        fail("Q4 must fail closed when a generated perturbation is not evaluable")
+    q4_metric = birth_time_perturbation_policy.get("metric", {})
+    if q4_metric.get("percentile_method") != "NEAREST_RANK":
+        fail("Q4 percentile method must remain NEAREST_RANK")
+    if q4_metric.get("preserved_fraction") != "MEAN_BASELINE_CORE_ROOT_RETENTION":
+        fail("Q4 preserved_fraction metric changed")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
@@ -1697,8 +1720,8 @@ def main() -> int:
     if structural_ablation_schema.get("properties", {}).get("dependency_classes_assigned", {}).get("const") is not False:
         fail("structural ablation must not assign contractual dependency classes")
 
-    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
-        fail("time sensitivity must not generate perturbations internally")
+    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("type") != "boolean":
+        fail("time sensitivity schema must distinguish automatic and legacy perturbation sources")
     if not {"preregistration_ref", "delta90", "preserved_fraction", "robustness_component"}.issubset(
         set(time_sensitivity_schema.get("required", []))
     ):
@@ -1727,8 +1750,8 @@ def main() -> int:
     if "NULL_RARITY" in allowed_m25_kinds or "NULL_MODEL_FREQUENCY" in allowed_m25_kinds:
         fail("M25 must not admit null rarity as a robustness component")
 
-    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
-        fail("M23 must not generate perturbations implicitly")
+    if "generator_policy_id" not in time_sensitivity_schema.get("properties", {}):
+        fail("M23 automatic output must expose generator_policy_id")
     if null_model_output_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
         fail("M24 null-model output must forbid metaphysical probability")
     if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
