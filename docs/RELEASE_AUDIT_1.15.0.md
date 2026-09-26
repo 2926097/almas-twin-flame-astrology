@@ -160,8 +160,8 @@ La fusión requiere que el mismo HEAD final 1.15.0 concluya SUCCESS en:
 - Núcleo Python 3.10;
 - Núcleo Python 3.12.
 
-El recuento exacto de tests se registra en `VALIDATION_STATUS.md` tras el CI
-final.
+El HEAD de release ejecuta **394 tests deterministas**. El mismo recuento se
+registra en `VALIDATION_STATUS.md`.
 
 ## 15. Límites que permanecen
 
