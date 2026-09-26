@@ -3,6 +3,9 @@ from __future__ import annotations
 import copy
 from typing import Any, Mapping
 
+from almas_tfa.discriminator_source_genealogy import (
+    build_discriminator_source_genealogy_reporting,
+)
 from almas_tfa.discriminator_promotion_registry import (
     has_complete_l3_record,
     load_discriminator_promotion_registry,
@@ -163,6 +166,7 @@ def build_promotion_reporting(
     registry: Mapping[str, Any] | None = None,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
+    canonical_registry = registry is None
     registry = registry or load_discriminator_promotion_registry()
     policy = policy or load_promotion_state_machine_policy()
 
@@ -176,6 +180,12 @@ def build_promotion_reporting(
         if isinstance(record, Mapping)
     ]
     views.sort(key=lambda item: str(item["discriminator_id"]))
+
+    source_genealogy = (
+        build_discriminator_source_genealogy_reporting()
+        if canonical_registry
+        else None
+    )
 
     summary_counts = {
         state: sum(1 for item in views if item["current_status"] == state)
@@ -196,6 +206,7 @@ def build_promotion_reporting(
         "source_registry_authority": registry.get("authority"),
         "source_registry_version": registry.get("registry_version"),
         "state_machine_policy_id": policy.get("policy_id"),
+        "source_genealogy": source_genealogy,
         "epistemic_role": "METHODOLOGICAL_STATUS_ONLY",
         "methodological_status_only": True,
         "ontological_inference_allowed": False,
