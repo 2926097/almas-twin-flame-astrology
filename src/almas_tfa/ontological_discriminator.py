@@ -55,6 +55,7 @@ class PairObservation:
     result: str
     excluded_model: str | None = None
     root_key: str | None = None
+    promotion_ref: str | None = None
     note: str | None = None
 
 
@@ -114,6 +115,11 @@ def _normalize_observation(
                 if raw.get("root_key") is not None
                 else None
             ),
+            promotion_ref=(
+                str(raw.get("promotion_ref"))
+                if raw.get("promotion_ref") is not None
+                else None
+            ),
             note=str(raw.get("note")) if raw.get("note") is not None else None,
         )
     else:
@@ -148,6 +154,7 @@ def _normalize_observation(
         result=obs.result,
         excluded_model=excluded,
         root_key=obs.root_key or obs.discriminator_id,
+        promotion_ref=obs.promotion_ref,
         note=obs.note,
     )
 
@@ -450,6 +457,29 @@ def discriminate_ontology(
         classification = _classification_for_survivors(surviving_models)
         equivalence_classes = [list(surviving_models)] if surviving_models else []
 
+    promotion_trace_keys = {
+        (
+            obs.discriminator_id,
+            obs.promotion_ref,
+            obs.root_key or obs.discriminator_id,
+            obs.pair,
+        )
+        for obs in normalized
+        if obs.validation_level == "L3_VALIDATED" and obs.promotion_ref
+    }
+    promotion_trace = [
+        {
+            "discriminator_id": discriminator_id,
+            "promotion_ref": promotion_ref,
+            "root_key": root_key,
+            "pair": list(pair),
+        }
+        for discriminator_id, promotion_ref, root_key, pair in sorted(
+            promotion_trace_keys,
+            key=lambda item: (item[0], item[1], item[2], item[3]),
+        )
+    ]
+
     output: dict[str, Any] = {
         "schema_version": "1.0.0",
         "mode": mode,
@@ -464,6 +494,7 @@ def discriminate_ontology(
         "identifiability_state": identifiability_state,
         "epistemic_state": epistemic_state,
         "classification": classification,
+        "promotion_trace": promotion_trace,
         "conflicts": global_conflicts,
         "false_specificity_guard": (
             len(surviving_models) <= 1
