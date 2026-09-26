@@ -4,6 +4,7 @@ from collections import defaultdict
 from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .root_strengths import derive_root_strength, load_root_strength_policy
 
 
 SOURCE_SPECS = {
@@ -295,6 +296,11 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
             if x.get("exactness") is not None
         ]
 
+        strength_data = derive_root_strength(
+            members,
+            policy=load_root_strength_policy(),
+        )
+
         roots.append(
             {
                 "root_id": f"R{index:04d}",
@@ -306,15 +312,15 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
                 "core_evidence_ids": core_ids,
                 "support_evidence_ids": support_ids,
                 "max_exactness": max(exactness_values) if exactness_values else None,
-                "strength": None,
-                "strength_state": "NOT_CALCULATED",
+                **strength_data,
             }
         )
 
     output = {
         "roots": roots,
         "root_count": len(roots),
-        "strength_policy_applied": False,
+        "strength_policy_applied": True,
+        "strength_policy_id": "ALMAS_ROOT_STRENGTH_BASELINE_V1",
     }
 
     return ModuleResult(
@@ -323,6 +329,8 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
         payload=output,
         canonical_updates={"independent_roots": output},
         limitations=(
-            "Las raíces no reciben fuerza final hasta existir una política explícita para S=F×fiabilidad×factor_horario×coeficiente.",
+            "M17 aplica una baseline neutral congelada: los coeficientes de técnica/aspecto no introducen jerarquías no calibradas.",
+            "La sensibilidad a la hora natal se cuantifica en M23-M25 y no se penaliza de nuevo en la fuerza de raíz.",
+            "Las capas support-only conservan fuerza diagnóstica pero nunca convierten una raíz en core-eligible.",
         ),
     )
