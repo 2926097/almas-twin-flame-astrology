@@ -9,12 +9,13 @@ Las implementaciones canónicas viven en módulos especializados:
 
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
-from .report_gate_handlers import m30_report_gate
+from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
 from .report_model_handlers import m31_report
 
 __all__ = [
     "m28_doctrine_hermeneutics",
     "m29_viability_reciprocity",
     "m30_report_gate",
+    "make_m30_report_gate_auto",
     "m31_report",
 ]
