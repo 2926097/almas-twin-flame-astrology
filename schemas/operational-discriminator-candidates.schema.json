@@ -10,7 +10,8 @@
     "principle",
     "candidates",
     "mandatory_validation_controls",
-    "promotion_logic"
+    "promotion_logic",
+    "astrology_independence_policy"
   ],
   "properties": {
     "registry_version": {
@@ -42,7 +43,9 @@
           "status",
           "construct",
           "epistemic_class",
-          "target_pairs"
+          "target_pairs",
+          "uses_astrology",
+          "astrology_role"
         ],
         "properties": {
           "id": {
@@ -133,6 +136,13 @@
           },
           "reconsideration_condition": {
             "type": "string"
+          },
+          "uses_astrology": {
+            "type": "boolean"
+          },
+          "astrology_role": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": true
@@ -147,6 +157,41 @@
     },
     "promotion_logic": {
       "type": "object"
+    },
+    "astrology_independence_policy": {
+      "type": "object",
+      "required": [
+        "principle",
+        "l3_extra_requirements",
+        "single_feature_can_confirm",
+        "null_rarity_is_metaphysical_probability",
+        "temporal_activation_proves_origin"
+      ],
+      "properties": {
+        "principle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "l3_extra_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "single_feature_can_confirm": {
+          "const": false
+        },
+        "null_rarity_is_metaphysical_probability": {
+          "const": false
+        },
+        "temporal_activation_proves_origin": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
