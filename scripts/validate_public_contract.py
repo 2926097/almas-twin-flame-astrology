@@ -34,6 +34,7 @@ REQUIRED_FILES = [
     "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
     "docs/QUANTITATIVE_CLOSURE_1_13.md",
     "docs/RELEASE_AUDIT_1.13.0.md",
+    "docs/EVOLUTION_1.14.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -181,6 +182,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/public-data-isolation-policy.json",
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
+    "src/almas_tfa/data/semantic-motif-policy.json",
+    "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
     "src/almas_tfa/data/birth-time-perturbation-policy.json",
     "src/almas_tfa/data/robustness-q5-policy.json",
@@ -203,6 +206,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/evidence_handlers.py",
     "src/almas_tfa/root_strengths.py",
     "src/almas_tfa/pillar_attribution.py",
+    "src/almas_tfa/semantic_motifs.py",
+    "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
     "src/almas_tfa/robustness_quantification.py",
@@ -440,6 +445,12 @@ def main() -> int:
     )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
+    )
+    semantic_motif_policy = load_json(
+        "src/almas_tfa/data/semantic-motif-policy.json"
+    )
+    analysis_profile_policy = load_json(
+        "src/almas_tfa/data/analysis-profile-policy.json"
     )
     model_attribution_policy = load_json(
         "src/almas_tfa/data/model-attribution-policy.json"
@@ -757,7 +768,7 @@ def main() -> int:
     if root_strength_policy.get("principles", {}).get("case_fitting_forbidden") is not True:
         fail("root strength policy must forbid case fitting")
 
-    if root_pillar_policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1":
+    if root_pillar_policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2":
         fail("root to pillar policy id changed")
     if root_pillar_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("root to pillar policy must remain a frozen experimental baseline")
@@ -770,8 +781,30 @@ def main() -> int:
         fail("root to pillar policy must keep semantic pillar exclusivity")
     if pillar_principles.get("pu_automatic_attribution_forbidden") is not True:
         fail("PU automatic attribution must remain forbidden")
+    if pillar_principles.get("px_derived_by_semantic_motif_graph") is not True:
+        fail("PX must be derived by the semantic motif graph in 1.14")
+    if pillar_principles.get("ps_recurrent_layer_derived_by_semantic_motif_graph") is not True:
+        fail("PS recurrent layer must be derived by semantic motifs")
 
-    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1":
+    if semantic_motif_policy.get("policy_id") != "ALMAS_SEMANTIC_MOTIF_RECURRENCE_V1":
+        fail("semantic motif recurrence policy id changed")
+    if semantic_motif_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("semantic motif recurrence policy must remain frozen")
+    if semantic_motif_policy.get("epistemic_class") != "E_PROJECT_HYPOTHESIS":
+        fail("semantic motif recurrence must remain E_PROJECT_HYPOTHESIS")
+    motif_principles = semantic_motif_policy.get("principles", {})
+    if motif_principles.get("case_fitting_forbidden") is not True:
+        fail("semantic motif recurrence must forbid case fitting")
+    if motif_principles.get("private_case_fitting_forbidden") is not True:
+        fail("semantic motif recurrence must forbid private-case fitting")
+    if motif_principles.get("support_only_creates_recurrence") is not False:
+        fail("support-only must not create semantic recurrence")
+    if motif_principles.get("recurrence_strength_rule") != "SECOND_STRONGEST_FAMILY":
+        fail("semantic recurrence strength rule changed")
+    if motif_principles.get("relchart_is_one_dependency_family") is not True:
+        fail("RELCHART must remain one dependency family")
+
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
     if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("model attribution policy must remain frozen")
@@ -847,7 +880,7 @@ def main() -> int:
     if q6_principles.get("combined_p_value_forbidden") is not True:
         fail("Q6 must forbid combined p-value")
 
-    if canonical_assembly_policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V1":
+    if canonical_assembly_policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V2":
         fail("Q7 canonical assembly policy id changed")
     if canonical_assembly_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("Q7 canonical assembly policy must remain frozen")
@@ -871,6 +904,38 @@ def main() -> int:
     q7_domains = canonical_assembly_policy.get("coverage", {}).get("domains", [])
     if len(q7_domains) != 7 or len(set(q7_domains)) != 7:
         fail("Q7 canonical coverage must retain seven unique domains")
+    if canonical_assembly_policy.get("analysis_profile_default") != "FULL_MULTIDISCIPLINARY":
+        fail("canonical assembly default analysis profile changed")
+
+    if analysis_profile_policy.get("policy_id") != "ALMAS_ANALYSIS_PROFILES_V1":
+        fail("analysis profile policy id changed")
+    if analysis_profile_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("analysis profile policy must remain frozen")
+    profile_principles = analysis_profile_policy.get("principles", {})
+    if profile_principles.get("analysis_profile_is_orthogonal_to_analysis_mode") is not True:
+        fail("analysis profile must remain orthogonal to analysis mode")
+    if profile_principles.get("failed_module_always_blocks") is not True:
+        fail("analysis profiles must not suppress FAILED modules")
+    profiles = analysis_profile_policy.get("profiles", {})
+    if set(profiles) != {"FULL_MULTIDISCIPLINARY", "FULL_ASTROLOGY", "STRUCTURAL_ASTROLOGY"}:
+        fail("analysis profile registry changed")
+    astro_optional = set(
+        profiles.get("FULL_ASTROLOGY", {}).get(
+            "non_degrading_not_evaluable_modules", []
+        )
+    )
+    if astro_optional != {"M13", "M14", "M20", "M23", "M26", "M27", "M28", "M29"}:
+        fail("FULL_ASTROLOGY optional module contract changed")
+
+    raw_profiles = set(raw_schema.get("properties", {}).get("analysis_profile", {}).get("enum", []))
+    canonical_profiles = set(canonical_schema.get("properties", {}).get("analysis_profile", {}).get("enum", []))
+    expected_profiles = {"FULL_MULTIDISCIPLINARY", "FULL_ASTROLOGY", "STRUCTURAL_ASTROLOGY"}
+    if raw_profiles != expected_profiles:
+        fail("raw input analysis_profile enum mismatch")
+    if canonical_profiles != expected_profiles:
+        fail("canonical analysis_profile enum mismatch")
+    if "profile_optional_not_evaluable_modules" not in report_gate_schema.get("properties", {}):
+        fail("report gate must expose profile-aware optional modules")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
