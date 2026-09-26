@@ -2,3 +2,14 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+
+# ALMAS · material privado/local fuera del repositorio público
+private_cases/
+local_cases/
+.almas-private/
+private_holdouts/
+validation/private/
+holdouts/private/
+data/private/
+*.private-case.json
+*.private-holdout.json
