@@ -35,6 +35,7 @@ from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .root_strengths import derive_root_strength, evidence_strength, load_root_strength_policy
 from .pillar_attribution import classify_root, derive_pillars_from_roots, load_root_pillar_policy
+from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity
@@ -90,6 +91,8 @@ __all__ = [
     "load_root_pillar_policy",
     "classify_root",
     "derive_pillars_from_roots",
+    "load_model_attribution_policy",
+    "derive_model_attributions",
     "m20_counterevidence",
     "ABLATION_RUNS",
     "m22_ablation",
