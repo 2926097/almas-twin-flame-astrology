@@ -1,0 +1,119 @@
+{
+  "registry_version": "1.0.0",
+  "target_almas_version": "1.12.0",
+  "authority": "ALMAS_CANONICAL_DISCRIMINATOR_PROMOTION_REGISTRY",
+  "status": "ACTIVE_NO_L3_PROMOTIONS",
+  "principle": "L3_VALIDATED no puede ser declarado por una ejecución. Sólo existe cuando un registro canónico previo satisface congelación, preregistro, replicación independiente, holdout externo, controles negativos, auditoría de leakage y promoción explícita.",
+  "promotion_states": [
+    "EXPLORATORY",
+    "REPRODUCIBLE",
+    "REPLICATION_READY",
+    "CONFIRMATORY_ELIGIBLE",
+    "VALIDATED_DISCRIMINATOR",
+    "BLOCKED",
+    "RETIRED"
+  ],
+  "runtime_l3_requirements": [
+    "current_status=VALIDATED_DISCRIMINATOR",
+    "l3_authorized=true",
+    "promotion_ref presente",
+    "promoted_at presente",
+    "frozen.almas_version presente",
+    "frozen.commit_sha presente",
+    "frozen.rule_ref presente",
+    "validation_evidence.preregistration_refs no vacío",
+    "validation_evidence.independent_replication_refs no vacío",
+    "validation_evidence.external_holdout_refs no vacío",
+    "validation_evidence.negative_control_refs no vacío",
+    "validation_evidence.leakage_audit_refs no vacío",
+    "validated_pairs no vacío",
+    "root_key_prefix presente"
+  ],
+  "validated_discriminator_ids": [],
+  "records": [
+    {
+      "discriminator_id": "OD01_PAIR_SPECIFICITY_NETWORK",
+      "current_status": "EXPLORATORY",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD01:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "L2 experimental listo, pero sin replicación independiente ni holdout externo."
+    },
+    {
+      "discriminator_id": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
+      "current_status": "EXPLORATORY",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD02:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "Proxy astrológico limitado; falta validación discriminante fuera de muestra."
+    },
+    {
+      "discriminator_id": "OD03_BLINDED_DOCTRINAL_CODING",
+      "current_status": "EXPLORATORY",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD03:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "Puede validar separabilidad de constructos, no ontología de una díada real; no existe promoción L3."
+    },
+    {
+      "discriminator_id": "OD04_PROSPECTIVE_MODEL_PREDICTION",
+      "current_status": "EXPLORATORY",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD04:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "Falta protocolo prospectivo ejecutado, replicado y validado externamente."
+    },
+    {
+      "discriminator_id": "OD05_PRIOR_UNITY_DIRECT",
+      "current_status": "BLOCKED",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD05:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "No existe observable independiente no circular de la unidad preencarnatoria."
+    },
+    {
+      "discriminator_id": "OD06_MONADIC_HIERARCHY_DIRECT",
+      "current_status": "BLOCKED",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD06:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "No existe criterio externo independiente para identificar una fuente monádica común."
+    },
+    {
+      "discriminator_id": "OD07_PHENOMENOLOGY_CLUSTER",
+      "current_status": "RETIRED",
+      "l3_authorized": false,
+      "promotion_ref": null,
+      "promoted_at": null,
+      "validated_pairs": [],
+      "root_key_prefix": "OD07:",
+      "frozen": null,
+      "validation_evidence": null,
+      "block_reason": "Reconocimiento, intensidad, sincronicidad, familiaridad y destino son no discriminantes."
+    }
+  ]
+}
