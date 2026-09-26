@@ -12,6 +12,10 @@ from .module_contract import (
     ModuleResult,
     not_evaluable_result,
 )
+from .robustness_quantification import (
+    derive_q5_robustness_components,
+    load_q5_robustness_policy,
+)
 
 
 ALLOWED_COMPONENT_KINDS = {
@@ -223,6 +227,86 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
             ids.add("BIRTH_TIME")
             time_state = "INCLUDED"
 
+    auto_bundle = context.raw_input.get("__q5_auto_bundle")
+    auto_kinds: set[str] = set()
+    ablation_auto = False
+
+    if isinstance(auto_bundle, Mapping):
+        raw_auto = auto_bundle.get("components")
+        if isinstance(raw_auto, list):
+            for index, raw in enumerate(raw_auto, start=1):
+                if not isinstance(raw, Mapping):
+                    raise ValueError(
+                        f"Q5 auto component {index}: debe ser un objeto."
+                    )
+                component_id = raw.get("id")
+                kind = raw.get("kind")
+                value = raw.get("value")
+                source_module = raw.get("source_module")
+                preregistration_ref = raw.get("preregistration_ref")
+                derivation_ref = raw.get("derivation_ref")
+
+                if not isinstance(component_id, str) or not component_id:
+                    raise ValueError("Q5 auto component requiere id.")
+                if kind not in ALLOWED_COMPONENT_KINDS - {"VALIDATED_DISCRIMINATOR", "BIRTH_TIME"}:
+                    raise ValueError(
+                        f"{component_id}: kind automático Q5 inválido."
+                    )
+                if isinstance(value, bool) or not isinstance(value, (int, float)):
+                    raise ValueError(
+                        f"{component_id}: value automático debe ser numérico."
+                    )
+                value = float(value)
+                if not 0.0 <= value <= 1.0:
+                    raise ValueError(
+                        f"{component_id}: value automático debe estar en [0,1]."
+                    )
+                if not isinstance(source_module, str) or not source_module:
+                    raise ValueError(
+                        f"{component_id}: source_module automático obligatorio."
+                    )
+                if not isinstance(preregistration_ref, str) or not preregistration_ref:
+                    raise ValueError(
+                        f"{component_id}: preregistration_ref automático obligatorio."
+                    )
+                if not isinstance(derivation_ref, str) or not derivation_ref:
+                    raise ValueError(
+                        f"{component_id}: derivation_ref automático obligatorio."
+                    )
+                if component_id in ids:
+                    raise ValueError(
+                        f"Componente de robustez duplicado: {component_id}."
+                    )
+
+                if kind == "ABLATION":
+                    if source_module != "M22":
+                        raise ValueError(
+                            f"{component_id}: ABLATION automático debe proceder de M22."
+                        )
+                    if not isinstance(
+                        context.canonical_snapshot.get("ablation"),
+                        Mapping,
+                    ):
+                        raise ValueError(
+                            f"{component_id}: falta M22 canónico."
+                        )
+                    ablation_auto = True
+
+                components.append(
+                    {
+                        "id": component_id,
+                        "kind": kind,
+                        "value": value,
+                        "source_module": source_module,
+                        "preregistration_ref": preregistration_ref,
+                        "derivation_ref": derivation_ref,
+                        "note": raw.get("note"),
+                        "auto_derived": True,
+                    }
+                )
+                ids.add(component_id)
+                auto_kinds.add(str(kind))
+
     raw_components = context.raw_input.get("robustness_component_summaries")
     if raw_components is None:
         raw_components = []
@@ -241,6 +325,11 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
 
         component = _validated_component(raw, index)
         component_id = component["id"]
+
+        if component["kind"] in auto_kinds:
+            # La derivación automática Q5 tiene prioridad sobre el adaptador
+            # legacy del mismo kind para impedir doble contabilización.
+            continue
 
         if component_id in ids:
             raise ValueError(
@@ -288,7 +377,9 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
     values = [component["value"] for component in components]
     irc, r_min = robustness_index(values)
 
-    if ablation_included:
+    if ablation_auto:
+        ablation_state = "INCLUDED_AUTO_Q5"
+    elif ablation_included:
         ablation_state = "INCLUDED_PREREGISTERED"
     elif ablation_present:
         ablation_state = "AVAILABLE_NOT_QUANTIFIED"
@@ -321,8 +412,53 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
         payload=output,
         canonical_updates={"robustness_index": output},
         limitations=(
-            "M22 no se transforma automáticamente en un componente IRC sin regla preregistrada.",
+            "M22 sólo se transforma automáticamente cuando está activa la política congelada Q5.",
             "La rareza/frecuencia de M24 queda excluida de IRC.",
             "Sólo discriminadores L3 validados y trazables desde M21 pueden entrar en IRC.",
+            "Los componentes Q5 automáticos sustituyen al adaptador legacy del mismo kind; nunca se cuentan dos veces.",
         ),
     )
+
+
+def make_m25_robustness(astrology_backend, davison_backend):
+    """Construye M25 con cuantificación Q5 automática y fallback legacy."""
+
+    def m25_auto(context: ModuleContext) -> ModuleResult:
+        bundle = derive_q5_robustness_components(
+            context.raw_input,
+            context.canonical_snapshot,
+            astrology_backend=astrology_backend,
+            davison_backend=davison_backend,
+            policy=load_q5_robustness_policy(),
+        )
+        raw = dict(context.raw_input)
+        raw["__q5_auto_bundle"] = bundle
+        derived_context = ModuleContext(
+            module_id=context.module_id,
+            module_name=context.module_name,
+            mode=context.mode,
+            raw_input=raw,
+            canonical_snapshot=context.canonical_snapshot,
+            prior_results=context.prior_results,
+        )
+        result = m25_robustness(derived_context)
+        if result.status is not ExecutionStatus.COMPLETED:
+            return result
+
+        return ModuleResult(
+            module_id="M25",
+            status=result.status,
+            payload=result.payload,
+            canonical_updates=result.canonical_updates,
+            evidence_refs=result.evidence_refs,
+            limitations=result.limitations,
+            diagnostics=result.diagnostics
+            + (
+                "M25 q5_policy="
+                + str(bundle.get("policy_id"))
+                + "; auto_component_count="
+                + str(len(bundle.get("components", []))),
+            ),
+        )
+
+    return m25_auto
