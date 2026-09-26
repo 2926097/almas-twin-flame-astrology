@@ -12,7 +12,7 @@ Una release falla si ocurre cualquiera de estas condiciones:
 6. Falta validación fuera de muestra y aun así se autoriza L3.
 7. Falta replicación astrológica específica y aun así se autoriza L3.
 8. Un solo aspecto, asteroide, atacir o sincronía puede autorizar una categoría ontológica.
-9. La rareza bajo modelo nulo se convierte en probabilidad o prueba metafísica.
+9. `null_rarity_not_ontological` deja de ser verdadero y la rareza bajo modelo nulo se convierte en probabilidad o prueba metafísica.
 10. Una activación temporal se interpreta como prueba de origen.
 11. OD01, OD02 u OD04 aparecen como L3 productivo sin promoción registral completa.
 12. M25 acepta un componente VALIDATED_DISCRIMINATOR astrológico que M21 no podría autorizar con el mismo registro.
