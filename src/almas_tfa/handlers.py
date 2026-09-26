@@ -15,6 +15,7 @@ from .core import (
     supported_gate,
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .symmetry_handlers import m05_declinations, m06_antiscia
 from .relationship_chart_handlers import m07_composite
@@ -142,7 +143,57 @@ def m01_data_quality(context: ModuleContext) -> ModuleResult:
 
 
 def m18_pillars(context: ModuleContext) -> ModuleResult:
-    """M18: obtiene pilares precomputados o los deriva de raíces independientes."""
+    """M18: deriva pilares desde raíces canónicas y conserva adaptadores legacy."""
+
+    roots_obj = context.canonical_snapshot.get("independent_roots")
+    if isinstance(roots_obj, Mapping):
+        roots = roots_obj.get("roots")
+        if isinstance(roots, list) and roots:
+            policy = load_root_pillar_policy()
+            required_modules = tuple(
+                str(module_id)
+                for module_id in policy[
+                    "required_modules_for_structural_absence"
+                ]
+            )
+            structural_absence_is_zero = all(
+                (
+                    context.prior_results.get(module_id) is not None
+                    and context.prior_results[module_id].status
+                    is ExecutionStatus.COMPLETED
+                )
+                for module_id in required_modules
+            )
+
+            derived = derive_pillars_from_roots(
+                roots,
+                structural_absence_is_zero=structural_absence_is_zero,
+                policy=policy,
+            )
+
+            limitations = [
+                "La atribución raíz→pilar es E_PROJECT_HYPOTHESIS congelada y no una equivalencia doctrinal.",
+                "Cada raíz recibe como máximo un pilar semántico primario; PX es una propiedad ortogonal de recurrencia.",
+                "PU permanece NOT_EVALUABLE hasta existir un discriminador validado y preregistrado.",
+            ]
+            if not structural_absence_is_zero:
+                limitations.append(
+                    "La ausencia de una raíz de pilar se conserva como NOT_EVALUABLE porque no están COMPLETED todos los módulos estructurales requeridos."
+                )
+
+            return ModuleResult(
+                module_id="M18",
+                status=ExecutionStatus.COMPLETED,
+                payload={
+                    "source": "CANONICAL_INDEPENDENT_ROOTS",
+                    **derived,
+                },
+                canonical_updates={
+                    "pillar_attribution": derived,
+                    "pillars": derived["pillars"],
+                },
+                limitations=tuple(limitations),
+            )
 
     root_strengths = context.raw_input.get("root_strengths")
     if isinstance(root_strengths, Mapping):
@@ -161,8 +212,11 @@ def m18_pillars(context: ModuleContext) -> ModuleResult:
         return ModuleResult(
             module_id="M18",
             status=ExecutionStatus.COMPLETED,
-            payload={"source": "ROOT_STRENGTHS", "pillars": calculated},
+            payload={"source": "ROOT_STRENGTHS_LEGACY", "pillars": calculated},
             canonical_updates={"pillars": calculated},
+            limitations=(
+                "Adaptador legacy: se usaron root_strengths precomputados porque no existían raíces canónicas M17 evaluables.",
+            ),
         )
 
     pillars = context.raw_input.get("pillars")
@@ -171,16 +225,16 @@ def m18_pillars(context: ModuleContext) -> ModuleResult:
         return ModuleResult(
             module_id="M18",
             status=ExecutionStatus.COMPLETED,
-            payload={"source": "PRECOMPUTED", "pillars": copied},
+            payload={"source": "PRECOMPUTED_LEGACY", "pillars": copied},
             canonical_updates={"pillars": copied},
             limitations=(
-                "Los pilares se recibieron precomputados; M18 no reconstruyó sus raíces.",
+                "Adaptador legacy: los pilares se recibieron precomputados porque no existían raíces canónicas M17 evaluables.",
             ),
         )
 
     return not_evaluable_result(
         "M18",
-        "Faltan pillars precomputados o root_strengths por pilar.",
+        "Faltan raíces canónicas M17 y no se proporcionaron adaptadores legacy.",
     )
 
 
