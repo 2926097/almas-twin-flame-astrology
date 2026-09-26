@@ -81,7 +81,8 @@
           "block_reason",
           "uses_astrology",
           "astrology_validation",
-          "discriminant_validation"
+          "discriminant_validation",
+          "blinding_audit"
         ],
         "properties": {
           "discriminator_id": {
@@ -302,6 +303,16 @@
             "anyOf": [
               {
                 "$ref": "discriminant-validation-evidence.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "blinding_audit": {
+            "anyOf": [
+              {
+                "$ref": "blinding-leakage-audit.schema.json"
               },
               {
                 "type": "null"
