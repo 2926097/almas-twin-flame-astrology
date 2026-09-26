@@ -14,6 +14,8 @@ metadata:
 
 Ésta es la release pública `1.13.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
+La release 1.13.0 incorpora el cierre cuantitativo Q1–Q7: M17 deriva fuerza de raíces, M18 deriva pilares, M21 deriva atribuciones Shapley e IDD, M23 genera sensibilidad horaria, M24 puede generar un nulo WITHIN_YEAR autocontenido, M25 deriva robustez por ablación/parámetros/estabilidad IDD y Q7 ensambla `canonical_analysis` antes de M30 cuando no se suministra uno explícito.
+
 ### Enfoque de investigación metafísica
 
 ALMAS utiliza la astrología como **método metafísico de investigación** de la arquitectura del alma, el origen, historia y función relacional, la continuidad kármica o dhármica, la polaridad, la activación, la integración y otras dimensiones metafísicas definidas. Los controles metodológicos de esta skill son controles de calidad internos al paradigma: evitan inflación por dependencia, ajuste retrospectivo al caso y saltos ontológicos no sustentados; no constituyen una negación de la investigación metafísica.
