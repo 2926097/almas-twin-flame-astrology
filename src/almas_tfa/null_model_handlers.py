@@ -331,6 +331,7 @@ def make_m24_null_models(astrology_backend, davison_backend):
             "generated_sample_count": generated["sample_count"],
             "samples_per_subject": generated["samples_per_subject"],
             "sample_manifest": generated["sample_manifest"],
+            "recurrence_calibration": generated.get("recurrence_calibration"),
             "external_population_claim": False,
             "combined_p_value": None,
             "combined_p_value_state": "FORBIDDEN",
@@ -345,10 +346,12 @@ def make_m24_null_models(astrology_backend, davison_backend):
                 "WITHIN_YEAR es un universo nulo autocontenido; no representa una población externa.",
                 "PAIR_SHUFFLE, MATCHED_AGE y MATCHED_AGE_CLOCK requieren un pool externo y no se fabrican desde una sola pareja.",
                 "Las frecuencias se reportan por estadístico y no se combinan en un p-value único.",
+                "La calibración S2 de motivos es diagnóstica; no modifica PX, PS, IEM, IDD, IRC ni ontología.",
                 "La rareza estructural nunca se interpreta como probabilidad metafísica ni entra en IRC.",
             ),
             diagnostics=(
                 "M24 source=AUTO_WITHIN_YEAR_Q6",
+                "M24 recurrence_calibration=S2_DIAGNOSTIC_ONLY",
             ),
         )
 
