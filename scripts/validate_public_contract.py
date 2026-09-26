@@ -29,6 +29,8 @@ REQUIRED_FILES = [
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/ontological-discriminator-output.schema.json",
+    "schemas/discriminator-promotion-registry.schema.json",
     "schemas/natal-chart.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
@@ -140,6 +142,8 @@ REQUIRED_FILES = [
     "skills/almas-soul-contract/CHANGELOG.md",
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
+    "src/almas_tfa/discriminator_promotion_registry.py",
+    "src/almas_tfa/data/discriminator-promotion-registry.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -329,6 +333,12 @@ def main() -> int:
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
+    ontological_discriminator_output_schema = load_json(
+        "schemas/ontological-discriminator-output.schema.json"
+    )
+    discriminator_promotion_registry = load_json(
+        "src/almas_tfa/data/discriminator-promotion-registry.json"
+    )
     natal_chart_schema = load_json("schemas/natal-chart.schema.json")
     synastry_schema = load_json("schemas/synastry-output.schema.json")
     natal_context_schema = load_json("schemas/natal-context-output.schema.json")
@@ -417,6 +427,31 @@ def main() -> int:
 
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
+
+    canonical_ontology_ref = (
+        canonical_schema.get("properties", {})
+        .get("ontological_discrimination", {})
+        .get("$ref")
+    )
+    if canonical_ontology_ref != "ontological-discriminator-output.schema.json":
+        fail("canonical analysis must expose ontological_discrimination via its canonical schema")
+
+    if "promotion_trace" not in set(
+        ontological_discriminator_output_schema.get("required", [])
+    ):
+        fail("ontological discriminator output must preserve promotion_trace")
+
+    registry_validated_ids = set(
+        discriminator_promotion_registry.get("validated_discriminator_ids", [])
+    )
+    registry_authorized_ids = {
+        record.get("discriminator_id")
+        for record in discriminator_promotion_registry.get("records", [])
+        if record.get("l3_authorized") is True
+        and record.get("current_status") == "VALIDATED_DISCRIMINATOR"
+    }
+    if registry_validated_ids != registry_authorized_ids:
+        fail("promotion registry validated_discriminator_ids diverges from authorized records")
 
     natal_required = set(natal_chart_schema.get("required", []))
     if not {"subject_id", "timed", "backend_id", "backend_version", "positions"}.issubset(natal_required):
@@ -626,6 +661,24 @@ def main() -> int:
     report_model_ref = final_props.get("report_document_model", {}).get("$ref")
     if report_model_ref != "report-document-model.schema.json":
         fail("final pipeline must reference canonical M31 report document model schema")
+
+    ontological_pipeline_ref = (
+        final_pipeline_output_schema.get("properties", {})
+        .get("ontological_discrimination", {})
+        .get("$ref")
+    )
+    if ontological_pipeline_ref != "ontological-discriminator-output.schema.json":
+        fail("final pipeline must preserve ontological_discrimination")
+
+    report_model_handler_text = (
+        ROOT / "src/almas_tfa/report_model_handlers.py"
+    ).read_text(encoding="utf-8")
+    for required_path in (
+        '"ontological_discrimination"',
+        '"ontological_discrimination.promotion_trace"',
+    ):
+        if required_path not in report_model_handler_text:
+            fail(f"M31 reporting paths missing: {required_path}")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
