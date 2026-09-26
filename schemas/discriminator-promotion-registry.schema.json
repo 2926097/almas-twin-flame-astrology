@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/discriminator-promotion-registry.schema.json",
+  "title": "ALMAS · Registro canónico de promoción de discriminadores",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "target_almas_version",
+    "authority",
+    "status",
+    "principle",
+    "promotion_states",
+    "runtime_l3_requirements",
+    "validated_discriminator_ids",
+    "records"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_almas_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "const": "ALMAS_CANONICAL_DISCRIMINATOR_PROMOTION_REGISTRY"
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "principle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "promotion_states": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "EXPLORATORY",
+          "REPRODUCIBLE",
+          "REPLICATION_READY",
+          "CONFIRMATORY_ELIGIBLE",
+          "VALIDATED_DISCRIMINATOR",
+          "BLOCKED",
+          "RETIRED"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "runtime_l3_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "validated_discriminator_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "discriminator_id",
+          "current_status",
+          "l3_authorized",
+          "promotion_ref",
+          "promoted_at",
+          "validated_pairs",
+          "root_key_prefix",
+          "frozen",
+          "validation_evidence",
+          "block_reason"
+        ],
+        "properties": {
+          "discriminator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "current_status": {
+            "enum": [
+              "EXPLORATORY",
+              "REPRODUCIBLE",
+              "REPLICATION_READY",
+              "CONFIRMATORY_ELIGIBLE",
+              "VALIDATED_DISCRIMINATOR",
+              "BLOCKED",
+              "RETIRED"
+            ]
+          },
+          "l3_authorized": {
+            "type": "boolean"
+          },
+          "promotion_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "promoted_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "validated_pairs": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true
+            }
+          },
+          "root_key_prefix": {
+            "type": "string",
+            "minLength": 1
+          },
+          "frozen": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "almas_version": {
+                "type": "string"
+              },
+              "commit_sha": {
+                "type": "string"
+              },
+              "rule_ref": {
+                "type": "string"
+              },
+              "schema_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "almas_version",
+              "commit_sha",
+              "rule_ref",
+              "schema_refs"
+            ],
+            "additionalProperties": false
+          },
+          "validation_evidence": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "preregistration_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "independent_replication_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "external_holdout_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "negative_control_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "leakage_audit_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "preregistration_refs",
+              "independent_replication_refs",
+              "external_holdout_refs",
+              "negative_control_refs",
+              "leakage_audit_refs"
+            ],
+            "additionalProperties": false
+          },
+          "block_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
