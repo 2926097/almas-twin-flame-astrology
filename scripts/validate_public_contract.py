@@ -31,9 +31,14 @@ REQUIRED_FILES = [
     "docs/PROMOTION_STATE_MACHINE.md",
     "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
     "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
+    "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
+    "examples/manifest.json",
     "public_cases/README.md",
+    "public_cases/manifest.json",
+    "validation/holdouts/README.md",
+    "validation/holdouts/manifest.json",
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
@@ -43,6 +48,7 @@ REQUIRED_FILES = [
     "schemas/discriminator-promotion-reporting.schema.json",
     "schemas/discriminator-source-genealogy.schema.json",
     "schemas/discriminator-source-genealogy-reporting.schema.json",
+    "schemas/public-artifact-manifest.schema.json",
     "schemas/discriminant-validation-evidence.schema.json",
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
@@ -164,11 +170,13 @@ REQUIRED_FILES = [
     "src/almas_tfa/promotion_state_machine.py",
     "src/almas_tfa/promotion_reporting.py",
     "src/almas_tfa/discriminator_source_genealogy.py",
+    "src/almas_tfa/public_data_guard.py",
     "src/almas_tfa/data/discriminator-promotion-registry.json",
     "src/almas_tfa/data/discriminant-validation-policy.json",
     "src/almas_tfa/data/blinding-leakage-policy.json",
     "src/almas_tfa/data/promotion-state-machine-policy.json",
     "src/almas_tfa/data/discriminator-source-genealogy.json",
+    "src/almas_tfa/data/public-data-isolation-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -221,6 +229,7 @@ REQUIRED_FILES = [
     "tests/BLINDING_LEAKAGE_INVARIANTS.md",
     "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md",
     "tests/DISCRIMINATOR_SOURCE_GENEALOGY_INVARIANTS.md",
+    "tests/PRIVATE_CASE_ISOLATION_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -265,6 +274,7 @@ REQUIRED_FILES = [
     "tests/test_promotion_state_machine.py",
     "tests/test_promotion_reporting.py",
     "tests/test_discriminator_source_genealogy.py",
+    "tests/test_public_data_guard.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -349,6 +359,12 @@ def main() -> int:
 
     if "ya sean públicos" not in publication_policy:
         fail("la política de publicación debe definir la regla de datos ya públicos")
+    if "ALMAS_PUBLIC_DATA_ISOLATION_V1" not in publication_policy:
+        fail("publication policy missing public data isolation id")
+    if "examples/manifest.json" not in examples_policy:
+        fail("examples policy must require examples/manifest.json")
+    if "public_cases/manifest.json" not in public_cases_policy:
+        fail("public cases policy must require public_cases/manifest.json")
     if "sintétic" not in examples_policy.lower():
         fail("la política de ejemplos debe identificar los fixtures predeterminados como sintéticos")
     if "independientemente verificables" not in public_cases_policy:
@@ -391,6 +407,15 @@ def main() -> int:
     discriminator_source_genealogy = load_json(
         "src/almas_tfa/data/discriminator-source-genealogy.json"
     )
+    public_data_isolation_policy = load_json(
+        "src/almas_tfa/data/public-data-isolation-policy.json"
+    )
+    public_artifact_manifest_schema = load_json(
+        "schemas/public-artifact-manifest.schema.json"
+    )
+    examples_manifest = load_json("examples/manifest.json")
+    public_cases_manifest = load_json("public_cases/manifest.json")
+    public_holdouts_manifest = load_json("validation/holdouts/manifest.json")
     operational_discriminator_candidates = load_json(
         "reference/operational-discriminator-candidates.json"
     )
@@ -661,6 +686,232 @@ def main() -> int:
         fail("discriminator source genealogy authority changed")
     if discriminator_source_genealogy.get("registry_version") != "1.0.0":
         fail("discriminator source genealogy registry version changed")
+
+
+    if public_data_isolation_policy.get("policy_id") != "ALMAS_PUBLIC_DATA_ISOLATION_V1":
+        fail("public data isolation policy id changed")
+    if public_data_isolation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("public data isolation policy must remain E_PROJECT_POLICY")
+    if public_data_isolation_policy.get("repository_mode") != "PUBLIC":
+        fail("public data isolation policy must remain PUBLIC")
+
+    allowed_public_classes = set(
+        public_data_isolation_policy.get("allowed_public_classifications", [])
+    )
+    if allowed_public_classes != {
+        "SYNTHETIC",
+        "PUBLIC_VERIFIABLE",
+        "PUBLIC_METADATA_ONLY",
+    }:
+        fail("public data allowed classifications changed")
+
+    forbidden_public_classes = set(
+        public_data_isolation_policy.get("forbidden_public_classifications", [])
+    )
+    if forbidden_public_classes != {
+        "PRIVATE_CASE",
+        "PSEUDONYMIZED_PRIVATE",
+        "PRIVATE_HOLDOUT",
+        "CONFIDENTIAL",
+    }:
+        fail("public data forbidden classifications changed")
+
+    privacy_scopes = public_data_isolation_policy.get("governed_scopes", {})
+    expected_privacy_scopes = {
+        "examples": {
+            "root": "examples",
+            "manifest": "examples/manifest.json",
+            "allowed_classifications": ["SYNTHETIC"],
+        },
+        "public_cases": {
+            "root": "public_cases",
+            "manifest": "public_cases/manifest.json",
+            "allowed_classifications": ["PUBLIC_VERIFIABLE"],
+        },
+        "public_holdouts": {
+            "root": "validation/holdouts",
+            "manifest": "validation/holdouts/manifest.json",
+            "allowed_classifications": [
+                "SYNTHETIC",
+                "PUBLIC_VERIFIABLE",
+                "PUBLIC_METADATA_ONLY",
+            ],
+        },
+    }
+    if privacy_scopes != expected_privacy_scopes:
+        fail("public data governed scopes changed")
+
+    privacy_manifests = {
+        "examples": examples_manifest,
+        "public_cases": public_cases_manifest,
+        "public_holdouts": public_holdouts_manifest,
+    }
+    forbidden_payload_keys = {
+        str(item).lower()
+        for item in public_data_isolation_policy.get(
+            "forbidden_public_payload_keys", []
+        )
+    }
+
+    def iter_payload_keys(value, prefix=""):
+        if isinstance(value, dict):
+            for key, nested in value.items():
+                key_text = str(key)
+                path = f"{prefix}.{key_text}" if prefix else key_text
+                yield path, key_text
+                yield from iter_payload_keys(nested, path)
+        elif isinstance(value, list):
+            for index, nested in enumerate(value):
+                path = f"{prefix}[{index}]" if prefix else f"[{index}]"
+                yield from iter_payload_keys(nested, path)
+
+    for scope_name, scope_policy in privacy_scopes.items():
+        manifest = privacy_manifests[scope_name]
+        if manifest.get("policy_id") != "ALMAS_PUBLIC_DATA_ISOLATION_V1":
+            fail(f"privacy manifest policy mismatch: {scope_name}")
+        if manifest.get("scope") != scope_name:
+            fail(f"privacy manifest scope mismatch: {scope_name}")
+        if manifest.get("root") != scope_policy["root"]:
+            fail(f"privacy manifest root mismatch: {scope_name}")
+        if manifest.get("allowed_classifications") != scope_policy[
+            "allowed_classifications"
+        ]:
+            fail(f"privacy manifest classifications mismatch: {scope_name}")
+
+        artifacts = manifest.get("artifacts", [])
+        if not isinstance(artifacts, list):
+            fail(f"privacy manifest artifacts invalid: {scope_name}")
+
+        declared_paths = []
+        by_path = {}
+        for artifact in artifacts:
+            path = artifact.get("path")
+            if not isinstance(path, str) or not path:
+                fail(f"privacy manifest path invalid: {scope_name}")
+            declared_paths.append(path)
+            if path in by_path:
+                fail(f"privacy manifest duplicate path: {path}")
+            by_path[path] = artifact
+
+            classification = artifact.get("classification")
+            if classification in forbidden_public_classes:
+                fail(f"private classification committed publicly: {path}")
+            if classification not in set(
+                scope_policy["allowed_classifications"]
+            ):
+                fail(f"classification not allowed in scope: {path}")
+
+            for key in (
+                "contains_real_person_data",
+                "contains_nonpublic_material",
+                "derived_from_private_case",
+                "reversible_from_private_case",
+                "independently_verifiable",
+            ):
+                if not isinstance(artifact.get(key), bool):
+                    fail(f"privacy metadata {key} invalid: {path}")
+
+            refs = artifact.get("public_source_refs")
+            if (
+                not isinstance(refs, list)
+                or not all(isinstance(item, str) and item for item in refs)
+            ):
+                fail(f"public_source_refs invalid: {path}")
+
+            if classification == "SYNTHETIC":
+                for key in (
+                    "contains_real_person_data",
+                    "contains_nonpublic_material",
+                    "derived_from_private_case",
+                    "reversible_from_private_case",
+                ):
+                    if artifact.get(key) is not False:
+                        fail(f"synthetic privacy invariant failed {key}: {path}")
+                if refs:
+                    fail(f"synthetic fixture must not depend on real-case refs: {path}")
+
+            if classification == "PUBLIC_VERIFIABLE":
+                if artifact.get("independently_verifiable") is not True:
+                    fail(f"public case not independently verifiable: {path}")
+                if not refs:
+                    fail(f"public case lacks source refs: {path}")
+                for key in (
+                    "contains_nonpublic_material",
+                    "derived_from_private_case",
+                    "reversible_from_private_case",
+                ):
+                    if artifact.get(key) is not False:
+                        fail(f"public case privacy invariant failed {key}: {path}")
+
+            if classification == "PUBLIC_METADATA_ONLY":
+                for key in (
+                    "contains_nonpublic_material",
+                    "derived_from_private_case",
+                    "reversible_from_private_case",
+                ):
+                    if artifact.get(key) is not False:
+                        fail(f"public metadata privacy invariant failed {key}: {path}")
+
+        scope_root = ROOT / scope_policy["root"]
+        actual_paths = set()
+        if scope_root.exists():
+            for json_path in scope_root.rglob("*.json"):
+                rel = json_path.relative_to(ROOT).as_posix()
+                if rel == scope_policy["manifest"]:
+                    continue
+                actual_paths.add(rel)
+
+        if actual_paths != set(declared_paths):
+            fail(
+                f"privacy manifest coverage mismatch {scope_name}: "
+                f"actual={sorted(actual_paths)} declared={sorted(declared_paths)}"
+            )
+
+        for rel in sorted(actual_paths):
+            payload = load_json(rel)
+            forbidden_hits = [
+                path
+                for path, key in iter_payload_keys(payload)
+                if key.lower() in forbidden_payload_keys
+            ]
+            if forbidden_hits:
+                fail(
+                    f"public payload contains forbidden private keys {rel}: "
+                    + ", ".join(forbidden_hits)
+                )
+
+    for forbidden_path in public_data_isolation_policy.get(
+        "forbidden_repository_paths", []
+    ):
+        if (ROOT / forbidden_path).exists():
+            fail(f"private repository path present: {forbidden_path}")
+
+    gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
+    required_gitignore_entries = {
+        "private_cases/",
+        "local_cases/",
+        ".almas-private/",
+        "private_holdouts/",
+        "validation/private/",
+        "holdouts/private/",
+        "data/private/",
+        "*.private-case.json",
+        "*.private-holdout.json",
+    }
+    for entry in required_gitignore_entries:
+        if entry not in gitignore:
+            fail(f"private path missing from .gitignore: {entry}")
+
+    artifact_props = (
+        public_artifact_manifest_schema.get("properties", {})
+        .get("artifacts", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    if "PRIVATE_CASE" in set(
+        artifact_props.get("classification", {}).get("enum", [])
+    ):
+        fail("public artifact schema must not admit PRIVATE_CASE")
 
     source_entries = {
         entry.get("id"): entry
@@ -1075,6 +1326,30 @@ def main() -> int:
     ):
         if token not in promotion_machine_doc:
             fail("promotion state-machine documentation is incomplete")
+
+    private_case_policy_doc = (
+        ROOT / "docs/PRIVATE_CASE_ISOLATION_POLICY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_PUBLIC_DATA_ISOLATION_V1",
+        "PSEUDONYMIZED_PRIVATE",
+        "PRIVACY_BREACH",
+        "Paso 20",
+    ):
+        if token not in private_case_policy_doc:
+            fail("private case isolation documentation is incomplete")
+
+    private_case_invariants = (
+        ROOT / "tests/PRIVATE_CASE_ISOLATION_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "PRIVATE_CASE",
+        "PRIVATE_HOLDOUT",
+        "public_source_refs",
+        "PRIVACY_BREACH",
+    ):
+        if token not in private_case_invariants:
+            fail("private case isolation invariants are incomplete")
 
     source_genealogy_doc = (
         ROOT / "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md"
