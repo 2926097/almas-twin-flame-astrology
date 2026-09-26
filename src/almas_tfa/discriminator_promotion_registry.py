@@ -143,6 +143,11 @@ def _record_has_complete_l3_evidence(record: Mapping[str, Any]) -> bool:
     return True
 
 
+def has_complete_l3_record(record: Mapping[str, Any]) -> bool:
+    """Devuelve True sólo si el registro satisface todos los gates L3 vigentes."""
+    return _record_has_complete_l3_evidence(record)
+
+
 def _canonical_pair(pair: Sequence[str]) -> tuple[str, str]:
     if len(pair) != 2:
         raise ValueError("El par de modelos debe contener exactamente dos elementos.")
