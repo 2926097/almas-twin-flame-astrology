@@ -411,7 +411,29 @@ def derive_recurrence_null_calibration(
         }
 
     confidence = float(policy["null_source"]["confidence_level"])
-    baseline_graph, baseline_quality = _snapshot_payload(baseline_snapshot)
+    try:
+        baseline_graph, baseline_quality = _snapshot_payload(
+            baseline_snapshot
+        )
+        for snapshot in null_snapshots:
+            _snapshot_payload(snapshot)
+    except ValueError as exc:
+        return {
+            "state": "NOT_EVALUABLE",
+            "policy_id": policy["policy_id"],
+            "policy_status": policy["status"],
+            "epistemic_class": policy["epistemic_class"],
+            "reason": str(exc),
+            "used_for_weighting": False,
+            "used_in_px_score": False,
+            "used_in_ps_score": False,
+            "used_in_iem": False,
+            "used_in_idd": False,
+            "used_in_irc": False,
+            "used_in_ontology": False,
+            "metaphysical_probability": False,
+            "external_population_claim": False,
+        }
 
     results = []
     for motif_type, graph_key, quality_key in (
