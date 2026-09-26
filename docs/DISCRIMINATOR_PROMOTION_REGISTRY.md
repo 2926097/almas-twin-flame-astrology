@@ -56,6 +56,25 @@ Un registro sólo puede autorizar `L3_VALIDATED` cuando cumple simultáneamente:
 
 La ausencia de cualquiera de estas piezas invalida la autoridad L3 en tiempo de ejecución.
 
+## Gate cuantitativo de validez discriminante
+
+Todo registro L3 debe incluir `discriminant_validation` y superar `ALMAS_DISCRIMINANT_VALIDATION_V1`.
+
+El runtime recalcula desde conteos:
+
+- sensibilidad;
+- especificidad;
+- balanced accuracy;
+- intervalo Wilson 95 %;
+- `FALSE_SPECIFICITY_RATE`;
+- límite superior CI95 de falsa especificidad.
+
+Los mínimos canónicos son CI95 sensibilidad ≥ 0.60, CI95 especificidad ≥ 0.90, balanced accuracy ≥ 0.75 y CI95 superior de falsa especificidad ≤ 0.05. Los controles sintéticos/adversariales admiten cero errores de falsa especificidad.
+
+Si el discriminador produce probabilidades, la calibración debe estar preregistrada y aprobada.
+
+Los umbrales pertenecen a `E_PROJECT_POLICY`; no son evidencia doctrinal ni probabilidad metafísica.
+
 ## Requisito adicional cuando uses_astrology=true
 
 Todo registro declara explícitamente `uses_astrology`.
