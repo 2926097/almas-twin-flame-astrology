@@ -1,4 +1,4 @@
-# Fase 13 · Protocolo de validación externa y preregistro
+# Fases 13–14 · Protocolo de validación externa y preregistro
 
 ## 1. Finalidad
 
@@ -304,3 +304,28 @@ La Fase 13 se considera implementada cuando existen:
 - reglas de promoción;
 - al menos una ejecución sintética;
 - y la infraestructura está lista para recibir holdouts reales sin modificar la metodología.
+
+
+## 14. Validez discriminante cuantitativa
+
+Toda promoción a `VALIDATED_DISCRIMINATOR` debe satisfacer la política canónica `ALMAS_DISCRIMINANT_VALIDATION_V1`.
+
+Para cada par validado se calculan sensibilidad, especificidad y balanced accuracy a partir de TP/TN/FP/FN. ALMAS usa intervalos Wilson al 95 % y exige:
+
+- CI95 inferior de sensibilidad ≥ 0.60;
+- CI95 inferior de especificidad ≥ 0.90;
+- balanced accuracy ≥ 0.75.
+
+La métrica crítica de sobreclasificación es:
+
+`FALSE_SPECIFICITY_RATE = errores de falsa especificidad / casos evaluables`.
+
+No basta la tasa puntual. El CI95 superior debe ser ≤ 0.05.
+
+En controles sintéticos/adversariales la falsa especificidad permitida es exactamente 0.
+
+Estos valores son `E_PROJECT_POLICY`, no constantes universales. Sólo pueden modificarse mediante una nueva política versionada antes de evaluar nuevos holdouts.
+
+Cuando la salida es categórica, calibración probabilística es `NOT_APPLICABLE_CATEGORICAL`. Si un discriminador emite probabilidades, debe superar un criterio de calibración preregistrado y aportar referencias independientes.
+
+La validación cuantitativa demuestra rendimiento del clasificador operacional dentro de su alcance, no verdad metafísica.
