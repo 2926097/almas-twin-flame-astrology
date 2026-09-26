@@ -68,7 +68,37 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "validation_level": {
+                  "const": "L3_VALIDATED"
+                }
+              },
+              "required": [
+                "validation_level"
+              ]
+            },
+            "then": {
+              "required": [
+                "promotion_ref",
+                "root_key"
+              ],
+              "properties": {
+                "promotion_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "root_key": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "models": {
