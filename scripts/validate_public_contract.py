@@ -184,6 +184,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/birth-time-perturbation-policy.json",
     "src/almas_tfa/data/robustness-q5-policy.json",
     "src/almas_tfa/data/null-within-year-policy.json",
+    "src/almas_tfa/data/canonical-assembly-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -205,6 +206,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/time_perturbation.py",
     "src/almas_tfa/robustness_quantification.py",
     "src/almas_tfa/null_generation.py",
+    "src/almas_tfa/canonical_assembly.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -295,6 +297,7 @@ REQUIRED_FILES = [
     "tests/test_time_perturbation.py",
     "tests/test_robustness_q5.py",
     "tests/test_null_generation.py",
+    "tests/test_canonical_assembly.py",
     "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
@@ -448,6 +451,9 @@ def main() -> int:
     )
     null_generation_policy = load_json(
         "src/almas_tfa/data/null-within-year-policy.json"
+    )
+    canonical_assembly_policy = load_json(
+        "src/almas_tfa/data/canonical-assembly-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -839,6 +845,31 @@ def main() -> int:
         fail("Q6 self-contained null must not claim an external population")
     if q6_principles.get("combined_p_value_forbidden") is not True:
         fail("Q6 must forbid combined p-value")
+
+    if canonical_assembly_policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V1":
+        fail("Q7 canonical assembly policy id changed")
+    if canonical_assembly_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("Q7 canonical assembly policy must remain frozen")
+    if canonical_assembly_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("Q7 canonical assembly policy must remain E_PROJECT_POLICY")
+    q7_principles = canonical_assembly_policy.get("principles", {})
+    if q7_principles.get("case_fitting_forbidden") is not True:
+        fail("Q7 canonical assembly must forbid case fitting")
+    if q7_principles.get("existing_canonical_never_overwritten") is not True:
+        fail("Q7 must not overwrite an existing canonical_analysis")
+    if q7_principles.get("assembler_recalculates_astrology") is not False:
+        fail("Q7 assembler must not recalculate astrology")
+    if q7_principles.get("assembler_recalculates_roots") is not False:
+        fail("Q7 assembler must not recalculate roots")
+    if q7_principles.get("assembler_recalculates_pillars") is not False:
+        fail("Q7 assembler must not recalculate pillars")
+    if canonical_assembly_policy.get("global_idd", {}).get("method") != "MIN_EVALUABLE_PAIRWISE_IDD":
+        fail("Q7 global IDD aggregation changed")
+    if canonical_assembly_policy.get("model_state", {}).get("supported_requires_evaluable_ice") is not True:
+        fail("Q7 SUPPORTED must require evaluable ICE")
+    q7_domains = canonical_assembly_policy.get("coverage", {}).get("domains", [])
+    if len(q7_domains) != 7 or len(set(q7_domains)) != 7:
+        fail("Q7 canonical coverage must retain seven unique domains")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
