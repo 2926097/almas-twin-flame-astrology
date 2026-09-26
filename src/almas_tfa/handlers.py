@@ -29,7 +29,7 @@ from .counterevidence_handlers import m20_counterevidence
 from .m21_ontology_adapter import evaluate_m21_ontological_sublayer
 from .ablation_handlers import m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensitivity
-from .null_model_handlers import m24_null_models
+from .null_model_handlers import m24_null_models, make_m24_null_models
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .doctrine_handlers import m28_doctrine_hermeneutics
@@ -471,6 +471,10 @@ def configured_handlers(*, astrology_backend=None, davison_backend=None):
         handlers["M08"] = make_m08_davison(davison_backend)
     if astrology_backend is not None and davison_backend is not None:
         handlers["M23"] = make_m23_time_sensitivity(
+            astrology_backend,
+            davison_backend,
+        )
+        handlers["M24"] = make_m24_null_models(
             astrology_backend,
             davison_backend,
         )
