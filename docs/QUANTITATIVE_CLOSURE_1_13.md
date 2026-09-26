@@ -77,9 +77,40 @@ todos `COMPLETED`. Si la cobertura estructural es incompleta, la ausencia de
 una raíz se mantiene como `NOT_EVALUABLE`, evitando convertir datos faltantes
 en contraevidencia.
 
-## Próximas fases
+## Fase Q3 · Atribuciones automáticas por modelo e IDD
 
-Q3: atribuciones automáticas por modelo para IDD M21.
+Q3 queda implementada mediante la política congelada
+`ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` y el motor
+`src/almas_tfa/model_attribution.py`.
+
+M21 ya no necesita mapas `attributions` manuales cuando existe
+`pillar_attribution` canónico evaluable. La función de valor congelada es
+`IEM_pre`: se excluyen deliberadamente ICE, IEM_final, temporalidad, modelos
+nulos y cualquier inferencia ontológica.
+
+La unidad de atribución es la raíz independiente canónica. Para hasta 10 raíces
+se calcula Shapley exacto. Para conjuntos mayores se utiliza una aproximación
+determinista por permutaciones antitéticas, con semilla fija, máximo de 4096
+permutaciones y control explícito de convergencia.
+
+Las mismas permutaciones se reutilizan para AF, KA, AG y LG. Después se
+normalizan las contribuciones sólo para calcular la divergencia Jensen–Shannon
+y el IDD por pares.
+
+El resultado conserva dos capas separadas:
+
+- `model_attributions`: contribución Shapley de cada raíz al IEM_pre de cada
+  modelo;
+- `pairwise_idd`: separación distribucional AF↔KA↔AG↔LG.
+
+Un IDD alto no se convierte en discriminador ontológico y no autoriza a elegir
+entre origen monádico, split-soul, twin-soul o twin-flame.
+
+Si la cobertura estructural Q2 es incompleta, la atribución automática queda
+`NOT_EVALUABLE`. M21 conserva el adaptador legacy de atribuciones
+precomputadas únicamente como compatibilidad transitoria.
+
+## Próximas fases
 
 Q4: generador de perturbación horaria y parametrización preregistrada para M23.
 
