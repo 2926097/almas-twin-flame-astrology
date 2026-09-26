@@ -305,6 +305,26 @@ class TestM21OntologicalIntegration(unittest.TestCase):
             zero_idd.canonical_updates["ontological_discrimination"],
         )
 
+    def test_structural_ontology_input_rejects_narrative_leakage(self):
+        for forbidden_key in (
+            "relationship_narrative",
+            "self_label",
+            "expected_model",
+            "holdout_truth",
+        ):
+            with self.subTest(forbidden_key=forbidden_key):
+                with self.assertRaises(ValueError):
+                    m21_differential_discrimination(
+                        context(
+                            {
+                                "ontological_discriminator_input": {
+                                    forbidden_key: "contaminating-value",
+                                    "observations": [],
+                                }
+                            }
+                        )
+                    )
+
     def test_invalid_ontology_config_is_rejected_explicitly(self):
         with self.assertRaises(ValueError):
             m21_differential_discrimination(
