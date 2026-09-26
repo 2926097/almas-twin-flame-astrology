@@ -35,6 +35,8 @@ REQUIRED_FILES = [
     "docs/QUANTITATIVE_CLOSURE_1_13.md",
     "docs/RELEASE_AUDIT_1.13.0.md",
     "docs/RELEASE_AUDIT_1.14.0.md",
+    "docs/RELEASE_AUDIT_1.15.0.md",
+    "docs/EVOLUTION_1.15.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -72,6 +74,9 @@ REQUIRED_FILES = [
     "schemas/structural-ablation-output.schema.json",
     "schemas/time-sensitivity-output.schema.json",
     "schemas/null-model-output.schema.json",
+    "schemas/external-recurrence-control-cohort.schema.json",
+    "schemas/px-v3-candidate-registry.schema.json",
+    "schemas/px-v3-promotion-evidence.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -183,6 +188,16 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
+    "src/almas_tfa/data/recurrence-quality-policy.json",
+    "src/almas_tfa/data/recurrence-null-calibration-policy.json",
+    "src/almas_tfa/data/recurrence-synthetic-controls-policy.json",
+    "src/almas_tfa/data/external-recurrence-cohort-policy.json",
+    "src/almas_tfa/data/external-recurrence-calibration-policy.json",
+    "src/almas_tfa/data/px-v3-candidate-freeze-policy.json",
+    "src/almas_tfa/data/px-v3-candidate-registry.json",
+    "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json",
+    "src/almas_tfa/data/px-v3-promotion-gate-policy.json",
+    "src/almas_tfa/data/px-v3-activation-firewall-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -208,6 +223,15 @@ REQUIRED_FILES = [
     "src/almas_tfa/root_strengths.py",
     "src/almas_tfa/pillar_attribution.py",
     "src/almas_tfa/semantic_motifs.py",
+    "src/almas_tfa/recurrence_quality.py",
+    "src/almas_tfa/null_calibration.py",
+    "src/almas_tfa/synthetic_controls.py",
+    "src/almas_tfa/external_control_cohorts.py",
+    "src/almas_tfa/external_recurrence_calibration.py",
+    "src/almas_tfa/px_v3_candidates.py",
+    "src/almas_tfa/px_v3_holdout.py",
+    "src/almas_tfa/px_v3_promotion.py",
+    "src/almas_tfa/px_v3_activation.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -299,6 +323,15 @@ REQUIRED_FILES = [
     "tests/test_public_data_guard.py",
     "tests/test_root_strengths.py",
     "tests/test_pillar_attribution.py",
+    "tests/test_recurrence_quality.py",
+    "tests/test_null_calibration.py",
+    "tests/test_synthetic_controls.py",
+    "tests/test_external_control_cohorts.py",
+    "tests/test_external_recurrence_calibration.py",
+    "tests/test_px_v3_candidates.py",
+    "tests/test_px_v3_holdout.py",
+    "tests/test_px_v3_promotion.py",
+    "tests/test_px_v3_activation.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -451,6 +484,36 @@ def main() -> int:
     semantic_motif_policy = load_json(
         "src/almas_tfa/data/semantic-motif-policy.json"
     )
+    recurrence_quality_policy = load_json(
+        "src/almas_tfa/data/recurrence-quality-policy.json"
+    )
+    recurrence_null_calibration_policy = load_json(
+        "src/almas_tfa/data/recurrence-null-calibration-policy.json"
+    )
+    recurrence_synthetic_controls_policy = load_json(
+        "src/almas_tfa/data/recurrence-synthetic-controls-policy.json"
+    )
+    external_recurrence_cohort_policy = load_json(
+        "src/almas_tfa/data/external-recurrence-cohort-policy.json"
+    )
+    external_recurrence_calibration_policy = load_json(
+        "src/almas_tfa/data/external-recurrence-calibration-policy.json"
+    )
+    px_v3_candidate_freeze_policy = load_json(
+        "src/almas_tfa/data/px-v3-candidate-freeze-policy.json"
+    )
+    px_v3_candidate_registry = load_json(
+        "src/almas_tfa/data/px-v3-candidate-registry.json"
+    )
+    px_v3_holdout_evaluation_policy = load_json(
+        "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json"
+    )
+    px_v3_promotion_gate_policy = load_json(
+        "src/almas_tfa/data/px-v3-promotion-gate-policy.json"
+    )
+    px_v3_activation_firewall_policy = load_json(
+        "src/almas_tfa/data/px-v3-activation-firewall-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -502,6 +565,15 @@ def main() -> int:
     null_model_schema = load_json("schemas/null-model-output.schema.json")
     robustness_output_schema = load_json("schemas/robustness-output.schema.json")
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
+    external_recurrence_cohort_schema = load_json(
+        "schemas/external-recurrence-control-cohort.schema.json"
+    )
+    px_v3_candidate_registry_schema = load_json(
+        "schemas/px-v3-candidate-registry.schema.json"
+    )
+    px_v3_promotion_evidence_schema = load_json(
+        "schemas/px-v3-promotion-evidence.schema.json"
+    )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
     doctrine_output_schema = load_json("schemas/doctrine-hermeneutics-output.schema.json")
@@ -811,6 +883,368 @@ def main() -> int:
             fail(f"semantic motif relation set {relation_set_name} must be a list")
         if len(relation_values) != len(set(relation_values)):
             fail(f"semantic motif relation set {relation_set_name} contains duplicates")
+
+    if recurrence_quality_policy.get("policy_id") != "ALMAS_RECURRENCE_QUALITY_DIAGNOSTICS_V1":
+        fail("recurrence quality policy id changed")
+    if recurrence_quality_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("recurrence quality policy must remain diagnostic")
+    if recurrence_quality_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("recurrence quality policy must remain E_PROJECT_POLICY")
+    recurrence_quality_principles = recurrence_quality_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "descriptive_only",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "null_calibration_required_before_any_weighting",
+        "draconic_dependency_must_be_exposed",
+    ):
+        if recurrence_quality_principles.get(key) is not True:
+            fail(f"recurrence quality invariant failed: {key}")
+    if recurrence_quality_principles.get("null_rarity_not_used_as_score") is not True:
+        fail("recurrence quality diagnostics must keep null rarity out of scoring")
+    family_classes = recurrence_quality_policy.get("family_classes", {})
+    if family_classes.get("RELCHART") != "RELATIONSHIP_CHART":
+        fail("recurrence quality must preserve RELCHART as one family class")
+    if family_classes.get("NATAL_DRACONIC") != "DRACONIC_CROSS":
+        fail("recurrence quality must expose natal-draconic dependency")
+
+    if recurrence_null_calibration_policy.get("policy_id") != "ALMAS_RECURRENCE_NULL_CALIBRATION_V1":
+        fail("recurrence null calibration policy id changed")
+    if recurrence_null_calibration_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("recurrence null calibration policy must remain diagnostic")
+    if recurrence_null_calibration_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("recurrence null calibration policy must remain E_PROJECT_POLICY")
+    null_source = recurrence_null_calibration_policy.get("null_source", {})
+    if null_source.get("required_null_model") != "WITHIN_YEAR":
+        fail("S2 baseline calibration must remain WITHIN_YEAR")
+    if null_source.get("generator_policy_id") != "ALMAS_NULL_WITHIN_YEAR_V1":
+        fail("S2 must bind the frozen Q6 generator")
+    calibration_principles = recurrence_null_calibration_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "diagnostic_only",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "combined_p_value_forbidden",
+        "external_nulls_required_before_weighting",
+        "development_cases_cannot_define_thresholds",
+    ):
+        if calibration_principles.get(key) is not True:
+            fail(f"recurrence null calibration invariant failed: {key}")
+    if calibration_principles.get("metaphysical_probability") is not False:
+        fail("S2 must forbid metaphysical probability")
+    if calibration_principles.get("external_population_claim") is not False:
+        fail("S2 self-contained null must not claim external population")
+
+    if recurrence_synthetic_controls_policy.get("policy_id") != "ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1":
+        fail("recurrence synthetic controls policy id changed")
+    if recurrence_synthetic_controls_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("recurrence synthetic controls policy must remain diagnostic")
+    if recurrence_synthetic_controls_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("recurrence synthetic controls policy must remain E_PROJECT_POLICY")
+    synthetic_principles = recurrence_synthetic_controls_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "diagnostic_only",
+        "deterministic_no_rng",
+        "preserve_root_count",
+        "preserve_root_strengths",
+        "preserve_dependency_families",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "external_nulls_required_before_weighting",
+        "development_cases_cannot_define_thresholds",
+    ):
+        if synthetic_principles.get(key) is not True:
+            fail(f"recurrence synthetic control invariant failed: {key}")
+    for key in (
+        "metaphysical_probability",
+        "population_probability_claim",
+        "p_value_claim",
+    ):
+        if synthetic_principles.get(key) is not False:
+            fail(f"recurrence synthetic control field must remain false: {key}")
+    control_ids = [
+        item.get("id")
+        for item in recurrence_synthetic_controls_policy.get("control_families", [])
+        if isinstance(item, dict)
+    ]
+    if control_ids != [
+        "SEMANTIC_SIGNATURE_ROTATION",
+        "DECOUPLED_POINT_RELATION_ROTATION",
+    ]:
+        fail("S3 control family registry changed")
+
+    if external_recurrence_cohort_policy.get("policy_id") != "ALMAS_EXTERNAL_RECURRENCE_COHORT_V1":
+        fail("external recurrence cohort policy id changed")
+    if external_recurrence_cohort_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("external recurrence cohort policy must remain protocol-only")
+    if external_recurrence_cohort_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("external recurrence cohort policy must remain E_PROJECT_POLICY")
+    external_principles = external_recurrence_cohort_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "preregistration_required_for_external_candidate",
+        "contamination_forbids_external_candidate",
+        "development_only_never_validates_its_own_rule",
+        "raw_private_case_storage_in_repo_forbidden",
+        "public_output_must_be_aggregate_only",
+        "sample_identifiers_not_exposed_in_public_summary",
+        "sample_snapshots_not_exposed_in_public_summary",
+        "label_narrative_outcome_leakage_forbidden",
+        "structural_snapshot_required",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+    ):
+        if external_principles.get(key) is not True:
+            fail(f"S4 external cohort invariant failed: {key}")
+    for key in (
+        "metaphysical_probability",
+        "weighting_enabled",
+        "l3_validation_enabled",
+    ):
+        if external_principles.get(key) is not False:
+            fail(f"S4 external cohort field must remain false: {key}")
+    if external_recurrence_cohort_policy.get("allowed_null_models") != [
+        "PAIR_SHUFFLE",
+        "MATCHED_AGE",
+        "MATCHED_AGE_CLOCK",
+    ]:
+        fail("S4 allowed external null model registry changed")
+
+    if external_recurrence_calibration_policy.get("policy_id") != "ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1":
+        fail("external recurrence calibration policy id changed")
+    if external_recurrence_calibration_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("external recurrence calibration policy must remain diagnostic")
+    if external_recurrence_calibration_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("external recurrence calibration policy must remain E_PROJECT_POLICY")
+    external_calibration_principles = external_recurrence_calibration_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "diagnostic_only",
+        "clean_external_candidates_only",
+        "preregistered_only",
+        "development_only_excluded",
+        "contaminated_samples_excluded",
+        "leakage_samples_excluded",
+        "aggregate_public_output_only",
+        "sample_identifiers_not_exposed",
+        "sample_snapshots_not_exposed",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "combined_p_value_forbidden",
+        "multiple_testing_correction_not_claimed",
+    ):
+        if external_calibration_principles.get(key) is not True:
+            fail(f"S5 external calibration invariant failed: {key}")
+    for key in (
+        "weighting_enabled",
+        "candidate_freeze_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+        "population_probability_claim",
+    ):
+        if external_calibration_principles.get(key) is not False:
+            fail(f"S5 external calibration field must remain false: {key}")
+    if external_recurrence_calibration_policy.get("allowed_null_models") != [
+        "PAIR_SHUFFLE",
+        "MATCHED_AGE",
+        "MATCHED_AGE_CLOCK",
+    ]:
+        fail("S5 allowed external null model registry changed")
+
+    if px_v3_candidate_freeze_policy.get("policy_id") != "ALMAS_PX_V3_CANDIDATE_FREEZE_V1":
+        fail("PX v3 candidate freeze policy id changed")
+    if px_v3_candidate_freeze_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("PX v3 candidate freeze policy must remain protocol-only")
+    if px_v3_candidate_freeze_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("PX v3 candidate freeze policy must remain E_PROJECT_POLICY")
+    px3_principles = px_v3_candidate_freeze_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "development_cases_cannot_validate_candidate",
+        "freeze_before_holdout",
+        "runtime_registry_mutation_forbidden",
+        "candidate_freeze_is_not_validation",
+    ):
+        if px3_principles.get(key) is not True:
+            fail(f"S6 PX v3 freeze invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if px3_principles.get(key) is not False:
+            fail(f"S6 PX v3 field must remain false: {key}")
+    if px_v3_candidate_registry.get("registry_id") != "ALMAS_PX_V3_CANDIDATES":
+        fail("PX v3 registry id changed")
+    if px_v3_candidate_registry.get("policy_id") != "ALMAS_PX_V3_CANDIDATE_FREEZE_V1":
+        fail("PX v3 registry/policy mismatch")
+    if px_v3_candidate_registry.get("records") != []:
+        fail("canonical PX v3 registry must remain empty before candidate preregistration")
+    if px_v3_candidate_registry.get("validated_candidate_ids") != []:
+        fail("S6 cannot contain validated PX v3 candidates")
+
+    if px_v3_holdout_evaluation_policy.get("policy_id") != "ALMAS_PX_V3_HOLDOUT_EVALUATION_V1":
+        fail("PX v3 holdout evaluation policy id changed")
+    if px_v3_holdout_evaluation_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("PX v3 holdout evaluation policy must remain protocol-only")
+    if px_v3_holdout_evaluation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("PX v3 holdout evaluation policy must remain E_PROJECT_POLICY")
+    s7_principles = px_v3_holdout_evaluation_policy.get("principles", {})
+    for key in (
+        "candidate_must_be_frozen_for_validation",
+        "cohort_must_pass_s4_firewall",
+        "clean_external_samples_only",
+        "development_overlap_forbidden",
+        "formula_ref_must_match_frozen_candidate",
+        "complete_score_coverage_required",
+        "aggregate_public_output_only",
+        "sample_identifiers_not_exposed",
+        "sample_values_not_exposed",
+        "threshold_fitting_on_holdout_forbidden",
+        "promotion_decision_forbidden",
+    ):
+        if s7_principles.get(key) is not True:
+            fail(f"S7 holdout invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+        "population_probability_claim",
+    ):
+        if s7_principles.get(key) is not False:
+            fail(f"S7 holdout field must remain false: {key}")
+
+    if px_v3_promotion_gate_policy.get("policy_id") != "ALMAS_PX_V3_PROMOTION_GATE_V1":
+        fail("PX v3 promotion gate policy id changed")
+    if px_v3_promotion_gate_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("PX v3 promotion gate policy must remain protocol-only")
+    if px_v3_promotion_gate_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("PX v3 promotion gate policy must remain E_PROJECT_POLICY")
+    s8_principles = px_v3_promotion_gate_policy.get("principles", {})
+    for key in (
+        "candidate_must_be_frozen_for_validation",
+        "holdout_formula_must_match",
+        "holdout_evaluation_must_be_diagnostic_only",
+        "all_preregistered_criteria_must_pass",
+        "independent_replication_required",
+        "negative_controls_required",
+        "ablation_required",
+        "leakage_audit_required",
+        "post_holdout_rule_change_forbidden",
+        "case_fitting_forbidden",
+        "automatic_registry_mutation_forbidden",
+        "manual_new_version_required_for_activation",
+        "promotion_eligible_is_not_active",
+    ):
+        if s8_principles.get(key) is not True:
+            fail(f"S8 promotion invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if s8_principles.get(key) is not False:
+            fail(f"S8 promotion field must remain false: {key}")
+
+    if px_v3_activation_firewall_policy.get("policy_id") != "ALMAS_PX_V3_ACTIVATION_FIREWALL_V1":
+        fail("PX v3 activation firewall policy id changed")
+    if px_v3_activation_firewall_policy.get("status") != "FROZEN_RELEASE_FIREWALL":
+        fail("PX v3 activation firewall must remain release-locked")
+    if px_v3_activation_firewall_policy.get("release_line") != "1.15":
+        fail("PX v3 activation firewall must remain bound to 1.15")
+    if px_v3_activation_firewall_policy.get("operational_px_engine") != "ALMAS_SEMANTIC_MOTIF_V2":
+        fail("ALMAS 1.15 must retain PX v2 as operational engine")
+    if px_v3_activation_firewall_policy.get("px_v3_operational_in_release") is not False:
+        fail("PX v3 must remain non-operational in ALMAS 1.15")
+    s9_principles = px_v3_activation_firewall_policy.get("principles", {})
+    for key in (
+        "same_release_activation_forbidden",
+        "promotion_eligible_does_not_activate",
+        "manual_registry_change_required",
+        "new_semver_required",
+        "new_release_audit_required",
+        "new_public_contract_validation_required",
+        "runtime_activation_forbidden",
+        "automatic_registry_mutation_forbidden",
+        "px_v2_remains_operational",
+    ):
+        if s9_principles.get(key) is not True:
+            fail(f"S9 activation firewall invariant failed: {key}")
+    for key in (
+        "px_v3_scoring_enabled",
+        "px_v3_weighting_enabled",
+        "px_v3_ontology_enabled",
+        "px_v3_l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if s9_principles.get(key) is not False:
+            fail(f"S9 activation firewall field must remain false: {key}")
+    s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
+    for field in (
+        "candidate",
+        "holdout_evaluations",
+        "external_calibration_refs",
+        "independent_replication_refs",
+        "leakage_audit_refs",
+        "criterion_results",
+        "negative_control_failure_count",
+        "ablation_failure_count",
+        "case_fitting_count",
+        "label_leakage_count",
+        "narrative_leakage_count",
+        "post_holdout_rule_change_count",
+    ):
+        if field not in s8_required:
+            fail(f"S8 promotion evidence schema missing required field: {field}")
+    for field in ("scoring_enabled", "weighting_enabled", "ontology_enabled"):
+        if px_v3_candidate_registry.get(field) is not False:
+            fail(f"PX v3 canonical registry must keep {field}=false")
+    px3_schema_props = px_v3_candidate_registry_schema.get("properties", {})
+    if px3_schema_props.get("registry_id", {}).get("const") != "ALMAS_PX_V3_CANDIDATES":
+        fail("PX v3 candidate schema registry id changed")
+    if px3_schema_props.get("policy_id", {}).get("const") != "ALMAS_PX_V3_CANDIDATE_FREEZE_V1":
+        fail("PX v3 candidate schema policy id changed")
+    if px3_schema_props.get("validated_candidate_ids", {}).get("maxItems") != 0:
+        fail("S6 schema must prohibit validated PX v3 candidate ids")
+    external_schema_props = external_recurrence_cohort_schema.get("properties", {})
+    if set(external_schema_props.get("null_model", {}).get("enum", [])) != {
+        "PAIR_SHUFFLE",
+        "MATCHED_AGE",
+        "MATCHED_AGE_CLOCK",
+    }:
+        fail("S4 schema null_model enum diverges from policy")
+    sample_schema = (
+        external_schema_props.get("samples", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    recurrence_snapshot_schema = sample_schema.get("recurrence_snapshot", {})
+    if "pillar_attribution" not in recurrence_snapshot_schema.get("required", []):
+        fail("S4 recurrence snapshot must require pillar_attribution")
 
     if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
@@ -1933,6 +2367,41 @@ def main() -> int:
         fail("M24 automatic output must expose generator_policy_id")
     if null_model_output_schema.get("properties", {}).get("combined_p_value_state", {}).get("const") != "FORBIDDEN":
         fail("M24 must forbid combined p-value across null statistics")
+    calibration_schema = null_model_output_schema.get("properties", {}).get("recurrence_calibration", {})
+    calibration_props = calibration_schema.get("properties", {})
+    if calibration_props.get("policy_id", {}).get("const") != "ALMAS_RECURRENCE_NULL_CALIBRATION_V1":
+        fail("M24 schema must bind the S2 recurrence calibration policy")
+    for field in (
+        "used_for_weighting",
+        "used_in_px_score",
+        "used_in_ps_score",
+        "used_in_iem",
+        "used_in_idd",
+        "used_in_irc",
+        "used_in_ontology",
+        "metaphysical_probability",
+        "external_population_claim",
+    ):
+        if calibration_props.get(field, {}).get("const") is not False:
+            fail(f"M24 S2 calibration field must remain false: {field}")
+    synthetic_schema = null_model_output_schema.get("properties", {}).get("synthetic_recurrence_controls", {})
+    synthetic_props = synthetic_schema.get("properties", {})
+    if synthetic_props.get("policy_id", {}).get("const") != "ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1":
+        fail("M24 schema must bind the S3 synthetic control policy")
+    for field in (
+        "used_for_weighting",
+        "used_in_px_score",
+        "used_in_ps_score",
+        "used_in_iem",
+        "used_in_idd",
+        "used_in_irc",
+        "used_in_ontology",
+        "metaphysical_probability",
+        "population_probability_claim",
+        "p_value_claim",
+    ):
+        if synthetic_props.get(field, {}).get("const") is not False:
+            fail(f"M24 S3 synthetic control field must remain false: {field}")
 
     temporal_props = temporal_activation_schema.get("properties", {})
     if temporal_props.get("structural_score_modified", {}).get("const") is not False:

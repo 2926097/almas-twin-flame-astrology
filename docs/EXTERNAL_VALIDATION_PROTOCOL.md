@@ -376,3 +376,149 @@ Un caso público real exige datos ya públicos, verificación independiente y re
 La auditoría CI controla además cobertura exhaustiva de manifests y ausencia de rutas privadas reservadas.
 
 Cualquier `PRIVACY_BREACH` invalida el artefacto afectado para validación pública, aunque el rendimiento discriminante sea correcto.
+
+
+## 17. Cohortes externas de recurrencia
+
+ALMAS 1.15 introduce el protocolo `ALMAS_EXTERNAL_RECURRENCE_COHORT_V1`
+para controles externos de la capa de recurrencia semántica.
+
+El protocolo admite exclusivamente `PAIR_SHUFFLE`, `MATCHED_AGE` y
+`MATCHED_AGE_CLOCK`. El objetivo es asegurar procedencia, congelación,
+cegamiento y separación desarrollo/validación antes de permitir que una
+cohorte externa sea utilizada por futuras calibraciones PX.
+
+Una cohorte debe registrar versión/commit congelados, preregistro, reglas de
+inclusión y emparejamiento, feature/orb policies y el estado de cada muestra.
+
+Para una muestra candidata a holdout externo se exige:
+
+- selección `PREREGISTERED`;
+- `contamination=false`;
+- cero forbidden-field hits;
+- cero label leakage;
+- cero narrative leakage;
+- cero case fitting;
+- snapshot estructural de recurrencia evaluable.
+
+La capa pública conserva únicamente agregados. Los identificadores opacos y
+snapshots individuales pueden existir durante la ejecución privada, pero no se
+serializan en la salida pública del firewall ni se incorporan al repositorio.
+
+Superar S4 significa únicamente que la cohorte cumple el protocolo de entrada.
+No habilita weighting, no valida L3 y no convierte frecuencias externas en
+probabilidades metafísicas.
+
+
+## 18. Calibración externa de recurrencia
+
+Tras superar el firewall S4, ALMAS 1.15 puede ejecutar
+`ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1`.
+
+La calibración sólo consume muestras externas limpias y preregistradas. Quedan
+excluidas de forma automática las muestras `DEVELOPMENT_ONLY`, post-hoc,
+contaminadas o con cualquier forbidden-field, label leakage, narrative leakage
+o case fitting.
+
+S5 reutiliza el núcleo matemático de la calibración WITHIN_YEAR para que la
+definición de presencia, fuerza, diversidad técnica y supervivencia
+leave-one-out sea idéntica entre controles internos y externos.
+
+La salida pública de S5 es agregada y conserva la procedencia de cohorte,
+preregistro, modelo nulo y número de controles externos limpios. No publica
+identificadores ni snapshots individuales.
+
+Una frecuencia externa baja no habilita por sí misma weighting, promoción PX
+v3 ni L3. La política fija `candidate_freeze_enabled=false` y
+`l3_validation=false` hasta que exista una regla candidata congelada y una
+evaluación fuera del conjunto de descubrimiento.
+
+
+## 19. Congelación de candidatos PX v3
+
+ALMAS 1.15 introduce `ALMAS_PX_V3_CANDIDATE_FREEZE_V1`.
+
+La finalidad del gate es impedir que una observación de desarrollo se convierta
+directamente en una regla aplicada al holdout. Toda fórmula candidata debe
+quedar especificada y congelada **antes** de conocer el resultado del holdout.
+
+El candidato declara descriptores, fórmula, dirección esperada, referencias de
+desarrollo, calibración S2, controles sintéticos S3, ablaciones, controles
+negativos y criterios de falsación.
+
+En el momento de congelación:
+
+- `holdout_refs` debe estar vacío;
+- `formula_frozen_before_holdout=true`;
+- `holdout_fitted_thresholds=false`;
+- scoring, weighting y ontología deben permanecer deshabilitados.
+
+El registro canónico PX v3 permanece vacío hasta que exista una regla
+preregistrada independiente de los casos que motivaron esta línea de
+investigación. `FROZEN_FOR_VALIDATION` significa únicamente «lista para ser
+puesta a prueba», no «validada» ni «incorporada al modelo».
+
+
+## 20. Runner holdout PX v3
+
+`ALMAS_PX_V3_HOLDOUT_EVALUATION_V1` ejecuta la fase holdout de un candidato
+previamente congelado.
+
+El runner exige que el candidato sea `FROZEN_FOR_VALIDATION`, que la cohorte
+externa supere S4 y que no exista intersección entre referencias de desarrollo
+y muestras holdout limpias.
+
+Los scores del candidato deben declarar el mismo `formula_ref` congelado y
+cubrir todas las muestras evaluables. Cualquier falta de cobertura, cambio de
+fórmula o solapamiento desarrollo/holdout degrada la ejecución a
+`NOT_EVALUABLE`.
+
+La salida pública contiene únicamente estadísticos agregados y un fingerprint
+SHA-256 de la distribución. No publica identificadores ni valores individuales.
+
+S7 no decide promoción y no puede modificar el registro canónico de candidatos.
+`promotion_decision=FORBIDDEN` y `candidate_validated=false` son invariantes
+de esta fase.
+
+
+## 21. Gate de elegibilidad de promoción PX v3
+
+`ALMAS_PX_V3_PROMOTION_GATE_V1` evalúa si un candidato congelado dispone de
+evidencia suficiente para ser considerado `PROMOTION_ELIGIBLE`.
+
+El gate exige evaluación holdout válida, calibración externa, replicación
+independiente, controles negativos, ablación, auditoría de leakage y criterios
+preregistrados. Cualquier case fitting, fuga de etiqueta/narrativa, cambio de
+regla posterior al holdout o criterio preregistrado fallido impide la
+elegibilidad.
+
+`PROMOTION_ELIGIBLE` no modifica el registro canónico. La política prohíbe
+mutación automática y exige una nueva versión manual para cualquier activación
+posterior.
+
+Por tanto, superar S8 valida únicamente que el candidato ha superado el
+procedimiento metodológico declarado. No activa PX v3, no valida L3 y no
+demuestra una ontología metafísica.
+
+
+## 22. Firewall de activación versionada PX v3
+
+`ALMAS_PX_V3_ACTIVATION_FIREWALL_V1` impide activar un candidato PX v3 en la
+misma línea 1.15 donde se construyó la infraestructura de calibración.
+
+Un resultado `PROMOTION_ELIGIBLE` de S8 no activa automáticamente la regla.
+La activación exige una versión posterior, cambio manual del registro canónico,
+auditoría de release y contrato público ejecutado de nuevo.
+
+Durante 1.15:
+
+- PX v2 permanece operativo;
+- PX v3 scoring/weighting/ontology permanecen deshabilitados;
+- el registro canónico PX v3 permanece vacío;
+- `validated_candidate_ids=[]`.
+
+Cualquier intento de activar PX v3 dentro de esta release debe terminar en
+`BLOCKED_RELEASE_FIREWALL`.
+
+Este firewall garantiza que la evidencia observada durante validación no pueda
+transformarse en una regla operativa sin un corte de versión explícito.

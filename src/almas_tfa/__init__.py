@@ -36,6 +36,7 @@ from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplica
 from .root_strengths import derive_root_strength, evidence_strength, load_root_strength_policy
 from .pillar_attribution import classify_root, derive_pillars_from_roots, load_root_pillar_policy
 from .semantic_motifs import classify_primary_motif, derive_semantic_motif_graph, load_semantic_motif_policy, mission_motifs
+from .recurrence_quality import derive_recurrence_quality_diagnostics, load_recurrence_quality_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
@@ -43,6 +44,14 @@ from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensi
 from .time_perturbation import generate_birth_time_sensitivity, load_birth_time_perturbation_policy
 from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, make_m24_null_models, wilson_interval
 from .null_generation import generate_within_year_null_runs, load_null_generation_policy
+from .null_calibration import derive_recurrence_null_calibration, load_recurrence_null_calibration_policy
+from .synthetic_controls import derive_recurrence_synthetic_controls, load_recurrence_synthetic_controls_policy
+from .external_control_cohorts import extract_clean_external_candidate_snapshots, extract_validated_external_snapshots, load_external_recurrence_cohort_policy, validate_external_recurrence_cohort
+from .external_recurrence_calibration import derive_external_recurrence_calibration, load_external_recurrence_calibration_policy
+from .px_v3_candidates import evaluate_px_v3_candidate, evaluate_px_v3_candidate_registry, load_px_v3_candidate_freeze_policy, load_px_v3_candidate_registry
+from .px_v3_holdout import evaluate_px_v3_holdout, load_px_v3_holdout_evaluation_policy
+from .px_v3_promotion import evaluate_px_v3_promotion, load_px_v3_promotion_gate_policy
+from .px_v3_activation import evaluate_px_v3_activation_firewall, load_px_v3_activation_firewall_policy
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -102,6 +111,8 @@ __all__ = [
     "classify_primary_motif",
     "mission_motifs",
     "derive_semantic_motif_graph",
+    "load_recurrence_quality_policy",
+    "derive_recurrence_quality_diagnostics",
     "load_model_attribution_policy",
     "derive_model_attributions",
     "m20_counterevidence",
@@ -116,6 +127,26 @@ __all__ = [
     "make_m24_null_models",
     "load_null_generation_policy",
     "generate_within_year_null_runs",
+    "load_recurrence_null_calibration_policy",
+    "derive_recurrence_null_calibration",
+    "load_recurrence_synthetic_controls_policy",
+    "derive_recurrence_synthetic_controls",
+    "load_external_recurrence_cohort_policy",
+    "validate_external_recurrence_cohort",
+    "extract_validated_external_snapshots",
+    "extract_clean_external_candidate_snapshots",
+    "load_external_recurrence_calibration_policy",
+    "derive_external_recurrence_calibration",
+    "load_px_v3_candidate_freeze_policy",
+    "load_px_v3_candidate_registry",
+    "evaluate_px_v3_candidate",
+    "evaluate_px_v3_candidate_registry",
+    "load_px_v3_holdout_evaluation_policy",
+    "evaluate_px_v3_holdout",
+    "load_px_v3_promotion_gate_policy",
+    "evaluate_px_v3_promotion",
+    "load_px_v3_activation_firewall_policy",
+    "evaluate_px_v3_activation_firewall",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",

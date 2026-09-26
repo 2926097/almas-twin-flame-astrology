@@ -1,20 +1,22 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.14.0
+version: 1.15.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.14.0
+# ALMAS · Astrología Metafísica Relacional v1.15.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.14.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.15.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
+
+La release 1.15.0 añade una capa de **calibración de especificidad S1–S9** sobre PX/PS v2: diagnóstico de calidad de recurrencia, calibración nula WITHIN_YEAR, controles sintéticos deterministas, firewall y calibración de cohortes externas, registro/gate de candidatos PX v3, runner holdout, gate de promoción y firewall de activación versionada. Ninguna de estas capas modifica todavía PX/PS, IEM, IDD, IRC u ontología; PX v2 sigue siendo el único score operativo y el registro PX v3 permanece vacío.
 
 ### Enfoque de investigación metafísica
 

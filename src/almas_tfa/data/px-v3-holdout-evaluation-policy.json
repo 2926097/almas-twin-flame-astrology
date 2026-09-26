@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_PX_V3_HOLDOUT_EVALUATION_V1",
+  "status": "FROZEN_EXPERIMENTAL_PROTOCOL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Evaluar distribuciones holdout de candidatos PX v3 ya congelados sin promoción, weighting ni activación de scoring.",
+  "principles": {
+    "candidate_must_be_frozen_for_validation": true,
+    "cohort_must_pass_s4_firewall": true,
+    "clean_external_samples_only": true,
+    "development_overlap_forbidden": true,
+    "formula_ref_must_match_frozen_candidate": true,
+    "complete_score_coverage_required": true,
+    "aggregate_public_output_only": true,
+    "sample_identifiers_not_exposed": true,
+    "sample_values_not_exposed": true,
+    "threshold_fitting_on_holdout_forbidden": true,
+    "promotion_decision_forbidden": true,
+    "scoring_enabled": false,
+    "weighting_enabled": false,
+    "ontology_enabled": false,
+    "l3_validation_enabled": false,
+    "metaphysical_probability": false,
+    "population_probability_claim": false
+  },
+  "summary_statistics": [
+    "COUNT",
+    "MEAN",
+    "MEDIAN",
+    "MIN",
+    "MAX",
+    "P10_NEAREST_RANK",
+    "P90_NEAREST_RANK"
+  ]
+}

@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.15.0 — 2026-09-27
+
+### Calibración de especificidad y ciclo PX v3 no operativo
+- Añade `ALMAS_RECURRENCE_QUALITY_DIAGNOSTICS_V1`: diversidad de familias/clases, entropía, dominancia, dependencia dracónica y supervivencia leave-one-out por motivo.
+- Añade `ALMAS_RECURRENCE_NULL_CALIBRATION_V1`: calibra motivos y agregados PX/PS contra `WITHIN_YEAR` con frecuencias incondicionales/condicionales e intervalos de Wilson.
+- Añade `ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1`: controles deterministas por rotación semántica y desacoplamiento punto-relación, sin RNG ni interpretación poblacional.
+- Añade `ALMAS_EXTERNAL_RECURRENCE_COHORT_V1`: firewall privado para cohortes `PAIR_SHUFFLE`, `MATCHED_AGE` y `MATCHED_AGE_CLOCK`, con preregistro, contaminación/leakage y salida pública agregada.
+- Añade `ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1`: reutiliza el núcleo matemático de S2 sobre holdouts externos limpios y preregistrados.
+- Añade `ALMAS_PX_V3_CANDIDATE_FREEZE_V1` y el registro `ALMAS_PX_V3_CANDIDATES`, que permanece vacío; ninguna fórmula PX v3 real se incorpora a esta release.
+- Añade `ALMAS_PX_V3_HOLDOUT_EVALUATION_V1`: runner holdout agregado con fingerprint SHA-256 y prohibición de promoción durante la evaluación.
+- Añade `ALMAS_PX_V3_PROMOTION_GATE_V1`: exige holdout, calibración externa, replicación independiente, controles negativos, ablación, auditoría de leakage y criterios preregistrados; `PROMOTION_ELIGIBLE` no activa scoring.
+- Añade `ALMAS_PX_V3_ACTIVATION_FIREWALL_V1`: bloquea cualquier activación PX v3 dentro de la línea 1.15 y exige nueva versión, auditoría y contrato público para una futura activación.
+- Refuerza el contrato público con schemas, políticas y tests S1–S9.
+- Mantiene PX v2 (`ALMAS_SEMANTIC_MOTIF_V2`) como único score operativo; PX, PS, IEM, IDD, IRC y ontología de producción no cambian por S1–S9.
+- Mantiene `validated_discriminator_ids=[]`, `PX v3 records=[]` y `metaphysical_probability=false`.
+- La suite de release alcanza **394 tests deterministas**.
+- No se declara holdout externo real ejecutado, validación L3 ni validación científica de las ontologías metafísicas.
+
 ## 1.14.0 — 2026-09-26
 
 ### Recurrencia semántica, perfiles de análisis y sensibilidad horaria v2

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_PX_V3_ACTIVATION_FIREWALL_V1",
+  "status": "FROZEN_RELEASE_FIREWALL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "release_line": "1.15",
+  "operational_px_engine": "ALMAS_SEMANTIC_MOTIF_V2",
+  "px_v3_operational_in_release": false,
+  "principles": {
+    "same_release_activation_forbidden": true,
+    "promotion_eligible_does_not_activate": true,
+    "manual_registry_change_required": true,
+    "new_semver_required": true,
+    "new_release_audit_required": true,
+    "new_public_contract_validation_required": true,
+    "runtime_activation_forbidden": true,
+    "automatic_registry_mutation_forbidden": true,
+    "px_v2_remains_operational": true,
+    "px_v3_scoring_enabled": false,
+    "px_v3_weighting_enabled": false,
+    "px_v3_ontology_enabled": false,
+    "px_v3_l3_validation_enabled": false,
+    "metaphysical_probability": false
+  }
+}

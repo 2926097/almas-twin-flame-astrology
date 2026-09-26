@@ -148,6 +148,116 @@
         "additionalProperties": false
       }
     },
+    "recurrence_calibration": {
+      "type": "object",
+      "required": [
+        "state",
+        "policy_id",
+        "policy_status",
+        "epistemic_class",
+        "used_for_weighting",
+        "used_in_px_score",
+        "used_in_ps_score",
+        "used_in_iem",
+        "used_in_idd",
+        "used_in_irc",
+        "used_in_ontology",
+        "metaphysical_probability",
+        "external_population_claim"
+      ],
+      "properties": {
+        "state": {
+          "enum": ["DIAGNOSTIC_ONLY", "NOT_EVALUABLE"]
+        },
+        "policy_id": {
+          "const": "ALMAS_RECURRENCE_NULL_CALIBRATION_V1"
+        },
+        "policy_status": {"type": "string"},
+        "epistemic_class": {"type": "string"},
+        "reason": {"type": "string"},
+        "null_model": {"type": "string"},
+        "null_generator_policy_id": {"type": "string"},
+        "sample_count": {"type": "integer", "minimum": 1},
+        "confidence_level": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "observed_motifs": {
+          "type": "array",
+          "items": {"type": "object"}
+        },
+        "null_catalog": {"type": "object"},
+        "aggregate": {"type": "object"},
+        "used_for_weighting": {"const": false},
+        "used_in_px_score": {"const": false},
+        "used_in_ps_score": {"const": false},
+        "used_in_iem": {"const": false},
+        "used_in_idd": {"const": false},
+        "used_in_irc": {"const": false},
+        "used_in_ontology": {"const": false},
+        "metaphysical_probability": {"const": false},
+        "external_population_claim": {"const": false},
+        "combined_p_value": {"type": "null"},
+        "combined_p_value_state": {"const": "FORBIDDEN"},
+        "multiple_testing_correction_state": {
+          "enum": ["NOT_CLAIMED"]
+        },
+        "external_nulls_required_before_weighting": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "synthetic_recurrence_controls": {
+      "type": "object",
+      "required": [
+        "state",
+        "policy_id",
+        "used_for_weighting",
+        "used_in_px_score",
+        "used_in_ps_score",
+        "used_in_iem",
+        "used_in_idd",
+        "used_in_irc",
+        "used_in_ontology",
+        "metaphysical_probability",
+        "population_probability_claim"
+      ],
+      "properties": {
+        "state": {
+          "enum": ["DIAGNOSTIC_ONLY", "NOT_EVALUABLE"]
+        },
+        "policy_id": {
+          "const": "ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1"
+        },
+        "policy_status": {"type": "string"},
+        "epistemic_class": {"type": "string"},
+        "reason": {"type": "string"},
+        "core_root_count": {"type": "integer", "minimum": 0},
+        "controls_per_family": {"type": "integer", "minimum": 0},
+        "control_count": {"type": "integer", "minimum": 0},
+        "observed": {"type": "object"},
+        "aggregate": {"type": "object"},
+        "motifs": {"type": "array", "items": {"type": "object"}},
+        "by_control_family": {"type": "object"},
+        "control_manifest": {"type": "array", "items": {"type": "object"}},
+        "deterministic": {"const": true},
+        "rng_used": {"const": false},
+        "used_for_weighting": {"const": false},
+        "used_in_px_score": {"const": false},
+        "used_in_ps_score": {"const": false},
+        "used_in_iem": {"const": false},
+        "used_in_idd": {"const": false},
+        "used_in_irc": {"const": false},
+        "used_in_ontology": {"const": false},
+        "metaphysical_probability": {"const": false},
+        "population_probability_claim": {"const": false},
+        "p_value_claim": {"const": false},
+        "external_nulls_required_before_weighting": {"const": true}
+      },
+      "additionalProperties": false
+    },
     "external_population_claim": {"const": false},
     "combined_p_value": {"type": "null"},
     "combined_p_value_state": {"const": "FORBIDDEN"}
@@ -168,6 +278,8 @@
           "generated_sample_count",
           "samples_per_subject",
           "sample_manifest",
+          "recurrence_calibration",
+          "synthetic_recurrence_controls",
           "external_population_claim",
           "combined_p_value",
           "combined_p_value_state"
