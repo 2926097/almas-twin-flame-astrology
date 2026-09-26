@@ -232,6 +232,28 @@ M25 no realiza esta promoción. Sólo verifica que la salida canónica M21 ya pr
 
 Mientras ningún discriminador haya completado esta promoción, la infraestructura puede existir sin que haya ningún `VALIDATED_DISCRIMINATOR` real utilizable.
 
+### Independencia astrológica del discriminador
+
+Si un discriminador declara `uses_astrology=true`, los requisitos L3 generales no bastan. La promoción exige además un bloque `astrology_validation` con:
+
+- criterio externo no astrológico;
+- ablación de familias/features astrológicas;
+- controles emparejados procesados con el mismo pipeline;
+- auditoría de dependencia y pseudo-replicación;
+- validación fuera de muestra;
+- replicación astrológica específica.
+
+La promoción debe declarar asimismo:
+
+- `single_feature_prohibition_acknowledged=true`;
+- `null_rarity_not_ontological=true`;
+- `temporal_activation_not_origin_proof=true`.
+
+Un aspecto, asteroide, atacir, recurrencia o sincronía aislada no puede crear una categoría ontológica. La rareza bajo un modelo nulo no se interpreta como probabilidad metafísica. Una técnica temporal puede activar arquitectura previamente congelada, pero no demostrar su origen.
+
+Validar una regla astrológica sólo valida su capacidad discriminante dentro del observable operacional y el alcance registrados. No demuestra por sí misma una ontología metafísica.
+
+
 ## 11. Verdad de referencia documental
 
 ALMAS no utilizará como verdad de referencia:
