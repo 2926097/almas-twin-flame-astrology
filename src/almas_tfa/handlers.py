@@ -34,7 +34,7 @@ from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
-from .report_gate_handlers import m30_report_gate
+from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
 from .report_model_handlers import m31_report
 
 
@@ -482,4 +482,5 @@ def configured_handlers(*, astrology_backend=None, davison_backend=None):
             astrology_backend,
             davison_backend,
         )
+        handlers["M30"] = make_m30_report_gate_auto()
     return handlers
