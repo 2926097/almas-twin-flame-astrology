@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from almas_tfa.module_contract import ModuleContext
 from almas_tfa.ontological_discriminator import discriminate_ontology
@@ -16,12 +17,61 @@ def context(raw=None, canonical=None):
     )
 
 
+def synthetic_l3_registry():
+    return {
+    "records": [
+        {
+            "discriminator_id": "TEST_L3",
+            "current_status": "VALIDATED_DISCRIMINATOR",
+            "l3_authorized": True,
+            "promotion_ref": "PROMO:TEST_L3:1",
+            "promoted_at": "2026-09-26T00:00:00Z",
+            "validated_pairs": [
+                [
+                    "SOULMATE_MODEL",
+                    "MONADIC_ORIGIN"
+                ]
+            ],
+            "root_key_prefix": "TEST_L3:",
+            "frozen": {
+                "almas_version": "TEST",
+                "commit_sha": "test-sha",
+                "rule_ref": "TEST-RULE",
+                "schema_refs": [
+                    "TEST-SCHEMA"
+                ]
+            },
+            "validation_evidence": {
+                "preregistration_refs": [
+                    "PREREG-1"
+                ],
+                "independent_replication_refs": [
+                    "REPL-1"
+                ],
+                "external_holdout_refs": [
+                    "HOLDOUT-1"
+                ],
+                "negative_control_refs": [
+                    "NEG-1"
+                ],
+                "leakage_audit_refs": [
+                    "LEAK-1"
+                ]
+            },
+            "block_reason": None
+        }
+    ]
+}
+
+
 def component(
     *,
     validation_level="L3_VALIDATED",
-    root_key="ROOT_L3",
+    root_key="TEST_L3:ROOT_1",
     source_module="M21",
     value=0.7,
+    discriminator_id="TEST_L3",
+    promotion_ref="PROMO:TEST_L3:1",
 ):
     return {
         "id": "ONTOLOGY_DISC",
@@ -32,14 +82,16 @@ def component(
         "derivation_ref": root_key,
         "validation_level": validation_level,
         "root_key": root_key,
+        "discriminator_id": discriminator_id,
+        "promotion_ref": promotion_ref,
     }
 
 
-def ontology_output(level, *, root_key="ROOT_L3", excluded="SOULMATE_MODEL"):
+def ontology_output(level, *, root_key="TEST_L3:ROOT_1", excluded="SOULMATE_MODEL"):
     return discriminate_ontology(
         [
             {
-                "discriminator_id": "D-TEST",
+                "discriminator_id": "TEST_L3",
                 "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
                 "validation_level": level,
                 "result": "SEPARATES",
@@ -67,14 +119,14 @@ class TestM25ValidatedOntologicalDiscriminator(unittest.TestCase):
             "robustness_component_summaries": [
                 component(
                     validation_level="L2_EXPERIMENTAL",
-                    root_key="ROOT_L2",
+                    root_key="TEST_L3:ROOT_L2",
                 )
             ]
         }
         canonical = {
             "ontological_discrimination": ontology_output(
                 "L2_EXPERIMENTAL",
-                root_key="ROOT_L2",
+                root_key="TEST_L3:ROOT_L2",
             )
         }
         with self.assertRaises(ValueError):
@@ -92,13 +144,13 @@ class TestM25ValidatedOntologicalDiscriminator(unittest.TestCase):
     def test_l3_requires_matching_validated_root(self):
         raw = {
             "robustness_component_summaries": [
-                component(root_key="ROOT_NOT_PRESENT")
+                component(root_key="TEST_L3:ROOT_NOT_PRESENT")
             ]
         }
         canonical = {
             "ontological_discrimination": ontology_output(
                 "L3_VALIDATED",
-                root_key="ROOT_REAL",
+                root_key="TEST_L3:ROOT_REAL",
             )
         }
         with self.assertRaises(ValueError):
@@ -113,9 +165,36 @@ class TestM25ValidatedOntologicalDiscriminator(unittest.TestCase):
         canonical = {
             "ontological_discrimination": ontology_output(
                 "L3_VALIDATED",
-                root_key="ROOT_L3",
             )
         }
+        with self.assertRaises(ValueError):
+            m25_robustness(context(raw, canonical))
+
+    def test_unregistered_l3_is_rejected_even_with_confirmatory_m21_root(self):
+        raw = {
+            "robustness_component_summaries": [
+                component(
+                    discriminator_id="OD01_PAIR_SPECIFICITY_NETWORK",
+                    promotion_ref="FAKE",
+                    root_key="OD01:ROOT_1",
+                )
+            ]
+        }
+        canonical = {
+            "ontological_discrimination": discriminate_ontology(
+                [
+                    {
+                        "discriminator_id": "OD01_PAIR_SPECIFICITY_NETWORK",
+                        "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
+                        "validation_level": "L3_VALIDATED",
+                        "result": "SEPARATES",
+                        "excluded_model": "SOULMATE_MODEL",
+                        "root_key": "OD01:ROOT_1",
+                    }
+                ]
+            )
+        }
+
         with self.assertRaises(ValueError):
             m25_robustness(context(raw, canonical))
 
@@ -123,26 +202,26 @@ class TestM25ValidatedOntologicalDiscriminator(unittest.TestCase):
         ontology = discriminate_ontology(
             [
                 {
-                    "discriminator_id": "D-A",
+                    "discriminator_id": "TEST_L3",
                     "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
                     "validation_level": "L3_VALIDATED",
                     "result": "SEPARATES",
                     "excluded_model": "SOULMATE_MODEL",
-                    "root_key": "ROOT_A",
+                    "root_key": "TEST_L3:ROOT_A",
                 },
                 {
-                    "discriminator_id": "D-B",
+                    "discriminator_id": "TEST_L3",
                     "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
                     "validation_level": "L3_VALIDATED",
                     "result": "SEPARATES",
                     "excluded_model": "MONADIC_ORIGIN",
-                    "root_key": "ROOT_B",
+                    "root_key": "TEST_L3:ROOT_B",
                 },
             ]
         )
         raw = {
             "robustness_component_summaries": [
-                component(root_key="ROOT_A")
+                component(root_key="TEST_L3:ROOT_A")
             ]
         }
         canonical = {"ontological_discrimination": ontology}
@@ -150,7 +229,7 @@ class TestM25ValidatedOntologicalDiscriminator(unittest.TestCase):
         with self.assertRaises(ValueError):
             m25_robustness(context(raw, canonical))
 
-    def test_matching_l3_root_can_enter_irc(self):
+    def test_matching_registered_l3_root_can_enter_irc(self):
         raw = {
             "robustness_component_summaries": [
                 component(value=0.64)
@@ -159,11 +238,16 @@ class TestM25ValidatedOntologicalDiscriminator(unittest.TestCase):
         canonical = {
             "ontological_discrimination": ontology_output(
                 "L3_VALIDATED",
-                root_key="ROOT_L3",
             )
         }
 
-        result = m25_robustness(context(raw, canonical))
+        with patch(
+            "almas_tfa.discriminator_promotion_registry."
+            "load_discriminator_promotion_registry",
+            return_value=synthetic_l3_registry(),
+        ):
+            result = m25_robustness(context(raw, canonical))
+
         output = result.canonical_updates["robustness_index"]
 
         self.assertEqual(output["component_count"], 1)
