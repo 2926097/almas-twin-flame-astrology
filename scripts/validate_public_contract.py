@@ -32,6 +32,7 @@ REQUIRED_FILES = [
     "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
     "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
     "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
+    "docs/QUANTITATIVE_CLOSURE_1_13.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -177,6 +178,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/promotion-state-machine-policy.json",
     "src/almas_tfa/data/discriminator-source-genealogy.json",
     "src/almas_tfa/data/public-data-isolation-policy.json",
+    "src/almas_tfa/data/root-strength-policy.json",
+    "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -192,6 +195,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/lot_handlers.py",
     "src/almas_tfa/secondary_handlers.py",
     "src/almas_tfa/evidence_handlers.py",
+    "src/almas_tfa/root_strengths.py",
+    "src/almas_tfa/pillar_attribution.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -275,6 +280,9 @@ REQUIRED_FILES = [
     "tests/test_promotion_reporting.py",
     "tests/test_discriminator_source_genealogy.py",
     "tests/test_public_data_guard.py",
+    "tests/test_root_strengths.py",
+    "tests/test_pillar_attribution.py",
+    "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -409,6 +417,12 @@ def main() -> int:
     )
     public_data_isolation_policy = load_json(
         "src/almas_tfa/data/public-data-isolation-policy.json"
+    )
+    root_strength_policy = load_json(
+        "src/almas_tfa/data/root-strength-policy.json"
+    )
+    root_pillar_policy = load_json(
+        "src/almas_tfa/data/root-pillar-attribution-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -703,6 +717,27 @@ def main() -> int:
         fail("public data isolation policy must remain E_PROJECT_POLICY")
     if public_data_isolation_policy.get("repository_mode") != "PUBLIC":
         fail("public data isolation policy must remain PUBLIC")
+
+    if root_strength_policy.get("policy_id") != "ALMAS_ROOT_STRENGTH_BASELINE_V1":
+        fail("root strength policy id changed")
+    if root_strength_policy.get("status") != "FROZEN_NEUTRAL_BASELINE":
+        fail("root strength baseline must remain frozen and neutral")
+    if root_strength_policy.get("principles", {}).get("case_fitting_forbidden") is not True:
+        fail("root strength policy must forbid case fitting")
+
+    if root_pillar_policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1":
+        fail("root to pillar policy id changed")
+    if root_pillar_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("root to pillar policy must remain a frozen experimental baseline")
+    if root_pillar_policy.get("epistemic_class") != "E_PROJECT_HYPOTHESIS":
+        fail("root to pillar attribution must remain E_PROJECT_HYPOTHESIS")
+    pillar_principles = root_pillar_policy.get("principles", {})
+    if pillar_principles.get("case_fitting_forbidden") is not True:
+        fail("root to pillar policy must forbid case fitting")
+    if pillar_principles.get("single_semantic_primary_pillar") is not True:
+        fail("root to pillar policy must keep semantic pillar exclusivity")
+    if pillar_principles.get("pu_automatic_attribution_forbidden") is not True:
+        fail("PU automatic attribution must remain forbidden")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
