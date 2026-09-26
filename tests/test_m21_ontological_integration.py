@@ -189,6 +189,17 @@ class TestM21OntologicalIntegration(unittest.TestCase):
             ontology["epistemic_state"],
             "INSUFFICIENT",
         )
+        self.assertEqual(
+            ontology["promotion_trace"],
+            [
+                {
+                    "discriminator_id": "TEST_L3",
+                    "promotion_ref": "PROMO:TEST_L3:1",
+                    "root_key": "TEST_L3:ROOT_1",
+                    "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
+                }
+            ],
+        )
 
     def test_ontology_result_is_invariant_to_idd_geometry(self):
         ontology_input = {
