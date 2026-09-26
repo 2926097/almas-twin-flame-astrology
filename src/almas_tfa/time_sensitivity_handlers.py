@@ -65,6 +65,11 @@ def m23_time_sensitivity(context: ModuleContext) -> ModuleResult:
         "preserved_fraction": preserved_fraction,
         "perturbation_count": perturbation_count,
         "robustness_component": component,
+        "robustness_component_eligible": True,
+        "time_reliability_state": None,
+        "diagnostic_curve": [],
+        "diagnostic_curve_labels": {},
+        "diagnostic_curve_sampling": None,
         "perturbations_generated_by_m23": False,
     }
 
