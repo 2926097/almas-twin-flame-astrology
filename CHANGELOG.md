@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.14.0 — 2026-09-26
+
+### Recurrencia semántica, perfiles de análisis y sensibilidad horaria v2
+- Introduce `ALMAS_SEMANTIC_MOTIF_V2`: mantiene `root_key` como identidad geométrica y añade `motif_id` como identidad semántica para detectar recurrencia multitécnica sin fusionar raíces distintas.
+- Redefine PX mediante motivos recurrentes presentes en al menos dos familias de dependencia independientes; cada familia cuenta una sola vez, `RELCHART` sigue siendo una única familia y las capas `support_only` no crean recurrencia core.
+- Redefine PS como recurrencia de motivos de misión sobre eje meridiano + Sol/Júpiter/Saturno/nodos, sin convertir la firma en prueba de misión compartida factual.
+- Eleva M18 a `ALMAS_ROOT_PILLAR_ATTRIBUTION_V2` y M21 a `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2`; Shapley puede operar sobre raíces y features de motivo derivadas sin declarar estas últimas raíces independientes.
+- Introduce `ALMAS_ANALYSIS_PROFILES_V1`: `FULL_MULTIDISCIPLINARY`, `FULL_ASTROLOGY`, `TEMPORAL` y `SOUL_CONTRACT`. M30 distingue módulos requeridos, opcionales y excluidos; `READY` significa completitud técnica del perfil, no demostración metafísica.
+- Eleva el ensamblaje a `ALMAS_CANONICAL_ASSEMBLY_V2` y propaga `analysis_profile` hasta M31.
+- Eleva la sensibilidad horaria a `ALMAS_BIRTH_TIME_SENSITIVITY_V2`: publica curva diagnóstica R5/R15/R30/R60/R120 aunque no exista rating horario documentado y sólo crea BIRTH_TIME cuando la fiabilidad exigida está disponible.
+- Añade `ALMAS_HELLENISTIC_LOTS_V1` para M13: baseline histórica de Fortuna y Espíritu con inversión por secta; no añade Eros/Necesidad por defecto ni convierte lotes en discriminadores ontológicos.
+- Q5 recalcula PX/PS después de cada ablación en vez de reutilizar la recurrencia del baseline.
+- Amplía el registro documental a 40 fuentes y 97 conceptos, incorporando procedencia explícita para Fortuna/Espíritu, secta y Daimon sin equiparar estos términos con ontologías modernas.
+- Mantiene rareza nula fuera de IRC, temporalidad fuera de la creación de raíces, PU en `NOT_EVALUABLE` sin L3 y `validated_discriminator_ids=[]`.
+- La suite alcanza **327 tests deterministas**. No se declara validación empírica externa de las ontologías metafísicas.
+
 ## 1.13.0 — 2026-09-26
 
 ### Cierre cuantitativo reproducible del modo FULL
