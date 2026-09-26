@@ -80,7 +80,8 @@
           "validation_evidence",
           "block_reason",
           "uses_astrology",
-          "astrology_validation"
+          "astrology_validation",
+          "discriminant_validation"
         ],
         "properties": {
           "discriminator_id": {
@@ -296,6 +297,16 @@
               "temporal_activation_not_origin_proof"
             ],
             "additionalProperties": false
+          },
+          "discriminant_validation": {
+            "anyOf": [
+              {
+                "$ref": "discriminant-validation-evidence.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false
