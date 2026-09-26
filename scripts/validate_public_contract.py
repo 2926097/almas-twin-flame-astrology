@@ -34,6 +34,7 @@ REQUIRED_FILES = [
     "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
     "docs/QUANTITATIVE_CLOSURE_1_13.md",
     "docs/RELEASE_AUDIT_1.13.0.md",
+    "docs/RELEASE_AUDIT_1.14.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -805,6 +806,11 @@ def main() -> int:
         fail("semantic recurrence must count each dependency family once")
     if motif_principles.get("relchart_is_one_dependency_family") is not True:
         fail("RELCHART must remain a single dependency family")
+    for relation_set_name, relation_values in semantic_motif_policy.get("relation_sets", {}).items():
+        if not isinstance(relation_values, list):
+            fail(f"semantic motif relation set {relation_set_name} must be a list")
+        if len(relation_values) != len(set(relation_values)):
+            fail(f"semantic motif relation set {relation_set_name} contains duplicates")
 
     if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
