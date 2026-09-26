@@ -153,7 +153,32 @@
       "type": "object"
     },
     "temporal": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "returns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "houses_included",
+              "location_documented"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "houses_included": {
+                "type": "boolean"
+              },
+              "location_documented": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
     },
     "doctrine": {
       "type": "array",
