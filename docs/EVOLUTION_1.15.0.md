@@ -262,13 +262,60 @@ Por tanto, una señal que sea rara en S5 todavía no modifica PX v2. S5 aporta
 evidencia externa de especificidad metodológica, no una probabilidad de
 ontología.
 
+## S6 · PX v3 Candidate Freeze Gate
+
+S6 queda implementada mediante
+`ALMAS_PX_V3_CANDIDATE_FREEZE_V1`, el registro canónico
+`ALMAS_PX_V3_CANDIDATES` y el schema
+`px-v3-candidate-registry.schema.json`.
+
+S6 no introduce todavía ninguna fórmula PX v3 real. El registro canónico nace
+vacío y bloquea por contrato:
+
+- `scoring_enabled=true`;
+- `weighting_enabled=true`;
+- `ontology_enabled=true`;
+- cualquier `validated_candidate_ids`.
+
+Un candidato hipotético sólo puede alcanzar
+`FROZEN_FOR_VALIDATION` antes del holdout si declara:
+
+- descriptores S1 permitidos;
+- `formula_ref` congelada;
+- dirección esperada;
+- referencias de casos de desarrollo;
+- referencias S2 y S3;
+- ablaciones requeridas;
+- controles negativos;
+- criterios explícitos de falsación;
+- `holdout_refs=[]`;
+- `formula_frozen_before_holdout=true`;
+- `holdout_fitted_thresholds=false`.
+
+Si el holdout ya fue observado, si la fórmula se ajustó después del holdout o
+si se intenta habilitar scoring/ontología, el gate rechaza la congelación.
+
+La congelación sólo significa que la regla está suficientemente especificada
+para ser **probada**. No significa que sea correcta, útil, validada o que pueda
+entrar en PX.
+
+El registro público permanece actualmente:
+
+`records=[]`
+
+`validated_candidate_ids=[]`
+
+Por tanto ALMAS 1.15 no incorpora aún ningún candidato PX v3 real y PX v2 sigue
+siendo el único score operativo.
+
 ## Siguientes fases
 
-S6 definirá el registro de **candidatos PX v3** y el gate de congelación. Un
-candidato sólo podrá entrar en ese registro si declara de antemano qué
-descriptor modifica, qué evidencia S2/S3/S5 lo respalda, qué ablaciones debe
-superar y qué falsadores lo retirarían.
+S7 definirá el runner de evaluación holdout para candidatos congelados. El
+runner deberá consumir una cohorte S4/S5 distinta de los casos de desarrollo y
+producir únicamente métricas de validación, sin modificar el registro ni el
+scoring.
 
-S7 ejecutará los candidatos congelados únicamente en cohortes no utilizadas
-para descubrirlos. Los casos que originaron la línea de saturación permanecen
-`DEVELOPMENT_ONLY` y no pueden definir thresholds ni validar la misma regla.
+S8 podrá promover un candidato sólo después de preregistro, evaluación
+holdout, replicación independiente, controles negativos, ablación por familia
+y auditoría de leakage. Una promoción de PX v3 seguirá siendo una decisión
+metodológica del proyecto, no una validación de ontología metafísica.
