@@ -271,7 +271,26 @@ La batería intenta forzar falsa especificidad mediante:
 
 Superar esta batería sólo demuestra resistencia del clasificador a ataques sintéticos conocidos. No promociona candidatos ni constituye validación externa.
 
-La matriz metamórfica formal queda deliberadamente reservada al Paso 12.
+## Suite metamórfica formal
+
+El Paso 12 añade:
+
+`tests/test_ontological_discriminator_metamorphic.py`
+
+y los invariantes:
+
+`tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md`.
+
+Se distinguen dos oráculos:
+
+- `FULL_OUTPUT_IDENTITY`: la salida completa debe ser idéntica;
+- `SEMANTIC_DECISION_IDENTITY`: pueden cambiar orden o metadatos no decisorios, pero no exclusiones confirmatorias, supervivientes, identificabilidad, estado epistemológico, clasificación ni falsa especificidad.
+
+La suite cubre MR01–MR15: permutación de observaciones, inversión de pares, idempotencia, cambio de notas, normalización de modo, ruido L1/L2/NOT_EVALUABLE, orden de modelos, representación Mapping/dataclass, alias de discriminador, multiplicidad de raíces concordantes y determinismo repetido.
+
+Durante esta fase se detectó y corrigió una dependencia indebida de `pair_coverage` respecto de la orientación textual del par. Ahora `A_vs_B` y `B_vs_A` son equivalentes; si ambas orientaciones aparecen con valores incompatibles, la entrada se rechaza.
+
+Superar estas relaciones prueba invariancia lógica del software. No constituye validación externa ni promoción ontológica.
 
 ## Integración vigente con M21
 
@@ -293,4 +312,4 @@ La integración está documentada en:
 
 ## Próximo paso
 
-El Paso 12 construirá la suite metamórfica formal: invariancia por orden de observaciones, inversión del orden interno de pares, idempotencia, transformaciones semánticamente equivalentes y estabilidad de la partición bajo ruido no discriminante.
+El Paso 13 evaluará la independencia de la astrología como posible fuente de observables discriminantes. Ninguna firma astrológica podrá adquirir función ontológica confirmatoria sin validación discriminante independiente, controles negativos, deduplicación de raíces y prueba fuera de muestra.
