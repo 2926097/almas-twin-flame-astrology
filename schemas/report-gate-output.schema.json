@@ -127,6 +127,49 @@
     },
     "canonical_values_mutated": {
       "const": false
+    },
+    "analysis_profile": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "FULL_MULTIDISCIPLINARY",
+        "FULL_ASTROLOGY",
+        "STRUCTURAL_ASTROLOGY",
+        null
+      ]
+    },
+    "profile_policy_id": {
+      "type": "string"
+    },
+    "profile_required_not_evaluable_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "profile_optional_not_evaluable_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "profile_required_skipped_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "profile_optional_skipped_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
     }
   },
   "allOf": [
