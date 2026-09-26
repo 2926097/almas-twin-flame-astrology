@@ -163,7 +163,7 @@
     {
       "id": "M30",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/report_gate_handlers.py:m30_report_gate"
+      "implementation": "src/almas_tfa/report_gate_handlers.py:make_m30_report_gate_auto + src/almas_tfa/canonical_assembly.py"
     },
     {
       "id": "M31",
