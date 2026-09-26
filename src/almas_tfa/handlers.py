@@ -16,6 +16,7 @@ from .core import (
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
+from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
 from .symmetry_handlers import m05_declinations, m06_antiscia
 from .relationship_chart_handlers import m07_composite
@@ -298,9 +299,28 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
 
 
 def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
-    """M21: mantiene IDD y añade una subcapa ontológica independiente opcional."""
+    """M21: deriva IDD automáticamente y mantiene la subcapa ontológica separada."""
 
-    attributions = context.raw_input.get("attributions")
+    auto_attribution = None
+    pillar_attribution = context.canonical_snapshot.get("pillar_attribution")
+    if isinstance(pillar_attribution, Mapping):
+        auto_attribution = derive_model_attributions(
+            pillar_attribution,
+            policy=load_model_attribution_policy(),
+        )
+
+    attribution_source = None
+    if (
+        isinstance(auto_attribution, Mapping)
+        and auto_attribution.get("state") == "EVALUABLE"
+    ):
+        attributions = auto_attribution.get("attributions")
+        attribution_source = "AUTO_SHAPLEY_CANONICAL_ROOTS"
+    else:
+        attributions = context.raw_input.get("attributions")
+        if isinstance(attributions, Mapping):
+            attribution_source = "LEGACY_PRECOMPUTED"
+
     idd_output: dict[str, Any] = {}
 
     if isinstance(attributions, Mapping):
@@ -317,6 +337,11 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
     ontological_output = evaluate_m21_ontological_sublayer(context.raw_input)
 
     if not idd_output and ontological_output is None:
+        if auto_attribution is not None:
+            return not_evaluable_result(
+                "M21",
+                "La atribución automática no produjo un IDD evaluable y no existe subcapa ontológica.",
+            )
         if not isinstance(attributions, Mapping):
             return not_evaluable_result(
                 "M21",
@@ -328,27 +353,55 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
         )
 
     canonical_updates: dict[str, Any] = {}
+    if isinstance(auto_attribution, Mapping):
+        canonical_updates["model_attributions"] = dict(auto_attribution)
     if idd_output:
         canonical_updates["pairwise_idd"] = idd_output
     if ontological_output is not None:
         canonical_updates["ontological_discrimination"] = ontological_output
 
-    limitations = []
+    limitations = [
+        "IDD mide separación entre arquitecturas de evidencia AF/KA/AG/LG y no es un discriminador ontológico."
+    ]
     diagnostics = []
+
+    if attribution_source == "AUTO_SHAPLEY_CANONICAL_ROOTS":
+        limitations.append(
+            "Las atribuciones automáticas usan IEM_pre; ICE, IEM_final, temporalidad y rareza nula quedan excluidos de la función de valor."
+        )
+        method = auto_attribution.get("method")
+        if isinstance(method, Mapping):
+            diagnostics.append(
+                "M21 attribution_method="
+                + str(method.get("method"))
+                + "; convergence_state="
+                + str(method.get("convergence_state"))
+                + "; root_count="
+                + str(method.get("root_count"))
+            )
+    elif attribution_source == "LEGACY_PRECOMPUTED":
+        limitations.append(
+            "Se usaron atribuciones IDD precomputadas por compatibilidad legacy porque la atribución automática canónica no era evaluable."
+        )
 
     if ontological_output is not None:
         limitations.append(
-            "IDD AF/KA/AG/LG y discriminación ontológica son capas independientes; "
-            "un IDD alto no prueba origen monádico, split-soul ni twin-flame."
+            "IDD AF/KA/AG/LG y discriminación ontológica son capas independientes; un IDD alto no prueba origen monádico, split-soul ni twin-flame."
         )
         diagnostics.append(
             "La subcapa ontológica no consume IEM, IDD ni scores como evidencia decisoria."
         )
 
     if ontological_output is None:
-        payload: Mapping[str, Any] = idd_output
+        payload: Mapping[str, Any] = {
+            "attribution_source": attribution_source,
+            "model_attributions": auto_attribution,
+            "pairwise_idd": idd_output,
+        }
     else:
         payload = {
+            "attribution_source": attribution_source,
+            "model_attributions": auto_attribution,
             "pairwise_idd": idd_output,
             "ontological_discrimination": ontological_output,
         }
