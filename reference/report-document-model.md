@@ -113,6 +113,31 @@ No modifica el fingerprint de `canonical_analysis`, no cambia la clasificación 
 
 `promotion_trace` y `promotion_reporting` no son equivalentes: la primera registra L3 realmente utilizados en el caso; la segunda describe el estado metodológico del registro completo.
 
+
+### Genealogía documental de discriminadores
+
+Dentro de `promotion_reporting`, el pipeline productivo incorpora:
+
+`source_genealogy`.
+
+Esta capa enlaza cada OD con:
+
+- fuentes P1–P6;
+- rol documental;
+- tradición;
+- autor y obra;
+- localizador/ancla;
+- conceptos;
+- índices de `supports[]`;
+- índices de `does_not_support[]`;
+- relaciones genealógicas obligatorias;
+- equivalencias prohibidas;
+- techo epistemológico.
+
+`source_genealogy` permanece fuera de `canonical_analysis`, por lo que no altera su fingerprint ni la salida de M21.
+
+La prioridad o cantidad de fuentes no puede modificar IEM/IDD/IRC ni la clasificación del caso.
+
 ## 6. Estados de sección
 
 - `READY` — todas las rutas obligatorias están disponibles;
@@ -139,7 +164,11 @@ M31 fija:
 - `promotion_reporting.methodological_status_only=true`;
 - `promotion_reporting.ontological_inference_allowed=false`;
 - `promotion_reporting.case_classification_mutated=false`;
-- `promotion_reporting.irc_mutated=false`.
+- `promotion_reporting.irc_mutated=false`;
+- `promotion_reporting.source_genealogy.methodological_provenance_only=true`;
+- `promotion_reporting.source_genealogy.ontological_inference_allowed=false`;
+- `promotion_reporting.source_genealogy.source_count_adds_weight=false`;
+- `promotion_reporting.source_genealogy.source_priority_adds_ontological_weight=false`.
 
 ## 8. Separación entre análisis y autoría
 
