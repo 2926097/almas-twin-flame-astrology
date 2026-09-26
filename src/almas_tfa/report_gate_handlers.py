@@ -7,6 +7,7 @@ from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult
 from .canonical_assembly import assemble_canonical_analysis, load_canonical_assembly_policy
+from .analysis_profiles import profile_trace_assessment, resolve_analysis_profile
 
 
 CANONICAL_REQUIRED = {
@@ -219,6 +220,8 @@ def _number_0_100(value: Any) -> bool:
 
 def _semantic_checks(
     canonical: Mapping[str, Any],
+    *,
+    analysis_profile: Mapping[str, Any] | None = None,
 ) -> tuple[list[str], list[str]]:
     """Devuelve (blocking_issues, degradation_reasons)."""
 
@@ -313,7 +316,12 @@ def _semantic_checks(
         if not isinstance(indices, Mapping):
             degraded.append("FULL_INDICES_NOT_DECLARED")
 
-    if mode in {"TARGETED", "TEMPORAL"}:
+    profile_mode = (
+        analysis_profile.get("analysis_mode")
+        if isinstance(analysis_profile, Mapping)
+        else None
+    )
+    if mode in {"TARGETED", "TEMPORAL"} and profile_mode != mode:
         degraded.append(f"PARTIAL_ANALYSIS_MODE:{mode}")
 
     return sorted(set(blocking)), sorted(set(degraded))
@@ -367,7 +375,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
 
     if source_conflict:
         output = {
-            "gate_version": "1.0.0",
+            "gate_version": "1.1.0",
             "state": "BLOCKED",
             "reportable": False,
             "source": "CONFLICT",
@@ -375,6 +383,9 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
             "canonical_schema_checked": False,
             "canonical_source_conflict": True,
             "analysis_mode": None,
+            "analysis_profile": None,
+            "profile_policy_id": None,
+            "profile_assessment": None,
             "missing_fields": [],
             "blocking_issues": ["RAW_AND_SNAPSHOT_CANONICAL_DIVERGE"],
             "degradation_reasons": [],
@@ -407,7 +418,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
     else:
         trace = _execution_trace(context.prior_results)
         output = {
-            "gate_version": "1.0.0",
+            "gate_version": "1.1.0",
             "state": "BLOCKED",
             "reportable": False,
             "source": None,
@@ -415,6 +426,9 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
             "canonical_schema_checked": False,
             "canonical_source_conflict": False,
             "analysis_mode": None,
+            "analysis_profile": None,
+            "profile_policy_id": None,
+            "profile_assessment": None,
             "missing_fields": sorted(CANONICAL_REQUIRED),
             "blocking_issues": ["CANONICAL_ANALYSIS_ABSENT"],
             "degradation_reasons": [],
@@ -434,6 +448,16 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
         )
 
     canonical_copy = deepcopy(dict(canonical_analysis))
+
+    profile_request = (
+        canonical_copy.get("analysis_profile")
+        or context.raw_input.get("analysis_profile")
+    )
+    try:
+        profile = resolve_analysis_profile(profile_request)
+    except ValueError:
+        profile = None
+
     missing = sorted(CANONICAL_REQUIRED - set(canonical_copy))
     blocking_issues: list[str] = []
     degradation_reasons: list[str] = []
@@ -441,21 +465,46 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
     if missing:
         blocking_issues.append("CANONICAL_REQUIRED_FIELDS_MISSING")
     else:
-        semantic_blocking, semantic_degraded = _semantic_checks(canonical_copy)
+        semantic_blocking, semantic_degraded = _semantic_checks(
+            canonical_copy,
+            analysis_profile=profile,
+        )
         blocking_issues.extend(semantic_blocking)
         degradation_reasons.extend(semantic_degraded)
+
+    if profile is None:
+        blocking_issues.append("INVALID_ANALYSIS_PROFILE")
 
     trace = _execution_trace(context.prior_results)
     if trace["failed_modules"]:
         blocking_issues.append("FAILED_PRIOR_MODULES")
 
+    profile_assessment = None
     if trace["state"] == "UNAVAILABLE":
         degradation_reasons.append("EXECUTION_TRACE_UNAVAILABLE")
-    else:
+    elif profile is None:
         if trace["not_evaluable_modules"]:
             degradation_reasons.append("PRIOR_MODULES_NOT_EVALUABLE")
         if trace["skipped_modules"]:
             degradation_reasons.append("PRIOR_MODULES_SKIPPED")
+    else:
+        profile_assessment = profile_trace_assessment(trace, profile)
+        if profile_assessment["required_not_evaluable"]:
+            degradation_reasons.append(
+                "PROFILE_REQUIRED_MODULES_NOT_EVALUABLE"
+            )
+        if profile_assessment["required_skipped"]:
+            degradation_reasons.append(
+                "PROFILE_REQUIRED_MODULES_SKIPPED"
+            )
+        if profile_assessment["required_not_applicable"]:
+            degradation_reasons.append(
+                "PROFILE_REQUIRED_MODULES_NOT_APPLICABLE"
+            )
+        if profile_assessment["unexecuted_required"]:
+            degradation_reasons.append(
+                "PROFILE_REQUIRED_MODULES_UNEXECUTED"
+            )
 
     mode = canonical_copy.get("analysis_mode")
     blocking_issues = sorted(set(blocking_issues))
@@ -472,7 +521,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
         reportable = True
 
     output = {
-        "gate_version": "1.0.0",
+        "gate_version": "1.1.0",
         "state": state,
         "reportable": reportable,
         "source": source,
@@ -480,6 +529,13 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
         "canonical_schema_checked": True,
         "canonical_source_conflict": False,
         "analysis_mode": mode,
+        "analysis_profile": (
+            profile["profile_id"] if isinstance(profile, Mapping) else None
+        ),
+        "profile_policy_id": (
+            profile["policy_id"] if isinstance(profile, Mapping) else None
+        ),
+        "profile_assessment": profile_assessment,
         "missing_fields": missing,
         "blocking_issues": blocking_issues,
         "degradation_reasons": degradation_reasons,
@@ -503,7 +559,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
         canonical_updates=updates,
         limitations=(
             "M30 valida coherencia y procedencia; no corrige ni reinterpreta valores canónicos.",
-            "NOT_EVALUABLE o SKIPPED degradan a PARTIAL; FAILED bloquea.",
+            "FAILED bloquea; NOT_EVALUABLE/SKIPPED degradan sólo cuando afectan módulos requeridos por el perfil.",
             "Una traza de ejecución ausente no invalida el objeto importado, pero impide READY.",
         ),
     )
@@ -531,6 +587,7 @@ def make_m30_report_gate_auto():
             context.canonical_snapshot,
             context.prior_results,
             policy=load_canonical_assembly_policy(),
+            analysis_profile=context.raw_input.get("analysis_profile"),
         )
         if assembled.get("state") != "EVALUABLE":
             # Mantiene el comportamiento bloqueante histórico cuando Q7 no
@@ -580,7 +637,7 @@ def make_m30_report_gate_auto():
             diagnostics=result.diagnostics
             + (
                 "M30 source=AUTO_CANONICAL_ASSEMBLY_Q7",
-                "canonical_assembly_policy=ALMAS_CANONICAL_ASSEMBLY_V1",
+                "canonical_assembly_policy=ALMAS_CANONICAL_ASSEMBLY_V2",
             ),
         )
 
