@@ -62,6 +62,28 @@ def synthetic_l3_registry():
                         "refs": [],
                     },
                 },
+                "blinding_audit": {
+                    "policy_id": "ALMAS_BLINDING_LEAKAGE_V1",
+                    "audit_refs": ["BLIND-AUDIT-1"],
+                    "structural_input_refs": ["STRUCT-IN-1"],
+                    "structural_input_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "pre_reveal_output_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "post_reveal_structural_output_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "development_evaluation_disjoint": True,
+                    "labels_hidden": True,
+                    "narrative_hidden": True,
+                    "expected_result_hidden": True,
+                    "holdout_outcome_hidden": True,
+                    "late_reveal_performed": True,
+                    "structural_output_invariant_after_reveal": True,
+                    "forbidden_field_hits": 0,
+                    "label_leakage_count": 0,
+                    "narrative_leakage_count": 0,
+                    "case_fitting_count": 0,
+                    "post_holdout_rule_change_count": 0,
+                    "identity_visibility": "HIDDEN",
+                    "identity_risk_refs": [],
+                },
                 "block_reason": None,
             }
         ]
@@ -127,6 +149,22 @@ class TestDiscriminatorPromotionRegistry(unittest.TestCase):
     def test_incomplete_promotion_record_cannot_authorize_l3(self):
         registry = synthetic_l3_registry()
         registry["records"][0]["validation_evidence"]["external_holdout_refs"] = []
+
+        observation = {
+            "discriminator_id": "TEST_L3",
+            "promotion_ref": "PROMO:TEST_L3:1",
+            "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
+            "validation_level": "L3_VALIDATED",
+            "root_key": "TEST_L3:ROOT_1",
+        }
+
+        with self.assertRaises(ValueError):
+            authorize_l3_observation(observation, registry=registry)
+
+
+    def test_blinding_audit_is_required_for_l3(self):
+        registry = synthetic_l3_registry()
+        registry["records"][0]["blinding_audit"] = None
 
         observation = {
             "discriminator_id": "TEST_L3",
