@@ -33,6 +33,7 @@ REQUIRED_FILES = [
     "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
     "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
     "docs/QUANTITATIVE_CLOSURE_1_13.md",
+    "docs/RELEASE_AUDIT_1.13.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
