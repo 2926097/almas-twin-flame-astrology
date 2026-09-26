@@ -128,7 +128,7 @@
     {
       "id": "M23",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/time_sensitivity_handlers.py:m23_time_sensitivity"
+      "implementation": "src/almas_tfa/time_sensitivity_handlers.py:make_m23_time_sensitivity + src/almas_tfa/time_perturbation.py"
     },
     {
       "id": "M24",
