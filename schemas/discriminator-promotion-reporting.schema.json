@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/discriminator-promotion-reporting.schema.json",
+  "title": "ALMAS · Estado metodológico de promoción de discriminadores",
+  "type": "object",
+  "required": [
+    "reporting_version",
+    "reporting_kind",
+    "source_registry_authority",
+    "source_registry_version",
+    "state_machine_policy_id",
+    "epistemic_role",
+    "methodological_status_only",
+    "ontological_inference_allowed",
+    "case_classification_mutated",
+    "irc_mutated",
+    "validated_discriminator_ids",
+    "summary_counts",
+    "records"
+  ],
+  "properties": {
+    "reporting_version": {"const": "1.0.0"},
+    "reporting_kind": {"const": "DISCRIMINATOR_PROMOTION_STATUS"},
+    "source_registry_authority": {
+      "const": "ALMAS_CANONICAL_DISCRIMINATOR_PROMOTION_REGISTRY"
+    },
+    "source_registry_version": {"type": "string", "minLength": 1},
+    "state_machine_policy_id": {
+      "const": "ALMAS_PROMOTION_STATE_MACHINE_V1"
+    },
+    "epistemic_role": {"const": "METHODOLOGICAL_STATUS_ONLY"},
+    "methodological_status_only": {"const": true},
+    "ontological_inference_allowed": {"const": false},
+    "case_classification_mutated": {"const": false},
+    "irc_mutated": {"const": false},
+    "validated_discriminator_ids": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "summary_counts": {
+      "type": "object",
+      "required": [
+        "EXPLORATORY",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "VALIDATED_DISCRIMINATOR",
+        "BLOCKED",
+        "RETIRED"
+      ],
+      "properties": {
+        "EXPLORATORY": {"type": "integer", "minimum": 0},
+        "REPRODUCIBLE": {"type": "integer", "minimum": 0},
+        "REPLICATION_READY": {"type": "integer", "minimum": 0},
+        "CONFIRMATORY_ELIGIBLE": {"type": "integer", "minimum": 0},
+        "VALIDATED_DISCRIMINATOR": {"type": "integer", "minimum": 0},
+        "BLOCKED": {"type": "integer", "minimum": 0},
+        "RETIRED": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "discriminator_id",
+          "current_status",
+          "last_active_status",
+          "block_reason",
+          "uses_astrology",
+          "l3_authorized",
+          "l3_gate_complete",
+          "next_mainline_status",
+          "current_stage_gate_satisfied",
+          "current_stage_missing_requirements",
+          "next_stage_requirements",
+          "next_stage_missing_requirements",
+          "promotion_ref",
+          "promoted_at",
+          "validated_pairs",
+          "history",
+          "history_count",
+          "terminal",
+          "blocked",
+          "methodological_status_only",
+          "ontological_weight",
+          "can_change_case_classification",
+          "can_raise_irc"
+        ],
+        "properties": {
+          "discriminator_id": {"type": "string", "minLength": 1},
+          "current_status": {
+            "enum": [
+              "EXPLORATORY",
+              "REPRODUCIBLE",
+              "REPLICATION_READY",
+              "CONFIRMATORY_ELIGIBLE",
+              "VALIDATED_DISCRIMINATOR",
+              "BLOCKED",
+              "RETIRED"
+            ]
+          },
+          "last_active_status": {
+            "enum": [
+              "EXPLORATORY",
+              "REPRODUCIBLE",
+              "REPLICATION_READY",
+              "CONFIRMATORY_ELIGIBLE",
+              null
+            ]
+          },
+          "block_reason": {"type": ["string", "null"]},
+          "uses_astrology": {"type": "boolean"},
+          "l3_authorized": {"type": "boolean"},
+          "l3_gate_complete": {"type": "boolean"},
+          "next_mainline_status": {
+            "enum": [
+              "REPRODUCIBLE",
+              "REPLICATION_READY",
+              "CONFIRMATORY_ELIGIBLE",
+              "VALIDATED_DISCRIMINATOR",
+              null
+            ]
+          },
+          "current_stage_gate_satisfied": {"type": "boolean"},
+          "current_stage_missing_requirements": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "next_stage_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "requirement_id",
+                "satisfied",
+                "evidence_refs"
+              ],
+              "properties": {
+                "requirement_id": {"type": "string", "minLength": 1},
+                "satisfied": {"type": "boolean"},
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {"type": "string", "minLength": 1},
+                  "uniqueItems": true
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "next_stage_missing_requirements": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "promotion_ref": {"type": ["string", "null"]},
+          "promoted_at": {"type": ["string", "null"]},
+          "validated_pairs": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {"type": "string", "minLength": 1},
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true
+            }
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "transition_id",
+                "from_status",
+                "to_status",
+                "mode",
+                "occurred_at",
+                "actor_ref",
+                "reason",
+                "evidence_refs",
+                "record_fingerprint_before",
+                "record_fingerprint_after"
+              ],
+              "properties": {
+                "transition_id": {"type": "string", "minLength": 1},
+                "from_status": {
+                  "enum": [
+                    "EXPLORATORY",
+                    "REPRODUCIBLE",
+                    "REPLICATION_READY",
+                    "CONFIRMATORY_ELIGIBLE",
+                    "VALIDATED_DISCRIMINATOR",
+                    "BLOCKED",
+                    "RETIRED",
+                    null
+                  ]
+                },
+                "to_status": {
+                  "enum": [
+                    "EXPLORATORY",
+                    "REPRODUCIBLE",
+                    "REPLICATION_READY",
+                    "CONFIRMATORY_ELIGIBLE",
+                    "VALIDATED_DISCRIMINATOR",
+                    "BLOCKED",
+                    "RETIRED"
+                  ]
+                },
+                "mode": {
+                  "enum": [
+                    "IMPORT",
+                    "FORWARD",
+                    "ROLLBACK",
+                    "BLOCK",
+                    "UNBLOCK",
+                    "RETIRE"
+                  ]
+                },
+                "occurred_at": {"type": "string", "minLength": 1},
+                "actor_ref": {"type": "string", "minLength": 1},
+                "reason": {"type": "string", "minLength": 1},
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {"type": "string", "minLength": 1},
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "record_fingerprint_before": {
+                  "type": ["string", "null"],
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "record_fingerprint_after": {
+                  "type": ["string", "null"],
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "history_count": {"type": "integer", "minimum": 0},
+          "terminal": {"type": "boolean"},
+          "blocked": {"type": "boolean"},
+          "methodological_status_only": {"const": true},
+          "ontological_weight": {"const": 0},
+          "can_change_case_classification": {"const": false},
+          "can_raise_irc": {"const": false}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
