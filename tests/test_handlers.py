@@ -25,7 +25,7 @@ class TestDeterministicHandlers(unittest.TestCase):
                 {
                     "id": "A",
                     "birth_date": "1977-03-20",
-                    "birth_time": "17:37",
+                    "birth_time": "17:45",
                     "timezone": "Europe/Madrid",
                     "place": "Zaragoza, España",
                     "time_reliability": "A",
@@ -72,18 +72,6 @@ class TestDeterministicHandlers(unittest.TestCase):
                 "AG": {"root_affinity": 1, "root_mirror": 1},
                 "LG": {"root_affinity": 1, "root_transform": 1},
             },
-            "ontological_discriminator_input": {
-                "observations": [
-                    {
-                        "discriminator_id": "FIXTURE_L3",
-                        "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
-                        "validation_level": "L3_VALIDATED",
-                        "result": "SEPARATES",
-                        "excluded_model": "SOULMATE_MODEL",
-                        "root_key": "VALIDATED_ROOT_FIXTURE",
-                    }
-                ]
-            },
             "robustness_component_summaries": [
                 {
                     "id": "LEGACY_A",
@@ -103,13 +91,11 @@ class TestDeterministicHandlers(unittest.TestCase):
                 },
                 {
                     "id": "LEGACY_C",
-                    "kind": "VALIDATED_DISCRIMINATOR",
+                    "kind": "PARAMETER_PERTURBATION",
                     "value": 0.64,
-                    "source_module": "M21",
+                    "source_module": "EXTERNAL",
                     "preregistration_ref": "ROB-TEST-C",
-                    "derivation_ref": "VALIDATED_ROOT_FIXTURE",
-                    "validation_level": "L3_VALIDATED",
-                    "root_key": "VALIDATED_ROOT_FIXTURE",
+                    "derivation_ref": "FIXTURE",
                 },
             ],
         }
