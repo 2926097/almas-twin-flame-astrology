@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/discriminant-validation-evidence.schema.json",
+  "title": "ALMAS · Evidencia de validez discriminante",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "evaluation_refs",
+    "development_evaluation_disjoint",
+    "pairwise_results",
+    "false_specificity",
+    "synthetic_adversarial",
+    "calibration"
+  ],
+  "properties": {
+    "policy_id": {
+      "const": "ALMAS_DISCRIMINANT_VALIDATION_V1"
+    },
+    "evaluation_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "development_evaluation_disjoint": {
+      "const": true
+    },
+    "pairwise_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["pair", "positive_model", "tp", "tn", "fp", "fn"],
+        "properties": {
+          "pair": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "positive_model": {"type": "string", "minLength": 1},
+          "tp": {"type": "integer", "minimum": 0},
+          "tn": {"type": "integer", "minimum": 0},
+          "fp": {"type": "integer", "minimum": 0},
+          "fn": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "false_specificity": {
+      "type": "object",
+      "required": ["evaluable_count", "error_count"],
+      "properties": {
+        "evaluable_count": {"type": "integer", "minimum": 1},
+        "error_count": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "synthetic_adversarial": {
+      "type": "object",
+      "required": ["evaluable_count", "false_specificity_count"],
+      "properties": {
+        "evaluable_count": {"type": "integer", "minimum": 1},
+        "false_specificity_count": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "calibration": {
+      "type": "object",
+      "required": ["mode", "passed", "criterion_ref", "refs"],
+      "properties": {
+        "mode": {
+          "enum": ["NOT_APPLICABLE_CATEGORICAL", "PROBABILISTIC"]
+        },
+        "passed": {"type": ["boolean", "null"]},
+        "criterion_ref": {"type": ["string", "null"]},
+        "refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"mode": {"const": "PROBABILISTIC"}}},
+          "then": {
+            "properties": {
+              "passed": {"const": true},
+              "criterion_ref": {"type": "string", "minLength": 1},
+              "refs": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"mode": {"const": "NOT_APPLICABLE_CATEGORICAL"}}},
+          "then": {
+            "properties": {
+              "passed": {"type": "null"},
+              "criterion_ref": {"type": "null"},
+              "refs": {"maxItems": 0}
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
