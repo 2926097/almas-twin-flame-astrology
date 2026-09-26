@@ -23,7 +23,7 @@ def load_model_attribution_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1":
+    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         raise ValueError("Política de atribución de modelos desconocida.")
     return policy
 
@@ -31,10 +31,14 @@ def load_model_attribution_policy() -> dict[str, Any]:
 def _eligible_roots(
     pillar_attribution: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    raw = pillar_attribution.get("root_attributions")
-    if not isinstance(raw, list):
+    raw_roots = pillar_attribution.get("root_attributions")
+    if not isinstance(raw_roots, list):
         raise ValueError("pillar_attribution.root_attributions debe ser una lista.")
+    raw_motifs = pillar_attribution.get("motif_attributions", [])
+    if not isinstance(raw_motifs, list):
+        raise ValueError("pillar_attribution.motif_attributions debe ser una lista.")
 
+    raw = list(raw_roots) + list(raw_motifs)
     roots: list[dict[str, Any]] = []
     seen: set[str] = set()
     for item in raw:
@@ -267,11 +271,7 @@ def derive_model_attributions(
     *,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Deriva atribuciones Shapley por raíz para AF/KA/AG/LG.
-
-    La función de valor es IEM_pre. ICE, IEM_final, temporalidad y rareza nula
-    quedan fuera por diseño para que IDD mida arquitectura de evidencia.
-    """
+    """Deriva atribuciones Shapley por raíz/motivo para AF/KA/AG/LG.\n\n    La función de valor es IEM_pre. Los motivos recurrentes de M18 entran como\n    unidades semánticas explícitas para PX/PS; ICE, IEM_final, temporalidad y\n    rareza nula quedan fuera por diseño.\n    """
 
     if policy is None:
         policy = load_model_attribution_policy()
