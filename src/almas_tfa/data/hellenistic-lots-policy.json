@@ -12,8 +12,8 @@
   "lots": [
     {
       "id": "FORTUNE",
-      "source_ref": "PAULUS_ALEXANDRINUS_INTRODUCTORY_MATTERS_CH23",
-      "corroborating_source_ref": "VETTIUS_VALENS_ANTHOLOGY_II",
+      "source_ref": "paulus_alexandrinus_introductory_matters_ch23",
+      "corroborating_source_ref": "vettius_valens_anthology_lots",
       "variants": {
         "DAY": {"base": "ASC", "add": ["MOON"], "subtract": ["SUN"]},
         "NIGHT": {"base": "ASC", "add": ["SUN"], "subtract": ["MOON"]}
@@ -21,8 +21,8 @@
     },
     {
       "id": "SPIRIT",
-      "source_ref": "PAULUS_ALEXANDRINUS_INTRODUCTORY_MATTERS_CH23",
-      "corroborating_source_ref": "VETTIUS_VALENS_ANTHOLOGY_II",
+      "source_ref": "paulus_alexandrinus_introductory_matters_ch23",
+      "corroborating_source_ref": "vettius_valens_anthology_lots",
       "variants": {
         "DAY": {"base": "ASC", "add": ["SUN"], "subtract": ["MOON"]},
         "NIGHT": {"base": "ASC", "add": ["MOON"], "subtract": ["SUN"]}
