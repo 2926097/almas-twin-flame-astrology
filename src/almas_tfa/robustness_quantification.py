@@ -15,6 +15,7 @@ from .core import (
     score_model,
 )
 from .model_attribution import derive_model_attributions
+from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .time_perturbation import structural_recalculation_snapshot
 
 
@@ -135,12 +136,23 @@ def derive_ablation_component(
             "reason": "Faltan M17/M18/M19/M22 canónicos para ABLATION.",
         }
 
-    root_attributions = pillar_attribution.get("root_attributions")
-    if not isinstance(root_attributions, list):
+    roots_obj = canonical.get("independent_roots")
+    all_roots = (
+        roots_obj.get("roots")
+        if isinstance(roots_obj, Mapping)
+        else None
+    )
+    if not isinstance(all_roots, list):
         return {
             "state": "NOT_EVALUABLE",
-            "reason": "M18 no contiene root_attributions.",
+            "reason": "M17 no contiene roots para recalcular PX/PS bajo ablación.",
         }
+
+    roots_by_id = {
+        str(root.get("root_id")): root
+        for root in all_roots
+        if isinstance(root, Mapping) and str(root.get("root_id") or "")
+    }
 
     runs = ablation.get("runs")
     if not isinstance(runs, list):
@@ -170,10 +182,17 @@ def derive_ablation_component(
             str(root_id)
             for root_id in run.get("surviving_root_ids", [])
         }
-        pillars = _pillars_from_root_attributions(
-            root_attributions,
-            surviving,
+        surviving_roots = [
+            roots_by_id[root_id]
+            for root_id in sorted(surviving)
+            if root_id in roots_by_id
+        ]
+        derived = derive_pillars_from_roots(
+            surviving_roots,
+            structural_absence_is_zero=True,
+            policy=load_root_pillar_policy(),
         )
+        pillars = derived["pillars"]
         iem = _iem_from_pillars(pillars)
         delta_by_model = {
             model: abs(iem[model] - baseline_iem[model])
