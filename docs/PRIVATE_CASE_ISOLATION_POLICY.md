@@ -139,6 +139,6 @@ Un discriminador puede superar todos los gates estadísticos y seguir sin ser pu
 
 Privacidad y capacidad discriminante son gates independientes.
 
-## Siguiente paso
+## Estado de cierre
 
-El Paso 20 realizará la auditoría global de cierre para determinar si la rama puede convertirse en la siguiente versión pública sin promover artificialmente ningún discriminador ni ocultar limitaciones pendientes.
+El Paso 20 audita esta política junto con el resto de la rama para la release 1.12.0. La privacidad permanece como gate independiente: el cierre de versión no promueve discriminadores ni elimina limitaciones de validación pendientes.
