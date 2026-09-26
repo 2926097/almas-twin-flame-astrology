@@ -8,6 +8,8 @@ Astrología relacional, ontología, doctrina, contrato preencarnatorio, roles, c
 
 `skills/almas-soul-contract/SKILL.md` se conserva como punto de entrada especializado por compatibilidad, pero no constituye una segunda skill pública.
 
+`skills/almas-personal-pdf/SKILL.md` es un segundo punto de entrada especializado para informes astrológicos personales. También hereda `VERSION`, se declara `kind: internal_module` y no constituye una skill pública independiente.
+
 ## Registros y manifiestos, funciones diferenciadas
 
 - `manifests/almas-module-manifest.json`: arquitectura de alto nivel.
@@ -42,6 +44,8 @@ INFORME
 ```
 
 El módulo contractual consume evidencia canónica; no recalcula silenciosamente la capa astrológica.
+
+El perfil personal usa un canonical independiente para análisis individuales (`personal_canonical_analysis.json`) y mantiene la misma frontera cálculo → canonical → modelo documental → publicación. No altera el pipeline relacional M00–M31.
 
 ## Versionado
 

@@ -1,0 +1,69 @@
+{
+  "manifest_version": "1.0.0",
+  "almas_public_version": "1.11.0",
+  "profiles": {
+    "EXECUTIVE_PERSONAL_REPORT": {
+      "sections": [
+        "P01_SYNTHESIS",
+        "P02_DATA_METHOD",
+        "P03_NATAL_ARCHITECTURE",
+        "P09_TEMPORAL",
+        "P10_COUNTEREVIDENCE",
+        "P11_SOURCES_ATLAS"
+      ]
+    },
+    "STANDARD_PERSONAL_REPORT": {
+      "sections": [
+        "P01_SYNTHESIS",
+        "P02_DATA_METHOD",
+        "P03_NATAL_ARCHITECTURE",
+        "P04_PERSONALITY_INTEGRATION",
+        "P05_AFFECTIVE_RELATIONAL_STYLE",
+        "P06_VOCATION_RESOURCES",
+        "P08_COMPLEMENTARY_LAYERS",
+        "P09_TEMPORAL",
+        "P10_COUNTEREVIDENCE",
+        "P11_SOURCES_ATLAS"
+      ]
+    },
+    "FULL_CRITICAL_REPORT": {
+      "sections": [
+        "P01_SYNTHESIS",
+        "P02_DATA_METHOD",
+        "P03_NATAL_ARCHITECTURE",
+        "P04_PERSONALITY_INTEGRATION",
+        "P05_AFFECTIVE_RELATIONAL_STYLE",
+        "P06_VOCATION_RESOURCES",
+        "P07_EVOLUTIONARY_ESOTERIC",
+        "P08_COMPLEMENTARY_LAYERS",
+        "P09_TEMPORAL",
+        "P10_COUNTEREVIDENCE",
+        "P11_SOURCES_ATLAS"
+      ]
+    },
+    "TECHNICAL_ATLAS": {
+      "sections": [
+        "P02_DATA_METHOD",
+        "P03_NATAL_ARCHITECTURE",
+        "P08_COMPLEMENTARY_LAYERS",
+        "P09_TEMPORAL",
+        "P10_COUNTEREVIDENCE",
+        "P11_SOURCES_ATLAS"
+      ]
+    },
+    "ESOTERIC_KABBALISTIC_REPORT": {
+      "sections": [
+        "P01_SYNTHESIS",
+        "P02_DATA_METHOD",
+        "P03_NATAL_ARCHITECTURE",
+        "P04_PERSONALITY_INTEGRATION",
+        "P07_EVOLUTIONARY_ESOTERIC",
+        "P08_COMPLEMENTARY_LAYERS",
+        "P09_TEMPORAL",
+        "P10_COUNTEREVIDENCE",
+        "P11_SOURCES_ATLAS"
+      ]
+    }
+  },
+  "rule": "El perfil selecciona secciones; nunca modifica personal_canonical_analysis."
+}

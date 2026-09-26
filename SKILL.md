@@ -410,6 +410,26 @@ Pipeline preferente:
 
 Para informes largos se prefiere la autoría en DOCX seguida de conversión controlada a PDF. Usar orientación vertical salvo que el formato de publicación objetivo requiera otra disposición.
 
+## 23 bis. Informes astrológicos personales PDF
+
+ALMAS 1.11.0 incorpora un punto de entrada interno para informes individuales en `skills/almas-personal-pdf/SKILL.md`.
+
+No crea una segunda skill pública ni altera M00–M31. Su flujo es:
+
+`datos personales → cálculo → personal_canonical_analysis.json → validación/fingerprint → router de referencias → personal_report_document_model.json → narrativa → DOCX → PDF → preflight → render completo`
+
+Reglas:
+- la interpretación no recalcula geometría;
+- el canonical registra backend, ephemeris, opciones, timezone, coordenadas, warnings e input hash;
+- el perfil de informe selecciona secciones pero no cambia conclusiones;
+- la recuperación de referencias es modular y no decide el resultado;
+- las cartas de retorno sólo llevan casas si existe localidad real documentada;
+- el perfil editorial por defecto para informes extensos es B5 176×250 mm;
+- el PDF final exige fuentes embebidas, control de resolución, preflight y revisión visual completa cuando las herramientas estén disponibles;
+- no se declara PDF/X, CMYK o ICC sin conversión/verificación específica.
+
+Contratos: `schemas/personal-report-request.schema.json`, `schemas/personal-canonical-analysis.schema.json` y `schemas/personal-report-document-model.schema.json`.
+
 ## 24. Invariantes de validación
 
 Una ejecución de calidad release debe verificar como mínimo:

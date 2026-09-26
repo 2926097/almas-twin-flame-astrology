@@ -43,6 +43,13 @@ from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate
 from .report_model_handlers import m31_report
+from .personal_report_handlers import (
+    PROFILE_SECTIONS,
+    build_personal_report_document_model,
+    personal_canonical_fingerprint,
+    route_personal_references,
+    validate_personal_canonical,
+)
 from .orchestrator import (
     CanonicalOverwriteError,
     OrchestrationRun,
@@ -96,6 +103,11 @@ __all__ = [
     "m29_viability_reciprocity",
     "m30_report_gate",
     "m31_report",
+    "PROFILE_SECTIONS",
+    "build_personal_report_document_model",
+    "personal_canonical_fingerprint",
+    "route_personal_references",
+    "validate_personal_canonical",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
     "ModelScore",

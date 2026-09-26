@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/personal-canonical-analysis.schema.json",
+  "title": "ALMAS · Análisis canónico personal",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "analysis_type",
+    "subject",
+    "data_quality",
+    "calculation_provenance",
+    "natal",
+    "counterevidence",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "analysis_type": {
+      "const": "PERSONAL_NATAL"
+    },
+    "subject": {
+      "type": "object"
+    },
+    "data_quality": {
+      "type": "object",
+      "required": [
+        "birth_time_quality"
+      ],
+      "properties": {
+        "birth_time_quality": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "calculation_provenance": {
+      "type": "object",
+      "required": [
+        "engine",
+        "zodiac",
+        "house_system",
+        "node_type",
+        "timezone",
+        "coordinates"
+      ],
+      "properties": {
+        "engine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engine_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ephemeris": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zodiac": {
+          "type": "string"
+        },
+        "house_system": {
+          "type": "string"
+        },
+        "node_type": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "coordinates": {
+          "type": "object"
+        },
+        "calculation_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "input_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "generated_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "natal": {
+      "type": "object",
+      "required": [
+        "positions",
+        "aspects"
+      ],
+      "properties": {
+        "positions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "houses": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "angles": {
+          "type": "object"
+        },
+        "aspects": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "configurations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "structural_layers": {
+      "type": "object"
+    },
+    "secondary_layers": {
+      "type": "object"
+    },
+    "temporal": {
+      "type": "object",
+      "properties": {
+        "returns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "houses_included",
+              "location_documented"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "houses_included": {
+                "type": "boolean"
+              },
+              "location_documented": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "doctrine": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_trace": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

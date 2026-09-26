@@ -87,7 +87,7 @@ M31:
 
 ## 6. Cobertura de tests
 
-La suite Python de esta release contiene **133 tests deterministas**.
+La suite Python de esta release contiene **143 tests deterministas**.
 
 Incluye pruebas unitarias de módulos, firewalls metodológicos, contratos de schemas, orquestación y una ejecución sintética FULL M00–M31.
 
@@ -166,3 +166,27 @@ La rama puede considerarse **lista para merge** únicamente cuando:
 ALMAS 1.11.0 representa una ampliación ejecutable sustancial y compatible hacia atrás de la arquitectura 1.10.1.
 
 La release es apta para cierre técnico cuando satisfaga los criterios de CI anteriores. La fusión a `main` queda deliberadamente fuera de esta auditoría y requiere una acción posterior explícita.
+
+
+## 12. Addendum · informes personales PDF — 26 de septiembre de 2026
+
+Después del cierre inicial de 1.11.0 se integra, sin cambiar el SemVer público, un perfil especializado de **informes astrológicos personales PDF**.
+
+La integración:
+- mantiene ALMAS como una única skill pública;
+- añade `skills/almas-personal-pdf/` como punto de entrada interno;
+- introduce `personal_canonical_analysis.json` con procedencia de cálculo, warnings y fingerprint;
+- añade routing modular de referencias y cinco perfiles documentales;
+- añade una API Python propia para validación y construcción del modelo documental;
+- formaliza B5 176×250 mm como perfil editorial de referencia para informes extensos;
+- preserva la separación cálculo → canonical → modelo documental → authoring → PDF;
+- no altera el pipeline relacional M00–M31 ni sus fórmulas, pesos, thresholds, ontología o discriminadores;
+- no incorpora código de terceros ni nuevas dependencias.
+
+Patrones arquitectónicos estudiados y reimplementados independientemente: wvanderen/astrology-skill, zhuisDEV/lilacsky, adityarya24/astro-skill y aryaminus/astro. Sus licencias no se transfieren al código de ALMAS porque no se copia implementación.
+
+Validación del HEAD de integración:
+- Núcleo Python: **SUCCESS**;
+- 143 tests: **OK**;
+- contrato público: **PASS**;
+- workflow independiente Contrato público: **SUCCESS**.

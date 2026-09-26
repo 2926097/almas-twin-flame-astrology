@@ -85,3 +85,25 @@ M31 cierra el pipeline analítico M00–M31. La autoría narrativa, selección d
 La secuencia de publicación debe respetar:
 
 `canonical_analysis → report_document_model → documento → PDF → preflight → render completo → inspección → corrección → verificación final`.
+
+
+## Perfil personal PDF
+
+ALMAS 1.11.0 incluye un perfil especializado para informes astrológicos individuales sin modificar el pipeline relacional M00–M31.
+
+Flujo:
+
+`personal_canonical_analysis.json → validate_personal_canonical → build_personal_report_document_model → narrativa → DOCX → PDF → preflight → render completo → QA`
+
+Contratos:
+- `schemas/personal-report-request.schema.json`;
+- `schemas/personal-canonical-analysis.schema.json`;
+- `schemas/personal-report-document-model.schema.json`;
+- `manifests/personal-report-profile-registry.json`;
+- `manifests/personal-report-reference-router.json`.
+
+El modelo personal conserva fingerprint canónico, no incrusta valores analíticos y no genera prosa ni archivos físicos. La publicación B5 es una fase posterior.
+
+Perfiles: `EXECUTIVE_PERSONAL_REPORT`, `STANDARD_PERSONAL_REPORT`, `FULL_CRITICAL_REPORT`, `TECHNICAL_ATLAS` y `ESOTERIC_KABBALISTIC_REPORT`.
+
+Detalles metodológicos y procedencia de patrones externos: `docs/PERSONAL_REPORTING.md`.

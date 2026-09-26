@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/personal-report-document-model.schema.json",
+  "title": "ALMAS · Modelo documental de informe personal",
+  "type": "object",
+  "required": [
+    "model_version",
+    "document_kind",
+    "report_profile",
+    "report_state",
+    "canonical_source",
+    "canonical_fingerprint",
+    "canonical_fingerprint_verified",
+    "sections",
+    "reference_domains",
+    "publication_contract",
+    "canonical_values_embedded",
+    "canonical_values_mutated",
+    "prose_generated"
+  ],
+  "properties": {
+    "model_version": {
+      "const": "1.0.0"
+    },
+    "document_kind": {
+      "const": "ALMAS_PERSONAL_ASTROLOGY_REPORT_MODEL"
+    },
+    "report_profile": {
+      "type": "string"
+    },
+    "report_state": {
+      "enum": [
+        "READY",
+        "PARTIAL"
+      ]
+    },
+    "degradation_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_source": {
+      "const": "personal_canonical_analysis"
+    },
+    "canonical_fingerprint": {
+      "type": "string",
+      "minLength": 32
+    },
+    "canonical_fingerprint_verified": {
+      "const": true
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reference_domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "publication_contract": {
+      "type": "object"
+    },
+    "canonical_values_embedded": {
+      "const": false
+    },
+    "canonical_values_mutated": {
+      "const": false
+    },
+    "prose_generated": {
+      "const": false
+    },
+    "docx_created": {
+      "const": false
+    },
+    "pdf_created": {
+      "const": false
+    },
+    "pdf_preflight_performed": {
+      "const": false
+    }
+  },
+  "additionalProperties": true
+}

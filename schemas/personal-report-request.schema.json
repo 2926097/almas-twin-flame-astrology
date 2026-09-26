@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/personal-report-request.schema.json",
+  "title": "ALMAS · Solicitud de informe astrológico personal",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "subject",
+    "calculation_options",
+    "report_profile"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "birth_date",
+        "birth_time",
+        "timezone",
+        "place",
+        "coordinates",
+        "birth_time_quality"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "birth_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "birth_time": {
+          "type": "string",
+          "pattern": "^([01]\\d|2[0-3]):[0-5]\\d(:[0-5]\\d)?$"
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "place": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coordinates": {
+          "type": "object",
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "additionalProperties": false
+        },
+        "birth_time_quality": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        "birth_time_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "calculation_options": {
+      "type": "object",
+      "required": [
+        "zodiac",
+        "house_system",
+        "node_type"
+      ],
+      "properties": {
+        "zodiac": {
+          "enum": [
+            "TROPICAL",
+            "SIDEREAL"
+          ]
+        },
+        "house_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "node_type": {
+          "enum": [
+            "TRUE",
+            "MEAN"
+          ]
+        },
+        "position_mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ephemeris_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "report_profile": {
+      "enum": [
+        "EXECUTIVE_PERSONAL_REPORT",
+        "STANDARD_PERSONAL_REPORT",
+        "FULL_CRITICAL_REPORT",
+        "TECHNICAL_ATLAS",
+        "ESOTERIC_KABBALISTIC_REPORT"
+      ]
+    },
+    "requested_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "temporal_window": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
