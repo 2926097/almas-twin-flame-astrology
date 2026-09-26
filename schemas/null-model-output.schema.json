@@ -35,14 +35,8 @@
           "interpretation_scope"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "preregistration_ref": {
-            "type": "string",
-            "minLength": 1
-          },
+          "id": {"type": "string", "minLength": 1},
+          "preregistration_ref": {"type": "string", "minLength": 1},
           "null_model": {
             "enum": [
               "MATCHED_AGE",
@@ -54,29 +48,12 @@
               "TECHNIQUE_SPECIFIC_CYCLE"
             ]
           },
-          "feature_set_ref": {
-            "type": "string",
-            "minLength": 1
-          },
-          "orb_policy_ref": {
-            "type": "string",
-            "minLength": 1
-          },
-          "event_set_ref": {
-            "type": "string",
-            "minLength": 1
-          },
-          "generator_ref": {
-            "type": "string",
-            "minLength": 1
-          },
-          "statistic_id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "observed_value": {
-            "type": "number"
-          },
+          "feature_set_ref": {"type": "string", "minLength": 1},
+          "orb_policy_ref": {"type": "string", "minLength": 1},
+          "event_set_ref": {"type": "string", "minLength": 1},
+          "generator_ref": {"type": "string", "minLength": 1},
+          "statistic_id": {"type": "string", "minLength": 1},
+          "observed_value": {"type": "number"},
           "tail": {
             "enum": [
               "GREATER_OR_EQUAL",
@@ -84,14 +61,8 @@
               "ABS_GREATER_OR_EQUAL"
             ]
           },
-          "n": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "extreme_count": {
-            "type": "integer",
-            "minimum": 0
-          },
+          "n": {"type": "integer", "minimum": 1},
+          "extreme_count": {"type": "integer", "minimum": 0},
           "structural_frequency": {
             "type": "number",
             "minimum": 0,
@@ -110,16 +81,8 @@
                 "exclusiveMinimum": 0,
                 "exclusiveMaximum": 1
               },
-              "lower": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1
-              },
-              "upper": {
-                "type": "number",
-                "minimum": 0,
-                "maximum": 1
-              }
+              "lower": {"type": "number", "minimum": 0, "maximum": 1},
+              "upper": {"type": "number", "minimum": 0, "maximum": 1}
             },
             "additionalProperties": false
           },
@@ -130,25 +93,87 @@
             ]
           },
           "sampling_generated_by_m24": {
-            "const": false
+            "type": "boolean"
+          },
+          "generator_policy_id": {
+            "type": "string",
+            "minLength": 1
           },
           "interpretation_scope": {
             "const": "STRUCTURAL_FREQUENCY_UNDER_DECLARED_NULL"
           }
         },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "sampling_generated_by_m24": {"const": true}
+              },
+              "required": ["sampling_generated_by_m24"]
+            },
+            "then": {
+              "required": ["generator_policy_id"]
+            }
+          }
+        ],
         "additionalProperties": false
       }
     },
-    "run_count": {
-      "type": "integer",
-      "minimum": 1
+    "run_count": {"type": "integer", "minimum": 1},
+    "metaphysical_probability": {"const": false},
+    "sampling_generated_by_m24": {"type": "boolean"},
+    "generator_policy_id": {"type": "string"},
+    "generator_policy_status": {"type": "string"},
+    "epistemic_class": {"type": "string"},
+    "generated_sample_count": {"type": "integer", "minimum": 1},
+    "samples_per_subject": {"type": "integer", "minimum": 1},
+    "sample_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "perturbed_subject_id",
+          "replacement_birth_date",
+          "core_root_count",
+          "max_iem_pre",
+          "px_pillar_score"
+        ],
+        "properties": {
+          "perturbed_subject_id": {"type": "string", "minLength": 1},
+          "replacement_birth_date": {"type": "string", "format": "date"},
+          "core_root_count": {"type": "integer", "minimum": 1},
+          "max_iem_pre": {"type": "number", "minimum": 0, "maximum": 100},
+          "px_pillar_score": {"type": "number", "minimum": 0, "maximum": 100}
+        },
+        "additionalProperties": false
+      }
     },
-    "metaphysical_probability": {
-      "const": false
-    },
-    "sampling_generated_by_m24": {
-      "const": false
-    }
+    "external_population_claim": {"const": false},
+    "combined_p_value": {"type": "null"},
+    "combined_p_value_state": {"const": "FORBIDDEN"}
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "sampling_generated_by_m24": {"const": true}
+        },
+        "required": ["sampling_generated_by_m24"]
+      },
+      "then": {
+        "required": [
+          "generator_policy_id",
+          "generator_policy_status",
+          "epistemic_class",
+          "generated_sample_count",
+          "samples_per_subject",
+          "sample_manifest",
+          "external_population_claim",
+          "combined_p_value",
+          "combined_p_value_state"
+        ]
+      }
+    }
+  ],
   "additionalProperties": false
 }
