@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.12.0
+**Versión pública:** 1.13.0
 
 ## Release pública
 
@@ -26,6 +26,13 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | M31 · report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
 | M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
 | Núcleo Python IEM/IDD/IRC | Publicado y probado unitariamente |
+| Q1 · fuerza automática M17 | `ALMAS_ROOT_STRENGTH_BASELINE_V1` |
+| Q2 · raíz→pilar M18 | `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1` |
+| Q3 · Shapley/IDD M21 | `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` |
+| Q4 · sensibilidad horaria M23 | `ALMAS_BIRTH_TIME_PERTURBATION_V1` |
+| Q5 · robustez automática M25 | `ALMAS_ROBUSTNESS_Q5_V1` |
+| Q6 · universo nulo M24 | `ALMAS_NULL_WITHIN_YEAR_V1` |
+| Q7 · ensamblaje canonical/M30 | `ALMAS_CANONICAL_ASSEMBLY_V1` |
 | Discriminación ontológica M21 | Ejecutable; separada de IDD; ambigüedad preservada si no existe L3 |
 | Registro de promoción | Activo; `validated_discriminator_ids=[]` |
 | Gate L3 hacia M25 | Ejecutable; ningún discriminador real autorizado actualmente |
@@ -40,7 +47,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **266 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
+La suite Python contiene **317 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -71,7 +78,7 @@ La validación automatizada demuestra coherencia de implementación con las regl
 
 ## Validación externa
 
-**Infraestructura:** LISTA PARA PRERREGISTRO.  
+**Infraestructura:** LISTA PARA PRERREGISTRO. El cierre cuantitativo Q1–Q7 es reproducible dentro del pipeline; la validación externa sigue siendo una capa distinta.  
 **Holdout externo real:** NO EJECUTADO.  
 **Discriminadores L3 reales:** NINGUNO.
 

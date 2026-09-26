@@ -99,7 +99,8 @@
       "enum": [
         "ABSENT",
         "AVAILABLE_NOT_QUANTIFIED",
-        "INCLUDED_PREREGISTERED"
+        "INCLUDED_PREREGISTERED",
+        "INCLUDED_AUTO_Q5"
       ]
     },
     "null_model_state": {

@@ -6,7 +6,8 @@
   "required": [
     "roots",
     "root_count",
-    "strength_policy_applied"
+    "strength_policy_applied",
+    "strength_policy_id"
   ],
   "properties": {
     "roots": {
@@ -22,24 +23,88 @@
           "core_eligible",
           "core_evidence_ids",
           "support_evidence_ids",
+          "point_ids",
+          "relation_ids",
           "max_exactness",
           "strength",
-          "strength_state"
+          "strength_state",
+          "policy_id",
+          "aggregation"
         ],
         "properties": {
+          "root_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "dependency_families": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "independent_family_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "core_eligible": {
+            "type": "boolean"
+          },
+          "core_evidence_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "support_evidence_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "point_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "relation_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "max_exactness": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "maximum": 1
+          },
           "strength": {
-            "type": [
-              "number",
-              "null"
-            ],
+            "type": ["number", "null"],
             "minimum": 0,
             "maximum": 1
           },
           "strength_state": {
             "enum": [
-              "NOT_CALCULATED",
-              "CALCULATED"
+              "CALCULATED_CORE",
+              "CALCULATED_SUPPORT_ONLY",
+              "NOT_EVALUABLE"
             ]
+          },
+          "dominant_evidence_id": {
+            "type": ["string", "null"]
+          },
+          "evidence_strengths": {
+            "type": "array"
+          },
+          "policy_id": {
+            "const": "ALMAS_ROOT_STRENGTH_BASELINE_V1"
+          },
+          "aggregation": {
+            "const": "MAX_CORE_EVIDENCE"
           }
         },
         "additionalProperties": true
@@ -50,7 +115,10 @@
       "minimum": 0
     },
     "strength_policy_applied": {
-      "const": false
+      "const": true
+    },
+    "strength_policy_id": {
+      "const": "ALMAS_ROOT_STRENGTH_BASELINE_V1"
     }
   },
   "additionalProperties": false

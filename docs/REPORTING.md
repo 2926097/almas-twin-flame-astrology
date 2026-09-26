@@ -10,7 +10,7 @@ Para informes largos se prefiere una fase de autoría DOCX antes de la conversi�
 
 ## Gate M30
 
-No se redacta un informe analítico sin pasar por M30.
+No se redacta un informe analítico sin pasar por M30. En una ejecución FULL configurada de 1.13.0, si `canonical_analysis` no fue suministrado, Q7 puede ensamblarlo desde los namespaces canónicos M01–M29 antes de aplicar el gate. Un canonical explícito nunca se sobrescribe.
 
 Estados:
 
@@ -38,7 +38,7 @@ Toda conclusión material debe indicar, cuando proceda:
 - carácter estructural, temporal o factual;
 - límites inferenciales.
 
-Un estado PARTIAL debe reflejar sus `degradation_reasons` en el documento. No se ocultan módulos no evaluables, datos ausentes ni limitaciones del análisis.
+Un estado PARTIAL debe reflejar sus `degradation_reasons` en el documento. No se ocultan módulos no evaluables, datos ausentes ni limitaciones del análisis. El ensamblador Q7 deriva ICC mediante siete dominios q=0/0.5/1 y conserva el IDD global como el mínimo de los IDD por pares evaluables; ambas decisiones son políticas de proyecto explícitas y trazables.
 
 ## Modelo documental M31
 

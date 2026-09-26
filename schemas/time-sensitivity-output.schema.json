@@ -16,23 +16,24 @@
       "minLength": 1
     },
     "subject_scope": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "perturbation_rule": {
-      "type": [
-        "string",
-        "object",
-        "null"
-      ]
+      "type": ["string", "object", "null"]
     },
     "metric": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
+    },
+    "preservation_metric": {
+      "type": ["string", "null"]
+    },
+    "percentile": {
+      "type": ["number", "null"],
+      "exclusiveMinimum": 0,
+      "maximum": 1
+    },
+    "percentile_method": {
+      "type": ["string", "null"]
     },
     "delta90": {
       "type": "number",
@@ -44,10 +45,7 @@
       "maximum": 1
     },
     "perturbation_count": {
-      "type": [
-        "integer",
-        "null"
-      ],
+      "type": ["integer", "null"],
       "minimum": 1
     },
     "robustness_component": {
@@ -56,8 +54,144 @@
       "maximum": 1
     },
     "perturbations_generated_by_m23": {
-      "const": false
+      "type": "boolean"
+    },
+    "generator_policy_id": {
+      "type": "string"
+    },
+    "generator_policy_status": {
+      "type": "string"
+    },
+    "epistemic_class": {
+      "type": "string"
+    },
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "iem_pre": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "core_root_count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "samples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "offset_minutes",
+          "max_abs_iem_pre_delta",
+          "delta_by_model",
+          "core_root_preservation",
+          "core_root_count"
+        ],
+        "properties": {
+          "offset_minutes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            }
+          },
+          "max_abs_iem_pre_delta": {
+            "type": "number",
+            "minimum": 0
+          },
+          "delta_by_model": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "core_root_preservation": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "core_root_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "root_preservation_min": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "root_preservation_mean": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "root_preservation_max": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "iem_delta_max": {
+      "type": "number",
+      "minimum": 0
+    },
+    "idd_recomputed": {
+      "type": "boolean"
+    },
+    "ice_used": {
+      "type": "boolean"
+    },
+    "iem_final_used": {
+      "type": "boolean"
+    },
+    "temporal_activation_used": {
+      "type": "boolean"
+    },
+    "null_rarity_used": {
+      "type": "boolean"
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "perturbations_generated_by_m23": {
+            "const": true
+          }
+        },
+        "required": ["perturbations_generated_by_m23"]
+      },
+      "then": {
+        "required": [
+          "generator_policy_id",
+          "generator_policy_status",
+          "epistemic_class",
+          "preservation_metric",
+          "percentile",
+          "percentile_method",
+          "baseline",
+          "samples",
+          "root_preservation_min",
+          "root_preservation_mean",
+          "root_preservation_max",
+          "iem_delta_max",
+          "idd_recomputed",
+          "ice_used",
+          "iem_final_used",
+          "temporal_activation_used",
+          "null_rarity_used"
+        ]
+      }
+    }
+  ],
   "additionalProperties": false
 }

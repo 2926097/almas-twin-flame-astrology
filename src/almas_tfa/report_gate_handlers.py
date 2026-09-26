@@ -6,6 +6,7 @@ import json
 from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult
+from .canonical_assembly import assemble_canonical_analysis, load_canonical_assembly_policy
 
 
 CANONICAL_REQUIRED = {
@@ -506,3 +507,81 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
             "Una traza de ejecución ausente no invalida el objeto importado, pero impide READY.",
         ),
     )
+
+
+
+def make_m30_report_gate_auto():
+    """Construye M30 con ensamblaje canónico Q7 y compatibilidad legacy.
+
+    Un canonical_analysis ya suministrado conserva prioridad y nunca se
+    sobrescribe. Sólo cuando raw/snapshot carecen de canonical se ensambla uno
+    desde los namespaces canónicos M01-M29.
+    """
+
+    def m30_auto(context: ModuleContext) -> ModuleResult:
+        raw_canonical = context.raw_input.get("canonical_analysis")
+        snapshot_canonical = context.canonical_snapshot.get("canonical_analysis")
+        if isinstance(raw_canonical, Mapping) or isinstance(
+            snapshot_canonical,
+            Mapping,
+        ):
+            return m30_report_gate(context)
+
+        assembled = assemble_canonical_analysis(
+            context.canonical_snapshot,
+            context.prior_results,
+            policy=load_canonical_assembly_policy(),
+        )
+        if assembled.get("state") != "EVALUABLE":
+            # Mantiene el comportamiento bloqueante histórico cuando Q7 no
+            # puede construir una verdad canónica suficiente.
+            result = m30_report_gate(context)
+            return ModuleResult(
+                module_id="M30",
+                status=result.status,
+                payload=result.payload,
+                canonical_updates=result.canonical_updates,
+                evidence_refs=result.evidence_refs,
+                limitations=result.limitations
+                + (
+                    "Q7 canonical assembly no evaluable: "
+                    + str(assembled.get("reason")),
+                ),
+                diagnostics=result.diagnostics
+                + ("M30 source=LEGACY_GATE_NO_AUTO_CANONICAL",),
+            )
+
+        canonical_analysis = assembled["canonical_analysis"]
+        snapshot = dict(context.canonical_snapshot)
+        snapshot["canonical_analysis"] = canonical_analysis
+        derived_context = ModuleContext(
+            module_id=context.module_id,
+            module_name=context.module_name,
+            mode=context.mode,
+            raw_input=context.raw_input,
+            canonical_snapshot=snapshot,
+            prior_results=context.prior_results,
+        )
+        result = m30_report_gate(derived_context)
+
+        updates = dict(result.canonical_updates)
+        updates["canonical_analysis"] = canonical_analysis
+
+        return ModuleResult(
+            module_id="M30",
+            status=result.status,
+            payload=result.payload,
+            canonical_updates=updates,
+            evidence_refs=result.evidence_refs,
+            limitations=result.limitations
+            + (
+                "canonical_analysis fue ensamblado por Q7 desde namespaces M01-M29; M30 no recalculó astrología, raíces ni pilares.",
+            ),
+            diagnostics=result.diagnostics
+            + (
+                "M30 source=AUTO_CANONICAL_ASSEMBLY_Q7",
+                "canonical_assembly_policy=ALMAS_CANONICAL_ASSEMBLY_V1",
+            ),
+        )
+
+    return m30_auto

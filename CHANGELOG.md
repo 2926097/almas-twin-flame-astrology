@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.13.0 — 2026-09-26
+
+### Cierre cuantitativo reproducible del modo FULL
+- Cierra M17 con `ALMAS_ROOT_STRENGTH_BASELINE_V1`: fuerza de raíces derivada automáticamente desde exactitud geométrica, sin pesos retrospectivos ajustados al caso.
+- Cierra M18 con `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1`: atribución raíz→pilar determinista, un único pilar semántico primario y PX como recurrencia ortogonal; PU permanece `NOT_EVALUABLE` sin discriminador validado.
+- Cierra M21 con `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1`: atribuciones Shapley sobre `IEM_pre` e IDD AF/KA/AG/LG sin mapas manuales.
+- Automatiza M23 mediante `ALMAS_BIRTH_TIME_PERTURBATION_V1`: parrillas horarias preregistradas, `delta90`, preservación de raíces core y componente BIRTH_TIME.
+- Automatiza M25 mediante `ALMAS_ROBUSTNESS_Q5_V1`: ABLATION, PARAMETER_PERTURBATION e IDD_STABILITY derivados sin doble contabilización.
+- Automatiza M24 mediante `ALMAS_NULL_WITHIN_YEAR_V1`: universo nulo determinista autocontenido, frecuencias estructurales e intervalos de Wilson, sin convertir rareza en probabilidad metafísica.
+- Añade `ALMAS_CANONICAL_ASSEMBLY_V1`: ensamblaje de `canonical_analysis` desde M01–M29, ICC de siete dominios y cierre automático del gate M30 cuando la ejecución es íntegra.
+- Migra la prueba FULL M00–M31 para retirar los shims cuantitativos de Q1–Q7; el pipeline deriva fuerza, pilares, IDD, sensibilidad horaria, nulls, robustez, ICC/IRC/R_min y canonical sin introducirlos manualmente.
+- Mantiene compatibilidad con entradas precomputadas/legacy cuando la ruta automática no es aplicable o cuando se necesita una cohorte nula externa.
+- Mantiene sin cambios los thresholds públicos de `SUPPORTED`, la separación ontológica M21, los gates L3 y la regla de que rareza/temporalidad no son probabilidad metafísica.
+- No incorpora ningún `VALIDATED_DISCRIMINATOR` real ni declara validación externa de ontologías metafísicas.
+
 ## 1.12.0 — 2026-09-26
 
 ### Discriminación ontológica, validación y cierre metodológico

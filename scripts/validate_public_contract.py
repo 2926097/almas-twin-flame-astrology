@@ -32,6 +32,8 @@ REQUIRED_FILES = [
     "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
     "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
     "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
+    "docs/QUANTITATIVE_CLOSURE_1_13.md",
+    "docs/RELEASE_AUDIT_1.13.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -177,6 +179,13 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/promotion-state-machine-policy.json",
     "src/almas_tfa/data/discriminator-source-genealogy.json",
     "src/almas_tfa/data/public-data-isolation-policy.json",
+    "src/almas_tfa/data/root-strength-policy.json",
+    "src/almas_tfa/data/root-pillar-attribution-policy.json",
+    "src/almas_tfa/data/model-attribution-policy.json",
+    "src/almas_tfa/data/birth-time-perturbation-policy.json",
+    "src/almas_tfa/data/robustness-q5-policy.json",
+    "src/almas_tfa/data/null-within-year-policy.json",
+    "src/almas_tfa/data/canonical-assembly-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -192,6 +201,13 @@ REQUIRED_FILES = [
     "src/almas_tfa/lot_handlers.py",
     "src/almas_tfa/secondary_handlers.py",
     "src/almas_tfa/evidence_handlers.py",
+    "src/almas_tfa/root_strengths.py",
+    "src/almas_tfa/pillar_attribution.py",
+    "src/almas_tfa/model_attribution.py",
+    "src/almas_tfa/time_perturbation.py",
+    "src/almas_tfa/robustness_quantification.py",
+    "src/almas_tfa/null_generation.py",
+    "src/almas_tfa/canonical_assembly.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -275,6 +291,15 @@ REQUIRED_FILES = [
     "tests/test_promotion_reporting.py",
     "tests/test_discriminator_source_genealogy.py",
     "tests/test_public_data_guard.py",
+    "tests/test_root_strengths.py",
+    "tests/test_pillar_attribution.py",
+    "tests/test_model_attribution.py",
+    "tests/test_m21_auto_idd.py",
+    "tests/test_time_perturbation.py",
+    "tests/test_robustness_q5.py",
+    "tests/test_null_generation.py",
+    "tests/test_canonical_assembly.py",
+    "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -409,6 +434,27 @@ def main() -> int:
     )
     public_data_isolation_policy = load_json(
         "src/almas_tfa/data/public-data-isolation-policy.json"
+    )
+    root_strength_policy = load_json(
+        "src/almas_tfa/data/root-strength-policy.json"
+    )
+    root_pillar_policy = load_json(
+        "src/almas_tfa/data/root-pillar-attribution-policy.json"
+    )
+    model_attribution_policy = load_json(
+        "src/almas_tfa/data/model-attribution-policy.json"
+    )
+    birth_time_perturbation_policy = load_json(
+        "src/almas_tfa/data/birth-time-perturbation-policy.json"
+    )
+    robustness_q5_policy = load_json(
+        "src/almas_tfa/data/robustness-q5-policy.json"
+    )
+    null_generation_policy = load_json(
+        "src/almas_tfa/data/null-within-year-policy.json"
+    )
+    canonical_assembly_policy = load_json(
+        "src/almas_tfa/data/canonical-assembly-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -703,6 +749,128 @@ def main() -> int:
         fail("public data isolation policy must remain E_PROJECT_POLICY")
     if public_data_isolation_policy.get("repository_mode") != "PUBLIC":
         fail("public data isolation policy must remain PUBLIC")
+
+    if root_strength_policy.get("policy_id") != "ALMAS_ROOT_STRENGTH_BASELINE_V1":
+        fail("root strength policy id changed")
+    if root_strength_policy.get("status") != "FROZEN_NEUTRAL_BASELINE":
+        fail("root strength baseline must remain frozen and neutral")
+    if root_strength_policy.get("principles", {}).get("case_fitting_forbidden") is not True:
+        fail("root strength policy must forbid case fitting")
+
+    if root_pillar_policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1":
+        fail("root to pillar policy id changed")
+    if root_pillar_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("root to pillar policy must remain a frozen experimental baseline")
+    if root_pillar_policy.get("epistemic_class") != "E_PROJECT_HYPOTHESIS":
+        fail("root to pillar attribution must remain E_PROJECT_HYPOTHESIS")
+    pillar_principles = root_pillar_policy.get("principles", {})
+    if pillar_principles.get("case_fitting_forbidden") is not True:
+        fail("root to pillar policy must forbid case fitting")
+    if pillar_principles.get("single_semantic_primary_pillar") is not True:
+        fail("root to pillar policy must keep semantic pillar exclusivity")
+    if pillar_principles.get("pu_automatic_attribution_forbidden") is not True:
+        fail("PU automatic attribution must remain forbidden")
+
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1":
+        fail("model attribution policy id changed")
+    if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("model attribution policy must remain frozen")
+    if model_attribution_policy.get("epistemic_class") != "E_PROJECT_HYPOTHESIS":
+        fail("model attribution policy must remain E_PROJECT_HYPOTHESIS")
+    if model_attribution_policy.get("value_function") != "IEM_PRE":
+        fail("M21 automatic attribution must use IEM_PRE")
+    attribution_principles = model_attribution_policy.get("principles", {})
+    if attribution_principles.get("case_fitting_forbidden") is not True:
+        fail("model attribution policy must forbid case fitting")
+    if attribution_principles.get("idd_is_not_ontological_discriminator") is not True:
+        fail("IDD must remain separated from ontological discrimination")
+    if attribution_principles.get("ice_not_used_for_attribution") is not True:
+        fail("ICE must remain outside Shapley attribution value function")
+
+    if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_PERTURBATION_V1":
+        fail("birth-time perturbation policy id changed")
+    if birth_time_perturbation_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("birth-time perturbation policy must remain frozen")
+    if birth_time_perturbation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("birth-time perturbation policy must remain E_PROJECT_POLICY")
+    q4_principles = birth_time_perturbation_policy.get("principles", {})
+    if q4_principles.get("case_fitting_forbidden") is not True:
+        fail("birth-time perturbation policy must forbid case fitting")
+    if q4_principles.get("all_generated_samples_must_be_evaluable") is not True:
+        fail("Q4 must fail closed when a generated perturbation is not evaluable")
+    q4_metric = birth_time_perturbation_policy.get("metric", {})
+    if q4_metric.get("percentile_method") != "NEAREST_RANK":
+        fail("Q4 percentile method must remain NEAREST_RANK")
+    if q4_metric.get("preserved_fraction") != "MEAN_BASELINE_CORE_ROOT_RETENTION":
+        fail("Q4 preserved_fraction metric changed")
+
+    if robustness_q5_policy.get("policy_id") != "ALMAS_ROBUSTNESS_Q5_V1":
+        fail("Q5 robustness policy id changed")
+    if robustness_q5_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("Q5 robustness policy must remain frozen")
+    if robustness_q5_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("Q5 robustness policy must remain E_PROJECT_POLICY")
+    q5_principles = robustness_q5_policy.get("principles", {})
+    if q5_principles.get("case_fitting_forbidden") is not True:
+        fail("Q5 robustness policy must forbid case fitting")
+    if q5_principles.get("null_rarity_used") is not False:
+        fail("Q5 must exclude null rarity from IRC")
+    if q5_principles.get("validated_discriminator_auto_created") is not False:
+        fail("Q5 must not auto-create L3 discriminator components")
+    if robustness_q5_policy.get("parameter_perturbation", {}).get("orb_scale_factors") != [0.9, 0.95, 1.05, 1.1]:
+        fail("Q5 orb perturbation factors changed")
+    if robustness_q5_policy.get("idd_stability", {}).get("source_samples") != "PARAMETER_PERTURBATION":
+        fail("Q5 IDD stability must reuse parameter perturbation samples")
+
+    if null_generation_policy.get("policy_id") != "ALMAS_NULL_WITHIN_YEAR_V1":
+        fail("Q6 null generation policy id changed")
+    if null_generation_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("Q6 null generation policy must remain frozen")
+    if null_generation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("Q6 null generation policy must remain E_PROJECT_POLICY")
+    if null_generation_policy.get("null_model") != "WITHIN_YEAR":
+        fail("Q6 self-contained generator must remain WITHIN_YEAR")
+    q6_generator = null_generation_policy.get("generator", {})
+    if q6_generator.get("name") != "DETERMINISTIC_STRATIFIED_CALENDAR_DATE":
+        fail("Q6 generator identity changed")
+    if q6_generator.get("samples_per_subject") != 32:
+        fail("Q6 samples_per_subject changed")
+    q6_principles = null_generation_policy.get("principles", {})
+    if q6_principles.get("case_fitting_forbidden") is not True:
+        fail("Q6 must forbid case fitting")
+    if q6_principles.get("metaphysical_probability") is not False:
+        fail("Q6 must forbid metaphysical probability")
+    if q6_principles.get("null_rarity_used_as_irc") is not False:
+        fail("Q6 null rarity must remain outside IRC")
+    if q6_principles.get("no_external_population_claim") is not True:
+        fail("Q6 self-contained null must not claim an external population")
+    if q6_principles.get("combined_p_value_forbidden") is not True:
+        fail("Q6 must forbid combined p-value")
+
+    if canonical_assembly_policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V1":
+        fail("Q7 canonical assembly policy id changed")
+    if canonical_assembly_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("Q7 canonical assembly policy must remain frozen")
+    if canonical_assembly_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("Q7 canonical assembly policy must remain E_PROJECT_POLICY")
+    q7_principles = canonical_assembly_policy.get("principles", {})
+    if q7_principles.get("case_fitting_forbidden") is not True:
+        fail("Q7 canonical assembly must forbid case fitting")
+    if q7_principles.get("existing_canonical_never_overwritten") is not True:
+        fail("Q7 must not overwrite an existing canonical_analysis")
+    if q7_principles.get("assembler_recalculates_astrology") is not False:
+        fail("Q7 assembler must not recalculate astrology")
+    if q7_principles.get("assembler_recalculates_roots") is not False:
+        fail("Q7 assembler must not recalculate roots")
+    if q7_principles.get("assembler_recalculates_pillars") is not False:
+        fail("Q7 assembler must not recalculate pillars")
+    if canonical_assembly_policy.get("global_idd", {}).get("method") != "MIN_EVALUABLE_PAIRWISE_IDD":
+        fail("Q7 global IDD aggregation changed")
+    if canonical_assembly_policy.get("model_state", {}).get("supported_requires_evaluable_ice") is not True:
+        fail("Q7 SUPPORTED must require evaluable ICE")
+    q7_domains = canonical_assembly_policy.get("coverage", {}).get("domains", [])
+    if len(q7_domains) != 7 or len(set(q7_domains)) != 7:
+        fail("Q7 canonical coverage must retain seven unique domains")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
@@ -1626,8 +1794,10 @@ def main() -> int:
         fail("evidence graph must declare strength_policy_applied=false")
     if "retained" not in deduplicated_evidence_schema.get("required", []):
         fail("deduplicated evidence schema must require retained")
-    if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
-        fail("independent roots must remain unweighted until an explicit strength policy exists")
+    if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not True:
+        fail("independent roots must declare the frozen Q1 strength policy")
+    if independent_roots_schema.get("properties", {}).get("strength_policy_id", {}).get("const") != "ALMAS_ROOT_STRENGTH_BASELINE_V1":
+        fail("independent roots schema must bind ALMAS_ROOT_STRENGTH_BASELINE_V1")
 
     if counterevidence_output_schema.get("properties", {}).get("missing_data_penalized", {}).get("const") is not False:
         fail("counterevidence schema must forbid missing-data penalty")
@@ -1637,8 +1807,8 @@ def main() -> int:
     if structural_ablation_schema.get("properties", {}).get("dependency_classes_assigned", {}).get("const") is not False:
         fail("structural ablation must not assign contractual dependency classes")
 
-    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
-        fail("time sensitivity must not generate perturbations internally")
+    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("type") != "boolean":
+        fail("time sensitivity schema must distinguish automatic and legacy perturbation sources")
     if not {"preregistration_ref", "delta90", "preserved_fraction", "robustness_component"}.issubset(
         set(time_sensitivity_schema.get("required", []))
     ):
@@ -1646,8 +1816,8 @@ def main() -> int:
 
     if null_model_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
         fail("null model schema must forbid metaphysical probability")
-    if null_model_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
-        fail("M24 must not generate null sampling internally")
+    if null_model_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("type") != "boolean":
+        fail("M24 schema must distinguish generated and legacy null sampling")
     null_runs = null_model_schema.get("properties", {}).get("runs", {})
     if null_runs.get("minItems") != 1:
         fail("null model schema must require at least one run")
@@ -1666,13 +1836,20 @@ def main() -> int:
     )
     if "NULL_RARITY" in allowed_m25_kinds or "NULL_MODEL_FREQUENCY" in allowed_m25_kinds:
         fail("M25 must not admit null rarity as a robustness component")
+    ablation_states = set(
+        robustness_props.get("ablation_state", {}).get("enum", [])
+    )
+    if "INCLUDED_AUTO_Q5" not in ablation_states:
+        fail("M25 schema must expose INCLUDED_AUTO_Q5")
 
-    if time_sensitivity_schema.get("properties", {}).get("perturbations_generated_by_m23", {}).get("const") is not False:
-        fail("M23 must not generate perturbations implicitly")
+    if "generator_policy_id" not in time_sensitivity_schema.get("properties", {}):
+        fail("M23 automatic output must expose generator_policy_id")
     if null_model_output_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
         fail("M24 null-model output must forbid metaphysical probability")
-    if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
-        fail("M24 must not generate undeclared null sampling")
+    if "generator_policy_id" not in null_model_output_schema.get("properties", {}):
+        fail("M24 automatic output must expose generator_policy_id")
+    if null_model_output_schema.get("properties", {}).get("combined_p_value_state", {}).get("const") != "FORBIDDEN":
+        fail("M24 must forbid combined p-value across null statistics")
 
     temporal_props = temporal_activation_schema.get("properties", {})
     if temporal_props.get("structural_score_modified", {}).get("const") is not False:

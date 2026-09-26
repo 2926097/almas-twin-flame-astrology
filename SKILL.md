@@ -1,18 +1,20 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.12.0
+version: 1.13.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.12.0
+# ALMAS · Astrología Metafísica Relacional v1.13.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.12.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.13.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+
+La release 1.13.0 incorpora el cierre cuantitativo Q1–Q7: M17 deriva fuerza de raíces, M18 deriva pilares, M21 deriva atribuciones Shapley e IDD, M23 genera sensibilidad horaria, M24 puede generar un nulo WITHIN_YEAR autocontenido, M25 deriva robustez por ablación/parámetros/estabilidad IDD y Q7 ensambla `canonical_analysis` antes de M30 cuando no se suministra uno explícito.
 
 ### Enfoque de investigación metafísica
 

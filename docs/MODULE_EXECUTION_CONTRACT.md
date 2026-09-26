@@ -76,7 +76,7 @@ Cuando estén implementados los handlers suficientes, determinados módulos publ
 
 Hasta entonces debe distinguirse:
 
-`orchestration run != canonical_analysis completo`.
+En 1.13, una ejecución configurada con backends y con M01–M29 evaluables puede ensamblar `canonical_analysis` automáticamente antes de M30. Cuando faltan esos requisitos, `orchestration run != canonical_analysis completo` continúa siendo la regla de degradación.
 
 ## Política de implementación
 
@@ -86,16 +86,24 @@ La secuencia recomendada es:
 
 No se modifican en este paso fórmulas, pesos, umbrales, modelos ontológicos ni discriminadores.
 
-## Adaptadores ejecutables iniciales
+## Adaptadores y motores cuantitativos
 
-La primera integración conecta al pipeline lógica ya existente sin cambiar sus fórmulas:
+La capa ejecutable conserva las fórmulas públicas y, desde la evolución 1.13,
+cierra varias entradas que en 1.12 debían llegar precomputadas:
 
-- `M18` — pilares: acepta pilares precomputados o deriva el valor de un pilar desde intensidades de raíces mediante `pillar_score`;
-- `M19` — índices estructurales: reutiliza `score_model` y `supported_gate`;
-- `M21` — discriminación diferencial: reutiliza `diagnostic_discrimination` e `idd_band`;
-- `M25` — robustez: reutiliza `robustness_index` sobre componentes preregistrados.
+- `M17` deriva fuerza de raíz mediante la política congelada
+  `ALMAS_ROOT_STRENGTH_BASELINE_V1`;
+- `M18` deriva pilares desde raíces canónicas mediante
+  `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1`, conservando adaptadores legacy sólo si
+  no existen raíces evaluables;
+- `M19` reutiliza `score_model` y `supported_gate` sin alterar la fórmula
+  de IEM;
+- `M21` deriva atribuciones Shapley desde `IEM_pre` mediante
+  `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` y calcula IDD por Jensen–Shannon;
+- `M25` reutiliza `robustness_index` sobre componentes preregistrados.
 
-Estos adaptadores viven en `src/almas_tfa/handlers.py`. Las etapas restantes continúan explícitamente como no implementadas hasta disponer de un motor reproducible.
+Las políticas Q1–Q3 son `E_PROJECT_HYPOTHESIS` o baseline metodológica según
+corresponda. No son doctrina ni validación ontológica.
 
 ## Frontera de M02 · carta natal
 
@@ -147,7 +155,42 @@ La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0�
 
 `M16` deduplica dentro de la misma `dependency_family + root_key`, reteniendo de forma determinista la observación de mayor exactitud y conservando las suprimidas con su razón. Los pares ASC/DSC, MC/IC, NN/SN y Vertex/Anti-Vertex se normalizan como ejes para impedir inflar evidencia equivalente; en aspectos angulares, 0°/180° y 60°/120° se reducen por simetría del eje.
 
-`M17` agrupa la evidencia deduplicada en raíces estructurales conservadoras. Separa `core_evidence_ids` de `support_evidence_ids` y deja `strength=null / NOT_CALCULATED` hasta que exista una política explícita para la fórmula `S = F × technique_reliability × birth_time_factor × aspect_coefficient`.
+`M17` agrupa la evidencia deduplicada en raíces estructurales conservadoras.
+Separa `core_evidence_ids` de `support_evidence_ids`, conserva
+`point_ids`/`relation_ids` normalizados y aplica
+`ALMAS_ROOT_STRENGTH_BASELINE_V1`:
+
+`S = F × technique_reliability × birth_time_factor × aspect_coefficient`.
+
+La baseline Q1 mantiene coeficientes neutros 1.0 hasta que exista calibración
+externa preregistrada. Una raíz con evidencia core adopta el máximo S de sus
+miembros core deduplicados. Las capas `support_only` pueden conservar fuerza
+diagnóstica pero no convierten la raíz en core. La sensibilidad horaria se
+reserva a M23–M25 para evitar doble penalización.
+
+## M18–M21 · pilares, IEM y discriminación
+
+`M18` prioriza `independent_roots` canónicas. La política
+`ALMAS_ROOT_PILLAR_ATTRIBUTION_V1` asigna a cada raíz un único pilar
+semántico primario y permite PX como metapilar ortogonal de recurrencia.
+La precedencia de resolución de solapamientos es
+`PS → PK → PT → PE → PR → PA`. PU permanece `NOT_EVALUABLE` en la
+baseline automática.
+
+La ausencia sólo se convierte en cero cuando M03, M05, M06, M09 y M11 están
+todos `COMPLETED`. En cobertura incompleta se conserva `None` para impedir
+que missingness funcione como contraevidencia.
+
+`M19` aplica las fórmulas públicas de IEM sin cambios.
+
+`M21` usa Shapley sobre `IEM_pre` para atribuir a cada raíz su contribución
+a AF, KA, AG y LG. Hasta 10 raíces usa cálculo exacto; por encima utiliza
+permutaciones antitéticas deterministas con control de convergencia. ICE,
+IEM_final, temporalidad y rareza nula quedan fuera de la función de valor.
+Las distribuciones se comparan por divergencia Jensen–Shannon para obtener IDD.
+
+IDD y la discriminación ontológica de M21 son capas independientes. Un IDD alto
+no autoriza por sí mismo una clasificación ontológica más específica.
 
 ## M20 · contraevidencia
 
@@ -163,15 +206,51 @@ La salida se marca `structural_only=true` y `dependency_classes_assigned=false`.
 
 ## M23–M25 · sensibilidad, modelos nulos y robustez
 
-`M23` consume un resumen de perturbación previamente calculado y preregistrado. `time_sensitivity_summary` debe declarar al menos `preregistration_ref`, `delta90` y `preserved_fraction=G`. Aplica exactamente:
+`M23` dispone desde Q4 de dos rutas explícitas. Con backend natal y Davison
+inyectados, genera perturbaciones mediante
+`ALMAS_BIRTH_TIME_PERTURBATION_V1`; sin esos requisitos puede conservar el
+adaptador legacy `time_sensitivity_summary`.
+
+La ruta automática perturba ambas horas locales sobre una parrilla congelada
+según `time_reliability`, recalcula la arquitectura estructural y deriva:
+
+`delta90 = P90_nearest_rank(max |Δ IEM_pre|)`
+
+y
+
+`G = media de preservación de raíces core del baseline`.
+
+Aplica después exactamente:
 
 `R_X = exp(-delta90/20) × sqrt(G)`.
 
-M23 no genera perturbaciones, no estima `delta90` a partir de muestras y no improvisa una convención de percentil. El componente resultante pertenece a robustez y su agregación final corresponde a M25.
+La ruta automática falla cerrado si alguna muestra generada no puede
+recalcularse. No usa ICE, IEM_final, temporalidad, modelos nulos ni IDD.
+La estabilidad de IDD se reserva a un componente separado de M25 para evitar
+doble contabilización.
 
-`M24` evalúa corridas nulas preregistradas. Cada corrida conserva `preregistration_ref`, tipo de modelo nulo, `feature_set_ref`, `orb_policy_ref`, `event_set_ref`, `generator_ref`, estadístico observado, regla de extremo y muestras nulas o `n/extreme_count`. Los tipos admitidos son `MATCHED_AGE`, `WITHIN_YEAR`, `MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`, `EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`.
+`M24` admite dos rutas. Si la entrada contiene `null_model_runs`,
+evalúa esas corridas preregistradas como compatibilidad legacy y como vía para
+cohortes externas. Si no existen y se han inyectado backend natal y Davison,
+Q6 activa `ALMAS_NULL_WITHIN_YEAR_V1`.
 
-M24 no genera el universo nulo: `sampling_generated_by_m24=false`. Su frecuencia describe rareza estructural bajo el modelo declarado y fija `metaphysical_probability=false`.
+La ruta Q6 genera un nulo `WITHIN_YEAR` determinista: cada sujeto se perturba
+por separado mediante 32 fechas estratificadas dentro de su propio año,
+manteniendo hora, zona y localización, mientras el otro sujeto permanece fijo.
+Se recalcula la misma arquitectura estructural Q1/Q2 en cada muestra.
+
+Las estadísticas automáticas son `CORE_ROOT_COUNT`, `MAX_IEM_PRE` y
+`PX_PILLAR_SCORE`, reportadas por separado con frecuencia estructural e
+intervalo de Wilson. No existe combinación automática de p-values.
+
+Los tipos admitidos continúan siendo `MATCHED_AGE`, `WITHIN_YEAR`,
+`MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`,
+`EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`. Sin embargo, Q6 no
+inventa poblaciones externas: `PAIR_SHUFFLE`, `MATCHED_AGE` y
+`MATCHED_AGE_CLOCK` sólo pueden entrar mediante un pool externo trazable.
+
+Toda frecuencia M24 describe rareza estructural bajo el nulo declarado.
+`metaphysical_probability=false` y M24 permanece excluido de IRC.
 
 `M25` es el único agregador canónico de robustez. Incorpora automáticamente `BIRTH_TIME` desde M23 porque su derivación está definida. Otros componentes deben declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
 
@@ -179,7 +258,23 @@ Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABIL
 
 `VALIDATED_DISCRIMINATOR` tiene un gate adicional: debe declarar `validation_level=L3_VALIDATED`, `source_module=M21` y un `root_key` que figure entre las raíces validadas de un par con `confirmatory_status=SEPARABLE_VALIDATED` en `ontological_discrimination`. L1 y L2 no pueden entrar en IRC, y un par L3 conflictivo tampoco autoriza el componente.
 
-La presencia de M22 no crea automáticamente un componente IRC: sin una regla preregistrada de conversión, M25 registra `ablation_state=AVAILABLE_NOT_QUANTIFIED`. M24 queda excluido del IRC mediante `null_model_rarity_used_as_robustness=false`.
+Desde Q5, cuando se inyectan los backends estructurales y está activa
+`ALMAS_ROBUSTNESS_Q5_V1`, M25 deriva automáticamente tres componentes:
+
+- `ABLATION`: reconstruye IEM_pre sobre AB3–AB7 seleccionadas y combina
+  movimiento de IEM con preservación de raíces core;
+- `PARAMETER_PERTURBATION`: escala los orbes declarados por
+  0.90/0.95/1.05/1.10 y recalcula estructura;
+- `IDD_STABILITY`: recalcula Shapley e IDD sobre esas mismas perturbaciones y
+  mide estabilidad numérica y de bandas.
+
+Los componentes automáticos sustituyen al adaptador legacy del mismo `kind`;
+nunca se cuentan dos veces. Sin la política Q5 evaluable, M22 puede seguir
+figurando como `AVAILABLE_NOT_QUANTIFIED` y los componentes legacy
+preregistrados permanecen disponibles.
+
+M24 queda excluido del IRC mediante
+`null_model_rarity_used_as_robustness=false`.
 
 La agregación normativa permanece:
 
@@ -229,7 +324,9 @@ El firewall documental queda fijado en `structural_mutation_allowed=false`, `cla
 
 `M29` vive en `src/almas_tfa/reality_handlers.py` y valida `REAL_VIABILITY` y `RECIPROCITY` exclusivamente desde hechos M27. Toda evaluación declara `assessment_ref`, `as_of_date` y exactamente dos sujetos. Un estado de viabilidad distinto de `UNKNOWN` necesita `viability_basis`; una reciprocidad distinta de `NOT_EVALUABLE` necesita `reciprocity_basis`. Cada base declara `event_id`, `basis_kind`, `observation_type` y `subject_ids`. Sólo son decisivos eventos `ACTIVE`, con rol factual correcto, contratos documental/temporal válidos, separación hecho/interpretación y calidad DQ1/DQ2/DQ3. La base conjunta debe cubrir a ambos sujetos; la ausencia de evidencia de una parte nunca se transforma en asimetría. `DOCUMENTED_SEPARATION` exige un evento `SEPARATION` y `DOCUMENTED_NO_CONTACT` exige `NO_CONTACT`. M29 fija `factual_basis_only=true` y mantiene en `false` el uso de astrología/metafísica como hecho, la inferencia desde PHASE/fenomenología, el uso de ausencia como asimetría y cualquier inferencia de estados mentales, consentimiento, fidelidad o decisiones futuras. Los contratos están en `schemas/viability-reciprocity-assessment.schema.json` y `schemas/viability-reciprocity-output.schema.json`.
 
-`M30` vive en `src/almas_tfa/report_gate_handlers.py` y es el firewall de integridad entre `canonical_analysis` y el informe. Distingue `READY`, `PARTIAL` y `BLOCKED`. Bloquea ausencia o incoherencia del canonical, conflicto entre raw/snapshot, schema o modo inválidos, modelos FULL ausentes, estados/IEM incompatibles, afirmaciones positivas sin evidencia y cualquier módulo previo `FAILED`. Degrada a `PARTIAL` los modos TARGETED/TEMPORAL, la ausencia de traza, módulos `NOT_EVALUABLE`/`SKIPPED` y carencias no críticas de ICC/IRC/indices. `NOT_APPLICABLE` no degrada por sí mismo. Todo canonical evaluado recibe `canonical_fingerprint` SHA-256 determinista. M30 fija `canonical_values_mutated=false` y no corrige ningún valor. Su salida canónica está definida por `schemas/report-gate-output.schema.json`.
+`M30` vive en `src/almas_tfa/report_gate_handlers.py` y es el firewall de integridad entre `canonical_analysis` y el informe. En la ejecución configurada 1.13, si no existe un canonical explícito, `ALMAS_CANONICAL_ASSEMBLY_V1` lo ensambla primero desde los namespaces M01–M29 ya calculados. El ensamblador no recalcula astrología, raíces ni pilares y deriva ICC mediante siete dominios de cobertura q=0/0.5/1.
+
+Un `canonical_analysis` suministrado explícitamente conserva prioridad y nunca se sobrescribe. El gate distingue `READY`, `PARTIAL` y `BLOCKED`; bloquea conflicto raw/snapshot, schema o modo inválidos, modelos FULL ausentes, estados/IEM incompatibles, afirmaciones positivas sin evidencia y cualquier módulo previo `FAILED`. Degrada a `PARTIAL` los modos TARGETED/TEMPORAL, ausencia de traza y módulos `NOT_EVALUABLE`/`SKIPPED`. `NOT_APPLICABLE` no degrada por sí mismo. Todo canonical evaluado recibe `canonical_fingerprint` SHA-256 determinista. M30 fija `canonical_values_mutated=false` y el gate no corrige ningún valor.
 
 `M31` vive en `src/almas_tfa/report_model_handlers.py` y cierra el pipeline analítico M00–M31. Sólo se ejecuta cuando M30 es `READY` o `PARTIAL` y exige el `canonical_fingerprint` del gate. Recalcula el SHA-256 del `canonical_analysis`; cualquier cambio posterior a M30 provoca rechazo. El `report_document_model` contiene exactamente once secciones ordenadas, sus rutas obligatorias/opcionales, disponibilidad y clases epistemológicas permitidas. Cuando existe `ontological_discrimination`, S01/S03/S06/S10 conservan su ruta canónica y S08/S11 conservan `ontological_discrimination.promotion_trace`. Los estados de sección son `READY`, `PARTIAL` o `NOT_AVAILABLE`. M31 hereda `degradation_reasons` y exige disclosure cuando el gate es `PARTIAL`. No incrusta valores (`canonical_values_embedded=false`), no genera narrativa (`prose_generated=false`), no modifica el canonical, no selecciona perfil de renderizado y no crea DOCX/PDF ni ejecuta preflight. La publicación material comienza después de M31. Su salida canónica está definida por `schemas/report-document-model.schema.json`.
 

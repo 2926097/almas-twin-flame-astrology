@@ -1,6 +1,6 @@
 {
   "registry_version": "0.1.0",
-  "target_almas_version": "1.12.0",
+  "target_almas_version": "1.13.0",
   "status": "L2_EXPERIMENTAL_SPECIFICATION",
   "principle": "Un candidato L2 debe ser observable, preregistrable, falsable y evaluable sin usar la autoetiqueta como verdad de referencia. L2 valida una predicción operacional, no la ontología metafísica.",
   "statuses": [

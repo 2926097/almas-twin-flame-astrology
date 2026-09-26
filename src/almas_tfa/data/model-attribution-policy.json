@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "purpose": "Derivar automáticamente atribuciones por raíz para AF/KA/AG/LG sobre IEM_pre y cerrar IDD sin mapas manuales.",
+  "value_function": "IEM_PRE",
+  "counterevidence_in_value_function": false,
+  "structural_coverage_required": true,
+  "root_unit": "CANONICAL_INDEPENDENT_ROOT",
+  "exact_method": {
+    "name": "EXACT_SHAPLEY",
+    "max_roots": 10
+  },
+  "approximation_method": {
+    "name": "DETERMINISTIC_ANTITHETIC_PERMUTATIONS",
+    "seed": 113013,
+    "minimum_permutations": 1024,
+    "maximum_permutations": 4096,
+    "batch_size": 256,
+    "convergence_tolerance_iem_points": 0.01,
+    "consecutive_stable_checks": 2,
+    "use_reverse_permutation": true
+  },
+  "principles": {
+    "case_fitting_forbidden": true,
+    "same_permutations_for_all_models": true,
+    "negative_marginals_forbidden": true,
+    "normalize_only_for_pairwise_idd": true,
+    "idd_is_not_ontological_discriminator": true,
+    "iem_final_not_used_for_attribution": true,
+    "ice_not_used_for_attribution": true,
+    "temporal_activation_not_used": true,
+    "null_rarity_not_used": true
+  }
+}

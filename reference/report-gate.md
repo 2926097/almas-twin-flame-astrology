@@ -6,7 +6,7 @@ M30 decide si un `canonical_analysis` puede convertirse en informe sin corregir,
 
 La secuencia es:
 
-`canonical_analysis → validación M30 → report_gate → M31`
+`namespaces M01–M29 → ensamblaje Q7 si falta canonical_analysis → validación M30 → report_gate → M31`
 
 M30 no es una etapa analítica. Es un firewall de integridad, trazabilidad y suficiencia formal.
 
@@ -18,7 +18,7 @@ El análisis es reportable como FULL sin degradaciones detectadas.
 
 Requiere:
 
-- `canonical_analysis` presente;
+- `canonical_analysis` presente o ensamblable de forma determinista mediante `ALMAS_CANONICAL_ASSEMBLY_V1`;
 - campos canónicos obligatorios;
 - `schema_version=1.0.0`;
 - `analysis_mode` válido;

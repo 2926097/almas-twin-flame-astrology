@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "target_almas_version": "1.12.0",
+  "target_almas_version": "1.13.0",
   "authority": "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY",
   "status": "ACTIVE_EXPERIMENTAL_GENEALOGY_LAYER",
   "source_policy_ref": "docs/SOURCE_POLICY.md",
