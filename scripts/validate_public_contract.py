@@ -23,6 +23,7 @@ REQUIRED_FILES = [
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
     "docs/DOCTRINE_TO_ASTROLOGY.md",
+    "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -189,6 +190,7 @@ REQUIRED_FILES = [
     "tests/VIABILITY_RECIPROCITY_INVARIANTS.md",
     "tests/REPORT_GATE_INVARIANTS.md",
     "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md",
+    "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -225,6 +227,7 @@ REQUIRED_FILES = [
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
     "tests/test_full_pipeline.py",
+    "tests/test_ontological_discriminator_adversarial.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -452,6 +455,28 @@ def main() -> int:
     }
     if registry_validated_ids != registry_authorized_ids:
         fail("promotion registry validated_discriminator_ids diverges from authorized records")
+
+    adversarial_plan = (
+        ROOT / "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "Inflación",
+        "Falsificación L3",
+        "Paso 12",
+    ):
+        if token not in adversarial_plan:
+            fail("adversarial ontology test plan must preserve L2 firewall and phase boundary")
+
+    adversarial_invariants = (
+        ROOT / "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "observaciones L2",
+        "GLOBAL",
+        "promotion_ref",
+    ):
+        if token not in adversarial_invariants:
+            fail("adversarial ontology invariants are incomplete")
 
     natal_required = set(natal_chart_schema.get("required", []))
     if not {"subject_id", "timed", "backend_id", "backend_version", "positions"}.issubset(natal_required):
