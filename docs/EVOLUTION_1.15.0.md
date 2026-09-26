@@ -402,13 +402,69 @@ El registro canónico PX v3 continúa vacío en 1.15:
 
 `validated_candidate_ids=[]`
 
-## Siguientes fases
+## S9 · PX v3 Versioned Activation Firewall
 
-S9 implementará el firewall de **activación versionada**. Su función será
-impedir que incluso un candidato `PROMOTION_ELIGIBLE` modifique PX dentro de
-1.15. La activación exigirá una nueva versión explícita, una entrada canónica
-preexistente y trazabilidad al resultado S8.
+S9 queda implementada mediante
+`ALMAS_PX_V3_ACTIVATION_FIREWALL_V1`.
 
-Mientras no exista un candidato real promovido, S9 deberá permanecer en estado
-`NO_ACTIVE_PX_V3_CANDIDATE` y PX v2 continuará siendo el único score
-operativo.
+El firewall se vincula explícitamente a la línea `1.15.x` y declara como motor
+PX operativo:
+
+`ALMAS_SEMANTIC_MOTIF_V2`
+
+Es decir, **PX v2 continúa siendo el único score operativo en ALMAS 1.15**.
+
+Incluso si una ejecución externa suministrara un resultado S8
+`PROMOTION_ELIGIBLE`, S9 fija:
+
+- `promotion_eligible_causes_activation=false`;
+- `px_v3_active=false`;
+- `activation_permitted=false`;
+- `runtime_activation=false`;
+- `automatic_registry_mutation=false`.
+
+Cualquier intento de introducir dentro de 1.15:
+
+- registros PX v3 activos;
+- `validated_candidate_ids`;
+- `scoring_enabled=true`;
+- `weighting_enabled=true`;
+- `ontology_enabled=true`;
+
+produce `BLOCKED_RELEASE_FIREWALL`.
+
+La activación futura exige simultáneamente:
+
+1. nueva versión SemVer fuera de la línea 1.15;
+2. cambio manual del registro canónico;
+3. auditoría de release nueva;
+4. nueva validación del contrato público;
+5. trazabilidad a un candidato S8 elegible.
+
+Con el registro canónico actual vacío, la salida normativa es:
+
+`NO_ACTIVE_PX_V3_CANDIDATE`.
+
+## Cierre metodológico de 1.15
+
+S1–S9 completan la infraestructura de calibración de especificidad sin alterar
+los scores de producción de 1.14.
+
+La release 1.15 puede publicar:
+
+- diagnósticos de calidad de recurrencia;
+- calibración WITHIN_YEAR;
+- controles sintéticos;
+- firewall de cohortes externas;
+- calibración externa;
+- registro/gate de candidatos;
+- runner holdout;
+- gate de promoción;
+- firewall de activación.
+
+Pero no publica una fórmula PX v3 real, no modifica PX/PS, no incorpora
+candidatos validados y no eleva ninguna ontología.
+
+El siguiente trabajo ya pertenece a una futura versión: poblar cohortes externas
+preregistradas y probar reglas previamente congeladas. No debe prolongarse
+1.15 inventando un candidato sólo para completar el ciclo.
