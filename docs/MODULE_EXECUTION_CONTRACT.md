@@ -86,16 +86,24 @@ La secuencia recomendada es:
 
 No se modifican en este paso fórmulas, pesos, umbrales, modelos ontológicos ni discriminadores.
 
-## Adaptadores ejecutables iniciales
+## Adaptadores y motores cuantitativos
 
-La primera integración conecta al pipeline lógica ya existente sin cambiar sus fórmulas:
+La capa ejecutable conserva las fórmulas públicas y, desde la evolución 1.13,
+cierra varias entradas que en 1.12 debían llegar precomputadas:
 
-- `M18` — pilares: acepta pilares precomputados o deriva el valor de un pilar desde intensidades de raíces mediante `pillar_score`;
-- `M19` — índices estructurales: reutiliza `score_model` y `supported_gate`;
-- `M21` — discriminación diferencial: reutiliza `diagnostic_discrimination` e `idd_band`;
-- `M25` — robustez: reutiliza `robustness_index` sobre componentes preregistrados.
+- `M17` deriva fuerza de raíz mediante la política congelada
+  `ALMAS_ROOT_STRENGTH_BASELINE_V1`;
+- `M18` deriva pilares desde raíces canónicas mediante
+  `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1`, conservando adaptadores legacy sólo si
+  no existen raíces evaluables;
+- `M19` reutiliza `score_model` y `supported_gate` sin alterar la fórmula
+  de IEM;
+- `M21` deriva atribuciones Shapley desde `IEM_pre` mediante
+  `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` y calcula IDD por Jensen–Shannon;
+- `M25` reutiliza `robustness_index` sobre componentes preregistrados.
 
-Estos adaptadores viven en `src/almas_tfa/handlers.py`. Las etapas restantes continúan explícitamente como no implementadas hasta disponer de un motor reproducible.
+Las políticas Q1–Q3 son `E_PROJECT_HYPOTHESIS` o baseline metodológica según
+corresponda. No son doctrina ni validación ontológica.
 
 ## Frontera de M02 · carta natal
 
@@ -147,7 +155,42 @@ La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0�
 
 `M16` deduplica dentro de la misma `dependency_family + root_key`, reteniendo de forma determinista la observación de mayor exactitud y conservando las suprimidas con su razón. Los pares ASC/DSC, MC/IC, NN/SN y Vertex/Anti-Vertex se normalizan como ejes para impedir inflar evidencia equivalente; en aspectos angulares, 0°/180° y 60°/120° se reducen por simetría del eje.
 
-`M17` agrupa la evidencia deduplicada en raíces estructurales conservadoras. Separa `core_evidence_ids` de `support_evidence_ids` y deja `strength=null / NOT_CALCULATED` hasta que exista una política explícita para la fórmula `S = F × technique_reliability × birth_time_factor × aspect_coefficient`.
+`M17` agrupa la evidencia deduplicada en raíces estructurales conservadoras.
+Separa `core_evidence_ids` de `support_evidence_ids`, conserva
+`point_ids`/`relation_ids` normalizados y aplica
+`ALMAS_ROOT_STRENGTH_BASELINE_V1`:
+
+`S = F × technique_reliability × birth_time_factor × aspect_coefficient`.
+
+La baseline Q1 mantiene coeficientes neutros 1.0 hasta que exista calibración
+externa preregistrada. Una raíz con evidencia core adopta el máximo S de sus
+miembros core deduplicados. Las capas `support_only` pueden conservar fuerza
+diagnóstica pero no convierten la raíz en core. La sensibilidad horaria se
+reserva a M23–M25 para evitar doble penalización.
+
+## M18–M21 · pilares, IEM y discriminación
+
+`M18` prioriza `independent_roots` canónicas. La política
+`ALMAS_ROOT_PILLAR_ATTRIBUTION_V1` asigna a cada raíz un único pilar
+semántico primario y permite PX como metapilar ortogonal de recurrencia.
+La precedencia de resolución de solapamientos es
+`PS → PK → PT → PE → PR → PA`. PU permanece `NOT_EVALUABLE` en la
+baseline automática.
+
+La ausencia sólo se convierte en cero cuando M03, M05, M06, M09 y M11 están
+todos `COMPLETED`. En cobertura incompleta se conserva `None` para impedir
+que missingness funcione como contraevidencia.
+
+`M19` aplica las fórmulas públicas de IEM sin cambios.
+
+`M21` usa Shapley sobre `IEM_pre` para atribuir a cada raíz su contribución
+a AF, KA, AG y LG. Hasta 10 raíces usa cálculo exacto; por encima utiliza
+permutaciones antitéticas deterministas con control de convergencia. ICE,
+IEM_final, temporalidad y rareza nula quedan fuera de la función de valor.
+Las distribuciones se comparan por divergencia Jensen–Shannon para obtener IDD.
+
+IDD y la discriminación ontológica de M21 son capas independientes. Un IDD alto
+no autoriza por sí mismo una clasificación ontológica más específica.
 
 ## M20 · contraevidencia
 
