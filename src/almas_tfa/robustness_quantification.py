@@ -89,33 +89,35 @@ def _pillars_from_root_attributions(
     surviving_semantic_roots: list[dict[str, Any]] = []
 
     for item in root_attributions:
-        if not isinstance(item, Mapping) or not item.get("eligible"):
+        if not isinstance(item, Mapping):
             continue
         root_id = str(item.get("root_id") or "")
         if root_id not in surviving_root_ids:
             continue
 
-        contributions = item.get("contributions")
-        if isinstance(contributions, Mapping):
-            for pillar, value in contributions.items():
-                pillar = str(pillar)
-                if pillar in {"PX", "PS", "PU"} or pillar not in strengths:
-                    continue
-                strengths[pillar].append(float(value))
+        if item.get("eligible"):
+            contributions = item.get("contributions")
+            if isinstance(contributions, Mapping):
+                for pillar, value in contributions.items():
+                    pillar = str(pillar)
+                    if pillar in {"PX", "PS", "PU"} or pillar not in strengths:
+                        continue
+                    strengths[pillar].append(float(value))
 
-        surviving_semantic_roots.append(
-            {
-                "root_id": root_id,
-                "core_eligible": True,
-                "strength_state": "CALCULATED_CORE",
-                "strength": item.get("strength"),
-                "point_ids": list(item.get("point_ids", [])),
-                "relation_ids": list(item.get("relation_ids", [])),
-                "dependency_families": list(
-                    item.get("dependency_families", [])
-                ),
-            }
-        )
+        if item.get("semantic_core_eligible"):
+            surviving_semantic_roots.append(
+                {
+                    "root_id": root_id,
+                    "core_eligible": True,
+                    "strength_state": "CALCULATED_CORE",
+                    "strength": item.get("strength"),
+                    "point_ids": list(item.get("point_ids", [])),
+                    "relation_ids": list(item.get("relation_ids", [])),
+                    "dependency_families": list(
+                        item.get("dependency_families", [])
+                    ),
+                }
+            )
 
     semantic = derive_semantic_motifs(
         surviving_semantic_roots,
