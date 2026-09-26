@@ -18,7 +18,11 @@ SECTION_SPECS = (
         "title": "Síntesis ejecutiva",
         "purpose": "Resumir estados y arquitectura sin elevar conclusiones.",
         "required_paths": ("models",),
-        "optional_paths": ("ontology", "limitations"),
+        "optional_paths": (
+            "ontology",
+            "ontological_discrimination",
+            "limitations",
+        ),
         "epistemic_classes_allowed": ("A_CALCULATED", "E_PROJECT_HYPOTHESIS"),
     },
     {
@@ -34,7 +38,11 @@ SECTION_SPECS = (
         "title": "Ontología numérica",
         "purpose": "Presentar índices y estados sin convertirlos en probabilidades metafísicas.",
         "required_paths": ("models",),
-        "optional_paths": ("indices", "ontology"),
+        "optional_paths": (
+            "indices",
+            "ontology",
+            "ontological_discrimination",
+        ),
         "epistemic_classes_allowed": ("A_CALCULATED", "E_PROJECT_HYPOTHESIS"),
     },
     {
@@ -66,7 +74,10 @@ SECTION_SPECS = (
         "title": "Diagnóstico diferencial y contraevidencia",
         "purpose": "Contrastar modelos, alternativas y evidencia contraria.",
         "required_paths": ("models", "counterevidence"),
-        "optional_paths": ("ontology",),
+        "optional_paths": (
+            "ontology",
+            "ontological_discrimination",
+        ),
         "epistemic_classes_allowed": ("A_CALCULATED", "E_PROJECT_HYPOTHESIS"),
     },
     {
@@ -86,7 +97,10 @@ SECTION_SPECS = (
         "title": "Robustez y validación",
         "purpose": "Exponer cobertura, robustez, sensibilidad y límites estadísticos.",
         "required_paths": ("robustness",),
-        "optional_paths": ("indices",),
+        "optional_paths": (
+            "indices",
+            "ontological_discrimination.promotion_trace",
+        ),
         "epistemic_classes_allowed": ("A_CALCULATED", "B_TECHNIQUE"),
     },
     {
@@ -119,7 +133,11 @@ SECTION_SPECS = (
         "title": "Fuentes y anexos",
         "purpose": "Conservar trazabilidad de evidencia, doctrina y limitaciones.",
         "required_paths": ("evidence",),
-        "optional_paths": ("doctrine", "limitations"),
+        "optional_paths": (
+            "doctrine",
+            "limitations",
+            "ontological_discrimination.promotion_trace",
+        ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
             "B_TECHNIQUE",
