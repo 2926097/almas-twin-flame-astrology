@@ -203,6 +203,16 @@ Una regla puede pasar de `EXPERIMENTAL` a `CONFIRMATORY_ELIGIBLE` sólo si:
 `CONFIRMATORY_ELIGIBLE` no significa ontología demostrada.
 
 
+### Registro canónico de promoción
+
+Una promoción metodológica sólo adquiere autoridad ejecutable cuando queda incorporada al registro canónico:
+
+`src/almas_tfa/data/discriminator-promotion-registry.json`.
+
+La entrada debe fijar el alcance por pares, `promotion_ref`, fecha de promoción, versión y commit congelados, referencias de preregistro, replicación independiente, holdout externo, controles negativos y auditorías de leakage.
+
+Una ejecución de análisis no puede modificar ni sustituir ese registro.
+
 ### Gate hacia M25
 
 `CONFIRMATORY_ELIGIBLE` no basta para entrar en IRC como `VALIDATED_DISCRIMINATOR`.
