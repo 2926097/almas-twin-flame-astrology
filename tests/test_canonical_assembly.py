@@ -120,7 +120,7 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         policy = load_canonical_assembly_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_CANONICAL_ASSEMBLY_V1",
+            "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertFalse(
@@ -154,7 +154,7 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         self.assertAlmostEqual(canonical["indices"]["IDD"], 12.0)
         self.assertEqual(
             canonical["assembly"]["policy_id"],
-            "ALMAS_CANONICAL_ASSEMBLY_V1",
+            "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
 
     def test_supported_requires_evaluable_ice(self):
@@ -193,6 +193,61 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
                 canonical["models"][model]["state"],
                 "SUPPORTED",
             )
+
+    def test_full_astrology_profile_does_not_degrade_for_out_of_scope_modules(self):
+        prior = prior_all()
+        for module_id in ("M13", "M14", "M20", "M23", "M26", "M27", "M28", "M29"):
+            prior[module_id] = ModuleResult(
+                module_id=module_id,
+                status=ExecutionStatus.NOT_EVALUABLE,
+            )
+
+        handler = make_m30_report_gate_auto()
+        result = handler(
+            ModuleContext(
+                module_id="M30",
+                module_name="report_gate",
+                mode="FULL",
+                raw_input={"analysis_profile": "FULL_ASTROLOGY"},
+                canonical_snapshot=canonical_base(with_ice=True),
+                prior_results=prior,
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+        self.assertEqual(gate["state"], "READY")
+        self.assertEqual(gate["analysis_profile"], "FULL_ASTROLOGY")
+        self.assertEqual(
+            set(gate["profile_optional_not_evaluable_modules"]),
+            {"M13", "M14", "M20", "M23", "M26", "M27", "M28", "M29"},
+        )
+        self.assertEqual(
+            gate["profile_required_not_evaluable_modules"],
+            [],
+        )
+
+    def test_full_multidisciplinary_still_degrades_same_trace(self):
+        prior = prior_all()
+        prior["M28"] = ModuleResult(
+            module_id="M28",
+            status=ExecutionStatus.NOT_EVALUABLE,
+        )
+        handler = make_m30_report_gate_auto()
+        result = handler(
+            ModuleContext(
+                module_id="M30",
+                module_name="report_gate",
+                mode="FULL",
+                raw_input={"analysis_profile": "FULL_MULTIDISCIPLINARY"},
+                canonical_snapshot=canonical_base(with_ice=True),
+                prior_results=prior,
+            )
+        )
+        gate = result.canonical_updates["report_gate"]
+        self.assertEqual(gate["state"], "PARTIAL")
+        self.assertIn(
+            "PRIOR_REQUIRED_MODULES_NOT_EVALUABLE",
+            gate["degradation_reasons"],
+        )
 
     def test_auto_m30_builds_canonical_and_reaches_ready(self):
         handler = make_m30_report_gate_auto()
