@@ -75,6 +75,7 @@ REQUIRED_FILES = [
     "schemas/null-model-output.schema.json",
     "schemas/external-recurrence-control-cohort.schema.json",
     "schemas/px-v3-candidate-registry.schema.json",
+    "schemas/px-v3-promotion-evidence.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -194,6 +195,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/px-v3-candidate-freeze-policy.json",
     "src/almas_tfa/data/px-v3-candidate-registry.json",
     "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json",
+    "src/almas_tfa/data/px-v3-promotion-gate-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -226,6 +228,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/external_recurrence_calibration.py",
     "src/almas_tfa/px_v3_candidates.py",
     "src/almas_tfa/px_v3_holdout.py",
+    "src/almas_tfa/px_v3_promotion.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -324,6 +327,7 @@ REQUIRED_FILES = [
     "tests/test_external_recurrence_calibration.py",
     "tests/test_px_v3_candidates.py",
     "tests/test_px_v3_holdout.py",
+    "tests/test_px_v3_promotion.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -500,6 +504,9 @@ def main() -> int:
     px_v3_holdout_evaluation_policy = load_json(
         "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json"
     )
+    px_v3_promotion_gate_policy = load_json(
+        "src/almas_tfa/data/px-v3-promotion-gate-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -556,6 +563,9 @@ def main() -> int:
     )
     px_v3_candidate_registry_schema = load_json(
         "schemas/px-v3-candidate-registry.schema.json"
+    )
+    px_v3_promotion_evidence_schema = load_json(
+        "schemas/px-v3-promotion-evidence.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1118,6 +1128,57 @@ def main() -> int:
     ):
         if s7_principles.get(key) is not False:
             fail(f"S7 holdout field must remain false: {key}")
+
+    if px_v3_promotion_gate_policy.get("policy_id") != "ALMAS_PX_V3_PROMOTION_GATE_V1":
+        fail("PX v3 promotion gate policy id changed")
+    if px_v3_promotion_gate_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("PX v3 promotion gate policy must remain protocol-only")
+    if px_v3_promotion_gate_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("PX v3 promotion gate policy must remain E_PROJECT_POLICY")
+    s8_principles = px_v3_promotion_gate_policy.get("principles", {})
+    for key in (
+        "candidate_must_be_frozen_for_validation",
+        "holdout_formula_must_match",
+        "holdout_evaluation_must_be_diagnostic_only",
+        "all_preregistered_criteria_must_pass",
+        "independent_replication_required",
+        "negative_controls_required",
+        "ablation_required",
+        "leakage_audit_required",
+        "post_holdout_rule_change_forbidden",
+        "case_fitting_forbidden",
+        "automatic_registry_mutation_forbidden",
+        "manual_new_version_required_for_activation",
+        "promotion_eligible_is_not_active",
+    ):
+        if s8_principles.get(key) is not True:
+            fail(f"S8 promotion invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if s8_principles.get(key) is not False:
+            fail(f"S8 promotion field must remain false: {key}")
+    s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
+    for field in (
+        "candidate",
+        "holdout_evaluations",
+        "external_calibration_refs",
+        "independent_replication_refs",
+        "leakage_audit_refs",
+        "criterion_results",
+        "negative_control_failure_count",
+        "ablation_failure_count",
+        "case_fitting_count",
+        "label_leakage_count",
+        "narrative_leakage_count",
+        "post_holdout_rule_change_count",
+    ):
+        if field not in s8_required:
+            fail(f"S8 promotion evidence schema missing required field: {field}")
     for field in ("scoring_enabled", "weighting_enabled", "ontology_enabled"):
         if px_v3_candidate_registry.get(field) is not False:
             fail(f"PX v3 canonical registry must keep {field}=false")
