@@ -177,6 +177,8 @@ M24 no genera el universo nulo: `sampling_generated_by_m24=false`. Su frecuencia
 
 Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR`.
 
+`VALIDATED_DISCRIMINATOR` tiene un gate adicional: debe declarar `validation_level=L3_VALIDATED`, `source_module=M21` y un `root_key` que figure entre las raíces validadas de un par con `confirmatory_status=SEPARABLE_VALIDATED` en `ontological_discrimination`. L1 y L2 no pueden entrar en IRC, y un par L3 conflictivo tampoco autoriza el componente.
+
 La presencia de M22 no crea automáticamente un componente IRC: sin una regla preregistrada de conversión, M25 registra `ablation_state=AVAILABLE_NOT_QUANTIFIED`. M24 queda excluido del IRC mediante `null_model_rarity_used_as_robustness=false`.
 
 La agregación normativa permanece:
