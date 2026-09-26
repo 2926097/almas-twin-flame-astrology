@@ -77,6 +77,15 @@ Cada sección declara:
 - clases epistemológicas permitidas;
 - estado de sección.
 
+### Rutas ontológicas
+
+Cuando el canonical contiene `ontological_discrimination`, el modelo documental expone:
+
+- S01, S03, S06 y S10: `ontological_discrimination`;
+- S08 y S11: `ontological_discrimination.promotion_trace`.
+
+Estas rutas no incrustan valores; únicamente preservan acceso trazable al canonical aprobado por M30.
+
 ## 6. Estados de sección
 
 - `READY` — todas las rutas obligatorias están disponibles;
