@@ -1,0 +1,1099 @@
+{
+  "registry_version": "1.0.0",
+  "target_almas_version": "1.12.0",
+  "authority": "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY",
+  "status": "ACTIVE_EXPERIMENTAL_GENEALOGY_LAYER",
+  "source_policy_ref": "docs/SOURCE_POLICY.md",
+  "source_anchor_policy_ref": "docs/SOURCE_ANCHOR_POLICY.md",
+  "doctrinal_genealogy_ref": "reference/doctrinal-genealogy.json",
+  "concept_registry_ref": "reference/concept-registry.json",
+  "operational_candidate_registry_ref": "reference/operational-discriminator-candidates.json",
+  "principles": [
+    "La procedencia documental no es evidencia de que una díada real pertenezca a una ontología.",
+    "P1-P6 expresa prioridad documental, no peso ontológico.",
+    "El número de fuentes no aumenta IEM, IDD, IRC ni autoridad L3.",
+    "Una operacionalización ALMAS conserva clase E aunque esté motivada por doctrina P1.",
+    "Motivos similares entre tradiciones no establecen identidad doctrinal.",
+    "Cada fuente conserva does_not_support como límite activo."
+  ],
+  "source_snapshots": [
+    {
+      "id": "plato_symposium_aristophanes",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Filosofía griega clásica",
+      "author": "Plato",
+      "work": "Symposium",
+      "date": null,
+      "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
+      "passage": "189c-193d",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Symposium 189c-193d, Aristophanes' speech: myth of primordial humans divided and seeking reunion.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ]
+    },
+    {
+      "id": "brihadaranyaka_1_4_3",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Tradición hindú upanishádica",
+      "author": "Brihadaranyaka Upanishad",
+      "work": "Brihadaranyaka Upanishad",
+      "date": null,
+      "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
+      "passage": "1.4.3",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Brihadaranyaka Upanishad 1.4.3 in Max Müller's 1884 translation: primordial self dividing into husband and wife.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ]
+    },
+    {
+      "id": "blavatsky_secret_doctrine_monads",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Teosofía",
+      "author": "H. P. Blavatsky",
+      "work": "The Secret Doctrine, Volume I",
+      "date": "1888",
+      "date_note": null,
+      "passage": "p. 170, 'Additional Facts and Explanations Concerning the Globes and the Monads'",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "The Secret Doctrine, vol. I, section 'Additional Facts and Explanations Concerning the Globes and the Monads', around p. 170 in the cited edition.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "MONAD",
+        "THEOSOPHICAL_MONAD"
+      ]
+    },
+    {
+      "id": "bailey_esoteric_psychology_soul",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
+      "author": "Alice A. Bailey",
+      "work": "Esoteric Psychology, Volume I",
+      "date": null,
+      "date_note": null,
+      "passage": "Chapter II, Question 1: What is the soul?",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Esoteric Psychology, Volume I, Section One, Chapter II, Question 1: 'What is the soul?'",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "SOUL_ONTOLOGY_BAILEY",
+        "SOUL_PERSONALITY_RELATION",
+        "MONAD_SOUL_PERSONALITY"
+      ]
+    },
+    {
+      "id": "summit_lighthouse_soulmates_twin_flames",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "author": "The Summit Lighthouse / Elizabeth Clare Prophet tradition",
+      "work": "Soulmates and Twin Flames",
+      "date": null,
+      "date_note": null,
+      "passage": "Sections 'Twin Flames', 'Soul Mates', and 'Karmic Relationship'",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Official doctrinal differentiation among twin flames, soul mates and karmic relationships; twin flames are described as created together in a single fiery ovoid.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ]
+    },
+    {
+      "id": "summit_lighthouse_glossary_twin_flame",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "author": "The Summit Lighthouse",
+      "work": "Glossary",
+      "date": null,
+      "date_note": null,
+      "passage": "Twin flame",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Glossary entry 'Twin flame'.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ]
+    },
+    {
+      "id": "prophet_twin_flames_qa_part1",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "author": "Elizabeth Clare Prophet",
+      "work": "Soul Mates and Twin Flames: Q and A Part 1",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Soul Mates and Twin Flames: Q and A Part 1; official sections defining twin flames, soul mates and karmic relationships.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ]
+    },
+    {
+      "id": "corelli_romance_two_worlds_1886",
+      "priority": "P1_PRIMARY",
+      "source_role": "LITERARY_ESOTERIC_PRIMARY",
+      "tradition": "Ficción esotérica victoriana",
+      "author": "Marie Corelli",
+      "work": "A Romance of Two Worlds",
+      "date": "1886",
+      "date_note": null,
+      "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
+      "pages": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": null,
+      "verification_anchor_type": null,
+      "verification_anchor_url": null,
+      "evidence_scope": null,
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY",
+        "DUAL_SOUL_LITERARY_MODEL"
+      ]
+    },
+    {
+      "id": "stokke_spiritual_love_relations_2021",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Estudio académico de la espiritualidad contemporánea",
+      "author": "Christian Stokke",
+      "work": "Exploring the transpersonal phenomena of spiritual love relations",
+      "date": "2021",
+      "date_note": null,
+      "passage": "Abstract; study of 140 responses, pp. 130-144",
+      "pages": "130-144",
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Open-access abstract identifies a naturalistic observation study of 140 responses in a New Age Facebook group concerning self-described soulmate experiences.",
+      "verification_anchor_type": "ABSTRACT",
+      "verification_anchor_url": "https://www.tandfonline.com/doi/pdf/10.1080/20440243.2021.1955454",
+      "evidence_scope": "PHENOMENOLOGY",
+      "concepts": [
+        "SOULMATE_EXPERIENCE",
+        "RECOGNITION_PHENOMENOLOGY",
+        "SYNCHRONICITY_REPORT",
+        "TRANSFORMATION_REPORT",
+        "TWIN_FLAME_EMIC_USAGE"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "discriminator_id": "OD01_PAIR_SPECIFICITY_NETWORK",
+      "derived_from": [
+        "D01_COUNTERPART_MULTIPLICITY",
+        "D05_SHARED_DIVINE_BLUEPRINT"
+      ],
+      "provenance_class": "PROJECT_OPERATIONALIZATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "epistemic_ceiling": "PROJECT_PROXY_ONLY",
+      "source_usage": [
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_glossary_twin_flame",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "prophet_twin_flames_qa_part1",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "stokke_spiritual_love_relations_2021",
+          "relation": "ACADEMIC_PHENOMENOLOGY",
+          "concept_refs": [
+            "SOULMATE_EXPERIENCE"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "SOULMATE_EXPERIENCE",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+          "status": "INSUFFICIENT"
+        },
+        {
+          "from": "TWIN_FLAME_EMIC_USAGE",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+          "status": "INSUFFICIENT"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "SOULMATE_EXPERIENCE",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "TWIN_FLAME_EMIC_USAGE",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "La unicidad/especificidad es un proxy ALMAS motivado por doctrina; no mide directamente una contraparte metafísica.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    },
+    {
+      "discriminator_id": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
+      "derived_from": [
+        "D05_SHARED_DIVINE_BLUEPRINT"
+      ],
+      "provenance_class": "PROJECT_OPERATIONALIZATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "epistemic_ceiling": "PROJECT_PROXY_ONLY",
+      "source_usage": [
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_glossary_twin_flame",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "prophet_twin_flames_qa_part1",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "TWIN_FLAME_EMIC_USAGE",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+          "status": "INSUFFICIENT"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "TWIN_FLAME_EMIC_USAGE",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "El isomorfismo astrológico es una hipótesis ALMAS; ninguna fuente primaria define ese proxy como medición del blueprint.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    },
+    {
+      "discriminator_id": "OD03_BLINDED_DOCTRINAL_CODING",
+      "derived_from": [
+        "D01_COUNTERPART_MULTIPLICITY",
+        "D02_PRIOR_UNITY_TYPE",
+        "D03_LITERAL_DIVISION",
+        "D04_MASCULINE_FEMININE_POLARITY_REQUIRED",
+        "D05_SHARED_DIVINE_BLUEPRINT",
+        "D06_MONAD_SOUL_PERSONALITY_HIERARCHY"
+      ],
+      "provenance_class": "DOCTRINAL_SEPARABILITY_METHOD",
+      "epistemic_class": "B_TECHNIQUE",
+      "epistemic_ceiling": "CONSTRUCT_SEPARABILITY_ONLY",
+      "source_usage": [
+        {
+          "source_id": "plato_symposium_aristophanes",
+          "relation": "COMPARATIVE_ANTECEDENT",
+          "concept_refs": [
+            "SPLIT_PRIMORDIAL_BEING"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "brihadaranyaka_1_4_3",
+          "relation": "COMPARATIVE_ANTECEDENT",
+          "concept_refs": [
+            "SPLIT_PRIMORDIAL_BEING"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "blavatsky_secret_doctrine_monads",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD",
+            "THEOSOPHICAL_MONAD"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "bailey_esoteric_psychology_soul",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "SOUL_ONTOLOGY_BAILEY",
+            "SOUL_PERSONALITY_RELATION",
+            "MONAD_SOUL_PERSONALITY"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_glossary_twin_flame",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "prophet_twin_flames_qa_part1",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "corelli_romance_two_worlds_1886",
+          "relation": "LITERARY_GENEALOGY",
+          "concept_refs": [
+            "TWIN_FLAME_LITERARY_GENEALOGY",
+            "DUAL_SOUL_LITERARY_MODEL"
+          ],
+          "support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "SPLIT_PRIMORDIAL_BEING",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "COMPARATIVE_ANTECEDENT_ONLY",
+          "status": "COMPATIBLE"
+        },
+        {
+          "from": "MONAD",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "INSUFFICIENT"
+        },
+        {
+          "from": "THEOSOPHICAL_MONAD",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "SUPPORTED"
+        },
+        {
+          "from": "MONAD_SOUL_PERSONALITY",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "SUPPORTED"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "SPLIT_PRIMORDIAL_BEING",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "MONAD",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "THEOSOPHICAL_MONAD",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "MONAD_SOUL_PERSONALITY",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "La técnica sólo puede validar separabilidad de constructos doctrinales; no clasifica ontológicamente una díada real.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    },
+    {
+      "discriminator_id": "OD04_PROSPECTIVE_MODEL_PREDICTION",
+      "derived_from": [
+        "D02_PRIOR_UNITY_TYPE",
+        "D05_SHARED_DIVINE_BLUEPRINT",
+        "D07_SHARED_MISSION_OR_KARMA"
+      ],
+      "provenance_class": "PROJECT_OPERATIONALIZATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "epistemic_ceiling": "PROJECT_PROXY_ONLY",
+      "source_usage": [
+        {
+          "source_id": "plato_symposium_aristophanes",
+          "relation": "COMPARATIVE_ANTECEDENT",
+          "concept_refs": [
+            "SPLIT_PRIMORDIAL_BEING"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "brihadaranyaka_1_4_3",
+          "relation": "COMPARATIVE_ANTECEDENT",
+          "concept_refs": [
+            "SPLIT_PRIMORDIAL_BEING"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "blavatsky_secret_doctrine_monads",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD",
+            "THEOSOPHICAL_MONAD"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "bailey_esoteric_psychology_soul",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD_SOUL_PERSONALITY"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "prophet_twin_flames_qa_part1",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "SPLIT_PRIMORDIAL_BEING",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "COMPARATIVE_ANTECEDENT_ONLY",
+          "status": "COMPATIBLE"
+        },
+        {
+          "from": "MONAD_SOUL_PERSONALITY",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "SUPPORTED"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "SPLIT_PRIMORDIAL_BEING",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "MONAD_SOUL_PERSONALITY",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "Predicción diferencial ex ante evalúa modelos operacionales; un acierto no establece origen metafísico.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    },
+    {
+      "discriminator_id": "OD05_PRIOR_UNITY_DIRECT",
+      "derived_from": [
+        "D02_PRIOR_UNITY_TYPE",
+        "D03_LITERAL_DIVISION"
+      ],
+      "provenance_class": "NONOBSERVABLE_DOCTRINAL_CONSTRUCT",
+      "epistemic_class": "C_DOCTRINE/E_PROJECT_HYPOTHESIS",
+      "epistemic_ceiling": "DOCTRINAL_CONCEPT_ONLY",
+      "source_usage": [
+        {
+          "source_id": "plato_symposium_aristophanes",
+          "relation": "COMPARATIVE_ANTECEDENT",
+          "concept_refs": [
+            "SPLIT_PRIMORDIAL_BEING"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "brihadaranyaka_1_4_3",
+          "relation": "COMPARATIVE_ANTECEDENT",
+          "concept_refs": [
+            "SPLIT_PRIMORDIAL_BEING"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "blavatsky_secret_doctrine_monads",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD",
+            "THEOSOPHICAL_MONAD"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "bailey_esoteric_psychology_soul",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD_SOUL_PERSONALITY"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "summit_lighthouse_glossary_twin_flame",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "prophet_twin_flames_qa_part1",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "TWIN_FLAME_ORIGIN"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "corelli_romance_two_worlds_1886",
+          "relation": "LITERARY_GENEALOGY",
+          "concept_refs": [
+            "TWIN_FLAME_LITERARY_GENEALOGY",
+            "DUAL_SOUL_LITERARY_MODEL"
+          ],
+          "support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "SPLIT_PRIMORDIAL_BEING",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "COMPARATIVE_ANTECEDENT_ONLY",
+          "status": "COMPATIBLE"
+        },
+        {
+          "from": "MONAD",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "INSUFFICIENT"
+        },
+        {
+          "from": "THEOSOPHICAL_MONAD",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "SUPPORTED"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "SPLIT_PRIMORDIAL_BEING",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "MONAD",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "THEOSOPHICAL_MONAD",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "Las fuentes distinguen doctrinas de unidad previa, pero no proporcionan un observable independiente para adjudicar una díada real.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    },
+    {
+      "discriminator_id": "OD06_MONADIC_HIERARCHY_DIRECT",
+      "derived_from": [
+        "D06_MONAD_SOUL_PERSONALITY_HIERARCHY"
+      ],
+      "provenance_class": "NONOBSERVABLE_DOCTRINAL_CONSTRUCT",
+      "epistemic_class": "C_DOCTRINE/E_PROJECT_HYPOTHESIS",
+      "epistemic_ceiling": "DOCTRINAL_CONCEPT_ONLY",
+      "source_usage": [
+        {
+          "source_id": "blavatsky_secret_doctrine_monads",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD",
+            "THEOSOPHICAL_MONAD"
+          ],
+          "support_indexes": [
+            0
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "bailey_esoteric_psychology_soul",
+          "relation": "MONADIC_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "MONAD_SOUL_PERSONALITY",
+            "SOUL_ONTOLOGY_BAILEY",
+            "SOUL_PERSONALITY_RELATION"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "THEOSOPHICAL_MONAD",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "SUPPORTED"
+        },
+        {
+          "from": "MONAD_SOUL_PERSONALITY",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_EQUIVALENT",
+          "status": "SUPPORTED"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "THEOSOPHICAL_MONAD",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "MONAD_SOUL_PERSONALITY",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "La jerarquía monádica es doctrinalmente describible, pero no identifica una fuente monádica común en dos personas.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    },
+    {
+      "discriminator_id": "OD07_PHENOMENOLOGY_CLUSTER",
+      "derived_from": [
+        "D08_RECOGNITION_INTENSITY_SYNCHRONICITY"
+      ],
+      "provenance_class": "CONTEMPORARY_PHENOMENOLOGY",
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "epistemic_ceiling": "PHENOMENOLOGY_ONLY",
+      "source_usage": [
+        {
+          "source_id": "stokke_spiritual_love_relations_2021",
+          "relation": "ACADEMIC_PHENOMENOLOGY",
+          "concept_refs": [
+            "SOULMATE_EXPERIENCE",
+            "RECOGNITION_PHENOMENOLOGY",
+            "SYNCHRONICITY_REPORT",
+            "TRANSFORMATION_REPORT",
+            "TWIN_FLAME_EMIC_USAGE"
+          ],
+          "support_indexes": [
+            0,
+            1
+          ],
+          "does_not_support_indexes": [
+            0,
+            1
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        }
+      ],
+      "required_genealogy_edges": [
+        {
+          "from": "SOULMATE_EXPERIENCE",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+          "status": "INSUFFICIENT"
+        },
+        {
+          "from": "RECOGNITION_PHENOMENOLOGY",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+          "status": "INSUFFICIENT"
+        },
+        {
+          "from": "TRANSFORMATION_REPORT",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "NON_DISCRIMINATING_PHENOMENOLOGY",
+          "status": "INSUFFICIENT"
+        },
+        {
+          "from": "TWIN_FLAME_EMIC_USAGE",
+          "to": "TWIN_FLAME_ORIGIN",
+          "relation": "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+          "status": "INSUFFICIENT"
+        }
+      ],
+      "forbidden_equivalences": [
+        [
+          "SOULMATE_EXPERIENCE",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "RECOGNITION_PHENOMENOLOGY",
+          "TWIN_FLAME_ORIGIN"
+        ],
+        [
+          "TWIN_FLAME_EMIC_USAGE",
+          "TWIN_FLAME_ORIGIN"
+        ]
+      ],
+      "operationalization_note": "La fenomenología puede describirse como experiencia vivida, pero no separa ontologías de origen.",
+      "source_count_adds_weight": false,
+      "source_priority_adds_ontological_weight": false,
+      "cross_tradition_identity_allowed": false,
+      "direct_case_evidence": false,
+      "can_change_case_classification": false,
+      "can_raise_irc": false
+    }
+  ]
+}
