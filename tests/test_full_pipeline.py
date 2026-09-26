@@ -155,39 +155,6 @@ class TestFullPipelineSynthetic(unittest.TestCase):
             "SEXTILE": {"angle": 60, "orb": 4},
         }
 
-        canonical_analysis = {
-            "schema_version": "1.0.0",
-            "analysis_mode": "FULL",
-            "evidence": [
-                {
-                    "evidence_id": "CANONICAL_E1",
-                    "source_module": "M17",
-                    "root_id": "R0001",
-                    "note": "Synthetic canonical evidence for report-gate traceability."
-                }
-            ],
-            "models": {
-                "AF": {"iem": 80, "state": "COMPATIBLE"},
-                "KA": {"iem": 70, "state": "COMPATIBLE"},
-                "AG": {"iem": 82, "state": "COMPATIBLE"},
-                "LG": {"iem": 79, "state": "INSUFFICIENT"},
-            },
-            "indices": {
-                "IDD": 35,
-                "IAT": None,
-                "ICC": 90,
-                "IRC": 80,
-                "ICE": 5,
-            },
-            "coverage": {"ICC": 90},
-            "robustness": {"IRC": 80},
-            "counterevidence": [],
-            "ontology": {},
-            "doctrine": [],
-            "temporal": {},
-            "limitations": [],
-        }
-
         raw = {
             "mode": "FULL",
             "subjects": subjects,
@@ -261,21 +228,7 @@ class TestFullPipelineSynthetic(unittest.TestCase):
                 "support_only": True,
                 "aspect_policy": aspect_policy,
             },
-            "root_strengths": {
-                "PA": [0.9, 0.8, 0.7],
-                "PK": [0.7, 0.6, 0.5],
-                "PE": [0.9, 0.8, 0.6],
-                "PR": [0.9, 0.85, 0.75],
-                "PX": [0.8, 0.7, 0.6],
-                "PT": [0.75, 0.7, 0.65],
-                "PS": [0.6, 0.55, 0.5],
-                "PU": [0.4, 0.3, 0.2],
-            },
             "ice_by_model": {"AF": 0, "KA": 5, "AG": 5, "LG": 10},
-            "icc": 90,
-            "irc": 80,
-            "r_min": 0.8,
-            "essential_contradictions": {},
             "counterevidence_items": [
                 {
                     "id": "CE1",
@@ -286,55 +239,6 @@ class TestFullPipelineSynthetic(unittest.TestCase):
                     "essential": False,
                     "severity": 0.2,
                 }
-            ],
-            "attributions": {
-                "AF": {"r1": 1.0, "r2": 0.5},
-                "KA": {"r3": 1.0, "r4": 0.5},
-                "AG": {"r1": 0.5, "r5": 1.0},
-                "LG": {"r1": 0.3, "r6": 1.0},
-            },
-            "time_sensitivity_summary": {
-                "preregistration_ref": "TS-FULL-001",
-                "subject_scope": "BOTH",
-                "perturbation_rule": "synthetic",
-                "metric": "IEM_BAND",
-                "delta90": 5,
-                "preserved_fraction": 0.9,
-                "perturbation_count": 100,
-            },
-            "null_model_runs": [
-                {
-                    "id": "NULL1",
-                    "null_model": "PAIR_SHUFFLE",
-                    "preregistration_ref": "NULL-FULL-001",
-                    "feature_set_ref": "FEATURES-FULL-001",
-                    "orb_policy_ref": "ORBS-FULL-001",
-                    "event_set_ref": "EVENTS-FULL-001",
-                    "generator_ref": "GEN-FULL-001",
-                    "statistic_id": "ROOT_COUNT",
-                    "observed_value": 88,
-                    "tail": "GREATER_OR_EQUAL",
-                    "n": 1000,
-                    "extreme_count": 50,
-                }
-            ],
-            "robustness_component_summaries": [
-                {
-                    "id": "ABLATION_CORE",
-                    "kind": "ABLATION",
-                    "value": 0.85,
-                    "source_module": "M22",
-                    "preregistration_ref": "ROB-FULL-AB",
-                    "derivation_ref": "ABLATION-RULE-FULL",
-                },
-                {
-                    "id": "PARAMETER",
-                    "kind": "PARAMETER_PERTURBATION",
-                    "value": 0.9,
-                    "source_module": "EXTERNAL",
-                    "preregistration_ref": "ROB-FULL-P",
-                    "derivation_ref": "PARAM-RULE-FULL",
-                },
             ],
             "temporal_signals": [
                 {
@@ -456,7 +360,6 @@ class TestFullPipelineSynthetic(unittest.TestCase):
                     }
                 ],
             },
-            "canonical_analysis": canonical_analysis,
         }
 
         handlers = configured_handlers(
@@ -482,6 +385,35 @@ class TestFullPipelineSynthetic(unittest.TestCase):
         self.assertIn("independent_roots", run.canonical)
         self.assertIn("temporal_activation", run.canonical)
         self.assertIn("documentary_events", run.canonical)
+        self.assertIn("canonical_analysis", run.canonical)
+        self.assertTrue(
+            run.canonical["independent_roots"]["strength_policy_applied"]
+        )
+        self.assertIn("pillar_attribution", run.canonical)
+        self.assertIn("model_attributions", run.canonical)
+        self.assertIn("pairwise_idd", run.canonical)
+        self.assertTrue(
+            run.canonical["time_sensitivity"][
+                "perturbations_generated_by_m23"
+            ]
+        )
+        self.assertTrue(
+            run.canonical["null_models"]["sampling_generated_by_m24"]
+        )
+        robustness_ids = {
+            component["id"]
+            for component in run.canonical["robustness_index"]["components"]
+        }
+        self.assertIn("BIRTH_TIME", robustness_ids)
+        self.assertIn("ABLATION_AUTO", robustness_ids)
+        self.assertEqual(
+            run.canonical["canonical_analysis"]["assembly"]["policy_id"],
+            "ALMAS_CANONICAL_ASSEMBLY_V1",
+        )
+        self.assertEqual(
+            run.canonical["report_gate"]["state"],
+            "READY",
+        )
         report_model = run.canonical["report_document_model"]
         self.assertEqual(report_model["report_state"], "READY")
         self.assertTrue(report_model["canonical_fingerprint_verified"])
