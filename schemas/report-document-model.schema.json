@@ -14,6 +14,7 @@
     "canonical_source",
     "canonical_fingerprint",
     "canonical_fingerprint_verified",
+    "promotion_reporting",
     "sections",
     "section_counts",
     "section_order_fixed",
@@ -89,6 +90,7 @@
           "missing_required_paths",
           "missing_optional_paths",
           "epistemic_classes_allowed",
+          "methodological_reporting_paths",
           "canonical_values_embedded",
           "narrative_generated"
         ],
@@ -182,6 +184,13 @@
           },
           "narrative_generated": {
             "const": false
+          },
+          "methodological_reporting_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           }
         },
         "additionalProperties": false
@@ -242,6 +251,9 @@
     },
     "publication_pipeline_required": {
       "const": true
+    },
+    "promotion_reporting": {
+      "$ref": "discriminator-promotion-reporting.schema.json"
     }
   },
   "allOf": [
