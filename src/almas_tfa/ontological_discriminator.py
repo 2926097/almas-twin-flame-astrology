@@ -209,11 +209,32 @@ def _coverage_for_pair(
 ) -> str:
     if not pair_coverage:
         return "PARTIAL"
-    key = f"{pair[0]}_vs_{pair[1]}"
-    value = str(pair_coverage.get(key, "PARTIAL")).upper()
-    if value not in {"COMPLETE", "PARTIAL", "NONE"}:
-        raise ValueError(f"Cobertura no reconocida para {key}: {value!r}.")
-    return value
+
+    forward_key = f"{pair[0]}_vs_{pair[1]}"
+    reverse_key = f"{pair[1]}_vs_{pair[0]}"
+
+    declared = []
+    for key in (forward_key, reverse_key):
+        if key in pair_coverage:
+            value = str(pair_coverage[key]).upper()
+            if value not in {"COMPLETE", "PARTIAL", "NONE"}:
+                raise ValueError(
+                    f"Cobertura no reconocida para {key}: {value!r}."
+                )
+            declared.append((key, value))
+
+    if not declared:
+        return "PARTIAL"
+
+    distinct = {value for _, value in declared}
+    if len(distinct) > 1:
+        raise ValueError(
+            "Coberturas incompatibles para el mismo par: "
+            + ", ".join(f"{key}={value}" for key, value in declared)
+            + "."
+        )
+
+    return declared[0][1]
 
 
 def _pair_assessment(
