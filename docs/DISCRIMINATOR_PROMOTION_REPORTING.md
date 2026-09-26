@@ -103,6 +103,24 @@ Cada registro fija además:
 
 Por tanto, la madurez metodológica de un discriminador nunca se transforma en puntuación metafísica.
 
+## Genealogía documental integrada
+
+Desde el Paso 18, el snapshot incorpora:
+
+`source_genealogy`.
+
+La genealogía resuelve para cada OD su procedencia P1–P6, rol de fuente, tradición, autor/obra, ancla, conceptos, `supports`, `does_not_support`, relaciones genealógicas y equivalencias prohibidas.
+
+Sus firewalls son:
+
+- `methodological_provenance_only=true`;
+- `ontological_inference_allowed=false`;
+- `source_count_adds_weight=false`;
+- `source_priority_adds_ontological_weight=false`;
+- `cross_tradition_identity_allowed=false`.
+
+Así, el reporting puede explicar por qué OD06 procede de doctrinas monádicas y al mismo tiempo conservar que Mónada–alma–personalidad no equivale a una díada twin-flame.
+
 ## Integración con M31
 
 M31 incorpora el snapshot como:
@@ -154,4 +172,4 @@ La segunda requeriría evidencia L3 aplicada al par concreto y todos los gates d
 
 ## Siguiente paso
 
-El Paso 18 integrará la genealogía de fuentes con el sistema discriminador para que cada constructo, observable, antecedente doctrinal y limitación conserve procedencia explícita sin colapsar tradiciones no equivalentes.
+El Paso 19 aislará los casos privados del repositorio público y formalizará qué datos pueden utilizarse en fixtures, holdouts y documentación.
