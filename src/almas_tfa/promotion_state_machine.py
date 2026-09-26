@@ -299,10 +299,21 @@ def validate_promotion_transition(
     _validate_transition_shape(record, transition)
     _validate_route(record, transition, policy)
 
+    target_status = str(transition["to_status"])
+    updates = transition.get("record_updates", {})
+    if (
+        isinstance(updates, Mapping)
+        and updates.get("l3_authorized") is True
+        and target_status != "VALIDATED_DISCRIMINATOR"
+    ):
+        raise ValueError(
+            "Sólo VALIDATED_DISCRIMINATOR puede solicitar l3_authorized=true."
+        )
+
     candidate = _build_candidate_record(record, transition)
     _validate_target_gates(
         candidate,
-        str(transition["to_status"]),
+        target_status,
         policy=policy,
     )
 
