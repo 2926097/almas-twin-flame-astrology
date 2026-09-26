@@ -1,10 +1,9 @@
 {
-  "schema_version": "1.0.0",
-  "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V1",
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V2",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_POLICY",
-  "purpose": "Ensamblar canonical_analysis desde namespaces M01-M29 ya calculados, sin recalcular evidencia ni ajustar valores al caso.",
-  "analysis_mode": "FULL",
+  "purpose": "Ensamblar canonical_analysis desde M01-M29 con perfil explícito, sin recalcular evidencia ni ajustar valores al caso.",
   "coverage": {
     "formula": "100*sum(q_domain)/7",
     "allowed_q": [0.0, 0.5, 1.0],
@@ -28,6 +27,7 @@
   },
   "model_state": {
     "supported_requires_evaluable_ice": true,
+    "supported_requires_birth_time_component_when_timed_architecture": true,
     "contradicted_on_essential_contradiction": true,
     "compatible_when_positive_iem_and_not_supported": true,
     "insufficient_when_zero_iem_without_contradiction": true
@@ -41,6 +41,7 @@
     "assembler_recalculates_pillars": false,
     "null_rarity_changes_iem": false,
     "temporal_activation_changes_iem": false,
-    "ontological_discrimination_separate_from_AF_KA_AG_LG": true
+    "ontological_discrimination_separate_from_AF_KA_AG_LG": true,
+    "ready_is_profile_completeness_not_metaphysical_truth": true
   }
 }
