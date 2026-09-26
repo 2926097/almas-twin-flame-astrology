@@ -3,7 +3,7 @@
   "target_almas_version": "1.12.0",
   "authority": "ALMAS_CANONICAL_DISCRIMINATOR_PROMOTION_REGISTRY",
   "status": "ACTIVE_NO_L3_PROMOTIONS",
-  "principle": "L3_VALIDATED no puede ser declarado por una ejecución. Sólo existe cuando un registro canónico previo satisface congelación, preregistro, replicación independiente, holdout externo, controles negativos, auditoría de leakage y promoción explícita.",
+  "principle": "L3_VALIDATED no puede ser declarado por una ejecución. Sólo existe cuando un registro canónico previo satisface congelación, preregistro, replicación independiente, holdout externo, controles negativos, auditoría de leakage y promoción explícita. Si el discriminador usa astrología, además exige criterio externo no astrológico, ablación, controles emparejados, auditoría de dependencia, validación fuera de muestra y replicación astrológica específica.",
   "promotion_states": [
     "EXPLORATORY",
     "REPRODUCIBLE",
@@ -27,7 +27,16 @@
     "validation_evidence.negative_control_refs no vacío",
     "validation_evidence.leakage_audit_refs no vacío",
     "validated_pairs no vacío",
-    "root_key_prefix presente"
+    "root_key_prefix presente",
+    "si uses_astrology=true: astrology_validation.non_astrological_criterion_refs no vacío",
+    "si uses_astrology=true: astrology_validation.astrology_ablation_refs no vacío",
+    "si uses_astrology=true: astrology_validation.matched_control_refs no vacío",
+    "si uses_astrology=true: astrology_validation.dependency_audit_refs no vacío",
+    "si uses_astrology=true: astrology_validation.out_of_sample_refs no vacío",
+    "si uses_astrology=true: astrology_validation.astrology_specific_replication_refs no vacío",
+    "si uses_astrology=true: ningún aspecto/asteroide/atacir/sincronía aislada puede autorizar L3",
+    "si uses_astrology=true: rareza de modelo nulo no es probabilidad ni prueba ontológica",
+    "si uses_astrology=true: activación temporal no demuestra origen"
   ],
   "validated_discriminator_ids": [],
   "records": [
@@ -41,7 +50,9 @@
       "root_key_prefix": "OD01:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "L2 experimental listo, pero sin replicación independiente ni holdout externo."
+      "block_reason": "L2 experimental listo, pero sin replicación independiente ni holdout externo.",
+      "uses_astrology": true,
+      "astrology_validation": null
     },
     {
       "discriminator_id": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
@@ -53,7 +64,9 @@
       "root_key_prefix": "OD02:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "Proxy astrológico limitado; falta validación discriminante fuera de muestra."
+      "block_reason": "Proxy astrológico limitado; falta validación discriminante fuera de muestra.",
+      "uses_astrology": true,
+      "astrology_validation": null
     },
     {
       "discriminator_id": "OD03_BLINDED_DOCTRINAL_CODING",
@@ -65,7 +78,9 @@
       "root_key_prefix": "OD03:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "Puede validar separabilidad de constructos, no ontología de una díada real; no existe promoción L3."
+      "block_reason": "Puede validar separabilidad de constructos, no ontología de una díada real; no existe promoción L3.",
+      "uses_astrology": false,
+      "astrology_validation": null
     },
     {
       "discriminator_id": "OD04_PROSPECTIVE_MODEL_PREDICTION",
@@ -77,7 +92,9 @@
       "root_key_prefix": "OD04:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "Falta protocolo prospectivo ejecutado, replicado y validado externamente."
+      "block_reason": "Falta protocolo prospectivo ejecutado, replicado y validado externamente.",
+      "uses_astrology": true,
+      "astrology_validation": null
     },
     {
       "discriminator_id": "OD05_PRIOR_UNITY_DIRECT",
@@ -89,7 +106,9 @@
       "root_key_prefix": "OD05:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "No existe observable independiente no circular de la unidad preencarnatoria."
+      "block_reason": "No existe observable independiente no circular de la unidad preencarnatoria.",
+      "uses_astrology": false,
+      "astrology_validation": null
     },
     {
       "discriminator_id": "OD06_MONADIC_HIERARCHY_DIRECT",
@@ -101,7 +120,9 @@
       "root_key_prefix": "OD06:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "No existe criterio externo independiente para identificar una fuente monádica común."
+      "block_reason": "No existe criterio externo independiente para identificar una fuente monádica común.",
+      "uses_astrology": false,
+      "astrology_validation": null
     },
     {
       "discriminator_id": "OD07_PHENOMENOLOGY_CLUSTER",
@@ -113,7 +134,9 @@
       "root_key_prefix": "OD07:",
       "frozen": null,
       "validation_evidence": null,
-      "block_reason": "Reconocimiento, intensidad, sincronicidad, familiaridad y destino son no discriminantes."
+      "block_reason": "Reconocimiento, intensidad, sincronicidad, familiaridad y destino son no discriminantes.",
+      "uses_astrology": false,
+      "astrology_validation": null
     }
   ]
 }
