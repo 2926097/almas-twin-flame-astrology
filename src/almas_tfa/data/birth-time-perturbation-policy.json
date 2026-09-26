@@ -1,27 +1,21 @@
 {
-  "schema_version": "1.0.0",
-  "policy_id": "ALMAS_BIRTH_TIME_PERTURBATION_V1",
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_BIRTH_TIME_SENSITIVITY_V2",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_POLICY",
-  "purpose": "Generar perturbaciones horarias reproducibles para M23 y derivar el componente BIRTH_TIME sin resúmenes manuales.",
+  "purpose": "Separar curva diagnóstica de sensibilidad horaria y componente BIRTH_TIME condicionado a fiabilidad documentada.",
   "subject_scope": "BOTH",
   "reliability_windows": {
-    "A": {
-      "window_minutes": 15,
-      "step_minutes": 5
-    },
-    "B": {
-      "window_minutes": 30,
-      "step_minutes": 10
-    },
-    "C": {
-      "window_minutes": 60,
-      "step_minutes": 15
-    },
-    "D": {
-      "window_minutes": 120,
-      "step_minutes": 30
-    }
+    "A": {"window_minutes": 15, "step_minutes": 5},
+    "B": {"window_minutes": 30, "step_minutes": 10},
+    "C": {"window_minutes": 60, "step_minutes": 15},
+    "D": {"window_minutes": 120, "step_minutes": 30}
+  },
+  "diagnostic_curve": {
+    "windows_minutes": [5, 15, 30, 60, 120],
+    "sampling": "ENDPOINT_CARTESIAN",
+    "offsets_per_subject": "[-window,0,+window]",
+    "aggregate_component_allowed_without_reliability": false
   },
   "grid": {
     "mode": "CARTESIAN_LOCAL_CIVIL_TIME",
@@ -37,20 +31,8 @@
   },
   "structural_recalculation": {
     "required_modules": [
-      "M02",
-      "M03",
-      "M05",
-      "M06",
-      "M07",
-      "M08",
-      "M09",
-      "M10",
-      "M11",
-      "M15",
-      "M16",
-      "M17",
-      "M18",
-      "M19"
+      "M02","M03","M05","M06","M07","M08","M09","M10","M11",
+      "M15","M16","M17","M18","M19"
     ],
     "include_support_only_layers_in_metric": false,
     "ice_used": false,
@@ -61,7 +43,8 @@
   },
   "principles": {
     "case_fitting_forbidden": true,
-    "missing_time_reliability_is_not_evaluable": true,
+    "missing_time_reliability_allows_diagnostic_curve": true,
+    "missing_time_reliability_forbids_single_birth_time_component": true,
     "untimed_subject_is_not_evaluable": true,
     "all_generated_samples_must_be_evaluable": true,
     "same_policy_for_baseline_and_perturbations": true,
