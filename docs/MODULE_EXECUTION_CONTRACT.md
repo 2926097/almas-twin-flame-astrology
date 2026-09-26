@@ -229,9 +229,28 @@ recalcularse. No usa ICE, IEM_final, temporalidad, modelos nulos ni IDD.
 La estabilidad de IDD se reserva a un componente separado de M25 para evitar
 doble contabilización.
 
-`M24` evalúa corridas nulas preregistradas. Cada corrida conserva `preregistration_ref`, tipo de modelo nulo, `feature_set_ref`, `orb_policy_ref`, `event_set_ref`, `generator_ref`, estadístico observado, regla de extremo y muestras nulas o `n/extreme_count`. Los tipos admitidos son `MATCHED_AGE`, `WITHIN_YEAR`, `MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`, `EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`.
+`M24` admite dos rutas. Si la entrada contiene `null_model_runs`,
+evalúa esas corridas preregistradas como compatibilidad legacy y como vía para
+cohortes externas. Si no existen y se han inyectado backend natal y Davison,
+Q6 activa `ALMAS_NULL_WITHIN_YEAR_V1`.
 
-M24 no genera el universo nulo: `sampling_generated_by_m24=false`. Su frecuencia describe rareza estructural bajo el modelo declarado y fija `metaphysical_probability=false`.
+La ruta Q6 genera un nulo `WITHIN_YEAR` determinista: cada sujeto se perturba
+por separado mediante 32 fechas estratificadas dentro de su propio año,
+manteniendo hora, zona y localización, mientras el otro sujeto permanece fijo.
+Se recalcula la misma arquitectura estructural Q1/Q2 en cada muestra.
+
+Las estadísticas automáticas son `CORE_ROOT_COUNT`, `MAX_IEM_PRE` y
+`PX_PILLAR_SCORE`, reportadas por separado con frecuencia estructural e
+intervalo de Wilson. No existe combinación automática de p-values.
+
+Los tipos admitidos continúan siendo `MATCHED_AGE`, `WITHIN_YEAR`,
+`MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`,
+`EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`. Sin embargo, Q6 no
+inventa poblaciones externas: `PAIR_SHUFFLE`, `MATCHED_AGE` y
+`MATCHED_AGE_CLOCK` sólo pueden entrar mediante un pool externo trazable.
+
+Toda frecuencia M24 describe rareza estructural bajo el nulo declarado.
+`metaphysical_probability=false` y M24 permanece excluido de IRC.
 
 `M25` es el único agregador canónico de robustez. Incorpora automáticamente `BIRTH_TIME` desde M23 porque su derivación está definida. Otros componentes deben declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
 
