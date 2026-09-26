@@ -35,6 +35,7 @@ from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .root_strengths import derive_root_strength, evidence_strength, load_root_strength_policy
 from .pillar_attribution import classify_root, derive_pillars_from_roots, load_root_pillar_policy
+from .semantic_motifs import classify_semantic_motif, derive_semantic_motifs, load_semantic_motif_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
@@ -49,6 +50,7 @@ from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
 from .canonical_assembly import assemble_canonical_analysis, derive_canonical_coverage, load_canonical_assembly_policy
+from .analysis_profiles import classify_trace_for_profile, load_analysis_profile_policy, resolve_analysis_profile
 from .report_model_handlers import m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
@@ -95,6 +97,9 @@ __all__ = [
     "load_root_pillar_policy",
     "classify_root",
     "derive_pillars_from_roots",
+    "load_semantic_motif_policy",
+    "classify_semantic_motif",
+    "derive_semantic_motifs",
     "load_model_attribution_policy",
     "derive_model_attributions",
     "m20_counterevidence",
@@ -123,6 +128,9 @@ __all__ = [
     "load_canonical_assembly_policy",
     "derive_canonical_coverage",
     "assemble_canonical_analysis",
+    "load_analysis_profile_policy",
+    "resolve_analysis_profile",
+    "classify_trace_for_profile",
     "m31_report",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
