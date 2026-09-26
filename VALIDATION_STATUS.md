@@ -57,7 +57,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python cubre módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales. El recuento exacto de tests de la release se fija tras el CI final del HEAD 1.15.0.
+La suite Python contiene **394 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
