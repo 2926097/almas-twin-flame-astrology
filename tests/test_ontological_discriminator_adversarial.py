@@ -96,22 +96,39 @@ def canonical_decision(output):
 class TestOntologicalDiscriminatorAdversarial(unittest.TestCase):
 
     def test_l2_flood_cannot_create_confirmatory_exclusion(self):
+        attack_pairs = [
+            (
+                ("SOULMATE_MODEL", "MONADIC_ORIGIN"),
+                "SOULMATE_MODEL",
+            ),
+            (
+                ("MONADIC_ORIGIN", "SPLIT_SOUL"),
+                "MONADIC_ORIGIN",
+            ),
+            (
+                ("SPLIT_SOUL", "TWIN_FLAME_MODEL"),
+                "SPLIT_SOUL",
+            ),
+            (
+                ("SOULMATE_MODEL", "TWIN_FLAME_MODEL"),
+                "TWIN_FLAME_MODEL",
+            ),
+        ]
         observations = []
         index = 0
-        for a_index, a in enumerate(MODELS):
-            for b in MODELS[a_index + 1:]:
-                for repeat in range(8):
-                    observations.append(
-                        obs(
-                            f"L2-{index}",
-                            (a, b),
-                            "L2_EXPERIMENTAL",
-                            "SEPARATES",
-                            excluded_model=a if repeat % 2 == 0 else b,
-                            root_key=f"L2ROOT-{index}",
-                        )
+        for pair, excluded_model in attack_pairs:
+            for _ in range(12):
+                observations.append(
+                    obs(
+                        f"L2-{index}",
+                        pair,
+                        "L2_EXPERIMENTAL",
+                        "SEPARATES",
+                        excluded_model=excluded_model,
+                        root_key=f"L2ROOT-{index}",
                     )
-                    index += 1
+                )
+                index += 1
 
         result = discriminate_ontology(
             observations,
@@ -124,6 +141,10 @@ class TestOntologicalDiscriminatorAdversarial(unittest.TestCase):
         self.assertEqual(result["identifiability_state"], "NON_IDENTIFIABLE")
         self.assertEqual(result["epistemic_state"], "INSUFFICIENT")
         self.assertTrue(result["exploratory_view"]["conflict"])
+        self.assertEqual(
+            result["exploratory_view"]["surviving_models"],
+            MODELS,
+        )
         self.assertTrue(
             result["exploratory_view"]["canonical_decision_unchanged"]
         )
