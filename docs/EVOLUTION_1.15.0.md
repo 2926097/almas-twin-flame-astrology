@@ -211,13 +211,64 @@ S4 fija expresamente:
 Por tanto, disponer de una cohorte externa limpia no modifica todavía PX/PS ni
 promociona ningún discriminador.
 
+## S5 · External Recurrence Calibration
+
+S5 queda implementada mediante
+`ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1`.
+
+La capa toma una cohorte que ya ha superado S4 y extrae únicamente muestras que
+cumplen simultáneamente:
+
+- `EXTERNAL_HOLDOUT` o `FROZEN_CONFIRMATORY`;
+- selección `PREREGISTERED`;
+- `contamination=false`;
+- cero forbidden-field hits;
+- cero label leakage;
+- cero narrative leakage;
+- cero case fitting;
+- snapshot estructural de recurrencia evaluable.
+
+Las muestras `DEVELOPMENT_ONLY`, post-hoc, contaminadas o con leakage quedan
+fuera de la calibración externa aunque permanezcan documentadas en el resumen
+de cohorte.
+
+S5 reutiliza el mismo núcleo matemático de S2 para evitar dos definiciones de
+calibración. Compara, sobre los controles externos limpios:
+
+- presencia de motivo;
+- fuerza del motivo;
+- diversidad de clases;
+- recurrencia cross-class;
+- recurrencia no dracónica;
+- entropía;
+- número efectivo de familias;
+- dominancia;
+- supervivencia leave-one-family-out;
+- supervivencia leave-one-class-out;
+- PX/PS agregados y número de motivos recurrentes.
+
+La salida pública sólo conserva agregados y metadatos de procedencia. No
+serializa `sample_ref` ni snapshots individuales.
+
+S5 continúa siendo `DIAGNOSTIC_ONLY`:
+
+- `used_for_weighting=false`;
+- `candidate_freeze_enabled=false`;
+- `l3_validation=false`;
+- `metaphysical_probability=false`;
+- `population_probability_claim=false`.
+
+Por tanto, una señal que sea rara en S5 todavía no modifica PX v2. S5 aporta
+evidencia externa de especificidad metodológica, no una probabilidad de
+ontología.
+
 ## Siguientes fases
 
-S5 conectará, sin pérdida de procedencia, las cohortes externas S4 con el motor
-de calibración de recurrencia. El resultado seguirá siendo diagnóstico hasta
-que exista un diseño preregistrado de comparación fuera de muestra.
+S6 definirá el registro de **candidatos PX v3** y el gate de congelación. Un
+candidato sólo podrá entrar en ese registro si declara de antemano qué
+descriptor modifica, qué evidencia S2/S3/S5 lo respalda, qué ablaciones debe
+superar y qué falsadores lo retirarían.
 
-S6 podrá congelar candidatos PX v3 sólo si sobreviven S2, S3 y S5, ablación por
-familia, controles negativos y evaluación holdout. Los casos utilizados para
-descubrir el problema de saturación permanecen `DEVELOPMENT_ONLY` y no pueden
-definir thresholds ni validar la misma regla.
+S7 ejecutará los candidatos congelados únicamente en cohortes no utilizadas
+para descubrirlos. Los casos que originaron la línea de saturación permanecen
+`DEVELOPMENT_ONLY` y no pueden definir thresholds ni validar la misma regla.
