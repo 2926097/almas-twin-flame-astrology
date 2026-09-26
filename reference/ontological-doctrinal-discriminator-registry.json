@@ -1,6 +1,6 @@
 {
   "registry_version": "0.1.0",
-  "target_almas_version": "1.12.0",
+  "target_almas_version": "1.13.0",
   "status": "EXPERIMENTAL_DOCTRINAL_LAYER",
   "purpose": "Comparar SOULMATE_MODEL, MONADIC_ORIGIN, SPLIT_SOUL y TWIN_FLAME_MODEL sin promover diferencias doctrinales a discriminadores ontológicos validados.",
   "epistemic_rule": "C_DOCTRINE describe lo que una fuente afirma; E_PROJECT_HYPOTHESIS define cómo ALMAS compara modelos. L1 doctrinal no equivale a L2 operacional ni a L3 validado.",
