@@ -103,8 +103,11 @@ class TestEvidenceGraph(unittest.TestCase):
         self.assertTrue(root["core_eligible"])
         self.assertEqual(len(root["core_evidence_ids"]), 1)
         self.assertEqual(len(root["support_evidence_ids"]), 1)
-        self.assertIsNone(root["strength"])
-        self.assertEqual(root["strength_state"], "NOT_CALCULATED")
+        self.assertAlmostEqual(root["strength"], 0.97)
+        self.assertEqual(root["strength_state"], "CALCULATED_CORE")
+        self.assertEqual(root["policy_id"], "ALMAS_ROOT_STRENGTH_BASELINE_V1")
+        self.assertIn("AXIS_HORIZON", root["point_ids"])
+        self.assertIn("SUN", root["point_ids"])
 
     def test_secondary_only_root_never_becomes_core(self):
         canonical = {
@@ -148,6 +151,8 @@ class TestEvidenceGraph(unittest.TestCase):
         self.assertFalse(root["core_eligible"])
         self.assertEqual(root["core_evidence_ids"], [])
         self.assertEqual(len(root["support_evidence_ids"]), 1)
+        self.assertAlmostEqual(root["strength"], 1.0)
+        self.assertEqual(root["strength_state"], "CALCULATED_SUPPORT_ONLY")
 
 
 if __name__ == "__main__":
