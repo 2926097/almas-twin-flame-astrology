@@ -138,6 +138,18 @@ REQUIRED_FILES = [
     "skills/almas-soul-contract/SKILL.md",
     "skills/almas-soul-contract/VERSION",
     "skills/almas-soul-contract/CHANGELOG.md",
+    "skills/almas-personal-pdf/SKILL.md",
+    "skills/almas-personal-pdf/VERSION",
+    "docs/PERSONAL_REPORTING.md",
+    "schemas/personal-report-request.schema.json",
+    "schemas/personal-canonical-analysis.schema.json",
+    "schemas/personal-report-document-model.schema.json",
+    "manifests/personal-report-reference-router.json",
+    "manifests/personal-report-profile-registry.json",
+    "examples/personal-report.synthetic.json",
+    "src/almas_tfa/personal_report_handlers.py",
+    "tests/PERSONAL_REPORTING_INVARIANTS.md",
+    "tests/test_personal_report_handlers.py",
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/cli.py",
@@ -309,6 +321,21 @@ def main() -> int:
         fail("la política de ejemplos debe identificar los fixtures predeterminados como sintéticos")
     if "independientemente verificables" not in public_cases_policy:
         fail("la política de casos públicos debe exigir verificación independiente")
+
+    personal_module = (ROOT / "skills/almas-personal-pdf/SKILL.md").read_text(encoding="utf-8")
+    personal_module_version = (ROOT / "skills/almas-personal-pdf/VERSION").read_text(encoding="utf-8").strip()
+    if personal_module_version != version:
+        fail("personal PDF module VERSION must inherit root VERSION")
+    for needle in [
+        "name: almas-personal-astrology-report",
+        f"version: {version}",
+        "kind: internal_module",
+        "independent_versioning: false",
+        "personal_canonical_analysis.json",
+        "FULL_CRITICAL_REPORT",
+    ]:
+        if needle not in personal_module:
+            fail(f"personal PDF module missing token: {needle}")
 
     contract_module = (ROOT / "skills/almas-soul-contract/SKILL.md").read_text(encoding="utf-8")
     contract_module_version = (ROOT / "skills/almas-soul-contract/VERSION").read_text(encoding="utf-8").strip()
