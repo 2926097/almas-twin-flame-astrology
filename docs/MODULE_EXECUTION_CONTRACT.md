@@ -94,12 +94,12 @@ cierra varias entradas que en 1.12 debían llegar precomputadas:
 - `M17` deriva fuerza de raíz mediante la política congelada
   `ALMAS_ROOT_STRENGTH_BASELINE_V1`;
 - `M18` deriva pilares desde raíces canónicas mediante
-  `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1`, conservando adaptadores legacy sólo si
+  `ALMAS_ROOT_PILLAR_ATTRIBUTION_V2`, conservando adaptadores legacy sólo si
   no existen raíces evaluables;
 - `M19` reutiliza `score_model` y `supported_gate` sin alterar la fórmula
   de IEM;
 - `M21` deriva atribuciones Shapley desde `IEM_pre` mediante
-  `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` y calcula IDD por Jensen–Shannon;
+  `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2` y calcula IDD por Jensen–Shannon;
 - `M25` reutiliza `robustness_index` sobre componentes preregistrados.
 
 Las políticas Q1–Q3 son `E_PROJECT_HYPOTHESIS` o baseline metodológica según
@@ -171,8 +171,12 @@ reserva a M23–M25 para evitar doble penalización.
 ## M18–M21 · pilares, IEM y discriminación
 
 `M18` prioriza `independent_roots` canónicas. La política
-`ALMAS_ROOT_PILLAR_ATTRIBUTION_V1` asigna a cada raíz un único pilar
-semántico primario y permite PX como metapilar ortogonal de recurrencia.
+`ALMAS_ROOT_PILLAR_ATTRIBUTION_V2` asigna a cada raíz como máximo un pilar
+semántico primario. PX y la capa recurrente de PS se derivan después con
+`ALMAS_SEMANTIC_MOTIF_RECURRENCE_V1`: raíces diferentes pueden compartir motivo,
+pero sólo existe recurrencia cuando el motivo sobrevive en al menos dos familias
+de dependencia distintas. RELCHART sigue siendo una sola familia y support-only
+no crea recurrencia.
 La precedencia de resolución de solapamientos es
 `PS → PK → PT → PE → PR → PA`. PU permanece `NOT_EVALUABLE` en la
 baseline automática.
@@ -324,9 +328,9 @@ El firewall documental queda fijado en `structural_mutation_allowed=false`, `cla
 
 `M29` vive en `src/almas_tfa/reality_handlers.py` y valida `REAL_VIABILITY` y `RECIPROCITY` exclusivamente desde hechos M27. Toda evaluación declara `assessment_ref`, `as_of_date` y exactamente dos sujetos. Un estado de viabilidad distinto de `UNKNOWN` necesita `viability_basis`; una reciprocidad distinta de `NOT_EVALUABLE` necesita `reciprocity_basis`. Cada base declara `event_id`, `basis_kind`, `observation_type` y `subject_ids`. Sólo son decisivos eventos `ACTIVE`, con rol factual correcto, contratos documental/temporal válidos, separación hecho/interpretación y calidad DQ1/DQ2/DQ3. La base conjunta debe cubrir a ambos sujetos; la ausencia de evidencia de una parte nunca se transforma en asimetría. `DOCUMENTED_SEPARATION` exige un evento `SEPARATION` y `DOCUMENTED_NO_CONTACT` exige `NO_CONTACT`. M29 fija `factual_basis_only=true` y mantiene en `false` el uso de astrología/metafísica como hecho, la inferencia desde PHASE/fenomenología, el uso de ausencia como asimetría y cualquier inferencia de estados mentales, consentimiento, fidelidad o decisiones futuras. Los contratos están en `schemas/viability-reciprocity-assessment.schema.json` y `schemas/viability-reciprocity-output.schema.json`.
 
-`M30` vive en `src/almas_tfa/report_gate_handlers.py` y es el firewall de integridad entre `canonical_analysis` y el informe. En la ejecución configurada 1.13, si no existe un canonical explícito, `ALMAS_CANONICAL_ASSEMBLY_V1` lo ensambla primero desde los namespaces M01–M29 ya calculados. El ensamblador no recalcula astrología, raíces ni pilares y deriva ICC mediante siete dominios de cobertura q=0/0.5/1.
+`M30` vive en `src/almas_tfa/report_gate_handlers.py` y es el firewall de integridad entre `canonical_analysis` y el informe. En la ejecución configurada 1.13, si no existe un canonical explícito, `ALMAS_CANONICAL_ASSEMBLY_V2` lo ensambla primero desde los namespaces M01–M29 ya calculados. El ensamblador no recalcula astrología, raíces ni pilares y deriva ICC mediante siete dominios de cobertura q=0/0.5/1.
 
-Un `canonical_analysis` suministrado explícitamente conserva prioridad y nunca se sobrescribe. El gate distingue `READY`, `PARTIAL` y `BLOCKED`; bloquea conflicto raw/snapshot, schema o modo inválidos, modelos FULL ausentes, estados/IEM incompatibles, afirmaciones positivas sin evidencia y cualquier módulo previo `FAILED`. Degrada a `PARTIAL` los modos TARGETED/TEMPORAL, ausencia de traza y módulos `NOT_EVALUABLE`/`SKIPPED`. `NOT_APPLICABLE` no degrada por sí mismo. Todo canonical evaluado recibe `canonical_fingerprint` SHA-256 determinista. M30 fija `canonical_values_mutated=false` y el gate no corrige ningún valor.
+Un `canonical_analysis` suministrado explícitamente conserva prioridad y nunca se sobrescribe. Desde 1.14, `analysis_profile` separa el alcance de completitud del `analysis_mode`. `FULL_MULTIDISCIPLINARY` conserva el gate exhaustivo; `FULL_ASTROLOGY` y `STRUCTURAL_ASTROLOGY` pueden declarar módulos fuera de alcance. Un `NOT_EVALUABLE`/`SKIPPED` sólo degrada si el perfil lo considera requerido. Cualquier módulo `FAILED` bloquea siempre. `NOT_APPLICABLE` no degrada por sí mismo. Todo canonical evaluado recibe `canonical_fingerprint` SHA-256 determinista. M30 fija `canonical_values_mutated=false` y el gate no corrige ningún valor.
 
 `M31` vive en `src/almas_tfa/report_model_handlers.py` y cierra el pipeline analítico M00–M31. Sólo se ejecuta cuando M30 es `READY` o `PARTIAL` y exige el `canonical_fingerprint` del gate. Recalcula el SHA-256 del `canonical_analysis`; cualquier cambio posterior a M30 provoca rechazo. El `report_document_model` contiene exactamente once secciones ordenadas, sus rutas obligatorias/opcionales, disponibilidad y clases epistemológicas permitidas. Cuando existe `ontological_discrimination`, S01/S03/S06/S10 conservan su ruta canónica y S08/S11 conservan `ontological_discrimination.promotion_trace`. Los estados de sección son `READY`, `PARTIAL` o `NOT_AVAILABLE`. M31 hereda `degradation_reasons` y exige disclosure cuando el gate es `PARTIAL`. No incrusta valores (`canonical_values_embedded=false`), no genera narrativa (`prose_generated=false`), no modifica el canonical, no selecciona perfil de renderizado y no crea DOCX/PDF ni ejecuta preflight. La publicación material comienza después de M31. Su salida canónica está definida por `schemas/report-document-model.schema.json`.
 
