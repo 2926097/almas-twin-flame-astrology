@@ -26,6 +26,7 @@ REQUIRED_FILES = [
     "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md",
     "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md",
     "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md",
+    "docs/DISCRIMINANT_VALIDATION_POLICY.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -34,6 +35,7 @@ REQUIRED_FILES = [
     "schemas/canonical-analysis.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
+    "schemas/discriminant-validation-evidence.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
     "schemas/synastry-output.schema.json",
@@ -148,7 +150,9 @@ REQUIRED_FILES = [
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/discriminator_promotion_registry.py",
+    "src/almas_tfa/discriminant_validation.py",
     "src/almas_tfa/data/discriminator-promotion-registry.json",
+    "src/almas_tfa/data/discriminant-validation-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -197,6 +201,7 @@ REQUIRED_FILES = [
     "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md",
     "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md",
     "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md",
+    "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -236,6 +241,7 @@ REQUIRED_FILES = [
     "tests/test_ontological_discriminator_adversarial.py",
     "tests/test_ontological_discriminator_metamorphic.py",
     "tests/test_astrological_discriminator_independence.py",
+    "tests/test_discriminant_validation.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -349,6 +355,9 @@ def main() -> int:
     )
     discriminator_promotion_registry = load_json(
         "src/almas_tfa/data/discriminator-promotion-registry.json"
+    )
+    discriminant_validation_policy = load_json(
+        "src/almas_tfa/data/discriminant-validation-policy.json"
     )
     operational_discriminator_candidates = load_json(
         "reference/operational-discriminator-candidates.json"
@@ -466,6 +475,70 @@ def main() -> int:
     }
     if registry_validated_ids != registry_authorized_ids:
         fail("promotion registry validated_discriminator_ids diverges from authorized records")
+
+    if discriminant_validation_policy.get("policy_id") != "ALMAS_DISCRIMINANT_VALIDATION_V1":
+        fail("discriminant validation policy id changed")
+    if discriminant_validation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("discriminant validation thresholds must remain E_PROJECT_POLICY")
+    if discriminant_validation_policy.get("confidence_level") != 0.95:
+        fail("discriminant validation confidence level must remain 0.95")
+    if discriminant_validation_policy.get("uncertainty_method") != "WILSON_SCORE":
+        fail("discriminant validation uncertainty method must remain WILSON_SCORE")
+
+    discriminant_minimums = discriminant_validation_policy.get("minimums", {})
+    if discriminant_minimums.get("pairwise_sensitivity_ci_lower") != 0.60:
+        fail("pairwise sensitivity CI lower threshold changed")
+    if discriminant_minimums.get("pairwise_specificity_ci_lower") != 0.90:
+        fail("pairwise specificity CI lower threshold changed")
+    if discriminant_minimums.get("pairwise_balanced_accuracy") != 0.75:
+        fail("pairwise balanced accuracy threshold changed")
+
+    false_specificity_policy = discriminant_validation_policy.get(
+        "false_specificity", {}
+    )
+    if false_specificity_policy.get("max_ci_upper") != 0.05:
+        fail("FALSE_SPECIFICITY_RATE CI upper ceiling changed")
+    if false_specificity_policy.get("synthetic_adversarial_max_rate") != 0.0:
+        fail("synthetic/adversarial false specificity must remain zero")
+
+    for record in discriminator_promotion_registry.get("records", []):
+        if "discriminant_validation" not in record:
+            fail(
+                f"promotion registry record lacks discriminant_validation: "
+                f"{record.get('discriminator_id')}"
+            )
+        if (
+            record.get("l3_authorized") is True
+            and record.get("current_status") == "VALIDATED_DISCRIMINATOR"
+            and not isinstance(record.get("discriminant_validation"), dict)
+        ):
+            fail(
+                f"authorized L3 lacks discriminant_validation: "
+                f"{record.get('discriminator_id')}"
+            )
+
+    discriminant_doc = (
+        ROOT / "docs/DISCRIMINANT_VALIDATION_POLICY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_DISCRIMINANT_VALIDATION_V1",
+        "FALSE_SPECIFICITY_RATE",
+        "WILSON_SCORE",
+        "Paso 15",
+    ):
+        if token not in discriminant_doc:
+            fail("discriminant validation policy documentation is incomplete")
+
+    discriminant_invariants = (
+        ROOT / "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "CI95 inferior de especificidad < 0.90",
+        "FALSE_SPECIFICITY_RATE",
+        "calibración",
+    ):
+        if token not in discriminant_invariants:
+            fail("discriminant validation invariants are incomplete")
 
     astro_ids = {
         "OD01_PAIR_SPECIFICITY_NETWORK",
