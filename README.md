@@ -1,7 +1,7 @@
 # ALMAS · Astrología Metafísica Relacional
 
 **Versión pública:** 1.14.0  
-**Estado:** pipeline modular M00–M31 ejecutable + cierre cuantitativo Q1–Q7 + backends astronómicos inyectables
+**Estado:** pipeline modular M00–M31 ejecutable + recurrencia semántica PX/PS v2 + perfiles de análisis + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
 
@@ -64,7 +64,7 @@ La ontología completa se analiza por ejes independientes de origen, contrato pr
 
 `canonical_analysis.json` es la verdad analítica de la capa astrológica. El módulo contractual consume esa salida mediante el bridge canónico y no debe recalcular silenciosamente la evidencia.
 
-Desde 1.14.0, una ejecución FULL configurada puede derivar automáticamente fuerza de raíces, pilares, atribuciones Shapley/IDD, sensibilidad horaria, componentes de robustez, un universo nulo autocontenido y `canonical_analysis`. Los adaptadores precomputados se conservan por compatibilidad y para diseños que requieren datos externos.
+Desde 1.13.0, una ejecución FULL configurada puede derivar automáticamente fuerza de raíces, pilares, atribuciones Shapley/IDD, sensibilidad horaria, componentes de robustez, un universo nulo autocontenido y `canonical_analysis`. Desde 1.14.0, PX y PS se reconstruyen mediante recurrencia semántica multitécnica sin reescribir `root_key`; M23 publica una curva R5/R15/R30/R60/R120 incluso sin rating horario documentado; y M30 evalúa completitud relativa a perfiles como `FULL_ASTROLOGY` o `FULL_MULTIDISCIPLINARY`.
 
 ## Repositorio
 
@@ -110,8 +110,8 @@ El paquete incluye un orquestador determinista y módulos ejecutables para:
 - validación de la secuencia M00–M31;
 - ejecución secuencial de handlers registrados con protección contra sobrescritura canónica;
 - geometría de sinastría, casas, declinaciones, antiscios, compuesta, RELCHART y dracónicas;
-- lotes declarativos y capa secundaria `support_only`;
-- grafo de evidencia, deduplicación y raíces independientes;
+- lotes declarativos y baseline histórica Fortuna/Espíritu, más capa secundaria `support_only`;
+- grafo de evidencia, deduplicación, raíces independientes y grafo de motivos semánticos recurrentes;
 - contraevidencia, ablación AB0–AB8, sensibilidad horaria, modelos nulos y robustez;
 - activación temporal y ledger documental;
 - firewalls doctrinales, viabilidad/reciprocidad y gate de reporting;
@@ -151,7 +151,7 @@ Las fuentes definen procedencia, significado y límites. No añaden puntuación 
 ![Public contract](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/public-contract.yml/badge.svg)
 ![Python core](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/python-tests.yml/badge.svg)
 
-La suite Python contiene 266 tests y cubre núcleo numérico, módulos M00–M31 y una ejecución FULL sintética. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
+La suite Python cubre núcleo numérico, módulos M00–M31, recurrencia semántica, perfiles de análisis y una ejecución FULL sintética. El número exacto de tests se publica en `VALIDATION_STATUS.md`. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
 
 La infraestructura de validación externa está preregistrada, pero **no se declara validación empírica externa de las ontologías** hasta ejecutar cohortes holdout reales conforme a `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
 
