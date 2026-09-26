@@ -308,14 +308,56 @@ El registro público permanece actualmente:
 Por tanto ALMAS 1.15 no incorpora aún ningún candidato PX v3 real y PX v2 sigue
 siendo el único score operativo.
 
+## S7 · PX v3 Holdout Evaluation Runner
+
+S7 queda implementada mediante
+`ALMAS_PX_V3_HOLDOUT_EVALUATION_V1`.
+
+El runner sólo acepta candidatos que ya estén
+`FROZEN_FOR_VALIDATION` según S6 y cohortes que superen el firewall S4.
+
+Antes de evaluar comprueba:
+
+- que no exista solapamiento entre `development_case_refs` y holdout;
+- que `formula_ref` coincida exactamente con la fórmula congelada;
+- que todos los controles externos limpios tengan un valor de candidato;
+- que no se incorporen muestras contaminadas, post-hoc o con leakage.
+
+La ejecución produce únicamente una distribución agregada de los valores
+holdout:
+
+- N;
+- media;
+- mediana;
+- mínimo;
+- máximo;
+- P10 nearest-rank;
+- P90 nearest-rank.
+
+También genera un fingerprint SHA-256 determinista de la distribución ordenada.
+El fingerprint permite congelar el resultado sin publicar los identificadores
+ni los valores individuales.
+
+S7 no decide si el candidato «pasa» o «falla». La salida fija:
+
+- `promotion_decision=FORBIDDEN`;
+- `candidate_validated=false`;
+- `scoring_enabled=false`;
+- `weighting_enabled=false`;
+- `ontology_enabled=false`;
+- `l3_validation=false`;
+- `metaphysical_probability=false`.
+
+La finalidad es impedir que el análisis del holdout modifique retrospectivamente
+la fórmula o el threshold. S7 registra la distribución; no promueve la regla.
+
 ## Siguientes fases
 
-S7 definirá el runner de evaluación holdout para candidatos congelados. El
-runner deberá consumir una cohorte S4/S5 distinta de los casos de desarrollo y
-producir únicamente métricas de validación, sin modificar el registro ni el
-scoring.
+S8 definirá el **promotion gate** de PX v3. El gate consumirá evidencia S6/S7,
+replicación independiente, controles negativos, ablaciones y auditorías de
+leakage, pero no podrá reestimar la fórmula con el mismo holdout.
 
-S8 podrá promover un candidato sólo después de preregistro, evaluación
-holdout, replicación independiente, controles negativos, ablación por familia
-y auditoría de leakage. Una promoción de PX v3 seguirá siendo una decisión
-metodológica del proyecto, no una validación de ontología metafísica.
+S9, sólo si existe una promoción metodológica válida, estudiará cómo introducir
+un PX v3 en scoring sin alterar retroactivamente resultados de desarrollo. Una
+promoción de PX v3 seguirá validando rendimiento operacional, no una ontología
+metafísica.
