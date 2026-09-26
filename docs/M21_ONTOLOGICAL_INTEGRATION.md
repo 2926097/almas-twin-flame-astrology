@@ -102,6 +102,16 @@ Si existe entrada ontológica pero no atribuciones IDD, M21 puede completar la s
 
 M21 sólo devuelve `NOT_EVALUABLE` cuando ninguna de las dos subcapas es evaluable.
 
+## Autoridad registral de L3
+
+M21 no acepta ya `L3_VALIDATED` como una etiqueta libre.
+
+Antes de ejecutar el motor ontológico, consulta el registro canónico empaquetado mediante `validate_l3_observations(...)`.
+
+Toda observación L3 debe aportar `promotion_ref`, y ese registro debe estar promovido a `VALIDATED_DISCRIMINATOR`, tener evidencia de validación completa, incluir el par solicitado en `validated_pairs` y aceptar la familia de `root_key` observada.
+
+El registro productivo actual no contiene ninguna promoción L3, por lo que cualquier intento real de declarar L3 sin promoción previa es rechazado.
+
 ## L2 y L3
 
 La integración conserva el firewall del motor autónomo:
