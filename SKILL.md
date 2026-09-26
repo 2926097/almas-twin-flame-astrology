@@ -133,12 +133,22 @@ No implicaciones críticas:
 Registro normativo: `reference/ontology-registry.json`.
 Schema de salida: `schemas/ontology-output.schema.json`.
 
-## 6. Modos de ejecución
+## 6. Modos y perfiles de ejecución
 
-- `FULL`: todos los módulos estructurales, cruzados, temporales, de robustez, doctrinales y de reporting aplicables.
+`analysis_mode` y `analysis_profile` son dimensiones ortogonales.
+
+Modos:
+- `FULL`: ejecuta el pipeline completo compatible con el perfil declarado.
 - `TARGETED`: sólo técnicas seleccionadas; la salida debe marcarse como parcial.
 - `TEMPORAL`: activación temporal de un análisis estructural previo; en otro caso `TEMPORAL_UNANCHORED`.
 - `REPORT`: deriva únicamente del análisis canónico.
+
+Perfiles:
+- `FULL_MULTIDISCIPLINARY`: exige las capas estructurales, temporales, doctrinales y de realidad cuando son calculables.
+- `FULL_ASTROLOGY`: permite que M13, M14, M20, M23, M26, M27, M28 y M29 queden fuera de alcance sin degradar M30; no convierte su ausencia en evidencia.
+- `STRUCTURAL_ASTROLOGY`: concentra el gate en el núcleo estructural y permite además excluir M12 y M24.
+
+Un perfil sólo controla completitud/reportabilidad. Nunca eleva el estado epistemológico de AF/KA/AG/LG, crea evidencia ni convierte un módulo ausente en contraevidencia.
 
 ## 7. Grafo obligatorio de módulos
 
@@ -199,12 +209,14 @@ Para puntuar, normalizar dentro de cada elemento de evidencia:
 - `PK`: Continuidad kármica.
 - `PE`: Espejo y complementariedad.
 - `PR`: Coherencia relacional.
-- `PX`: Recurrencia independiente.
+- `PX`: Recurrencia semántica independiente entre familias técnicas.
 - `PT`: Transformación e integración.
 - `PS`: Misión/servicio.
 - `PU`: Singularidad diádica, experimental.
 
-Para cada pilar, usar las tres raíces independientes más fuertes `r1 >= r2 >= r3`:
+Desde 1.14.0, PA/PK/PE/PR/PT continúan derivándose de raíces independientes. PX y la capa recurrente de PS se derivan mediante `ALMAS_SEMANTIC_MOTIF_RECURRENCE_V1`: raíces distintas pueden pertenecer al mismo motivo semántico, pero un motivo sólo es recurrente si aparece en al menos dos familias de dependencia independientes. Dentro de cada familia se conserva el representante más fuerte y la fuerza de recurrencia es la segunda mayor fuerza familiar. `RELCHART` cuenta como una sola familia y las capas `support_only` no crean recurrencia.
+
+Para agregar fuerzas dentro de un pilar, usar las tres unidades independientes más fuertes `r1 >= r2 >= r3`:
 
 `P = 100 × (r1 + 0.5r2 + (1/3)r3) / (1 + 0.5 + 1/3)`.
 
