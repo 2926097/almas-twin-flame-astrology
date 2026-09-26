@@ -389,50 +389,41 @@ def _aggregate_calibration(
     return output
 
 
-def derive_recurrence_null_calibration(
+def derive_recurrence_calibration_payload(
     baseline_snapshot: Mapping[str, Any],
-    null_snapshots: Sequence[Mapping[str, Any]],
+    control_snapshots: Sequence[Mapping[str, Any]],
     *,
-    policy: Mapping[str, Any] | None = None,
+    minimum_samples: int,
+    confidence_level: float,
 ) -> dict[str, Any]:
-    """Calibra motivos contra WITHIN_YEAR sin introducir pesos."""
+    """Núcleo común de calibración; no asigna procedencia ni autoridad."""
 
-    if policy is None:
-        policy = load_recurrence_null_calibration_policy()
-
-    minimum = int(policy["null_source"]["minimum_samples"])
-    if len(null_snapshots) < minimum:
+    minimum = int(minimum_samples)
+    if minimum <= 0:
+        raise ValueError("minimum_samples debe ser positivo.")
+    if len(control_snapshots) < minimum:
         return {
             "state": "NOT_EVALUABLE",
             "reason": (
-                f"Se requieren al menos {minimum} muestras nulas; "
-                f"recibidas={len(null_snapshots)}."
+                f"Se requieren al menos {minimum} muestras de control; "
+                f"recibidas={len(control_snapshots)}."
             ),
         }
 
-    confidence = float(policy["null_source"]["confidence_level"])
+    confidence = float(confidence_level)
+    if not 0.0 < confidence < 1.0:
+        raise ValueError("confidence_level debe estar en (0,1).")
+
     try:
         baseline_graph, baseline_quality = _snapshot_payload(
             baseline_snapshot
         )
-        for snapshot in null_snapshots:
+        for snapshot in control_snapshots:
             _snapshot_payload(snapshot)
     except ValueError as exc:
         return {
             "state": "NOT_EVALUABLE",
-            "policy_id": policy["policy_id"],
-            "policy_status": policy["status"],
-            "epistemic_class": policy["epistemic_class"],
             "reason": str(exc),
-            "used_for_weighting": False,
-            "used_in_px_score": False,
-            "used_in_ps_score": False,
-            "used_in_iem": False,
-            "used_in_idd": False,
-            "used_in_irc": False,
-            "used_in_ontology": False,
-            "metaphysical_probability": False,
-            "external_population_claim": False,
         }
 
     results = []
@@ -461,13 +452,73 @@ def derive_recurrence_null_calibration(
                     motif_type,
                     observed_graph[motif_id],
                     quality,
-                    null_snapshots,
+                    control_snapshots,
                     confidence=confidence,
                 )
             )
 
     return {
         "state": "DIAGNOSTIC_ONLY",
+        "sample_count": len(control_snapshots),
+        "confidence_level": confidence,
+        "observed_motifs": results,
+        "null_catalog": {
+            "primary": _null_catalog(
+                control_snapshots,
+                "PRIMARY",
+                confidence=confidence,
+            ),
+            "mission": _null_catalog(
+                control_snapshots,
+                "MISSION",
+                confidence=confidence,
+            ),
+        },
+        "aggregate": _aggregate_calibration(
+            baseline_snapshot,
+            control_snapshots,
+            confidence=confidence,
+        ),
+    }
+
+
+def derive_recurrence_null_calibration(
+    baseline_snapshot: Mapping[str, Any],
+    null_snapshots: Sequence[Mapping[str, Any]],
+    *,
+    policy: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Calibra motivos contra WITHIN_YEAR sin introducir pesos."""
+
+    if policy is None:
+        policy = load_recurrence_null_calibration_policy()
+
+    core = derive_recurrence_calibration_payload(
+        baseline_snapshot,
+        null_snapshots,
+        minimum_samples=int(policy["null_source"]["minimum_samples"]),
+        confidence_level=float(policy["null_source"]["confidence_level"]),
+    )
+
+    if core.get("state") != "DIAGNOSTIC_ONLY":
+        return {
+            **core,
+            "policy_id": policy["policy_id"],
+            "policy_status": policy["status"],
+            "epistemic_class": policy["epistemic_class"],
+            "used_for_weighting": False,
+            "used_in_px_score": False,
+            "used_in_ps_score": False,
+            "used_in_iem": False,
+            "used_in_idd": False,
+            "used_in_irc": False,
+            "used_in_ontology": False,
+            "metaphysical_probability": False,
+            "external_population_claim": False,
+        }
+
+    return {
+        **core,
         "policy_id": policy["policy_id"],
         "policy_status": policy["status"],
         "epistemic_class": policy["epistemic_class"],
@@ -475,26 +526,6 @@ def derive_recurrence_null_calibration(
         "null_generator_policy_id": policy["null_source"][
             "generator_policy_id"
         ],
-        "sample_count": len(null_snapshots),
-        "confidence_level": confidence,
-        "observed_motifs": results,
-        "null_catalog": {
-            "primary": _null_catalog(
-                null_snapshots,
-                "PRIMARY",
-                confidence=confidence,
-            ),
-            "mission": _null_catalog(
-                null_snapshots,
-                "MISSION",
-                confidence=confidence,
-            ),
-        },
-        "aggregate": _aggregate_calibration(
-            baseline_snapshot,
-            null_snapshots,
-            confidence=confidence,
-        ),
         "used_for_weighting": False,
         "used_in_px_score": False,
         "used_in_ps_score": False,
