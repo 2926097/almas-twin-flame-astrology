@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1",
+  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_HYPOTHESIS",
-  "purpose": "Derivar automáticamente atribuciones por raíz para AF/KA/AG/LG sobre IEM_pre y cerrar IDD sin mapas manuales.",
+  "purpose": "Derivar automáticamente atribuciones por raíz y motivo semántico para AF/KA/AG/LG sobre IEM_pre.",
   "value_function": "IEM_PRE",
   "counterevidence_in_value_function": false,
   "structural_coverage_required": true,
-  "root_unit": "CANONICAL_INDEPENDENT_ROOT",
+  "root_unit": "CANONICAL_ROOT_OR_SEMANTIC_MOTIF",
   "exact_method": {
     "name": "EXACT_SHAPLEY",
     "max_roots": 10
@@ -31,6 +31,8 @@
     "iem_final_not_used_for_attribution": true,
     "ice_not_used_for_attribution": true,
     "temporal_activation_not_used": true,
-    "null_rarity_not_used": true
+    "null_rarity_not_used": true,
+    "semantic_motif_units_allowed": true,
+    "semantic_motif_recurrence_precomputed_by_m18": true
   }
 }
