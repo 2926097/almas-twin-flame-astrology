@@ -8,6 +8,7 @@
     "document_kind",
     "language",
     "analysis_mode",
+    "analysis_profile",
     "report_state",
     "partial_disclosure_required",
     "degradation_reasons",
@@ -254,6 +255,13 @@
     },
     "promotion_reporting": {
       "$ref": "discriminator-promotion-reporting.schema.json"
+    },
+    "analysis_profile": {
+      "enum": [
+        "FULL_MULTIDISCIPLINARY",
+        "FULL_ASTROLOGY",
+        "STRUCTURAL_ASTROLOGY"
+      ]
     }
   },
   "allOf": [
