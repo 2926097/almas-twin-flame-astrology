@@ -22,3 +22,8 @@ Una release falla si:
 18. canonical_values_embedded puede ser distinto de false.
 19. canonical_values_mutated puede ser distinto de false.
 20. publication_pipeline_required puede ser distinto de true.
+21. Si ontological_discrimination existe, S06 debe conservar esa ruta canónica.
+22. S08 y S11 deben conservar la ruta ontological_discrimination.promotion_trace.
+23. M31 no puede copiar promotion_ref ni otros valores ontológicos fuera de canonical_analysis.
+24. La ambigüedad SHARED_ORIGIN_UNDIFFERENTIATED/INDETERMINATE no puede perderse por omisión de ruta.
+
