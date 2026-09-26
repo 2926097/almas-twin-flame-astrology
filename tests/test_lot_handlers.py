@@ -66,6 +66,58 @@ class TestLots(unittest.TestCase):
         self.assertAlmostEqual(lots["B"]["FORTUNE"]["longitude"], 50.0)
         self.assertEqual(lots["A"]["FORTUNE"]["source_ref"], "SRC_TEST")
 
+    def test_default_policy_resolves_fortune_and_spirit_from_house_sect(self):
+        canonical = {
+            **self.canonical,
+            "natal_context": {
+                "subjects": {
+                    "A": {
+                        "house_placements": {
+                            "SUN": {"house": 10}
+                        }
+                    },
+                    "B": {
+                        "house_placements": {
+                            "SUN": {"house": 4}
+                        }
+                    },
+                }
+            },
+        }
+        context = ModuleContext(
+            module_id="M13",
+            module_name="lots",
+            mode="FULL",
+            raw_input={},
+            canonical_snapshot=canonical,
+            prior_results={},
+        )
+        result = m13_lots(context)
+        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
+        output = result.canonical_updates["lots"]
+        self.assertEqual(
+            output["policy_source"],
+            "ALMAS_HELLENISTIC_LOTS_V1",
+        )
+        self.assertEqual(output["sect_by_subject"]["A"], "DAY")
+        self.assertEqual(output["sect_by_subject"]["B"], "NIGHT")
+        self.assertAlmostEqual(
+            output["subjects"]["A"]["FORTUNE"]["longitude"],
+            130.0,
+        )
+        self.assertAlmostEqual(
+            output["subjects"]["A"]["SPIRIT"]["longitude"],
+            70.0,
+        )
+        self.assertAlmostEqual(
+            output["subjects"]["B"]["FORTUNE"]["longitude"],
+            50.0,
+        )
+        self.assertAlmostEqual(
+            output["subjects"]["B"]["SPIRIT"]["longitude"],
+            350.0,
+        )
+
     def test_missing_sect_does_not_guess_variant(self):
         raw = {
             "lot_policy": {
