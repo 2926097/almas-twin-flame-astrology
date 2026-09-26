@@ -148,7 +148,7 @@
   "final_output": "canonical_soul_contract.json",
   "final_schema": "schemas/contrato-almico.schema.json",
   "narrative_gate": "La síntesis narrativa sólo puede generarse después de que las ocho etapas estén representadas, incluidos estados INSUFFICIENT o NOT_EVALUABLE cuando corresponda.",
-  "almas_version": "1.11.0",
+  "almas_version": "1.12.0",
   "contract_engine_revision": "1.9.0",
   "contract_causal_chain": {
     "version": "2.0.0",
