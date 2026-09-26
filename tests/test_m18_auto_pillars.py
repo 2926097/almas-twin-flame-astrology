@@ -51,6 +51,7 @@ class M18AutomaticPillarsTests(unittest.TestCase):
                 "strength": 0.90,
                 "strength_state": "CALCULATED_CORE",
                 "core_eligible": True,
+                "dependency_families": ["SYN", "DECLINATION"],
                 "independent_family_count": 2,
             },
             {
