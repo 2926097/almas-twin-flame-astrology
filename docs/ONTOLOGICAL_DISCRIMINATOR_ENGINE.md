@@ -245,6 +245,34 @@ Los tests cubren:
 - NOT_EVALUABLE por falta de datos mínimos;
 - guardarraíl de falsa especificidad.
 
+## Batería adversarial sintética
+
+El Paso 11 añade:
+
+`tests/test_ontological_discriminator_adversarial.py`
+
+y los invariantes:
+
+`tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md`.
+
+La batería intenta forzar falsa especificidad mediante:
+
+- inundación L1/L2;
+- repetición de una misma raíz;
+- conflicto interno L3;
+- ciclos globales de eliminación;
+- ruido NOT_EVALUABLE;
+- contaminación narrativa;
+- autoetiqueta, runner/chaser, sincronicidad e intensidad;
+- rareza astrológica y afirmaciones temporales;
+- reutilización fraudulenta de `promotion_ref`;
+- pares y familias de raíz no autorizados;
+- registros de validación incompletos.
+
+Superar esta batería sólo demuestra resistencia del clasificador a ataques sintéticos conocidos. No promociona candidatos ni constituye validación externa.
+
+La matriz metamórfica formal queda deliberadamente reservada al Paso 12.
+
 ## Integración vigente con M21
 
 M21 conserva el IDD sobre atribuciones estructurales AF/KA/AG/LG y añade, de forma opcional, una subcapa ontológica independiente.
@@ -265,4 +293,4 @@ La integración está documentada en:
 
 ## Próximo paso
 
-El trabajo siguiente deberá conectar exclusivamente discriminadores realmente L3_VALIDATED con M25, manteniendo fuera del IRC confirmatorio cualquier señal L1 o L2.
+El Paso 12 construirá la suite metamórfica formal: invariancia por orden de observaciones, inversión del orden interno de pares, idempotencia, transformaciones semánticamente equivalentes y estabilidad de la partición bajo ruido no discriminante.
