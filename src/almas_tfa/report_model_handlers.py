@@ -4,6 +4,8 @@ from hashlib import sha256
 import json
 from typing import Any, Mapping
 
+from .promotion_reporting import build_promotion_reporting
+
 from .module_contract import (
     ExecutionStatus,
     ModuleContext,
@@ -102,6 +104,7 @@ SECTION_SPECS = (
             "ontological_discrimination.promotion_trace",
         ),
         "epistemic_classes_allowed": ("A_CALCULATED", "B_TECHNIQUE"),
+        "methodological_reporting_paths": ("promotion_reporting",),
     },
     {
         "section_id": "S09_DOCTRINE",
@@ -149,6 +152,7 @@ SECTION_SPECS = (
             "D_CONTEMPORARY_USAGE",
             "E_PROJECT_HYPOTHESIS",
         ),
+        "methodological_reporting_paths": ("promotion_reporting",),
     },
 )
 
@@ -217,6 +221,9 @@ def _section_model(
         "epistemic_classes_allowed": list(
             spec["epistemic_classes_allowed"]
         ),
+        "methodological_reporting_paths": list(
+            spec.get("methodological_reporting_paths", ())
+        ),
         "canonical_values_embedded": False,
         "narrative_generated": False,
     }
@@ -271,6 +278,7 @@ def m31_report(context: ModuleContext) -> ModuleResult:
 
     partial_report = gate.get("state") == "PARTIAL"
     degradation_reasons = list(gate.get("degradation_reasons", []))
+    promotion_reporting = build_promotion_reporting()
 
     output = {
         "model_version": "1.0.0",
@@ -283,6 +291,7 @@ def m31_report(context: ModuleContext) -> ModuleResult:
         "canonical_source": "canonical_analysis",
         "canonical_fingerprint": current_fingerprint,
         "canonical_fingerprint_verified": True,
+        "promotion_reporting": promotion_reporting,
         "sections": sections,
         "section_counts": section_counts,
         "section_order_fixed": True,
@@ -300,6 +309,7 @@ def m31_report(context: ModuleContext) -> ModuleResult:
     limitations = [
         "M31 construye estructura y referencias; no redacta la narrativa final.",
         "M31 no copia valores analíticos al modelo documental: conserva rutas hacia canonical_analysis.",
+        "El estado de promoción se informa como metadato metodológico y no puede modificar la clasificación ontológica ni IRC.",
         "La renderización DOCX/PDF y su preflight pertenecen a la fase de publicación.",
     ]
     if partial_report:
