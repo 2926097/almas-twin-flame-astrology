@@ -120,7 +120,11 @@ SECTION_SPECS = (
         "title": "Síntesis final",
         "purpose": "Integrar resultados sin superar los techos inferenciales.",
         "required_paths": ("models",),
-        "optional_paths": ("ontology", "limitations"),
+        "optional_paths": (
+            "ontology",
+            "ontological_discrimination",
+            "limitations",
+        ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
             "C_DOCTRINE",
