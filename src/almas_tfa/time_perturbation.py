@@ -241,7 +241,23 @@ def _structural_snapshot(
         "core_root_keys": core_root_keys,
         "core_root_count": len(core_root_keys),
         "pillars": pillars,
+        "pillar_attribution": pillar_data,
     }
+
+
+def structural_recalculation_snapshot(
+    raw_input: Mapping[str, Any],
+    *,
+    astrology_backend,
+    davison_backend,
+) -> dict[str, Any]:
+    """API interna estable para recalcular la arquitectura estructural Q4/Q5."""
+
+    return _structural_snapshot(
+        raw_input,
+        astrology_backend=astrology_backend,
+        davison_backend=davison_backend,
+    )
 
 
 def _nearest_rank(values: Sequence[float], percentile: float) -> float:
