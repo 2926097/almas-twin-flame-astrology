@@ -74,6 +74,7 @@ REQUIRED_FILES = [
     "schemas/time-sensitivity-output.schema.json",
     "schemas/null-model-output.schema.json",
     "schemas/external-recurrence-control-cohort.schema.json",
+    "schemas/px-v3-candidate-registry.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -190,6 +191,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/recurrence-synthetic-controls-policy.json",
     "src/almas_tfa/data/external-recurrence-cohort-policy.json",
     "src/almas_tfa/data/external-recurrence-calibration-policy.json",
+    "src/almas_tfa/data/px-v3-candidate-freeze-policy.json",
+    "src/almas_tfa/data/px-v3-candidate-registry.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -220,6 +223,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/synthetic_controls.py",
     "src/almas_tfa/external_control_cohorts.py",
     "src/almas_tfa/external_recurrence_calibration.py",
+    "src/almas_tfa/px_v3_candidates.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -316,6 +320,7 @@ REQUIRED_FILES = [
     "tests/test_synthetic_controls.py",
     "tests/test_external_control_cohorts.py",
     "tests/test_external_recurrence_calibration.py",
+    "tests/test_px_v3_candidates.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -483,6 +488,12 @@ def main() -> int:
     external_recurrence_calibration_policy = load_json(
         "src/almas_tfa/data/external-recurrence-calibration-policy.json"
     )
+    px_v3_candidate_freeze_policy = load_json(
+        "src/almas_tfa/data/px-v3-candidate-freeze-policy.json"
+    )
+    px_v3_candidate_registry = load_json(
+        "src/almas_tfa/data/px-v3-candidate-registry.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -536,6 +547,9 @@ def main() -> int:
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
     external_recurrence_cohort_schema = load_json(
         "schemas/external-recurrence-control-cohort.schema.json"
+    )
+    px_v3_candidate_registry_schema = load_json(
+        "schemas/px-v3-candidate-registry.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1031,6 +1045,50 @@ def main() -> int:
         "MATCHED_AGE_CLOCK",
     ]:
         fail("S5 allowed external null model registry changed")
+
+    if px_v3_candidate_freeze_policy.get("policy_id") != "ALMAS_PX_V3_CANDIDATE_FREEZE_V1":
+        fail("PX v3 candidate freeze policy id changed")
+    if px_v3_candidate_freeze_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("PX v3 candidate freeze policy must remain protocol-only")
+    if px_v3_candidate_freeze_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("PX v3 candidate freeze policy must remain E_PROJECT_POLICY")
+    px3_principles = px_v3_candidate_freeze_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "development_cases_cannot_validate_candidate",
+        "freeze_before_holdout",
+        "runtime_registry_mutation_forbidden",
+        "candidate_freeze_is_not_validation",
+    ):
+        if px3_principles.get(key) is not True:
+            fail(f"S6 PX v3 freeze invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if px3_principles.get(key) is not False:
+            fail(f"S6 PX v3 field must remain false: {key}")
+    if px_v3_candidate_registry.get("registry_id") != "ALMAS_PX_V3_CANDIDATES":
+        fail("PX v3 registry id changed")
+    if px_v3_candidate_registry.get("policy_id") != "ALMAS_PX_V3_CANDIDATE_FREEZE_V1":
+        fail("PX v3 registry/policy mismatch")
+    if px_v3_candidate_registry.get("records") != []:
+        fail("canonical PX v3 registry must remain empty before candidate preregistration")
+    if px_v3_candidate_registry.get("validated_candidate_ids") != []:
+        fail("S6 cannot contain validated PX v3 candidates")
+    for field in ("scoring_enabled", "weighting_enabled", "ontology_enabled"):
+        if px_v3_candidate_registry.get(field) is not False:
+            fail(f"PX v3 canonical registry must keep {field}=false")
+    px3_schema_props = px_v3_candidate_registry_schema.get("properties", {})
+    if px3_schema_props.get("registry_id", {}).get("const") != "ALMAS_PX_V3_CANDIDATES":
+        fail("PX v3 candidate schema registry id changed")
+    if px3_schema_props.get("policy_id", {}).get("const") != "ALMAS_PX_V3_CANDIDATE_FREEZE_V1":
+        fail("PX v3 candidate schema policy id changed")
+    if px3_schema_props.get("validated_candidate_ids", {}).get("maxItems") != 0:
+        fail("S6 schema must prohibit validated PX v3 candidate ids")
     external_schema_props = external_recurrence_cohort_schema.get("properties", {})
     if set(external_schema_props.get("null_model", {}).get("enum", [])) != {
         "PAIR_SHUFFLE",
