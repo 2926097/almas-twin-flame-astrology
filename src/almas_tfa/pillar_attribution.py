@@ -5,6 +5,10 @@ from importlib import resources
 from typing import Any, Mapping, Sequence
 
 from .core import pillar_score
+from .semantic_motifs import (
+    derive_semantic_motif_graph,
+    load_semantic_motif_policy,
+)
 
 
 POLICY_RESOURCE = "root-pillar-attribution-policy.json"
@@ -19,23 +23,14 @@ def load_root_pillar_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1":
+    if policy.get("policy_id") != "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2":
         raise ValueError("Política raíz→pilar desconocida o no congelada.")
+
     return policy
 
 
 def _norm(value: Any) -> str:
     return str(value).strip().upper().replace(" ", "_").replace("-", "_")
-
-
-def _set(policy: Mapping[str, Any], group: str, name: str) -> set[str]:
-    container = policy.get(group)
-    if not isinstance(container, Mapping):
-        raise ValueError(f"{group} debe ser un objeto.")
-    raw = container.get(name)
-    if not isinstance(raw, list):
-        raise ValueError(f"{group}.{name} debe ser una lista.")
-    return {_norm(item) for item in raw}
 
 
 def _root_points(root: Mapping[str, Any]) -> list[str]:
@@ -77,22 +72,9 @@ def _matches_primary(
 ) -> bool:
     points = _root_points(root)
     relations = _root_relations(root)
-    family_count = int(root.get("independent_family_count") or 0)
 
     point_sets = policy["point_sets"]
     relation_sets = policy["relation_sets"]
-
-    if rule_id == "PS_MISSION_SERVICE":
-        mission = {_norm(v) for v in point_sets["MISSION_ANCHOR"]}
-        return (
-            family_count >= 2
-            and "AXIS_MERIDIAN" in points
-            and _other_point_matches(
-                points,
-                {"AXIS_MERIDIAN"},
-                mission,
-            )
-        )
 
     if rule_id == "PK_KARMIC_CONTINUITY":
         karmic = {_norm(v) for v in point_sets["KARMIC_ANCHOR"]}
@@ -143,8 +125,8 @@ def classify_root(
 ) -> dict[str, Any]:
     """Clasifica una raíz core en un único pilar semántico primario.
 
-    PX puede añadirse como propiedad ortogonal de recurrencia. PU permanece
-    NOT_EVALUABLE en la baseline v1.
+    PX y PS no se calculan aquí. Desde 1.14.0 se derivan del grafo de motivos
+    semánticos recurrentes para evitar exigir igualdad literal de root_key.
     """
 
     if policy is None:
@@ -155,6 +137,8 @@ def classify_root(
 
     if not bool(root.get("core_eligible")):
         return {
+            "unit_id": root_id,
+            "unit_type": "ROOT",
             "root_id": root_id,
             "eligible": False,
             "reason": "NOT_CORE_ELIGIBLE",
@@ -166,6 +150,8 @@ def classify_root(
 
     if root.get("strength_state") != "CALCULATED_CORE":
         return {
+            "unit_id": root_id,
+            "unit_type": "ROOT",
             "root_id": root_id,
             "eligible": False,
             "reason": "ROOT_STRENGTH_NOT_CORE_CALCULATED",
@@ -177,6 +163,8 @@ def classify_root(
 
     if isinstance(strength, bool) or not isinstance(strength, (int, float)):
         return {
+            "unit_id": root_id,
+            "unit_type": "ROOT",
             "root_id": root_id,
             "eligible": False,
             "reason": "ROOT_STRENGTH_NOT_EVALUABLE",
@@ -200,6 +188,8 @@ def classify_root(
 
     if primary is None:
         return {
+            "unit_id": root_id,
+            "unit_type": "ROOT",
             "root_id": root_id,
             "eligible": False,
             "reason": "NO_SEMANTIC_RULE_MATCH",
@@ -209,45 +199,18 @@ def classify_root(
             "contributions": {},
         }
 
-    recurrence = policy["recurrence_rule"]
-    recurrent = int(root.get("independent_family_count") or 0) >= int(
-        recurrence["requires_independent_family_count_at_least"]
-    )
-
-    if recurrent:
-        raw_loadings = {
-            primary: float(recurrence["raw_loading_semantic"]),
-            "PX": float(recurrence["raw_loading_recurrence"]),
-        }
-    else:
-        raw_loadings = {primary: 1.0}
-
-    total = sum(raw_loadings.values())
-    if total <= 0.0 or total > 1.0 + 1e-12:
-        raise ValueError(
-            f"{root_id}: las cargas brutas deben cumplir 0 < sum(loadings) <= 1."
-        )
-
-    maximum = max(raw_loadings.values())
-    normalized = {
-        pillar: value / maximum
-        for pillar, value in raw_loadings.items()
-    }
-    contributions = {
-        pillar: strength * value
-        for pillar, value in normalized.items()
-    }
-
     return {
+        "unit_id": root_id,
+        "unit_type": "ROOT",
         "root_id": root_id,
         "eligible": True,
         "reason": None,
         "matched_rule": matched_rule,
         "primary_pillar": primary,
-        "recurrent": recurrent,
-        "loadings": raw_loadings,
-        "normalized_loadings": normalized,
-        "contributions": contributions,
+        "recurrent": False,
+        "loadings": {primary: 1.0},
+        "normalized_loadings": {primary: 1.0},
+        "contributions": {primary: strength},
         "strength": strength,
         "point_ids": list(_root_points(root)),
         "relation_ids": sorted(_root_relations(root)),
@@ -257,13 +220,46 @@ def classify_root(
     }
 
 
+def _motif_unit(
+    item: Mapping[str, Any],
+    *,
+    pillar: str,
+) -> dict[str, Any]:
+    motif_id = str(item["motif_id"])
+    unit_id = "MOTIF:" + motif_id
+    strength = float(item["motif_strength"])
+    return {
+        "unit_id": unit_id,
+        "unit_type": "SEMANTIC_MOTIF",
+        "root_id": unit_id,
+        "eligible": True,
+        "reason": None,
+        "primary_pillar": pillar,
+        "matched_rule": "SEMANTIC_MOTIF_RECURRENCE_V2",
+        "loadings": {pillar: 1.0},
+        "normalized_loadings": {pillar: 1.0},
+        "contributions": {pillar: strength},
+        "strength": strength,
+        "motif_id": motif_id,
+        "source_root_ids": list(item.get("root_ids", [])),
+        "dependency_families": list(
+            item.get("dependency_families", [])
+        ),
+        "derived_unit_not_independent_root": True,
+    }
+
+
 def derive_pillars_from_roots(
     roots: Sequence[Mapping[str, Any]],
     *,
     structural_absence_is_zero: bool,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Deriva raíces por pilar y puntuaciones M18 sin entrada manual."""
+    """Deriva pilares Q2/PXv2 desde raíces canónicas.
+
+    Los pilares PA/PK/PE/PR/PT proceden de raíces individuales. PX y PS se
+    derivan de motivos recurrentes que agregan familias técnicas independientes.
+    """
 
     if policy is None:
         policy = load_root_pillar_policy()
@@ -274,17 +270,35 @@ def derive_pillars_from_roots(
         if isinstance(root, Mapping)
     ]
 
+    motif_policy = load_semantic_motif_policy()
+    motif_graph = derive_semantic_motif_graph(
+        roots,
+        policy=motif_policy,
+    )
+
+    motif_attributions = [
+        _motif_unit(item, pillar="PX")
+        for item in motif_graph["recurrent_primary_motifs"]
+        if float(item.get("motif_strength", 0.0)) > 0.0
+    ] + [
+        _motif_unit(item, pillar="PS")
+        for item in motif_graph["recurrent_mission_motifs"]
+        if float(item.get("motif_strength", 0.0)) > 0.0
+    ]
+
+    attribution_units = [
+        item for item in root_attributions if item.get("eligible")
+    ] + motif_attributions
+
     strengths: dict[str, list[float]] = {pillar: [] for pillar in PILLARS}
     root_ids: dict[str, list[str]] = {pillar: [] for pillar in PILLARS}
 
-    for item in root_attributions:
-        if not item.get("eligible"):
-            continue
+    for item in attribution_units:
         for pillar, contribution in item["contributions"].items():
             if pillar == "PU":
                 continue
             strengths[pillar].append(float(contribution))
-            root_ids[pillar].append(str(item["root_id"]))
+            root_ids[pillar].append(str(item["unit_id"]))
 
     pillars: dict[str, float | None] = {}
     for pillar in PILLARS:
@@ -301,13 +315,18 @@ def derive_pillars_from_roots(
         "policy_id": policy["policy_id"],
         "policy_status": policy["status"],
         "epistemic_class": policy["epistemic_class"],
+        "semantic_motif_policy_id": motif_policy["policy_id"],
         "structural_absence_is_zero": bool(structural_absence_is_zero),
         "pillar_root_strengths": strengths,
         "pillar_root_ids": root_ids,
         "root_attributions": root_attributions,
+        "motif_attributions": motif_attributions,
+        "attribution_units": attribution_units,
+        "semantic_motifs": motif_graph,
         "pillars": pillars,
         "pu_state": "NOT_EVALUABLE",
         "pu_reason": policy["singularity_rule"]["reason"],
         "semantic_cross_pillar_duplication": False,
-        "recurrence_meta_pillar_may_repeat_primary_root": True,
+        "recurrence_source": "SEMANTIC_MOTIF_GRAPH_V2",
+        "motif_units_are_derived_not_independent_roots": True,
     }
