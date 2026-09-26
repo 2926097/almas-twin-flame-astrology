@@ -239,7 +239,23 @@ Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABIL
 
 `VALIDATED_DISCRIMINATOR` tiene un gate adicional: debe declarar `validation_level=L3_VALIDATED`, `source_module=M21` y un `root_key` que figure entre las raíces validadas de un par con `confirmatory_status=SEPARABLE_VALIDATED` en `ontological_discrimination`. L1 y L2 no pueden entrar en IRC, y un par L3 conflictivo tampoco autoriza el componente.
 
-La presencia de M22 no crea automáticamente un componente IRC: sin una regla preregistrada de conversión, M25 registra `ablation_state=AVAILABLE_NOT_QUANTIFIED`. M24 queda excluido del IRC mediante `null_model_rarity_used_as_robustness=false`.
+Desde Q5, cuando se inyectan los backends estructurales y está activa
+`ALMAS_ROBUSTNESS_Q5_V1`, M25 deriva automáticamente tres componentes:
+
+- `ABLATION`: reconstruye IEM_pre sobre AB3–AB7 seleccionadas y combina
+  movimiento de IEM con preservación de raíces core;
+- `PARAMETER_PERTURBATION`: escala los orbes declarados por
+  0.90/0.95/1.05/1.10 y recalcula estructura;
+- `IDD_STABILITY`: recalcula Shapley e IDD sobre esas mismas perturbaciones y
+  mide estabilidad numérica y de bandas.
+
+Los componentes automáticos sustituyen al adaptador legacy del mismo `kind`;
+nunca se cuentan dos veces. Sin la política Q5 evaluable, M22 puede seguir
+figurando como `AVAILABLE_NOT_QUANTIFIED` y los componentes legacy
+preregistrados permanecen disponibles.
+
+M24 queda excluido del IRC mediante
+`null_model_rarity_used_as_robustness=false`.
 
 La agregación normativa permanece:
 
