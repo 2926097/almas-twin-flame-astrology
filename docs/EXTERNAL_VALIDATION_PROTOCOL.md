@@ -202,6 +202,26 @@ Una regla puede pasar de `EXPERIMENTAL` a `CONFIRMATORY_ELIGIBLE` sólo si:
 
 `CONFIRMATORY_ELIGIBLE` no significa ontología demostrada.
 
+
+### Gate hacia M25
+
+`CONFIRMATORY_ELIGIBLE` no basta para entrar en IRC como `VALIDATED_DISCRIMINATOR`.
+
+Para que una señal ontológica pueda declararse `L3_VALIDATED` y ser consumida por M25 debe existir, además de los criterios anteriores:
+
+1. regla congelada;
+2. ejecución confirmatoria fuera del conjunto de desarrollo;
+3. replicación independiente suficiente para el alcance declarado;
+4. controles negativos sin falsa especificidad inaceptable;
+5. ausencia de `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE` y `CASE_FITTING`;
+6. alcance de validación explícito por pares de modelos;
+7. `root_key` estable y trazable;
+8. promoción documental previa al análisis del caso donde vaya a usarse.
+
+M25 no realiza esta promoción. Sólo verifica que la salida canónica M21 ya presenta una raíz como L3 confirmatoria y que el componente de robustez la referencia de forma explícita.
+
+Mientras ningún discriminador haya completado esta promoción, la infraestructura puede existir sin que haya ningún `VALIDATED_DISCRIMINATOR` real utilizable.
+
 ## 11. Verdad de referencia documental
 
 ALMAS no utilizará como verdad de referencia:
