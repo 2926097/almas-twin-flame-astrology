@@ -18,14 +18,15 @@ El análisis es reportable como FULL sin degradaciones detectadas.
 
 Requiere:
 
-- `canonical_analysis` presente o ensamblable de forma determinista mediante `ALMAS_CANONICAL_ASSEMBLY_V1`;
+- `canonical_analysis` presente o ensamblable de forma determinista mediante `ALMAS_CANONICAL_ASSEMBLY_V2`;
 - campos canónicos obligatorios;
 - `schema_version=1.0.0`;
 - `analysis_mode` válido;
 - coherencia interna de modelos;
 - ninguna incidencia bloqueante;
 - traza de ejecución disponible;
-- ningún módulo previo `FAILED`, `NOT_EVALUABLE` o `SKIPPED`.
+- ningún módulo previo `FAILED`;
+- ningún `NOT_EVALUABLE` o `SKIPPED` que sea requerido por el `analysis_profile` activo.
 
 ### PARTIAL
 
@@ -36,8 +37,8 @@ Causas típicas:
 - `analysis_mode=TARGETED`;
 - `analysis_mode=TEMPORAL`;
 - traza de ejecución no disponible;
-- módulos previos `NOT_EVALUABLE`;
-- módulos previos `SKIPPED`;
+- módulos previos `NOT_EVALUABLE` requeridos por el perfil;
+- módulos previos `SKIPPED` requeridos por el perfil;
 - métricas FULL como ICC/IRC/indices no declaradas.
 
 PARTIAL no autoriza rellenar datos ausentes.
@@ -118,8 +119,8 @@ Valores ICC/IRC fuera de 0–100 sí son bloqueantes.
 Cuando existen resultados M00–M29:
 
 - `FAILED` → BLOCKED;
-- `NOT_EVALUABLE` → PARTIAL;
-- `SKIPPED` → PARTIAL;
+- `NOT_EVALUABLE` → PARTIAL sólo si el módulo es requerido por el perfil;
+- `SKIPPED` → PARTIAL sólo si el módulo es requerido por el perfil;
 - `NOT_APPLICABLE` → no degrada por sí mismo;
 - `COMPLETED` → válido.
 
@@ -150,3 +151,7 @@ Entrada:
 Salida:
 
 `schemas/report-gate-output.schema.json`
+
+## 10. Perfiles de análisis
+
+M30 reconoce `FULL_MULTIDISCIPLINARY`, `FULL_ASTROLOGY` y `STRUCTURAL_ASTROLOGY` mediante `ALMAS_ANALYSIS_PROFILES_V1`. El perfil sólo gobierna completitud formal. No modifica IEM, IDD, IRC, ICE, estados ontológicos ni evidencia.
