@@ -14,7 +14,7 @@ metadata:
 
 Ésta es la release pública `1.14.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
-La release 1.14.0 incorpora el cierre cuantitativo Q1–Q7: M17 deriva fuerza de raíces, M18 deriva pilares, M21 deriva atribuciones Shapley e IDD, M23 genera sensibilidad horaria, M24 puede generar un nulo WITHIN_YEAR autocontenido, M25 deriva robustez por ablación/parámetros/estabilidad IDD y Q7 ensambla `canonical_analysis` antes de M30 cuando no se suministra uno explícito.
+La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
 ### Enfoque de investigación metafísica
 
@@ -133,18 +133,29 @@ No implicaciones críticas:
 Registro normativo: `reference/ontology-registry.json`.
 Schema de salida: `schemas/ontology-output.schema.json`.
 
-## 6. Modos de ejecución
+## 6. Modos y perfiles de ejecución
 
-- `FULL`: todos los módulos estructurales, cruzados, temporales, de robustez, doctrinales y de reporting aplicables.
-- `TARGETED`: sólo técnicas seleccionadas; la salida debe marcarse como parcial.
+El `mode` controla el tipo de ejecución técnica. El `analysis_profile` controla qué módulos deben estar completos para M30.
+
+Modos:
+- `FULL`: ejecución estructural completa del alcance solicitado.
+- `TARGETED`: sólo técnicas seleccionadas; la salida debe marcarse como parcial salvo contrato específico.
 - `TEMPORAL`: activación temporal de un análisis estructural previo; en otro caso `TEMPORAL_UNANCHORED`.
 - `REPORT`: deriva únicamente del análisis canónico.
+
+Perfiles públicos:
+- `FULL_MULTIDISCIPLINARY`: perfil estricto por defecto; incluye estructura, temporalidad, doctrina y realidad cuando son requeridas.
+- `FULL_ASTROLOGY`: estudio completo limitado a cartas; M26–M29 quedan fuera del alcance por defecto y M12–M14/M20 son opcionales.
+- `TEMPORAL`: estructura más activación temporal.
+- `SOUL_CONTRACT`: estructura y robustez con la capa doctrinal/contractual requerida.
+
+`M30=READY` significa que la ejecución está completa para el perfil elegido. No significa que una ontología metafísica haya sido demostrada.
 
 ## 7. Grafo obligatorio de módulos
 
 `M00 manifiesto → M01 calidad de datos → M02 natal → M03 sinastría → M04 nodos/ángulos/casas/regencias → M05 declinaciones → M06 antiscios/contra-antiscios → M07 compuesta → M08 Davison → M09 consonancia de cartas relacionales → M10 dracónicas individuales → M11 natal↔dracónica → M12 dracónica↔dracónica → M13 lotes → M14 capa simbólica secundaria → M15 extracción de evidencia → M16 dependencia/deduplicación → M17 raíces independientes → M18 pilares → M19 índices de modelos estructurales → M20 contraevidencia → M21 atribución/discriminación diferencial → M22 ablación → M23 sensibilidad horaria → M24 modelos nulos → M25 robustez → M26 activación temporal → M27 eventos fechados → M28 doctrina/hermenéutica → M29 viabilidad/reciprocidad → M30 gate de informe → M31 modelo documental`.
 
-La omisión de un módulo calculable requerido en `FULL` bloquea un resultado completo. Un módulo genuinamente imposible es `NOT_EVALUABLE` y no debe sustituirse por cero.
+La omisión de un módulo requerido por el perfil degrada o bloquea el resultado según M30. Un módulo opcional o excluido por el perfil no degrada por sí mismo. Un módulo genuinamente imposible es `NOT_EVALUABLE` y no debe sustituirse por cero.
 
 ## 8. Alcance astrológico
 
@@ -160,7 +171,7 @@ Incluir, cuando los datos lo permitan:
 - cartas dracónicas individuales;
 - natal↔dracónica en ambas direcciones;
 - dracónica↔dracónica como capa corroborativa;
-- lotes helenísticos con fórmula y fuente;
+- lotes helenísticos con fórmula y fuente; si no se declara política, M13 usa únicamente Fortuna y Espíritu bajo `ALMAS_HELLENISTIC_LOTS_V1`;
 - asteroides secundarios como `support_only`;
 - progresiones;
 - arco solar;
@@ -204,9 +215,15 @@ Para puntuar, normalizar dentro de cada elemento de evidencia:
 - `PS`: Misión/servicio.
 - `PU`: Singularidad diádica, experimental.
 
-Para cada pilar, usar las tres raíces independientes más fuertes `r1 >= r2 >= r3`:
+Para PA, PK, PE, PR y PT, usar las tres contribuciones core independientes más fuertes `r1 >= r2 >= r3`:
 
 `P = 100 × (r1 + 0.5r2 + (1/3)r3) / (1 + 0.5 + 1/3)`.
+
+Desde 1.14.0, PX y PS no exigen identidad literal de `root_key`. M18 conserva las raíces geométricas y construye encima un `Semantic Motif Graph`. Un motivo recurrente debe sobrevivir en al menos dos familias de dependencia independientes y normalmente en dos raíces diferentes; una sola raíz puede bastar únicamente si M16 ya la ha demostrado multifamilia. Cada familia cuenta una vez por motivo.
+
+PX agrega motivos primarios recurrentes. PS agrega motivos de misión recurrentes ligados al eje meridiano y a Sol/Júpiter/Saturno/eje nodal. Las unidades de motivo son features derivadas, no nuevas raíces independientes. `support_only` no puede crear PX o PS core. PU permanece experimental y `NOT_EVALUABLE` sin discriminador validado.
+
+Especificación: `docs/SEMANTIC_RECURRENCE_1_14.md`.
 
 ## 11. Índice de Encaje del Modelo — IEM
 
@@ -238,7 +255,7 @@ Los IEM son independientes y no suman 100.
 
 `IDD` = **Índice de Discriminación Diagnóstica**. `IDE` puede aparecer como alias histórico de `IDD`.
 
-Usar atribución Shapley sobre `IEM_pre` para estimar qué raíces independientes distinguen modelos. Se prefiere la atribución exacta para conjuntos pequeños de raíces; para conjuntos mayores puede usarse una aproximación determinista por permutaciones con control de convergencia.
+Usar atribución Shapley sobre `IEM_pre` para estimar qué unidades canónicas de evidencia distinguen modelos. Una unidad puede ser una raíz independiente o una feature de motivo semántico derivada para PX/PS; una feature de motivo no se declara raíz independiente adicional. Se prefiere la atribución exacta para conjuntos pequeños; para conjuntos mayores puede usarse una aproximación determinista por permutaciones con control de convergencia.
 
 Normalizar las contribuciones primarias por modelo y comparar distribuciones mediante divergencia Jensen–Shannon. Una forma práctica 0–100 es:
 
@@ -257,6 +274,8 @@ IDD mide separación de arquitecturas de evidencia, no verdad metafísica.
 `IRC` = **Índice de Robustez de la Clasificación**.
 
 Los componentes aplicables pueden incluir robustez frente a hora natal, ablación de capas, perturbación de parámetros, estabilidad de IDD y discriminadores validados cuando existan.
+
+M23 separa una curva diagnóstica `R5/R15/R30/R60/R120` del componente agregado `BIRTH_TIME`. La curva puede calcularse sin rating A/B/C/D si existen hora, zona y localización. El componente único sólo entra en IRC cuando la fiabilidad horaria está documentada. Si la arquitectura depende de puntos horarios y no existe ese componente, el gate canónico impide elevar un modelo a `SUPPORTED`.
 
 Para la familia de perturbación X:
 
