@@ -120,7 +120,7 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         policy = load_canonical_assembly_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_CANONICAL_ASSEMBLY_V1",
+            "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertFalse(
@@ -154,7 +154,7 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         self.assertAlmostEqual(canonical["indices"]["IDD"], 12.0)
         self.assertEqual(
             canonical["assembly"]["policy_id"],
-            "ALMAS_CANONICAL_ASSEMBLY_V1",
+            "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
 
     def test_supported_requires_evaluable_ice(self):
@@ -193,6 +193,35 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
                 canonical["models"][model]["state"],
                 "SUPPORTED",
             )
+
+    def test_full_astrology_profile_can_be_ready_with_excluded_layers_not_evaluable(self):
+        prior = prior_all()
+        for module_id in ("M20", "M28", "M29"):
+            prior[module_id] = ModuleResult(
+                module_id=module_id,
+                status=ExecutionStatus.NOT_EVALUABLE,
+            )
+
+        handler = make_m30_report_gate_auto()
+        result = handler(
+            ModuleContext(
+                module_id="M30",
+                module_name="report_gate",
+                mode="FULL",
+                raw_input={"analysis_profile": "FULL_ASTROLOGY"},
+                canonical_snapshot=canonical_base(with_ice=False),
+                prior_results=prior,
+            )
+        )
+        self.assertEqual(result.status, ExecutionStatus.COMPLETED)
+        gate = result.canonical_updates["report_gate"]
+        self.assertEqual(gate["analysis_profile"], "FULL_ASTROLOGY")
+        self.assertEqual(gate["state"], "READY")
+        self.assertTrue(gate["reportable"])
+        self.assertIn(
+            "M28",
+            gate["profile_assessment"]["ignored_not_evaluable"],
+        )
 
     def test_auto_m30_builds_canonical_and_reaches_ready(self):
         handler = make_m30_report_gate_auto()
