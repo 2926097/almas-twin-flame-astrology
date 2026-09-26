@@ -360,12 +360,13 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
     if ontological_output is not None:
         canonical_updates["ontological_discrimination"] = ontological_output
 
-    limitations = [
-        "IDD mide separación entre arquitecturas de evidencia AF/KA/AG/LG y no es un discriminador ontológico."
-    ]
+    limitations = []
     diagnostics = []
 
     if attribution_source == "AUTO_SHAPLEY_CANONICAL_ROOTS":
+        limitations.append(
+            "IDD mide separación entre arquitecturas de evidencia AF/KA/AG/LG y no es un discriminador ontológico."
+        )
         limitations.append(
             "Las atribuciones automáticas usan IEM_pre; ICE, IEM_final, temporalidad y rareza nula quedan excluidos de la función de valor."
         )
@@ -379,10 +380,6 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
                 + "; root_count="
                 + str(method.get("root_count"))
             )
-    elif attribution_source == "LEGACY_PRECOMPUTED":
-        limitations.append(
-            "Se usaron atribuciones IDD precomputadas por compatibilidad legacy porque la atribución automática canónica no era evaluable."
-        )
 
     if ontological_output is not None:
         limitations.append(
@@ -392,8 +389,16 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
             "La subcapa ontológica no consume IEM, IDD ni scores como evidencia decisoria."
         )
 
-    if ontological_output is None:
-        payload: Mapping[str, Any] = {
+    if (
+        attribution_source == "LEGACY_PRECOMPUTED"
+        and ontological_output is None
+        and auto_attribution is None
+    ):
+        # Contrato 1.12.x: conservar exactamente la forma histórica cuando
+        # sólo se suministran mapas precomputados.
+        payload: Mapping[str, Any] = idd_output
+    elif ontological_output is None:
+        payload = {
             "attribution_source": attribution_source,
             "model_attributions": auto_attribution,
             "pairwise_idd": idd_output,
