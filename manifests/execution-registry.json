@@ -138,7 +138,7 @@
     {
       "id": "M25",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/robustness_index_handlers.py:m25_robustness"
+      "implementation": "src/almas_tfa/robustness_index_handlers.py:make_m25_robustness + src/almas_tfa/robustness_quantification.py"
     },
     {
       "id": "M26",
