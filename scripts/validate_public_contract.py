@@ -73,6 +73,7 @@ REQUIRED_FILES = [
     "schemas/structural-ablation-output.schema.json",
     "schemas/time-sensitivity-output.schema.json",
     "schemas/null-model-output.schema.json",
+    "schemas/external-recurrence-control-cohort.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -187,6 +188,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/recurrence-quality-policy.json",
     "src/almas_tfa/data/recurrence-null-calibration-policy.json",
     "src/almas_tfa/data/recurrence-synthetic-controls-policy.json",
+    "src/almas_tfa/data/external-recurrence-cohort-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -215,6 +217,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/recurrence_quality.py",
     "src/almas_tfa/null_calibration.py",
     "src/almas_tfa/synthetic_controls.py",
+    "src/almas_tfa/external_control_cohorts.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -309,6 +312,7 @@ REQUIRED_FILES = [
     "tests/test_recurrence_quality.py",
     "tests/test_null_calibration.py",
     "tests/test_synthetic_controls.py",
+    "tests/test_external_control_cohorts.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -470,6 +474,9 @@ def main() -> int:
     recurrence_synthetic_controls_policy = load_json(
         "src/almas_tfa/data/recurrence-synthetic-controls-policy.json"
     )
+    external_recurrence_cohort_policy = load_json(
+        "src/almas_tfa/data/external-recurrence-cohort-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -521,6 +528,9 @@ def main() -> int:
     null_model_schema = load_json("schemas/null-model-output.schema.json")
     robustness_output_schema = load_json("schemas/robustness-output.schema.json")
     null_model_output_schema = load_json("schemas/null-model-output.schema.json")
+    external_recurrence_cohort_schema = load_json(
+        "schemas/external-recurrence-control-cohort.schema.json"
+    )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
     doctrine_output_schema = load_json("schemas/doctrine-hermeneutics-output.schema.json")
@@ -931,6 +941,61 @@ def main() -> int:
         "DECOUPLED_POINT_RELATION_ROTATION",
     ]:
         fail("S3 control family registry changed")
+
+    if external_recurrence_cohort_policy.get("policy_id") != "ALMAS_EXTERNAL_RECURRENCE_COHORT_V1":
+        fail("external recurrence cohort policy id changed")
+    if external_recurrence_cohort_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("external recurrence cohort policy must remain protocol-only")
+    if external_recurrence_cohort_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("external recurrence cohort policy must remain E_PROJECT_POLICY")
+    external_principles = external_recurrence_cohort_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "preregistration_required_for_external_candidate",
+        "contamination_forbids_external_candidate",
+        "development_only_never_validates_its_own_rule",
+        "raw_private_case_storage_in_repo_forbidden",
+        "public_output_must_be_aggregate_only",
+        "sample_identifiers_not_exposed_in_public_summary",
+        "sample_snapshots_not_exposed_in_public_summary",
+        "label_narrative_outcome_leakage_forbidden",
+        "structural_snapshot_required",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+    ):
+        if external_principles.get(key) is not True:
+            fail(f"S4 external cohort invariant failed: {key}")
+    for key in (
+        "metaphysical_probability",
+        "weighting_enabled",
+        "l3_validation_enabled",
+    ):
+        if external_principles.get(key) is not False:
+            fail(f"S4 external cohort field must remain false: {key}")
+    if external_recurrence_cohort_policy.get("allowed_null_models") != [
+        "PAIR_SHUFFLE",
+        "MATCHED_AGE",
+        "MATCHED_AGE_CLOCK",
+    ]:
+        fail("S4 allowed external null model registry changed")
+    external_schema_props = external_recurrence_cohort_schema.get("properties", {})
+    if set(external_schema_props.get("null_model", {}).get("enum", [])) != {
+        "PAIR_SHUFFLE",
+        "MATCHED_AGE",
+        "MATCHED_AGE_CLOCK",
+    }:
+        fail("S4 schema null_model enum diverges from policy")
+    sample_schema = (
+        external_schema_props.get("samples", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    recurrence_snapshot_schema = sample_schema.get("recurrence_snapshot", {})
+    if "pillar_attribution" not in recurrence_snapshot_schema.get("required", []):
+        fail("S4 recurrence snapshot must require pillar_attribution")
 
     if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
