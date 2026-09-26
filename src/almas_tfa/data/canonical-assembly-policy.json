@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Ensamblar canonical_analysis desde namespaces M01-M29 ya calculados, sin recalcular evidencia ni ajustar valores al caso.",
+  "analysis_mode": "FULL",
+  "coverage": {
+    "formula": "100*sum(q_domain)/7",
+    "allowed_q": [0.0, 0.5, 1.0],
+    "domains": [
+      "BASE_NATAL",
+      "SYNASTRY_NODES",
+      "ANGLES_HOUSES",
+      "SYMMETRIES",
+      "RELATIONSHIP_CHARTS",
+      "DRACONIC",
+      "LOTS_SECONDARY"
+    ]
+  },
+  "global_idd": {
+    "method": "MIN_EVALUABLE_PAIRWISE_IDD",
+    "reason": "Conserva la separabilidad diagnóstica más débil entre los pares evaluables."
+  },
+  "global_ice": {
+    "method": "MAX_MODEL_ICE",
+    "requires_ice_by_model": true
+  },
+  "model_state": {
+    "supported_requires_evaluable_ice": true,
+    "contradicted_on_essential_contradiction": true,
+    "compatible_when_positive_iem_and_not_supported": true,
+    "insufficient_when_zero_iem_without_contradiction": true
+  },
+  "principles": {
+    "case_fitting_forbidden": true,
+    "existing_canonical_never_overwritten": true,
+    "missingness_is_not_zero_except_coverage_q": true,
+    "assembler_recalculates_astrology": false,
+    "assembler_recalculates_roots": false,
+    "assembler_recalculates_pillars": false,
+    "null_rarity_changes_iem": false,
+    "temporal_activation_changes_iem": false,
+    "ontological_discrimination_separate_from_AF_KA_AG_LG": true
+  }
+}
