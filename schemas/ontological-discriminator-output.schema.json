@@ -14,6 +14,7 @@
     "identifiability_state",
     "epistemic_state",
     "classification",
+    "promotion_trace",
     "conflicts",
     "false_specificity_guard",
     "rules"
@@ -243,6 +244,44 @@
         }
       },
       "additionalProperties": false
+    },
+    "promotion_trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "discriminator_id",
+          "promotion_ref",
+          "root_key",
+          "pair"
+        ],
+        "properties": {
+          "discriminator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "promotion_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pair": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
     }
   },
   "additionalProperties": false
