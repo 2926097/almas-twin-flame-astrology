@@ -28,8 +28,11 @@ ALMAS se publica como **una única skill**. Sus motores son módulos internos:
 - temporalidad y hechos documentales;
 - validación, ablación y robustez;
 - reporting.
+- informes astrológicos personales PDF mediante canonical individual y perfiles de publicación.
 
 La arquitectura normativa está en `docs/MODULE_ARCHITECTURE.md`.
+
+El punto de entrada especializado `skills/almas-personal-pdf/SKILL.md` permite informes individuales sin crear una segunda skill pública. Usa contratos propios de análisis personal, routing modular de referencias y cinco perfiles de informe; véase `docs/PERSONAL_REPORTING.md`.
 
 Los manifiestos y registros principales tienen funciones distintas:
 
@@ -114,6 +117,7 @@ El paquete incluye un orquestador determinista y módulos ejecutables para:
 - activación temporal y ledger documental;
 - firewalls doctrinales, viabilidad/reciprocidad y gate de reporting;
 - modelo documental M31 con fingerprint canónico y 11 secciones trazables.
+- API Python `personal_report_handlers` para validar un canonical personal, seleccionar referencias y construir modelos documentales B5 sin mutar datos.
 
 `M02` (natal) y `M08` (Davison) disponen de contrato ejecutable pero requieren backends astronómicos inyectados. `configured_handlers(...)` permite suministrarlos sin acoplar ALMAS a una biblioteca concreta.
 
