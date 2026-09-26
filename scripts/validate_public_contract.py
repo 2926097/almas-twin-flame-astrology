@@ -189,6 +189,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/recurrence-null-calibration-policy.json",
     "src/almas_tfa/data/recurrence-synthetic-controls-policy.json",
     "src/almas_tfa/data/external-recurrence-cohort-policy.json",
+    "src/almas_tfa/data/external-recurrence-calibration-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -218,6 +219,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/null_calibration.py",
     "src/almas_tfa/synthetic_controls.py",
     "src/almas_tfa/external_control_cohorts.py",
+    "src/almas_tfa/external_recurrence_calibration.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -313,6 +315,7 @@ REQUIRED_FILES = [
     "tests/test_null_calibration.py",
     "tests/test_synthetic_controls.py",
     "tests/test_external_control_cohorts.py",
+    "tests/test_external_recurrence_calibration.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -476,6 +479,9 @@ def main() -> int:
     )
     external_recurrence_cohort_policy = load_json(
         "src/almas_tfa/data/external-recurrence-cohort-policy.json"
+    )
+    external_recurrence_calibration_policy = load_json(
+        "src/almas_tfa/data/external-recurrence-calibration-policy.json"
     )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
@@ -981,6 +987,50 @@ def main() -> int:
         "MATCHED_AGE_CLOCK",
     ]:
         fail("S4 allowed external null model registry changed")
+
+    if external_recurrence_calibration_policy.get("policy_id") != "ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1":
+        fail("external recurrence calibration policy id changed")
+    if external_recurrence_calibration_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("external recurrence calibration policy must remain diagnostic")
+    if external_recurrence_calibration_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("external recurrence calibration policy must remain E_PROJECT_POLICY")
+    external_calibration_principles = external_recurrence_calibration_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "diagnostic_only",
+        "clean_external_candidates_only",
+        "preregistered_only",
+        "development_only_excluded",
+        "contaminated_samples_excluded",
+        "leakage_samples_excluded",
+        "aggregate_public_output_only",
+        "sample_identifiers_not_exposed",
+        "sample_snapshots_not_exposed",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "combined_p_value_forbidden",
+        "multiple_testing_correction_not_claimed",
+    ):
+        if external_calibration_principles.get(key) is not True:
+            fail(f"S5 external calibration invariant failed: {key}")
+    for key in (
+        "weighting_enabled",
+        "candidate_freeze_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+        "population_probability_claim",
+    ):
+        if external_calibration_principles.get(key) is not False:
+            fail(f"S5 external calibration field must remain false: {key}")
+    if external_recurrence_calibration_policy.get("allowed_null_models") != [
+        "PAIR_SHUFFLE",
+        "MATCHED_AGE",
+        "MATCHED_AGE_CLOCK",
+    ]:
+        fail("S5 allowed external null model registry changed")
     external_schema_props = external_recurrence_cohort_schema.get("properties", {})
     if set(external_schema_props.get("null_model", {}).get("enum", [])) != {
         "PAIR_SHUFFLE",
