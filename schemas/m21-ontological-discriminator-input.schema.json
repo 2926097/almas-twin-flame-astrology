@@ -60,6 +60,12 @@
               "string",
               "null"
             ]
+          },
+          "promotion_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         },
         "additionalProperties": false
