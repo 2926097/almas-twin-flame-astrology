@@ -28,6 +28,7 @@ REQUIRED_FILES = [
     "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md",
     "docs/DISCRIMINANT_VALIDATION_POLICY.md",
     "docs/BLINDING_LEAKAGE_POLICY.md",
+    "docs/PROMOTION_STATE_MACHINE.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -36,6 +37,7 @@ REQUIRED_FILES = [
     "schemas/canonical-analysis.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
+    "schemas/discriminator-promotion-transition.schema.json",
     "schemas/discriminant-validation-evidence.schema.json",
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
@@ -154,9 +156,11 @@ REQUIRED_FILES = [
     "src/almas_tfa/discriminator_promotion_registry.py",
     "src/almas_tfa/discriminant_validation.py",
     "src/almas_tfa/blinding_leakage.py",
+    "src/almas_tfa/promotion_state_machine.py",
     "src/almas_tfa/data/discriminator-promotion-registry.json",
     "src/almas_tfa/data/discriminant-validation-policy.json",
     "src/almas_tfa/data/blinding-leakage-policy.json",
+    "src/almas_tfa/data/promotion-state-machine-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -207,6 +211,7 @@ REQUIRED_FILES = [
     "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md",
     "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md",
     "tests/BLINDING_LEAKAGE_INVARIANTS.md",
+    "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -248,6 +253,7 @@ REQUIRED_FILES = [
     "tests/test_astrological_discriminator_independence.py",
     "tests/test_discriminant_validation.py",
     "tests/test_blinding_leakage.py",
+    "tests/test_promotion_state_machine.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -368,6 +374,9 @@ def main() -> int:
     blinding_leakage_policy = load_json(
         "src/almas_tfa/data/blinding-leakage-policy.json"
     )
+    promotion_state_machine_policy = load_json(
+        "src/almas_tfa/data/promotion-state-machine-policy.json"
+    )
     operational_discriminator_candidates = load_json(
         "reference/operational-discriminator-candidates.json"
     )
@@ -485,6 +494,24 @@ def main() -> int:
     if registry_validated_ids != registry_authorized_ids:
         fail("promotion registry validated_discriminator_ids diverges from authorized records")
 
+    expected_current_promotion_states = {
+        "OD01_PAIR_SPECIFICITY_NETWORK": "EXPLORATORY",
+        "OD02_DYADIC_STRUCTURAL_ISOMORPHISM": "EXPLORATORY",
+        "OD03_BLINDED_DOCTRINAL_CODING": "EXPLORATORY",
+        "OD04_PROSPECTIVE_MODEL_PREDICTION": "EXPLORATORY",
+        "OD05_PRIOR_UNITY_DIRECT": "BLOCKED",
+        "OD06_MONADIC_HIERARCHY_DIRECT": "BLOCKED",
+        "OD07_PHENOMENOLOGY_CLUSTER": "RETIRED",
+    }
+    actual_current_promotion_states = {
+        record.get("discriminator_id"): record.get("current_status")
+        for record in discriminator_promotion_registry.get("records", [])
+    }
+    if actual_current_promotion_states != expected_current_promotion_states:
+        fail("productive promotion states changed during Step 16")
+    if registry_validated_ids:
+        fail("Step 16 must not create a productive L3 promotion")
+
     if discriminant_validation_policy.get("policy_id") != "ALMAS_DISCRIMINANT_VALIDATION_V1":
         fail("discriminant validation policy id changed")
     if discriminant_validation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
@@ -534,7 +561,94 @@ def main() -> int:
     if not expected_zero_counts.issubset(required_zero_counts):
         fail("blinding/leakage zero-count gates are incomplete")
 
+    if promotion_state_machine_policy.get("policy_id") != "ALMAS_PROMOTION_STATE_MACHINE_V1":
+        fail("promotion state-machine policy id changed")
+    if promotion_state_machine_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("promotion state-machine policy must remain E_PROJECT_POLICY")
+
+    expected_mainline = [
+        "EXPLORATORY",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "VALIDATED_DISCRIMINATOR",
+    ]
+    if promotion_state_machine_policy.get("mainline_states") != expected_mainline:
+        fail("promotion state-machine mainline changed")
+    if promotion_state_machine_policy.get("forward_skips_allowed") is not False:
+        fail("promotion state-machine must forbid forward skips")
+    if promotion_state_machine_policy.get("validated_rollback_allowed") is not False:
+        fail("validated discriminator rollback must remain forbidden")
+    if promotion_state_machine_policy.get("retired_is_terminal") is not True:
+        fail("RETIRED must remain terminal")
+    if promotion_state_machine_policy.get("validated_invalidation_target") != "RETIRED":
+        fail("invalidated L3 must retire")
+
+    expected_forward = {
+        "EXPLORATORY": "REPRODUCIBLE",
+        "REPRODUCIBLE": "REPLICATION_READY",
+        "REPLICATION_READY": "CONFIRMATORY_ELIGIBLE",
+        "CONFIRMATORY_ELIGIBLE": "VALIDATED_DISCRIMINATOR",
+    }
+    if promotion_state_machine_policy.get("forward_transitions") != expected_forward:
+        fail("promotion forward transitions changed")
+
+    if discriminator_promotion_registry.get("state_machine_policy_id") != "ALMAS_PROMOTION_STATE_MACHINE_V1":
+        fail("promotion registry is not bound to the state-machine policy")
+
+    expected_promotion_evidence_keys = {
+        "implementation_refs",
+        "reproducibility_refs",
+        "synthetic_test_refs",
+        "preregistration_refs",
+        "counterevidence_refs",
+        "negative_control_plan_refs",
+        "leakage_plan_refs",
+        "independent_replication_refs",
+        "negative_control_result_refs",
+        "doctrine_gate_refs",
+        "discriminator_evaluation_refs",
+        "holdout_protocol_refs",
+        "support_only_exclusion_refs",
+    }
+
     for record in discriminator_promotion_registry.get("records", []):
+        promotion_evidence = record.get("promotion_evidence")
+        if not isinstance(promotion_evidence, dict):
+            fail(
+                f"promotion registry record lacks promotion_evidence: "
+                f"{record.get('discriminator_id')}"
+            )
+        if set(promotion_evidence) != expected_promotion_evidence_keys:
+            fail(
+                f"promotion_evidence keys diverge: "
+                f"{record.get('discriminator_id')}"
+            )
+        state_history = record.get("state_history")
+        if not isinstance(state_history, list) or not state_history:
+            fail(
+                f"promotion registry record lacks state_history: "
+                f"{record.get('discriminator_id')}"
+            )
+        if state_history[-1].get("to_status") != record.get("current_status"):
+            fail(
+                f"state_history current status mismatch: "
+                f"{record.get('discriminator_id')}"
+            )
+        transition_ids = [event.get("transition_id") for event in state_history]
+        if len(transition_ids) != len(set(transition_ids)):
+            fail(
+                f"duplicate promotion transition_id: "
+                f"{record.get('discriminator_id')}"
+            )
+        if (
+            record.get("current_status") != "VALIDATED_DISCRIMINATOR"
+            and record.get("l3_authorized") is True
+        ):
+            fail(
+                f"non-L3 record cannot be l3_authorized: "
+                f"{record.get('discriminator_id')}"
+            )
         if "discriminant_validation" not in record:
             fail(
                 f"promotion registry record lacks discriminant_validation: "
@@ -601,6 +715,31 @@ def main() -> int:
     ):
         if token not in blinding_invariants:
             fail("blinding/leakage invariants are incomplete")
+
+    promotion_machine_doc = (
+        ROOT / "docs/PROMOTION_STATE_MACHINE.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_PROMOTION_STATE_MACHINE_V1",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "Paso 17",
+    ):
+        if token not in promotion_machine_doc:
+            fail("promotion state-machine documentation is incomplete")
+
+    promotion_machine_invariants = (
+        ROOT / "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "Ningún salto ascendente",
+        "RETIRED es terminal",
+        "transition_id",
+        "validated_discriminator_ids",
+    ):
+        if token not in promotion_machine_invariants:
+            fail("promotion state-machine invariants are incomplete")
 
     discriminant_invariants = (
         ROOT / "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md"
