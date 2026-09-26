@@ -87,7 +87,7 @@ M31:
 
 ## 6. Cobertura de tests
 
-La suite Python de esta release contiene **141 tests deterministas**.
+La suite Python de esta release contiene **143 tests deterministas**.
 
 Incluye pruebas unitarias de módulos, firewalls metodológicos, contratos de schemas, orquestación y una ejecución sintética FULL M00–M31.
 
@@ -187,6 +187,6 @@ Patrones arquitectónicos estudiados y reimplementados independientemente: wvand
 
 Validación del HEAD de integración:
 - Núcleo Python: **SUCCESS**;
-- 141 tests: **OK**;
+- 143 tests: **OK**;
 - contrato público: **PASS**;
 - workflow independiente Contrato público: **SUCCESS**.
