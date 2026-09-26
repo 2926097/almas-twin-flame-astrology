@@ -312,4 +312,4 @@ La integración está documentada en:
 
 ## Próximo paso
 
-El Paso 13 evaluará la independencia de la astrología como posible fuente de observables discriminantes. Ninguna firma astrológica podrá adquirir función ontológica confirmatoria sin validación discriminante independiente, controles negativos, deduplicación de raíces y prueba fuera de muestra.
+El Paso 13 formalizó la independencia de la astrología como posible fuente de observables discriminantes. Ninguna firma astrológica podrá adquirir función ontológica confirmatoria sin validación discriminante independiente, controles negativos, deduplicación de raíces y prueba fuera de muestra.
