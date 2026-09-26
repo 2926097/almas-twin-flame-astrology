@@ -16,6 +16,30 @@ def completed(module_id: str) -> ModuleResult:
     )
 
 
+def root(root_id, points, relation, strength, family):
+    return {
+        "root_id": root_id,
+        "root_key": root_id + ":KEY",
+        "point_ids": list(points),
+        "relation_ids": [relation],
+        "strength": strength,
+        "strength_state": "CALCULATED_CORE",
+        "core_eligible": True,
+        "independent_family_count": 1,
+        "dependency_families": [family],
+        "evidence_strengths": [
+            {
+                "evidence_id": root_id + ":" + family,
+                "strength": strength,
+                "core_eligible": True,
+                "support_only": False,
+                "dependency_family": family,
+                "technique_family": family,
+            }
+        ],
+    }
+
+
 class M18AutomaticPillarsTests(unittest.TestCase):
     def context(self, roots, *, complete=True):
         prior = {
@@ -42,53 +66,13 @@ class M18AutomaticPillarsTests(unittest.TestCase):
             prior_results=prior,
         )
 
-    def test_m18_prefers_canonical_roots_and_derives_pillars(self):
+    def test_m18_derives_semantic_px_from_cross_family_motifs(self):
         roots = [
-            {
-                "root_id": "R1",
-                "point_ids": ["SUN", "MOON"],
-                "relation_ids": ["TRINE"],
-                "strength": 0.90,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 2,
-            },
-            {
-                "root_id": "R2",
-                "point_ids": ["MERCURY", "MOON"],
-                "relation_ids": ["SEXTILE"],
-                "strength": 0.80,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 1,
-            },
-            {
-                "root_id": "R3",
-                "point_ids": ["SUN", "MOON"],
-                "relation_ids": ["OPPOSITION"],
-                "strength": 0.85,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 1,
-            },
-            {
-                "root_id": "R4",
-                "point_ids": ["AXIS_NODES", "VENUS"],
-                "relation_ids": ["SQUARE"],
-                "strength": 0.70,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 1,
-            },
-            {
-                "root_id": "R5",
-                "point_ids": ["PLUTO", "VENUS"],
-                "relation_ids": ["CONJUNCTION"],
-                "strength": 0.75,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 1,
-            },
+            root("R1", ["SUN", "MOON"], "TRINE", 0.90, "SYN"),
+            root("R2", ["VENUS", "MOON"], "SEXTILE", 0.80, "DECLINATION"),
+            root("R3", ["SUN", "MOON"], "OPPOSITION", 0.85, "ANTISCIA"),
+            root("R4", ["AXIS_NODES", "VENUS"], "SQUARE", 0.70, "SYN"),
+            root("R5", ["PLUTO", "VENUS"], "CONJUNCTION", 0.75, "SYN"),
         ]
         result = default_handlers()["M18"](self.context(roots))
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
@@ -98,25 +82,20 @@ class M18AutomaticPillarsTests(unittest.TestCase):
         )
         pillars = result.canonical_updates["pillars"]
         self.assertGreater(pillars["PA"], 0)
-        self.assertGreater(pillars["PR"], 0)
         self.assertGreater(pillars["PE"], 0)
         self.assertGreater(pillars["PK"], 0)
         self.assertGreater(pillars["PT"], 0)
         self.assertGreater(pillars["PX"], 0)
         self.assertIsNone(pillars["PU"])
-        self.assertIn("pillar_attribution", result.canonical_updates)
+        attribution = result.canonical_updates["pillar_attribution"]
+        self.assertEqual(
+            attribution["semantic_motif_policy_id"],
+            "ALMAS_SEMANTIC_MOTIF_V2",
+        )
 
     def test_incomplete_structural_coverage_keeps_absence_not_evaluable(self):
         roots = [
-            {
-                "root_id": "R1",
-                "point_ids": ["SUN", "MOON"],
-                "relation_ids": ["TRINE"],
-                "strength": 0.90,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 1,
-            }
+            root("R1", ["SUN", "MOON"], "TRINE", 0.90, "SYN")
         ]
         result = default_handlers()["M18"](
             self.context(roots, complete=False)
@@ -128,19 +107,12 @@ class M18AutomaticPillarsTests(unittest.TestCase):
         self.assertIsNone(pillars["PR"])
         self.assertIsNone(pillars["PT"])
         self.assertIsNone(pillars["PS"])
+        self.assertIsNone(pillars["PX"])
         self.assertIsNone(pillars["PU"])
 
     def test_complete_structural_coverage_allows_true_structural_zero(self):
         roots = [
-            {
-                "root_id": "R1",
-                "point_ids": ["SUN", "MOON"],
-                "relation_ids": ["TRINE"],
-                "strength": 0.90,
-                "strength_state": "CALCULATED_CORE",
-                "core_eligible": True,
-                "independent_family_count": 1,
-            }
+            root("R1", ["SUN", "MOON"], "TRINE", 0.90, "SYN")
         ]
         result = default_handlers()["M18"](self.context(roots, complete=True))
         pillars = result.canonical_updates["pillars"]
