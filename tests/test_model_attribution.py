@@ -8,10 +8,11 @@ from almas_tfa.model_attribution import (
 )
 
 
-def pillar_attribution(root_attributions, *, complete=True):
+def pillar_attribution(root_attributions, *, motif_attributions=None, complete=True):
     return {
         "structural_absence_is_zero": complete,
         "root_attributions": root_attributions,
+        "motif_attributions": list(motif_attributions or []),
     }
 
 
@@ -31,7 +32,7 @@ class ModelAttributionTests(unittest.TestCase):
         policy = load_model_attribution_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1",
+            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertEqual(policy["value_function"], "IEM_PRE")
@@ -101,6 +102,36 @@ class ModelAttributionTests(unittest.TestCase):
             result["attributions"]["AG"],
             result["attributions"]["LG"],
         )
+
+    def test_semantic_motif_units_participate_in_shapley(self):
+        roots = [
+            attributed("R1", "PA", 0.9),
+            attributed("R2", "PR", 0.8),
+            attributed("R3", "PE", 0.7),
+            attributed("R4", "PK", 0.65),
+            attributed("R5", "PT", 0.70),
+        ]
+        motifs = [
+            attributed("MOTIF:STRUCTURAL_AFFINITY", "PX", 0.75),
+            attributed("MOTIF:MISSION_SERVICE", "PS", 0.55),
+        ]
+        result = derive_model_attributions(
+            pillar_attribution(
+                roots,
+                motif_attributions=motifs,
+            )
+        )
+        self.assertEqual(result["state"], "EVALUABLE")
+        self.assertIn(
+            "MOTIF:STRUCTURAL_AFFINITY",
+            result["root_ids"],
+        )
+        self.assertIn(
+            "MOTIF:MISSION_SERVICE",
+            result["root_ids"],
+        )
+        for model, error in result["shapley_efficiency_error"].items():
+            self.assertLess(error, 1e-8, model)
 
     def test_temporal_or_null_inputs_are_not_part_of_contract(self):
         policy = load_model_attribution_policy()
