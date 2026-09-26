@@ -150,7 +150,7 @@ Las fuentes definen procedencia, significado y límites. No añaden puntuación 
 ![Public contract](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/public-contract.yml/badge.svg)
 ![Python core](https://github.com/2926097/almas-twin-flame-astrology/actions/workflows/python-tests.yml/badge.svg)
 
-La suite Python contiene 141 tests y cubre núcleo numérico, módulos M00–M31 y una ejecución FULL sintética. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
+La suite Python contiene 143 tests y cubre núcleo numérico, módulos M00–M31 y una ejecución FULL sintética. El validador contractual comprueba integridad de versiones, manifiestos, schemas, fuentes, genealogía, fixtures y firewalls de inferencia.
 
 La infraestructura de validación externa está preregistrada, pero **no se declara validación empírica externa de las ontologías** hasta ejecutar cohortes holdout reales conforme a `docs/EXTERNAL_VALIDATION_PROTOCOL.md`.
 
