@@ -125,6 +125,13 @@
     },
     "ontological_discrimination": {
       "$ref": "ontological-discriminator-output.schema.json"
+    },
+    "analysis_profile": {
+      "enum": [
+        "FULL_MULTIDISCIPLINARY",
+        "FULL_ASTROLOGY",
+        "STRUCTURAL_ASTROLOGY"
+      ]
     }
   },
   "additionalProperties": true,
