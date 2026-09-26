@@ -183,6 +183,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/model-attribution-policy.json",
     "src/almas_tfa/data/birth-time-perturbation-policy.json",
     "src/almas_tfa/data/robustness-q5-policy.json",
+    "src/almas_tfa/data/null-within-year-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -203,6 +204,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
     "src/almas_tfa/robustness_quantification.py",
+    "src/almas_tfa/null_generation.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -292,6 +294,7 @@ REQUIRED_FILES = [
     "tests/test_m21_auto_idd.py",
     "tests/test_time_perturbation.py",
     "tests/test_robustness_q5.py",
+    "tests/test_null_generation.py",
     "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
@@ -442,6 +445,9 @@ def main() -> int:
     )
     robustness_q5_policy = load_json(
         "src/almas_tfa/data/robustness-q5-policy.json"
+    )
+    null_generation_policy = load_json(
+        "src/almas_tfa/data/null-within-year-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -808,6 +814,31 @@ def main() -> int:
         fail("Q5 orb perturbation factors changed")
     if robustness_q5_policy.get("idd_stability", {}).get("source_samples") != "PARAMETER_PERTURBATION":
         fail("Q5 IDD stability must reuse parameter perturbation samples")
+
+    if null_generation_policy.get("policy_id") != "ALMAS_NULL_WITHIN_YEAR_V1":
+        fail("Q6 null generation policy id changed")
+    if null_generation_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("Q6 null generation policy must remain frozen")
+    if null_generation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("Q6 null generation policy must remain E_PROJECT_POLICY")
+    if null_generation_policy.get("null_model") != "WITHIN_YEAR":
+        fail("Q6 self-contained generator must remain WITHIN_YEAR")
+    q6_generator = null_generation_policy.get("generator", {})
+    if q6_generator.get("name") != "DETERMINISTIC_STRATIFIED_CALENDAR_DATE":
+        fail("Q6 generator identity changed")
+    if q6_generator.get("samples_per_subject") != 32:
+        fail("Q6 samples_per_subject changed")
+    q6_principles = null_generation_policy.get("principles", {})
+    if q6_principles.get("case_fitting_forbidden") is not True:
+        fail("Q6 must forbid case fitting")
+    if q6_principles.get("metaphysical_probability") is not False:
+        fail("Q6 must forbid metaphysical probability")
+    if q6_principles.get("null_rarity_used_as_irc") is not False:
+        fail("Q6 null rarity must remain outside IRC")
+    if q6_principles.get("no_external_population_claim") is not True:
+        fail("Q6 self-contained null must not claim an external population")
+    if q6_principles.get("combined_p_value_forbidden") is not True:
+        fail("Q6 must forbid combined p-value")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
@@ -1753,8 +1784,8 @@ def main() -> int:
 
     if null_model_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
         fail("null model schema must forbid metaphysical probability")
-    if null_model_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
-        fail("M24 must not generate null sampling internally")
+    if null_model_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("type") != "boolean":
+        fail("M24 schema must distinguish generated and legacy null sampling")
     null_runs = null_model_schema.get("properties", {}).get("runs", {})
     if null_runs.get("minItems") != 1:
         fail("null model schema must require at least one run")
@@ -1783,8 +1814,10 @@ def main() -> int:
         fail("M23 automatic output must expose generator_policy_id")
     if null_model_output_schema.get("properties", {}).get("metaphysical_probability", {}).get("const") is not False:
         fail("M24 null-model output must forbid metaphysical probability")
-    if null_model_output_schema.get("properties", {}).get("sampling_generated_by_m24", {}).get("const") is not False:
-        fail("M24 must not generate undeclared null sampling")
+    if "generator_policy_id" not in null_model_output_schema.get("properties", {}):
+        fail("M24 automatic output must expose generator_policy_id")
+    if null_model_output_schema.get("properties", {}).get("combined_p_value_state", {}).get("const") != "FORBIDDEN":
+        fail("M24 must forbid combined p-value across null statistics")
 
     temporal_props = temporal_activation_schema.get("properties", {})
     if temporal_props.get("structural_score_modified", {}).get("const") is not False:
