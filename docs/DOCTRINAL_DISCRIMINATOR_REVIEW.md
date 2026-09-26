@@ -52,4 +52,4 @@ La regla vigente sigue siendo que, si varios modelos sobreviven sin L3, la salid
 
 ## Próximo paso
 
-El Paso 4 deberá convertir únicamente los candidatos doctrinales prometedores en especificaciones de discriminador operacional: observable, dirección de predicción, falsador, controles negativos, raíces de dependencia y diseño de validación. No todos los candidatos L1 deben pasar a L2.
+El Paso 4 convirtió únicamente los candidatos doctrinales prometedores en especificaciones de discriminador operacional: observable, dirección de predicción, falsador, controles negativos, raíces de dependencia y diseño de validación. No todos los candidatos L1 pasaron a L2.
