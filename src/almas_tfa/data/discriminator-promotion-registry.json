@@ -74,7 +74,39 @@
       "uses_astrology": true,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": null,
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD01_PAIR_SPECIFICITY_NETWORK:STEP16",
+          "from_status": null,
+          "to_status": "EXPLORATORY",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     },
     {
       "discriminator_id": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
@@ -90,7 +122,39 @@
       "uses_astrology": true,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": null,
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD02_DYADIC_STRUCTURAL_ISOMORPHISM:STEP16",
+          "from_status": null,
+          "to_status": "EXPLORATORY",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     },
     {
       "discriminator_id": "OD03_BLINDED_DOCTRINAL_CODING",
@@ -106,7 +170,39 @@
       "uses_astrology": false,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": null,
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD03_BLINDED_DOCTRINAL_CODING:STEP16",
+          "from_status": null,
+          "to_status": "EXPLORATORY",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     },
     {
       "discriminator_id": "OD04_PROSPECTIVE_MODEL_PREDICTION",
@@ -122,7 +218,39 @@
       "uses_astrology": true,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": null,
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD04_PROSPECTIVE_MODEL_PREDICTION:STEP16",
+          "from_status": null,
+          "to_status": "EXPLORATORY",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     },
     {
       "discriminator_id": "OD05_PRIOR_UNITY_DIRECT",
@@ -138,7 +266,39 @@
       "uses_astrology": false,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": "EXPLORATORY",
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD05_PRIOR_UNITY_DIRECT:STEP16",
+          "from_status": null,
+          "to_status": "BLOCKED",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     },
     {
       "discriminator_id": "OD06_MONADIC_HIERARCHY_DIRECT",
@@ -154,7 +314,39 @@
       "uses_astrology": false,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": "EXPLORATORY",
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD06_MONADIC_HIERARCHY_DIRECT:STEP16",
+          "from_status": null,
+          "to_status": "BLOCKED",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     },
     {
       "discriminator_id": "OD07_PHENOMENOLOGY_CLUSTER",
@@ -170,7 +362,40 @@
       "uses_astrology": false,
       "astrology_validation": null,
       "discriminant_validation": null,
-      "blinding_audit": null
+      "blinding_audit": null,
+      "promotion_evidence": {
+        "implementation_refs": [],
+        "reproducibility_refs": [],
+        "synthetic_test_refs": [],
+        "preregistration_refs": [],
+        "counterevidence_refs": [],
+        "negative_control_plan_refs": [],
+        "leakage_plan_refs": [],
+        "independent_replication_refs": [],
+        "negative_control_result_refs": [],
+        "doctrine_gate_refs": [],
+        "discriminator_evaluation_refs": [],
+        "holdout_protocol_refs": [],
+        "support_only_exclusion_refs": []
+      },
+      "last_active_status": null,
+      "state_history": [
+        {
+          "transition_id": "IMPORT:OD07_PHENOMENOLOGY_CLUSTER:STEP16",
+          "from_status": null,
+          "to_status": "RETIRED",
+          "mode": "IMPORT",
+          "occurred_at": "2026-09-26T00:00:00Z",
+          "actor_ref": "ALMAS_STEP16_MIGRATION",
+          "reason": "Migración conservadora del estado preexistente a la máquina de estados v1.",
+          "evidence_refs": [
+            "docs/PROMOTION_STATE_MACHINE.md"
+          ],
+          "record_fingerprint_before": null,
+          "record_fingerprint_after": null
+        }
+      ]
     }
-  ]
+  ],
+  "state_machine_policy_id": "ALMAS_PROMOTION_STATE_MACHINE_V1"
 }
