@@ -35,6 +35,7 @@ REQUIRED_FILES = [
     "docs/QUANTITATIVE_CLOSURE_1_13.md",
     "docs/RELEASE_AUDIT_1.13.0.md",
     "docs/RELEASE_AUDIT_1.14.0.md",
+    "docs/EVOLUTION_1.15.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -183,6 +184,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
+    "src/almas_tfa/data/recurrence-quality-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -208,6 +210,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/root_strengths.py",
     "src/almas_tfa/pillar_attribution.py",
     "src/almas_tfa/semantic_motifs.py",
+    "src/almas_tfa/recurrence_quality.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -299,6 +302,7 @@ REQUIRED_FILES = [
     "tests/test_public_data_guard.py",
     "tests/test_root_strengths.py",
     "tests/test_pillar_attribution.py",
+    "tests/test_recurrence_quality.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -450,6 +454,9 @@ def main() -> int:
     )
     semantic_motif_policy = load_json(
         "src/almas_tfa/data/semantic-motif-policy.json"
+    )
+    recurrence_quality_policy = load_json(
+        "src/almas_tfa/data/recurrence-quality-policy.json"
     )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
@@ -811,6 +818,34 @@ def main() -> int:
             fail(f"semantic motif relation set {relation_set_name} must be a list")
         if len(relation_values) != len(set(relation_values)):
             fail(f"semantic motif relation set {relation_set_name} contains duplicates")
+
+    if recurrence_quality_policy.get("policy_id") != "ALMAS_RECURRENCE_QUALITY_DIAGNOSTICS_V1":
+        fail("recurrence quality policy id changed")
+    if recurrence_quality_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("recurrence quality policy must remain diagnostic")
+    if recurrence_quality_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("recurrence quality policy must remain E_PROJECT_POLICY")
+    recurrence_quality_principles = recurrence_quality_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "descriptive_only",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "null_calibration_required_before_any_weighting",
+        "draconic_dependency_must_be_exposed",
+    ):
+        if recurrence_quality_principles.get(key) is not True:
+            fail(f"recurrence quality invariant failed: {key}")
+    if recurrence_quality_principles.get("null_rarity_not_used_as_score") is not True:
+        fail("recurrence quality diagnostics must keep null rarity out of scoring")
+    family_classes = recurrence_quality_policy.get("family_classes", {})
+    if family_classes.get("RELCHART") != "RELATIONSHIP_CHART":
+        fail("recurrence quality must preserve RELCHART as one family class")
+    if family_classes.get("NATAL_DRACONIC") != "DRACONIC_CROSS":
+        fail("recurrence quality must expose natal-draconic dependency")
 
     if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
