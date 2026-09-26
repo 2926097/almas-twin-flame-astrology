@@ -9,6 +9,15 @@ from typing import Any, Mapping, Sequence
 REGISTRY_RESOURCE = "data/discriminator-promotion-registry.json"
 VALIDATED_STATUS = "VALIDATED_DISCRIMINATOR"
 
+ASTROLOGY_VALIDATION_KEYS = (
+    "non_astrological_criterion_refs",
+    "astrology_ablation_refs",
+    "matched_control_refs",
+    "dependency_audit_refs",
+    "out_of_sample_refs",
+    "astrology_specific_replication_refs",
+)
+
 
 @lru_cache(maxsize=1)
 def load_discriminator_promotion_registry() -> dict[str, Any]:
@@ -42,6 +51,30 @@ def _nonempty_string_list(value: Any) -> bool:
         and bool(value)
         and all(isinstance(item, str) and bool(item) for item in value)
     )
+
+
+def _record_has_complete_astrology_validation(
+    record: Mapping[str, Any],
+) -> bool:
+    if record.get("uses_astrology") is not True:
+        return True
+
+    validation = record.get("astrology_validation")
+    if not isinstance(validation, Mapping):
+        return False
+
+    for key in ASTROLOGY_VALIDATION_KEYS:
+        if not _nonempty_string_list(validation.get(key)):
+            return False
+
+    if validation.get("single_feature_prohibition_acknowledged") is not True:
+        return False
+    if validation.get("null_rarity_not_ontological") is not True:
+        return False
+    if validation.get("temporal_activation_not_origin_proof") is not True:
+        return False
+
+    return True
 
 
 def _record_has_complete_l3_evidence(record: Mapping[str, Any]) -> bool:
@@ -89,6 +122,9 @@ def _record_has_complete_l3_evidence(record: Mapping[str, Any]) -> bool:
     ):
         if not _nonempty_string_list(evidence.get(key)):
             return False
+
+    if not _record_has_complete_astrology_validation(record):
+        return False
 
     return True
 
