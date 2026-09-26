@@ -6,6 +6,7 @@ from typing import Any, Mapping
 
 from .core import score_model, supported_gate
 from .module_contract import ExecutionStatus, ModuleResult
+from .analysis_profiles import resolve_analysis_profile
 
 
 POLICY_RESOURCE = "canonical-assembly-policy.json"
@@ -18,7 +19,7 @@ def load_canonical_assembly_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V1":
+    if policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V2":
         raise ValueError("Política Q7 de ensamblaje canónico desconocida.")
     return policy
 
@@ -266,12 +267,17 @@ def assemble_canonical_analysis(
     canonical: Mapping[str, Any],
     prior_results: Mapping[str, Any],
     *,
+    analysis_profile: str | None = None,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Serializa M01–M29 en canonical_analysis sin recalcular astrología."""
 
     if policy is None:
         policy = load_canonical_assembly_policy()
+
+    profile = resolve_analysis_profile(
+        analysis_profile or policy.get("analysis_profile_default")
+    )
 
     required_namespaces = (
         "independent_roots",
@@ -390,6 +396,7 @@ def assemble_canonical_analysis(
     assembled = {
         "schema_version": "1.0.0",
         "analysis_mode": policy["analysis_mode"],
+        "analysis_profile": profile,
         "evidence": _evidence_from_roots(canonical),
         "models": models,
         "indices": {
@@ -421,6 +428,7 @@ def assemble_canonical_analysis(
         "assembly": {
             "policy_id": policy["policy_id"],
             "policy_status": policy["status"],
+            "analysis_profile": profile,
             "epistemic_class": policy["epistemic_class"],
             "source": "M01_M29_CANONICAL_NAMESPACES",
             "recalculated_astrology": False,
