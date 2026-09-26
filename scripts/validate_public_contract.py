@@ -35,6 +35,7 @@ REQUIRED_FILES = [
     "docs/QUANTITATIVE_CLOSURE_1_13.md",
     "docs/RELEASE_AUDIT_1.13.0.md",
     "docs/RELEASE_AUDIT_1.14.0.md",
+    "docs/RELEASE_AUDIT_1.15.0.md",
     "docs/EVOLUTION_1.15.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
