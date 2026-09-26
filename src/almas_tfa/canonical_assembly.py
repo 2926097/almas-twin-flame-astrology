@@ -4,6 +4,7 @@ from importlib import resources
 import json
 from typing import Any, Mapping
 
+from .analysis_profiles import resolve_analysis_profile
 from .core import score_model, supported_gate
 from .module_contract import ExecutionStatus, ModuleResult
 
@@ -18,8 +19,8 @@ def load_canonical_assembly_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V1":
-        raise ValueError("Política Q7 de ensamblaje canónico desconocida.")
+    if policy.get("policy_id") != "ALMAS_CANONICAL_ASSEMBLY_V2":
+        raise ValueError("Política de ensamblaje canónico desconocida.")
     return policy
 
 
@@ -34,8 +35,6 @@ def _completed(prior_results: Mapping[str, Any], module_id: str) -> bool:
 def _half_or_full(
     prior_results: Mapping[str, Any],
     module_ids: tuple[str, ...],
-    *,
-    full_requires_all: bool = True,
 ) -> float:
     flags = [_completed(prior_results, module_id) for module_id in module_ids]
     if all(flags):
@@ -123,7 +122,7 @@ def derive_canonical_coverage(
 
     allowed = {float(value) for value in policy["coverage"]["allowed_q"]}
     if any(value not in allowed for value in domains.values()):
-        raise ValueError("Q7 produjo q fuera de la política de cobertura.")
+        raise ValueError("Q7/Q14 produjo q fuera de la política de cobertura.")
 
     icc = 100.0 * sum(domains.values()) / len(domains)
     return {
@@ -262,16 +261,53 @@ def _limitations(prior_results: Mapping[str, Any]) -> list[str]:
     return output
 
 
+def _timed_architecture_present(canonical: Mapping[str, Any]) -> bool:
+    roots_obj = canonical.get("independent_roots")
+    roots = roots_obj.get("roots") if isinstance(roots_obj, Mapping) else None
+    if not isinstance(roots, list):
+        return False
+    timed_points = {
+        "AXIS_HORIZON",
+        "AXIS_MERIDIAN",
+        "AXIS_VERTEX",
+        "PART_OF_FORTUNE",
+        "FORTUNE",
+    }
+    for root in roots:
+        if not isinstance(root, Mapping):
+            continue
+        point_ids = root.get("point_ids")
+        if not isinstance(point_ids, list):
+            continue
+        if timed_points & {str(value).upper() for value in point_ids}:
+            return True
+    return False
+
+
+def _birth_time_component_present(robustness: Mapping[str, Any]) -> bool:
+    components = robustness.get("components")
+    if not isinstance(components, list):
+        return False
+    return any(
+        isinstance(item, Mapping)
+        and item.get("kind") == "BIRTH_TIME"
+        for item in components
+    )
+
+
 def assemble_canonical_analysis(
     canonical: Mapping[str, Any],
     prior_results: Mapping[str, Any],
     *,
     policy: Mapping[str, Any] | None = None,
+    analysis_profile: str | None = None,
 ) -> dict[str, Any]:
     """Serializa M01–M29 en canonical_analysis sin recalcular astrología."""
 
     if policy is None:
         policy = load_canonical_assembly_policy()
+
+    profile = resolve_analysis_profile(analysis_profile)
 
     required_namespaces = (
         "independent_roots",
@@ -324,6 +360,20 @@ def assemble_canonical_analysis(
     )
     ice_evaluable = ice_by_model is not None
 
+    timed_architecture = _timed_architecture_present(canonical)
+    birth_time_component = _birth_time_component_present(robustness)
+    require_birth_time = bool(
+        policy["model_state"].get(
+            "supported_requires_birth_time_component_when_timed_architecture",
+            False,
+        )
+    )
+    birth_time_gate_ok = (
+        not require_birth_time
+        or not timed_architecture
+        or birth_time_component
+    )
+
     models: dict[str, Any] = {}
     model_ice_values: list[float] = []
     for model in MODELS:
@@ -346,7 +396,7 @@ def assemble_canonical_analysis(
             iem_final = score.iem_final if ice_evaluable else None
         else:
             gate = False
-            if ice_evaluable:
+            if ice_evaluable and birth_time_gate_ok:
                 gate = supported_gate(
                     score,
                     icc=icc,
@@ -375,6 +425,8 @@ def assemble_canonical_analysis(
                 "EVALUABLE" if ice_evaluable else "NOT_EVALUABLE"
             ),
             "supported_gate": state == "SUPPORTED",
+            "birth_time_gate_required": require_birth_time and timed_architecture,
+            "birth_time_gate_satisfied": birth_time_gate_ok,
         }
 
     global_idd, pairwise_idd = _global_idd(canonical)
@@ -389,7 +441,9 @@ def assemble_canonical_analysis(
 
     assembled = {
         "schema_version": "1.0.0",
-        "analysis_mode": policy["analysis_mode"],
+        "analysis_mode": profile["analysis_mode"],
+        "analysis_profile": profile["profile_id"],
+        "profile_policy_id": profile["policy_id"],
         "evidence": _evidence_from_roots(canonical),
         "models": models,
         "indices": {
@@ -407,6 +461,8 @@ def assemble_canonical_analysis(
             "component_count": robustness.get("component_count"),
             "components": robustness.get("components", []),
             "null_model_rarity_used_as_robustness": False,
+            "timed_architecture_present": timed_architecture,
+            "birth_time_component_present": birth_time_component,
         },
         "counterevidence": counter_items,
         "counterevidence_state": {
@@ -423,11 +479,18 @@ def assemble_canonical_analysis(
             "policy_status": policy["status"],
             "epistemic_class": policy["epistemic_class"],
             "source": "M01_M29_CANONICAL_NAMESPACES",
+            "analysis_profile": profile,
             "recalculated_astrology": False,
             "recalculated_roots": False,
             "recalculated_pillars": False,
         },
     }
+
+    pillar_attribution = canonical.get("pillar_attribution")
+    if isinstance(pillar_attribution, Mapping):
+        motifs = pillar_attribution.get("semantic_motifs")
+        if isinstance(motifs, Mapping):
+            assembled["semantic_motifs"] = motifs
 
     ontology = canonical.get("ontological_discrimination")
     if isinstance(ontology, Mapping):
@@ -437,9 +500,14 @@ def assemble_canonical_analysis(
     if isinstance(null_models, Mapping):
         assembled["null_models"] = null_models
 
+    time_sensitivity = canonical.get("time_sensitivity")
+    if isinstance(time_sensitivity, Mapping):
+        assembled["time_sensitivity"] = time_sensitivity
+
     return {
         "state": "EVALUABLE",
         "canonical_analysis": assembled,
         "coverage": coverage,
         "ice_evaluable": ice_evaluable,
+        "analysis_profile": profile,
     }
