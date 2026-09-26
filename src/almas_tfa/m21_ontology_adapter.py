@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
+from .discriminator_promotion_registry import validate_l3_observations
 from .ontological_discriminator import discriminate_ontology
 
 
@@ -52,6 +53,8 @@ def evaluate_m21_ontological_sublayer(
         raise ValueError(
             "ontological_discriminator_input.pair_coverage debe ser un objeto."
         )
+
+    validate_l3_observations(observations)
 
     return discriminate_ontology(
         observations,
