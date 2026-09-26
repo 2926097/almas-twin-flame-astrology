@@ -8,7 +8,7 @@ Una release falla si ocurre cualquiera de estas condiciones:
 2. Un volumen arbitrario de observaciones L2 produce una exclusión confirmatoria.
 3. Repetir una misma raíz L3 la convierte en varias raíces independientes.
 4. Un conflicto interno de la misma raíz L3 elimina un modelo.
-5. Un ciclo de exclusiones que elimina todos los candidatos produce una clasificación específica.
+5. Un `GLOBAL_ELIMINATION_CYCLE` que elimina todos los candidatos produce una clasificación específica.
 6. Observaciones NOT_EVALUABLE actúan como contraevidencia por defecto.
 7. Una separación L2 invalida una equivalencia L3 registrada con cobertura completa.
 8. Un L3 validado para un par convierte pares no validados en SEPARABLE_VALIDATED.
