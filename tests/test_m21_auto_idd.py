@@ -47,7 +47,7 @@ class M21AutomaticIDDTests(unittest.TestCase):
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
         self.assertEqual(
             result.payload["attribution_source"],
-            "AUTO_SHAPLEY_CANONICAL_ROOTS",
+            "AUTO_SHAPLEY_CANONICAL_STRUCTURE",
         )
         self.assertIn("model_attributions", result.canonical_updates)
         self.assertIn("pairwise_idd", result.canonical_updates)
@@ -66,7 +66,7 @@ class M21AutomaticIDDTests(unittest.TestCase):
         )
         self.assertEqual(
             result.payload["attribution_source"],
-            "AUTO_SHAPLEY_CANONICAL_ROOTS",
+            "AUTO_SHAPLEY_CANONICAL_STRUCTURE",
         )
         auto = result.canonical_updates["model_attributions"]["attributions"]
         self.assertNotIn("legacy_a", auto["AF"])
