@@ -180,6 +180,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/public-data-isolation-policy.json",
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
+    "src/almas_tfa/data/model-attribution-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -197,6 +198,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/evidence_handlers.py",
     "src/almas_tfa/root_strengths.py",
     "src/almas_tfa/pillar_attribution.py",
+    "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/counterevidence_handlers.py",
     "src/almas_tfa/ablation_handlers.py",
     "src/almas_tfa/time_sensitivity_handlers.py",
@@ -282,6 +284,8 @@ REQUIRED_FILES = [
     "tests/test_public_data_guard.py",
     "tests/test_root_strengths.py",
     "tests/test_pillar_attribution.py",
+    "tests/test_model_attribution.py",
+    "tests/test_m21_auto_idd.py",
     "tests/test_m18_auto_pillars.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
@@ -423,6 +427,9 @@ def main() -> int:
     )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
+    )
+    model_attribution_policy = load_json(
+        "src/almas_tfa/data/model-attribution-policy.json"
     )
     public_artifact_manifest_schema = load_json(
         "schemas/public-artifact-manifest.schema.json"
@@ -738,6 +745,22 @@ def main() -> int:
         fail("root to pillar policy must keep semantic pillar exclusivity")
     if pillar_principles.get("pu_automatic_attribution_forbidden") is not True:
         fail("PU automatic attribution must remain forbidden")
+
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1":
+        fail("model attribution policy id changed")
+    if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("model attribution policy must remain frozen")
+    if model_attribution_policy.get("epistemic_class") != "E_PROJECT_HYPOTHESIS":
+        fail("model attribution policy must remain E_PROJECT_HYPOTHESIS")
+    if model_attribution_policy.get("value_function") != "IEM_PRE":
+        fail("M21 automatic attribution must use IEM_PRE")
+    attribution_principles = model_attribution_policy.get("principles", {})
+    if attribution_principles.get("case_fitting_forbidden") is not True:
+        fail("model attribution policy must forbid case fitting")
+    if attribution_principles.get("idd_is_not_ontological_discriminator") is not True:
+        fail("IDD must remain separated from ontological discrimination")
+    if attribution_principles.get("ice_not_used_for_attribution") is not True:
+        fail("ICE must remain outside Shapley attribution value function")
 
     allowed_public_classes = set(
         public_data_isolation_policy.get("allowed_public_classifications", [])
