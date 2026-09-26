@@ -45,6 +45,7 @@ from .time_perturbation import generate_birth_time_sensitivity, load_birth_time_
 from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, make_m24_null_models, wilson_interval
 from .null_generation import generate_within_year_null_runs, load_null_generation_policy
 from .null_calibration import derive_recurrence_null_calibration, load_recurrence_null_calibration_policy
+from .synthetic_controls import derive_recurrence_synthetic_controls, load_recurrence_synthetic_controls_policy
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -122,6 +123,8 @@ __all__ = [
     "generate_within_year_null_runs",
     "load_recurrence_null_calibration_policy",
     "derive_recurrence_null_calibration",
+    "load_recurrence_synthetic_controls_policy",
+    "derive_recurrence_synthetic_controls",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",
