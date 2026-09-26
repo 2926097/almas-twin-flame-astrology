@@ -1,14 +1,15 @@
 {
-  "schema_version": "1.0.0",
-  "policy_id": "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1",
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_HYPOTHESIS",
-  "purpose": "Derivar de forma determinista y conservadora un pilar semántico primario por raíz estructural y un pilar ortogonal de recurrencia cuando proceda.",
+  "purpose": "Derivar pilares semánticos primarios desde raíces core y delegar PX/PS al grafo de motivos semánticos recurrentes.",
   "principles": {
     "case_fitting_forbidden": true,
     "single_semantic_primary_pillar": true,
     "semantic_cross_pillar_duplication_forbidden": true,
-    "recurrence_is_orthogonal_meta_pillar": true,
+    "px_derived_from_semantic_motifs": true,
+    "ps_derived_from_mission_motifs": true,
     "support_only_can_feed_pillars": false,
     "pu_automatic_attribution_forbidden": true,
     "null_rarity_used_as_pillar": false,
@@ -65,12 +66,6 @@
       "PLUTO",
       "CHIRON",
       "URANUS"
-    ],
-    "MISSION_ANCHOR": [
-      "SUN",
-      "JUPITER",
-      "SATURN",
-      "AXIS_NODES"
     ]
   },
   "relation_sets": {
@@ -78,8 +73,7 @@
       "OPPOSITION",
       "SQUARE",
       "CONTRA_PARALLEL",
-      "CONTRA_ANTISCION",
-      "CONTRA-ANTISCION"
+      "CONTRA_ANTISCION"
     ],
     "COHERENT": [
       "CONJUNCTION",
@@ -90,7 +84,6 @@
     ]
   },
   "primary_rule_order": [
-    "PS_MISSION_SERVICE",
     "PK_KARMIC_CONTINUITY",
     "PT_TRANSFORMATION",
     "PE_MIRROR_COMPLEMENTARITY",
@@ -98,14 +91,6 @@
     "PA_STRUCTURAL_AFFINITY"
   ],
   "rules": {
-    "PS_MISSION_SERVICE": {
-      "pillar": "PS",
-      "requires_independent_family_count_at_least": 2,
-      "requires_points_all": [
-        "AXIS_MERIDIAN"
-      ],
-      "requires_any_other_point_from_set": "MISSION_ANCHOR"
-    },
     "PK_KARMIC_CONTINUITY": {
       "pillar": "PK",
       "requires_any_point_from_set": "KARMIC_ANCHOR",
@@ -140,12 +125,15 @@
       "requires_at_least_two_points_from_set": "AFFINITY"
     }
   },
-  "recurrence_rule": {
-    "pillar": "PX",
-    "requires_primary_semantic_pillar": true,
-    "requires_independent_family_count_at_least": 2,
-    "raw_loading_semantic": 0.5,
-    "raw_loading_recurrence": 0.5
+  "derived_pillars": {
+    "PX": {
+      "source_policy": "ALMAS_SEMANTIC_MOTIF_V2",
+      "source_field": "px.score"
+    },
+    "PS": {
+      "source_policy": "ALMAS_SEMANTIC_MOTIF_V2",
+      "source_field": "ps.score"
+    }
   },
   "singularity_rule": {
     "pillar": "PU",
