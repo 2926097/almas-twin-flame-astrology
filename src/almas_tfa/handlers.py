@@ -24,6 +24,7 @@ from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .counterevidence_handlers import m20_counterevidence
+from .m21_ontology_adapter import evaluate_m21_ontological_sublayer
 from .ablation_handlers import m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity
 from .null_model_handlers import m24_null_models
@@ -243,37 +244,68 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
 
 
 def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
-    """M21: calcula IDD por pares desde atribuciones de raíces ya derivadas."""
+    """M21: mantiene IDD y añade una subcapa ontológica independiente opcional."""
 
     attributions = context.raw_input.get("attributions")
-    if not isinstance(attributions, Mapping):
+    idd_output: dict[str, Any] = {}
+
+    if isinstance(attributions, Mapping):
+        for a, b in combinations(MODELS, 2):
+            av = attributions.get(a)
+            bv = attributions.get(b)
+            if isinstance(av, Mapping) and isinstance(bv, Mapping):
+                value = diagnostic_discrimination(av, bv)
+                idd_output[f"{a}_vs_{b}"] = {
+                    "idd": value,
+                    "band": idd_band(value),
+                }
+
+    ontological_output = evaluate_m21_ontological_sublayer(context.raw_input)
+
+    if not idd_output and ontological_output is None:
+        if not isinstance(attributions, Mapping):
+            return not_evaluable_result(
+                "M21",
+                "Faltan atribuciones IDD y no se proporcionó subcapa ontológica.",
+            )
         return not_evaluable_result(
             "M21",
-            "Faltan atribuciones de raíces por modelo para calcular IDD.",
+            "No existe ningún par IDD evaluable ni subcapa ontológica.",
         )
 
-    output: dict[str, Any] = {}
-    for a, b in combinations(MODELS, 2):
-        av = attributions.get(a)
-        bv = attributions.get(b)
-        if isinstance(av, Mapping) and isinstance(bv, Mapping):
-            value = diagnostic_discrimination(av, bv)
-            output[f"{a}_vs_{b}"] = {
-                "idd": value,
-                "band": idd_band(value),
-            }
+    canonical_updates: dict[str, Any] = {}
+    if idd_output:
+        canonical_updates["pairwise_idd"] = idd_output
+    if ontological_output is not None:
+        canonical_updates["ontological_discrimination"] = ontological_output
 
-    if not output:
-        return not_evaluable_result(
-            "M21",
-            "No existe ningún par de modelos con atribuciones evaluables.",
+    limitations = []
+    diagnostics = []
+
+    if ontological_output is not None:
+        limitations.append(
+            "IDD AF/KA/AG/LG y discriminación ontológica son capas independientes; "
+            "un IDD alto no prueba origen monádico, split-soul ni twin-flame."
         )
+        diagnostics.append(
+            "La subcapa ontológica no consume IEM, IDD ni scores como evidencia decisoria."
+        )
+
+    if ontological_output is None:
+        payload: Mapping[str, Any] = idd_output
+    else:
+        payload = {
+            "pairwise_idd": idd_output,
+            "ontological_discrimination": ontological_output,
+        }
 
     return ModuleResult(
         module_id="M21",
         status=ExecutionStatus.COMPLETED,
-        payload=output,
-        canonical_updates={"pairwise_idd": output},
+        payload=payload,
+        canonical_updates=canonical_updates,
+        limitations=tuple(limitations),
+        diagnostics=tuple(diagnostics),
     )
 
 

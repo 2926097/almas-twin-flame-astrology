@@ -2,6 +2,15 @@
 
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.
 
+## ALMAS 1.12.0 — 2026-09-26
+
+- El módulo contractual hereda la release pública 1.12.0 de la raíz.
+- Consume la nueva discriminación ontológica M21 sin convertirla en una quinta etiqueta contractual.
+- Mantiene separados origen, contrato, función, temporalidad, viabilidad y reciprocidad.
+- Los estados de promoción de discriminadores son metadatos metodológicos y no elevan cláusulas ni IRC.
+- El aislamiento de casos privados y los manifests públicos de 1.12.0 se aplican también al material contractual.
+- No modifica `engine_revision`, fórmulas contractuales, cláusulas, gates ni techos inferenciales.
+
 ## ALMAS 1.11.0 — 2026-09-25
 
 - El módulo contractual hereda la release pública 1.11.0 de la raíz.

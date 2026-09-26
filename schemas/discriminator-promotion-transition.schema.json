@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/discriminator-promotion-transition.schema.json",
+  "title": "ALMAS · Transición de estado de discriminador",
+  "type": "object",
+  "required": [
+    "transition_id",
+    "from_status",
+    "to_status",
+    "mode",
+    "occurred_at",
+    "actor_ref",
+    "reason",
+    "evidence_refs",
+    "record_updates"
+  ],
+  "properties": {
+    "transition_id": {"type": "string", "minLength": 1},
+    "from_status": {
+      "enum": [
+        "EXPLORATORY",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "VALIDATED_DISCRIMINATOR",
+        "BLOCKED",
+        "RETIRED"
+      ]
+    },
+    "to_status": {
+      "enum": [
+        "EXPLORATORY",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "VALIDATED_DISCRIMINATOR",
+        "BLOCKED",
+        "RETIRED"
+      ]
+    },
+    "mode": {
+      "enum": ["FORWARD", "ROLLBACK", "BLOCK", "UNBLOCK", "RETIRE"]
+    },
+    "occurred_at": {"type": "string", "minLength": 1},
+    "actor_ref": {"type": "string", "minLength": 1},
+    "reason": {"type": "string", "minLength": 1},
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "block_resolution_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "record_updates": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

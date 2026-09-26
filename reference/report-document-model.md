@@ -77,6 +77,67 @@ Cada sección declara:
 - clases epistemológicas permitidas;
 - estado de sección.
 
+### Rutas ontológicas
+
+Cuando el canonical contiene `ontological_discrimination`, el modelo documental expone:
+
+- S01, S03, S06 y S10: `ontological_discrimination`;
+- S08 y S11: `ontological_discrimination.promotion_trace`.
+
+Estas rutas no incrustan valores; únicamente preservan acceso trazable al canonical aprobado por M30.
+
+### Reporting metodológico de promoción
+
+M31 incorpora además un snapshot externo al `canonical_analysis`:
+
+`promotion_reporting`.
+
+Su fuente es el registro canónico de promoción y `ALMAS_PROMOTION_STATE_MACHINE_V1`, no la narrativa ni los scores del caso.
+
+Las superficies documentales declaradas son:
+
+- S08 Robustez y validación;
+- S11 Fuentes y anexos.
+
+Cada una expone `methodological_reporting_paths=["promotion_reporting"]`.
+
+Este snapshot puede mostrar:
+
+- estado actual;
+- requisitos cumplidos y pendientes;
+- historial de transiciones;
+- bloqueo o retirada;
+- alcance L3 real cuando exista.
+
+No modifica el fingerprint de `canonical_analysis`, no cambia la clasificación de M21 y no aumenta IRC.
+
+`promotion_trace` y `promotion_reporting` no son equivalentes: la primera registra L3 realmente utilizados en el caso; la segunda describe el estado metodológico del registro completo.
+
+
+### Genealogía documental de discriminadores
+
+Dentro de `promotion_reporting`, el pipeline productivo incorpora:
+
+`source_genealogy`.
+
+Esta capa enlaza cada OD con:
+
+- fuentes P1–P6;
+- rol documental;
+- tradición;
+- autor y obra;
+- localizador/ancla;
+- conceptos;
+- índices de `supports[]`;
+- índices de `does_not_support[]`;
+- relaciones genealógicas obligatorias;
+- equivalencias prohibidas;
+- techo epistemológico.
+
+`source_genealogy` permanece fuera de `canonical_analysis`, por lo que no altera su fingerprint ni la salida de M21.
+
+La prioridad o cantidad de fuentes no puede modificar IEM/IDD/IRC ni la clasificación del caso.
+
 ## 6. Estados de sección
 
 - `READY` — todas las rutas obligatorias están disponibles;
@@ -99,7 +160,15 @@ M31 fija:
 - `docx_created=false`;
 - `pdf_created=false`;
 - `pdf_preflight_performed=false`;
-- `publication_pipeline_required=true`.
+- `publication_pipeline_required=true`;
+- `promotion_reporting.methodological_status_only=true`;
+- `promotion_reporting.ontological_inference_allowed=false`;
+- `promotion_reporting.case_classification_mutated=false`;
+- `promotion_reporting.irc_mutated=false`;
+- `promotion_reporting.source_genealogy.methodological_provenance_only=true`;
+- `promotion_reporting.source_genealogy.ontological_inference_allowed=false`;
+- `promotion_reporting.source_genealogy.source_count_adds_weight=false`;
+- `promotion_reporting.source_genealogy.source_priority_adds_ontological_weight=false`.
 
 ## 8. Separación entre análisis y autoría
 

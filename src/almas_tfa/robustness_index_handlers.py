@@ -3,6 +3,9 @@ from __future__ import annotations
 from typing import Any, Mapping
 
 from .core import robustness_index
+from .discriminator_promotion_registry import (
+    authorize_promoted_discriminator_component,
+)
 from .module_contract import (
     ExecutionStatus,
     ModuleContext,
@@ -24,6 +27,112 @@ FORBIDDEN_COMPONENT_KINDS = {
     "NULL_MODEL_FREQUENCY",
     "METAPHYSICAL_PROBABILITY",
 }
+
+
+def _validated_ontology_root_pairs(
+    canonical_snapshot: Mapping[str, Any],
+) -> dict[str, tuple[str, str]]:
+    """Mapea raíces L3 confirmatorias de M21 al par que autorizan."""
+
+    ontology = canonical_snapshot.get("ontological_discrimination")
+    if not isinstance(ontology, Mapping):
+        return {}
+
+    matrix = ontology.get("pairwise_matrix")
+    if not isinstance(matrix, Mapping):
+        return {}
+
+    roots: dict[str, tuple[str, str]] = {}
+    ambiguous: set[str] = set()
+
+    for assessment in matrix.values():
+        if not isinstance(assessment, Mapping):
+            continue
+        if assessment.get("confirmatory_status") != "SEPARABLE_VALIDATED":
+            continue
+
+        pair = assessment.get("pair")
+        if (
+            not isinstance(pair, list)
+            or len(pair) != 2
+            or not all(isinstance(model, str) and model for model in pair)
+        ):
+            continue
+        canonical_pair = tuple(sorted((pair[0], pair[1])))
+
+        validated_roots = assessment.get("validated_roots")
+        if not isinstance(validated_roots, list):
+            continue
+
+        for root in validated_roots:
+            if not isinstance(root, str) or not root:
+                continue
+            existing = roots.get(root)
+            if existing is not None and existing != canonical_pair:
+                ambiguous.add(root)
+            else:
+                roots[root] = canonical_pair
+
+    for root in ambiguous:
+        roots.pop(root, None)
+
+    return roots
+
+
+def _validate_discriminator_component(
+    raw: Mapping[str, Any],
+    component: Mapping[str, Any],
+    canonical_snapshot: Mapping[str, Any],
+) -> None:
+    """Impide que L1/L2 o señales no trazables entren en IRC como L3."""
+
+    component_id = str(component["id"])
+
+    validation_level = raw.get("validation_level")
+    if validation_level != "L3_VALIDATED":
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere "
+            "validation_level=L3_VALIDATED."
+        )
+
+    if component.get("source_module") != "M21":
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR debe declarar "
+            "source_module=M21."
+        )
+
+    root_key = raw.get("root_key")
+    if not isinstance(root_key, str) or not root_key:
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere root_key trazable."
+        )
+
+    discriminator_id = raw.get("discriminator_id")
+    if not isinstance(discriminator_id, str) or not discriminator_id:
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere discriminator_id."
+        )
+
+    promotion_ref = raw.get("promotion_ref")
+    if not isinstance(promotion_ref, str) or not promotion_ref:
+        raise ValueError(
+            f"{component_id}: VALIDATED_DISCRIMINATOR requiere promotion_ref."
+        )
+
+    root_pairs = _validated_ontology_root_pairs(canonical_snapshot)
+    pair = root_pairs.get(root_key)
+    if pair is None:
+        raise ValueError(
+            f"{component_id}: root_key={root_key!r} no consta como raíz "
+            "L3 confirmatoria no ambigua en ontological_discrimination."
+        )
+
+    authorize_promoted_discriminator_component(
+        discriminator_id=discriminator_id,
+        promotion_ref=promotion_ref,
+        pair=pair,
+        root_key=root_key,
+    )
 
 
 def _validated_component(raw: Mapping[str, Any], index: int) -> dict[str, Any]:
@@ -79,6 +188,7 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
     - M23 aporta BIRTH_TIME automáticamente porque su fórmula está definida.
     - M22 sólo puede aportar ABLATION mediante un componente preregistrado.
     - M24 no aporta rareza/frecuencia a IRC.
+    - VALIDATED_DISCRIMINATOR exige L3_VALIDATED y respaldo canónico M21.
     - los demás componentes deben declarar procedencia y derivación.
     """
 
@@ -154,6 +264,13 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
                 )
             ablation_included = True
 
+        if component["kind"] == "VALIDATED_DISCRIMINATOR":
+            _validate_discriminator_component(
+                raw,
+                component,
+                context.canonical_snapshot,
+            )
+
         if component["source_module"] == "M24":
             raise ValueError(
                 f"{component_id}: M24 no puede convertirse en componente IRC."
@@ -206,5 +323,6 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
         limitations=(
             "M22 no se transforma automáticamente en un componente IRC sin regla preregistrada.",
             "La rareza/frecuencia de M24 queda excluida de IRC.",
+            "Sólo discriminadores L3 validados y trazables desde M21 pueden entrar en IRC.",
         ),
     )

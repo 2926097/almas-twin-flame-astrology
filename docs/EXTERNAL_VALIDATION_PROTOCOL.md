@@ -1,4 +1,4 @@
-# Fase 13 · Protocolo de validación externa y preregistro
+# Fases 13–15 · Protocolo de validación externa y preregistro
 
 ## 1. Finalidad
 
@@ -202,6 +202,58 @@ Una regla puede pasar de `EXPERIMENTAL` a `CONFIRMATORY_ELIGIBLE` sólo si:
 
 `CONFIRMATORY_ELIGIBLE` no significa ontología demostrada.
 
+
+### Registro canónico de promoción
+
+Una promoción metodológica sólo adquiere autoridad ejecutable cuando queda incorporada al registro canónico:
+
+`src/almas_tfa/data/discriminator-promotion-registry.json`.
+
+La entrada debe fijar el alcance por pares, `promotion_ref`, fecha de promoción, versión y commit congelados, referencias de preregistro, replicación independiente, holdout externo, controles negativos y auditorías de leakage.
+
+Una ejecución de análisis no puede modificar ni sustituir ese registro.
+
+### Gate hacia M25
+
+`CONFIRMATORY_ELIGIBLE` no basta para entrar en IRC como `VALIDATED_DISCRIMINATOR`.
+
+Para que una señal ontológica pueda declararse `L3_VALIDATED` y ser consumida por M25 debe existir, además de los criterios anteriores:
+
+1. regla congelada;
+2. ejecución confirmatoria fuera del conjunto de desarrollo;
+3. replicación independiente suficiente para el alcance declarado;
+4. controles negativos sin falsa especificidad inaceptable;
+5. ausencia de `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE` y `CASE_FITTING`;
+6. alcance de validación explícito por pares de modelos;
+7. `root_key` estable y trazable;
+8. promoción documental previa al análisis del caso donde vaya a usarse.
+
+M25 no realiza esta promoción. Sólo verifica que la salida canónica M21 ya presenta una raíz como L3 confirmatoria y que el componente de robustez la referencia de forma explícita.
+
+Mientras ningún discriminador haya completado esta promoción, la infraestructura puede existir sin que haya ningún `VALIDATED_DISCRIMINATOR` real utilizable.
+
+### Independencia astrológica del discriminador
+
+Si un discriminador declara `uses_astrology=true`, los requisitos L3 generales no bastan. La promoción exige además un bloque `astrology_validation` con:
+
+- criterio externo no astrológico;
+- ablación de familias/features astrológicas;
+- controles emparejados procesados con el mismo pipeline;
+- auditoría de dependencia y pseudo-replicación;
+- validación fuera de muestra;
+- replicación astrológica específica.
+
+La promoción debe declarar asimismo:
+
+- `single_feature_prohibition_acknowledged=true`;
+- `null_rarity_not_ontological=true`;
+- `temporal_activation_not_origin_proof=true`.
+
+Un aspecto, asteroide, atacir, recurrencia o sincronía aislada no puede crear una categoría ontológica. La rareza bajo un modelo nulo no se interpreta como probabilidad metafísica. Una técnica temporal puede activar arquitectura previamente congelada, pero no demostrar su origen.
+
+Validar una regla astrológica sólo valida su capacidad discriminante dentro del observable operacional y el alcance registrados. No demuestra por sí misma una ontología metafísica.
+
+
 ## 11. Verdad de referencia documental
 
 ALMAS no utilizará como verdad de referencia:
@@ -252,3 +304,75 @@ La Fase 13 se considera implementada cuando existen:
 - reglas de promoción;
 - al menos una ejecución sintética;
 - y la infraestructura está lista para recibir holdouts reales sin modificar la metodología.
+
+
+## 14. Validez discriminante cuantitativa
+
+Toda promoción a `VALIDATED_DISCRIMINATOR` debe satisfacer la política canónica `ALMAS_DISCRIMINANT_VALIDATION_V1`.
+
+Para cada par validado se calculan sensibilidad, especificidad y balanced accuracy a partir de TP/TN/FP/FN. ALMAS usa intervalos Wilson al 95 % y exige:
+
+- CI95 inferior de sensibilidad ≥ 0.60;
+- CI95 inferior de especificidad ≥ 0.90;
+- balanced accuracy ≥ 0.75.
+
+La métrica crítica de sobreclasificación es:
+
+`FALSE_SPECIFICITY_RATE = errores de falsa especificidad / casos evaluables`.
+
+No basta la tasa puntual. El CI95 superior debe ser ≤ 0.05.
+
+En controles sintéticos/adversariales la falsa especificidad permitida es exactamente 0.
+
+Estos valores son `E_PROJECT_POLICY`, no constantes universales. Sólo pueden modificarse mediante una nueva política versionada antes de evaluar nuevos holdouts.
+
+Cuando la salida es categórica, calibración probabilística es `NOT_APPLICABLE_CATEGORICAL`. Si un discriminador emite probabilidades, debe superar un criterio de calibración preregistrado y aportar referencias independientes.
+
+La validación cuantitativa demuestra rendimiento del clasificador operacional dentro de su alcance, no verdad metafísica.
+
+
+## 15. Cegamiento, leakage y revelado tardío
+
+Toda promoción a `VALIDATED_DISCRIMINATOR` debe satisfacer además la política `ALMAS_BLINDING_LEAKAGE_V1`.
+
+La evaluación se separa en dos fases. `STEP_A_BLINDED` ejecuta y congela la arquitectura estructural sin autoetiquetas, narrativa relacional, clasificación esperada, resultado esperado ni truth/outcome del holdout. `STEP_B_DOCUMENTARY_REVEAL` abre después la documentación preregistrada para temporalidad, viabilidad, reciprocidad, cumplimiento y contraevidencia.
+
+La entrada estructural de M21 aplica un firewall fail-closed. Si aparecen claves reservadas a etiqueta, narrativa, expectativa o outcome, la ejecución falla; no las elimina silenciosamente.
+
+Toda auditoría L3 debe incluir `blinding_audit` con `policy_id=ALMAS_BLINDING_LEAKAGE_V1`, referencias de auditoría, fingerprints SHA-256 y evidencia de separación desarrollo/evaluación.
+
+Los siguientes conteos deben ser exactamente cero:
+
+- `forbidden_field_hits`;
+- `label_leakage_count`;
+- `narrative_leakage_count`;
+- `case_fitting_count`;
+- `post_holdout_rule_change_count`.
+
+La salida estructural debe ser invariante tras el revelado documental:
+
+`pre_reveal_output_sha256 == post_reveal_structural_output_sha256`.
+
+Si la identidad de un caso público no puede ocultarse, se registra como `UNAVOIDABLE_PUBLIC` y se documenta el riesgo mediante `identity_risk_refs`. Esa limitación no autoriza revelar autoetiquetas, narrativas o resultados esperados durante la fase estructural.
+
+Superar este gate demuestra resistencia operacional al leakage dentro del protocolo evaluado. No demuestra una ontología metafísica.
+
+
+## 16. Aislamiento de casos privados
+
+Toda validación pública queda sometida a `ALMAS_PUBLIC_DATA_ISOLATION_V1`.
+
+Un caso privado utilizado para desarrollo, replicación o holdout:
+
+- no puede almacenarse en `examples/`;
+- no puede entrar en `public_cases/` mediante pseudónimo;
+- no puede almacenarse como `PRIVATE_HOLDOUT` en el repositorio;
+- no puede convertirse en público mediante modificación ligera de fechas, nombres, coordenadas o eventos.
+
+Los holdouts privados permanecen fuera del repositorio. La capa pública puede conservar únicamente referencias externas opacas, protocolo preregistrado y métricas agregadas no identificables.
+
+Un caso público real exige datos ya públicos, verificación independiente y referencias públicas explícitas.
+
+La auditoría CI controla además cobertura exhaustiva de manifests y ausencia de rutas privadas reservadas.
+
+Cualquier `PRIVACY_BREACH` invalida el artefacto afectado para validación pública, aunque el rendimiento discriminante sea correcto.

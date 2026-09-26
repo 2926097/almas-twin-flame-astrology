@@ -1,0 +1,316 @@
+{
+  "registry_version": "0.1.0",
+  "target_almas_version": "1.12.0",
+  "status": "EXPERIMENTAL_DOCTRINAL_LAYER",
+  "purpose": "Comparar SOULMATE_MODEL, MONADIC_ORIGIN, SPLIT_SOUL y TWIN_FLAME_MODEL sin promover diferencias doctrinales a discriminadores ontológicos validados.",
+  "epistemic_rule": "C_DOCTRINE describe lo que una fuente afirma; E_PROJECT_HYPOTHESIS define cómo ALMAS compara modelos. L1 doctrinal no equivale a L2 operacional ni a L3 validado.",
+  "models": [
+    {
+      "id": "SOULMATE_MODEL",
+      "scope_note": "Categoría paraguas contemporánea; no existe una doctrina histórica única y universal.",
+      "source_basis": [
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "role": "DIRECT_DOCTRINE_FOR_SUMMIT_SUBTYPE"
+        },
+        {
+          "source_id": "stokke_spiritual_love_relations_2021",
+          "role": "ACADEMIC_PHENOMENOLOGY"
+        }
+      ],
+      "documented_claims": [
+        "En el subtipo Summit Lighthouse pueden existir múltiples soulmates.",
+        "En ese subtipo, soulmates pueden compartir misión, etapa de desarrollo y trabajo kármico.",
+        "La fenomenología soulmate documentada académicamente no valida una ontología única."
+      ],
+      "not_established": [
+        "una única contraparte ontológica universal",
+        "división literal de una sola alma",
+        "mismo white-fire ovoid",
+        "criterio astrológico diagnóstico"
+      ],
+      "genealogy_status": "HETEROGENEOUS_CONTEMPORARY_UMBRELLA"
+    },
+    {
+      "id": "MONADIC_ORIGIN",
+      "scope_note": "Modelo comparativo ALMAS construido a partir de ontologías monádicas; no equivale a una doctrina primaria de pareja monádica.",
+      "source_basis": [
+        {
+          "source_id": "blavatsky_secret_doctrine_monads",
+          "role": "PRIMARY_MONAD_DOCTRINE"
+        },
+        {
+          "source_id": "bailey_esoteric_psychology_soul",
+          "role": "PRIMARY_MONAD_SOUL_PERSONALITY_DOCTRINE"
+        }
+      ],
+      "documented_claims": [
+        "Blavatsky usa Monad en relación con Atma-Buddhi y evolución espiritual/cósmica.",
+        "Bailey distingue Mónada, alma y personalidad y presenta a la Mónada como fuente superior de la expresión del alma."
+      ],
+      "not_established": [
+        "pareja romántica monádica",
+        "una única contraparte",
+        "división de una entidad originaria en dos amantes",
+        "equivalencia con twin flame",
+        "criterio astrológico diagnóstico"
+      ],
+      "genealogy_status": "PROJECT_COMPARATIVE_MODEL"
+    },
+    {
+      "id": "SPLIT_SOUL",
+      "scope_note": "Modelo operacional ALMAS: dos sujetos proceden de una unidad previa que se divide. Los textos antiguos/literarios son comparanda, no una doctrina moderna unificada.",
+      "source_basis": [
+        {
+          "source_id": "plato_symposium_aristophanes",
+          "role": "PHILOSOPHICAL_LITERARY_ANTECEDENT"
+        },
+        {
+          "source_id": "brihadaranyaka_1_4_3",
+          "role": "COSMOGONIC_COMPARANDUM"
+        },
+        {
+          "source_id": "corelli_romance_two_worlds_1886",
+          "role": "LITERARY_ESOTERIC_GENEALOGY"
+        }
+      ],
+      "documented_claims": [
+        "Platón, en el discurso de Aristófanes, presenta seres humanos primordiales divididos y orientados a recuperar su integridad.",
+        "Brihadaranyaka Upanishad 1.4.3 aporta un motivo cosmogónico de división del yo primordial.",
+        "La literatura esotérica victoriana aporta motivos posteriores de twin soul/twin-flame."
+      ],
+      "not_established": [
+        "continuidad doctrinal directa entre Platón, Upanishad, Corelli y New Age",
+        "una taxonomía moderna universal de split-soul",
+        "criterio astrológico diagnóstico"
+      ],
+      "genealogy_status": "PROJECT_MODEL_WITH_COMPARATIVE_ANTECEDENTS"
+    },
+    {
+      "id": "TWIN_FLAME_MODEL",
+      "scope_note": "Modelo doctrinal moderno específico; ALMAS usa Summit Lighthouse como una versión primaria explícita, no como origen histórico absoluto del vocabulario.",
+      "source_basis": [
+        {
+          "source_id": "summit_lighthouse_soulmates_twin_flames",
+          "role": "DIRECT_PRIMARY_DOCTRINE"
+        },
+        {
+          "source_id": "summit_lighthouse_glossary_twin_flame",
+          "role": "DIRECT_PRIMARY_DOCTRINE"
+        },
+        {
+          "source_id": "prophet_twin_flames_qa_part1",
+          "role": "DIRECT_PRIMARY_DOCTRINE"
+        }
+      ],
+      "documented_claims": [
+        "creación conjunta en un único white-fire o fiery ovoid",
+        "separación en dos esferas/contrapartes",
+        "una sola twin flame por individuo dentro de esta doctrina",
+        "polaridad masculina/femenina",
+        "mismo patrón de identidad divina o blueprint",
+        "vínculo y destino compartidos dentro de la doctrina"
+      ],
+      "not_established": [
+        "validación científica u ontológica externa",
+        "criterio astrológico diagnóstico",
+        "derivación histórica directa desde Platón, Blavatsky o Corelli"
+      ],
+      "genealogy_status": "DIRECT_MODERN_DOCTRINE"
+    }
+  ],
+  "candidate_discriminators": [
+    {
+      "id": "D01_COUNTERPART_MULTIPLICITY",
+      "construct": "Número de contrapartes válidas que la doctrina permite.",
+      "comparisons": {
+        "SOULMATE_MODEL": "MULTIPLE_IN_SUMMIT_SUBTYPE",
+        "MONADIC_ORIGIN": "NOT_ESTABLISHED",
+        "SPLIT_SOUL": "MODEL_DEPENDENT",
+        "TWIN_FLAME_MODEL": "ONE_IN_SUMMIT_DOCTRINE"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "NOT_OPERATIONAL",
+      "discriminates": [
+        "SOULMATE_MODEL<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "No puede verificarse la unicidad ontológica de una contraparte observando una sola díada."
+    },
+    {
+      "id": "D02_PRIOR_UNITY_TYPE",
+      "construct": "Qué existe antes de la diferenciación: un ser íntegro, una fuente monádica o un campo/ovoid creador compartido.",
+      "comparisons": {
+        "SOULMATE_MODEL": "NO_UNIVERSAL_PRIOR_UNITY",
+        "MONADIC_ORIGIN": "HIGHER_SOURCE_MODEL",
+        "SPLIT_SOUL": "ONE_PRIOR_INTEGRAL_BEING_BY_PROJECT_DEFINITION",
+        "TWIN_FLAME_MODEL": "ONE_FIERY_OVOID_WITH_TWO_COUNTERPARTS"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "NOT_OPERATIONAL",
+      "discriminates": [
+        "MONADIC_ORIGIN<->SPLIT_SOUL",
+        "MONADIC_ORIGIN<->TWIN_FLAME_MODEL",
+        "SPLIT_SOUL<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "La diferencia conceptual no tiene actualmente observable independiente validado."
+    },
+    {
+      "id": "D03_LITERAL_DIVISION",
+      "construct": "División explícita de una unidad previa.",
+      "comparisons": {
+        "SOULMATE_MODEL": "NOT_REQUIRED",
+        "MONADIC_ORIGIN": "NOT_ESTABLISHED",
+        "SPLIT_SOUL": "REQUIRED_BY_PROJECT_DEFINITION",
+        "TWIN_FLAME_MODEL": "PRESENT_AS_OVOID_SEPARATION_IN_SUMMIT_DOCTRINE"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "NON_DISCRIMINATING_SPLIT_VS_TWIN_FLAME",
+      "discriminates": [
+        "SOULMATE_MODEL<->SPLIT_SOUL",
+        "MONADIC_ORIGIN<->SPLIT_SOUL"
+      ],
+      "does_not_discriminate": [
+        "SPLIT_SOUL<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "La mera narrativa de división/reunión no separa split-soul de la versión Summit de twin flame."
+    },
+    {
+      "id": "D04_MASCULINE_FEMININE_POLARITY_REQUIRED",
+      "construct": "Polaridad masculino/femenino como condición doctrinal constitutiva.",
+      "comparisons": {
+        "SOULMATE_MODEL": "NOT_REQUIRED",
+        "MONADIC_ORIGIN": "NOT_ESTABLISHED",
+        "SPLIT_SOUL": "NOT_UNIVERSAL; PLATONIC_ANTECEDENT_INCLUDES_SAME_SEX_AND_ANDROGYNOUS_ORIGINS",
+        "TWIN_FLAME_MODEL": "REQUIRED_IN_SUMMIT_DOCTRINE"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "NOT_OPERATIONAL_AS_ONTOLOGY",
+      "discriminates": [
+        "SPLIT_SOUL_PLATONIC_ANTECEDENT<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "Sexo, género o complementariedad psicológica real no prueban polaridad metafísica."
+    },
+    {
+      "id": "D05_SHARED_DIVINE_BLUEPRINT",
+      "construct": "Mismo patrón de identidad divina/blueprint explícito.",
+      "comparisons": {
+        "SOULMATE_MODEL": "NOT_SAME_BLUEPRINT_IN_SUMMIT_CONTRAST",
+        "MONADIC_ORIGIN": "NOT_ESTABLISHED_AS_DYADIC_BLUEPRINT",
+        "SPLIT_SOUL": "NOT_UNIVERSALLY_DEFINED",
+        "TWIN_FLAME_MODEL": "EXPLICIT_IN_SUMMIT_DOCTRINE"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "NOT_OPERATIONAL",
+      "discriminates": [
+        "SOULMATE_MODEL<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "No existe actualmente medición independiente validada de un 'blueprint divino'."
+    },
+    {
+      "id": "D06_MONAD_SOUL_PERSONALITY_HIERARCHY",
+      "construct": "Relación jerárquica Mónada→alma→personalidad frente a una díada originaria.",
+      "comparisons": {
+        "SOULMATE_MODEL": "NOT_CONSTITUTIVE",
+        "MONADIC_ORIGIN": "CENTRAL_COMPARATIVE_BASIS",
+        "SPLIT_SOUL": "NOT_CONSTITUTIVE",
+        "TWIN_FLAME_MODEL": "NOT_CONSTITUTIVE_IN_SUMMIT_DEFINITION"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "NOT_OPERATIONAL",
+      "discriminates": [
+        "MONADIC_ORIGIN<->SPLIT_SOUL",
+        "MONADIC_ORIGIN<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "Bailey/Blavatsky no establecen una pareja monádica; este discriminador separa constructos, no parejas reales."
+    },
+    {
+      "id": "D07_SHARED_MISSION_OR_KARMA",
+      "construct": "Misión, tarea o karma compartidos.",
+      "comparisons": {
+        "SOULMATE_MODEL": "PRESENT_IN_SUMMIT_SUBTYPE",
+        "MONADIC_ORIGIN": "NOT_CONSTITUTIVE",
+        "SPLIT_SOUL": "MODEL_DEPENDENT",
+        "TWIN_FLAME_MODEL": "PRESENT_IN_SUMMIT_DOCTRINE"
+      },
+      "level": "L1_DOCTRINAL",
+      "operational_status": "SUPPORTIVE_NON_DISCRIMINATING",
+      "does_not_discriminate": [
+        "SOULMATE_MODEL<->TWIN_FLAME_MODEL"
+      ],
+      "limits": "Misión o karma compartidos no pueden elevar por sí solos una clasificación de origen."
+    },
+    {
+      "id": "D08_RECOGNITION_INTENSITY_SYNCHRONICITY",
+      "construct": "Reconocimiento, intensidad, familiaridad y sincronicidad.",
+      "comparisons": {
+        "SOULMATE_MODEL": "COMMON_CONTEMPORARY_PHENOMENOLOGY",
+        "MONADIC_ORIGIN": "NOT_SPECIFIC",
+        "SPLIT_SOUL": "COMPATIBLE",
+        "TWIN_FLAME_MODEL": "COMMON_CONTEMPORARY_PHENOMENOLOGY"
+      },
+      "level": "PHENOMENOLOGICAL",
+      "operational_status": "SUPPORTIVE_NON_DISCRIMINATING",
+      "does_not_discriminate": [
+        "ALL_TARGET_MODELS"
+      ],
+      "limits": "No debe participar en exclusión ontológica salvo validación futura independiente."
+    }
+  ],
+  "current_pairwise_status": [
+    {
+      "pair": [
+        "SOULMATE_MODEL",
+        "TWIN_FLAME_MODEL"
+      ],
+      "doctrinal_separability": "STRONG_L1",
+      "operational_separability": "NOT_YET_L2",
+      "validated_separability": "NO_L3"
+    },
+    {
+      "pair": [
+        "MONADIC_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "doctrinal_separability": "MODERATE_L1",
+      "operational_separability": "NOT_YET_L2",
+      "validated_separability": "NO_L3"
+    },
+    {
+      "pair": [
+        "MONADIC_ORIGIN",
+        "TWIN_FLAME_MODEL"
+      ],
+      "doctrinal_separability": "STRONG_L1",
+      "operational_separability": "NOT_YET_L2",
+      "validated_separability": "NO_L3"
+    },
+    {
+      "pair": [
+        "SPLIT_SOUL",
+        "TWIN_FLAME_MODEL"
+      ],
+      "doctrinal_separability": "PARTIAL_L1",
+      "operational_separability": "NOT_YET_L2",
+      "validated_separability": "NO_L3"
+    },
+    {
+      "pair": [
+        "SOULMATE_MODEL",
+        "SPLIT_SOUL"
+      ],
+      "doctrinal_separability": "MODERATE_L1",
+      "operational_separability": "NOT_YET_L2",
+      "validated_separability": "NO_L3"
+    },
+    {
+      "pair": [
+        "SOULMATE_MODEL",
+        "MONADIC_ORIGIN"
+      ],
+      "doctrinal_separability": "MODERATE_L1",
+      "operational_separability": "NOT_YET_L2",
+      "validated_separability": "NO_L3"
+    }
+  ],
+  "global_conclusion": "El corpus permite separar doctrinas mejor de lo que permite clasificar casos. Actualmente no existe L3 validado para distinguir ontológicamente los cuatro modelos en una pareja concreta; la salida específica permanece limitada por identificabilidad."
+}

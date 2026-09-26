@@ -1,0 +1,292 @@
+{
+  "registry_version": "0.1.0",
+  "target_almas_version": "1.12.0",
+  "status": "L2_EXPERIMENTAL_SPECIFICATION",
+  "principle": "Un candidato L2 debe ser observable, preregistrable, falsable y evaluable sin usar la autoetiqueta como verdad de referencia. L2 valida una predicción operacional, no la ontología metafísica.",
+  "statuses": [
+    "L2_EXPERIMENTAL_READY",
+    "L2_EXPERIMENTAL_LIMITED",
+    "BLOCKED_NONOBSERVABLE",
+    "REJECTED_NONDISCRIMINATING"
+  ],
+  "candidates": [
+    {
+      "id": "OD01_PAIR_SPECIFICITY_NETWORK",
+      "derived_from": [
+        "D01_COUNTERPART_MULTIPLICITY",
+        "D05_SHARED_DIVINE_BLUEPRINT"
+      ],
+      "status": "L2_EXPERIMENTAL_READY",
+      "construct": "Especificidad diádica relativa dentro de una red real de relaciones del mismo sujeto.",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "target_pairs": [
+        "SOULMATE_MODEL<->TWIN_FLAME_MODEL"
+      ],
+      "observable": {
+        "name": "within_subject_pair_specificity",
+        "description": "Comparar una díada objetivo A-B con otras díadas reales A-C, A-D y, cuando sea posible, B-C/B-D usando exactamente el mismo pipeline estructural ciego.",
+        "required_data": [
+          "datos natales con calidad controlada",
+          "mismo conjunto de técnicas y orbes para todas las díadas",
+          "relaciones de contraste seleccionadas antes de observar resultados",
+          "raíces independientes M17",
+          "ablación M22",
+          "sensibilidad M23",
+          "modelos nulos M24"
+        ]
+      },
+      "prediction": {
+        "SOULMATE_MODEL": "El marco soulmate no exige una única díada excepcional; pueden existir varias relaciones profundas o funcionalmente afines.",
+        "TWIN_FLAME_MODEL": "La versión Summit de unicidad exige que una hipótesis operacional de especificidad diádica no sea replicada por múltiples contrapartes equivalentes del mismo sujeto."
+      },
+      "decision_direction": "Una díada claramente singular puede ser compatible con unicidad; dos o más díadas comparables debilitan cualquier operacionalización basada en exclusividad.",
+      "falsifier": "Dos o más díadas independientes del mismo sujeto satisfacen los criterios congelados de especificidad con diferencias menores que el margen preregistrado.",
+      "negative_controls": [
+        "pares barajados",
+        "pares emparejados por edad/cohorte",
+        "amistades o relaciones ordinarias con calidad de datos equivalente"
+      ],
+      "dependency_controls": [
+        "deduplicación M16",
+        "raíces M17",
+        "AB0-AB8",
+        "perturbación horaria",
+        "exclusión de capas support_only como decisoras"
+      ],
+      "leakage_controls": [
+        "ocultar etiquetas emic",
+        "seleccionar comparadores antes de ejecutar",
+        "no usar duración, matrimonio o ruptura como señal ontológica"
+      ],
+      "validation_design": "Diseño intra-sujeto y entre-sujetos con criterios congelados, holdout y replicación.",
+      "promotion_rule": "No puede llegar a L3 hasta demostrar especificidad fuera de muestra y baja tasa de falsos outliers en controles.",
+      "ontological_limit": "Aunque valide especificidad diádica, no demuestra que la díada sea una twin flame; sólo evalúa la predicción operacional de unicidad.",
+      "uses_astrology": true,
+      "astrology_role": "La comparación de especificidad usa datos natales y pipeline estructural; la astrología es material al proxy."
+    },
+    {
+      "id": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
+      "derived_from": [
+        "D05_SHARED_DIVINE_BLUEPRINT"
+      ],
+      "status": "L2_EXPERIMENTAL_LIMITED",
+      "construct": "Isomorfismo estructural repetido en familias técnicas independientes como proxy experimental de 'blueprint compartido'.",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "target_pairs": [
+        "SOULMATE_MODEL<->TWIN_FLAME_MODEL"
+      ],
+      "observable": {
+        "name": "cross_family_structural_isomorphism",
+        "description": "Patrones equivalentes preregistrados que reaparecen en al menos dos raíces independientes y sobreviven deduplicación, ablación y perturbación.",
+        "eligible_families": [
+          "sinastría tropical principal",
+          "declinaciones",
+          "antiscios",
+          "cartas relacionales",
+          "cruces natal-dracónica"
+        ]
+      },
+      "prediction": {
+        "SOULMATE_MODEL": "No requiere un patrón diádico único de isomorfismo en el subtipo Summit.",
+        "TWIN_FLAME_MODEL": "La doctrina de blueprint común motiva explorar una firma de isomorfismo más específica y estable."
+      },
+      "falsifier": "La aparente isomorfía desaparece al deduplicar raíces, al retirar una familia técnica o aparece con frecuencia comparable en controles.",
+      "negative_controls": [
+        "pair shuffle",
+        "matched-age controls",
+        "same-subject alternative partners"
+      ],
+      "dependency_controls": [
+        "cada patrón debe declarar root_key y dependency_family",
+        "no contar tropical y dracónica derivada como raíces independientes si comparten geometría",
+        "ningún asteroide secundario decide el constructo"
+      ],
+      "validation_design": "Preregistro del patrón antes del holdout, Monte Carlo específico de feature-set, ablación y replicación.",
+      "promotion_rule": "Puede promoverse sólo si el proxy muestra discriminación fuera de muestra y no depende de una sola familia.",
+      "ontological_limit": "El término blueprint pertenece a la doctrina; el proxy astrológico es una hipótesis ALMAS y no una medición directa del blueprint.",
+      "uses_astrology": true,
+      "astrology_role": "El observable es explícitamente astrológico y multicapa; requiere firewall astrológico completo."
+    },
+    {
+      "id": "OD03_BLINDED_DOCTRINAL_CODING",
+      "derived_from": [
+        "D01_COUNTERPART_MULTIPLICITY",
+        "D02_PRIOR_UNITY_TYPE",
+        "D03_LITERAL_DIVISION",
+        "D04_MASCULINE_FEMININE_POLARITY_REQUIRED",
+        "D05_SHARED_DIVINE_BLUEPRINT",
+        "D06_MONAD_SOUL_PERSONALITY_HIERARCHY"
+      ],
+      "status": "L2_EXPERIMENTAL_READY",
+      "construct": "Separabilidad empírica de los constructos doctrinales mediante codificación ciega.",
+      "epistemic_class": "B_TECHNIQUE",
+      "target_pairs": [
+        "ALL_TARGET_MODELS"
+      ],
+      "observable": {
+        "name": "blinded_construct_classification",
+        "description": "Evaluadores independientes clasifican descripciones doctrinales o casos sintéticos sin nombres de tradición, etiquetas de modelo ni vocabulario diagnóstico explícito.",
+        "required_outputs": [
+          "matriz de confusión",
+          "acuerdo interevaluador",
+          "errores por par de modelos",
+          "motivos de decisión"
+        ]
+      },
+      "prediction": "Si los constructos están realmente diferenciados, evaluadores ciegos deben distinguirlos por condiciones estructurales y no por palabras-clave.",
+      "falsifier": "Acuerdo bajo, confusión sistemática entre dos modelos o dependencia de vocabulario explícito para clasificarlos.",
+      "negative_controls": [
+        "descripciones con señales comunes únicamente",
+        "casos híbridos deliberados",
+        "paráfrasis adversariales"
+      ],
+      "leakage_controls": [
+        "eliminar nombres soulmate, monad, split soul, twin flame",
+        "eliminar autores, tradiciones y citas identificativas",
+        "separar conjunto de construcción y conjunto de prueba"
+      ],
+      "validation_design": "Múltiples evaluadores, rúbrica congelada, Cohen/Fleiss kappa o estadístico equivalente, holdout textual y adversarial testing.",
+      "promotion_rule": "L3 sólo para separabilidad de constructos; nunca como validación ontológica de una relación real.",
+      "ontological_limit": "Puede validar que las doctrinas son operacionalmente distintas, no que una pareja pertenezca metafísicamente a una de ellas.",
+      "uses_astrology": false,
+      "astrology_role": "Clasificación doctrinal ciega; no necesita datos astrológicos."
+    },
+    {
+      "id": "OD04_PROSPECTIVE_MODEL_PREDICTION",
+      "derived_from": [
+        "D02_PRIOR_UNITY_TYPE",
+        "D05_SHARED_DIVINE_BLUEPRINT",
+        "D07_SHARED_MISSION_OR_KARMA"
+      ],
+      "status": "L2_EXPERIMENTAL_LIMITED",
+      "construct": "Capacidad de modelos rivales para generar predicciones ex ante diferentes sobre observables futuros documentables.",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "target_pairs": [
+        "ALL_TARGET_MODELS"
+      ],
+      "observable": {
+        "name": "prospective_differential_prediction",
+        "description": "Antes del periodo de seguimiento, cada modelo debe producir predicciones concretas distintas sobre variables documentales o estructurales permitidas.",
+        "allowed_targets": [
+          "eventos externos fechables",
+          "cambios documentados de contacto o colaboración",
+          "activaciones temporales de arquitectura ya congelada",
+          "medidas estructurales calculables en fechas futuras"
+        ],
+        "forbidden_targets": [
+          "pensamientos privados",
+          "sentimientos no documentados",
+          "fidelidad inferida",
+          "decisiones futuras atribuidas a otra persona"
+        ]
+      },
+      "prediction": "Sólo existe discriminación si los modelos generan pronósticos diferentes antes de observar el resultado.",
+      "falsifier": "Los modelos generan las mismas predicciones, las predicciones son demasiado vagas o fallan de forma equivalente en seguimiento.",
+      "negative_controls": [
+        "date-shift",
+        "event-date shuffle",
+        "predicciones genéricas de alta base-rate"
+      ],
+      "validation_design": "Preregistro, timestamp, seguimiento prospectivo, scoring definido antes del resultado y replicación.",
+      "promotion_rule": "No puede promoverse si las predicciones fueron formuladas después de conocer eventos o si las diferencias entre modelos no estaban congeladas.",
+      "ontological_limit": "La predicción correcta no demuestra origen metafísico; sólo aporta validez predictiva al modelo operacional.",
+      "uses_astrology": true,
+      "astrology_role": "Puede usar activaciones temporales y medidas estructurales astrológicas; se clasifica conservadoramente como dependiente de astrología."
+    },
+    {
+      "id": "OD05_PRIOR_UNITY_DIRECT",
+      "derived_from": [
+        "D02_PRIOR_UNITY_TYPE",
+        "D03_LITERAL_DIVISION"
+      ],
+      "status": "BLOCKED_NONOBSERVABLE",
+      "construct": "Tipo ontológico de unidad anterior a la diferenciación.",
+      "epistemic_class": "C_DOCTRINE/E_PROJECT_HYPOTHESIS",
+      "target_pairs": [
+        "MONADIC_ORIGIN<->SPLIT_SOUL",
+        "MONADIC_ORIGIN<->TWIN_FLAME_MODEL",
+        "SPLIT_SOUL<->TWIN_FLAME_MODEL"
+      ],
+      "block_reason": "No existe actualmente una medición independiente que observe directamente una Mónada, un ser previo íntegro o un white-fire ovoid sin asumir de antemano la doctrina.",
+      "prohibited_shortcuts": [
+        "usar sensación subjetiva de unidad",
+        "usar una carta astrológica como observación directa",
+        "usar regresión o canalización como ground truth",
+        "usar autoetiqueta"
+      ],
+      "reconsideration_condition": "Sólo reabrir si se define un observable independiente con falsador y validación que no presuponga el modelo.",
+      "uses_astrology": false,
+      "astrology_role": "Bloqueado por no observabilidad; la astrología está expresamente prohibida como observación directa de origen."
+    },
+    {
+      "id": "OD06_MONADIC_HIERARCHY_DIRECT",
+      "derived_from": [
+        "D06_MONAD_SOUL_PERSONALITY_HIERARCHY"
+      ],
+      "status": "BLOCKED_NONOBSERVABLE",
+      "construct": "Jerarquía Mónada→alma→personalidad como propiedad objetiva de una díada.",
+      "epistemic_class": "C_DOCTRINE/E_PROJECT_HYPOTHESIS",
+      "target_pairs": [
+        "MONADIC_ORIGIN<->SPLIT_SOUL",
+        "MONADIC_ORIGIN<->TWIN_FLAME_MODEL"
+      ],
+      "block_reason": "La doctrina monádica es conceptualmente diferenciable, pero no existe un criterio externo independiente para identificar en dos personas una fuente monádica común.",
+      "reconsideration_condition": "Requiere operacionalización no circular y replicable; hasta entonces MONADIC_ORIGIN no puede alcanzar L3.",
+      "uses_astrology": false,
+      "astrology_role": "Bloqueado por ausencia de criterio externo para fuente monádica común."
+    },
+    {
+      "id": "OD07_PHENOMENOLOGY_CLUSTER",
+      "derived_from": [
+        "D08_RECOGNITION_INTENSITY_SYNCHRONICITY"
+      ],
+      "status": "REJECTED_NONDISCRIMINATING",
+      "construct": "Reconocimiento, intensidad, sincronicidad, familiaridad y sensación de destino.",
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "target_pairs": [
+        "ALL_TARGET_MODELS"
+      ],
+      "reject_reason": "Estas señales aparecen en múltiples modelos y no generan predicciones diferenciales exclusivas.",
+      "allowed_use": "Describir fenomenología y función; nunca excluir o seleccionar una ontología específica.",
+      "uses_astrology": false,
+      "astrology_role": "Fenomenología contemporánea no discriminante; no depende de astrología para su definición."
+    }
+  ],
+  "mandatory_validation_controls": [
+    "preregistration",
+    "blinded_analysis",
+    "development_holdout_separation",
+    "dependency_deduplication",
+    "negative_controls",
+    "ablation",
+    "time_sensitivity",
+    "out_of_sample_replication",
+    "label_leakage_test",
+    "narrative_leakage_test",
+    "false_specificity_rate",
+    "astrology_independence",
+    "non_astrological_external_criterion",
+    "astrology_ablation",
+    "astrology_dependency_audit"
+  ],
+  "promotion_logic": {
+    "L1_to_L2": "Requiere observable reproducible, predicción diferencial, falsador, controles y protocolo preregistrable.",
+    "L2_to_L3": "Requiere reglas congeladas, replicación independiente, holdout, especificidad aceptable y ausencia de leakage relevante.",
+    "L3_scope": "La validación conserva el alcance exacto del observable; nunca se amplía automáticamente a verdad metafísica.",
+    "L2_to_L3_astrology": "Si uses_astrology=true, L3 exige además criterio externo no astrológico, ablación, controles emparejados, auditoría de dependencia, validación fuera de muestra y replicación astrológica específica."
+  },
+  "astrology_independence_policy": {
+    "principle": "Si la astrología afecta materialmente al observable o a la regla de decisión, el discriminador debe declararse uses_astrology=true y no puede promoverse a L3 sin validación astrológica independiente registrada.",
+    "l3_extra_requirements": [
+      "criterio externo no astrológico",
+      "ablación de familias/features astrológicas",
+      "controles emparejados procesados con el mismo pipeline",
+      "auditoría de dependencia y pseudo-replicación",
+      "validación fuera de muestra",
+      "replicación astrológica específica"
+    ],
+    "single_feature_can_confirm": false,
+    "null_rarity_is_metaphysical_probability": false,
+    "temporal_activation_proves_origin": false
+  }
+}

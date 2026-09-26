@@ -16,3 +16,15 @@
 14. Controles negativos y no románticos son obligatorios en la cohorte.
 15. Material privado nunca se publica ni se convierte en holdout por anonimización superficial.
 16. La validación metodológica no se presenta como prueba empírica de la ontología metafísica.
+17. L3_VALIDATED no puede declararse desde una ejecución: requiere promotion_ref coincidente con el registro canónico.
+18. Un registro incompleto, fuera de alcance por pares o con root_key ajeno no autoriza L3.
+19. El registro productivo puede contener cero L3; los tests positivos usan únicamente registros sintéticos inyectados.
+20. M25 revalida discriminator_id y promotion_ref contra el registro antes de admitir VALIDATED_DISCRIMINATOR en IRC.
+
+
+21. M21 rechaza campos narrativos, autoetiquetas, expectativas y outcomes dentro de la entrada estructural.
+22. Toda promoción L3 requiere `blinding_audit` válida bajo `ALMAS_BLINDING_LEAKAGE_V1`.
+23. Los fingerprints estructurales pre y post revelado deben ser idénticos.
+24. `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE`, `CASE_FITTING` y cambios post-holdout deben permanecer en cero.
+25. Una identidad `UNAVOIDABLE_PUBLIC` requiere documentación explícita del riesgo.
+26. La resistencia al leakage valida el procedimiento operacional, no la ontología metafísica.

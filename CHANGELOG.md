@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.12.0 — 2026-09-26
+
+### Discriminación ontológica, validación y cierre metodológico
+- Formaliza identificabilidad, equivalencia observacional y el fallback obligatorio `SHARED_ORIGIN_UNDIFFERENTIATED / INSUFFICIENT`.
+- Añade registro doctrinal L1, candidatos operacionales L2 y motor lógico autónomo de discriminación ontológica.
+- Integra la subcapa ontológica en M21 sin sustituir ni contaminar IDD AF/KA/AG/LG.
+- Integra `ontological_discrimination` en el contrato canónico y preserva `promotion_trace` hasta M31.
+- Endurece M25: sólo raíces L3 previamente validadas y confirmadas por M21 pueden entrar como `VALIDATED_DISCRIMINATOR`.
+- Añade registro canónico de promoción, máquina de estados y prohibición de autopromoción L2→L3.
+- Añade baterías adversariales y metamórficas contra falsa especificidad, duplicación de raíces, ciclos de exclusión, leakage y abuso de `promotion_ref`.
+- Añade política de independencia astrológica: ningún aspecto, asteroide, atacir, rareza nula o activación temporal aislada autoriza L3.
+- Añade `ALMAS_DISCRIMINANT_VALIDATION_V1` con sensibilidad/especificidad por par, balanced accuracy, Wilson 95 % y `FALSE_SPECIFICITY_RATE`.
+- Añade `ALMAS_BLINDING_LEAKAGE_V1` con ejecución estructural ciega, revelado tardío y fingerprints pre/post.
+- Añade reporting metodológico de promoción separado de la clasificación de caso y de IRC.
+- Añade genealogía documental OD01–OD07 con techos epistemológicos y equivalencias doctrinales prohibidas.
+- Añade `ALMAS_PUBLIC_DATA_ISOLATION_V1`, manifests exhaustivos para ejemplos/casos públicos/holdouts y firewall CI de privacidad.
+- La suite Python alcanza **266 tests deterministas** en esta release.
+- Estados actuales: OD01–OD04 `EXPLORATORY`, OD05–OD06 `BLOCKED`, OD07 `RETIRED`; `validated_discriminator_ids=[]`.
+- No se ha ejecutado un holdout externo real y no se declara ningún `VALIDATED_DISCRIMINATOR` real.
+- Mantiene sin cambios fórmulas, pesos y thresholds públicos de IEM/IDD/IRC/IAT/ICC/ICE y el gate `SUPPORTED`.
+
 ## 1.11.0 — 2026-09-25
 
 ### Pipeline modular ejecutable M00–M31

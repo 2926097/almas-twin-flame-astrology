@@ -29,6 +29,174 @@ MODEL_STATES = {
 }
 
 
+ONTOLOGICAL_IDENTIFIABILITY_STATES = {
+    "IDENTIFIABLE",
+    "PARTIALLY_IDENTIFIABLE",
+    "NON_IDENTIFIABLE",
+    "NOT_EVALUABLE",
+}
+ONTOLOGICAL_EPISTEMIC_STATES = {
+    "SUPPORTED",
+    "COMPATIBLE",
+    "INSUFFICIENT",
+    "CONTRADICTED",
+    "NOT_EVALUABLE",
+}
+SHARED_ORIGIN_MODELS = {
+    "MONADIC_ORIGIN",
+    "SPLIT_SOUL",
+    "TWIN_FLAME_MODEL",
+}
+
+
+def _ontological_semantic_checks(
+    raw: Any,
+) -> tuple[list[str], list[str]]:
+    blocking: list[str] = []
+    degraded: list[str] = []
+
+    if not isinstance(raw, Mapping):
+        return ["ONTOLOGICAL_DISCRIMINATION_MUST_BE_OBJECT"], degraded
+
+    required = {
+        "schema_version",
+        "candidate_models",
+        "confirmed_exclusions",
+        "surviving_models",
+        "identifiability_state",
+        "epistemic_state",
+        "classification",
+        "promotion_trace",
+        "false_specificity_guard",
+    }
+    missing = sorted(required - set(raw))
+    if missing:
+        blocking.append(
+            "ONTOLOGICAL_DISCRIMINATION_MISSING:" + ",".join(missing)
+        )
+        return blocking, degraded
+
+    if raw.get("schema_version") != "1.0.0":
+        blocking.append("ONTOLOGICAL_DISCRIMINATION_SCHEMA_UNSUPPORTED")
+
+    candidates = raw.get("candidate_models")
+    survivors = raw.get("surviving_models")
+    exclusions = raw.get("confirmed_exclusions")
+
+    def valid_model_list(value: Any, *, minimum: int = 0) -> bool:
+        return (
+            isinstance(value, list)
+            and len(value) >= minimum
+            and len(value) == len(set(value))
+            and all(isinstance(item, str) and item for item in value)
+        )
+
+    if not valid_model_list(candidates, minimum=2):
+        blocking.append("ONTOLOGY_CANDIDATE_MODELS_INVALID")
+        return blocking, degraded
+    if not valid_model_list(survivors):
+        blocking.append("ONTOLOGY_SURVIVING_MODELS_INVALID")
+        return blocking, degraded
+    if not valid_model_list(exclusions):
+        blocking.append("ONTOLOGY_CONFIRMED_EXCLUSIONS_INVALID")
+        return blocking, degraded
+
+    candidate_set = set(candidates)
+    survivor_set = set(survivors)
+    exclusion_set = set(exclusions)
+
+    if not survivor_set.issubset(candidate_set):
+        blocking.append("ONTOLOGY_SURVIVOR_OUTSIDE_CANDIDATES")
+    if not exclusion_set.issubset(candidate_set):
+        blocking.append("ONTOLOGY_EXCLUSION_OUTSIDE_CANDIDATES")
+    if survivor_set & exclusion_set:
+        blocking.append("ONTOLOGY_SURVIVOR_EXCLUSION_OVERLAP")
+    if survivor_set != candidate_set - exclusion_set:
+        blocking.append("ONTOLOGY_SURVIVOR_PARTITION_INCONSISTENT")
+
+    identifiability = raw.get("identifiability_state")
+    if identifiability not in ONTOLOGICAL_IDENTIFIABILITY_STATES:
+        blocking.append("ONTOLOGY_IDENTIFIABILITY_STATE_INVALID")
+
+    epistemic = raw.get("epistemic_state")
+    if epistemic not in ONTOLOGICAL_EPISTEMIC_STATES:
+        blocking.append("ONTOLOGY_EPISTEMIC_STATE_INVALID")
+
+    if identifiability == "IDENTIFIABLE" and len(survivors) != 1:
+        blocking.append("ONTOLOGY_IDENTIFIABLE_WITHOUT_SINGLE_SURVIVOR")
+    if (
+        identifiability == "PARTIALLY_IDENTIFIABLE"
+        and not (1 < len(survivors) < len(candidates))
+    ):
+        blocking.append("ONTOLOGY_PARTIAL_IDENTIFIABILITY_INCONSISTENT")
+    if identifiability == "NOT_EVALUABLE" and epistemic != "NOT_EVALUABLE":
+        blocking.append("ONTOLOGY_NOT_EVALUABLE_STATE_MISMATCH")
+
+    classification = raw.get("classification")
+    if len(survivors) == 1:
+        expected_classification = survivors[0]
+    elif (
+        len(survivors) >= 2
+        and survivor_set
+        and survivor_set.issubset(SHARED_ORIGIN_MODELS)
+    ):
+        expected_classification = "SHARED_ORIGIN_UNDIFFERENTIATED"
+    else:
+        expected_classification = "INDETERMINATE"
+
+    if classification != expected_classification:
+        blocking.append("ONTOLOGY_CLASSIFICATION_INCONSISTENT")
+
+    if raw.get("false_specificity_guard") is not True:
+        blocking.append("ONTOLOGY_FALSE_SPECIFICITY_GUARD_FAILED")
+
+    promotion_trace = raw.get("promotion_trace")
+    if not isinstance(promotion_trace, list):
+        blocking.append("ONTOLOGY_PROMOTION_TRACE_MUST_BE_ARRAY")
+    else:
+        seen_trace: set[tuple[str, str, str, tuple[str, str]]] = set()
+        for index, item in enumerate(promotion_trace):
+            if not isinstance(item, Mapping):
+                blocking.append(f"ONTOLOGY_PROMOTION_TRACE_ITEM_INVALID:{index}")
+                continue
+            discriminator_id = item.get("discriminator_id")
+            promotion_ref = item.get("promotion_ref")
+            root_key = item.get("root_key")
+            pair = item.get("pair")
+            if not all(
+                isinstance(value, str) and value
+                for value in (discriminator_id, promotion_ref, root_key)
+            ):
+                blocking.append(
+                    f"ONTOLOGY_PROMOTION_TRACE_FIELDS_INVALID:{index}"
+                )
+                continue
+            if (
+                not isinstance(pair, list)
+                or len(pair) != 2
+                or pair[0] == pair[1]
+                or not all(isinstance(model, str) and model for model in pair)
+                or not set(pair).issubset(candidate_set)
+            ):
+                blocking.append(
+                    f"ONTOLOGY_PROMOTION_TRACE_PAIR_INVALID:{index}"
+                )
+                continue
+            key = (
+                discriminator_id,
+                promotion_ref,
+                root_key,
+                tuple(sorted((pair[0], pair[1]))),
+            )
+            if key in seen_trace:
+                blocking.append(
+                    f"ONTOLOGY_PROMOTION_TRACE_DUPLICATE:{index}"
+                )
+            seen_trace.add(key)
+
+    return sorted(set(blocking)), degraded
+
+
 def _fingerprint(value: Mapping[str, Any]) -> str:
     encoded = json.dumps(
         value,
@@ -119,6 +287,13 @@ def _semantic_checks(
 
     if positive_model_claim and not evidence:
         blocking.append("POSITIVE_MODEL_CLAIM_WITHOUT_EVIDENCE")
+
+    if "ontological_discrimination" in canonical:
+        ontology_blocking, ontology_degraded = _ontological_semantic_checks(
+            canonical.get("ontological_discrimination")
+        )
+        blocking.extend(ontology_blocking)
+        degraded.extend(ontology_degraded)
 
     if mode == "FULL":
         icc = coverage.get("ICC")

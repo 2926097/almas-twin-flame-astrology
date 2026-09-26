@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/public-artifact-manifest.schema.json",
+  "title": "ALMAS · Manifiesto de artefactos públicos",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "policy_id",
+    "scope",
+    "root",
+    "allowed_classifications",
+    "artifacts"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": "1.0.0"
+    },
+    "policy_id": {
+      "const": "ALMAS_PUBLIC_DATA_ISOLATION_V1"
+    },
+    "scope": {
+      "enum": [
+        "examples",
+        "public_cases",
+        "public_holdouts"
+      ]
+    },
+    "root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_classifications": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "classification",
+          "purpose",
+          "contains_real_person_data",
+          "contains_nonpublic_material",
+          "derived_from_private_case",
+          "reversible_from_private_case",
+          "independently_verifiable",
+          "public_source_refs"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "classification": {
+            "enum": [
+              "SYNTHETIC",
+              "PUBLIC_VERIFIABLE",
+              "PUBLIC_METADATA_ONLY"
+            ]
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contains_real_person_data": {
+            "type": "boolean"
+          },
+          "contains_nonpublic_material": {
+            "type": "boolean"
+          },
+          "derived_from_private_case": {
+            "type": "boolean"
+          },
+          "reversible_from_private_case": {
+            "type": "boolean"
+          },
+          "independently_verifiable": {
+            "type": "boolean"
+          },
+          "public_source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

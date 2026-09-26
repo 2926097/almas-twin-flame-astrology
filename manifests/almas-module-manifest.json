@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_public_version": "1.11.0",
+  "almas_public_version": "1.12.0",
   "architecture": "single_skill_modular",
   "root_skill": {
     "id": "almas-twin-flame-astrology",
@@ -71,6 +71,7 @@
     "birth_and_event_data",
     "canonical_analysis",
     "ontology",
+    "ontological_discrimination",
     "preincarnation_reconstruction",
     "counterevidence_and_validation",
     "canonical_soul_contract",

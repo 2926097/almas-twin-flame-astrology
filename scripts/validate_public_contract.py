@@ -23,12 +23,35 @@ REQUIRED_FILES = [
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
     "docs/DOCTRINE_TO_ASTROLOGY.md",
+    "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md",
+    "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md",
+    "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md",
+    "docs/DISCRIMINANT_VALIDATION_POLICY.md",
+    "docs/BLINDING_LEAKAGE_POLICY.md",
+    "docs/PROMOTION_STATE_MACHINE.md",
+    "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
+    "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
+    "docs/PRIVATE_CASE_ISOLATION_POLICY.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
+    "examples/manifest.json",
     "public_cases/README.md",
+    "public_cases/manifest.json",
+    "validation/holdouts/README.md",
+    "validation/holdouts/manifest.json",
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/ontological-discriminator-output.schema.json",
+    "schemas/discriminator-promotion-registry.schema.json",
+    "schemas/discriminator-promotion-transition.schema.json",
+    "schemas/discriminator-promotion-reporting.schema.json",
+    "schemas/discriminator-source-genealogy.schema.json",
+    "schemas/discriminator-source-genealogy-reporting.schema.json",
+    "schemas/public-artifact-manifest.schema.json",
+    "schemas/discriminant-validation-evidence.schema.json",
+    "schemas/blinding-leakage-audit.schema.json",
+    "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
@@ -111,6 +134,7 @@ REQUIRED_FILES = [
     "reference/lurianic-kabbalah-matrix.md",
     "reference/preincarnation-planning-matrix.md",
     "reference/ontology-registry.json",
+    "reference/operational-discriminator-candidates.json",
     "reference/contract-causal-architecture-v2.md",
     "reference/preincarnation-causality-engine.md",
     "reference/contract-ablation.md",
@@ -140,6 +164,19 @@ REQUIRED_FILES = [
     "skills/almas-soul-contract/CHANGELOG.md",
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
+    "src/almas_tfa/discriminator_promotion_registry.py",
+    "src/almas_tfa/discriminant_validation.py",
+    "src/almas_tfa/blinding_leakage.py",
+    "src/almas_tfa/promotion_state_machine.py",
+    "src/almas_tfa/promotion_reporting.py",
+    "src/almas_tfa/discriminator_source_genealogy.py",
+    "src/almas_tfa/public_data_guard.py",
+    "src/almas_tfa/data/discriminator-promotion-registry.json",
+    "src/almas_tfa/data/discriminant-validation-policy.json",
+    "src/almas_tfa/data/blinding-leakage-policy.json",
+    "src/almas_tfa/data/promotion-state-machine-policy.json",
+    "src/almas_tfa/data/discriminator-source-genealogy.json",
+    "src/almas_tfa/data/public-data-isolation-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -185,6 +222,14 @@ REQUIRED_FILES = [
     "tests/VIABILITY_RECIPROCITY_INVARIANTS.md",
     "tests/REPORT_GATE_INVARIANTS.md",
     "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md",
+    "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md",
+    "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md",
+    "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md",
+    "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md",
+    "tests/BLINDING_LEAKAGE_INVARIANTS.md",
+    "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md",
+    "tests/DISCRIMINATOR_SOURCE_GENEALOGY_INVARIANTS.md",
+    "tests/PRIVATE_CASE_ISOLATION_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -221,6 +266,15 @@ REQUIRED_FILES = [
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
     "tests/test_full_pipeline.py",
+    "tests/test_ontological_discriminator_adversarial.py",
+    "tests/test_ontological_discriminator_metamorphic.py",
+    "tests/test_astrological_discriminator_independence.py",
+    "tests/test_discriminant_validation.py",
+    "tests/test_blinding_leakage.py",
+    "tests/test_promotion_state_machine.py",
+    "tests/test_promotion_reporting.py",
+    "tests/test_discriminator_source_genealogy.py",
+    "tests/test_public_data_guard.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -305,6 +359,12 @@ def main() -> int:
 
     if "ya sean públicos" not in publication_policy:
         fail("la política de publicación debe definir la regla de datos ya públicos")
+    if "ALMAS_PUBLIC_DATA_ISOLATION_V1" not in publication_policy:
+        fail("publication policy missing public data isolation id")
+    if "examples/manifest.json" not in examples_policy:
+        fail("examples policy must require examples/manifest.json")
+    if "public_cases/manifest.json" not in public_cases_policy:
+        fail("public cases policy must require public_cases/manifest.json")
     if "sintétic" not in examples_policy.lower():
         fail("la política de ejemplos debe identificar los fixtures predeterminados como sintéticos")
     if "independientemente verificables" not in public_cases_policy:
@@ -329,6 +389,36 @@ def main() -> int:
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
+    ontological_discriminator_output_schema = load_json(
+        "schemas/ontological-discriminator-output.schema.json"
+    )
+    discriminator_promotion_registry = load_json(
+        "src/almas_tfa/data/discriminator-promotion-registry.json"
+    )
+    discriminant_validation_policy = load_json(
+        "src/almas_tfa/data/discriminant-validation-policy.json"
+    )
+    blinding_leakage_policy = load_json(
+        "src/almas_tfa/data/blinding-leakage-policy.json"
+    )
+    promotion_state_machine_policy = load_json(
+        "src/almas_tfa/data/promotion-state-machine-policy.json"
+    )
+    discriminator_source_genealogy = load_json(
+        "src/almas_tfa/data/discriminator-source-genealogy.json"
+    )
+    public_data_isolation_policy = load_json(
+        "src/almas_tfa/data/public-data-isolation-policy.json"
+    )
+    public_artifact_manifest_schema = load_json(
+        "schemas/public-artifact-manifest.schema.json"
+    )
+    examples_manifest = load_json("examples/manifest.json")
+    public_cases_manifest = load_json("public_cases/manifest.json")
+    public_holdouts_manifest = load_json("validation/holdouts/manifest.json")
+    operational_discriminator_candidates = load_json(
+        "reference/operational-discriminator-candidates.json"
+    )
     natal_chart_schema = load_json("schemas/natal-chart.schema.json")
     synastry_schema = load_json("schemas/synastry-output.schema.json")
     natal_context_schema = load_json("schemas/natal-context-output.schema.json")
@@ -357,6 +447,15 @@ def main() -> int:
     viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
     report_gate_schema = load_json("schemas/report-gate-output.schema.json")
     report_document_model_schema = load_json("schemas/report-document-model.schema.json")
+    promotion_reporting_schema = load_json(
+        "schemas/discriminator-promotion-reporting.schema.json"
+    )
+    source_genealogy_schema = load_json(
+        "schemas/discriminator-source-genealogy.schema.json"
+    )
+    source_genealogy_reporting_schema = load_json(
+        "schemas/discriminator-source-genealogy-reporting.schema.json"
+    )
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
@@ -415,8 +514,1076 @@ def main() -> int:
     preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
     preincarnation_example = load_json("examples/preincarnation-reconstruction.synthetic.json")
 
+    if almas_module_manifest.get("almas_public_version") != version:
+        fail("almas module manifest version diverges from VERSION")
+    if discriminator_promotion_registry.get("target_almas_version") != version:
+        fail("promotion registry target version diverges from VERSION")
+    if discriminator_source_genealogy.get("target_almas_version") != version:
+        fail("discriminator source genealogy target version diverges from VERSION")
+    if operational_discriminator_candidates.get("target_almas_version") != version:
+        fail("operational discriminator target version diverges from VERSION")
+
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
+
+    canonical_ontology_ref = (
+        canonical_schema.get("properties", {})
+        .get("ontological_discrimination", {})
+        .get("$ref")
+    )
+    if canonical_ontology_ref != "ontological-discriminator-output.schema.json":
+        fail("canonical analysis must expose ontological_discrimination via its canonical schema")
+
+    if "promotion_trace" not in set(
+        ontological_discriminator_output_schema.get("required", [])
+    ):
+        fail("ontological discriminator output must preserve promotion_trace")
+
+    if "promotion_reporting" not in set(
+        report_document_model_schema.get("required", [])
+    ):
+        fail("report document model must require promotion_reporting")
+    if (
+        report_document_model_schema.get("properties", {})
+        .get("promotion_reporting", {})
+        .get("$ref")
+        != "discriminator-promotion-reporting.schema.json"
+    ):
+        fail("report document model promotion_reporting schema ref changed")
+    source_genealogy_contract = (
+        promotion_reporting_schema.get("properties", {})
+        .get("source_genealogy", {})
+        .get("anyOf", [])
+    )
+    if {
+        "$ref": "discriminator-source-genealogy-reporting.schema.json"
+    } not in source_genealogy_contract:
+        fail("promotion reporting source_genealogy schema ref changed")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "methodological_status_only", {}
+    ).get("const") is not True:
+        fail("promotion reporting must remain methodological_status_only")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "ontological_inference_allowed", {}
+    ).get("const") is not False:
+        fail("promotion reporting must forbid ontological inference")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "case_classification_mutated", {}
+    ).get("const") is not False:
+        fail("promotion reporting must not mutate case classification")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "irc_mutated", {}
+    ).get("const") is not False:
+        fail("promotion reporting must not mutate IRC")
+
+    registry_validated_ids = set(
+        discriminator_promotion_registry.get("validated_discriminator_ids", [])
+    )
+    registry_authorized_ids = {
+        record.get("discriminator_id")
+        for record in discriminator_promotion_registry.get("records", [])
+        if record.get("l3_authorized") is True
+        and record.get("current_status") == "VALIDATED_DISCRIMINATOR"
+    }
+    if registry_validated_ids != registry_authorized_ids:
+        fail("promotion registry validated_discriminator_ids diverges from authorized records")
+
+    expected_current_promotion_states = {
+        "OD01_PAIR_SPECIFICITY_NETWORK": "EXPLORATORY",
+        "OD02_DYADIC_STRUCTURAL_ISOMORPHISM": "EXPLORATORY",
+        "OD03_BLINDED_DOCTRINAL_CODING": "EXPLORATORY",
+        "OD04_PROSPECTIVE_MODEL_PREDICTION": "EXPLORATORY",
+        "OD05_PRIOR_UNITY_DIRECT": "BLOCKED",
+        "OD06_MONADIC_HIERARCHY_DIRECT": "BLOCKED",
+        "OD07_PHENOMENOLOGY_CLUSTER": "RETIRED",
+    }
+    actual_current_promotion_states = {
+        record.get("discriminator_id"): record.get("current_status")
+        for record in discriminator_promotion_registry.get("records", [])
+    }
+    if actual_current_promotion_states != expected_current_promotion_states:
+        fail("productive promotion states changed during Step 16")
+    if registry_validated_ids:
+        fail("Step 16 must not create a productive L3 promotion")
+
+    if discriminant_validation_policy.get("policy_id") != "ALMAS_DISCRIMINANT_VALIDATION_V1":
+        fail("discriminant validation policy id changed")
+    if discriminant_validation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("discriminant validation thresholds must remain E_PROJECT_POLICY")
+    if discriminant_validation_policy.get("confidence_level") != 0.95:
+        fail("discriminant validation confidence level must remain 0.95")
+    if discriminant_validation_policy.get("uncertainty_method") != "WILSON_SCORE":
+        fail("discriminant validation uncertainty method must remain WILSON_SCORE")
+
+    discriminant_minimums = discriminant_validation_policy.get("minimums", {})
+    if discriminant_minimums.get("pairwise_sensitivity_ci_lower") != 0.60:
+        fail("pairwise sensitivity CI lower threshold changed")
+    if discriminant_minimums.get("pairwise_specificity_ci_lower") != 0.90:
+        fail("pairwise specificity CI lower threshold changed")
+    if discriminant_minimums.get("pairwise_balanced_accuracy") != 0.75:
+        fail("pairwise balanced accuracy threshold changed")
+
+    false_specificity_policy = discriminant_validation_policy.get(
+        "false_specificity", {}
+    )
+    if false_specificity_policy.get("max_ci_upper") != 0.05:
+        fail("FALSE_SPECIFICITY_RATE CI upper ceiling changed")
+    if false_specificity_policy.get("synthetic_adversarial_max_rate") != 0.0:
+        fail("synthetic/adversarial false specificity must remain zero")
+
+    if blinding_leakage_policy.get("policy_id") != "ALMAS_BLINDING_LEAKAGE_V1":
+        fail("blinding/leakage policy id changed")
+    if blinding_leakage_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("blinding/leakage policy must remain E_PROJECT_POLICY")
+    if blinding_leakage_policy.get("hash_algorithm") != "sha256":
+        fail("blinding/leakage policy must use sha256")
+    if blinding_leakage_policy.get("structural_stage") != "STEP_A_BLINDED":
+        fail("structural blinding stage changed")
+    if blinding_leakage_policy.get("late_reveal_stage") != "STEP_B_DOCUMENTARY_REVEAL":
+        fail("late reveal stage changed")
+
+    required_zero_counts = set(
+        blinding_leakage_policy.get("required_zero_counts", [])
+    )
+    expected_zero_counts = {
+        "forbidden_field_hits",
+        "label_leakage_count",
+        "narrative_leakage_count",
+        "case_fitting_count",
+        "post_holdout_rule_change_count",
+    }
+    if not expected_zero_counts.issubset(required_zero_counts):
+        fail("blinding/leakage zero-count gates are incomplete")
+
+    if promotion_state_machine_policy.get("policy_id") != "ALMAS_PROMOTION_STATE_MACHINE_V1":
+        fail("promotion state-machine policy id changed")
+    if promotion_state_machine_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("promotion state-machine policy must remain E_PROJECT_POLICY")
+
+    expected_mainline = [
+        "EXPLORATORY",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "VALIDATED_DISCRIMINATOR",
+    ]
+    if promotion_state_machine_policy.get("mainline_states") != expected_mainline:
+        fail("promotion state-machine mainline changed")
+    if promotion_state_machine_policy.get("forward_skips_allowed") is not False:
+        fail("promotion state-machine must forbid forward skips")
+    if promotion_state_machine_policy.get("validated_rollback_allowed") is not False:
+        fail("validated discriminator rollback must remain forbidden")
+    if promotion_state_machine_policy.get("retired_is_terminal") is not True:
+        fail("RETIRED must remain terminal")
+    if promotion_state_machine_policy.get("validated_invalidation_target") != "RETIRED":
+        fail("invalidated L3 must retire")
+
+    expected_forward = {
+        "EXPLORATORY": "REPRODUCIBLE",
+        "REPRODUCIBLE": "REPLICATION_READY",
+        "REPLICATION_READY": "CONFIRMATORY_ELIGIBLE",
+        "CONFIRMATORY_ELIGIBLE": "VALIDATED_DISCRIMINATOR",
+    }
+    if promotion_state_machine_policy.get("forward_transitions") != expected_forward:
+        fail("promotion forward transitions changed")
+
+    if discriminator_promotion_registry.get("state_machine_policy_id") != "ALMAS_PROMOTION_STATE_MACHINE_V1":
+        fail("promotion registry is not bound to the state-machine policy")
+
+
+    if discriminator_source_genealogy.get("authority") != "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY":
+        fail("discriminator source genealogy authority changed")
+    if discriminator_source_genealogy.get("registry_version") != "1.0.0":
+        fail("discriminator source genealogy registry version changed")
+
+
+    if public_data_isolation_policy.get("policy_id") != "ALMAS_PUBLIC_DATA_ISOLATION_V1":
+        fail("public data isolation policy id changed")
+    if public_data_isolation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("public data isolation policy must remain E_PROJECT_POLICY")
+    if public_data_isolation_policy.get("repository_mode") != "PUBLIC":
+        fail("public data isolation policy must remain PUBLIC")
+
+    allowed_public_classes = set(
+        public_data_isolation_policy.get("allowed_public_classifications", [])
+    )
+    if allowed_public_classes != {
+        "SYNTHETIC",
+        "PUBLIC_VERIFIABLE",
+        "PUBLIC_METADATA_ONLY",
+    }:
+        fail("public data allowed classifications changed")
+
+    forbidden_public_classes = set(
+        public_data_isolation_policy.get("forbidden_public_classifications", [])
+    )
+    if forbidden_public_classes != {
+        "PRIVATE_CASE",
+        "PSEUDONYMIZED_PRIVATE",
+        "PRIVATE_HOLDOUT",
+        "CONFIDENTIAL",
+    }:
+        fail("public data forbidden classifications changed")
+
+    privacy_scopes = public_data_isolation_policy.get("governed_scopes", {})
+    expected_privacy_scopes = {
+        "examples": {
+            "root": "examples",
+            "manifest": "examples/manifest.json",
+            "allowed_classifications": ["SYNTHETIC"],
+        },
+        "public_cases": {
+            "root": "public_cases",
+            "manifest": "public_cases/manifest.json",
+            "allowed_classifications": ["PUBLIC_VERIFIABLE"],
+        },
+        "public_holdouts": {
+            "root": "validation/holdouts",
+            "manifest": "validation/holdouts/manifest.json",
+            "allowed_classifications": [
+                "SYNTHETIC",
+                "PUBLIC_VERIFIABLE",
+                "PUBLIC_METADATA_ONLY",
+            ],
+        },
+    }
+    if privacy_scopes != expected_privacy_scopes:
+        fail("public data governed scopes changed")
+
+    privacy_manifests = {
+        "examples": examples_manifest,
+        "public_cases": public_cases_manifest,
+        "public_holdouts": public_holdouts_manifest,
+    }
+    forbidden_payload_keys = {
+        str(item).lower()
+        for item in public_data_isolation_policy.get(
+            "forbidden_public_payload_keys", []
+        )
+    }
+
+    def iter_payload_keys(value, prefix=""):
+        if isinstance(value, dict):
+            for key, nested in value.items():
+                key_text = str(key)
+                path = f"{prefix}.{key_text}" if prefix else key_text
+                yield path, key_text
+                yield from iter_payload_keys(nested, path)
+        elif isinstance(value, list):
+            for index, nested in enumerate(value):
+                path = f"{prefix}[{index}]" if prefix else f"[{index}]"
+                yield from iter_payload_keys(nested, path)
+
+    for scope_name, scope_policy in privacy_scopes.items():
+        manifest = privacy_manifests[scope_name]
+        if manifest.get("policy_id") != "ALMAS_PUBLIC_DATA_ISOLATION_V1":
+            fail(f"privacy manifest policy mismatch: {scope_name}")
+        if manifest.get("scope") != scope_name:
+            fail(f"privacy manifest scope mismatch: {scope_name}")
+        if manifest.get("root") != scope_policy["root"]:
+            fail(f"privacy manifest root mismatch: {scope_name}")
+        if manifest.get("allowed_classifications") != scope_policy[
+            "allowed_classifications"
+        ]:
+            fail(f"privacy manifest classifications mismatch: {scope_name}")
+
+        artifacts = manifest.get("artifacts", [])
+        if not isinstance(artifacts, list):
+            fail(f"privacy manifest artifacts invalid: {scope_name}")
+
+        declared_paths = []
+        by_path = {}
+        for artifact in artifacts:
+            path = artifact.get("path")
+            if not isinstance(path, str) or not path:
+                fail(f"privacy manifest path invalid: {scope_name}")
+            declared_paths.append(path)
+            if path in by_path:
+                fail(f"privacy manifest duplicate path: {path}")
+            by_path[path] = artifact
+
+            classification = artifact.get("classification")
+            if classification in forbidden_public_classes:
+                fail(f"private classification committed publicly: {path}")
+            if classification not in set(
+                scope_policy["allowed_classifications"]
+            ):
+                fail(f"classification not allowed in scope: {path}")
+
+            for key in (
+                "contains_real_person_data",
+                "contains_nonpublic_material",
+                "derived_from_private_case",
+                "reversible_from_private_case",
+                "independently_verifiable",
+            ):
+                if not isinstance(artifact.get(key), bool):
+                    fail(f"privacy metadata {key} invalid: {path}")
+
+            refs = artifact.get("public_source_refs")
+            if (
+                not isinstance(refs, list)
+                or not all(isinstance(item, str) and item for item in refs)
+            ):
+                fail(f"public_source_refs invalid: {path}")
+
+            if classification == "SYNTHETIC":
+                for key in (
+                    "contains_real_person_data",
+                    "contains_nonpublic_material",
+                    "derived_from_private_case",
+                    "reversible_from_private_case",
+                ):
+                    if artifact.get(key) is not False:
+                        fail(f"synthetic privacy invariant failed {key}: {path}")
+                if refs:
+                    fail(f"synthetic fixture must not depend on real-case refs: {path}")
+
+            if classification == "PUBLIC_VERIFIABLE":
+                if artifact.get("independently_verifiable") is not True:
+                    fail(f"public case not independently verifiable: {path}")
+                if not refs:
+                    fail(f"public case lacks source refs: {path}")
+                for key in (
+                    "contains_nonpublic_material",
+                    "derived_from_private_case",
+                    "reversible_from_private_case",
+                ):
+                    if artifact.get(key) is not False:
+                        fail(f"public case privacy invariant failed {key}: {path}")
+
+            if classification == "PUBLIC_METADATA_ONLY":
+                for key in (
+                    "contains_nonpublic_material",
+                    "derived_from_private_case",
+                    "reversible_from_private_case",
+                ):
+                    if artifact.get(key) is not False:
+                        fail(f"public metadata privacy invariant failed {key}: {path}")
+
+        scope_root = ROOT / scope_policy["root"]
+        actual_paths = set()
+        if scope_root.exists():
+            for json_path in scope_root.rglob("*.json"):
+                rel = json_path.relative_to(ROOT).as_posix()
+                if rel == scope_policy["manifest"]:
+                    continue
+                actual_paths.add(rel)
+
+        if actual_paths != set(declared_paths):
+            fail(
+                f"privacy manifest coverage mismatch {scope_name}: "
+                f"actual={sorted(actual_paths)} declared={sorted(declared_paths)}"
+            )
+
+        for rel in sorted(actual_paths):
+            payload = load_json(rel)
+            forbidden_hits = [
+                path
+                for path, key in iter_payload_keys(payload)
+                if key.lower() in forbidden_payload_keys
+            ]
+            if forbidden_hits:
+                fail(
+                    f"public payload contains forbidden private keys {rel}: "
+                    + ", ".join(forbidden_hits)
+                )
+
+    for forbidden_path in public_data_isolation_policy.get(
+        "forbidden_repository_paths", []
+    ):
+        if (ROOT / forbidden_path).exists():
+            fail(f"private repository path present: {forbidden_path}")
+
+    gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
+    required_gitignore_entries = {
+        "private_cases/",
+        "local_cases/",
+        ".almas-private/",
+        "private_holdouts/",
+        "validation/private/",
+        "holdouts/private/",
+        "data/private/",
+        "*.private-case.json",
+        "*.private-holdout.json",
+    }
+    for entry in required_gitignore_entries:
+        if entry not in gitignore:
+            fail(f"private path missing from .gitignore: {entry}")
+
+    artifact_props = (
+        public_artifact_manifest_schema.get("properties", {})
+        .get("artifacts", {})
+        .get("items", {})
+        .get("properties", {})
+    )
+    if "PRIVATE_CASE" in set(
+        artifact_props.get("classification", {}).get("enum", [])
+    ):
+        fail("public artifact schema must not admit PRIVATE_CASE")
+
+    source_entries = {
+        entry.get("id"): entry
+        for entry in source_registry.get("entries", [])
+    }
+    source_snapshots = {
+        entry.get("id"): entry
+        for entry in discriminator_source_genealogy.get("source_snapshots", [])
+    }
+    if len(source_snapshots) != len(
+        discriminator_source_genealogy.get("source_snapshots", [])
+    ):
+        fail("duplicate source snapshot in discriminator genealogy")
+
+    genealogy_records = {
+        record.get("discriminator_id"): record
+        for record in discriminator_source_genealogy.get("records", [])
+    }
+    operational_candidate_map = {
+        item.get("id"): item
+        for item in operational_discriminator_candidates.get("candidates", [])
+    }
+    if set(genealogy_records) != set(operational_candidate_map):
+        fail(
+            "discriminator source genealogy does not cover "
+            "operational candidates exactly"
+        )
+
+    used_source_ids = set()
+    snapshot_fields = (
+        "priority",
+        "source_role",
+        "tradition",
+        "author",
+        "work",
+        "date",
+        "date_note",
+        "passage",
+        "pages",
+        "verification_status",
+        "verification_anchor",
+        "verification_anchor_type",
+        "verification_anchor_url",
+        "evidence_scope",
+        "concepts",
+    )
+    doctrinal_edge_set = {
+        (
+            edge.get("from"),
+            edge.get("to"),
+            edge.get("relation"),
+            edge.get("status"),
+        )
+        for edge in doctrinal_genealogy.get("edges", [])
+    }
+    concept_map = {
+        item.get("id"): item
+        for item in concept_registry.get("concepts", [])
+    }
+    non_identity_relations = {
+        "NON_EQUIVALENT",
+        "COMPARATIVE_ANTECEDENT_ONLY",
+        "COMPARATIVE_MOTIF_ONLY",
+        "MODERN_REINTERPRETATION_NOT_IDENTITY",
+        "TERMINOLOGICAL_ANTECEDENT_NOT_DOCTRINAL_IDENTITY",
+        "PHENOMENOLOGY_NOT_ONTOLOGY",
+        "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+        "NON_DISCRIMINATING_PHENOMENOLOGY",
+        "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+        "NO_DIRECT_DOCTRINAL_IDENTITY",
+    }
+    expected_genealogy_ceilings = {
+        "OD01_PAIR_SPECIFICITY_NETWORK": "PROJECT_PROXY_ONLY",
+        "OD02_DYADIC_STRUCTURAL_ISOMORPHISM": "PROJECT_PROXY_ONLY",
+        "OD03_BLINDED_DOCTRINAL_CODING": "CONSTRUCT_SEPARABILITY_ONLY",
+        "OD04_PROSPECTIVE_MODEL_PREDICTION": "PROJECT_PROXY_ONLY",
+        "OD05_PRIOR_UNITY_DIRECT": "DOCTRINAL_CONCEPT_ONLY",
+        "OD06_MONADIC_HIERARCHY_DIRECT": "DOCTRINAL_CONCEPT_ONLY",
+        "OD07_PHENOMENOLOGY_CLUSTER": "PHENOMENOLOGY_ONLY",
+    }
+
+    for discriminator_id, record in genealogy_records.items():
+        candidate = operational_candidate_map[discriminator_id]
+        if record.get("derived_from") != candidate.get("derived_from"):
+            fail(f"genealogy derived_from mismatch: {discriminator_id}")
+        if record.get("epistemic_class") != candidate.get("epistemic_class"):
+            fail(f"genealogy epistemic class mismatch: {discriminator_id}")
+        if (
+            record.get("epistemic_ceiling")
+            != expected_genealogy_ceilings[discriminator_id]
+        ):
+            fail(f"genealogy epistemic ceiling mismatch: {discriminator_id}")
+
+        for key in (
+            "source_count_adds_weight",
+            "source_priority_adds_ontological_weight",
+            "cross_tradition_identity_allowed",
+            "direct_case_evidence",
+            "can_change_case_classification",
+            "can_raise_irc",
+        ):
+            if record.get(key) is not False:
+                fail(
+                    f"genealogy firewall changed {key}: "
+                    f"{discriminator_id}"
+                )
+
+        source_usage = record.get("source_usage", [])
+        if not isinstance(source_usage, list) or not source_usage:
+            fail(f"genealogy source_usage missing: {discriminator_id}")
+
+        for usage in source_usage:
+            source_id = usage.get("source_id")
+            used_source_ids.add(source_id)
+            source = source_entries.get(source_id)
+            snapshot = source_snapshots.get(source_id)
+            if not isinstance(source, dict) or not isinstance(snapshot, dict):
+                fail(f"genealogy references unknown source: {source_id}")
+
+            for field in snapshot_fields:
+                if snapshot.get(field) != source.get(field):
+                    fail(f"source snapshot drift {source_id}.{field}")
+
+            source_concepts = set(source.get("concepts", []))
+            if not set(usage.get("concept_refs", [])).issubset(
+                source_concepts
+            ):
+                fail(
+                    f"genealogy concept ref not present in source: "
+                    f"{source_id}"
+                )
+
+            supports = source.get("supports", [])
+            for index in usage.get("support_indexes", []):
+                if (
+                    not isinstance(index, int)
+                    or index < 0
+                    or index >= len(supports)
+                ):
+                    fail(f"invalid supports index for {source_id}")
+
+            limitations = source.get("does_not_support", [])
+            limitation_indexes = usage.get("does_not_support_indexes", [])
+            if (
+                not isinstance(limitation_indexes, list)
+                or not limitation_indexes
+            ):
+                fail(
+                    f"genealogy must preserve does_not_support "
+                    f"for {source_id}"
+                )
+            for index in limitation_indexes:
+                if (
+                    not isinstance(index, int)
+                    or index < 0
+                    or index >= len(limitations)
+                ):
+                    fail(
+                        f"invalid does_not_support index for {source_id}"
+                    )
+
+            if usage.get("direct_case_evidence") is not False:
+                fail(
+                    f"source usage became direct case evidence: "
+                    f"{discriminator_id}"
+                )
+            if usage.get("ontological_validation") is not False:
+                fail(
+                    f"source usage became ontological validation: "
+                    f"{discriminator_id}"
+                )
+
+            if (
+                source.get("priority") == "P1_PRIMARY"
+                and source.get("source_role") == "DOCTRINAL_PRIMARY"
+                and usage.get("relation") in {
+                    "DIRECT_DOCTRINAL_BASIS",
+                    "MONADIC_DOCTRINAL_BASIS",
+                }
+            ):
+                if not source.get("verification_anchor"):
+                    fail(
+                        f"P1 doctrinal genealogy source lacks anchor: "
+                        f"{source_id}"
+                    )
+                if source.get("verification_anchor_type") not in {
+                    "EXACT_PASSAGE",
+                    "SECTION",
+                    "CHAPTER",
+                }:
+                    fail(
+                        f"P1 doctrinal genealogy source has weak anchor: "
+                        f"{source_id}"
+                    )
+                if source.get("evidence_scope") != "DOCTRINAL_CLAIM":
+                    fail(
+                        f"P1 doctrinal genealogy source scope changed: "
+                        f"{source_id}"
+                    )
+
+        for edge in record.get("required_genealogy_edges", []):
+            signature = (
+                edge.get("from"),
+                edge.get("to"),
+                edge.get("relation"),
+                edge.get("status"),
+            )
+            if signature not in doctrinal_edge_set:
+                fail(f"required genealogy edge missing: {signature}")
+
+        for pair in record.get("forbidden_equivalences", []):
+            if not isinstance(pair, list) or len(pair) != 2:
+                fail(
+                    f"invalid forbidden equivalence: {discriminator_id}"
+                )
+            a, b = pair
+            concept_a = concept_map.get(a, {})
+            concept_b = concept_map.get(b, {})
+            concept_backed = (
+                b in set(concept_a.get("not_equivalent_to", []))
+                or a in set(concept_b.get("not_equivalent_to", []))
+            )
+            edge_backed = any(
+                (
+                    (
+                        edge.get("from") == a
+                        and edge.get("to") == b
+                    )
+                    or (
+                        edge.get("from") == b
+                        and edge.get("to") == a
+                    )
+                )
+                and edge.get("relation") in non_identity_relations
+                for edge in doctrinal_genealogy.get("edges", [])
+            )
+            if not (concept_backed or edge_backed):
+                fail(
+                    "forbidden equivalence lacks genealogical backing: "
+                    f"{discriminator_id} {a}<->{b}"
+                )
+
+    if used_source_ids != set(source_snapshots):
+        fail(
+            "source genealogy snapshots must equal "
+            "the exact used source set"
+        )
+
+    if (
+        source_genealogy_schema.get("properties", {})
+        .get("records", {})
+        .get("items", {})
+        .get("properties", {})
+        .get("source_count_adds_weight", {})
+        .get("const")
+        is not False
+    ):
+        fail(
+            "source genealogy schema must keep "
+            "source_count_adds_weight=false"
+        )
+
+    if (
+        source_genealogy_reporting_schema.get("properties", {})
+        .get("source_count_adds_weight", {})
+        .get("const")
+        is not False
+    ):
+        fail(
+            "source genealogy reporting must keep "
+            "source_count_adds_weight=false"
+        )
+    if (
+        source_genealogy_reporting_schema.get("properties", {})
+        .get("source_priority_adds_ontological_weight", {})
+        .get("const")
+        is not False
+    ):
+        fail(
+            "source genealogy reporting must keep priority weight false"
+        )
+
+    expected_promotion_evidence_keys = {
+        "implementation_refs",
+        "reproducibility_refs",
+        "synthetic_test_refs",
+        "preregistration_refs",
+        "counterevidence_refs",
+        "negative_control_plan_refs",
+        "leakage_plan_refs",
+        "independent_replication_refs",
+        "negative_control_result_refs",
+        "doctrine_gate_refs",
+        "discriminator_evaluation_refs",
+        "holdout_protocol_refs",
+        "support_only_exclusion_refs",
+    }
+
+    for record in discriminator_promotion_registry.get("records", []):
+        promotion_evidence = record.get("promotion_evidence")
+        if not isinstance(promotion_evidence, dict):
+            fail(
+                f"promotion registry record lacks promotion_evidence: "
+                f"{record.get('discriminator_id')}"
+            )
+        if set(promotion_evidence) != expected_promotion_evidence_keys:
+            fail(
+                f"promotion_evidence keys diverge: "
+                f"{record.get('discriminator_id')}"
+            )
+        state_history = record.get("state_history")
+        if not isinstance(state_history, list) or not state_history:
+            fail(
+                f"promotion registry record lacks state_history: "
+                f"{record.get('discriminator_id')}"
+            )
+        if state_history[-1].get("to_status") != record.get("current_status"):
+            fail(
+                f"state_history current status mismatch: "
+                f"{record.get('discriminator_id')}"
+            )
+        transition_ids = [event.get("transition_id") for event in state_history]
+        if len(transition_ids) != len(set(transition_ids)):
+            fail(
+                f"duplicate promotion transition_id: "
+                f"{record.get('discriminator_id')}"
+            )
+        if (
+            record.get("current_status") != "VALIDATED_DISCRIMINATOR"
+            and record.get("l3_authorized") is True
+        ):
+            fail(
+                f"non-L3 record cannot be l3_authorized: "
+                f"{record.get('discriminator_id')}"
+            )
+        if "discriminant_validation" not in record:
+            fail(
+                f"promotion registry record lacks discriminant_validation: "
+                f"{record.get('discriminator_id')}"
+            )
+        if "blinding_audit" not in record:
+            fail(
+                f"promotion registry record lacks blinding_audit: "
+                f"{record.get('discriminator_id')}"
+            )
+        if (
+            record.get("l3_authorized") is True
+            and record.get("current_status") == "VALIDATED_DISCRIMINATOR"
+            and not isinstance(record.get("discriminant_validation"), dict)
+        ):
+            fail(
+                f"authorized L3 lacks discriminant_validation: "
+                f"{record.get('discriminator_id')}"
+            )
+        if (
+            record.get("l3_authorized") is True
+            and record.get("current_status") == "VALIDATED_DISCRIMINATOR"
+            and not isinstance(record.get("blinding_audit"), dict)
+        ):
+            fail(
+                f"authorized L3 lacks blinding_audit: "
+                f"{record.get('discriminator_id')}"
+            )
+
+    discriminant_doc = (
+        ROOT / "docs/DISCRIMINANT_VALIDATION_POLICY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_DISCRIMINANT_VALIDATION_V1",
+        "FALSE_SPECIFICITY_RATE",
+        "WILSON_SCORE",
+        "Paso 15",
+    ):
+        if token not in discriminant_doc:
+            fail("discriminant validation policy documentation is incomplete")
+
+    blinding_doc = (
+        ROOT / "docs/BLINDING_LEAKAGE_POLICY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_BLINDING_LEAKAGE_V1",
+        "LABEL_LEAKAGE",
+        "NARRATIVE_LEAKAGE",
+        "CASE_FITTING",
+        "Paso 16",
+    ):
+        if token not in blinding_doc:
+            fail("blinding/leakage policy documentation is incomplete")
+
+    blinding_invariants = (
+        ROOT / "tests/BLINDING_LEAKAGE_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "STEP_A",
+        "LABEL_LEAKAGE",
+        "NARRATIVE_LEAKAGE",
+        "CASE_FITTING",
+        "fingerprint",
+    ):
+        if token not in blinding_invariants:
+            fail("blinding/leakage invariants are incomplete")
+
+    promotion_machine_doc = (
+        ROOT / "docs/PROMOTION_STATE_MACHINE.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_PROMOTION_STATE_MACHINE_V1",
+        "REPRODUCIBLE",
+        "REPLICATION_READY",
+        "CONFIRMATORY_ELIGIBLE",
+        "Paso 17",
+    ):
+        if token not in promotion_machine_doc:
+            fail("promotion state-machine documentation is incomplete")
+
+    private_case_policy_doc = (
+        ROOT / "docs/PRIVATE_CASE_ISOLATION_POLICY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_PUBLIC_DATA_ISOLATION_V1",
+        "PSEUDONYMIZED_PRIVATE",
+        "PRIVACY_BREACH",
+        "Paso 20",
+    ):
+        if token not in private_case_policy_doc:
+            fail("private case isolation documentation is incomplete")
+
+    private_case_invariants = (
+        ROOT / "tests/PRIVATE_CASE_ISOLATION_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "PRIVATE_CASE",
+        "PRIVATE_HOLDOUT",
+        "public_source_refs",
+        "PRIVACY_BREACH",
+    ):
+        if token not in private_case_invariants:
+            fail("private case isolation invariants are incomplete")
+
+    source_genealogy_doc = (
+        ROOT / "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY",
+        "source_count_adds_weight=false",
+        "does_not_support",
+        "Paso 19",
+    ):
+        if token not in source_genealogy_doc:
+            fail(
+                "discriminator source genealogy documentation "
+                "is incomplete"
+            )
+
+    source_genealogy_invariants = (
+        ROOT / "tests/DISCRIMINATOR_SOURCE_GENEALOGY_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "derived_from",
+        "does_not_support",
+        "PROJECT_PROXY_ONLY",
+        "PHENOMENOLOGY_ONLY",
+    ):
+        if token not in source_genealogy_invariants:
+            fail(
+                "discriminator source genealogy invariants "
+                "are incomplete"
+            )
+
+    promotion_reporting_doc = (
+        ROOT / "docs/DISCRIMINATOR_PROMOTION_REPORTING.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "METHODOLOGICAL_STATUS_ONLY",
+        "ontological_inference_allowed=false",
+        "can_raise_irc=false",
+        "Paso 18",
+    ):
+        if token not in promotion_reporting_doc:
+            fail("promotion reporting documentation is incomplete")
+
+    report_model_invariants = (
+        ROOT / "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "promotion_reporting",
+        "ontological_weight=0",
+        "can_change_case_classification=false",
+        "validated_discriminator_ids=[]",
+    ):
+        if token not in report_model_invariants:
+            fail("report-document-model promotion invariants are incomplete")
+
+    promotion_machine_invariants = (
+        ROOT / "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "Ningún salto ascendente",
+        "RETIRED es terminal",
+        "transition_id",
+        "validated_discriminator_ids",
+    ):
+        if token not in promotion_machine_invariants:
+            fail("promotion state-machine invariants are incomplete")
+
+    discriminant_invariants = (
+        ROOT / "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "CI95 inferior de especificidad < 0.90",
+        "FALSE_SPECIFICITY_RATE",
+        "calibración",
+    ):
+        if token not in discriminant_invariants:
+            fail("discriminant validation invariants are incomplete")
+
+    astro_ids = {
+        "OD01_PAIR_SPECIFICITY_NETWORK",
+        "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
+        "OD04_PROSPECTIVE_MODEL_PREDICTION",
+    }
+    promotion_records = {
+        record.get("discriminator_id"): record
+        for record in discriminator_promotion_registry.get("records", [])
+    }
+    for discriminator_id, record in promotion_records.items():
+        if not isinstance(record.get("uses_astrology"), bool):
+            fail(f"promotion registry record lacks uses_astrology boolean: {discriminator_id}")
+        if "astrology_validation" not in record:
+            fail(f"promotion registry record lacks astrology_validation: {discriminator_id}")
+
+    for discriminator_id in astro_ids:
+        record = promotion_records.get(discriminator_id)
+        if not isinstance(record, dict):
+            fail(f"missing astrological discriminator record: {discriminator_id}")
+        if record.get("uses_astrology") is not True:
+            fail(f"astrological discriminator not marked uses_astrology: {discriminator_id}")
+        if record.get("l3_authorized") is True and not isinstance(
+            record.get("astrology_validation"), dict
+        ):
+            fail(f"astrological L3 lacks astrology_validation: {discriminator_id}")
+
+    required_astro_refs = {
+        "non_astrological_criterion_refs",
+        "astrology_ablation_refs",
+        "matched_control_refs",
+        "dependency_audit_refs",
+        "out_of_sample_refs",
+        "astrology_specific_replication_refs",
+    }
+    for discriminator_id, record in promotion_records.items():
+        if record.get("uses_astrology") is not True:
+            continue
+        if (
+            record.get("l3_authorized") is not True
+            or record.get("current_status") != "VALIDATED_DISCRIMINATOR"
+        ):
+            continue
+        validation = record.get("astrology_validation")
+        if not isinstance(validation, dict):
+            fail(f"astrological L3 lacks validation object: {discriminator_id}")
+        for key in required_astro_refs:
+            value = validation.get(key)
+            if not isinstance(value, list) or not value or not all(
+                isinstance(item, str) and item for item in value
+            ):
+                fail(f"astrological L3 lacks required refs {key}: {discriminator_id}")
+        for key in (
+            "single_feature_prohibition_acknowledged",
+            "null_rarity_not_ontological",
+            "temporal_activation_not_origin_proof",
+        ):
+            if validation.get(key) is not True:
+                fail(f"astrological L3 lacks invariant {key}: {discriminator_id}")
+
+    operational_candidates = {
+        item.get("id"): item
+        for item in operational_discriminator_candidates.get("candidates", [])
+    }
+    for discriminator_id in astro_ids:
+        candidate = operational_candidates.get(discriminator_id)
+        if not isinstance(candidate, dict):
+            fail(f"missing operational astrological candidate: {discriminator_id}")
+        if candidate.get("uses_astrology") is not True:
+            fail(f"operational candidate astrology flag mismatch: {discriminator_id}")
+
+    astrology_policy = operational_discriminator_candidates.get(
+        "astrology_independence_policy", {}
+    )
+    if astrology_policy.get("single_feature_can_confirm") is not False:
+        fail("single astrological feature must not confirm ontology")
+    if astrology_policy.get("null_rarity_is_metaphysical_probability") is not False:
+        fail("null rarity must not become metaphysical probability")
+    if astrology_policy.get("temporal_activation_proves_origin") is not False:
+        fail("temporal activation must not prove origin")
+
+    astrology_doc = (
+        ROOT / "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "non_astrological_criterion_refs",
+        "single_feature_prohibition_acknowledged",
+        "Paso 14",
+    ):
+        if token not in astrology_doc:
+            fail("astrological discriminator independence contract is incomplete")
+
+    astrology_invariants = (
+        ROOT / "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "uses_astrology=true",
+        "null_rarity_not_ontological",
+        "M25",
+    ):
+        if token not in astrology_invariants:
+            fail("astrological discriminator independence invariants are incomplete")
+
+    adversarial_plan = (
+        ROOT / "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "Inflación",
+        "Falsificación L3",
+        "Paso 12",
+    ):
+        if token not in adversarial_plan:
+            fail("adversarial ontology test plan must preserve L2 firewall and phase boundary")
+
+    adversarial_invariants = (
+        ROOT / "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "observaciones L2",
+        "GLOBAL",
+        "promotion_ref",
+    ):
+        if token not in adversarial_invariants:
+            fail("adversarial ontology invariants are incomplete")
+
+    metamorphic_plan = (
+        ROOT / "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "FULL_OUTPUT_IDENTITY",
+        "SEMANTIC_DECISION_IDENTITY",
+        "pair_coverage",
+        "Paso 13",
+    ):
+        if token not in metamorphic_plan:
+            fail("metamorphic ontology test plan is incomplete")
+
+    metamorphic_invariants = (
+        ROOT / "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "MR01",
+        "MR09",
+        "MR11",
+        "L3",
+    ):
+        if token not in metamorphic_invariants:
+            fail("metamorphic ontology invariants are incomplete")
 
     natal_required = set(natal_chart_schema.get("required", []))
     if not {"subject_id", "timed", "backend_id", "backend_version", "positions"}.issubset(natal_required):
@@ -626,6 +1793,24 @@ def main() -> int:
     report_model_ref = final_props.get("report_document_model", {}).get("$ref")
     if report_model_ref != "report-document-model.schema.json":
         fail("final pipeline must reference canonical M31 report document model schema")
+
+    ontological_pipeline_ref = (
+        final_pipeline_output_schema.get("properties", {})
+        .get("ontological_discrimination", {})
+        .get("$ref")
+    )
+    if ontological_pipeline_ref != "ontological-discriminator-output.schema.json":
+        fail("final pipeline must preserve ontological_discrimination")
+
+    report_model_handler_text = (
+        ROOT / "src/almas_tfa/report_model_handlers.py"
+    ).read_text(encoding="utf-8")
+    for required_path in (
+        '"ontological_discrimination"',
+        '"ontological_discrimination.promotion_trace"',
+    ):
+        if required_path not in report_model_handler_text:
+            fail(f"M31 reporting paths missing: {required_path}")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":

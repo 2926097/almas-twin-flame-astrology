@@ -1,7 +1,7 @@
 ---
 name: almas-preincarnation-contract-module
 description: Módulo interno especializado de ALMAS para reconstruir posibles acuerdos preencarnatorios desde arquitectura astrológica canónica, doctrina, cronología, contraevidencia y hechos documentados.
-version: 1.11.0
+version: 1.12.0
 author: Proyecto ALMAS
 metadata:
   public_release: true

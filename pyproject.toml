@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "almas-twin-flame-astrology"
-version = "1.11.0"
+version = "1.12.0"
 description = "Núcleo público de puntuación, validación y orquestación para la Astrología Metafísica Relacional ALMAS"
 requires-python = ">=3.10"
 authors = [{name = "Proyecto ALMAS"}]
@@ -18,3 +18,5 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+[tool.setuptools.package-data]
+almas_tfa = ["data/*.json"]

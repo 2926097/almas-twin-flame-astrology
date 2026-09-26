@@ -25,7 +25,7 @@ class TestDeterministicHandlers(unittest.TestCase):
                 {
                     "id": "A",
                     "birth_date": "1977-03-20",
-                    "birth_time": "17:37",
+                    "birth_time": "17:45",
                     "timezone": "Europe/Madrid",
                     "place": "Zaragoza, España",
                     "time_reliability": "A",
@@ -91,7 +91,7 @@ class TestDeterministicHandlers(unittest.TestCase):
                 },
                 {
                     "id": "LEGACY_C",
-                    "kind": "VALIDATED_DISCRIMINATOR",
+                    "kind": "PARAMETER_PERTURBATION",
                     "value": 0.64,
                     "source_module": "EXTERNAL",
                     "preregistration_ref": "ROB-TEST-C",
