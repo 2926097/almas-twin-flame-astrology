@@ -63,8 +63,10 @@ L1→L2 exige: observable, predicción diferencial, falsador, controles negativo
 
 L2→L3 exige además: regla congelada, datos de desarrollo separados, holdout, replicación independiente, especificidad frente a controles, estabilidad a ablación y ausencia de label/narrative leakage.
 
+Cuando `uses_astrology=true`, la promoción exige además criterio externo no astrológico, ablación astrológica, controles emparejados, auditoría de dependencia, validación fuera de muestra y replicación astrológica específica. Ningún aspecto, asteroide, atacir, rareza o activación temporal aislada puede sustituir estos requisitos.
+
 Una promoción conserva siempre su alcance. Validar `OD01_PAIR_SPECIFICITY_NETWORK` validaría una medida de especificidad diádica; no demostraría por sí sola la existencia de twin flames.
 
-## Próximo paso
+## Estado actual
 
-El Paso 5 deberá diseñar el motor lógico del discriminador y su contrato de salida: conjunto de modelos supervivientes, matriz par a par, clases de equivalencia, identificability_state y reglas exactas para que una señal L2 experimental nunca elimine modelos en modo confirmatorio.
+El motor M21, el registro canónico de promoción y el gate M25 ya están implementados. El Paso 13 añade el firewall de independencia astrológica. El Paso 14 formalizará validez discriminante y tasa de falsa especificidad dentro del protocolo externo.
