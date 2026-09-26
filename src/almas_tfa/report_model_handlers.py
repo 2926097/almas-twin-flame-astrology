@@ -285,6 +285,10 @@ def m31_report(context: ModuleContext) -> ModuleResult:
         "document_kind": "ALMAS_ANALYTICAL_REPORT_MODEL",
         "language": "es",
         "analysis_mode": canonical.get("analysis_mode"),
+        "analysis_profile": canonical.get(
+            "analysis_profile",
+            "FULL_MULTIDISCIPLINARY",
+        ),
         "report_state": gate.get("state"),
         "partial_disclosure_required": partial_report,
         "degradation_reasons": degradation_reasons,
