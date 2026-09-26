@@ -133,7 +133,7 @@
     {
       "id": "M24",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/null_model_handlers.py:m24_null_models"
+      "implementation": "src/almas_tfa/null_model_handlers.py:make_m24_null_models + src/almas_tfa/null_generation.py"
     },
     {
       "id": "M25",
