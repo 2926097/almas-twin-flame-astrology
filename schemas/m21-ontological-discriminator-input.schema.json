@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/m21-ontological-discriminator-input.schema.json",
+  "title": "ALMAS · Entrada de la subcapa ontológica de M21",
+  "type": "object",
+  "properties": {
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "discriminator_id",
+          "pair",
+          "validation_level",
+          "result"
+        ],
+        "properties": {
+          "discriminator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pair": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "validation_level": {
+            "enum": [
+              "L1_DOCTRINAL",
+              "L2_EXPERIMENTAL",
+              "L3_VALIDATED"
+            ]
+          },
+          "result": {
+            "enum": [
+              "SEPARATES",
+              "NO_SEPARATION",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "excluded_model": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "root_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 2,
+      "uniqueItems": true
+    },
+    "mode": {
+      "enum": [
+        "CONFIRMATORY",
+        "EXPLORATORY"
+      ]
+    },
+    "minimum_data_evaluable": {
+      "type": "boolean"
+    },
+    "pair_coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "COMPLETE",
+          "PARTIAL",
+          "NONE"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}
