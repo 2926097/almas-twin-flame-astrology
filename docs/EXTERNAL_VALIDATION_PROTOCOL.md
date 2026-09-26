@@ -499,3 +499,26 @@ posterior.
 Por tanto, superar S8 valida únicamente que el candidato ha superado el
 procedimiento metodológico declarado. No activa PX v3, no valida L3 y no
 demuestra una ontología metafísica.
+
+
+## 22. Firewall de activación versionada PX v3
+
+`ALMAS_PX_V3_ACTIVATION_FIREWALL_V1` impide activar un candidato PX v3 en la
+misma línea 1.15 donde se construyó la infraestructura de calibración.
+
+Un resultado `PROMOTION_ELIGIBLE` de S8 no activa automáticamente la regla.
+La activación exige una versión posterior, cambio manual del registro canónico,
+auditoría de release y contrato público ejecutado de nuevo.
+
+Durante 1.15:
+
+- PX v2 permanece operativo;
+- PX v3 scoring/weighting/ontology permanecen deshabilitados;
+- el registro canónico PX v3 permanece vacío;
+- `validated_candidate_ids=[]`.
+
+Cualquier intento de activar PX v3 dentro de esta release debe terminar en
+`BLOCKED_RELEASE_FIREWALL`.
+
+Este firewall garantiza que la evidencia observada durante validación no pueda
+transformarse en una regla operativa sin un corte de versión explícito.
