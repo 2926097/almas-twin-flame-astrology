@@ -21,3 +21,10 @@
 19. El registro productivo puede contener cero L3; los tests positivos usan únicamente registros sintéticos inyectados.
 20. M25 revalida discriminator_id y promotion_ref contra el registro antes de admitir VALIDATED_DISCRIMINATOR en IRC.
 
+
+21. M21 rechaza campos narrativos, autoetiquetas, expectativas y outcomes dentro de la entrada estructural.
+22. Toda promoción L3 requiere `blinding_audit` válida bajo `ALMAS_BLINDING_LEAKAGE_V1`.
+23. Los fingerprints estructurales pre y post revelado deben ser idénticos.
+24. `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE`, `CASE_FITTING` y cambios post-holdout deben permanecer en cero.
+25. Una identidad `UNAVOIDABLE_PUBLIC` requiere documentación explícita del riesgo.
+26. La resistencia al leakage valida el procedimiento operacional, no la ontología metafísica.
