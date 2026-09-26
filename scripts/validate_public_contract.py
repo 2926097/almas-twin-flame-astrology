@@ -27,6 +27,7 @@ REQUIRED_FILES = [
     "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md",
     "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md",
     "docs/DISCRIMINANT_VALIDATION_POLICY.md",
+    "docs/BLINDING_LEAKAGE_POLICY.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -36,6 +37,7 @@ REQUIRED_FILES = [
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
     "schemas/discriminant-validation-evidence.schema.json",
+    "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
     "schemas/synastry-output.schema.json",
@@ -151,8 +153,10 @@ REQUIRED_FILES = [
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/discriminator_promotion_registry.py",
     "src/almas_tfa/discriminant_validation.py",
+    "src/almas_tfa/blinding_leakage.py",
     "src/almas_tfa/data/discriminator-promotion-registry.json",
     "src/almas_tfa/data/discriminant-validation-policy.json",
+    "src/almas_tfa/data/blinding-leakage-policy.json",
     "src/almas_tfa/cli.py",
     "src/almas_tfa/module_contract.py",
     "src/almas_tfa/orchestrator.py",
@@ -202,6 +206,7 @@ REQUIRED_FILES = [
     "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md",
     "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md",
     "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md",
+    "tests/BLINDING_LEAKAGE_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -242,6 +247,7 @@ REQUIRED_FILES = [
     "tests/test_ontological_discriminator_metamorphic.py",
     "tests/test_astrological_discriminator_independence.py",
     "tests/test_discriminant_validation.py",
+    "tests/test_blinding_leakage.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -358,6 +364,9 @@ def main() -> int:
     )
     discriminant_validation_policy = load_json(
         "src/almas_tfa/data/discriminant-validation-policy.json"
+    )
+    blinding_leakage_policy = load_json(
+        "src/almas_tfa/data/blinding-leakage-policy.json"
     )
     operational_discriminator_candidates = load_json(
         "reference/operational-discriminator-candidates.json"
@@ -501,10 +510,39 @@ def main() -> int:
     if false_specificity_policy.get("synthetic_adversarial_max_rate") != 0.0:
         fail("synthetic/adversarial false specificity must remain zero")
 
+    if blinding_leakage_policy.get("policy_id") != "ALMAS_BLINDING_LEAKAGE_V1":
+        fail("blinding/leakage policy id changed")
+    if blinding_leakage_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("blinding/leakage policy must remain E_PROJECT_POLICY")
+    if blinding_leakage_policy.get("hash_algorithm") != "sha256":
+        fail("blinding/leakage policy must use sha256")
+    if blinding_leakage_policy.get("structural_stage") != "STEP_A_BLINDED":
+        fail("structural blinding stage changed")
+    if blinding_leakage_policy.get("late_reveal_stage") != "STEP_B_DOCUMENTARY_REVEAL":
+        fail("late reveal stage changed")
+
+    required_zero_counts = set(
+        blinding_leakage_policy.get("required_zero_counts", [])
+    )
+    expected_zero_counts = {
+        "forbidden_field_hits",
+        "label_leakage_count",
+        "narrative_leakage_count",
+        "case_fitting_count",
+        "post_holdout_rule_change_count",
+    }
+    if not expected_zero_counts.issubset(required_zero_counts):
+        fail("blinding/leakage zero-count gates are incomplete")
+
     for record in discriminator_promotion_registry.get("records", []):
         if "discriminant_validation" not in record:
             fail(
                 f"promotion registry record lacks discriminant_validation: "
+                f"{record.get('discriminator_id')}"
+            )
+        if "blinding_audit" not in record:
+            fail(
+                f"promotion registry record lacks blinding_audit: "
                 f"{record.get('discriminator_id')}"
             )
         if (
@@ -514,6 +552,15 @@ def main() -> int:
         ):
             fail(
                 f"authorized L3 lacks discriminant_validation: "
+                f"{record.get('discriminator_id')}"
+            )
+        if (
+            record.get("l3_authorized") is True
+            and record.get("current_status") == "VALIDATED_DISCRIMINATOR"
+            and not isinstance(record.get("blinding_audit"), dict)
+        ):
+            fail(
+                f"authorized L3 lacks blinding_audit: "
                 f"{record.get('discriminator_id')}"
             )
 
@@ -528,6 +575,32 @@ def main() -> int:
     ):
         if token not in discriminant_doc:
             fail("discriminant validation policy documentation is incomplete")
+
+    blinding_doc = (
+        ROOT / "docs/BLINDING_LEAKAGE_POLICY.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "ALMAS_BLINDING_LEAKAGE_V1",
+        "LABEL_LEAKAGE",
+        "NARRATIVE_LEAKAGE",
+        "CASE_FITTING",
+        "Paso 16",
+    ):
+        if token not in blinding_doc:
+            fail("blinding/leakage policy documentation is incomplete")
+
+    blinding_invariants = (
+        ROOT / "tests/BLINDING_LEAKAGE_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "STEP_A",
+        "LABEL_LEAKAGE",
+        "NARRATIVE_LEAKAGE",
+        "CASE_FITTING",
+        "fingerprint",
+    ):
+        if token not in blinding_invariants:
+            fail("blinding/leakage invariants are incomplete")
 
     discriminant_invariants = (
         ROOT / "tests/DISCRIMINANT_VALIDATION_INVARIANTS.md"
