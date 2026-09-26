@@ -15,7 +15,7 @@ def root(
     relations,
     *,
     strength=0.8,
-    families=1,
+    family="SYN",
     core=True,
     state="CALCULATED_CORE",
 ):
@@ -26,28 +26,33 @@ def root(
         "strength": strength,
         "strength_state": state,
         "core_eligible": core,
-        "independent_family_count": families,
+        "dependency_families": [family],
+        "independent_family_count": 1,
     }
 
 
 class PillarAttributionTests(unittest.TestCase):
-    def test_policy_is_frozen_and_case_fit_forbidden(self):
+    def test_policy_is_v2_frozen_and_case_fit_forbidden(self):
         policy = load_root_pillar_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_ROOT_PILLAR_ATTRIBUTION_V1",
+            "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertTrue(
             policy["principles"]["single_semantic_primary_pillar"]
         )
+        self.assertTrue(
+            policy["principles"]["px_derived_by_semantic_motif_graph"]
+        )
 
-    def test_affinity_root_maps_to_pa(self):
+    def test_affinity_root_maps_to_pa_only(self):
         result = classify_root(
             root("R1", ["SUN", "MOON"], ["TRINE"])
         )
         self.assertEqual(result["primary_pillar"], "PA")
         self.assertEqual(result["contributions"], {"PA": 0.8})
+        self.assertNotIn("PX", result["contributions"])
 
     def test_hard_personal_root_maps_to_pe_before_pa(self):
         result = classify_root(
@@ -62,10 +67,11 @@ class PillarAttributionTests(unittest.TestCase):
         self.assertEqual(result["primary_pillar"], "PK")
 
     def test_pluto_chiron_uranus_map_to_pt(self):
-        result = classify_root(
-            root("R1", ["PLUTO", "VENUS"], ["CONJUNCTION"])
-        )
-        self.assertEqual(result["primary_pillar"], "PT")
+        for point in ("PLUTO", "CHIRON", "URANUS"):
+            result = classify_root(
+                root("R1", [point, "VENUS"], ["CONJUNCTION"])
+            )
+            self.assertEqual(result["primary_pillar"], "PT", point)
 
     def test_mercury_coherent_contact_maps_to_pr(self):
         result = classify_root(
@@ -73,44 +79,99 @@ class PillarAttributionTests(unittest.TestCase):
         )
         self.assertEqual(result["primary_pillar"], "PR")
 
-    def test_mission_requires_meridian_anchor_and_recurrence(self):
-        result = classify_root(
-            root(
-                "R1",
-                ["AXIS_MERIDIAN", "JUPITER"],
-                ["TRINE"],
-                families=2,
-            )
+    def test_semantic_recurrence_creates_px_across_distinct_families(self):
+        derived = derive_pillars_from_roots(
+            [
+                root(
+                    "R1",
+                    ["SUN", "MOON"],
+                    ["TRINE"],
+                    strength=0.90,
+                    family="SYN",
+                ),
+                root(
+                    "R2",
+                    ["VENUS", "MARS"],
+                    ["SEXTILE"],
+                    strength=0.75,
+                    family="NATAL_DRACONIC",
+                ),
+            ],
+            structural_absence_is_zero=True,
         )
-        self.assertEqual(result["primary_pillar"], "PS")
-        self.assertTrue(result["recurrent"])
-        self.assertEqual(set(result["contributions"]), {"PS", "PX"})
+        self.assertGreater(derived["pillars"]["PX"], 0.0)
+        motif = next(
+            item
+            for item in derived["semantic_motifs"]["motifs"]
+            if item["motif_id"] == "STRUCTURAL_AFFINITY"
+        )
+        self.assertTrue(motif["recurrent"])
+        self.assertAlmostEqual(motif["recurrence_strength"], 0.75)
 
-    def test_recurrence_is_orthogonal_not_second_semantic_pillar(self):
-        result = classify_root(
-            root(
-                "R1",
-                ["SUN", "MOON"],
-                ["TRINE"],
-                families=2,
-            )
+    def test_mission_service_is_motif_recurrence_not_single_root_gate(self):
+        derived = derive_pillars_from_roots(
+            [
+                root(
+                    "R1",
+                    ["AXIS_MERIDIAN", "JUPITER"],
+                    ["TRINE"],
+                    strength=0.82,
+                    family="SYN",
+                ),
+                root(
+                    "R2",
+                    ["AXIS_MERIDIAN", "SUN"],
+                    ["PARALLEL"],
+                    strength=0.70,
+                    family="DECLINATION",
+                ),
+            ],
+            structural_absence_is_zero=True,
         )
-        self.assertEqual(result["primary_pillar"], "PA")
-        self.assertEqual(set(result["contributions"]), {"PA", "PX"})
-        self.assertAlmostEqual(result["contributions"]["PA"], 0.8)
-        self.assertAlmostEqual(result["contributions"]["PX"], 0.8)
+        self.assertAlmostEqual(derived["pillars"]["PS"], 0.70)
+        self.assertGreater(derived["pillars"]["PX"], 0.0)
 
-    def test_support_only_or_noncore_root_cannot_feed_pillars(self):
-        result = classify_root(
-            root(
-                "R1",
-                ["SUN", "MOON"],
-                ["TRINE"],
-                core=False,
-                state="CALCULATED_SUPPORT_ONLY",
-            )
+    def test_support_only_or_noncore_root_cannot_feed_pillars_or_px(self):
+        derived = derive_pillars_from_roots(
+            [
+                root(
+                    "R1",
+                    ["SUN", "MOON"],
+                    ["TRINE"],
+                    family="SYN",
+                ),
+                root(
+                    "R2",
+                    ["VENUS", "MARS"],
+                    ["SEXTILE"],
+                    family="DRACONIC_DD",
+                    core=False,
+                    state="CALCULATED_SUPPORT_ONLY",
+                ),
+            ],
+            structural_absence_is_zero=True,
         )
-        self.assertFalse(result["eligible"])
+        self.assertEqual(derived["pillars"]["PX"], 0.0)
+
+    def test_same_dependency_family_does_not_create_recurrence(self):
+        derived = derive_pillars_from_roots(
+            [
+                root(
+                    "R1",
+                    ["SUN", "MOON"],
+                    ["TRINE"],
+                    family="RELCHART",
+                ),
+                root(
+                    "R2",
+                    ["VENUS", "MARS"],
+                    ["SEXTILE"],
+                    family="RELCHART",
+                ),
+            ],
+            structural_absence_is_zero=True,
+        )
+        self.assertEqual(derived["pillars"]["PX"], 0.0)
 
     def test_pu_remains_not_evaluable(self):
         derived = derive_pillars_from_roots(
@@ -130,6 +191,7 @@ class PillarAttributionTests(unittest.TestCase):
         )
         self.assertIsNotNone(derived["pillars"]["PA"])
         self.assertIsNone(derived["pillars"]["PK"])
+        self.assertIsNone(derived["pillars"]["PX"])
 
     def test_absence_can_be_zero_when_required_structure_completed(self):
         derived = derive_pillars_from_roots(
@@ -137,6 +199,7 @@ class PillarAttributionTests(unittest.TestCase):
             structural_absence_is_zero=True,
         )
         self.assertEqual(derived["pillars"]["PK"], 0.0)
+        self.assertEqual(derived["pillars"]["PX"], 0.0)
 
 
 if __name__ == "__main__":
