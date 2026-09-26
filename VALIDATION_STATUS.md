@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.14.0
+**Versión pública:** 1.15.0
 
 ## Release pública
 
@@ -34,6 +34,15 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Q5 · robustez automática M25 | `ALMAS_ROBUSTNESS_Q5_V1` |
 | Q6 · universo nulo M24 | `ALMAS_NULL_WITHIN_YEAR_V1` |
 | Q7 · ensamblaje canonical/M30 | `ALMAS_CANONICAL_ASSEMBLY_V2` + `ALMAS_ANALYSIS_PROFILES_V1` |
+| S1 · calidad de recurrencia | `ALMAS_RECURRENCE_QUALITY_DIAGNOSTICS_V1` · diagnóstico, no scoring |
+| S2 · calibración nula de recurrencia | `ALMAS_RECURRENCE_NULL_CALIBRATION_V1` · WITHIN_YEAR |
+| S3 · controles sintéticos | `ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1` · deterministas, sin RNG |
+| S4 · firewall cohortes externas | `ALMAS_EXTERNAL_RECURRENCE_COHORT_V1` |
+| S5 · calibración externa | `ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1` · diagnóstico |
+| S6 · freeze candidatos PX v3 | `ALMAS_PX_V3_CANDIDATE_FREEZE_V1` · registro canónico vacío |
+| S7 · runner holdout PX v3 | `ALMAS_PX_V3_HOLDOUT_EVALUATION_V1` · agregado/fingerprint |
+| S8 · gate de promoción PX v3 | `ALMAS_PX_V3_PROMOTION_GATE_V1` · elegibilidad no activa |
+| S9 · firewall activación PX v3 | `ALMAS_PX_V3_ACTIVATION_FIREWALL_V1` · PX v2 sigue operativo |
 | Discriminación ontológica M21 | Ejecutable; separada de IDD; ambigüedad preservada si no existe L3 |
 | Registro de promoción | Activo; `validated_discriminator_ids=[]` |
 | Gate L3 hacia M25 | Ejecutable; ningún discriminador real autorizado actualmente |
@@ -48,7 +57,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **327 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python cubre módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales. El recuento exacto de tests de la release se fija tras el CI final del HEAD 1.15.0.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -79,7 +88,7 @@ La validación automatizada demuestra coherencia de implementación con las regl
 
 ## Validación externa
 
-**Infraestructura:** LISTA PARA PRERREGISTRO. El cierre cuantitativo Q1–Q7 y la recurrencia semántica/perfiles de 1.14 son reproducibles dentro del pipeline; la validación externa sigue siendo una capa distinta.  
+**Infraestructura:** LISTA PARA PRERREGISTRO. Q1–Q7 y la recurrencia semántica de 1.14 siguen reproducibles; 1.15 añade calibración de especificidad S1–S9, pero no aporta todavía un holdout externo real ni activa PX v3.  
 **Holdout externo real:** NO EJECUTADO.  
 **Discriminadores L3 reales:** NINGUNO.
 
