@@ -162,10 +162,15 @@ def validate_l3_observations(
     registry: Mapping[str, Any] | None = None,
 ) -> None:
     for observation in observations:
-        if not isinstance(observation, Mapping):
+        if isinstance(observation, Mapping):
+            if observation.get("validation_level") == "L3_VALIDATED":
+                authorize_l3_observation(observation, registry=registry)
             continue
-        if observation.get("validation_level") == "L3_VALIDATED":
-            authorize_l3_observation(observation, registry=registry)
+
+        if getattr(observation, "validation_level", None) == "L3_VALIDATED":
+            raise ValueError(
+                "Las observaciones L3 deben ser objetos trazables con promotion_ref."
+            )
 
 
 def authorize_promoted_discriminator_component(
