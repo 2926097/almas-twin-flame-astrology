@@ -221,3 +221,50 @@ def extract_validated_external_snapshots(
             continue
         snapshots.append(sample["recurrence_snapshot"])
     return snapshots
+
+
+
+def extract_clean_external_candidate_snapshots(
+    cohort: Mapping[str, Any],
+    *,
+    policy: Mapping[str, Any] | None = None,
+) -> list[Mapping[str, Any]]:
+    """Runtime-only: extrae únicamente holdouts externos limpios y preregistrados."""
+
+    if policy is None:
+        policy = load_external_recurrence_cohort_policy()
+
+    summary = validate_external_recurrence_cohort(
+        cohort,
+        policy=policy,
+    )
+    if summary["state"] != "PROTOCOL_READY":
+        return []
+
+    snapshots: list[Mapping[str, Any]] = []
+    for sample in cohort["samples"]:
+        if not isinstance(sample, Mapping):
+            continue
+        if sample.get("validation_status") not in policy[
+            "external_candidate_statuses"
+        ]:
+            continue
+        if sample.get("selection_status") != "PREREGISTERED":
+            continue
+        if sample.get("contamination") is not False:
+            continue
+        if any(
+            int(sample.get(field, 0)) != 0
+            for field in (
+                "forbidden_field_hits",
+                "label_leakage_count",
+                "narrative_leakage_count",
+                "case_fitting_count",
+            )
+        ):
+            continue
+        if not _snapshot_valid(sample):
+            continue
+        snapshots.append(sample["recurrence_snapshot"])
+
+    return snapshots
