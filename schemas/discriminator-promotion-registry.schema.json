@@ -78,7 +78,9 @@
           "root_key_prefix",
           "frozen",
           "validation_evidence",
-          "block_reason"
+          "block_reason",
+          "uses_astrology",
+          "astrology_validation"
         ],
         "properties": {
           "discriminator_id": {
@@ -214,6 +216,86 @@
               "string",
               "null"
             ]
+          },
+          "uses_astrology": {
+            "type": "boolean"
+          },
+          "astrology_validation": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "non_astrological_criterion_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "astrology_ablation_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "matched_control_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "dependency_audit_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "out_of_sample_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "astrology_specific_replication_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "single_feature_prohibition_acknowledged": {
+                "const": true
+              },
+              "null_rarity_not_ontological": {
+                "const": true
+              },
+              "temporal_activation_not_origin_proof": {
+                "const": true
+              }
+            },
+            "required": [
+              "non_astrological_criterion_refs",
+              "astrology_ablation_refs",
+              "matched_control_refs",
+              "dependency_audit_refs",
+              "out_of_sample_refs",
+              "astrology_specific_replication_refs",
+              "single_feature_prohibition_acknowledged",
+              "null_rarity_not_ontological",
+              "temporal_activation_not_origin_proof"
+            ],
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
