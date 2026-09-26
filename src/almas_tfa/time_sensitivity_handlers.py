@@ -82,12 +82,7 @@ def m23_time_sensitivity(context: ModuleContext) -> ModuleResult:
 
 
 def make_m23_time_sensitivity(astrology_backend, davison_backend):
-    """Construye M23 automático con backends explícitos.
-
-    Si Q4 no puede evaluarse, conserva el adaptador legacy basado en
-    time_sensitivity_summary cuando exista. El fallback no se usa si la
-    generación automática sí es evaluable.
-    """
+    """Construye M23 automático con curva diagnóstica y BIRTH_TIME condicional."""
 
     def m23_auto(context: ModuleContext) -> ModuleResult:
         auto = generate_birth_time_sensitivity(
@@ -97,11 +92,8 @@ def make_m23_time_sensitivity(astrology_backend, davison_backend):
             policy=load_birth_time_perturbation_policy(),
         )
 
-        if auto.get("state") == "EVALUABLE":
-            delta90 = float(auto["delta90"])
-            preserved_fraction = float(auto["preserved_fraction"])
-            component = robustness_component(delta90, preserved_fraction)
-
+        if auto.get("state") in {"EVALUABLE", "DIAGNOSTIC_ONLY"}:
+            component = auto.get("robustness_component")
             output = {
                 "preregistration_ref": auto["preregistration_ref"],
                 "subject_scope": auto["subject_scope"],
@@ -110,16 +102,29 @@ def make_m23_time_sensitivity(astrology_backend, davison_backend):
                 "preservation_metric": auto["preservation_metric"],
                 "percentile": auto["percentile"],
                 "percentile_method": auto["percentile_method"],
-                "delta90": delta90,
-                "preserved_fraction": preserved_fraction,
+                "delta90": auto.get("delta90"),
+                "preserved_fraction": auto.get("preserved_fraction"),
                 "perturbation_count": int(auto["perturbation_count"]),
-                "robustness_component": component,
+                "robustness_component": (
+                    float(component) if component is not None else None
+                ),
+                "robustness_component_eligible": bool(
+                    auto.get("robustness_component_eligible")
+                ),
                 "perturbations_generated_by_m23": True,
                 "generator_policy_id": auto["policy_id"],
                 "generator_policy_status": auto["policy_status"],
                 "epistemic_class": auto["epistemic_class"],
                 "baseline": auto["baseline"],
                 "samples": auto["samples"],
+                "diagnostic_curve": auto["diagnostic_curve"],
+                "diagnostic_curve_labels": auto["diagnostic_curve_labels"],
+                "diagnostic_curve_sampling": auto[
+                    "diagnostic_curve_sampling"
+                ],
+                "time_reliability_state": auto[
+                    "time_reliability_state"
+                ],
                 "root_preservation_min": auto["root_preservation_min"],
                 "root_preservation_mean": auto["root_preservation_mean"],
                 "root_preservation_max": auto["root_preservation_max"],
@@ -131,20 +136,31 @@ def make_m23_time_sensitivity(astrology_backend, davison_backend):
                 "null_rarity_used": auto["null_rarity_used"],
             }
 
+            limitations = [
+                "La curva R5/R15/R30/R60/R120 es sensibilidad estructural y no probabilidad metafísica.",
+                "delta90 mide movimiento máximo de IEM_pre; G mide preservación media de raíces core.",
+                "IDD stability queda separado para Q5 y no se duplica dentro de BIRTH_TIME.",
+            ]
+            diagnostics = ["M23 source=AUTO_BIRTH_TIME_SENSITIVITY_V2"]
+
+            if component is None:
+                limitations.append(
+                    "No se emite un componente BIRTH_TIME único porque falta una categoría de fiabilidad horaria documentada; la curva diagnóstica permanece disponible."
+                )
+                diagnostics.append("M23 birth_time_component=DIAGNOSTIC_ONLY")
+            else:
+                limitations.append(
+                    "El componente BIRTH_TIME único se integra en IRC únicamente en M25."
+                )
+                diagnostics.append("M23 birth_time_component=EVALUABLE")
+
             return ModuleResult(
                 module_id="M23",
                 status=ExecutionStatus.COMPLETED,
                 payload=output,
                 canonical_updates={"time_sensitivity": output},
-                limitations=(
-                    "La parrilla horaria es una política de proyecto congelada, no una validación empírica de las categorías A/B/C/D.",
-                    "delta90 mide movimiento máximo de IEM_pre; G mide preservación media de raíces core.",
-                    "IDD stability queda separado para Q5 y no se duplica dentro de BIRTH_TIME.",
-                    "El componente BIRTH_TIME se integra en IRC únicamente en M25.",
-                ),
-                diagnostics=(
-                    "M23 source=AUTO_BIRTH_TIME_PERTURBATION",
-                ),
+                limitations=tuple(limitations),
+                diagnostics=tuple(diagnostics),
             )
 
         legacy = context.raw_input.get("time_sensitivity_summary")
@@ -159,7 +175,7 @@ def make_m23_time_sensitivity(astrology_backend, davison_backend):
                     evidence_refs=result.evidence_refs,
                     limitations=result.limitations
                     + (
-                        "Fallback legacy utilizado porque Q4 automático no fue evaluable: "
+                        "Fallback legacy utilizado porque M23 automático no fue evaluable: "
                         + str(auto.get("reason")),
                     ),
                     diagnostics=result.diagnostics
@@ -169,7 +185,7 @@ def make_m23_time_sensitivity(astrology_backend, davison_backend):
 
         return not_evaluable_result(
             "M23",
-            "Q4 automático no evaluable: " + str(auto.get("reason")),
+            "M23 automático no evaluable: " + str(auto.get("reason")),
         )
 
     return m23_auto
