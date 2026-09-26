@@ -376,3 +376,35 @@ Un caso público real exige datos ya públicos, verificación independiente y re
 La auditoría CI controla además cobertura exhaustiva de manifests y ausencia de rutas privadas reservadas.
 
 Cualquier `PRIVACY_BREACH` invalida el artefacto afectado para validación pública, aunque el rendimiento discriminante sea correcto.
+
+
+## 17. Cohortes externas de recurrencia
+
+ALMAS 1.15 introduce el protocolo `ALMAS_EXTERNAL_RECURRENCE_COHORT_V1`
+para controles externos de la capa de recurrencia semántica.
+
+El protocolo admite exclusivamente `PAIR_SHUFFLE`, `MATCHED_AGE` y
+`MATCHED_AGE_CLOCK`. El objetivo es asegurar procedencia, congelación,
+cegamiento y separación desarrollo/validación antes de permitir que una
+cohorte externa sea utilizada por futuras calibraciones PX.
+
+Una cohorte debe registrar versión/commit congelados, preregistro, reglas de
+inclusión y emparejamiento, feature/orb policies y el estado de cada muestra.
+
+Para una muestra candidata a holdout externo se exige:
+
+- selección `PREREGISTERED`;
+- `contamination=false`;
+- cero forbidden-field hits;
+- cero label leakage;
+- cero narrative leakage;
+- cero case fitting;
+- snapshot estructural de recurrencia evaluable.
+
+La capa pública conserva únicamente agregados. Los identificadores opacos y
+snapshots individuales pueden existir durante la ejecución privada, pero no se
+serializan en la salida pública del firewall ni se incorporan al repositorio.
+
+Superar S4 significa únicamente que la cohorte cumple el protocolo de entrada.
+No habilita weighting, no valida L3 y no convierte frecuencias externas en
+probabilidades metafísicas.
