@@ -233,6 +233,29 @@ class TestPromotionReporting(unittest.TestCase):
 
         self.assertEqual(registry, before)
 
+    def test_packaged_reporting_includes_source_genealogy(self):
+        report = build_promotion_reporting()
+        genealogy = report["source_genealogy"]
+
+        self.assertIsInstance(genealogy, dict)
+        self.assertTrue(genealogy["methodological_provenance_only"])
+        self.assertFalse(genealogy["ontological_inference_allowed"])
+        self.assertFalse(genealogy["source_count_adds_weight"])
+        self.assertFalse(
+            genealogy["source_priority_adds_ontological_weight"]
+        )
+        self.assertEqual(len(genealogy["records"]), 7)
+        self.assertTrue(
+            all(
+                record["can_change_case_classification"] is False
+                for record in genealogy["records"]
+            )
+        )
+
+    def test_custom_registry_does_not_mix_canonical_genealogy(self):
+        report = build_promotion_reporting(registry=registry_fixture())
+        self.assertIsNone(report["source_genealogy"])
+
     def test_packaged_registry_reports_no_l3(self):
         report = build_promotion_reporting()
 
