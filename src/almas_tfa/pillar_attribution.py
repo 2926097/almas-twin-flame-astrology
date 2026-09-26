@@ -9,6 +9,10 @@ from .semantic_motifs import (
     derive_semantic_motif_graph,
     load_semantic_motif_policy,
 )
+from .recurrence_quality import (
+    derive_recurrence_quality_diagnostics,
+    load_recurrence_quality_policy,
+)
 
 
 POLICY_RESOURCE = "root-pillar-attribution-policy.json"
@@ -275,6 +279,13 @@ def derive_pillars_from_roots(
         roots,
         policy=motif_policy,
     )
+    recurrence_quality_policy = load_recurrence_quality_policy()
+    recurrence_quality = derive_recurrence_quality_diagnostics(
+        roots,
+        motif_graph,
+        semantic_policy=motif_policy,
+        quality_policy=recurrence_quality_policy,
+    )
 
     motif_attributions = [
         _motif_unit(item, pillar="PX")
@@ -323,6 +334,9 @@ def derive_pillars_from_roots(
         "motif_attributions": motif_attributions,
         "attribution_units": attribution_units,
         "semantic_motifs": motif_graph,
+        "recurrence_quality": recurrence_quality,
+        "recurrence_quality_policy_id": recurrence_quality_policy["policy_id"],
+        "recurrence_quality_used_in_scores": False,
         "pillars": pillars,
         "pu_state": "NOT_EVALUABLE",
         "pu_reason": policy["singularity_rule"]["reason"],
