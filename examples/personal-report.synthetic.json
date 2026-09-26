@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "analysis_type": "PERSONAL_NATAL",
+  "subject": {
+    "id": "SYNTHETIC-A"
+  },
+  "data_quality": {
+    "birth_time_quality": "A"
+  },
+  "calculation_provenance": {
+    "engine": "synthetic-test-backend",
+    "engine_version": "0",
+    "ephemeris": "synthetic",
+    "zodiac": "TROPICAL",
+    "house_system": "TOPOCENTRIC",
+    "node_type": "TRUE",
+    "timezone": "Europe/Madrid",
+    "coordinates": {
+      "latitude": 40,
+      "longitude": -1
+    },
+    "calculation_flags": [],
+    "input_hash": "synthetic",
+    "warnings": []
+  },
+  "natal": {
+    "positions": [
+      {
+        "body": "Sun",
+        "longitude": 10
+      }
+    ],
+    "houses": [
+      {
+        "house": 1,
+        "cusp": 20
+      }
+    ],
+    "angles": {
+      "ASC": 20
+    },
+    "aspects": [],
+    "configurations": []
+  },
+  "structural_layers": {
+    "traditional": {
+      "available": true
+    },
+    "modern": {
+      "available": true
+    }
+  },
+  "secondary_layers": {},
+  "temporal": {},
+  "doctrine": [],
+  "hypotheses": [],
+  "counterevidence": [],
+  "limitations": [],
+  "source_trace": []
+}
