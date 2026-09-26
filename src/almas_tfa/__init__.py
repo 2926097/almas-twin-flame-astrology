@@ -38,7 +38,8 @@ from .pillar_attribution import classify_root, derive_pillars_from_roots, load_r
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .counterevidence_handlers import m20_counterevidence
 from .ablation_handlers import ABLATION_RUNS, m22_ablation
-from .time_sensitivity_handlers import m23_time_sensitivity
+from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensitivity
+from .time_perturbation import generate_birth_time_sensitivity, load_birth_time_perturbation_policy
 from .null_model_handlers import ALLOWED_NULL_MODELS, m24_null_models, wilson_interval
 from .robustness_index_handlers import m25_robustness
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -97,6 +98,9 @@ __all__ = [
     "ABLATION_RUNS",
     "m22_ablation",
     "m23_time_sensitivity",
+    "make_m23_time_sensitivity",
+    "load_birth_time_perturbation_policy",
+    "generate_birth_time_sensitivity",
     "ALLOWED_NULL_MODELS",
     "m24_null_models",
     "wilson_interval",
