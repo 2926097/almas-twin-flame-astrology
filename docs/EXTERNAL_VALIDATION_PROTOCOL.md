@@ -408,3 +408,27 @@ serializan en la salida pública del firewall ni se incorporan al repositorio.
 Superar S4 significa únicamente que la cohorte cumple el protocolo de entrada.
 No habilita weighting, no valida L3 y no convierte frecuencias externas en
 probabilidades metafísicas.
+
+
+## 18. Calibración externa de recurrencia
+
+Tras superar el firewall S4, ALMAS 1.15 puede ejecutar
+`ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1`.
+
+La calibración sólo consume muestras externas limpias y preregistradas. Quedan
+excluidas de forma automática las muestras `DEVELOPMENT_ONLY`, post-hoc,
+contaminadas o con cualquier forbidden-field, label leakage, narrative leakage
+o case fitting.
+
+S5 reutiliza el núcleo matemático de la calibración WITHIN_YEAR para que la
+definición de presencia, fuerza, diversidad técnica y supervivencia
+leave-one-out sea idéntica entre controles internos y externos.
+
+La salida pública de S5 es agregada y conserva la procedencia de cohorte,
+preregistro, modelo nulo y número de controles externos limpios. No publica
+identificadores ni snapshots individuales.
+
+Una frecuencia externa baja no habilita por sí misma weighting, promoción PX
+v3 ni L3. La política fija `candidate_freeze_enabled=false` y
+`l3_validation=false` hasta que exista una regla candidata congelada y una
+evaluación fuera del conjunto de descubrimiento.
