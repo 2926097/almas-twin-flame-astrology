@@ -351,13 +351,64 @@ S7 no decide si el candidato «pasa» o «falla». La salida fija:
 La finalidad es impedir que el análisis del holdout modifique retrospectivamente
 la fórmula o el threshold. S7 registra la distribución; no promueve la regla.
 
+## S8 · PX v3 Promotion Eligibility Gate
+
+S8 queda implementada mediante
+`ALMAS_PX_V3_PROMOTION_GATE_V1` y el schema
+`px-v3-promotion-evidence.schema.json`.
+
+El gate consume un candidato S6 ya congelado y exige evidencia independiente
+de que la regla fue probada sin modificarla retrospectivamente. Como mínimo
+requiere:
+
+- al menos una evaluación holdout S7 válida;
+- referencias de calibración externa S5;
+- al menos una replicación independiente;
+- auditoría de leakage;
+- criterios preregistrados con resultado explícito;
+- cero fallos en controles negativos;
+- cero fallos de ablación;
+- cero case fitting;
+- cero label leakage;
+- cero narrative leakage;
+- cero cambios de regla después de observar el holdout.
+
+Cada salida S7 debe conservar el mismo `candidate_id` y `formula_ref`,
+permanecer `HOLDOUT_EVALUATED_DIAGNOSTIC_ONLY`, incluir fingerprint y no
+haber intentado promover el candidato durante la evaluación.
+
+Si se cumplen todos los requisitos, S8 puede devolver:
+
+`PROMOTION_ELIGIBLE`
+
+Este estado **no activa** el candidato. La salida mantiene:
+
+- `automatic_registry_mutation=false`;
+- `manual_new_version_required_for_activation=true`;
+- `active_in_scoring=false`;
+- `scoring_enabled=false`;
+- `weighting_enabled=false`;
+- `ontology_enabled=false`;
+- `l3_validation=false`;
+- `metaphysical_probability=false`.
+
+`PROMOTION_ELIGIBLE` significa únicamente que la evidencia metodológica
+declarada supera el gate de promoción. No significa ontología demostrada ni
+autoriza a alterar el registro canónico dentro de la misma ejecución.
+
+El registro canónico PX v3 continúa vacío en 1.15:
+
+`records=[]`
+
+`validated_candidate_ids=[]`
+
 ## Siguientes fases
 
-S8 definirá el **promotion gate** de PX v3. El gate consumirá evidencia S6/S7,
-replicación independiente, controles negativos, ablaciones y auditorías de
-leakage, pero no podrá reestimar la fórmula con el mismo holdout.
+S9 implementará el firewall de **activación versionada**. Su función será
+impedir que incluso un candidato `PROMOTION_ELIGIBLE` modifique PX dentro de
+1.15. La activación exigirá una nueva versión explícita, una entrada canónica
+preexistente y trazabilidad al resultado S8.
 
-S9, sólo si existe una promoción metodológica válida, estudiará cómo introducir
-un PX v3 en scoring sin alterar retroactivamente resultados de desarrollo. Una
-promoción de PX v3 seguirá validando rendimiento operacional, no una ontología
-metafísica.
+Mientras no exista un candidato real promovido, S9 deberá permanecer en estado
+`NO_ACTIVE_PX_V3_CANDIDATE` y PX v2 continuará siendo el único score
+operativo.
