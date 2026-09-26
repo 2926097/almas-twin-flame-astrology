@@ -158,10 +158,49 @@ Q4 no recalcula IDD: la estabilidad de IDD es un componente separado de Q5,
 evitando doble contabilización. Tampoco utiliza ICE, IEM_final, temporalidad ni
 rareza de modelos nulos.
 
-## Próximas fases
+## Fase Q5 · Robustez automática de ablación, parámetros e IDD
 
-Q5: cuantificación canónica de ablación, perturbación paramétrica e IDD stability
-para M25.
+Q5 queda implementada mediante la política congelada
+`ALMAS_ROBUSTNESS_Q5_V1` y el motor
+`src/almas_tfa/robustness_quantification.py`.
+
+Se derivan tres componentes automáticos adicionales para M25:
+
+**ABLATION.** Se utilizan las corridas estructurales
+`AB3_NO_DRACONIC`, `AB4_NO_RELCHART`, `AB5_NO_HOUSES_ANGLES`,
+`AB6_NO_NODES` y `AB7_TROPICAL_PLANETARY_CORE`. Para cada corrida se
+reconstruyen pilares e IEM_pre desde las raíces supervivientes. `AB1` y
+`AB2` se excluyen porque asteroides secundarios y temporalidad ya están
+impedidos por diseño para crear núcleo; `AB8_INDIVIDUAL_ONLY` se excluye
+porque elimina deliberadamente la relación y no constituye una expectativa de
+estabilidad del modelo relacional.
+
+**PARAMETER_PERTURBATION.** Los orbes declarados se recalculan con factores
+`0.90, 0.95, 1.05, 1.10`. Se perturban sin cambiar datos natales, etiquetas,
+doctrina o hechos. Para cada corrida se calcula el máximo cambio absoluto de
+IEM_pre y la preservación de raíces core.
+
+**IDD_STABILITY.** Sobre esas mismas corridas paramétricas se vuelven a derivar
+las atribuciones Shapley y los IDD por pares. Se mide el máximo cambio absoluto
+de IDD y la fracción de corridas que conserva todas las bandas IDD evaluables
+del baseline.
+
+Los tres componentes usan:
+
+`R_X = exp(-delta90/20) × sqrt(G)`
+
+con percentil 90 `NEAREST_RANK`.
+
+M25 prioriza el componente automático cuando existe y descarta el adaptador
+legacy del mismo `kind`, impidiendo doble contabilización. BIRTH_TIME de Q4,
+ABLATION, PARAMETER_PERTURBATION e IDD_STABILITY entran después en el IRC
+mediante media geométrica. Los discriminadores ontológicos L3 permanecen
+sometidos a su gate independiente y no se crean automáticamente.
+
+Q5 continúa excluyendo rareza nula, temporalidad, ICE e IEM_final de la
+derivación de robustez estructural.
+
+## Próximas fases
 
 Q6: generadores de universos nulos para M24, manteniendo rareza estructural
 separada de IRC y de cualquier probabilidad metafísica.
