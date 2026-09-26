@@ -34,6 +34,36 @@ No todos los candidatos deben recorrer toda la cadena.
 
 Un candidato puede permanecer bloqueado indefinidamente si no existe observable independiente o si su estructura produce no-identificabilidad.
 
+## Máquina de estados ejecutable
+
+Desde el Paso 16, el ciclo de promoción está regulado por:
+
+`ALMAS_PROMOTION_STATE_MACHINE_V1`.
+
+La implementación canónica es:
+
+`src/almas_tfa/promotion_state_machine.py`
+
+y la política empaquetada:
+
+`src/almas_tfa/data/promotion-state-machine-policy.json`.
+
+Las promociones ascendentes sólo pueden recorrer un nivel:
+
+`EXPLORATORY → REPRODUCIBLE → REPLICATION_READY → CONFIRMATORY_ELIGIBLE → VALIDATED_DISCRIMINATOR`.
+
+No se permiten saltos. Los requisitos de etapa se almacenan en `promotion_evidence` y son acumulativos.
+
+Cada discriminador conserva además `state_history`, con un `transition_id` único y fingerprints SHA-256 antes/después de cada transición aplicada.
+
+`BLOCKED` conserva `last_active_status` y sólo puede volver a ese estado tras documentar `block_resolution_refs`.
+
+`RETIRED` es terminal.
+
+`VALIDATED_DISCRIMINATOR` no puede degradarse mediante rollback. Si pierde validez, debe pasar a `RETIRED` y pierde `l3_authorized`.
+
+La máquina no redefine el gate L3: el último salto reutiliza exactamente la validación discriminante, el cegamiento/leakage, la independencia astrológica cuando proceda y el resto de requisitos ya empleados por M21/M25.
+
 ## Requisitos para autoridad L3
 
 Un registro sólo puede autorizar `L3_VALIDATED` cuando cumple simultáneamente:
@@ -249,4 +279,14 @@ No demostraría:
 7. M25 no acepta un L3 que el registro no autorice.
 8. El registro productivo actual contiene cero L3.
 9. Un discriminador con `uses_astrology=true` no autoriza L3 sin `astrology_validation` completa.
-10. Ningún feature astrológico aislado, rareza nula o activación temporal sustituye la validación discriminante independiente.\n11. Un L3 no autoriza promoción sin `blinding_audit` completa.\n12. `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE`, `CASE_FITTING` o cambios post-holdout bloquean L3.\n13. El fingerprint estructural debe permanecer idéntico tras el revelado documental.
+10. Ningún feature astrológico aislado, rareza nula o activación temporal sustituye la validación discriminante independiente.
+11. Un L3 no autoriza promoción sin `blinding_audit` completa.
+12. `LABEL_LEAKAGE`, `NARRATIVE_LEAKAGE`, `CASE_FITTING` o cambios post-holdout bloquean L3.
+13. El fingerprint estructural debe permanecer idéntico tras el revelado documental.
+14. No se permiten saltos ascendentes de estados.
+15. Los requisitos de promoción son acumulativos por etapa.
+16. `transition_id` no puede reutilizarse.
+17. `BLOCKED` sólo vuelve a `last_active_status`.
+18. `RETIRED` es terminal.
+19. Un L3 invalidado se retira y no retrocede silenciosamente.
+20. La identidad del discriminador no puede mutar mediante una transición.
