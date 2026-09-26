@@ -479,3 +479,23 @@ SHA-256 de la distribución. No publica identificadores ni valores individuales.
 S7 no decide promoción y no puede modificar el registro canónico de candidatos.
 `promotion_decision=FORBIDDEN` y `candidate_validated=false` son invariantes
 de esta fase.
+
+
+## 21. Gate de elegibilidad de promoción PX v3
+
+`ALMAS_PX_V3_PROMOTION_GATE_V1` evalúa si un candidato congelado dispone de
+evidencia suficiente para ser considerado `PROMOTION_ELIGIBLE`.
+
+El gate exige evaluación holdout válida, calibración externa, replicación
+independiente, controles negativos, ablación, auditoría de leakage y criterios
+preregistrados. Cualquier case fitting, fuga de etiqueta/narrativa, cambio de
+regla posterior al holdout o criterio preregistrado fallido impide la
+elegibilidad.
+
+`PROMOTION_ELIGIBLE` no modifica el registro canónico. La política prohíbe
+mutación automática y exige una nueva versión manual para cualquier activación
+posterior.
+
+Por tanto, superar S8 valida únicamente que el candidato ha superado el
+procedimiento metodológico declarado. No activa PX v3, no valida L3 y no
+demuestra una ontología metafísica.
