@@ -1,0 +1,113 @@
+{
+  "manifest_version": "1.0.0",
+  "almas_public_version": "1.11.0",
+  "purpose": "Cargar sólo dominios de referencia relevantes para un informe personal; el routing no decide conclusiones.",
+  "domains": [
+    {
+      "id": "foundations",
+      "activate_when": [
+        "natal"
+      ],
+      "priority": "CORE"
+    },
+    {
+      "id": "traditional",
+      "activate_when": [
+        "natal",
+        "structural_layers.traditional"
+      ],
+      "priority": "CORE"
+    },
+    {
+      "id": "modern_psychological",
+      "activate_when": [
+        "structural_layers.modern",
+        "natal"
+      ],
+      "priority": "CORE"
+    },
+    {
+      "id": "evolutionary",
+      "activate_when": [
+        "structural_layers.evolutionary"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "karmic",
+      "activate_when": [
+        "structural_layers.karmic",
+        "secondary_layers.nodes"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "draconic",
+      "activate_when": [
+        "secondary_layers.draconic"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "esoteric",
+      "activate_when": [
+        "doctrine.ESOTERIC",
+        "structural_layers.esoteric"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "kabbalah",
+      "activate_when": [
+        "doctrine.KABBALAH",
+        "structural_layers.kabbalistic"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "lots",
+      "activate_when": [
+        "secondary_layers.lots"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "symmetry",
+      "activate_when": [
+        "secondary_layers.declinations",
+        "secondary_layers.antiscia",
+        "secondary_layers.midpoints"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "fixed_stars",
+      "activate_when": [
+        "secondary_layers.fixed_stars",
+        "secondary_layers.parans"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "asteroids",
+      "activate_when": [
+        "secondary_layers.asteroids"
+      ],
+      "priority": "SUPPORT_ONLY"
+    },
+    {
+      "id": "timing",
+      "activate_when": [
+        "temporal"
+      ],
+      "priority": "OPTIONAL"
+    },
+    {
+      "id": "publication",
+      "activate_when": [
+        "always"
+      ],
+      "priority": "CORE"
+    }
+  ]
+}
