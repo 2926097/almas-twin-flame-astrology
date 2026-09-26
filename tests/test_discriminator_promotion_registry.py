@@ -33,6 +33,35 @@ def synthetic_l3_registry():
                     "negative_control_refs": ["NEG-1"],
                     "leakage_audit_refs": ["LEAK-1"],
                 },
+                "discriminant_validation": {
+                    "policy_id": "ALMAS_DISCRIMINANT_VALIDATION_V1",
+                    "evaluation_refs": ["EVAL-1"],
+                    "development_evaluation_disjoint": True,
+                    "pairwise_results": [
+                        {
+                            "pair": ["SOULMATE_MODEL", "MONADIC_ORIGIN"],
+                            "positive_model": "MONADIC_ORIGIN",
+                            "tp": 240,
+                            "tn": 480,
+                            "fp": 10,
+                            "fn": 20,
+                        }
+                    ],
+                    "false_specificity": {
+                        "evaluable_count": 100,
+                        "error_count": 0,
+                    },
+                    "synthetic_adversarial": {
+                        "evaluable_count": 100,
+                        "false_specificity_count": 0,
+                    },
+                    "calibration": {
+                        "mode": "NOT_APPLICABLE_CATEGORICAL",
+                        "passed": None,
+                        "criterion_ref": None,
+                        "refs": [],
+                    },
+                },
                 "block_reason": None,
             }
         ]
