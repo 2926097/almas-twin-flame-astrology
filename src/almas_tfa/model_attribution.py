@@ -23,29 +23,33 @@ def load_model_attribution_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1":
+    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         raise ValueError("Política de atribución de modelos desconocida.")
     return policy
 
 
-def _eligible_roots(
+def _eligible_units(
     pillar_attribution: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    raw = pillar_attribution.get("root_attributions")
+    raw = pillar_attribution.get("attribution_units")
     if not isinstance(raw, list):
-        raise ValueError("pillar_attribution.root_attributions debe ser una lista.")
+        raw = pillar_attribution.get("root_attributions")
+    if not isinstance(raw, list):
+        raise ValueError(
+            "pillar_attribution requiere attribution_units o root_attributions."
+        )
 
-    roots: list[dict[str, Any]] = []
+    units: list[dict[str, Any]] = []
     seen: set[str] = set()
     for item in raw:
         if not isinstance(item, Mapping) or not item.get("eligible"):
             continue
-        root_id = str(item.get("root_id") or "")
-        if not root_id:
-            raise ValueError("Toda atribución elegible requiere root_id.")
-        if root_id in seen:
-            raise ValueError(f"root_id duplicado en atribución: {root_id}.")
-        seen.add(root_id)
+        unit_id = str(item.get("unit_id") or item.get("root_id") or "")
+        if not unit_id:
+            raise ValueError("Toda atribución elegible requiere unit_id.")
+        if unit_id in seen:
+            raise ValueError(f"unit_id duplicado en atribución: {unit_id}.")
+        seen.add(unit_id)
 
         contributions = item.get("contributions")
         if not isinstance(contributions, Mapping) or not contributions:
@@ -58,26 +62,27 @@ def _eligible_roots(
                 continue
             if isinstance(value, bool) or not isinstance(value, (int, float)):
                 raise ValueError(
-                    f"{root_id}:{pillar}: contribution debe ser numérica."
+                    f"{unit_id}:{pillar}: contribution debe ser numérica."
                 )
             value = float(value)
             if not 0.0 <= value <= 1.0:
                 raise ValueError(
-                    f"{root_id}:{pillar}: contribution debe estar en [0,1]."
+                    f"{unit_id}:{pillar}: contribution debe estar en [0,1]."
                 )
             if value > 0:
                 clean[pillar] = value
 
         if clean:
-            roots.append(
+            units.append(
                 {
-                    "root_id": root_id,
+                    "unit_id": unit_id,
+                    "unit_type": str(item.get("unit_type") or "ROOT"),
                     "contributions": clean,
                 }
             )
 
-    roots.sort(key=lambda item: item["root_id"])
-    return roots
+    units.sort(key=lambda item: item["unit_id"])
+    return units
 
 
 def _coalition_pillars(
@@ -267,10 +272,11 @@ def derive_model_attributions(
     *,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Deriva atribuciones Shapley por raíz para AF/KA/AG/LG.
+    """Deriva atribuciones Shapley por unidad canónica para AF/KA/AG/LG.
 
-    La función de valor es IEM_pre. ICE, IEM_final, temporalidad y rareza nula
-    quedan fuera por diseño para que IDD mida arquitectura de evidencia.
+    Las unidades pueden ser raíces independientes o motivos semánticos
+    derivados que materializan PX/PS. Estos motivos no se interpretan como
+    raíces independientes adicionales. La función de valor es IEM_pre.
     """
 
     if policy is None:
@@ -286,7 +292,7 @@ def derive_model_attributions(
                 "method": None,
             }
 
-    roots = _eligible_roots(pillar_attribution)
+    roots = _eligible_units(pillar_attribution)
     if not roots:
         return {
             "policy_id": policy["policy_id"],
@@ -296,13 +302,13 @@ def derive_model_attributions(
             "method": None,
         }
 
-    root_ids = [item["root_id"] for item in roots]
+    root_ids = [item["unit_id"] for item in roots]
     roots_by_id = {
-        item["root_id"]: dict(item["contributions"])
+        item["unit_id"]: dict(item["contributions"])
         for item in roots
     }
 
-    exact_max = int(policy["exact_method"]["max_roots"])
+    exact_max = int(policy["exact_method"].get("max_units", policy["exact_method"].get("max_roots", 10)))
     if len(root_ids) <= exact_max:
         attributions = {
             model: _exact_shapley(model, root_ids, roots_by_id)
@@ -310,7 +316,7 @@ def derive_model_attributions(
         }
         method = {
             "method": policy["exact_method"]["name"],
-            "root_count": len(root_ids),
+            "unit_count": len(root_ids),
             "convergence_state": "EXACT",
             "permutations_used": None,
         }
@@ -320,7 +326,7 @@ def derive_model_attributions(
             roots_by_id,
             policy,
         )
-        method["root_count"] = len(root_ids)
+        method["unit_count"] = len(root_ids)
 
     totals = {
         model: sum(values.values())
@@ -351,8 +357,10 @@ def derive_model_attributions(
         "epistemic_class": policy["epistemic_class"],
         "state": "EVALUABLE",
         "value_function": policy["value_function"],
-        "root_count": len(root_ids),
-        "root_ids": root_ids,
+        "unit_count": len(root_ids),
+        "unit_ids": root_ids,
+        "root_count": sum(1 for item in roots if item["unit_type"] == "ROOT"),
+        "motif_unit_count": sum(1 for item in roots if item["unit_type"] == "SEMANTIC_MOTIF"),
         "attributions": positive,
         "model_iem_pre_from_roots": grand_values,
         "shapley_efficiency_error": efficiency_error,
