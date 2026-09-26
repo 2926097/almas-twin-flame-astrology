@@ -295,6 +295,32 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
             for x in members
             if x.get("exactness") is not None
         ]
+        point_ids = sorted(
+            {
+                _normalized_point(str(contact.get(point_key, "")))
+                for member in members
+                if isinstance(member.get("contact"), Mapping)
+                for contact in [member["contact"]]
+                for point_key in ("point_a", "point_b")
+                if str(contact.get(point_key, "")).strip()
+            }
+        )
+        relation_ids = sorted(
+            {
+                str(
+                    contact.get("aspect")
+                    or contact.get("relation")
+                    or "UNSPECIFIED"
+                )
+                .strip()
+                .upper()
+                .replace(" ", "_")
+                .replace("-", "_")
+                for member in members
+                if isinstance(member.get("contact"), Mapping)
+                for contact in [member["contact"]]
+            }
+        )
 
         strength_data = derive_root_strength(
             members,
@@ -311,6 +337,8 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
                 "core_eligible": bool(core_ids),
                 "core_evidence_ids": core_ids,
                 "support_evidence_ids": support_ids,
+                "point_ids": point_ids,
+                "relation_ids": relation_ids,
                 "max_exactness": max(exactness_values) if exactness_values else None,
                 **strength_data,
             }
