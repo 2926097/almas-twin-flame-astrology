@@ -408,7 +408,7 @@ class TestFullPipelineSynthetic(unittest.TestCase):
         self.assertIn("ABLATION_AUTO", robustness_ids)
         self.assertEqual(
             run.canonical["canonical_analysis"]["assembly"]["policy_id"],
-            "ALMAS_CANONICAL_ASSEMBLY_V1",
+            "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
         self.assertEqual(
             run.canonical["report_gate"]["state"],
