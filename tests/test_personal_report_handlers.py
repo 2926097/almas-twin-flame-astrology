@@ -96,6 +96,30 @@ class TestPersonalReporting(unittest.TestCase):
             gate["blocking_issues"],
         )
 
+    def test_malformed_returns_collection_is_blocked(self):
+        canonical = self.canonical()
+        canonical["temporal"]["returns"] = {
+            "houses_included": True,
+            "location_documented": False,
+        }
+        gate = validate_personal_canonical(canonical)
+        self.assertEqual(gate["state"], "BLOCKED")
+        self.assertIn(
+            "TEMPORAL_RETURNS_MUST_BE_ARRAY",
+            gate["blocking_issues"],
+        )
+
+    def test_unavailable_layers_are_not_routed(self):
+        canonical = self.canonical()
+        canonical["structural_layers"]["evolutionary"] = {"available": False}
+        canonical["secondary_layers"]["draconic"] = {"available": False}
+        canonical["secondary_layers"]["lots"] = {"available": False}
+        canonical["secondary_layers"]["declinations"] = {"available": False}
+        canonical["secondary_layers"]["fixed_stars"] = {"available": False}
+        domains = route_personal_references(canonical)
+        for absent in ("evolutionary", "draconic", "lots", "symmetry", "fixed_stars"):
+            self.assertNotIn(absent, domains)
+
     def test_reference_router_is_layer_aware(self):
         domains = route_personal_references(self.canonical())
         for expected in (
