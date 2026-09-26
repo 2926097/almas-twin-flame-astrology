@@ -14,18 +14,19 @@ M30 no es una etapa analítica. Es un firewall de integridad, trazabilidad y suf
 
 ### READY
 
-El análisis es reportable como FULL sin degradaciones detectadas.
+El análisis es reportable sin degradaciones requeridas dentro del `analysis_profile` seleccionado.
 
 Requiere:
 
-- `canonical_analysis` presente o ensamblable de forma determinista mediante `ALMAS_CANONICAL_ASSEMBLY_V1`;
+- `canonical_analysis` presente o ensamblable de forma determinista mediante `ALMAS_CANONICAL_ASSEMBLY_V2`;
 - campos canónicos obligatorios;
 - `schema_version=1.0.0`;
 - `analysis_mode` válido;
 - coherencia interna de modelos;
 - ninguna incidencia bloqueante;
 - traza de ejecución disponible;
-- ningún módulo previo `FAILED`, `NOT_EVALUABLE` o `SKIPPED`.
+- ningún módulo previo `FAILED`;
+- ningún módulo requerido por el perfil en `NOT_EVALUABLE` o `SKIPPED`.
 
 ### PARTIAL
 
@@ -36,8 +37,8 @@ Causas típicas:
 - `analysis_mode=TARGETED`;
 - `analysis_mode=TEMPORAL`;
 - traza de ejecución no disponible;
-- módulos previos `NOT_EVALUABLE`;
-- módulos previos `SKIPPED`;
+- módulos requeridos por el perfil en `NOT_EVALUABLE`;
+- módulos requeridos por el perfil en `SKIPPED`;
 - métricas FULL como ICC/IRC/indices no declaradas.
 
 PARTIAL no autoriza rellenar datos ausentes.
@@ -118,8 +119,8 @@ Valores ICC/IRC fuera de 0–100 sí son bloqueantes.
 Cuando existen resultados M00–M29:
 
 - `FAILED` → BLOCKED;
-- `NOT_EVALUABLE` → PARTIAL;
-- `SKIPPED` → PARTIAL;
+- `NOT_EVALUABLE` → PARTIAL sólo cuando el módulo es requerido por el perfil;
+- `SKIPPED` → PARTIAL sólo cuando el módulo es requerido por el perfil;
 - `NOT_APPLICABLE` → no degrada por sí mismo;
 - `COMPLETED` → válido.
 
@@ -150,3 +151,7 @@ Entrada:
 Salida:
 
 `schemas/report-gate-output.schema.json`
+
+## 10. Perfiles de análisis
+
+M30 resuelve `analysis_profile` mediante `ALMAS_ANALYSIS_PROFILES_V1`. Los perfiles vigentes son `FULL_MULTIDISCIPLINARY`, `FULL_ASTROLOGY`, `TEMPORAL` y `SOUL_CONTRACT`. Un perfil clasifica módulos como requeridos, opcionales o excluidos; nunca modifica evidencia, IEM/IDD/IRC/ICE ni estados ontológicos. `READY` significa completitud técnica del alcance seleccionado, no validación metafísica.
