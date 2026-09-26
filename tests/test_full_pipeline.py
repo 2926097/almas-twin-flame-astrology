@@ -510,6 +510,26 @@ class TestFullPipelineSynthetic(unittest.TestCase):
             promotion_reporting["summary_counts"]["VALIDATED_DISCRIMINATOR"],
             0,
         )
+        source_genealogy = promotion_reporting["source_genealogy"]
+        self.assertIsInstance(source_genealogy, dict)
+        self.assertEqual(
+            source_genealogy["authority"],
+            "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY",
+        )
+        self.assertTrue(source_genealogy["methodological_provenance_only"])
+        self.assertFalse(source_genealogy["ontological_inference_allowed"])
+        self.assertFalse(source_genealogy["source_count_adds_weight"])
+        self.assertFalse(
+            source_genealogy["source_priority_adds_ontological_weight"]
+        )
+        self.assertEqual(len(source_genealogy["records"]), 7)
+        self.assertTrue(
+            all(
+                record["can_change_case_classification"] is False
+                and record["can_raise_irc"] is False
+                for record in source_genealogy["records"]
+            )
+        )
         by_section = {
             section["section_id"]: section
             for section in report_model["sections"]
