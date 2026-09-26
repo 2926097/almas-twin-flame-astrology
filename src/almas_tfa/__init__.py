@@ -47,7 +47,8 @@ from .robustness_quantification import derive_q5_robustness_components, load_q5_
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
-from .report_gate_handlers import m30_report_gate
+from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
+from .canonical_assembly import assemble_canonical_analysis, derive_canonical_coverage, load_canonical_assembly_policy
 from .report_model_handlers import m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
@@ -118,6 +119,10 @@ __all__ = [
     "m28_doctrine_hermeneutics",
     "m29_viability_reciprocity",
     "m30_report_gate",
+    "make_m30_report_gate_auto",
+    "load_canonical_assembly_policy",
+    "derive_canonical_coverage",
+    "assemble_canonical_analysis",
     "m31_report",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
