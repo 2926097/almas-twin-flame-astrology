@@ -50,6 +50,8 @@ El modelo contiene exactamente once secciones. Cada una declara rutas obligatori
 
 M31 fija `canonical_values_embedded=false`, `prose_generated=false`, `rendered_document_created=false`, `docx_created=false`, `pdf_created=false` y `publication_pipeline_required=true`.
 
+Cuando `canonical_analysis.ontological_discrimination` existe, M31 conserva rutas hacia el diagnóstico ontológico en S01, S03, S06 y S10, y hacia `promotion_trace` en S08 y S11. No copia ni reinterpreta esos valores.
+
 ## Orden canónico
 
 1. Síntesis ejecutiva.
