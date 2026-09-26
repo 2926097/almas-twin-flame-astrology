@@ -29,6 +29,7 @@ REQUIRED_FILES = [
     "docs/DISCRIMINANT_VALIDATION_POLICY.md",
     "docs/BLINDING_LEAKAGE_POLICY.md",
     "docs/PROMOTION_STATE_MACHINE.md",
+    "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -38,6 +39,7 @@ REQUIRED_FILES = [
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
     "schemas/discriminator-promotion-transition.schema.json",
+    "schemas/discriminator-promotion-reporting.schema.json",
     "schemas/discriminant-validation-evidence.schema.json",
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
@@ -157,6 +159,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/discriminant_validation.py",
     "src/almas_tfa/blinding_leakage.py",
     "src/almas_tfa/promotion_state_machine.py",
+    "src/almas_tfa/promotion_reporting.py",
     "src/almas_tfa/data/discriminator-promotion-registry.json",
     "src/almas_tfa/data/discriminant-validation-policy.json",
     "src/almas_tfa/data/blinding-leakage-policy.json",
@@ -254,6 +257,7 @@ REQUIRED_FILES = [
     "tests/test_discriminant_validation.py",
     "tests/test_blinding_leakage.py",
     "tests/test_promotion_state_machine.py",
+    "tests/test_promotion_reporting.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -408,6 +412,9 @@ def main() -> int:
     viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
     report_gate_schema = load_json("schemas/report-gate-output.schema.json")
     report_document_model_schema = load_json("schemas/report-document-model.schema.json")
+    promotion_reporting_schema = load_json(
+        "schemas/discriminator-promotion-reporting.schema.json"
+    )
     final_pipeline_output_schema = load_json("schemas/final-pipeline-output.schema.json")
     module_execution_schema = load_json("schemas/module-execution.schema.json")
     precomputed_schema = load_json("schemas/precomputed-pillars.schema.json")
@@ -481,6 +488,34 @@ def main() -> int:
         ontological_discriminator_output_schema.get("required", [])
     ):
         fail("ontological discriminator output must preserve promotion_trace")
+
+    if "promotion_reporting" not in set(
+        report_document_model_schema.get("required", [])
+    ):
+        fail("report document model must require promotion_reporting")
+    if (
+        report_document_model_schema.get("properties", {})
+        .get("promotion_reporting", {})
+        .get("$ref")
+        != "discriminator-promotion-reporting.schema.json"
+    ):
+        fail("report document model promotion_reporting schema ref changed")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "methodological_status_only", {}
+    ).get("const") is not True:
+        fail("promotion reporting must remain methodological_status_only")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "ontological_inference_allowed", {}
+    ).get("const") is not False:
+        fail("promotion reporting must forbid ontological inference")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "case_classification_mutated", {}
+    ).get("const") is not False:
+        fail("promotion reporting must not mutate case classification")
+    if promotion_reporting_schema.get("properties", {}).get(
+        "irc_mutated", {}
+    ).get("const") is not False:
+        fail("promotion reporting must not mutate IRC")
 
     registry_validated_ids = set(
         discriminator_promotion_registry.get("validated_discriminator_ids", [])
@@ -728,6 +763,30 @@ def main() -> int:
     ):
         if token not in promotion_machine_doc:
             fail("promotion state-machine documentation is incomplete")
+
+    promotion_reporting_doc = (
+        ROOT / "docs/DISCRIMINATOR_PROMOTION_REPORTING.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "METHODOLOGICAL_STATUS_ONLY",
+        "ontological_inference_allowed=false",
+        "can_raise_irc=false",
+        "Paso 18",
+    ):
+        if token not in promotion_reporting_doc:
+            fail("promotion reporting documentation is incomplete")
+
+    report_model_invariants = (
+        ROOT / "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "promotion_reporting",
+        "ontological_weight=0",
+        "can_change_case_classification=false",
+        "validated_discriminator_ids=[]",
+    ):
+        if token not in report_model_invariants:
+            fail("report-document-model promotion invariants are incomplete")
 
     promotion_machine_invariants = (
         ROOT / "tests/PROMOTION_STATE_MACHINE_INVARIANTS.md"
