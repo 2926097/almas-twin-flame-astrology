@@ -25,6 +25,7 @@ REQUIRED_FILES = [
     "docs/DOCTRINE_TO_ASTROLOGY.md",
     "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md",
     "docs/ONTOLOGICAL_METAMORPHIC_TEST_PLAN.md",
+    "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "public_cases/README.md",
@@ -33,6 +34,7 @@ REQUIRED_FILES = [
     "schemas/canonical-analysis.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
+    "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
@@ -115,6 +117,7 @@ REQUIRED_FILES = [
     "reference/lurianic-kabbalah-matrix.md",
     "reference/preincarnation-planning-matrix.md",
     "reference/ontology-registry.json",
+    "reference/operational-discriminator-candidates.json",
     "reference/contract-causal-architecture-v2.md",
     "reference/preincarnation-causality-engine.md",
     "reference/contract-ablation.md",
@@ -193,6 +196,7 @@ REQUIRED_FILES = [
     "tests/REPORT_DOCUMENT_MODEL_INVARIANTS.md",
     "tests/ONTOLOGICAL_DISCRIMINATOR_ADVERSARIAL_INVARIANTS.md",
     "tests/ONTOLOGICAL_DISCRIMINATOR_METAMORPHIC_INVARIANTS.md",
+    "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md",
     "tests/SOURCE_ANCHOR_INVARIANTS.md",
     "tests/INFERENTIAL_CEILING_INVARIANTS.md",
     "tests/CONTRATO_ALMICO_INVARIANTS.md",
@@ -231,6 +235,7 @@ REQUIRED_FILES = [
     "tests/test_full_pipeline.py",
     "tests/test_ontological_discriminator_adversarial.py",
     "tests/test_ontological_discriminator_metamorphic.py",
+    "tests/test_astrological_discriminator_independence.py",
     "examples/precomputed-pillars.json",
     "examples/precomputed-result.json",
     "examples/doctrinal-claims.synthetic.json",
@@ -345,6 +350,9 @@ def main() -> int:
     discriminator_promotion_registry = load_json(
         "src/almas_tfa/data/discriminator-promotion-registry.json"
     )
+    operational_discriminator_candidates = load_json(
+        "reference/operational-discriminator-candidates.json"
+    )
     natal_chart_schema = load_json("schemas/natal-chart.schema.json")
     synastry_schema = load_json("schemas/synastry-output.schema.json")
     natal_context_schema = load_json("schemas/natal-context-output.schema.json")
@@ -458,6 +466,108 @@ def main() -> int:
     }
     if registry_validated_ids != registry_authorized_ids:
         fail("promotion registry validated_discriminator_ids diverges from authorized records")
+
+    astro_ids = {
+        "OD01_PAIR_SPECIFICITY_NETWORK",
+        "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
+        "OD04_PROSPECTIVE_MODEL_PREDICTION",
+    }
+    promotion_records = {
+        record.get("discriminator_id"): record
+        for record in discriminator_promotion_registry.get("records", [])
+    }
+    for discriminator_id, record in promotion_records.items():
+        if not isinstance(record.get("uses_astrology"), bool):
+            fail(f"promotion registry record lacks uses_astrology boolean: {discriminator_id}")
+        if "astrology_validation" not in record:
+            fail(f"promotion registry record lacks astrology_validation: {discriminator_id}")
+
+    for discriminator_id in astro_ids:
+        record = promotion_records.get(discriminator_id)
+        if not isinstance(record, dict):
+            fail(f"missing astrological discriminator record: {discriminator_id}")
+        if record.get("uses_astrology") is not True:
+            fail(f"astrological discriminator not marked uses_astrology: {discriminator_id}")
+        if record.get("l3_authorized") is True and not isinstance(
+            record.get("astrology_validation"), dict
+        ):
+            fail(f"astrological L3 lacks astrology_validation: {discriminator_id}")
+
+    required_astro_refs = {
+        "non_astrological_criterion_refs",
+        "astrology_ablation_refs",
+        "matched_control_refs",
+        "dependency_audit_refs",
+        "out_of_sample_refs",
+        "astrology_specific_replication_refs",
+    }
+    for discriminator_id, record in promotion_records.items():
+        if record.get("uses_astrology") is not True:
+            continue
+        if (
+            record.get("l3_authorized") is not True
+            or record.get("current_status") != "VALIDATED_DISCRIMINATOR"
+        ):
+            continue
+        validation = record.get("astrology_validation")
+        if not isinstance(validation, dict):
+            fail(f"astrological L3 lacks validation object: {discriminator_id}")
+        for key in required_astro_refs:
+            value = validation.get(key)
+            if not isinstance(value, list) or not value or not all(
+                isinstance(item, str) and item for item in value
+            ):
+                fail(f"astrological L3 lacks required refs {key}: {discriminator_id}")
+        for key in (
+            "single_feature_prohibition_acknowledged",
+            "null_rarity_not_ontological",
+            "temporal_activation_not_origin_proof",
+        ):
+            if validation.get(key) is not True:
+                fail(f"astrological L3 lacks invariant {key}: {discriminator_id}")
+
+    operational_candidates = {
+        item.get("id"): item
+        for item in operational_discriminator_candidates.get("candidates", [])
+    }
+    for discriminator_id in astro_ids:
+        candidate = operational_candidates.get(discriminator_id)
+        if not isinstance(candidate, dict):
+            fail(f"missing operational astrological candidate: {discriminator_id}")
+        if candidate.get("uses_astrology") is not True:
+            fail(f"operational candidate astrology flag mismatch: {discriminator_id}")
+
+    astrology_policy = operational_discriminator_candidates.get(
+        "astrology_independence_policy", {}
+    )
+    if astrology_policy.get("single_feature_can_confirm") is not False:
+        fail("single astrological feature must not confirm ontology")
+    if astrology_policy.get("null_rarity_is_metaphysical_probability") is not False:
+        fail("null rarity must not become metaphysical probability")
+    if astrology_policy.get("temporal_activation_proves_origin") is not False:
+        fail("temporal activation must not prove origin")
+
+    astrology_doc = (
+        ROOT / "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "non_astrological_criterion_refs",
+        "single_feature_prohibition_acknowledged",
+        "Paso 14",
+    ):
+        if token not in astrology_doc:
+            fail("astrological discriminator independence contract is incomplete")
+
+    astrology_invariants = (
+        ROOT / "tests/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE_INVARIANTS.md"
+    ).read_text(encoding="utf-8")
+    for token in (
+        "uses_astrology=true",
+        "null_rarity_not_ontological",
+        "M25",
+    ):
+        if token not in astrology_invariants:
+            fail("astrological discriminator independence invariants are incomplete")
 
     adversarial_plan = (
         ROOT / "docs/ONTOLOGICAL_ADVERSARIAL_TEST_PLAN.md"
