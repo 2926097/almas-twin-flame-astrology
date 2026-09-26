@@ -500,6 +500,28 @@ class TestFullPipelineSynthetic(unittest.TestCase):
         self.assertFalse(report_model["rendered_document_created"])
         self.assertFalse(report_model["docx_created"])
         self.assertFalse(report_model["pdf_created"])
+        self.assertIn("promotion_reporting", report_model)
+        promotion_reporting = report_model["promotion_reporting"]
+        self.assertTrue(promotion_reporting["methodological_status_only"])
+        self.assertFalse(promotion_reporting["ontological_inference_allowed"])
+        self.assertFalse(promotion_reporting["case_classification_mutated"])
+        self.assertFalse(promotion_reporting["irc_mutated"])
+        self.assertEqual(
+            promotion_reporting["summary_counts"]["VALIDATED_DISCRIMINATOR"],
+            0,
+        )
+        by_section = {
+            section["section_id"]: section
+            for section in report_model["sections"]
+        }
+        self.assertEqual(
+            by_section["S08_ROBUSTNESS"]["methodological_reporting_paths"],
+            ["promotion_reporting"],
+        )
+        self.assertEqual(
+            by_section["S11_SOURCES_APPENDICES"]["methodological_reporting_paths"],
+            ["promotion_reporting"],
+        )
 
 
 if __name__ == "__main__":
