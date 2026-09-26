@@ -98,12 +98,65 @@ Si una ejecución antigua o un fixture no contiene el grafo semántico y los
 diagnósticos S1, S2 falla cerrado como `NOT_EVALUABLE` sin bloquear el
 universo nulo Q6.
 
+## S3 · Deterministic Synthetic Recurrence Controls
+
+S3 queda implementada mediante
+`ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1`.
+
+La finalidad es responder a una pregunta distinta de S2: cuánto PX/PS puede
+emerger por la amplitud del clasificador semántico cuando se rompen
+deliberadamente asociaciones internas del caso conservando sus distribuciones
+marginales principales.
+
+Se generan dos familias de controles deterministas:
+
+**SEMANTIC_SIGNATURE_ROTATION.** Rota conjuntamente `point_ids` y
+`relation_ids` entre raíces core. Conserva el multiconjunto de firmas
+semánticas, el número de raíces, sus fuerzas y sus familias técnicas, pero
+rompe la asociación firma↔familia/fuerza.
+
+**DECOUPLED_POINT_RELATION_ROTATION.** Rota puntos y relaciones con
+desplazamientos diferentes. Conserva por separado los marginales de puntos y
+relaciones, pero rompe además su asociación mutua.
+
+No se usa RNG. Para cada familia se generan como máximo 32 desplazamientos
+distintos, limitados por el número de raíces core disponibles.
+
+Los controles recalculan exclusivamente el Semantic Motif Graph y los
+diagnósticos S1. No recalculan astronomía ni se interpretan como cartas reales.
+
+S3 compara:
+
+- PX y PS observados;
+- número de motivos recurrentes;
+- presencia de cada motivo;
+- fuerza del motivo;
+- recurrencia cross-class;
+- recurrencia no dracónica.
+
+Las frecuencias publicadas se etiquetan explícitamente como
+`FINITE_DETERMINISTIC_CONTROL_FAMILY_FREQUENCY`. No son p-values, no
+representan una población y no tienen interpretación probabilística metafísica.
+
+M24 expone `synthetic_recurrence_controls`, siempre con:
+
+- `used_for_weighting=false`;
+- `used_in_px_score=false`;
+- `used_in_ps_score=false`;
+- `used_in_iem=false`;
+- `used_in_idd=false`;
+- `used_in_irc=false`;
+- `used_in_ontology=false`;
+- `metaphysical_probability=false`;
+- `population_probability_claim=false`;
+- `p_value_claim=false`.
+
 ## Siguientes fases
 
-S3 ampliará la calibración con controles sintéticos y, cuando exista un pool
-externo adecuado, con `PAIR_SHUFFLE`/`MATCHED_AGE_CLOCK`. Sólo después se
-congelarán candidatos de PX v3 que muestren discriminación fuera del conjunto
-de desarrollo.
+S4 preparará la capa de controles externos (`PAIR_SHUFFLE`,
+`MATCHED_AGE_CLOCK`) y el protocolo para congelar candidatos PX v3. Ninguna
+regla de weighting podrá promocionarse usando los casos que sirvieron para
+descubrir el problema de saturación.
 
 S4 podrá modificar PX/PS sólo después de preregistro, controles negativos,
 ablación por familia y validación fuera de muestra.
