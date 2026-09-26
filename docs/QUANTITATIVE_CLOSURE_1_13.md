@@ -110,9 +110,55 @@ Si la cobertura estructural Q2 es incompleta, la atribución automática queda
 `NOT_EVALUABLE`. M21 conserva el adaptador legacy de atribuciones
 precomputadas únicamente como compatibilidad transitoria.
 
-## Próximas fases
+## Fase Q4 · Perturbación horaria automática y componente BIRTH_TIME
 
-Q4: generador de perturbación horaria y parametrización preregistrada para M23.
+Q4 queda implementada mediante la política congelada
+`ALMAS_BIRTH_TIME_PERTURBATION_V1` y el motor
+`src/almas_tfa/time_perturbation.py`.
+
+La política usa una parrilla simétrica por fiabilidad horaria declarada:
+
+- A: ±15 minutos, paso 5;
+- B: ±30 minutos, paso 10;
+- C: ±60 minutos, paso 15;
+- D: ±120 minutos, paso 30.
+
+Estas ventanas son una `E_PROJECT_POLICY` experimental y no una validación
+empírica externa de las categorías A/B/C/D.
+
+Para cada combinación de offsets de ambos sujetos se recalculan las capas
+estructurales necesarias M02→M17 y se reconstruyen pilares e IEM_pre con las
+mismas políticas Q1/Q2. La combinación 0/0 se usa como baseline y no cuenta
+como perturbación.
+
+La métrica principal es:
+
+`delta_i = max_m |IEM_pre_m(perturbación) - IEM_pre_m(baseline)|`
+
+para m ∈ {AF, KA, AG, LG}.
+
+`delta90` utiliza percentil 90 por método `NEAREST_RANK`.
+
+La fracción preservada G se define en esta baseline como la media de
+preservación de las raíces core del baseline:
+
+`G = mean(|roots_baseline ∩ roots_i| / |roots_baseline|)`.
+
+El componente horario mantiene la fórmula pública:
+
+`R_birth_time = exp(-delta90/20) × sqrt(G)`.
+
+M23 genera automáticamente la parrilla sólo cuando se han inyectado backend
+natal y backend Davison y ambos sujetos poseen hora, zona, localización y
+`time_reliability` A/B/C/D. Toda perturbación generada debe ser evaluable; si
+una falla, Q4 falla cerrado. Se conserva el antiguo
+`time_sensitivity_summary` únicamente como fallback legacy explícito.
+
+Q4 no recalcula IDD: la estabilidad de IDD es un componente separado de Q5,
+evitando doble contabilización. Tampoco utiliza ICE, IEM_final, temporalidad ni
+rareza de modelos nulos.
+
+## Próximas fases
 
 Q5: cuantificación canónica de ablación, perturbación paramétrica e IDD stability
 para M25.
