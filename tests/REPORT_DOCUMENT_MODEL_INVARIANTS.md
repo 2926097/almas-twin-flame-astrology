@@ -43,3 +43,21 @@ Una release falla si:
 12. `promotion_trace` describe L3 usados en el caso; `promotion_reporting` describe el estado metodológico del registro y no debe confundirse con evidencia de caso.
 13. Un candidato EXPLORATORY/BLOCKED/RETIRED debe poder aparecer en el informe sin que ello eleve su autoridad ontológica.
 14. `validated_discriminator_ids=[]` debe seguir reportándose como cero L3 mientras no exista una promoción real.
+
+## Paso 18 · Genealogía documental de discriminadores
+
+1. `promotion_reporting.source_genealogy` debe existir en el pipeline productivo.
+2. Su autoridad debe ser `ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY`.
+3. Debe mantener `methodological_provenance_only=true`.
+4. Debe mantener `ontological_inference_allowed=false`.
+5. `source_count_adds_weight=false`.
+6. `source_priority_adds_ontological_weight=false`.
+7. `cross_tradition_identity_allowed=false`.
+8. Cada OD debe conservar `direct_case_evidence=false`.
+9. Cada OD debe conservar `can_change_case_classification=false`.
+10. Cada OD debe conservar `can_raise_irc=false`.
+11. Los límites `does_not_support` deben conservarse junto a los apoyos.
+12. Las no-equivalencias doctrinales deben mantenerse explícitas.
+13. La genealogía no modifica el fingerprint de `canonical_analysis`.
+14. La genealogía no convierte P1 en ground truth de una díada.
+15. La genealogía no modifica el estado de promoción del discriminador.
