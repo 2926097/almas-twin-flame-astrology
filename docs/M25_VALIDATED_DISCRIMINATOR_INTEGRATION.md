@@ -10,6 +10,14 @@ Esta integración añade un firewall específico:
 
 Sólo una señal declarada `L3_VALIDATED` y trazable a una raíz confirmatoria de `ontological_discrimination` puede entrar en M25 como `VALIDATED_DISCRIMINATOR`.
 
+## Doble gate registral
+
+Desde esta fase, M25 no considera suficiente que M21 haya producido una raíz con estado confirmatorio.
+
+El componente debe declarar además `discriminator_id` y `promotion_ref`, y M25 vuelve a consultar el registro canónico de promociones.
+
+Así, incluso una salida canónica construida manualmente con apariencia L3 no puede entrar en IRC si el discriminador no está registrado como `VALIDATED_DISCRIMINATOR`.
+
 ## Requisitos acumulativos
 
 Un componente de tipo `VALIDATED_DISCRIMINATOR` debe cumplir simultáneamente:
