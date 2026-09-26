@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.11.0
+**Versión pública:** 1.12.0
 
 ## Release pública
 
@@ -26,6 +26,12 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | M31 · report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
 | M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
 | Núcleo Python IEM/IDD/IRC | Publicado y probado unitariamente |
+| Discriminación ontológica M21 | Ejecutable; separada de IDD; ambigüedad preservada si no existe L3 |
+| Registro de promoción | Activo; `validated_discriminator_ids=[]` |
+| Gate L3 hacia M25 | Ejecutable; ningún discriminador real autorizado actualmente |
+| Validez discriminante / blinding | Políticas ejecutables; sin holdout externo real |
+| Genealogía de discriminadores | OD01–OD07 trazados documentalmente |
+| Aislamiento de casos privados | `ALMAS_PUBLIC_DATA_ISOLATION_V1` + manifests exhaustivos |
 | CLI de pilares precomputados | Publicada y probada unitariamente |
 | Corpus doctrinal | 38 fuentes / 92 conceptos / 73 relaciones |
 | Fixtures sintéticos | Publicados |
@@ -34,7 +40,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **133 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
+La suite Python contiene **266 tests deterministas**, incluidos módulos aislados, firewalls metodológicos y una ejecución sintética completa M00–M31.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -66,7 +72,8 @@ La validación automatizada demuestra coherencia de implementación con las regl
 ## Validación externa
 
 **Infraestructura:** LISTA PARA PRERREGISTRO.  
-**Holdout externo real:** NO EJECUTADO.
+**Holdout externo real:** NO EJECUTADO.  
+**Discriminadores L3 reales:** NINGUNO.
 
 La infraestructura incluye:
 
