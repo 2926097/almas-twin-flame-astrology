@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from almas_tfa.handlers import m21_differential_discrimination
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
@@ -13,6 +14,38 @@ def context(raw_input):
         canonical_snapshot={},
         prior_results={},
     )
+
+
+def synthetic_l3_registry():
+    return {
+        "records": [
+            {
+                "discriminator_id": "TEST_L3",
+                "current_status": "VALIDATED_DISCRIMINATOR",
+                "l3_authorized": True,
+                "promotion_ref": "PROMO:TEST_L3:1",
+                "promoted_at": "2026-09-26T00:00:00Z",
+                "validated_pairs": [
+                    ["SOULMATE_MODEL", "MONADIC_ORIGIN"]
+                ],
+                "root_key_prefix": "TEST_L3:",
+                "frozen": {
+                    "almas_version": "TEST",
+                    "commit_sha": "test-sha",
+                    "rule_ref": "TEST-RULE",
+                    "schema_refs": ["TEST-SCHEMA"],
+                },
+                "validation_evidence": {
+                    "preregistration_refs": ["PREREG-1"],
+                    "independent_replication_refs": ["REPL-1"],
+                    "external_holdout_refs": ["HOLDOUT-1"],
+                    "negative_control_refs": ["NEG-1"],
+                    "leakage_audit_refs": ["LEAK-1"],
+                },
+                "block_reason": None,
+            }
+        ]
+    }
 
 
 class TestM21OntologicalIntegration(unittest.TestCase):
@@ -86,28 +119,59 @@ class TestM21OntologicalIntegration(unittest.TestCase):
         self.assertFalse(ontology["rules"]["l2_can_confirm"])
         self.assertFalse(ontology["rules"]["scores_can_break_equivalence"])
 
-    def test_ontology_can_be_evaluated_when_idd_is_not_available(self):
-        result = m21_differential_discrimination(
-            context(
-                {
-                    "ontological_discriminator_input": {
-                        "observations": [
-                            {
-                                "discriminator_id": "L3-SM",
-                                "pair": [
-                                    "SOULMATE_MODEL",
-                                    "MONADIC_ORIGIN",
-                                ],
-                                "validation_level": "L3_VALIDATED",
-                                "result": "SEPARATES",
-                                "excluded_model": "SOULMATE_MODEL",
-                                "root_key": "VALIDATED_ROOT",
-                            }
-                        ]
+    def test_unregistered_l3_is_rejected(self):
+        with self.assertRaises(ValueError):
+            m21_differential_discrimination(
+                context(
+                    {
+                        "ontological_discriminator_input": {
+                            "observations": [
+                                {
+                                    "discriminator_id": "OD01_PAIR_SPECIFICITY_NETWORK",
+                                    "promotion_ref": "FAKE-PROMOTION",
+                                    "pair": [
+                                        "SOULMATE_MODEL",
+                                        "MONADIC_ORIGIN",
+                                    ],
+                                    "validation_level": "L3_VALIDATED",
+                                    "result": "SEPARATES",
+                                    "excluded_model": "SOULMATE_MODEL",
+                                    "root_key": "OD01:UNREGISTERED",
+                                }
+                            ]
+                        }
                     }
-                }
+                )
             )
-        )
+
+    def test_registered_l3_can_be_evaluated_when_idd_is_not_available(self):
+        with patch(
+            "almas_tfa.discriminator_promotion_registry."
+            "load_discriminator_promotion_registry",
+            return_value=synthetic_l3_registry(),
+        ):
+            result = m21_differential_discrimination(
+                context(
+                    {
+                        "ontological_discriminator_input": {
+                            "observations": [
+                                {
+                                    "discriminator_id": "TEST_L3",
+                                    "promotion_ref": "PROMO:TEST_L3:1",
+                                    "pair": [
+                                        "SOULMATE_MODEL",
+                                        "MONADIC_ORIGIN",
+                                    ],
+                                    "validation_level": "L3_VALIDATED",
+                                    "result": "SEPARATES",
+                                    "excluded_model": "SOULMATE_MODEL",
+                                    "root_key": "TEST_L3:ROOT_1",
+                                }
+                            ]
+                        }
+                    }
+                )
+            )
 
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
         self.assertNotIn("pairwise_idd", result.canonical_updates)
