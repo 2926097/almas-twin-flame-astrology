@@ -185,6 +185,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
     "src/almas_tfa/data/recurrence-quality-policy.json",
+    "src/almas_tfa/data/recurrence-null-calibration-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -211,6 +212,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/pillar_attribution.py",
     "src/almas_tfa/semantic_motifs.py",
     "src/almas_tfa/recurrence_quality.py",
+    "src/almas_tfa/null_calibration.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -303,6 +305,7 @@ REQUIRED_FILES = [
     "tests/test_root_strengths.py",
     "tests/test_pillar_attribution.py",
     "tests/test_recurrence_quality.py",
+    "tests/test_null_calibration.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -457,6 +460,9 @@ def main() -> int:
     )
     recurrence_quality_policy = load_json(
         "src/almas_tfa/data/recurrence-quality-policy.json"
+    )
+    recurrence_null_calibration_policy = load_json(
+        "src/almas_tfa/data/recurrence-null-calibration-policy.json"
     )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
@@ -846,6 +852,37 @@ def main() -> int:
         fail("recurrence quality must preserve RELCHART as one family class")
     if family_classes.get("NATAL_DRACONIC") != "DRACONIC_CROSS":
         fail("recurrence quality must expose natal-draconic dependency")
+
+    if recurrence_null_calibration_policy.get("policy_id") != "ALMAS_RECURRENCE_NULL_CALIBRATION_V1":
+        fail("recurrence null calibration policy id changed")
+    if recurrence_null_calibration_policy.get("status") != "FROZEN_EXPERIMENTAL_DIAGNOSTIC":
+        fail("recurrence null calibration policy must remain diagnostic")
+    if recurrence_null_calibration_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("recurrence null calibration policy must remain E_PROJECT_POLICY")
+    null_source = recurrence_null_calibration_policy.get("null_source", {})
+    if null_source.get("required_null_model") != "WITHIN_YEAR":
+        fail("S2 baseline calibration must remain WITHIN_YEAR")
+    if null_source.get("generator_policy_id") != "ALMAS_NULL_WITHIN_YEAR_V1":
+        fail("S2 must bind the frozen Q6 generator")
+    calibration_principles = recurrence_null_calibration_policy.get("principles", {})
+    for key in (
+        "case_fitting_forbidden",
+        "diagnostic_only",
+        "px_ps_scores_unchanged",
+        "iem_unchanged",
+        "idd_unchanged",
+        "irc_unchanged",
+        "ontology_unchanged",
+        "combined_p_value_forbidden",
+        "external_nulls_required_before_weighting",
+        "development_cases_cannot_define_thresholds",
+    ):
+        if calibration_principles.get(key) is not True:
+            fail(f"recurrence null calibration invariant failed: {key}")
+    if calibration_principles.get("metaphysical_probability") is not False:
+        fail("S2 must forbid metaphysical probability")
+    if calibration_principles.get("external_population_claim") is not False:
+        fail("S2 self-contained null must not claim external population")
 
     if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
         fail("model attribution policy id changed")
@@ -1968,6 +2005,23 @@ def main() -> int:
         fail("M24 automatic output must expose generator_policy_id")
     if null_model_output_schema.get("properties", {}).get("combined_p_value_state", {}).get("const") != "FORBIDDEN":
         fail("M24 must forbid combined p-value across null statistics")
+    calibration_schema = null_model_output_schema.get("properties", {}).get("recurrence_calibration", {})
+    calibration_props = calibration_schema.get("properties", {})
+    if calibration_props.get("policy_id", {}).get("const") != "ALMAS_RECURRENCE_NULL_CALIBRATION_V1":
+        fail("M24 schema must bind the S2 recurrence calibration policy")
+    for field in (
+        "used_for_weighting",
+        "used_in_px_score",
+        "used_in_ps_score",
+        "used_in_iem",
+        "used_in_idd",
+        "used_in_irc",
+        "used_in_ontology",
+        "metaphysical_probability",
+        "external_population_claim",
+    ):
+        if calibration_props.get(field, {}).get("const") is not False:
+            fail(f"M24 S2 calibration field must remain false: {field}")
 
     temporal_props = temporal_activation_schema.get("properties", {})
     if temporal_props.get("structural_score_modified", {}).get("const") is not False:
