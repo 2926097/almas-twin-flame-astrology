@@ -356,3 +356,23 @@ La salida estructural debe ser invariante tras el revelado documental:
 Si la identidad de un caso público no puede ocultarse, se registra como `UNAVOIDABLE_PUBLIC` y se documenta el riesgo mediante `identity_risk_refs`. Esa limitación no autoriza revelar autoetiquetas, narrativas o resultados esperados durante la fase estructural.
 
 Superar este gate demuestra resistencia operacional al leakage dentro del protocolo evaluado. No demuestra una ontología metafísica.
+
+
+## 16. Aislamiento de casos privados
+
+Toda validación pública queda sometida a `ALMAS_PUBLIC_DATA_ISOLATION_V1`.
+
+Un caso privado utilizado para desarrollo, replicación o holdout:
+
+- no puede almacenarse en `examples/`;
+- no puede entrar en `public_cases/` mediante pseudónimo;
+- no puede almacenarse como `PRIVATE_HOLDOUT` en el repositorio;
+- no puede convertirse en público mediante modificación ligera de fechas, nombres, coordenadas o eventos.
+
+Los holdouts privados permanecen fuera del repositorio. La capa pública puede conservar únicamente referencias externas opacas, protocolo preregistrado y métricas agregadas no identificables.
+
+Un caso público real exige datos ya públicos, verificación independiente y referencias públicas explícitas.
+
+La auditoría CI controla además cobertura exhaustiva de manifests y ausencia de rutas privadas reservadas.
+
+Cualquier `PRIVACY_BREACH` invalida el artefacto afectado para validación pública, aunque el rendimiento discriminante sea correcto.
