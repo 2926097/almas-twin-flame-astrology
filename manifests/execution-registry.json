@@ -103,7 +103,7 @@
     {
       "id": "M18",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/core.py:pillar_score"
+      "implementation": "src/almas_tfa/handlers.py:m18_pillars + src/almas_tfa/pillar_attribution.py"
     },
     {
       "id": "M19",
@@ -118,7 +118,7 @@
     {
       "id": "M21",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/core.py:diagnostic_discrimination"
+      "implementation": "src/almas_tfa/handlers.py:m21_differential_discrimination + src/almas_tfa/model_attribution.py"
     },
     {
       "id": "M22",
