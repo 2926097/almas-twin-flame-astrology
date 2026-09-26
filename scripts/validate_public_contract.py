@@ -514,6 +514,15 @@ def main() -> int:
     preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
     preincarnation_example = load_json("examples/preincarnation-reconstruction.synthetic.json")
 
+    if almas_module_manifest.get("almas_public_version") != version:
+        fail("almas module manifest version diverges from VERSION")
+    if discriminator_promotion_registry.get("target_almas_version") != version:
+        fail("promotion registry target version diverges from VERSION")
+    if discriminator_source_genealogy.get("target_almas_version") != version:
+        fail("discriminator source genealogy target version diverges from VERSION")
+    if operational_discriminator_candidates.get("target_almas_version") != version:
+        fail("operational discriminator target version diverges from VERSION")
+
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
 
