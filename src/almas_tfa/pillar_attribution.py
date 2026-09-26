@@ -141,6 +141,7 @@ def classify_root(
         return {
             "root_id": root_id,
             "eligible": False,
+            "semantic_core_eligible": False,
             "reason": "NOT_CORE_ELIGIBLE",
             "primary_pillar": None,
             "loadings": {},
@@ -152,6 +153,7 @@ def classify_root(
         return {
             "root_id": root_id,
             "eligible": False,
+            "semantic_core_eligible": False,
             "reason": "ROOT_STRENGTH_NOT_CORE_CALCULATED",
             "primary_pillar": None,
             "loadings": {},
@@ -163,6 +165,7 @@ def classify_root(
         return {
             "root_id": root_id,
             "eligible": False,
+            "semantic_core_eligible": False,
             "reason": "ROOT_STRENGTH_NOT_EVALUABLE",
             "primary_pillar": None,
             "loadings": {},
@@ -185,12 +188,21 @@ def classify_root(
     if primary is None:
         return {
             "root_id": root_id,
+            "attribution_type": "CANONICAL_ROOT",
             "eligible": False,
-            "reason": "NO_SEMANTIC_RULE_MATCH",
+            "semantic_core_eligible": True,
+            "reason": "NO_PRIMARY_PILLAR_RULE_MATCH",
             "primary_pillar": None,
             "loadings": {},
             "normalized_loadings": {},
             "contributions": {},
+            "strength": strength,
+            "point_ids": list(_root_points(root)),
+            "relation_ids": sorted(_root_relations(root)),
+            "dependency_families": _root_families(root),
+            "independent_family_count": int(
+                root.get("independent_family_count") or 0
+            ),
         }
 
     contributions = {primary: strength}
@@ -199,6 +211,7 @@ def classify_root(
         "root_id": root_id,
         "attribution_type": "CANONICAL_ROOT",
         "eligible": True,
+        "semantic_core_eligible": True,
         "reason": None,
         "matched_rule": matched_rule,
         "primary_pillar": primary,
