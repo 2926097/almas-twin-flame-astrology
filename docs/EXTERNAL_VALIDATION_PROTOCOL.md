@@ -1,4 +1,4 @@
-# Fases 13–14 · Protocolo de validación externa y preregistro
+# Fases 13–15 · Protocolo de validación externa y preregistro
 
 ## 1. Finalidad
 
@@ -329,3 +329,30 @@ Estos valores son `E_PROJECT_POLICY`, no constantes universales. Sólo pueden mo
 Cuando la salida es categórica, calibración probabilística es `NOT_APPLICABLE_CATEGORICAL`. Si un discriminador emite probabilidades, debe superar un criterio de calibración preregistrado y aportar referencias independientes.
 
 La validación cuantitativa demuestra rendimiento del clasificador operacional dentro de su alcance, no verdad metafísica.
+
+
+## 15. Cegamiento, leakage y revelado tardío
+
+Toda promoción a `VALIDATED_DISCRIMINATOR` debe satisfacer además la política `ALMAS_BLINDING_LEAKAGE_V1`.
+
+La evaluación se separa en dos fases. `STEP_A_BLINDED` ejecuta y congela la arquitectura estructural sin autoetiquetas, narrativa relacional, clasificación esperada, resultado esperado ni truth/outcome del holdout. `STEP_B_DOCUMENTARY_REVEAL` abre después la documentación preregistrada para temporalidad, viabilidad, reciprocidad, cumplimiento y contraevidencia.
+
+La entrada estructural de M21 aplica un firewall fail-closed. Si aparecen claves reservadas a etiqueta, narrativa, expectativa o outcome, la ejecución falla; no las elimina silenciosamente.
+
+Toda auditoría L3 debe incluir `blinding_audit` con `policy_id=ALMAS_BLINDING_LEAKAGE_V1`, referencias de auditoría, fingerprints SHA-256 y evidencia de separación desarrollo/evaluación.
+
+Los siguientes conteos deben ser exactamente cero:
+
+- `forbidden_field_hits`;
+- `label_leakage_count`;
+- `narrative_leakage_count`;
+- `case_fitting_count`;
+- `post_holdout_rule_change_count`.
+
+La salida estructural debe ser invariante tras el revelado documental:
+
+`pre_reveal_output_sha256 == post_reveal_structural_output_sha256`.
+
+Si la identidad de un caso público no puede ocultarse, se registra como `UNAVOIDABLE_PUBLIC` y se documenta el riesgo mediante `identity_risk_refs`. Esa limitación no autoriza revelar autoetiquetas, narrativas o resultados esperados durante la fase estructural.
+
+Superar este gate demuestra resistencia operacional al leakage dentro del protocolo evaluado. No demuestra una ontología metafísica.
