@@ -24,3 +24,24 @@ Un caso real sólo puede incluirse cuando los hechos o datos subyacentes ya sean
 El repositorio no debe publicar datos personales no públicos, comunicaciones privadas, datos natales privados, eventos relacionales no publicados, cartas privadas, informes privados ni salidas específicas de casos derivadas de información que no sea ya pública.
 
 El acceso a material privado no lo convierte en público. Un hallazgo metodológico generalizado surgido durante investigación privada sólo puede publicarse después de reformular la regla de forma independiente al caso privado y validarla sin incorporar identificadores ni valores privados.
+
+
+## Firewall ejecutable de publicación
+
+Desde el Paso 19 esta política se ejecuta mediante `ALMAS_PUBLIC_DATA_ISOLATION_V1`.
+
+Los scopes de artefactos de caso son:
+
+- `examples/` → únicamente `SYNTHETIC`;
+- `public_cases/` → únicamente `PUBLIC_VERIFIABLE`;
+- `validation/holdouts/` → `SYNTHETIC`, `PUBLIC_VERIFIABLE` o `PUBLIC_METADATA_ONLY`.
+
+Cada scope dispone de un manifiesto exhaustivo. Un JSON no registrado hace fallar el contrato público.
+
+Las clases `PRIVATE_CASE`, `PSEUDONYMIZED_PRIVATE`, `PRIVATE_HOLDOUT` y `CONFIDENTIAL` están prohibidas como artefactos del repositorio.
+
+La pseudonimización no convierte material privado en público.
+
+Los holdouts privados deben permanecer fuera del repositorio. Sólo pueden publicarse referencias externas opacas, protocolos preregistrados y métricas agregadas no identificables.
+
+Véase `docs/PRIVATE_CASE_ISOLATION_POLICY.md`.
