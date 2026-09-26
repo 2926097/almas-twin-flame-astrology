@@ -196,6 +196,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/px-v3-candidate-registry.json",
     "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json",
     "src/almas_tfa/data/px-v3-promotion-gate-policy.json",
+    "src/almas_tfa/data/px-v3-activation-firewall-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -229,6 +230,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/px_v3_candidates.py",
     "src/almas_tfa/px_v3_holdout.py",
     "src/almas_tfa/px_v3_promotion.py",
+    "src/almas_tfa/px_v3_activation.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -328,6 +330,7 @@ REQUIRED_FILES = [
     "tests/test_px_v3_candidates.py",
     "tests/test_px_v3_holdout.py",
     "tests/test_px_v3_promotion.py",
+    "tests/test_px_v3_activation.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -506,6 +509,9 @@ def main() -> int:
     )
     px_v3_promotion_gate_policy = load_json(
         "src/almas_tfa/data/px-v3-promotion-gate-policy.json"
+    )
+    px_v3_activation_firewall_policy = load_json(
+        "src/almas_tfa/data/px-v3-activation-firewall-policy.json"
     )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
@@ -1162,6 +1168,40 @@ def main() -> int:
     ):
         if s8_principles.get(key) is not False:
             fail(f"S8 promotion field must remain false: {key}")
+
+    if px_v3_activation_firewall_policy.get("policy_id") != "ALMAS_PX_V3_ACTIVATION_FIREWALL_V1":
+        fail("PX v3 activation firewall policy id changed")
+    if px_v3_activation_firewall_policy.get("status") != "FROZEN_RELEASE_FIREWALL":
+        fail("PX v3 activation firewall must remain release-locked")
+    if px_v3_activation_firewall_policy.get("release_line") != "1.15":
+        fail("PX v3 activation firewall must remain bound to 1.15")
+    if px_v3_activation_firewall_policy.get("operational_px_engine") != "ALMAS_SEMANTIC_MOTIF_V2":
+        fail("ALMAS 1.15 must retain PX v2 as operational engine")
+    if px_v3_activation_firewall_policy.get("px_v3_operational_in_release") is not False:
+        fail("PX v3 must remain non-operational in ALMAS 1.15")
+    s9_principles = px_v3_activation_firewall_policy.get("principles", {})
+    for key in (
+        "same_release_activation_forbidden",
+        "promotion_eligible_does_not_activate",
+        "manual_registry_change_required",
+        "new_semver_required",
+        "new_release_audit_required",
+        "new_public_contract_validation_required",
+        "runtime_activation_forbidden",
+        "automatic_registry_mutation_forbidden",
+        "px_v2_remains_operational",
+    ):
+        if s9_principles.get(key) is not True:
+            fail(f"S9 activation firewall invariant failed: {key}")
+    for key in (
+        "px_v3_scoring_enabled",
+        "px_v3_weighting_enabled",
+        "px_v3_ontology_enabled",
+        "px_v3_l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if s9_principles.get(key) is not False:
+            fail(f"S9 activation firewall field must remain false: {key}")
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
         "candidate",
