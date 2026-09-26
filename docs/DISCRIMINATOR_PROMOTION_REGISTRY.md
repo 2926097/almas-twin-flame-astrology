@@ -56,6 +56,30 @@ Un registro sólo puede autorizar `L3_VALIDATED` cuando cumple simultáneamente:
 
 La ausencia de cualquiera de estas piezas invalida la autoridad L3 en tiempo de ejecución.
 
+## Requisito adicional cuando uses_astrology=true
+
+Todo registro declara explícitamente `uses_astrology`.
+
+Cuando es `true`, `astrology_validation` debe existir y contener referencias no vacías a:
+
+- `non_astrological_criterion_refs`;
+- `astrology_ablation_refs`;
+- `matched_control_refs`;
+- `dependency_audit_refs`;
+- `out_of_sample_refs`;
+- `astrology_specific_replication_refs`.
+
+También debe fijar en `true`:
+
+- `single_feature_prohibition_acknowledged`;
+- `null_rarity_not_ontological`;
+- `temporal_activation_not_origin_proof`.
+
+Este gate se aplica tanto en la autorización M21 como en la revalidación de componentes `VALIDATED_DISCRIMINATOR` en M25.
+
+En el registro productivo OD01, OD02 y OD04 declaran `uses_astrology=true`, pero mantienen `astrology_validation=null` y `l3_authorized=false`. Por tanto, no pueden actuar como L3.
+
+
 ## Alcance por pares
 
 La validación no es global por defecto.
@@ -185,3 +209,5 @@ No demostraría:
 6. L2 nunca requiere promoción registral.
 7. M25 no acepta un L3 que el registro no autorice.
 8. El registro productivo actual contiene cero L3.
+9. Un discriminador con `uses_astrology=true` no autoriza L3 sin `astrology_validation` completa.
+10. Ningún feature astrológico aislado, rareza nula o activación temporal sustituye la validación discriminante independiente.
