@@ -104,7 +104,7 @@ def _pillars_from_root_attributions(
                         continue
                     strengths[pillar].append(float(value))
 
-        if item.get("semantic_core_eligible"):
+        if item.get("semantic_core_eligible", item.get("eligible", False)):
             surviving_semantic_roots.append(
                 {
                     "root_id": root_id,
