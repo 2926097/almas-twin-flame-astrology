@@ -4320,6 +4320,7 @@ def main() -> int:
         "analysis_mode",
         "analysis_profile",
         "profile_policy_id",
+        "astronomy_backend",
         "evidence",
         "models",
         "indices",
@@ -4354,6 +4355,7 @@ def main() -> int:
         "analysis_mode",
         "analysis_profile",
         "profile_policy_id",
+        "astronomy_backend",
         "evidence",
         "models",
         "indices",
@@ -4401,6 +4403,41 @@ def main() -> int:
         fail("canonical pairwise_idd entries must reject undeclared fields")
     if set(pairwise_item.get("required", [])) != {"idd", "band"}:
         fail("canonical pairwise_idd entries must require idd and band")
+
+    astronomy_backend_schema = canonical_props.get("astronomy_backend", {})
+    expected_astronomy_backend_fields = {
+        "state",
+        "backend_id",
+        "backend_version",
+        "provenance_state",
+        "provenance",
+    }
+    if set(astronomy_backend_schema.get("properties", {})) != expected_astronomy_backend_fields:
+        fail("canonical astronomy backend trace surface changed")
+    if set(astronomy_backend_schema.get("required", [])) != expected_astronomy_backend_fields:
+        fail("canonical astronomy backend trace must require all trace fields")
+    if astronomy_backend_schema.get("additionalProperties") is not False:
+        fail("canonical astronomy backend trace must reject undeclared fields")
+    production_rule_found = False
+    for rule in astronomy_backend_schema.get("allOf", []):
+        condition = (
+            rule.get("if", {})
+            .get("properties", {})
+            .get("backend_id", {})
+            .get("const")
+        )
+        if condition != "MOIRA_JPL_SPK":
+            continue
+        production_rule_found = True
+        then_props = rule.get("then", {}).get("properties", {})
+        if then_props.get("backend_version", {}).get("const") != "6.8.2":
+            fail("canonical production astronomy backend version changed")
+        if then_props.get("provenance_state", {}).get("const") != "DECLARED":
+            fail("canonical production astronomy backend must require declared provenance")
+        if then_props.get("provenance", {}).get("$ref") != "astronomy-backend-provenance.schema.json":
+            fail("canonical production astronomy provenance must compose the production provenance schema")
+    if not production_rule_found:
+        fail("canonical schema lacks production astronomy provenance conditional")
 
     evidence_schema = canonical_props.get("evidence", {})
     evidence_item = evidence_schema.get("items", {})
