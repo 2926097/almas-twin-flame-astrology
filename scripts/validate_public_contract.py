@@ -3312,7 +3312,21 @@ def main() -> int:
         is not False
     ):
         fail("M07 composite houses must remain unavailable")
+    composite_field = field_props.get("composite", {})
     davison_field = field_props.get("davison", {})
+    for field_name, field_schema in (
+        ("composite", composite_field),
+        ("davison", davison_field),
+    ):
+        if "angle_contacts" not in set(field_schema.get("required", [])):
+            fail(f"M09 {field_name} field must require position-angle contacts")
+        if (
+            field_schema.get("properties", {})
+            .get("angle_contacts", {})
+            .get("$ref")
+            != "#/$defs/internal_contacts"
+        ):
+            fail(f"M09 {field_name} angle contacts must reuse internal contact contract")
     if "house_placements" not in set(davison_field.get("required", [])):
         fail("M09 relationship field must expose explicit Davison house placements")
     placement_schema = (

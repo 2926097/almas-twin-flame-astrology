@@ -320,7 +320,9 @@ El firewall documental queda fijado en `structural_mutation_allowed=false`, `cla
 
 ## M09 · consonancia de cartas relacionales
 
-`M09` compara puntos homólogos entre compuesta y Davison únicamente bajo una `relationship_chart_consonance_policy` explícita. Toda observación pertenece a una única familia de dependencia `RELCHART`. El módulo no define una puntuación global de consonancia: `consonance_score=null` y `score_state=NOT_DEFINED` mientras no exista una regla preregistrada.
+`M09` compara puntos homólogos entre compuesta y Davison únicamente bajo una `relationship_chart_consonance_policy` explícita. Toda observación estructural pertenece a una única familia de dependencia `RELCHART`. El módulo no define una puntuación global de consonancia: `consonance_score=null` y `score_state=NOT_DEFINED` mientras no exista una regla preregistrada.
+
+Para autoría, `field_context` conserva posiciones, signos, ángulos y aspectos internos de cada carta relacional. También puede derivar contactos `posición↔ángulo` usando exclusivamente los `point_ids` y la misma `aspect_policy` ya declarados. Estos contactos permanecen `authoring_only=true`, no se añaden a `contacts`, no llegan a M15 y no crean raíces ni peso estructural.
 
 ## M28–M31 · doctrina, realidad factual y publicación
 

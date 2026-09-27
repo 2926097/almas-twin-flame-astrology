@@ -84,6 +84,24 @@ Incluye aspectos internos calculados con la misma `aspect_policy` declarada para
 
 Puede conservar ángulos de punto medio si M07 los produjo.
 
+## Contactos con ángulos
+
+`relationship_field.composite.angle_contacts` cruza los `point_ids` seleccionados por M09 con los ángulos que M07 ya calculó. No crea una nueva técnica ni una nueva raíz: aplica la misma `aspect_policy` del campo a coordenadas ya disponibles.
+
+La gramática es de campo:
+
+- planeta/función → qué opera;
+- ángulo → dónde se organiza el campo;
+- aspecto → cómo interactúan.
+
+Ejemplos:
+
+- Sol compuesto conjunto ASC compuesto → la función identitaria/central del vínculo queda muy próxima a su modo de presencia o emergencia;
+- Venus compuesto aspecto MC compuesto → vínculo, valor o atracción se articulan con dirección, proyección o propósito visible del campo;
+- Saturno compuesto aspecto IC compuesto → estructura, límite o responsabilidad tocan la base privada/sostenedora del vínculo.
+
+ASC/DSC y MC/IC forman ejes complementarios. Si aparecen contactos geométricamente equivalentes con ambos extremos, no narrarlos como dos confirmaciones independientes; elegir el extremo que exprese mejor la geometría concreta y conservar el otro como contexto del mismo eje.
+
 ## Casas
 
 M07 declara:
@@ -123,6 +141,8 @@ En ALMAS se utiliza para explorar:
 `relationship_field.davison.house_placements`
 
 A diferencia de la compuesta, el Davison puede disponer de casas calculadas. Cuando existen las doce cúspides, M09 deriva además la casa de cada punto Davison antes de la autoría; la redacción debe consumir `house_placements` y no recalcular la pertenencia a casas.
+
+`relationship_field.davison.angle_contacts` aplica la misma lógica posición↔ángulo a ASC/DSC/MC/IC ya calculados por M08. Esto permite describir cómo una función de la relación situada se enlaza con presencia, alteridad, fundamento o dirección del campo sin convertir el contacto en evidencia estructural adicional.
 
 ---
 

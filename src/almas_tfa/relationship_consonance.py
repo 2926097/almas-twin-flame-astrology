@@ -81,6 +81,67 @@ def _internal_contacts(
     return contacts
 
 
+def _angle_contacts(
+    positions: Mapping[str, Any],
+    angles: Mapping[str, Any],
+    point_ids: list[str],
+    aspect_policy: Mapping[str, Mapping[str, Any]],
+    *,
+    subject_id: str,
+) -> list[dict[str, Any]]:
+    """Aspectos posición↔ángulo para contexto de autoría del campo relacional."""
+
+    contacts: list[dict[str, Any]] = []
+    available_points = [
+        point_id
+        for point_id in point_ids
+        if point_id in positions
+        and _longitude_value(positions.get(point_id)) is not None
+    ]
+    available_angles = [
+        angle_id
+        for angle_id in sorted(angles)
+        if _longitude_value(angles.get(angle_id)) is not None
+    ]
+
+    for point_id in available_points:
+        point_longitude = _longitude_value(positions[point_id])
+        if point_longitude is None:
+            continue
+        for angle_id in available_angles:
+            angle_longitude = _longitude_value(angles[angle_id])
+            if angle_longitude is None:
+                continue
+            match = match_declared_aspect(
+                point_longitude,
+                angle_longitude,
+                aspect_policy,
+            )
+            if match is None:
+                continue
+            contacts.append(
+                {
+                    "subject_a": subject_id,
+                    "point_a": point_id,
+                    "longitude_a": point_longitude,
+                    "subject_b": subject_id,
+                    "point_b": angle_id,
+                    "longitude_b": angle_longitude,
+                    **match,
+                }
+            )
+
+    contacts.sort(
+        key=lambda item: (
+            item["orb"],
+            item["point_a"],
+            item["point_b"],
+            item["aspect"],
+        )
+    )
+    return contacts
+
+
 def _house_placements(
     positions: Mapping[str, Any],
     house_cusps: Mapping[str, Any],
@@ -156,6 +217,13 @@ def _field_context(
                 aspect_policy,
                 subject_id="RELCHART_COMPOSITE",
             ),
+            "angle_contacts": _angle_contacts(
+                composite_positions,
+                composite_angles,
+                point_ids,
+                aspect_policy,
+                subject_id="RELCHART_COMPOSITE",
+            ),
             "houses_calculated": bool(
                 composite.get("houses_calculated", False)
             ),
@@ -170,6 +238,13 @@ def _field_context(
             ),
             "internal_contacts": _internal_contacts(
                 davison_positions,
+                point_ids,
+                aspect_policy,
+                subject_id="RELCHART_DAVISON",
+            ),
+            "angle_contacts": _angle_contacts(
+                davison_positions,
+                davison_angles,
                 point_ids,
                 aspect_policy,
                 subject_id="RELCHART_DAVISON",

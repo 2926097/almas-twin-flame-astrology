@@ -140,6 +140,69 @@ class TestRelationshipChartConsonance(unittest.TestCase):
         self.assertEqual(placements["SUN"], 1)
         self.assertEqual(placements["MOON"], 10)
 
+    def test_field_context_calculates_position_angle_contacts_without_structural_evidence(self):
+        canonical = {
+            "composite": {
+                "positions": {
+                    "SUN": {"longitude": 10.0},
+                },
+                "angles": {
+                    "ASC": {"longitude": 12.0, "ambiguous": False},
+                },
+                "houses_calculated": False,
+            },
+            "davison": {
+                "chart": {
+                    "positions": {
+                        "SUN": {"longitude": 20.0},
+                    },
+                    "angles": {"MC": 110.0},
+                    "houses": {},
+                }
+            },
+        }
+        raw = {
+            "relationship_chart_consonance_policy": {
+                "point_ids": ["SUN"],
+                "aspect_policy": {
+                    "CONJUNCTION": {"angle": 0, "orb": 3},
+                    "SQUARE": {"angle": 90, "orb": 3},
+                },
+            }
+        }
+        result = m09_relationship_chart_consonance(
+            ModuleContext(
+                module_id="M09",
+                module_name="relchart",
+                mode="FULL",
+                raw_input=raw,
+                canonical_snapshot=canonical,
+                prior_results={},
+            )
+        )
+        output = result.canonical_updates["relationship_chart_consonance"]
+
+        self.assertEqual(output["contacts"], [])
+        self.assertEqual(output["contact_count"], 0)
+
+        composite_contact = output["field_context"]["composite"][
+            "angle_contacts"
+        ][0]
+        self.assertEqual(composite_contact["point_a"], "SUN")
+        self.assertEqual(composite_contact["point_b"], "ASC")
+        self.assertEqual(composite_contact["aspect"], "CONJUNCTION")
+
+        davison_contact = output["field_context"]["davison"][
+            "angle_contacts"
+        ][0]
+        self.assertEqual(davison_contact["point_a"], "SUN")
+        self.assertEqual(davison_contact["point_b"], "MC")
+        self.assertEqual(davison_contact["aspect"], "SQUARE")
+
+        self.assertTrue(output["field_context"]["authoring_only"])
+        self.assertFalse(output["field_context"]["structural_evidence_used"])
+        self.assertFalse(output["field_context"]["creates_independent_roots"])
+
     def test_field_context_calculates_internal_aspects_without_structural_contacts(self):
         canonical = {
             "composite": {
