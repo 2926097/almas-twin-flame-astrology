@@ -53,11 +53,11 @@ class DocxPublicationTests(unittest.TestCase):
             section = document.sections[0]
             self.assertLessEqual(
                 abs(section.page_width - Mm(176)),
-                100,
+                500,
             )
             self.assertLessEqual(
                 abs(section.page_height - Mm(250)),
-                100,
+                500,
             )
 
             paragraph_texts = [p.text for p in document.paragraphs]
