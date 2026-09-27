@@ -23,14 +23,23 @@ class TestRelationshipChartConsonance(unittest.TestCase):
                 "positions": {
                     "SUN": {"longitude": 10.0},
                     "MOON": {"longitude": 90.0},
-                }
+                },
+                "angles": {
+                    "ASC": {"longitude": 5.0, "ambiguous": False},
+                },
+                "houses_calculated": False,
             },
             "davison": {
                 "chart": {
                     "positions": {
                         "SUN": {"longitude": 12.0},
                         "MOON": {"longitude": 270.0},
-                    }
+                    },
+                    "angles": {"ASC": 15.0},
+                    "houses": {
+                        "1": 15.0,
+                        "2": 45.0,
+                    },
                 }
             },
         }
@@ -58,6 +67,82 @@ class TestRelationshipChartConsonance(unittest.TestCase):
         self.assertEqual(output["contact_count"], 2)
         self.assertIsNone(output["consonance_score"])
         self.assertEqual(output["score_state"], "NOT_DEFINED")
+
+        field = output["field_context"]
+        self.assertTrue(field["authoring_only"])
+        self.assertFalse(field["structural_evidence_used"])
+        self.assertFalse(field["creates_independent_roots"])
+        self.assertEqual(
+            field["composite"]["positions"]["SUN"]["sign"],
+            "ARIES",
+        )
+        self.assertEqual(
+            field["davison"]["positions"]["MOON"]["sign"],
+            "CAPRICORN",
+        )
+        self.assertFalse(field["composite"]["houses_calculated"])
+        self.assertEqual(
+            field["davison"]["house_cusps"]["1"]["sign"],
+            "ARIES",
+        )
+        self.assertEqual(field["cross_consonance_contact_count"], 2)
+
+    def test_field_context_calculates_internal_aspects_without_structural_contacts(self):
+        canonical = {
+            "composite": {
+                "positions": {
+                    "SUN": {"longitude": 0.0},
+                    "VENUS": {"longitude": 2.0},
+                },
+                "angles": {},
+                "houses_calculated": False,
+            },
+            "davison": {
+                "chart": {
+                    "positions": {
+                        "SUN": {"longitude": 0.0},
+                        "VENUS": {"longitude": 120.0},
+                    },
+                    "angles": {},
+                    "houses": {},
+                }
+            },
+        }
+        raw = {
+            "relationship_chart_consonance_policy": {
+                "point_ids": ["SUN", "VENUS"],
+                "aspect_policy": {
+                    "CONJUNCTION": {"angle": 0, "orb": 3},
+                    "TRINE": {"angle": 120, "orb": 3},
+                },
+            }
+        }
+        result = m09_relationship_chart_consonance(
+            ModuleContext(
+                module_id="M09",
+                module_name="relchart",
+                mode="FULL",
+                raw_input=raw,
+                canonical_snapshot=canonical,
+                prior_results={},
+            )
+        )
+        output = result.canonical_updates["relationship_chart_consonance"]
+
+        self.assertEqual(output["contact_count"], 1)
+        field = output["field_context"]
+        self.assertEqual(
+            field["composite"]["internal_contacts"][0]["aspect"],
+            "CONJUNCTION",
+        )
+        self.assertEqual(
+            field["davison"]["internal_contacts"][0]["aspect"],
+            "TRINE",
+        )
+        self.assertNotEqual(
+            field["composite"]["internal_contacts"],
+            output["contacts"],
+        )
 
 
 if __name__ == "__main__":
