@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.16.0 — 2026-09-27
+
+### Validation Operations V1–V5
+- Añade `ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1` para congelar candidato, fórmula, versión/commit, cohorte, cegamiento, leakage, replicación, controles, ablaciones, endpoints y criterios antes de abrir el holdout.
+- Añade `ALMAS_HOLDOUT_OPEN_GATE_V1`, que verifica el preregistro y permite iniciar una evaluación sin promover ni activar el candidato.
+- Añade `ALMAS_VALIDATION_EXECUTION_LEDGER_V1`, una cadena append-only SHA-256 con los eventos PREREGISTERED → HOLDOUT_OPENED → HOLDOUT_EVALUATED → DOCUMENTARY_REVEALED → VALIDATION_CLOSED.
+- Añade `ALMAS_VALIDATION_CONTINUITY_GATE_V1`, que certifica continuidad criptográfica V1→V2→S7→V3 antes de permitir presentar evidencia a S8.
+- Añade `ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1`: revelado documental tardío con invariancia estructural, cierre confirmatorio y paquete agregado de auditoría de release.
+- Un ciclo S8 elegible sólo puede cerrar como `PROMOTION_ELIGIBLE_AWAITING_VERSIONED_ACTIVATION`; la activación en la misma release permanece prohibida.
+- Mantiene `automatic_registry_mutation=false`, scoring/weighting/ontology/L3 deshabilitados y `metaphysical_probability=false` en V1–V5.
+- Mantiene vacío el registro canónico PX v3 y no declara holdout externo real ejecutado ni discriminador L3 real validado.
+- La suite de release se amplía a **434 tests deterministas**, pendiente de confirmación final del runner de CI para este commit de cierre.
+
 ## 1.15.0 — 2026-09-27
 
 ### Calibración de especificidad y ciclo PX v3 no operativo
