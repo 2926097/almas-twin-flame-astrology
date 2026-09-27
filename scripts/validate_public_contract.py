@@ -4522,11 +4522,15 @@ def main() -> int:
         "strength_state",
         "core_eligible",
         "dependency_families",
+        "independent_family_count",
+        "point_ids",
+        "relation_ids",
+        "max_exactness",
     }
     if set(evidence_item.get("properties", {})) != expected_evidence_fields:
         fail("canonical evidence projection surface changed")
     if set(evidence_item.get("required", [])) != expected_evidence_fields:
-        fail("canonical evidence projection must require all M17 projection fields")
+        fail("canonical evidence projection must require root identity and interpretive context from M17")
     if evidence_item.get("additionalProperties") is not False:
         fail("canonical evidence projection must reject undeclared fields")
     if evidence_item.get("properties", {}).get("source_module", {}).get("const") != "M17":
