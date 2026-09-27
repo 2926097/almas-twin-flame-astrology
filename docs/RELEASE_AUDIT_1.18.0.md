@@ -80,20 +80,23 @@ Sobre el HEAD funcional previo al cierre editorial:
 
 El CI específico no incluye ni descarga un kernel JPL real.
 
-## Gate astronómico pendiente
+## Gate astronómico preregistrado
 
-La implementación de producción queda disponible, pero la validación astronómica dorada permanece abierta.
+La implementación de producción queda disponible y la infraestructura de validación dorada queda preregistrada mediante `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1`.
 
-Para cerrar ese gate se requiere:
+Antes de observar resultados se han congelado seis casos sintéticos, métricas obligatorias, tolerancias, geometría y regla de decisión. No existe agregación que permita compensar un error fuera de tolerancia con otros aciertos.
 
-1. kernel JPL real identificado por SHA-256;
-2. fixtures dorados independientes;
-3. tolerancias numéricas preregistradas;
-4. comparación independiente de posiciones planetarias y nodos;
-5. validación separada de casas/ángulos;
-6. reproducibilidad documentada.
+El gate todavía no está ejecutado. Para cerrarlo se requiere:
 
-Skyfield permanece como candidato de verificación independiente de posiciones fundamentales.
+1. kernel DE440 real identificado por SHA-256;
+2. ejecución Moira sobre los seis casos congelados;
+3. referencia planetaria independiente bajo la misma geometría;
+4. referencia independiente para True Node;
+5. referencia independiente de casas/ángulos;
+6. resultados conformes al schema y PASS individual de todas las medidas;
+7. reproducibilidad documentada.
+
+Skyfield permanece como implementación preferida para la referencia independiente de posiciones fundamentales.
 
 ## Registro de ejecución
 
