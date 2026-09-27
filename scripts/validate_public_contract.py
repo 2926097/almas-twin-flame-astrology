@@ -3264,8 +3264,13 @@ def main() -> int:
     if not {"subjects", "aspect_policy", "contacts", "contact_count"}.issubset(syn_required):
         fail("synastry schema lacks required canonical fields")
 
-    if "subjects" not in natal_context_schema.get("required", []):
-        fail("natal context schema must require subjects")
+    natal_context_required = set(natal_context_schema.get("required", []))
+    if not {"subjects", "cross_house_placements"}.issubset(
+        natal_context_required
+    ):
+        fail(
+            "natal context schema must require subjects and cross-house placements"
+        )
 
     if "contacts" not in declination_schema.get("required", []):
         fail("declination schema must require contacts")
@@ -4526,6 +4531,7 @@ def main() -> int:
         "point_ids",
         "relation_ids",
         "max_exactness",
+        "house_overlays",
     }
     if set(evidence_item.get("properties", {})) != expected_evidence_fields:
         fail("canonical evidence projection surface changed")
