@@ -1661,7 +1661,83 @@
       "verification_anchor_type": "CHAPTER",
       "verification_anchor_url": "https://penelope.uchicago.edu/thayer/l/roman/texts/Firmicus_Maternus/Mathesis/2%2A.html",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "sakoian_acker_human_relationships_1976",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional moderna",
+      "author": "Frances Sakoian and Louis S. Acker",
+      "work": "The Astrology of Human Relationships",
+      "date": "1976",
+      "date_note": "Harper & Row edition, 1976; later editions and revisions were published subsequently.",
+      "passage": "Basic concepts in horoscopic comparison; comparative influences of the planets",
+      "pages": "395",
+      "doi": null,
+      "url": "https://books.google.com/books/about/The_Astrology_of_Human_Relationships.html?id=z_BWAAAAYAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada dedicada a la comparación horoscópica entre dos personas",
+        "organización interpretativa de influencias comparativas entre planetas en sinastría",
+        "base metodológica para desarrollar la función relacional de combinaciones planetarias concretas sin reducir la lectura a un listado de aspectos"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una combinación planetaria tenga un significado universal idéntico en todas las escuelas",
+        "que aspectos, nodos o ángulos permitan por sí solos identificar alma gemela, vínculo kármico o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books bibliographic record identifies the work as a systematic treatment of horoscopic comparison and comparative planetary influences.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://books.google.com/books/about/The_Astrology_of_Human_Relationships.html?id=z_BWAAAAYAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "arroyo_relationships_life_cycles_1993",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica relacional",
+      "author": "Stephen Arroyo",
+      "work": "Relationships & Life Cycles: Astrological Patterns of Personal Experience",
+      "date": "1993",
+      "date_note": "Second revised and expanded edition, CRCS Publications, 1993; first edition published in 1979.",
+      "passage": "Sections on relationship compatibility, chart comparison and use of houses in comparison",
+      "pages": "219",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Relationships_Life_Cycles.html?id=Q9UOAAAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada para análisis de compatibilidad y comparación de cartas",
+        "uso explícito de las casas como dimensión interpretativa en la comparación relacional",
+        "enfoque psicológico y experiencial que permite traducir configuraciones de sinastría a dinámica interpersonal sin fatalismo"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una superposición de casas determine por sí sola destino, permanencia o reciprocidad",
+        "que el lenguaje psicológico de compatibilidad constituya evidencia ontológica de origen del alma"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/CRCS description explicitly identifies chart comparison, relationship compatibility and the use of houses in such comparisons as central contributions of the work.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Relationships_Life_Cycles.html?id=Q9UOAAAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
-  "registry_revision": "2026-09-24-origin-differential-1"
+  "registry_revision": "2026-09-27-synastry-house-sources-1"
 }
