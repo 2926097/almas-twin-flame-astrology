@@ -18,14 +18,22 @@ SECTION_SPECS = (
     {
         "section_id": "S01_SYNTHESIS",
         "title": "Síntesis ejecutiva",
-        "purpose": "Resumir estados y arquitectura sin elevar conclusiones.",
+        "purpose": "Sintetizar la arquitectura astrológica y su lectura metafísica trazable, distinguiendo cálculo, doctrina, uso contemporáneo e hipótesis.",
         "required_paths": ("models",),
         "optional_paths": (
+            "evidence",
+            "semantic_motifs",
+            "doctrine",
             "ontology",
             "ontological_discrimination",
             "limitations",
         ),
-        "epistemic_classes_allowed": ("A_CALCULATED", "E_PROJECT_HYPOTHESIS"),
+        "epistemic_classes_allowed": (
+            "A_CALCULATED",
+            "C_DOCTRINE",
+            "D_CONTEMPORARY_USAGE",
+            "E_PROJECT_HYPOTHESIS",
+        ),
     },
     {
         "section_id": "S02_DATA_METHOD",
@@ -121,9 +129,12 @@ SECTION_SPECS = (
     {
         "section_id": "S10_FINAL_SYNTHESIS",
         "title": "Síntesis final",
-        "purpose": "Integrar resultados sin superar los techos inferenciales.",
+        "purpose": "Integrar la lectura astrológica, la evidencia estructural y la hermenéutica metafísica basada en fuentes sin superar los techos inferenciales.",
         "required_paths": ("models",),
         "optional_paths": (
+            "evidence",
+            "semantic_motifs",
+            "doctrine",
             "ontology",
             "ontological_discrimination",
             "limitations",
