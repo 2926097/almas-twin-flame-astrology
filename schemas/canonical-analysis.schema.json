@@ -8,6 +8,7 @@
     "analysis_mode",
     "analysis_profile",
     "profile_policy_id",
+    "astronomy_backend",
     "evidence",
     "models",
     "indices",
@@ -622,6 +623,127 @@
     },
     "null_models": {
       "$ref": "null-model-output.schema.json"
+    },
+    "astronomy_backend": {
+      "type": "object",
+      "required": [
+        "state",
+        "backend_id",
+        "backend_version",
+        "provenance_state",
+        "provenance"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "AVAILABLE",
+            "NOT_AVAILABLE"
+          ]
+        },
+        "backend_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "backend_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance_state": {
+          "enum": [
+            "DECLARED",
+            "NOT_DECLARED",
+            "NOT_AVAILABLE"
+          ]
+        },
+        "provenance": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "NOT_AVAILABLE"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "backend_id": {
+                "type": "null"
+              },
+              "backend_version": {
+                "type": "null"
+              },
+              "provenance_state": {
+                "const": "NOT_AVAILABLE"
+              },
+              "provenance": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "provenance_state": {
+                "const": "NOT_DECLARED"
+              }
+            },
+            "required": [
+              "provenance_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "provenance": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "backend_id": {
+                "const": "MOIRA_JPL_SPK"
+              }
+            },
+            "required": [
+              "backend_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "state": {
+                "const": "AVAILABLE"
+              },
+              "backend_version": {
+                "const": "6.8.2"
+              },
+              "provenance_state": {
+                "const": "DECLARED"
+              },
+              "provenance": {
+                "$ref": "astronomy-backend-provenance.schema.json"
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "additionalProperties": false,
