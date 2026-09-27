@@ -428,6 +428,8 @@ Cada bloque sustantivo debe producir al menos una proposición integrada del tip
 
 `evidencia astrológica → motivo → dinámica → significado`.
 
+Para los motivos producidos por `ALMAS_SEMANTIC_MOTIF_V2`, usar `reference/semantic-motif-hermeneutics.md`: desarrolla los nueve motivos primarios, cuatro overlays de misión y combinaciones interpretativas sin alterar PX/PS ni los techos inferenciales.
+
 Cuando exista fuente pertinente:
 
 `→ correspondencia doctrinal → límite de la correspondencia`.
