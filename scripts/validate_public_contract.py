@@ -49,6 +49,7 @@ REQUIRED_FILES = [
     "pyproject.toml",
     "schemas/raw-input.schema.json",
     "schemas/aspect-policy.schema.json",
+    "schemas/structural-policy-manifest.schema.json",
     "schemas/canonical-analysis.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
@@ -490,6 +491,7 @@ def main() -> int:
 
     raw_schema = load_json("schemas/raw-input.schema.json")
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
+    structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
     ontological_discriminator_output_schema = load_json(
         "schemas/ontological-discriminator-output.schema.json"
@@ -744,6 +746,11 @@ def main() -> int:
         fail("structural policy manifest version diverges from VERSION")
     if structural_policy_manifest.get("manifest_id") != "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1":
         fail("structural policy manifest id changed")
+
+    if structural_policy_manifest_schema.get("properties", {}).get("manifest_id", {}).get("const") != "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1":
+        fail("structural policy manifest schema id changed")
+    if structural_policy_manifest_schema.get("properties", {}).get("almas_public_version", {}).get("const") != version:
+        fail("structural policy manifest schema version diverges from VERSION")
 
     if technique_dependency_registry.get("registry_id") != "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1":
         fail("technique/dependency registry id changed")
