@@ -84,6 +84,7 @@
             "positions",
             "angles",
             "internal_contacts",
+            "angle_contacts",
             "houses_calculated"
           ],
           "properties": {
@@ -98,6 +99,9 @@
             },
             "houses_calculated": {
               "const": false
+            },
+            "angle_contacts": {
+              "$ref": "#/$defs/internal_contacts"
             }
           },
           "additionalProperties": false
@@ -109,7 +113,8 @@
             "angles",
             "house_cusps",
             "house_placements",
-            "internal_contacts"
+            "internal_contacts",
+            "angle_contacts"
           ],
           "properties": {
             "positions": {
@@ -131,6 +136,9 @@
                 "minimum": 1,
                 "maximum": 12
               }
+            },
+            "angle_contacts": {
+              "$ref": "#/$defs/internal_contacts"
             }
           },
           "additionalProperties": false
