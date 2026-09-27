@@ -1207,6 +1207,67 @@ class TestReportingFirewall(unittest.TestCase):
                 by_id[section_id]["available_paths"],
             )
 
+    def test_m31_exposes_symbolic_context_to_interpretive_sections(self):
+        canonical = self.canonical(
+            symbolic_context={
+                "authoring_projection_only": True,
+                "creates_additional_evidence": False,
+                "lots": {
+                    "policy": {"policy_id": "SYNTHETIC"},
+                    "policy_source": "RAW_INPUT",
+                    "sect_by_subject": {"A": "DAY", "B": "NIGHT"},
+                    "subjects": {"A": {}, "B": {}},
+                },
+                "secondary_symbolic": {
+                    "subjects": ["A", "B"],
+                    "point_ids": ["JUNO"],
+                    "support_only": True,
+                    "aspect_policy": {
+                        "CONJUNCTION": {"angle": 0, "orb": 3}
+                    },
+                    "missing_points_by_subject": {"A": [], "B": []},
+                    "contacts": [],
+                    "contact_count": 0,
+                },
+            }
+        )
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        by_id = {
+            section["section_id"]: section
+            for section in result.canonical_updates[
+                "report_document_model"
+            ]["sections"]
+        }
+
+        for section_id in (
+            "S01_SYNTHESIS",
+            "S04_STRUCTURE",
+            "S05_RELATIONAL",
+            "S10_FINAL_SYNTHESIS",
+            "S11_SOURCES_APPENDICES",
+        ):
+            self.assertIn(
+                "symbolic_context",
+                by_id[section_id]["available_paths"],
+            )
+
     def test_m31_partial_inherits_degradation_reasons(self):
         canonical = self.canonical(mode="TARGETED")
         gate_result = m30_report_gate(
