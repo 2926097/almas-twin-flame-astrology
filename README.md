@@ -34,6 +34,7 @@ La arquitectura normativa está en `docs/MODULE_ARCHITECTURE.md`.
 Los manifiestos y registros principales tienen funciones distintas:
 
 - `manifests/almas-module-manifest.json`: módulos arquitectónicos de ALMAS;
+- `manifests/structural-policy-manifest.json`: técnica, dependencia, orbes, elegibilidad y loading estructural;
 - `manifests/analysis-pipeline-manifest.json`: secuencia M00–M31 de un análisis FULL;
 - `manifests/preincarnation-pipeline-manifest.json`: pipeline preencarnatorio de ocho etapas;
 - `manifests/execution-registry.json`: estado ejecutable real de cada etapa M00–M31.
