@@ -37,6 +37,7 @@ REQUIRED_FILES = [
     "docs/RELEASE_AUDIT_1.14.0.md",
     "docs/RELEASE_AUDIT_1.15.0.md",
     "docs/EVOLUTION_1.15.0.md",
+    "docs/EVOLUTION_1.16.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -77,6 +78,7 @@ REQUIRED_FILES = [
     "schemas/external-recurrence-control-cohort.schema.json",
     "schemas/px-v3-candidate-registry.schema.json",
     "schemas/px-v3-promotion-evidence.schema.json",
+    "schemas/validation-preregistration-bundle.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -198,6 +200,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json",
     "src/almas_tfa/data/px-v3-promotion-gate-policy.json",
     "src/almas_tfa/data/px-v3-activation-firewall-policy.json",
+    "src/almas_tfa/data/validation-preregistration-bundle-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -232,6 +235,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/px_v3_holdout.py",
     "src/almas_tfa/px_v3_promotion.py",
     "src/almas_tfa/px_v3_activation.py",
+    "src/almas_tfa/validation_preregistration.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -332,6 +336,7 @@ REQUIRED_FILES = [
     "tests/test_px_v3_holdout.py",
     "tests/test_px_v3_promotion.py",
     "tests/test_px_v3_activation.py",
+    "tests/test_validation_preregistration.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -514,6 +519,9 @@ def main() -> int:
     px_v3_activation_firewall_policy = load_json(
         "src/almas_tfa/data/px-v3-activation-firewall-policy.json"
     )
+    validation_preregistration_bundle_policy = load_json(
+        "src/almas_tfa/data/validation-preregistration-bundle-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -573,6 +581,9 @@ def main() -> int:
     )
     px_v3_promotion_evidence_schema = load_json(
         "schemas/px-v3-promotion-evidence.schema.json"
+    )
+    validation_preregistration_bundle_schema = load_json(
+        "schemas/validation-preregistration-bundle.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1203,6 +1214,60 @@ def main() -> int:
     ):
         if s9_principles.get(key) is not False:
             fail(f"S9 activation firewall field must remain false: {key}")
+
+    if validation_preregistration_bundle_policy.get("policy_id") != "ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1":
+        fail("1.16 preregistration bundle policy id changed")
+    if validation_preregistration_bundle_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 preregistration bundle policy must remain frozen")
+    if validation_preregistration_bundle_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 preregistration bundle must remain E_PROJECT_POLICY")
+    v1_principles = validation_preregistration_bundle_policy.get("principles", {})
+    for key in (
+        "candidate_must_be_frozen_for_validation",
+        "holdout_must_be_unopened",
+        "formula_ref_must_be_frozen",
+        "development_holdout_separation_required",
+        "endpoints_frozen_before_holdout",
+        "success_failure_criteria_frozen_before_holdout",
+        "blinding_plan_required",
+        "leakage_audit_plan_required",
+        "negative_controls_required",
+        "ablation_plan_required",
+        "independent_replication_plan_required",
+        "raw_holdout_samples_forbidden",
+        "observed_holdout_results_forbidden",
+        "private_case_material_forbidden",
+        "bundle_fingerprint_required",
+        "automatic_registry_mutation_forbidden",
+    ):
+        if v1_principles.get(key) is not True:
+            fail(f"1.16 V1 preregistration invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if v1_principles.get(key) is not False:
+            fail(f"1.16 V1 preregistration field must remain false: {key}")
+
+    v1_schema_props = validation_preregistration_bundle_schema.get("properties", {})
+    if v1_schema_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1":
+        fail("1.16 V1 schema policy id changed")
+    for field in (
+        "holdout_opened",
+        "observed_results_present",
+        "raw_samples_present",
+        "automatic_registry_mutation",
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v1_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V1 schema must lock {field}=false")
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
         "candidate",
