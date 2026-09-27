@@ -25,6 +25,7 @@
           "support_evidence_ids",
           "point_ids",
           "relation_ids",
+          "concrete_contacts",
           "max_exactness",
           "strength",
           "strength_state",
@@ -42,12 +43,16 @@
           },
           "evidence_ids": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "dependency_families": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "independent_family_count": {
@@ -59,31 +64,45 @@
           },
           "core_evidence_ids": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "support_evidence_ids": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "point_ids": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "relation_ids": {
             "type": "array",
-            "items": {"type": "string"},
+            "items": {
+              "type": "string"
+            },
             "uniqueItems": true
           },
           "max_exactness": {
-            "type": ["number", "null"],
+            "type": [
+              "number",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 1
           },
           "strength": {
-            "type": ["number", "null"],
+            "type": [
+              "number",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 1
           },
@@ -95,7 +114,10 @@
             ]
           },
           "dominant_evidence_id": {
-            "type": ["string", "null"]
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "evidence_strengths": {
             "type": "array"
@@ -105,6 +127,79 @@
           },
           "aggregation": {
             "const": "MAX_CORE_EVIDENCE"
+          },
+          "concrete_contacts": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": [
+                "evidence_id",
+                "source_module",
+                "dependency_family",
+                "directional",
+                "subject_a",
+                "point_a",
+                "subject_b",
+                "point_b",
+                "relation_id",
+                "layer_a",
+                "layer_b",
+                "exactness"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_module": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dependency_family": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "directional": {
+                  "type": "boolean"
+                },
+                "subject_a": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "point_a": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "subject_b": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "point_b": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relation_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "layer_a": {
+                  "type": "string"
+                },
+                "layer_b": {
+                  "type": "string"
+                },
+                "exactness": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "additionalProperties": false
+            }
           }
         },
         "additionalProperties": true

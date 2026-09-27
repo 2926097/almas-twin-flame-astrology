@@ -4530,6 +4530,7 @@ def main() -> int:
         "independent_family_count",
         "point_ids",
         "relation_ids",
+        "concrete_contacts",
         "max_exactness",
         "house_overlays",
     }
@@ -4539,6 +4540,44 @@ def main() -> int:
         fail("canonical evidence projection must require root identity and interpretive context from M17")
     if evidence_item.get("additionalProperties") is not False:
         fail("canonical evidence projection must reject undeclared fields")
+    concrete_ref = (
+        evidence_item.get("properties", {})
+        .get("concrete_contacts", {})
+        .get("$ref")
+    )
+    if concrete_ref != "independent-roots.schema.json#/properties/roots/items/properties/concrete_contacts":
+        fail("canonical evidence concrete_contacts must reuse the M17 root contract")
+    root_item = (
+        independent_roots_schema.get("properties", {})
+        .get("roots", {})
+        .get("items", {})
+    )
+    if "concrete_contacts" not in set(root_item.get("required", [])):
+        fail("M17 independent roots must require concrete_contacts")
+    concrete_item = (
+        root_item.get("properties", {})
+        .get("concrete_contacts", {})
+        .get("items", {})
+    )
+    required_concrete_fields = {
+        "evidence_id",
+        "source_module",
+        "dependency_family",
+        "directional",
+        "subject_a",
+        "point_a",
+        "subject_b",
+        "point_b",
+        "relation_id",
+        "layer_a",
+        "layer_b",
+        "exactness",
+    }
+    if set(concrete_item.get("required", [])) != required_concrete_fields:
+        fail("M17 concrete contact trace fields changed")
+    if concrete_item.get("additionalProperties") is not False:
+        fail("M17 concrete contacts must reject undeclared fields")
+
     if evidence_item.get("properties", {}).get("source_module", {}).get("const") != "M17":
         fail("canonical evidence must remain rooted in M17")
 

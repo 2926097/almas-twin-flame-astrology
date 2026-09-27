@@ -108,6 +108,23 @@ class TestEvidenceGraph(unittest.TestCase):
         self.assertEqual(root["policy_id"], "ALMAS_ROOT_STRENGTH_BASELINE_V1")
         self.assertIn("AXIS_HORIZON", root["point_ids"])
         self.assertIn("SUN", root["point_ids"])
+        self.assertEqual(len(root["concrete_contacts"]), 2)
+
+        by_family = {
+            item["dependency_family"]: item
+            for item in root["concrete_contacts"]
+        }
+        self.assertEqual(by_family["SYN"]["point_a"], "ASC")
+        self.assertEqual(by_family["SYN"]["point_b"], "SUN")
+        self.assertEqual(by_family["SYN"]["relation_id"], "CONJUNCTION")
+        self.assertEqual(
+            by_family["DRACONIC_DD"]["point_a"],
+            "ASC",
+        )
+        self.assertEqual(
+            root["root_key"],
+            "A:AXIS_HORIZON|B:SUN|AXIS_ANGLE:0.000000",
+        )
 
     def test_secondary_only_root_never_becomes_core(self):
         canonical = {

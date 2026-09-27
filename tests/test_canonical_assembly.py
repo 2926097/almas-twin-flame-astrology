@@ -220,6 +220,68 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
             ],
         )
 
+    def test_concrete_axis_contact_resolves_house_without_changing_root_key(self):
+        canonical = canonical_base()
+        cross = canonical["natal_context"]["cross_house_placements"]
+        cross["A_IN_B"]["placements"]["ASC"] = {
+            "house": 1,
+            "longitude": 10.0,
+        }
+        cross["B_IN_A"]["placements"]["SUN"] = {
+            "house": 7,
+            "longitude": 20.0,
+        }
+
+        root = canonical["independent_roots"]["roots"][0]
+        root["root_key"] = "A:AXIS_HORIZON|B:SUN|AXIS_ANGLE:0.000000"
+        root["point_ids"] = ["AXIS_HORIZON", "SUN"]
+        root["relation_ids"] = ["CONJUNCTION"]
+        root["concrete_contacts"] = [
+            {
+                "evidence_id": "E-M03-0001",
+                "source_module": "M03",
+                "dependency_family": "SYN",
+                "directional": False,
+                "subject_a": "A",
+                "point_a": "ASC",
+                "subject_b": "B",
+                "point_b": "SUN",
+                "relation_id": "CONJUNCTION",
+                "layer_a": "",
+                "layer_b": "",
+                "exactness": 0.98,
+            }
+        ]
+
+        result = assemble_canonical_analysis(canonical, prior_all())
+        evidence = result["canonical_analysis"]["evidence"][0]
+
+        self.assertEqual(
+            evidence["root_key"],
+            "A:AXIS_HORIZON|B:SUN|AXIS_ANGLE:0.000000",
+        )
+        self.assertEqual(
+            evidence["concrete_contacts"][0]["point_a"],
+            "ASC",
+        )
+        self.assertEqual(
+            evidence["house_overlays"],
+            [
+                {
+                    "source_subject": "A",
+                    "point_id": "ASC",
+                    "target_subject": "B",
+                    "house": 1,
+                },
+                {
+                    "source_subject": "B",
+                    "point_id": "SUN",
+                    "target_subject": "A",
+                    "house": 7,
+                },
+            ],
+        )
+
     def test_house_overlays_are_not_attached_to_draconic_roots(self):
         canonical = canonical_base()
         root = canonical["independent_roots"]["roots"][0]

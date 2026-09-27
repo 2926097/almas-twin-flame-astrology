@@ -255,11 +255,57 @@ def _doctrine_claims(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
 HOUSE_OVERLAY_NATAL_FAMILIES = {"SYN", "DECLINATION"}
 
 
+def _house_overlay_for_point(
+    cross: Mapping[str, Any],
+    *,
+    source_subject: str,
+    point_id: str,
+    target_subject: str,
+) -> dict[str, Any] | None:
+    if source_subject == target_subject:
+        return None
+    if point_id.startswith("AXIS_"):
+        return None
+
+    overlay = cross.get(f"{source_subject}_IN_{target_subject}")
+    placements = (
+        overlay.get("placements")
+        if isinstance(overlay, Mapping)
+        else None
+    )
+    if not isinstance(placements, Mapping):
+        return None
+
+    placement = placements.get(point_id)
+    resolved_point_id = point_id
+    if not isinstance(placement, Mapping):
+        for candidate_id, candidate in placements.items():
+            if str(candidate_id).upper() == point_id:
+                placement = candidate
+                resolved_point_id = str(candidate_id)
+                break
+    if not isinstance(placement, Mapping):
+        return None
+
+    house = placement.get("house")
+    if isinstance(house, bool) or not isinstance(house, int):
+        return None
+    if not 1 <= house <= 12:
+        return None
+
+    return {
+        "source_subject": source_subject,
+        "point_id": resolved_point_id,
+        "target_subject": target_subject,
+        "house": house,
+    }
+
+
 def _root_house_overlays(
     canonical: Mapping[str, Any],
     root: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    """Une una raíz M17 con casas M04 sólo si existe geometría natal compatible."""
+    """Une una raíz M17 con casas M04 sólo desde contactos natales compatibles."""
 
     dependency_families = {
         str(value)
@@ -268,25 +314,6 @@ def _root_house_overlays(
     }
     if not dependency_families.intersection(HOUSE_OVERLAY_NATAL_FAMILIES):
         return []
-
-    root_key = root.get("root_key")
-    if not isinstance(root_key, str) or not root_key:
-        return []
-
-    parts = root_key.split("|")
-    if len(parts) < 2:
-        return []
-
-    endpoints: list[tuple[str, str]] = []
-    for part in parts[:2]:
-        if ":" not in part:
-            return []
-        subject_id, point_id = part.split(":", 1)
-        subject_id = subject_id.strip()
-        point_id = point_id.strip().upper()
-        if not subject_id or not point_id:
-            return []
-        endpoints.append((subject_id, point_id))
 
     context = canonical.get("natal_context")
     cross = (
@@ -297,61 +324,87 @@ def _root_house_overlays(
     if not isinstance(cross, Mapping):
         return []
 
-    output: list[dict[str, Any]] = []
-    for index, (source_subject, point_id) in enumerate(endpoints):
-        target_subject = endpoints[1 - index][0]
-        if source_subject == target_subject:
-            continue
+    output_by_key: dict[tuple[str, str, str, int], dict[str, Any]] = {}
+    concrete_contacts = root.get("concrete_contacts")
 
-        # M17 agrupa nodos y ángulos en ejes. Esa normalización pierde
-        # cuál de los dos puntos concretos produjo la raíz; no se adivina.
-        if point_id.startswith("AXIS_"):
-            continue
+    if isinstance(concrete_contacts, list) and concrete_contacts:
+        for concrete in concrete_contacts:
+            if not isinstance(concrete, Mapping):
+                continue
+            if (
+                str(concrete.get("dependency_family", ""))
+                not in HOUSE_OVERLAY_NATAL_FAMILIES
+            ):
+                continue
 
-        overlay = cross.get(f"{source_subject}_IN_{target_subject}")
-        placements = (
-            overlay.get("placements")
-            if isinstance(overlay, Mapping)
-            else None
-        )
-        if not isinstance(placements, Mapping):
-            continue
+            subject_a = str(concrete.get("subject_a", "")).strip()
+            subject_b = str(concrete.get("subject_b", "")).strip()
+            point_a = str(concrete.get("point_a", "")).strip().upper()
+            point_b = str(concrete.get("point_b", "")).strip().upper()
+            if not subject_a or not subject_b or not point_a or not point_b:
+                continue
 
-        placement = placements.get(point_id)
-        resolved_point_id = point_id
-        if not isinstance(placement, Mapping):
-            for candidate_id, candidate in placements.items():
-                if str(candidate_id).upper() == point_id:
-                    placement = candidate
-                    resolved_point_id = str(candidate_id)
-                    break
-        if not isinstance(placement, Mapping):
-            continue
+            for source_subject, point_id, target_subject in (
+                (subject_a, point_a, subject_b),
+                (subject_b, point_b, subject_a),
+            ):
+                item = _house_overlay_for_point(
+                    cross,
+                    source_subject=source_subject,
+                    point_id=point_id,
+                    target_subject=target_subject,
+                )
+                if item is None:
+                    continue
+                key = (
+                    item["source_subject"],
+                    item["point_id"],
+                    item["target_subject"],
+                    item["house"],
+                )
+                output_by_key[key] = item
+    else:
+        # Compatibilidad con raíces importadas anteriores a concrete_contacts.
+        root_key = root.get("root_key")
+        if isinstance(root_key, str) and root_key:
+            parts = root_key.split("|")
+            if len(parts) >= 2:
+                endpoints: list[tuple[str, str]] = []
+                for part in parts[:2]:
+                    if ":" not in part:
+                        endpoints = []
+                        break
+                    subject_id, point_id = part.split(":", 1)
+                    subject_id = subject_id.strip()
+                    point_id = point_id.strip().upper()
+                    if not subject_id or not point_id:
+                        endpoints = []
+                        break
+                    endpoints.append((subject_id, point_id))
 
-        house = placement.get("house")
-        if isinstance(house, bool) or not isinstance(house, int):
-            continue
-        if not 1 <= house <= 12:
-            continue
+                if len(endpoints) == 2:
+                    for index, (source_subject, point_id) in enumerate(endpoints):
+                        target_subject = endpoints[1 - index][0]
+                        item = _house_overlay_for_point(
+                            cross,
+                            source_subject=source_subject,
+                            point_id=point_id,
+                            target_subject=target_subject,
+                        )
+                        if item is None:
+                            continue
+                        key = (
+                            item["source_subject"],
+                            item["point_id"],
+                            item["target_subject"],
+                            item["house"],
+                        )
+                        output_by_key[key] = item
 
-        output.append(
-            {
-                "source_subject": source_subject,
-                "point_id": resolved_point_id,
-                "target_subject": target_subject,
-                "house": house,
-            }
-        )
-
-    output.sort(
-        key=lambda item: (
-            item["source_subject"],
-            item["target_subject"],
-            item["point_id"],
-        )
-    )
-    return output
-
+    return [
+        output_by_key[key]
+        for key in sorted(output_by_key)
+    ]
 
 def _evidence_from_roots(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
     roots_obj = canonical.get("independent_roots")
@@ -387,6 +440,11 @@ def _evidence_from_roots(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
                 ),
                 "point_ids": list(root.get("point_ids", [])),
                 "relation_ids": list(root.get("relation_ids", [])),
+                "concrete_contacts": [
+                    dict(item)
+                    for item in root.get("concrete_contacts", [])
+                    if isinstance(item, Mapping)
+                ],
                 "max_exactness": root.get("max_exactness"),
                 "house_overlays": _root_house_overlays(
                     canonical,
