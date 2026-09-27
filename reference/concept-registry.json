@@ -1073,13 +1073,15 @@
         "astrodienst_moon_nodes",
         "astrodienst_vertex",
         "george_bloch_asteroid_goddesses_2003",
-        "lang_wescott_eros_basic_resources"
+        "lang_wescott_eros_basic_resources",
+        "astrodienst_transit",
+        "hand_planets_in_transit_2002"
       ],
       "historical_sources": [
         "firmicus_mathesis_2_29_antiscia"
       ],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera y técnico para documentar sinastría, combinaciones planetarias, superposiciones de casas, dinámica psicológica/proyectiva, procesos transformativos, cartas relacionales, declinaciones y simetrías tradicionales. Las fuentes técnicas/históricas fundamentan método e interpretación, pero la existencia de la técnica no añade evidencia ontológica por sí misma."
+      "almas_use": "Concepto frontera y técnico para documentar sinastría, combinaciones planetarias, superposiciones de casas, dinámica psicológica/proyectiva, procesos transformativos, cartas relacionales, declinaciones, simetrías y activación por tránsitos. Las fuentes técnicas/históricas fundamentan método e interpretación, pero la existencia de la técnica no añade evidencia ontológica por sí misma."
     },
     {
       "id": "SOUL_CONTRACT_ASTROLOGY",

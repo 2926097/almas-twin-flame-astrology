@@ -222,6 +222,21 @@ M26 reconoce:
 
 En el corpus ALMAS 1.20 estas etiquetas identifican procedencia técnica. No atribuir a cada familia un significado psicológico o metafísico especializado salvo que exista una fuente de método registrada para esa técnica.
 
+### TTRANSIT
+
+`TTRANSIT` dispone ya de fundamento metodológico registrado mediante:
+
+- `astrodienst_transit`;
+- `hand_planets_in_transit_2002`.
+
+Para cálculo e interpretación aplicar `reference/transit-method.md`.
+
+La cadena es:
+
+`factor en tránsito → aspecto → factor objetivo → raíz existente → ventana`.
+
+Este respaldo documental no debe extrapolarse a progresiones, direcciones, eclipses, cartas relacionales progresadas/dirigidas o atacires. Esas familias mantienen por ahora su función de procedencia hasta que dispongan de contrato y fuentes propios.
+
 Especialmente:
 
 - `TATACIR` no preregistrado se fuerza a `EXPLORATORY`;

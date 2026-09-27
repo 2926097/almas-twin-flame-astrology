@@ -2805,6 +2805,82 @@
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://marthalangwescott.com/basic-resources/",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_transit",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Transit",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "General; Aspects; Trigger; Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Transit",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "definición del tránsito como planeta en movimiento que forma aspecto con un factor del horóscopo natal y lo activa cuando la geometría se hace exacta",
+        "uso preferente de conjunción, sextil, cuadratura, trígono y oposición como aspectos mayores en análisis de tránsitos",
+        "interpretación del tránsito a partir de la función del planeta transitante y del factor natal activado, con especial relevancia de los planetas lentos y de la exactitud"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología de tránsitos",
+        "predicción determinista de acontecimientos concretos a partir de un tránsito",
+        "que un tránsito pruebe reciprocidad, destino, contrato álmico, alma gemela o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Transit', define el tránsito como aspecto de un planeta en movimiento a un factor natal, describe los cinco aspectos mayores y usa el lenguaje de trigger/activación cuando el aspecto se hace exacto.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Transit",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "hand_planets_in_transit_2002",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología humanista y predictiva moderna",
+      "author": "Robert Hand",
+      "work": "Planets in Transit: Life Cycles for Living",
+      "date": "2002",
+      "date_note": "Revised second edition, Schiffer Publishing, 2002; obra originalmente publicada en una edición anterior.",
+      "passage": "Major transits of the Sun, Moon and planets to natal planets, Ascendant and Midheaven",
+      "pages": "544",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Planets_in_Transit.html?id=84elPwAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia bibliográfica y metodológica protegida por copyright; usar paráfrasis y citas breves dentro de los límites aplicables.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada dedicada sistemáticamente a tránsitos planetarios y ciclos vitales",
+        "tratamiento de conjunción, sextil, cuadratura, trígono y oposición entre planetas transitantes y planetas natales",
+        "tratamiento de tránsitos a Ascendente y Medio Cielo como factores natales relevantes"
+      ],
+      "does_not_support": [
+        "validación científica de los significados astrológicos de los tránsitos",
+        "que una configuración de tránsito determine un acontecimiento factual único o inevitable",
+        "que los tránsitos identifiquen por sí solos tipo de vínculo, reciprocidad o ontología metafísica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "El registro bibliográfico de Google Books describe la obra como guía sistemática de los cinco aspectos mayores de planetas transitantes respecto a planetas natales, Ascendente y Medio Cielo.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Planets_in_Transit.html?id=84elPwAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"

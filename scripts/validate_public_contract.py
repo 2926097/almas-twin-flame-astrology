@@ -210,6 +210,7 @@ REQUIRED_FILES = [
     "reference/semantic-motif-hermeneutics.md",
     "reference/secondary-symbolic-hermeneutics.md",
     "reference/temporal-activation-hermeneutics.md",
+    "reference/transit-method.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -3918,6 +3919,41 @@ def main() -> int:
     )
     if not required_secondary_symbolic_sources.issubset(relationship_methods):
         fail("Juno/Eros methods must remain linked to RELATIONSHIP_ASTROLOGY")
+
+    required_transit_sources = {
+        "astrodienst_transit",
+        "hand_planets_in_transit_2002",
+    }
+    missing_transit_sources = required_transit_sources - source_ids
+    if missing_transit_sources:
+        fail(
+            "TTRANSIT method missing registered sources: "
+            + ", ".join(sorted(missing_transit_sources))
+        )
+    if not required_transit_sources.issubset(relationship_methods):
+        fail(
+            "TTRANSIT method sources must remain linked to RELATIONSHIP_ASTROLOGY"
+        )
+    transit_guide = (
+        ROOT / "reference/transit-method.md"
+    ).read_text(encoding="utf-8")
+    for source_id in required_transit_sources:
+        if source_id not in transit_guide:
+            fail(
+                "TTRANSIT guide does not cite registered source: "
+                + source_id
+            )
+    for required_term in (
+        "TTRANSIT",
+        "trigger_context",
+        "factor en tránsito",
+        "raíz existente",
+    ):
+        if required_term not in transit_guide:
+            fail(
+                "TTRANSIT guide missing required method term: "
+                + required_term
+            )
 
     temporal_guide = (
         ROOT / "reference/temporal-activation-hermeneutics.md"
