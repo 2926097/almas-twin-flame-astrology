@@ -21,7 +21,7 @@ La estructura mínima de una interpretación de motivo es:
 
 ## Regla general
 
-Un motivo no debe narrarse a partir de su nombre solamente. La prosa debe volver a las raíces concretas que lo sostienen y explicar cómo se expresa en ese caso.
+Un motivo no debe narrarse a partir de su nombre solamente. La prosa debe volver a las raíces concretas que lo sostienen y explicar cómo se expresa en ese caso. Cuando exista `concrete_contacts`, esa lista tiene prioridad sobre el eje normalizado para distinguir ASC/DSC, MC/IC, Nodo Norte/Sur, Vertex/Anti-Vertex y la capa técnica concreta sin alterar la identidad deduplicada de la raíz.
 
 Por ejemplo, `KARMIC_CONTINUITY` no significa siempre lo mismo:
 
