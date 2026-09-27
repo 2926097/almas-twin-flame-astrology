@@ -3312,6 +3312,16 @@ def main() -> int:
         is not False
     ):
         fail("M07 composite houses must remain unavailable")
+    davison_field = field_props.get("davison", {})
+    if "house_placements" not in set(davison_field.get("required", [])):
+        fail("M09 relationship field must expose explicit Davison house placements")
+    placement_schema = (
+        davison_field.get("properties", {})
+        .get("house_placements", {})
+        .get("additionalProperties", {})
+    )
+    if placement_schema.get("minimum") != 1 or placement_schema.get("maximum") != 12:
+        fail("Davison house placements must remain within houses 1..12")
 
     if "charts" not in draconic_schema.get("required", []):
         fail("draconic schema must require charts")
