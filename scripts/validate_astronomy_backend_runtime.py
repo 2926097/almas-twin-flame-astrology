@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from importlib import metadata
+import inspect
 
 EXPECTED = "6.8.2"
+
 
 def main() -> int:
     installed = metadata.version("moira-astro")
@@ -11,14 +13,15 @@ def main() -> int:
         )
 
     from moira import HouseSystem, Moira
-    from moira.spk_reader import set_kernel_path
 
     if not callable(Moira):
         raise AssertionError("moira.Moira no es construible")
+    if "kernel_path" not in inspect.signature(Moira).parameters:
+        raise AssertionError(
+            "Moira debe aceptar kernel_path explícito en el constructor"
+        )
     if not hasattr(HouseSystem, "PLACIDUS"):
         raise AssertionError("Moira no expone HouseSystem.PLACIDUS")
-    if not callable(set_kernel_path):
-        raise AssertionError("Moira no expone set_kernel_path")
 
     required_methods = ("chart", "houses")
     for name in required_methods:
@@ -27,8 +30,9 @@ def main() -> int:
 
     print("ALMAS astronomy backend runtime contract: PASS")
     print(f"moira-astro: {installed}")
-    print("Kernel: external/local and fingerprinted; not loaded by this smoke test")
+    print("Kernel binding: explicit Moira(kernel_path=...)")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
