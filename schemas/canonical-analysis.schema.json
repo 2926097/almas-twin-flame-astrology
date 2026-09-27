@@ -122,17 +122,26 @@
     "doctrine": {
       "type": "array",
       "items": {
-        "type": "object"
+        "$ref": "doctrinal-claim.schema.json"
       }
     },
     "temporal": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "activation": {
+          "$ref": "temporal-activation-output.schema.json"
+        },
+        "events": {
+          "$ref": "documentary-event-output.schema.json"
+        }
+      },
+      "additionalProperties": false
     },
     "semantic_motifs": {
       "type": "object"
     },
     "time_sensitivity": {
-      "type": "object"
+      "$ref": "time-sensitivity-output.schema.json"
     },
     "limitations": {
       "type": "array",
@@ -142,9 +151,155 @@
     },
     "ontological_discrimination": {
       "$ref": "ontological-discriminator-output.schema.json"
+    },
+    "pairwise_idd": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "idd",
+          "band"
+        ],
+        "properties": {
+          "idd": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "band": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "counterevidence_state": {
+      "type": "object",
+      "required": [
+        "ice_evaluable",
+        "ice_by_model",
+        "essential_contradictions"
+      ],
+      "properties": {
+        "ice_evaluable": {
+          "type": "boolean"
+        },
+        "ice_by_model": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "AF",
+                "KA",
+                "AG",
+                "LG"
+              ],
+              "properties": {
+                "AF": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "KA": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "AG": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "LG": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "essential_contradictions": {
+          "type": "object",
+          "required": [
+            "AF",
+            "KA",
+            "AG",
+            "LG"
+          ],
+          "properties": {
+            "AF": {
+              "type": "boolean"
+            },
+            "KA": {
+              "type": "boolean"
+            },
+            "AG": {
+              "type": "boolean"
+            },
+            "LG": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "assembly": {
+      "type": "object",
+      "required": [
+        "policy_id",
+        "policy_status",
+        "epistemic_class",
+        "source",
+        "analysis_profile",
+        "recalculated_astrology",
+        "recalculated_roots",
+        "recalculated_pillars"
+      ],
+      "properties": {
+        "policy_id": {
+          "const": "ALMAS_CANONICAL_ASSEMBLY_V2"
+        },
+        "policy_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epistemic_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "const": "M01_M29_CANONICAL_NAMESPACES"
+        },
+        "analysis_profile": {
+          "type": "object"
+        },
+        "recalculated_astrology": {
+          "const": false
+        },
+        "recalculated_roots": {
+          "const": false
+        },
+        "recalculated_pillars": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "null_models": {
+      "$ref": "null-model-output.schema.json"
     }
   },
-  "additionalProperties": true,
+  "additionalProperties": false,
   "$defs": {
     "model_result": {
       "type": "object",
