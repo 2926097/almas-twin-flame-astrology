@@ -25,6 +25,19 @@ Una raíz exclusivamente `ANTISCIA`, `NATAL_DRACONIC`, `DRACONIC_DD`, `RELCHART`
 
 Si una raíz combina `SYN` o `DECLINATION` con otra familia, la casa puede utilizarse como contexto del componente natal ya presente, sin contarla como evidencia adicional.
 
+## Contacto concreto frente a raíz normalizada
+
+M17 mantiene el `root_key` normalizado para deduplicar ejes equivalentes, pero conserva además `concrete_contacts` con los extremos que produjeron realmente la raíz.
+
+La autoría debe preferir el contacto concreto para significado:
+
+- `ASC` no se narra como `DSC`;
+- `MC` no se narra como `IC`;
+- `NORTH_NODE` no se narra como `SOUTH_NODE`;
+- `VERTEX` no se narra como `ANTI_VERTEX`.
+
+El eje normalizado expresa parentesco estructural; el contacto concreto expresa la forma experiencial que debe interpretarse. Esta precisión no crea una segunda raíz ni altera fuerza, independencia o scoring.
+
 ## Regla direccional
 
 Un registro:
