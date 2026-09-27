@@ -84,7 +84,9 @@ def _normalize_name(value: Any) -> str:
 
 
 def _normalize_system(value: Any) -> str:
-    raw = _value(value, "name", value)
+    raw = _value(value, "value")
+    if raw is None:
+        raw = _value(value, "name", value)
     return _normalize_name(raw)
 
 
@@ -294,7 +296,8 @@ class MoiraProductionBackend:
             )
         effective = _value(houses, "effective_system")
         if effective is not None:
-            if _normalize_system(effective) != self.config.house_system.upper():
+            requested = _normalize_system(self._house_system_token)
+            if _normalize_system(effective) != requested:
                 raise AstronomyBackendNotEvaluableError(
                     "El sistema de casas efectivo difiere del solicitado."
                 )
