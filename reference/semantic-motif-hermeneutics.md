@@ -278,6 +278,50 @@ La cualidad concreta depende del planeta:
 - Urano: ruptura de patrón, liberación, individuación, discontinuidad;
 - Neptuno: ideal, inspiración, permeabilidad, entrega, disolución o confusión de identidad.
 
+Las fuentes `arroyo_astrology_karma_transformation_1992` y `greene_relating_1978` permiten situar estas raíces dentro de una astrología de transformación y dinámica psíquica. ALMAS utiliza ese fundamento para organizar la prosa; no convierte las interpretaciones de escuela en hechos psicológicos demostrados.
+
+### Formas concretas de transformación solar
+
+#### Sol + Plutón
+
+La identidad solar entra en contacto con una función plutoniana de intensidad, poder, revelación y regeneración. En dirección Plutón(A)→Sol(B), la lectura debe preguntar qué parte de la identidad de B queda sometida a una presión de profundización, exposición o cambio cuando A entra en su campo. En la dirección inversa, el Sol puede hacer visible y personal un contenido plutoniano de A que antes operaba de forma menos consciente.
+
+Puede aparecer magnetismo fuerte, necesidad de verdad, confrontación con control o una sensación de que la identidad anterior ya no basta. La interpretación madura no es “obsesión = destino”, sino:
+
+> ¿Qué definición de sí mismo deja de ser sostenible cuando el vínculo obliga a mirar material que antes podía permanecer oculto?
+
+La conjunción concentra el proceso; oposición y cuadratura pueden externalizar lucha de poder o polaridad; aspectos fluidos pueden facilitar integración sin volverla superficial. Si el patrón reaparece en RELCHART, la transformación deja de ser sólo un efecto interpersonal y pasa a organizar también el campo conjunto.
+
+#### Sol + Urano
+
+La función uraniana introduce discontinuidad, libertad, novedad e individuación en la identidad solar. Puede simbolizar una relación que despierta una versión menos convencional de uno mismo, rompe una trayectoria identitaria rígida o hace visible una necesidad de autonomía.
+
+En Urano(A)→Sol(B), describir cómo A activa en B una identidad más libre, experimental o inestable; evitar suponer que A “despierta” espiritualmente a B. La función puede ser liberadora o desorganizadora según el resto de la arquitectura.
+
+Pregunta central:
+
+> ¿Qué parte de la identidad sólo puede emerger cuando se rompe una forma anterior de ser?
+
+Una dinámica on/off o imprevisible no debe narrarse como fase necesaria de una relación espiritual.
+
+#### Sol + Neptuno
+
+La identidad solar entra en un campo de ideal, imaginación, sensibilidad, inspiración o disolución de límites. Neptuno(A)→Sol(B) puede inspirar, idealizar o volver más permeable la autopercepción de B; el Sol puede dar forma y visibilidad al ideal neptuniano de A.
+
+Esta raíz requiere distinguir inspiración de proyección. Puede producir un sentido profundo de significado, belleza o unión y, al mismo tiempo, hacer menos nítida la separación entre lo que la persona es, lo que la otra ve y lo que ambas desean que sea.
+
+La pregunta no es “¿hay unión espiritual?”, sino:
+
+> ¿La relación amplía una identidad más verdadera o sustituye la identidad real por una imagen ideal?
+
+Cuando Sol–Neptuno es la raíz emitida, pertenece a `IDENTITY_TRANSFORMATION` por precedencia y no debe duplicarse como `TRANSPERSONAL_FIELD`; el matiz neptuniano se desarrolla dentro del motivo solar.
+
+### Dirección, campo relacional y casas
+
+La persona del planeta exterior y la persona solar no desempeñan papeles intercambiables por defecto. La autoría debe conservar la dirección de la evidencia y comprobar si existe una raíz equivalente en sentido inverso.
+
+Las casas muestran dónde se reorganiza la identidad: casa 1 puede concentrar autopercepción/presencia; 4, pertenencia y base emocional; 5, creatividad y expresión; 7, identidad en vínculo; 8, intimidad/poder/regeneración; 9, visión; 10, vocación y manifestación. La casa contextualiza el proceso y depende de la fiabilidad horaria.
+
 ### Preguntas de lectura
 
 - ¿Quién transforma a quién y en qué dirección?
@@ -348,6 +392,108 @@ Urano puede simbolizar:
 - liberación;
 - cambio de forma relacional.
 
+Las raíces de este motivo excluyen por precedencia aquellas que ya fueron absorbidas por `KARMIC_CONTINUITY`, `WOUND_REPAIR` o `IDENTITY_TRANSFORMATION`. Por ello, por ejemplo, Plutón–Nodo se interpreta dentro de continuidad kármica, Plutón–Quirón dentro de herida/reparación y Sol–Plutón dentro de transformación de identidad.
+
+### Plutón con funciones personales
+
+#### Luna + Plutón
+
+La transformación entra en seguridad, apego, memoria afectiva y regulación emocional. Plutón puede intensificar aquello que la Luna necesita proteger, haciendo visibles miedos, necesidades de fusión, control, pérdida o regeneración emocional.
+
+En Plutón(A)→Luna(B), preguntar qué contenido emocional profundo de B se activa ante A y qué hace B con esa activación. No convertir una respuesta visceral intensa en prueba de vínculo predestinado.
+
+La función evolutiva puede consistir en abandonar una estrategia emocional basada en control, evitación o dependencia y construir una forma más consciente de intimidad.
+
+#### Mercurio + Plutón
+
+La transformación se produce a través de palabra, pensamiento, secreto, persuasión, investigación y significado. Puede dar conversaciones penetrantes y capacidad de llegar al fondo, pero también fijación mental, sospecha o lucha por definir “la verdad”.
+
+Pregunta central:
+
+> ¿La intensidad mental permite comprender mejor o convierte la comunicación en un territorio de control?
+
+En una lectura extensa, diferenciar profundidad comunicativa de lectura mental atribuida.
+
+#### Venus + Plutón
+
+Es una de las raíces más fácilmente confundidas con “destino” por su potencial de magnetismo. La función plutoniana intensifica afecto, deseo de unión, valor, apego, celos, pérdida y regeneración del modo de amar.
+
+La lectura debe separar tres planos:
+
+1. atracción y concentración afectiva;
+2. dinámica de poder/apego;
+3. posible transformación de valores y forma de vincularse.
+
+La fórmula útil no es “amor inevitable”, sino:
+
+> El vínculo concentra tanto valor afectivo que obliga a revisar qué significa amar sin poseer, fusionarse sin perder identidad y atravesar pérdida/cambio sin convertir intensidad en derecho sobre el otro.
+
+Si existe también `EROTIC_POLARITY` en otra raíz independiente, la combinación puede describir magnetismo erótico-transformativo. No constituye un discriminador de llama gemela.
+
+#### Marte + Plutón
+
+Acción, deseo, enfado, competencia y sexualidad reciben una carga de potencia y confrontación. Puede simbolizar enorme capacidad conjunta de movilización o una lucha destructiva si fuerza y control se vuelven recíprocos.
+
+La lectura debe identificar quién activa, quién resiste y dónde existe consentimiento/realidad factual. Un patrón Marte–Plutón nunca debe romantizar coerción, agresividad o conflicto como “prueba espiritual”.
+
+#### Júpiter + Plutón
+
+La transformación se desplaza a creencia, ambición, visión, influencia y expansión. Puede producir una relación que amplía poder de convicción, cambia la filosofía vital o convierte una idea en proyecto de gran escala.
+
+El riesgo hermenéutico es magnificar el propio significado de la relación. Preguntar:
+
+> ¿La expansión abre conciencia o convierte la convicción compartida en certeza incuestionable?
+
+#### Plutón + ángulos
+
+Plutón con ASC/DSC puede concentrar transformación en identidad relacional, presencia e intimidad interpersonal. Con MC/IC puede afectar dirección pública, vocación, pertenencia, familia o estructuras profundas de vida.
+
+Estas raíces son altamente sensibles a la hora natal; M23 y la calidad documental deben decidir cuánto protagonismo reciben.
+
+### Urano con funciones personales
+
+#### Luna + Urano
+
+Urano altera ritmo emocional, hábitos y seguridad. Puede despertar una necesidad de libertad afectiva, introducir formas nuevas de cuidado o producir discontinuidad difícil de regular.
+
+La función no es necesariamente separación: puede ser aprender a sostener conexión sin convertir estabilidad en inmovilidad.
+
+#### Mercurio + Urano
+
+Asocia pensamiento con descubrimiento, velocidad, diferencia y ruptura de marco. Puede simbolizar conversaciones estimulantes, ideas súbitas y reorganización mental, pero también comunicación errática o dificultad para sincronizar ritmos cognitivos.
+
+No traducir coincidencias mentales o ideas simultáneas en telepatía factual.
+
+#### Venus + Urano
+
+La relación entre afecto/valor y libertad/novedad puede producir atracción rápida, gusto por lo diferente y necesidad de espacio. También puede tensionar continuidad y autonomía.
+
+La pregunta evolutiva es:
+
+> ¿Puede el vínculo renovar la forma de amar sin necesitar inestabilidad para sentirse vivo?
+
+Una firma Venus–Urano puede ser intensamente significativa y, aun así, no decir nada concluyente sobre permanencia.
+
+#### Marte + Urano
+
+Acción e impulso se aceleran. Puede dar iniciativa, valentía y capacidad de ruptura, o impulsividad, conflicto súbito y dificultad para contener energía.
+
+Su significado depende especialmente de aspectos y casas. En configuraciones tensas, la autoría no debe convertir riesgo o explosividad en “electricidad de llamas gemelas”.
+
+#### Júpiter + Urano
+
+Expansión y libertad se refuerzan. Puede abrir horizontes, cambios de creencia, viajes, innovación o una visión vital más amplia. El vínculo funciona como catalizador de posibilidad, pero la amplitud no garantiza integración.
+
+#### Urano + ángulos
+
+La relación puede modificar forma de presentarse, pareja, hogar o dirección pública. Nuevamente, exigir estabilidad horaria antes de hacer del ángulo una raíz narrativa central.
+
+### Modulación compartida
+
+En Plutón, los aspectos tensos pueden exteriorizar lucha por control, pérdida o resistencia al cambio; los fluidos no eliminan la intensidad, sino que pueden facilitar su canalización. En Urano, los tensos pueden subrayar ruptura e imprevisibilidad; los fluidos pueden facilitar innovación y espacio.
+
+La dirección A→B debe conservarse en la narrativa. La repetición en compuesta/Davison o en otra familia independiente aumenta la centralidad interpretativa del tema, no su probabilidad metafísica.
+
 ### Función evolutiva
 
 La pregunta no es “¿es intenso?”, sino:
@@ -395,6 +541,54 @@ Manifestaciones desintegradas:
 - salvación/proyección;
 - evasión;
 - dificultad para separar intuición de deseo.
+
+La raíz Sol–Neptuno se emite antes como `IDENTITY_TRANSFORMATION`. Nodo/Saturno–Neptuno queda absorbido por `KARMIC_CONTINUITY` y Quirón–Neptuno por `WOUND_REPAIR`. `TRANSPERSONAL_FIELD` desarrolla las raíces neptunianas restantes sin duplicar esos motivos prioritarios.
+
+### Formas concretas del campo neptuniano
+
+#### Luna + Neptuno
+
+Puede intensificar empatía, imaginación emocional, sensibilidad y deseo de fusión afectiva. También puede volver más difícil distinguir necesidad propia, resonancia con la otra persona y proyección.
+
+La pregunta de control es:
+
+> ¿La sensibilidad compartida mejora el cuidado y la comprensión o hace más porosos los límites necesarios para saber qué siente cada uno?
+
+#### Mercurio + Neptuno
+
+Une mente, lenguaje e imaginación. Puede enriquecer simbolismo, arte, intuición y comunicación no literal; también puede generar ambigüedad, suposición, silencios llenados por fantasía o dificultad para verificar lo entendido.
+
+ALMAS no convierte esta raíz en prueba de telepatía. Si el usuario reporta coincidencias mentales, tratarlas como fenomenología separada de la evidencia estructural.
+
+#### Venus + Neptuno
+
+Afecto y valor se bañan en ideal, belleza, compasión y deseo de amor trascendente. Es una firma especialmente proclive a narrativas de “amor perfecto”.
+
+La autoría debe conservar simultáneamente inspiración y riesgo de idealización:
+
+> ¿La relación encarna valores compasivos y estéticos reales o una imagen ideal ocupa el lugar de la reciprocidad observable?
+
+No equiparar devoción con compatibilidad material.
+
+#### Marte + Neptuno
+
+Acción y deseo pueden orientarse hacia servicio, arte, entrega o una motivación difícil de definir. En su polo problemático puede haber dirección difusa, sacrificio no acordado o dificultad para actuar con claridad.
+
+La pregunta útil es qué deseo puede encarnarse y cuál permanece en fantasía.
+
+#### Júpiter + Neptuno
+
+Puede expandir fe, visión, imaginación, espiritualidad y sentido de posibilidad. También puede amplificar expectativas y construir una narrativa mayor que los hechos disponibles.
+
+Cuando aparece en una relación espiritualmente significativa, contrastar siempre la expansión simbólica con Saturno, realidad documental y reciprocidad.
+
+#### Neptuno + ángulos
+
+Puede volver especialmente visible una cualidad idealizada, artística, compasiva o evasiva en identidad/pareja/vocación/hogar. Como todo contacto angular, depende de la hora natal y de la robustez M23.
+
+### Anclajes de realidad
+
+Un campo neptuniano adquiere mayor capacidad integradora cuando otras raíces aportan forma: Saturno puede estructurar, Luna puede encarnar cuidado, Mercurio puede verbalizar, y hechos de M29 pueden mostrar reciprocidad real. Esa coexistencia debe describirse como arquitectura, no como “prueba” de espiritualidad.
 
 ### Preguntas de lectura
 
