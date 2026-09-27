@@ -217,10 +217,8 @@ class MoiraProductionBackend:
                     f"moira-astro {expected} requerido; instalado {installed}."
                 )
             from moira import HouseSystem, Moira
-            from moira.spk_reader import set_kernel_path
 
-            set_kernel_path(str(kernel_path))
-            facade = Moira()
+            facade = Moira(kernel_path=str(kernel_path))
             try:
                 house_system_token = getattr(
                     HouseSystem, config.house_system.upper()
