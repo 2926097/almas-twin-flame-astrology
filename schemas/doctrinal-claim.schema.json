@@ -144,7 +144,8 @@
         "type": "object",
         "required": [
           "source_id",
-          "support_index"
+          "support_index",
+          "resolved"
         ],
         "properties": {
           "source_id": {
@@ -154,6 +155,9 @@
           "support_index": {
             "type": "integer",
             "minimum": 0
+          },
+          "resolved": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
