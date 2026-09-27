@@ -197,6 +197,33 @@ class AuthoredReportContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "NOT_AVAILABLE"):
             validate_authored_report_trace(authored, model, canonical)
 
+    def test_synthetic_authoring_context_uses_real_semantic_motif_ids(self):
+        canonical = json.loads(
+            (ROOT / "examples/authoring-canonical-context.synthetic.json")
+            .read_text(encoding="utf-8")
+        )
+        policy = json.loads(
+            (ROOT / "src/almas_tfa/data/semantic-motif-policy.json")
+            .read_text(encoding="utf-8")
+        )
+        allowed = set(policy["primary_motif_order"]) | set(
+            policy["mission_motifs"]
+        )
+        fixture_ids = {
+            motif["motif_id"]
+            for motif in canonical["semantic_motifs"]["motifs"]
+        }
+
+        self.assertEqual(
+            fixture_ids,
+            {
+                "KARMIC_CONTINUITY",
+                "TRANSFORMATION_POWER",
+                "RELATIONAL_COHERENCE",
+            },
+        )
+        self.assertTrue(fixture_ids.issubset(allowed))
+
     def test_full_synthetic_authored_report_fixture_is_traceable(self):
         canonical = json.loads(
             (ROOT / "examples/authoring-canonical-context.synthetic.json")
