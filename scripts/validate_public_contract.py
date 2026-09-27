@@ -4415,6 +4415,74 @@ def main() -> int:
         if not {"iem", "state"}.issubset(required_model_fields):
             fail(f"{model} model contract must require iem and state")
 
+    model_result_schema = canonical_schema.get("$defs", {}).get("model_result", {})
+    if model_result_schema.get("additionalProperties") is not False:
+        fail("canonical model_result must reject undeclared fields")
+    expected_model_fields = {
+        "iem",
+        "state",
+        "core",
+        "support",
+        "iem_pre",
+        "iem_final",
+        "ice",
+        "ice_state",
+        "supported_gate",
+        "birth_time_gate_required",
+        "birth_time_gate_satisfied",
+    }
+    if set(model_result_schema.get("required", [])) != expected_model_fields:
+        fail("canonical model_result required field set changed")
+    if canonical_schema.get("properties", {}).get("models", {}).get("additionalProperties") is not False:
+        fail("canonical models wrapper must reject unknown model ids")
+
+    indices_schema = canonical_schema.get("properties", {}).get("indices", {})
+    expected_indices = {"IDD", "IAT", "ICC", "IRC", "ICE"}
+    if set(indices_schema.get("properties", {})) != expected_indices:
+        fail("canonical indices surface changed")
+    if set(indices_schema.get("required", [])) != expected_indices:
+        fail("canonical indices must require IDD/IAT/ICC/IRC/ICE")
+    if indices_schema.get("additionalProperties") is not False:
+        fail("canonical indices must reject undeclared indices")
+
+    coverage_schema = canonical_schema.get("properties", {}).get("coverage", {})
+    if coverage_schema.get("additionalProperties") is not False:
+        fail("canonical coverage must reject undeclared fields")
+    if set(coverage_schema.get("required", [])) != {
+        "ICC",
+        "domains",
+        "formula",
+        "policy_id",
+    }:
+        fail("canonical coverage required fields changed")
+    if coverage_schema.get("properties", {}).get("formula", {}).get("const") != "100*sum(q_domain)/7":
+        fail("canonical coverage formula changed")
+    if coverage_schema.get("properties", {}).get("policy_id", {}).get("const") != "ALMAS_CANONICAL_ASSEMBLY_V2":
+        fail("canonical coverage policy id changed")
+    coverage_domains_schema = coverage_schema.get("properties", {}).get("domains", {})
+    expected_coverage_domains = {
+        "BASE_NATAL",
+        "SYNASTRY_NODES",
+        "ANGLES_HOUSES",
+        "SYMMETRIES",
+        "RELATIONSHIP_CHARTS",
+        "DRACONIC",
+        "LOTS_SECONDARY",
+    }
+    if set(coverage_domains_schema.get("properties", {})) != expected_coverage_domains:
+        fail("canonical coverage domain set changed")
+    if set(coverage_domains_schema.get("required", [])) != expected_coverage_domains:
+        fail("canonical coverage must require all seven domains")
+    if coverage_domains_schema.get("additionalProperties") is not False:
+        fail("canonical coverage domains must reject unknown domains")
+    for domain_id, domain_schema in coverage_domains_schema.get("properties", {}).items():
+        if domain_schema.get("additionalProperties") is not False:
+            fail(f"canonical coverage domain must reject extra fields: {domain_id}")
+        if domain_schema.get("required") != ["q"]:
+            fail(f"canonical coverage domain must require q: {domain_id}")
+        if set(domain_schema.get("properties", {}).get("q", {}).get("enum", [])) != {0, 0.5, 1}:
+            fail(f"canonical coverage q contract changed: {domain_id}")
+
     subject_items = raw_schema.get("properties", {}).get("subjects", {})
     if subject_items.get("minItems") != 2 or subject_items.get("maxItems") != 2:
         fail("raw input schema must require exactly two subjects")
