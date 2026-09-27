@@ -36,10 +36,11 @@ Para cada señal temporal seleccionada:
 2. recuperar la raíz y su significado estructural;
 3. leer `activation_class`;
 4. leer `temporal_family` como procedencia técnica, no como significado automático;
-5. calibrar con `effective_strength` y `exactitude_orb`;
-6. situar `window_status` y `date_or_period`;
-7. comprobar `event_refs`;
-8. distinguir activación simbólica de hecho documentado.
+5. si existe `trigger_context`, resolver disparador → geometría → objetivo;
+6. calibrar con `effective_strength` y `exactitude_orb`;
+7. situar `window_status` y `date_or_period`;
+8. comprobar `event_refs`;
+9. distinguir activación simbólica de hecho documentado.
 
 La frase debe comenzar por la raíz:
 
@@ -92,6 +93,41 @@ Evitar narrarla como confirmación equivalente a DIRECT_REPETITION.
 No dispone de raíz canónica resoluble. M26 la excluye de IAT y la marca `UNANCHORED`.
 
 No debe entrar en la lectura sustantiva del vínculo. Puede aparecer en anexos metodológicos como señal no anclada.
+
+## Disparador astrológico concreto · `trigger_context`
+
+Cuando una señal M26 conserva `trigger_context`, la autoría puede explicar **qué factor temporal activa qué factor de la arquitectura y mediante qué geometría**.
+
+Campos mínimos:
+
+- `trigger_point`: factor temporal ya calculado por la técnica de origen;
+- `target_point`: punto objetivo ya calculado;
+- `relation`: geometría/aspecto declarado.
+
+Campos opcionales:
+
+- `source_layer` y `target_layer`;
+- `source_subject` y `target_subject`;
+- `orb`;
+- procedencia adicional conservada literalmente por el productor upstream.
+
+M26 no calcula ni reconstruye estos datos. Sólo preserva el objeto recibido. Su presencia o ausencia no altera `strength`, `effective_strength`, `iat_eligible`, deduplicación, IAT ni la existencia de la raíz.
+
+Orden de lectura cuando existe:
+
+`raíz existente → trigger_point → función del trigger → relation → target_point → función objetivo → ventana → proceso → evento si existe`.
+
+Para las funciones planetarias usar `planetary-function-hermeneutics.md`. Para conjunción, oposición, cuadratura, trígono y sextil usar `aspect-geometry-hermeneutics.md`. Si el punto es Nodo, ángulo, Vertex o Quirón, aplicar además la hermenéutica especializada correspondiente.
+
+Ejemplo:
+
+> La raíz R..., ya asociada a vínculo y transformación, recibe durante esta ventana un tránsito de Saturno en cuadratura a Venus. Saturno introduce estructura, límite, tiempo y responsabilidad; Venus representa valoración y forma de vincularse; la cuadratura hace que ambas funciones se encuentren bajo fricción y necesidad de ajuste. La señal vuelve más saliente ese proceso durante la ventana indicada, pero no predice por sí sola separación, compromiso ni una decisión concreta.
+
+Evitar:
+
+> «Saturno cuadratura Venus significa que la relación va a terminar.»
+
+El contexto del disparador explica **cómo** se activa la raíz; no convierte la activación en causalidad factual.
 
 ## Fuerza y exactitud
 
