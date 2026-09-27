@@ -11,6 +11,7 @@
     "provider_package",
     "provider_version",
     "kernel_filename",
+    "kernel_family",
     "kernel_sha256",
     "house_system",
     "node_mode",
@@ -23,23 +24,67 @@
     "geocoding_used"
   ],
   "properties": {
-    "policy_id": {"const": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1"},
-    "adapter_id": {"const": "ALMAS_MOIRA_JPL_SPK_V1"},
-    "backend_id": {"const": "MOIRA_JPL_SPK"},
-    "backend_version": {"const": "6.8.2"},
-    "provider_package": {"const": "moira-astro"},
-    "provider_version": {"const": "6.8.2"},
-    "kernel_filename": {"type": "string", "minLength": 1},
-    "kernel_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "house_system": {"type": "string", "minLength": 1},
-    "node_mode": {"const": "TRUE_NODE"},
-    "zodiac": {"const": "TROPICAL"},
-    "coordinate_origin": {"const": "GEOCENTRIC"},
-    "reference_frame": {"const": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE"},
-    "apparent_reduction": {"const": true},
-    "topocentric_positions": {"const": false},
-    "network_io_used": {"const": false},
-    "geocoding_used": {"const": false}
+    "policy_id": {
+      "const": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1"
+    },
+    "adapter_id": {
+      "const": "ALMAS_MOIRA_JPL_SPK_V1"
+    },
+    "backend_id": {
+      "const": "MOIRA_JPL_SPK"
+    },
+    "backend_version": {
+      "const": "6.8.2"
+    },
+    "provider_package": {
+      "const": "moira-astro"
+    },
+    "provider_version": {
+      "const": "6.8.2"
+    },
+    "kernel_filename": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kernel_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "house_system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "node_mode": {
+      "const": "TRUE_NODE"
+    },
+    "zodiac": {
+      "const": "TROPICAL"
+    },
+    "coordinate_origin": {
+      "const": "GEOCENTRIC"
+    },
+    "reference_frame": {
+      "const": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE"
+    },
+    "apparent_reduction": {
+      "const": true
+    },
+    "topocentric_positions": {
+      "const": false
+    },
+    "network_io_used": {
+      "const": false
+    },
+    "geocoding_used": {
+      "const": false
+    },
+    "kernel_family": {
+      "enum": [
+        "DE430",
+        "DE440",
+        "DE441"
+      ]
+    }
   },
   "additionalProperties": false
 }
