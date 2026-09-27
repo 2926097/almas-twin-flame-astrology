@@ -328,6 +328,8 @@ Familias temporales primarias:
 
 Dentro de una raíz/familia conservar la señal más fuerte. Agregar familias temporales y raíces independientes mediante pesos preregistrados. IAT nunca modifica IEM.
 
+Para autoría de S07 aplicar `reference/temporal-activation-hermeneutics.md`. La secuencia obligatoria es `raíz → clase de activación → ventana → proceso simbólico → evento documentado si existe`. `effective_strength` e IAT calibran concentración temporal, no probabilidad de un hecho. `PROSPECTIVE_ACTIVATION` nunca autoriza a predecir contacto, reunión, separación, reconciliación, decisión, consentimiento o cierre. Las familias temporales identifican procedencia técnica; no asignarles significados psicológicos específicos sin una fuente de método registrada.
+
 ## 15. Cobertura — ICC
 
 `ICC` = **Índice de Cobertura Canónica**.
