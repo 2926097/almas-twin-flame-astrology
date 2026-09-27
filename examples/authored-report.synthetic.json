@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "document_kind": "ALMAS_AUTHORED_REPORT",
   "language": "es",
-  "canonical_fingerprint": "35fe10967080061a1fc6c357ca7ff4bc80475942fc1a1c6a890216aa36180b76",
+  "canonical_fingerprint": "613e7a52f0dd59da2c42781372fafda4d9e50d4b8353d60cb2c2478543c1b3eb",
   "report_state": "READY",
   "interpretive_center": "ASTROLOGY_AND_SOURCE_BASED_METAPHYSICAL_HERMENEUTICS",
   "technical_role": "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL",
@@ -15,7 +15,7 @@
       "section_id": "S01_SYNTHESIS",
       "title": "Síntesis ejecutiva",
       "authoring_state": "AUTHORED",
-      "narrative": "La arquitectura sintética describe un vínculo de alta densidad simbólica cuya coherencia no depende de un único aspecto. Tres raíces independientes convergen: reconocimiento nodal, transformación Venus-Plutón y consonancia Sol-Luna. La recurrencia de esos motivos entre capas sugiere, dentro del marco ALMAS, una relación con fuerte componente de continuidad, aprendizaje y transformación. La doctrina comparada ofrece lenguajes posibles para interpretar esa experiencia, pero ninguno se impone automáticamente sobre los demás: el cálculo sostiene la arquitectura; la hermenéutica determina cómo comprender su significado.",
+      "narrative": "La arquitectura sintética puede resumirse en tres movimientos enlazados: continuidad, transformación y coherencia. La raíz nodal recurrente configura KARMIC_CONTINUITY: el vínculo aparece cargado de dirección y memoria simbólica, no como simple afinidad momentánea. El patrón Venus-Plutón configura TRANSFORMATION_POWER: la relación intensifica afecto y deseo de tal modo que obliga a modificar la forma previa de vincularse. La consonancia Sol-Luna en la familia relacional aporta RELATIONAL_COHERENCE: existe un cauce de integración capaz de contener parte de esa intensidad. La combinación describe una continuidad transformativa con capacidad de integración. Metafísicamente puede compararse con modelos de gilgul y zivug dentro de la Cábala luriana y, de forma separada, con la doctrina moderna de llama gemela; las fuentes aportan lenguajes distintos y no autorizan a fundirlos en una identidad única.",
       "canonical_paths_used": [
         "models",
         "evidence",
@@ -28,8 +28,9 @@
         "E_PROJECT_HYPOTHESIS"
       ],
       "doctrinal_claim_refs": [
-        "D_TF_ORIGIN",
-        "D_PREINCARNATIONAL_MISSION"
+        "D_GILGUL_CONTINUITY",
+        "D_ZIVUG_PAIRING",
+        "D_TF_ORIGIN"
       ],
       "evidence_refs": [
         "ROOT:R001",
@@ -37,8 +38,10 @@
         "ROOT:R003"
       ],
       "source_refs": [
-        "summit_lighthouse_what_is_twin_flame",
-        "kardec_spirits_book_missions_572_573"
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug",
+        "summit_lighthouse_what_is_twin_flame"
       ],
       "limitations": []
     },
@@ -84,7 +87,7 @@
       "section_id": "S04_STRUCTURE",
       "title": "Arquitectura estructural",
       "authoring_state": "AUTHORED",
-      "narrative": "La primera raíz concentra la lógica del reconocimiento: los nodos reaparecen en más de una capa y construyen una sensación de dirección o memoria relacional. La segunda raíz, Venus-Plutón, introduce profundidad, magnetismo y transformación, pero también obliga a distinguir intensidad de identidad ontológica. La tercera raíz, Sol-Luna, aporta una consonancia más integradora. Leídas conjuntamente, las raíces describen una arquitectura donde atracción, reconocimiento y transformación forman un sistema, no tres señales aisladas.",
+      "narrative": "La primera raíz, nodal y multitécnica, no se interpreta aquí como una declaración literal de vida pasada, sino como KARMIC_CONTINUITY: un eje de dirección y persistencia que reaparece lo suficiente para organizar la lectura. La segunda raíz, Venus-Plutón, traduce la intensidad a TRANSFORMATION_POWER: el magnetismo tiene importancia porque altera valores, deseo y modo de relación, no simplemente porque sea fuerte. La tercera raíz, Sol-Luna en cartas relacionales, configura RELATIONAL_COHERENCE: identidad y respuesta emocional encuentran un lenguaje conjunto. Las tres raíces forman un circuito coherente: algo se reconoce y continúa, esa continuidad transforma, y el campo relacional dispone de recursos para integrar parte del cambio. Esta combinación es más informativa que cualquiera de los tres contactos considerado aisladamente.",
       "canonical_paths_used": [
         "evidence",
         "models",
@@ -108,7 +111,7 @@
       "section_id": "S05_RELATIONAL",
       "title": "Capas relacionales y cruzadas",
       "authoring_state": "AUTHORED",
-      "narrative": "La lectura relacional gana profundidad cuando una misma temática reaparece en técnicas que responden a lógicas distintas. La capa dracónica se utiliza aquí como una transformación nodal de la carta tropical, no como una prueba autónoma de reencarnación. Su valor hermenéutico surge cuando repite o ilumina una estructura ya visible en otros niveles. Esta disciplina permite usar la astrología esotérica con amplitud sin confundir método simbólico con demostración ontológica.",
+      "narrative": "La arquitectura gana profundidad porque el mismo tema no queda encerrado en una sola técnica. La familia de cartas relacionales permite preguntar qué emerge como propiedad del vínculo y no sólo de sus dos integrantes; la compuesta y el Relationship Horoscope/Davison se leen como construcciones distintas de ese campo, sin contarlas como confirmaciones independientes ilimitadas. La capa dracónica reencuadra la carta desde el eje nodal y resulta significativa cuando vuelve a señalar la continuidad ya observada en lo tropical y relacional. En el ejemplo, la dracónica no crea la hipótesis de continuidad: la profundiza. La distinción metodológica importa hermenéuticamente, porque convierte la repetición en un patrón multicapas en vez de en una acumulación de señales equivalentes.",
       "canonical_paths_used": [
         "evidence"
       ],
@@ -123,6 +126,8 @@
         "ROOT:R003"
       ],
       "source_refs": [
+        "townley_composite_charts_2000",
+        "davison_synastry_1983",
         "blaquier_draconic_astrology_2017_2021"
       ],
       "limitations": []
@@ -131,7 +136,7 @@
       "section_id": "S06_DIFFERENTIAL",
       "title": "Diagnóstico diferencial y contraevidencia",
       "authoring_state": "AUTHORED",
-      "narrative": "El patrón sintético sostiene con claridad modelos de alma gemela y continuidad kármica/contractual, mientras la hipótesis de llama gemela permanece compatible pero no queda diferenciada de manera exclusiva. La contraevidencia es importante precisamente aquí: una relación muy intensa puede reproducir firmas semejantes en varias ontologías. Por ello ALMAS no convierte Venus-Plutón, nodos o sincronicidad en una etiqueta automática. La conclusión diferencial se apoya en la configuración conjunta y conserva alternativas cuando la firma observable no discrimina por sí sola.",
+      "narrative": "El diferencial separa con claridad función y origen. La combinación KARMIC_CONTINUITY + TRANSFORMATION_POWER + RELATIONAL_COHERENCE explica bien un vínculo con historia simbólica, capacidad de cambio y base de integración. Esa arquitectura es compatible con un modelo kármico elaborado y con una lectura de alma gemela; también permite comparaciones con gilgul y zivug. La hipótesis de llama gemela sigue siendo compatible porque contiene continuidad, polaridad transformativa y recurrencia, pero la misma firma puede aparecer en ontologías vecinas. Por ello la lectura puede ser muy específica sobre lo que el vínculo hace —reactivar continuidad, transformar y buscar integración— mientras mantiene abierto el origen último de las almas.",
       "canonical_paths_used": [
         "models",
         "counterevidence"
@@ -140,7 +145,11 @@
         "A_CALCULATED",
         "E_PROJECT_HYPOTHESIS"
       ],
-      "doctrinal_claim_refs": [],
+      "doctrinal_claim_refs": [
+        "D_GILGUL_CONTINUITY",
+        "D_ZIVUG_PAIRING",
+        "D_TF_ORIGIN"
+      ],
       "evidence_refs": [
         "ROOT:R001",
         "ROOT:R002"
@@ -154,7 +163,7 @@
       "section_id": "S07_TEMPORAL",
       "title": "Activación temporal y eventos",
       "authoring_state": "AUTHORED",
-      "narrative": "La temporalidad no crea el vínculo: activa lo que la arquitectura ya contiene. En este ejemplo, una fase de activación podría intensificar reconocimiento, crisis transformativa o necesidad de integración, pero su significado depende de las raíces estructurales previas. La lectura temporal se formula como dinámica simbólica y evolutiva, no como predicción obligatoria de una conducta futura.",
+      "narrative": "La activación temporal se interpreta sobre esta arquitectura ya definida. Si un tránsito, progresión o eclipse reactiva la raíz nodal, el proceso principal será continuidad/dirección; si activa Venus-Plutón, la fase tenderá a concentrar transformación, poder o regeneración; si alcanza la consonancia Sol-Luna relacional, puede facilitar integración o hacer visible cómo se vive el campo compartido. El tiempo no decide qué es el vínculo: muestra qué motivo está pasando al primer plano y qué tarea simbólica requiere elaboración en esa etapa.",
       "canonical_paths_used": [
         "temporal",
         "limitations"
@@ -191,7 +200,7 @@
       "section_id": "S09_DOCTRINE",
       "title": "Doctrina comparada y corpus",
       "authoring_state": "AUTHORED",
-      "narrative": "Las fuentes ofrecen marcos de sentido distintos. The Summit Lighthouse formula una doctrina moderna de llamas gemelas como contrapartes procedentes de un mismo origen; Kardec documenta una tradición en la que los espíritus pueden solicitar misiones antes de encarnar. ALMAS puede comparar estos motivos con la arquitectura astrológica sin declarar que ambas tradiciones sean equivalentes ni que una carta pruebe literalmente sus afirmaciones. La doctrina amplía el campo interpretativo: aporta lenguaje, genealogía y significado allí donde el cálculo sólo ofrece forma.",
+      "narrative": "La Cábala luriana aporta dos comparanda diferentes que ayudan a leer el ejemplo sin confundirlos. Sha'ar HaGilgulim permite contextualizar la continuidad del alma mediante gilgul y describe retornos con funciones diversas; las fuentes zoháricas y lurianas de zivug contienen modelos de emparejamiento y continuidad relacional dentro de su propio sistema. Estas doctrinas dialogan con KARMIC_CONTINUITY y RELATIONAL_COHERENCE, pero no son equivalentes a la doctrina moderna de llama gemela. The Summit Lighthouse formula explícitamente un modelo de contrapartes procedentes de un origen común; esa fuente sirve para definir TWIN_FLAME_ORIGIN, no para demostrarlo a partir de nodos o Venus-Plutón. Kardec, por su parte, documenta misiones preencarnatorias, pero este fixture no contiene un overlay estructural de misión suficiente para convertir esa doctrina en conclusión central. Las fuentes amplían el significado precisamente porque mantienen sus diferencias.",
       "canonical_paths_used": [
         "doctrine"
       ],
@@ -200,11 +209,16 @@
         "E_PROJECT_HYPOTHESIS"
       ],
       "doctrinal_claim_refs": [
+        "D_GILGUL_CONTINUITY",
+        "D_ZIVUG_PAIRING",
         "D_TF_ORIGIN",
         "D_PREINCARNATIONAL_MISSION"
       ],
       "evidence_refs": [],
       "source_refs": [
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug",
         "summit_lighthouse_what_is_twin_flame",
         "kardec_spirits_book_missions_572_573"
       ],
@@ -216,7 +230,7 @@
       "section_id": "S10_FINAL_SYNTHESIS",
       "title": "Síntesis final",
       "authoring_state": "AUTHORED",
-      "narrative": "La lectura conjunta dibuja una relación cuya nota dominante es el reconocimiento transformativo: hay señales de continuidad, resonancia y tarea evolutiva compartida, junto con suficiente intensidad para exigir discernimiento. El modelo de alma gemela aparece sólidamente sostenido en el fixture; la continuidad kármica/contractual también encuentra apoyo. La hipótesis de llama gemela puede emplearse como marco compatible cuando se desea explorar una doctrina de origen polar compartido, pero la arquitectura presentada no obliga a adoptarla como única explicación. La conclusión más fértil no es una etiqueta cerrada, sino la descripción de una función: un vínculo capaz de activar memoria simbólica, transformación profunda e integración consciente.",
+      "narrative": "La relación sintética queda mejor descrita como una continuidad transformativa que dispone de una vía de integración. El reconocimiento nodal aporta sensación de trayectoria y repetición; Venus-Plutón convierte el encuentro en agente de cambio profundo; Sol-Luna en el campo relacional evita que toda la historia se reduzca a intensidad, porque introduce una capacidad real de coherencia. Evolutivamente, la función dominante es elaborar una continuidad mediante transformación consciente, no simplemente conservar el vínculo. En el diferencial, el modelo de alma gemela ofrece una buena descripción de la afinidad/coherencia y el modelo kármico explica la continuidad transformativa. Los marcos de gilgul y zivug aportan comparanda tradicionales para continuidad y emparejamiento. La llama gemela puede seguir utilizándose como hipótesis metafísica compatible de origen diádico, pero no es necesaria para explicar la arquitectura observada ni queda aislada de alternativas vecinas. La conclusión más precisa, por tanto, no es una etiqueta absoluta: es una descripción de función, historia simbólica y capacidad de integración.",
       "canonical_paths_used": [
         "models",
         "evidence",
@@ -230,8 +244,9 @@
         "E_PROJECT_HYPOTHESIS"
       ],
       "doctrinal_claim_refs": [
-        "D_TF_ORIGIN",
-        "D_PREINCARNATIONAL_MISSION"
+        "D_GILGUL_CONTINUITY",
+        "D_ZIVUG_PAIRING",
+        "D_TF_ORIGIN"
       ],
       "evidence_refs": [
         "ROOT:R001",
@@ -239,8 +254,10 @@
         "ROOT:R003"
       ],
       "source_refs": [
-        "summit_lighthouse_what_is_twin_flame",
-        "kardec_spirits_book_missions_572_573"
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug",
+        "summit_lighthouse_what_is_twin_flame"
       ],
       "limitations": [
         "La síntesis preserva alternativas ontológicas cuando la firma no es exclusiva."
@@ -250,7 +267,7 @@
       "section_id": "S11_SOURCES_APPENDICES",
       "title": "Fuentes y anexos",
       "authoring_state": "AUTHORED",
-      "narrative": "Las fuentes se conservan como aparato de apoyo a la lectura. La referencia técnica de astrología dracónica explica el procedimiento utilizado; las fuentes doctrinales documentan los significados atribuidos a origen compartido y misión preencarnatoria. Su presencia no incrementa por sí misma ningún índice: permite al lector distinguir qué procede del cálculo, qué de una técnica y qué de una tradición metafísica concreta.",
+      "narrative": "El aparato de fuentes distingue tres funciones documentales. Townley y Davison sustentan el vocabulario de cartas relacionales; Blaquier documenta el método dracónico moderno. Sha'ar HaGilgulim y el Zohar aportan marcos doctrinales para continuidad/gilgul y emparejamiento/zivug; Kardec aporta un modelo de misión preencarnatoria; The Summit Lighthouse define una doctrina moderna específica de llama gemela. Ninguna fuente recibe puntos por existir. Su función es hacer visible de dónde procede cada significado y hasta dónde puede extenderse.",
       "canonical_paths_used": [
         "evidence",
         "doctrine",
@@ -313,6 +330,61 @@
       "locator": "Book II, Chapter X, questions 572-573",
       "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
       "verification_anchor": "Questions 572-573 on missions requested by spirits before incarnation."
+    },
+    {
+      "source_id": "townley_composite_charts_2000",
+      "citation_label": "John Townley · Composite Charts",
+      "source_scope": "TECHNIQUE",
+      "author": "John Townley",
+      "work": "Composite Charts: The Astrology of Relationships",
+      "tradition": "Astrología relacional moderna",
+      "locator": "Method and interpretation of composite charts",
+      "url": "https://books.google.com/books/about/Composite_Charts.html?id=dUulSwQoEC4C",
+      "verification_anchor": "Publisher/Google Books description identifies construction and synthesis of natal, synastry and composite charts."
+    },
+    {
+      "source_id": "davison_synastry_1983",
+      "citation_label": "Ronald C. Davison · Synastry",
+      "source_scope": "TECHNIQUE",
+      "author": "Ronald C. Davison",
+      "work": "Synastry: Understanding Human Relations Through Astrology",
+      "tradition": "Astrología relacional moderna",
+      "locator": "Relationship Horoscope; chart comparison",
+      "url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
+      "verification_anchor": "Publisher/Google Books description identifies chart comparison and the Relationship Horoscope."
+    },
+    {
+      "source_id": "vital_shaar_hagilgulim_8_reasons_for_return",
+      "citation_label": "Hayyim Vital · Sha'ar HaGilgulim 8",
+      "source_scope": "DOCTRINE",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "tradition": "Cábala luriana",
+      "locator": "Chapter 8",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.8",
+      "verification_anchor": "Chapter 8 describes multiple functions/reasons for gilgul and return."
+    },
+    {
+      "source_id": "zohar_lech_lecha_32_346_350",
+      "citation_label": "Zohar · Lech Lecha 32:346-351",
+      "source_scope": "DOCTRINE",
+      "author": "Zohar",
+      "work": "Zohar, Lech Lecha",
+      "tradition": "Cábala zohárica",
+      "locator": "Lech Lecha 32:346-351",
+      "url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
+      "verification_anchor": "Paired-soul imagery and separation/reunion motifs within the Zoharic framework."
+    },
+    {
+      "source_id": "vital_shaar_hagilgulim_20_zivug",
+      "citation_label": "Hayyim Vital · Sha'ar HaGilgulim 20",
+      "source_scope": "DOCTRINE",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "tradition": "Cábala luriana",
+      "locator": "Chapter 20",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20",
+      "verification_anchor": "Chapter 20 discusses first/second zivug and continuity of a true pairing across gilgul."
     }
   ]
 }
