@@ -8,7 +8,7 @@ metadata:
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.18.0
+# ALMAS · Astrología Metafísica Relacional v1.19.0
 
 ## 0. Estado de la release pública
 
@@ -394,27 +394,50 @@ Ejemplos de no equivalencia:
 
 La doctrina interpreta evidencia; nunca añade puntos IEM.
 
-## 21. Síntesis hermenéutica
+## 21. Síntesis hermenéutica y prioridad interpretativa
+
+La salida de valor de ALMAS es la **lectura astrológica desarrollada** y su **hermenéutica/metafísica basada en fuentes**. La astronomía reproducible, los índices, la robustez, la ablación y los modelos nulos son medios de control de calidad: determinan qué puede sostenerse, con qué estabilidad y con qué límites, pero no deben convertirse en el centro narrativo del informe.
 
 Un informe completo debe explicar:
-- qué se encontró;
-- fuente y técnica;
-- significado simbólico;
-- modelos compatibles;
-- alternativas competidoras;
-- evidencia contraria;
-- incertidumbre y datos ausentes;
-- dependencia entre técnicas;
-- componentes estructurales frente a temporales;
-- por qué se adopta cada estado final.
+- qué arquitectura astrológica se encontró y cómo se organiza;
+- qué significan simbólica y evolutivamente sus raíces, motivos y recurrencias;
+- cómo dialogan sinastría, nodos, ángulos, casas, declinaciones, antiscios, compuesta, Davison, dracónicas, lotes y temporalidad cuando sean evaluables;
+- qué fuentes o tradiciones aportan significado a los motivos observados;
+- qué modelos metafísicos son compatibles y por qué;
+- qué alternativas competidoras y contraevidencia permanecen;
+- qué parte es cálculo, técnica, doctrina, uso contemporáneo o síntesis ALMAS;
+- qué incertidumbre procede de los datos y qué límites pertenecen a la inferencia.
 
-No redactar el informe como una tabla de aspectos. Convertir los hallazgos técnicos en una exposición coherente de la arquitectura relacional, conservando trazabilidad hacia la evidencia canónica.
+No redactar la lectura como inventario de aspectos, tabla de scores o sucesión de advertencias metodológicas. Los números y gates deben aparecer donde ayuden a calibrar la confianza; la prosa principal debe integrar la arquitectura en un relato inteligible, esotérico/evolutivo cuando corresponda y documentalmente trazable.
 
-## 22. Contrato canónico y de informe
+La doctrina y la metafísica no se usan como decoración posterior. Cuando exista una correspondencia relevante, desarrollar su significado desde la fuente registrada, respetando su tradición, `supports[]`, `does_not_support[]`, anclas y techo inferencial. No fusionar tradiciones por semejanza terminológica.
+
+La contraevidencia debe integrarse en la interpretación de forma proporcional. Su función es evitar una etiqueta automática, no vaciar de contenido la lectura.
+
+## 22. Contrato canónico, M31 y `authored_report`
 
 `canonical_analysis.json` es la única verdad analítica.
 
-M30 genera el gate de reportabilidad y el fingerprint canónico. M31 construye `report_document_model.json` exclusivamente como estructura de secciones y rutas hacia la verdad canónica; no incrusta ni modifica valores analíticos.
+M30 genera el gate de reportabilidad y el fingerprint canónico. M31 construye `report_document_model.json` como mapa autorizado de secciones, rutas y clases epistemológicas; no redacta la interpretación.
+
+Cuando el resultado deba convertirse en una lectura, informe o libro, el paso siguiente es obligatoriamente:
+
+`report_document_model + canonical_analysis → authored_report`.
+
+`authored_report` es la capa de autoría. Debe:
+
+- conservar el mismo `canonical_fingerprint` y `report_state`;
+- respetar las once secciones y sólo las rutas/clases autorizadas por M31;
+- desarrollar la narrativa sin recalcular cartas, índices o scores;
+- enlazar, cuando proceda, `doctrinal_claim_refs`, `evidence_refs` y `source_refs`;
+- conservar limitaciones relevantes sin permitir que la metodología eclipse el significado;
+- mantener `canonical_values_mutated=false`, `new_calculations_performed=false` y `new_scores_created=false`;
+- usar la bibliografía como soporte editorial y hermenéutico, nunca como peso estructural automático.
+
+Contrato: `schemas/authored-report.schema.json`.  
+Guía: `reference/authored-report.md`.
+
+Si el usuario solicita directamente una lectura narrativa y no un artefacto JSON, aplicar internamente esta misma disciplina de autoría: construir la interpretación desde las rutas autorizadas y presentar la prosa, no detenerse en el modelo documental.
 
 Secuencia canónica de informe:
 1. síntesis ejecutiva;
@@ -429,15 +452,22 @@ Secuencia canónica de informe:
 10. síntesis final;
 11. fuentes y anexos.
 
+Las secciones 2, 3 y 8 son soporte metodológico. En una obra extensa no deben ocupar más protagonismo narrativo que la arquitectura astrológica, las capas relacionales, la doctrina comparada y las síntesis, salvo que el objeto específico del informe sea una auditoría técnica.
+
 Expandir las siglas en su primera aparición. Las barras cuantificadas son ayudas de presentación, nunca medidores de probabilidad metafísica.
 
-## 23. Pipeline de informe/PDF
+## 23. Pipeline de autoría y publicación
 
 Pipeline preferente:
 
-`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → documento estructurado → PDF → preflight → renderizar todas las páginas → inspeccionar → corregir → re-renderizar/verificar`.
+`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → authored_report → DOCX B5 → PDF B5 → preflight → renderizar todas las páginas → inspeccionar → corregir → re-renderizar/verificar`.
 
-Para informes largos se prefiere la autoría en DOCX seguida de conversión controlada a PDF. Usar orientación vertical salvo que el formato de publicación objetivo requiera otra disposición.
+Para informes largos, `authored_report` debe completarse antes de maquetar. El DOCX y el PDF materializan una interpretación ya cerrada: no resumen, recalculan ni reescriben conclusiones.
+
+Perfil DOCX de referencia: `ALMAS_B5_BOOK_V1`.  
+Perfil PDF de referencia: `ALMAS_B5_PDF_V1`.
+
+Usar orientación vertical salvo que el formato objetivo documentado requiera otra disposición. Los requisitos específicos de imprenta se añaden como perfil material independiente y no pueden modificar la lectura.
 
 ## 24. Invariantes de validación
 
