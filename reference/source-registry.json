@@ -2535,6 +2535,197 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sextile",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_zodiac_sign",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Zodiac Sign",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Using the Signs in Astrology",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Sign",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "los signos indican cómo o de qué manera opera una función planetaria",
+        "cada punto del horóscopo ocupa un signo y grado concretos, y el signo se clasifica por elemento y cualidad",
+        "el signo aporta forma de expresión al planeta pero no sustituye la síntesis del resto de la carta"
+      ],
+      "does_not_support": [
+        "validación científica de los significados zodiacales",
+        "reducción de una persona a su signo solar",
+        "que un signo aislado determine compatibilidad, destino o tipo de vínculo"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Zodiac Sign', sección Using the Signs in Astrology: cada planeta/punto tiene signo y grado; los signos se clasifican por elemento y cualidad y señalan cómo opera el planeta.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sign",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_element",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Element",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Elements",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Element",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "clasificación zodiacal en cuatro elementos: fuego, tierra, aire y agua",
+        "uso del elemento como capa cualitativa de los signos dentro de la astrología occidental",
+        "base metodológica para describir el tono elemental de la expresión planetaria sin convertirlo en personalidad total"
+      ],
+      "does_not_support": [
+        "validación científica de temperamentos elementales",
+        "que un elemento determine por sí solo conducta, compatibilidad o madurez espiritual",
+        "jerarquía de elementos como superior/inferior"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Element': divide el zodiaco en fuego, tierra, aire y agua y documenta su uso astrológico como clasificación de signos.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Element",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_quality",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Quality",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Cardinal / Fixed / Mutable",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Mode",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "modalidad cardinal como energía de inicio y activación",
+        "modalidad fija como conservación, estabilización y perseverancia",
+        "modalidad mutable como adaptación, transición y disolución/reorganización",
+        "combinación de modalidad y elemento como matiz estructurado para diferenciar los doce signos"
+      ],
+      "does_not_support": [
+        "validación científica de las modalidades zodiacales",
+        "que cardinal, fijo o mutable determine valor personal o capacidad relacional",
+        "que una modalidad por sí sola defina un destino o una misión"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Quality': define cardinal, fixed y mutable como modos de energía y muestra su combinación con los cuatro elementos.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Mode",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_sign_ruler",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Sign Ruler",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "The traditional planet-sign rulerships; Pluto",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Sign_Ruler",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "relación metodológica entre signo y planeta regente",
+        "distinción entre regencias tradicionales y asignaciones modernas para Acuario, Piscis y Escorpio",
+        "uso del regente/dispositor para descubrir conexiones internas adicionales en una carta"
+      ],
+      "does_not_support": [
+        "obligación de usar una escuela de regencias determinada",
+        "que la regencia añada automáticamente peso estructural o puntuación a ALMAS",
+        "que un dispositor pruebe por sí solo destino, karma o misión"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Sign Ruler': documenta regencias tradicionales y modernas y explica que el regente puede revelar conexiones adicionales en la carta.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sign_Ruler",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_house_ruler",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "House Ruler",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "House Ruler",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/House_Ruler",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el regente de una casa es el planeta que rige el signo de su cúspide dentro de la escuela declarada",
+        "regentes y dispositores pueden revelar relaciones internas entre áreas de la carta",
+        "base metodológica para enlazar un campo de casa con la posición y condición de su regente"
+      ],
+      "does_not_support": [
+        "imposición de regencias cuando M04 no recibió rulership_policy",
+        "que la cadena de regencias constituya una raíz relacional independiente",
+        "que una regencia demuestre misión espiritual, contrato o causalidad"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'House Ruler': define el regente de casa desde el signo de la cúspide y señala que regentes/dispositores ayudan a descubrir conexiones internas del horóscopo.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/House_Ruler",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"
