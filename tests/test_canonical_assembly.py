@@ -107,6 +107,30 @@ def canonical_base(*, with_ice=True):
     }
     return {
         "natal_context": natal_context(),
+        "relationship_chart_consonance": {
+            "field_context": {
+                "authoring_only": True,
+                "structural_evidence_used": False,
+                "creates_independent_roots": False,
+                "aspect_policy_source": (
+                    "relationship_chart_consonance_policy.aspect_policy"
+                ),
+                "point_ids": ["SUN", "MOON"],
+                "composite": {
+                    "positions": {},
+                    "angles": {},
+                    "internal_contacts": [],
+                    "houses_calculated": False,
+                },
+                "davison": {
+                    "positions": {},
+                    "angles": {},
+                    "house_cusps": {},
+                    "internal_contacts": [],
+                },
+                "cross_consonance_contact_count": 0,
+            }
+        },
         "independent_roots": roots,
         "pillars": {
             "PA": 90.0,
@@ -221,6 +245,34 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         )
 
         self.assertNotIn("natal_context", result["canonical_analysis"])
+
+    def test_canonical_projects_relationship_field_without_recalculation(self):
+        source = canonical_base()
+        expected = source["relationship_chart_consonance"]["field_context"]
+
+        result = assemble_canonical_analysis(
+            source,
+            prior_all(),
+        )
+        canonical = result["canonical_analysis"]
+
+        self.assertEqual(canonical["relationship_field"], expected)
+        self.assertIsNot(canonical["relationship_field"], expected)
+        self.assertTrue(canonical["relationship_field"]["authoring_only"])
+        self.assertFalse(
+            canonical["relationship_field"]["structural_evidence_used"]
+        )
+
+    def test_canonical_relationship_field_is_optional(self):
+        source = canonical_base()
+        del source["relationship_chart_consonance"]
+
+        result = assemble_canonical_analysis(
+            source,
+            prior_all(),
+        )
+
+        self.assertNotIn("relationship_field", result["canonical_analysis"])
 
     def test_canonical_evidence_preserves_root_interpretive_context(self):
         result = assemble_canonical_analysis(
