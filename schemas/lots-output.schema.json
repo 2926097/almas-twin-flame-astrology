@@ -5,6 +5,8 @@
   "type": "object",
   "required": [
     "policy",
+    "policy_source",
+    "sect_by_subject",
     "subjects"
   ],
   "properties": {
@@ -57,6 +59,21 @@
           },
           "additionalProperties": true
         }
+      }
+    },
+    "policy_source": {
+      "enum": [
+        "RAW_INPUT",
+        "ALMAS_HELLENISTIC_LOTS_V1"
+      ]
+    },
+    "sect_by_subject": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "DAY",
+          "NIGHT"
+        ]
       }
     }
   },
