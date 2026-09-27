@@ -1,0 +1,110 @@
+{
+  "schema_version": "AUTHORING_CONTEXT_1",
+  "analysis_mode": "FULL",
+  "models": {
+    "AF": {
+      "iem": 42,
+      "state": "COMPATIBLE"
+    },
+    "KA": {
+      "iem": 63,
+      "state": "SUPPORTED"
+    },
+    "AG": {
+      "iem": 78,
+      "state": "SUPPORTED"
+    },
+    "LG": {
+      "iem": 71,
+      "state": "COMPATIBLE"
+    }
+  },
+  "indices": {
+    "IDD": 72,
+    "IAT": 64,
+    "ICC": 92,
+    "IRC": 86,
+    "ICE": 12
+  },
+  "coverage": {
+    "ICC": 92
+  },
+  "robustness": {
+    "IRC": 86,
+    "R_min": 82
+  },
+  "evidence": [
+    {
+      "evidence_id": "ROOT:R001",
+      "root_id": "R001",
+      "summary": "Contacto nodal recurrente entre capas tropical, dracónica y relacional."
+    },
+    {
+      "evidence_id": "ROOT:R002",
+      "root_id": "R002",
+      "summary": "Patrón Venus-Plutón repetido con función transformativa y de intensidad vincular."
+    },
+    {
+      "evidence_id": "ROOT:R003",
+      "root_id": "R003",
+      "summary": "Consonancia Sol-Luna en cartas relacionales que sostiene reconocimiento y continuidad."
+    }
+  ],
+  "semantic_motifs": {
+    "motifs": [
+      {
+        "motif_id": "MOTIF:NODAL_RECOGNITION",
+        "summary": "Reconocimiento nodal multitécnico."
+      },
+      {
+        "motif_id": "MOTIF:TRANSFORMATIVE_BOND",
+        "summary": "Transformación relacional Venus-Plutón."
+      }
+    ]
+  },
+  "counterevidence": [
+    {
+      "id": "CE1",
+      "note": "La intensidad simbólica no basta para distinguir por sí sola entre alma gemela y llama gemela."
+    }
+  ],
+  "temporal": {
+    "activation": {
+      "summary": "La fase temporal reactiva raíces ya presentes; no crea la arquitectura del vínculo."
+    },
+    "events": []
+  },
+  "doctrine": [
+    {
+      "claim_id": "D_TF_ORIGIN",
+      "statement": "En la doctrina moderna de The Summit Lighthouse, las llamas gemelas se describen como dos contrapartes procedentes de un mismo ovoide original.",
+      "epistemic_class": "C_DOCTRINE",
+      "source_ids": [
+        "summit_lighthouse_what_is_twin_flame"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "D_DRACONIC_METHOD",
+      "statement": "La astrología dracónica moderna desplaza el Nodo Norte tropical a 0° Aries y conserva las distancias relativas de la carta.",
+      "epistemic_class": "B_TECHNIQUE",
+      "source_ids": [
+        "blaquier_draconic_astrology_2017_2021"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "D_PREINCARNATIONAL_MISSION",
+      "statement": "La tradición espiritista kardeciana contempla la elección o solicitud de misiones antes de la encarnación.",
+      "epistemic_class": "C_DOCTRINE",
+      "source_ids": [
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "status": "SUPPORTED"
+    }
+  ],
+  "limitations": [
+    "Fixture sintético destinado a demostrar autoría y trazabilidad; no representa una pareja real.",
+    "Las correspondencias metafísicas se interpretan dentro de sus tradiciones y no constituyen validación científica de dichas doctrinas."
+  ]
+}
