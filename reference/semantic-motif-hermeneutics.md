@@ -32,6 +32,16 @@ Por ejemplo, `KARMIC_CONTINUITY` no significa siempre lo mismo:
 
 El `motif_id` agrupa una familia de significado; las raíces determinan su forma concreta.
 
+### Precedencia obligatoria de motivos primarios
+
+Cada raíz core recibe **un solo motivo primario**. La implementación evalúa, en este orden:
+
+`KARMIC_CONTINUITY → WOUND_REPAIR → IDENTITY_TRANSFORMATION → TRANSFORMATION_POWER → TRANSPERSONAL_FIELD → EROTIC_POLARITY → MIRROR_COMPLEMENTARITY → RELATIONAL_COHERENCE → STRUCTURAL_AFFINITY`.
+
+Cuando una raíz cumple varias condiciones, se conserva únicamente el primer motivo aplicable. La hermenéutica puede desarrollar matices secundarios de los planetas implicados, pero no debe presentar como motivos emitidos aquellos que quedaron desplazados por precedencia.
+
+Ejemplo: una raíz Saturno–Quirón puede contener simultáneamente continuidad y herida, pero M18 emite `KARMIC_CONTINUITY` porque esa regla precede a `WOUND_REPAIR`. La prosa puede explicar la vulnerabilidad quirónica dentro del motivo kármico, sin afirmar que el sistema emitió dos motivos primarios.
+
 ---
 
 ## 1. KARMIC_CONTINUITY
@@ -92,7 +102,7 @@ La comparación doctrinal nunca convierte el motivo en prueba literal de vida pa
 
 ### Base de detección
 
-Se activa cuando Quirón participa en una raíz core con otro punto significativo.
+Se asigna cuando Quirón participa en una raíz core con otro punto significativo **si ninguna regla primaria anterior ya capturó la raíz**. En particular, una raíz que también cumpla `KARMIC_CONTINUITY` permanece clasificada bajo ese motivo prioritario.
 
 ### Núcleo interpretativo
 
@@ -142,7 +152,7 @@ No existe una doctrina única que permita traducir Quirón directamente a “con
 
 ### Base de detección
 
-Se asigna cuando el Sol forma una raíz core con Plutón, Urano o Neptuno según la política vigente; en la implementación actual el chequeo específico incluye Sol con Plutón/Urano/Neptuno.
+Se asigna cuando el Sol forma una raíz core con Plutón, Urano o Neptuno según la política vigente **si la raíz no quedó antes clasificada como `KARMIC_CONTINUITY` o `WOUND_REPAIR`**; en la implementación actual el chequeo específico incluye Sol con Plutón/Urano/Neptuno.
 
 ### Núcleo interpretativo
 
@@ -294,7 +304,7 @@ Puede dialogar con lenguajes de unión, mística, alma o trascendencia cuando ex
 
 ### Base de detección
 
-Se activa cuando Venus y Marte aparecen en la misma raíz core.
+Se asigna cuando Venus y Marte aparecen en la misma raíz core **si ninguna de las cinco reglas primarias anteriores ya capturó esa raíz**. Una raíz Venus–Marte que incluya además un anclaje kármico, quirónico o transformativo conserva el motivo prioritario anterior.
 
 ### Núcleo interpretativo
 
@@ -334,7 +344,7 @@ Puede compararse con lenguajes doctrinales de polaridad cuando una fuente concre
 
 ### Base de detección
 
-La política lo asigna cuando existe una relación `HARD` —oposición, cuadratura, contraparalelo o contra-antiscio— entre al menos dos puntos significativos.
+La política lo asigna cuando existe una relación `HARD` —oposición, cuadratura, contraparalelo o contra-antiscio— entre al menos dos puntos significativos **y ninguna regla primaria anterior ha clasificado ya la raíz**.
 
 ### Núcleo interpretativo
 
@@ -382,7 +392,7 @@ Las fuentes históricas no son equivalentes entre sí.
 
 ### Base de detección
 
-Se activa cuando una relación `COHERENT` —conjunción, trígono, sextil, paralelo o antiscio— conecta al menos dos puntos personales.
+Se asigna cuando una relación `COHERENT` —conjunción, trígono, sextil, paralelo o antiscio— conecta al menos dos puntos personales **y la raíz no ha sido capturada por un motivo primario anterior**. Por ejemplo, una raíz Venus–Marte coherente sigue siendo `EROTIC_POLARITY`, no `RELATIONAL_COHERENCE`.
 
 ### Núcleo interpretativo
 
