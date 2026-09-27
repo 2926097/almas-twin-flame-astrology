@@ -116,6 +116,8 @@ No convertir lotes, asteroides, atacires u otras técnicas auxiliares en el cent
 
 Cada raíz independiente debe traducirse a una frase de significado. Después, los motivos recurrentes deben explicar qué tema reaparece en familias distintas sin confundir recurrencia semántica con multiplicación artificial de evidencia.
 
+En la salida canónica, la resolución root-first parte de `canonical_analysis.evidence`: `point_ids` identifica las funciones astrológicas concretas, `relation_ids` la geometría, `root_key` conserva la identidad estructural/endpoints, y `dependency_families` + `independent_family_count` permiten saber si la raíz reaparece en más de una familia. `max_exactness` calibra precisión geométrica; no aporta significado por sí misma. Casas, dirección subjetiva o reciprocidad sólo se desarrollan si están disponibles en la evidencia de origen o en otra ruta canónica autorizada.
+
 Ejemplos de formulación:
 
 - una raíz nodal-luminar puede narrarse como reconocimiento orientado a dirección vital;
