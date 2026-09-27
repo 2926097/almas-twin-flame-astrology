@@ -424,7 +424,9 @@ Cuando el resultado deba convertirse en una lectura, informe o libro, el paso si
 
 `report_document_model + canonical_analysis → authored_report`.
 
-`authored_report` es la capa de autoría. Debe:
+`authored_report` es la capa de autoría. Su centro interpretativo canónico es `ASTROLOGY_AND_SOURCE_BASED_METAPHYSICAL_HERMENEUTICS`; la función de la capa técnica es `CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL`.
+
+Debe:
 
 - conservar el mismo `canonical_fingerprint` y `report_state`;
 - respetar las once secciones y sólo las rutas/clases autorizadas por M31;
