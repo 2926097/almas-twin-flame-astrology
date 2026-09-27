@@ -159,12 +159,26 @@ def main() -> int:
             float(item["delta_arcsec"])
             for item in evaluation["evaluations"]
         ]
+        max_by_metric: dict[str, dict] = {}
+        for item in evaluation["evaluations"]:
+            metric = str(item["metric"])
+            delta = float(item["delta_arcsec"])
+            current = max_by_metric.get(metric)
+            if current is None or delta > float(current["delta_arcsec"]):
+                max_by_metric[metric] = {
+                    "point_id": item["point_id"],
+                    "delta_arcsec": delta,
+                    "tolerance_arcsec": float(item["tolerance_arcsec"]),
+                    "passed": bool(item["passed"]),
+                }
         summary_cases.append(
             {
                 "case_id": case["case_id"],
                 "status": evaluation["status"],
                 "max_delta_arcsec": max(deltas) if deltas else None,
+                "max_by_metric": max_by_metric,
                 "failure_count": len(evaluation["failures"]),
+                "failures": list(evaluation["failures"]),
             }
         )
 
