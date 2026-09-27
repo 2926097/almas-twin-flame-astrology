@@ -202,6 +202,7 @@ REQUIRED_FILES = [
     "reference/report-gate.md",
     "reference/report-document-model.md",
     "reference/interpretive-synthesis-protocol.md",
+    "reference/semantic-motif-hermeneutics.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",

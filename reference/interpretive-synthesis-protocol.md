@@ -126,6 +126,8 @@ Pregunta interpretativa:
 
 La síntesis debe preferir tres o cuatro motivos bien desarrollados antes que veinte contactos enumerados.
 
+Para desarrollar el significado de los nueve motivos primarios y sus combinaciones, usar `reference/semantic-motif-hermeneutics.md`. Ese documento no cambia la clasificación M18: traduce los motivos existentes a dinámica, función evolutiva, comparanda metafísicos y límites inferenciales.
+
 ### 7. Función evolutiva
 
 Una vez descrita la arquitectura, inferir su **función simbólica** dentro de los techos permitidos.
