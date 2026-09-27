@@ -6,11 +6,21 @@
   "required": [
     "schema_version",
     "analysis_mode",
+    "analysis_profile",
+    "profile_policy_id",
     "evidence",
     "models",
+    "indices",
+    "pairwise_idd",
     "coverage",
     "robustness",
-    "counterevidence"
+    "counterevidence",
+    "counterevidence_state",
+    "ontology",
+    "doctrine",
+    "temporal",
+    "limitations",
+    "assembly"
   ],
   "properties": {
     "schema_version": {
@@ -19,9 +29,7 @@
     "analysis_mode": {
       "enum": [
         "FULL",
-        "TARGETED",
-        "TEMPORAL",
-        "REPORT"
+        "TEMPORAL"
       ]
     },
     "analysis_profile": {
@@ -374,7 +382,9 @@
       }
     },
     "ontology": {
-      "type": "object"
+      "type": "object",
+      "maxProperties": 0,
+      "additionalProperties": false
     },
     "doctrine": {
       "type": "array",
