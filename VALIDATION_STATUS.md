@@ -65,7 +65,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **461 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **467 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -77,7 +77,7 @@ El workflow `Contrato público` ejecuta de forma independiente:
 
 `python scripts/validate_public_contract.py`
 
-El workflow `Backend astronómico` instala `.[astronomy-moira]` en Python 3.10/3.12, verifica `moira-astro==6.8.2`, ejecuta 11 tests específicos del adaptador y 7 tests del gate dorado preregistrado. No descarga ni incorpora un kernel JPL real en CI; la ejecución astronómica dorada con resultados reales permanece separada.
+El workflow `Backend astronómico` instala `.[astronomy-moira]` en Python 3.10/3.12, verifica `moira-astro==6.8.2`, ejecuta 11 tests específicos del adaptador, 9 tests del gate dorado preregistrado y 4 tests de la referencia planetaria Skyfield. No descarga ni incorpora un kernel JPL real en CI; la ejecución astronómica dorada con resultados reales permanece separada.
 
 El validador comprueba, entre otros:
 
