@@ -1,5 +1,5 @@
 {
-  "canonical_fingerprint": "35fe10967080061a1fc6c357ca7ff4bc80475942fc1a1c6a890216aa36180b76",
+  "canonical_fingerprint": "0bc5723693193890d2ac5ac09fc41dfd2dcdccf137528ada42577f645912eaf2",
   "canonical_fingerprint_verified": true,
   "report_state": "READY",
   "sections": [
@@ -9,6 +9,9 @@
       "section_state": "READY",
       "available_paths": [
         "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
         "evidence",
         "semantic_motifs",
         "doctrine",
@@ -54,6 +57,10 @@
       "available_paths": [
         "evidence",
         "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
         "semantic_motifs"
       ],
       "epistemic_classes_allowed": [
@@ -67,7 +74,12 @@
       "title": "Capas relacionales y cruzadas",
       "section_state": "READY",
       "available_paths": [
-        "evidence"
+        "evidence",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
+        "semantic_motifs"
       ],
       "epistemic_classes_allowed": [
         "A_CALCULATED",
@@ -134,6 +146,10 @@
       "section_state": "READY",
       "available_paths": [
         "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
         "evidence",
         "semantic_motifs",
         "doctrine",
@@ -152,6 +168,7 @@
       "section_state": "READY",
       "available_paths": [
         "evidence",
+        "lots_context",
         "doctrine",
         "limitations"
       ],
