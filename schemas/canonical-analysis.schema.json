@@ -162,6 +162,65 @@
                   "type": "integer",
                   "minimum": 1,
                   "maximum": 12
+                },
+                "rulership": {
+                  "type": "object",
+                  "required": [
+                    "cusp_sign",
+                    "rulers",
+                    "ruler_context"
+                  ],
+                  "properties": {
+                    "cusp_sign": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "rulers": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "ruler_context": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "ruler_id",
+                          "sign",
+                          "house"
+                        ],
+                        "properties": {
+                          "ruler_id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "sign": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "minLength": 1
+                          },
+                          "house": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 12
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
                 }
               },
               "additionalProperties": false
