@@ -36,7 +36,7 @@ La autoría debe preferir el contacto concreto para significado:
 - `NORTH_NODE` no se narra como `SOUTH_NODE`;
 - `VERTEX` no se narra como `ANTI_VERTEX`.
 
-El eje normalizado expresa parentesco estructural; el contacto concreto expresa la forma experiencial que debe interpretarse. Esta precisión no crea una segunda raíz ni altera fuerza, independencia o scoring.
+El eje normalizado expresa parentesco estructural; el contacto concreto expresa la forma experiencial que debe interpretarse. Para los significados diferenciados de esos polos, aplicar `reference/angular-nodal-endpoint-hermeneutics.md`. Esta precisión no crea una segunda raíz ni altera fuerza, independencia o scoring.
 
 ## Regla direccional
 
