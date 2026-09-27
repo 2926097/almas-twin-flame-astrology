@@ -23,6 +23,7 @@ SECTION_SPECS = (
         "optional_paths": (
             "natal_context",
             "relationship_field",
+            "draconic_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
@@ -136,6 +137,7 @@ SECTION_SPECS = (
         "optional_paths": (
             "natal_context",
             "relationship_field",
+            "draconic_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
