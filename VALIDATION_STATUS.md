@@ -15,6 +15,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Manifiesto arquitectónico | `manifests/almas-module-manifest.json` |
 | Manifiesto estructural normativo | `ALMAS_STRUCTURAL_POLICY_MANIFEST_V1` · técnica/dependencia/orbes/loading |
 | Backend astronómico de producción | `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1` · Moira 6.8.2 + kernel local SHA-256 |
+| Gate astronómico dorado | `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` · preregistrado, todavía no ejecutado |
 | Pipeline FULL M00–M31 | `manifests/analysis-pipeline-manifest.json` |
 | Puente astrología→contrato | v1.0.0 |
 | Reconstrucción preencarnatoria | schema v1.9.0 |
@@ -64,7 +65,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **454 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **461 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -76,7 +77,7 @@ El workflow `Contrato público` ejecuta de forma independiente:
 
 `python scripts/validate_public_contract.py`
 
-El workflow `Backend astronómico` instala `.[astronomy-moira]` en Python 3.10/3.12, verifica `moira-astro==6.8.2` y ejecuta 11 tests específicos del adaptador. No descarga ni incorpora un kernel JPL real en CI; la validación astronómica dorada permanece separada.
+El workflow `Backend astronómico` instala `.[astronomy-moira]` en Python 3.10/3.12, verifica `moira-astro==6.8.2`, ejecuta 11 tests específicos del adaptador y 7 tests del gate dorado preregistrado. No descarga ni incorpora un kernel JPL real en CI; la ejecución astronómica dorada con resultados reales permanece separada.
 
 El validador comprueba, entre otros:
 
