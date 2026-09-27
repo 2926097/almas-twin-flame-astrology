@@ -60,6 +60,7 @@
           "independent_family_count",
           "point_ids",
           "relation_ids",
+          "concrete_contacts",
           "max_exactness",
           "house_overlays"
         ],
@@ -165,6 +166,9 @@
               },
               "additionalProperties": false
             }
+          },
+          "concrete_contacts": {
+            "$ref": "independent-roots.schema.json#/properties/roots/items/properties/concrete_contacts"
           }
         },
         "additionalProperties": false
