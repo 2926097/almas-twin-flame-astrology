@@ -23,8 +23,10 @@ REQUIRED_FILES = [
     "docs/CANONICAL_SCHEMA_AUDIT_1.18.md",
     "reference/authored-report.md",
     "reference/docx-publication.md",
+    "reference/pdf-publication.md",
     ".github/workflows/astronomy-backend.yml",
     ".github/workflows/publication-docx.yml",
+    ".github/workflows/publication-pdf.yml",
     "scripts/validate_astronomy_backend_runtime.py",
     "scripts/validate_skyfield_reference_runtime.py",
     "scripts/validate_astronomy_golden_result.py",
@@ -34,6 +36,7 @@ REQUIRED_FILES = [
     "scripts/run_astronomy_golden_complete.py",
     "scripts/validate_authored_report.py",
     "scripts/render_authored_report_docx.py",
+    "scripts/publish_authored_report_pdf.py",
     "validation/astronomy/golden-cases.v1.json",
     "validation/astronomy/planetary-stage-evidence.v1.json",
     "validation/astronomy/true-node-stage-evidence.v1.json",
@@ -315,6 +318,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/report_model_handlers.py",
     "src/almas_tfa/authored_report.py",
     "src/almas_tfa/docx_publication.py",
+    "src/almas_tfa/pdf_publication.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -379,6 +383,7 @@ REQUIRED_FILES = [
     "tests/test_final_handlers.py",
     "tests/test_authored_report_contract.py",
     "tests/test_docx_publication.py",
+    "tests/test_pdf_publication.py",
     "tests/test_full_pipeline.py",
     "tests/test_ontological_discriminator_adversarial.py",
     "tests/test_ontological_discriminator_metamorphic.py",
@@ -1157,6 +1162,8 @@ def main() -> int:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
     if 'publication-docx = ["python-docx==1.2.0"]' not in pyproject:
         fail("pyproject must pin optional python-docx 1.2.0 publication extra")
+    if 'publication-pdf = ["pypdf==6.19.0"]' not in pyproject:
+        fail("pyproject must pin optional pypdf 6.19.0 publication extra")
     if 'astronomy-validation = ["skyfield==1.55"]' not in pyproject:
         fail("pyproject must pin optional skyfield 1.55 validation extra")
     if 'schema-validation = ["jsonschema==4.26.0"]' not in pyproject:

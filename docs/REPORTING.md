@@ -121,6 +121,26 @@ Dependencia opcional:
 
 La publicación DOCX no recalcula astrología, no modifica el canonical, no crea scores y no reescribe la interpretación.
 
+## Publicación PDF y preflight
+
+El perfil `ALMAS_B5_PDF_V1` convierte el DOCX aprobado mediante LibreOffice y aplica un preflight fail-closed.
+
+Comprueba todas las páginas B5, CropBox B5, ausencia de cifrado, fuentes embebidas, texto extraíble, ausencia de páginas vacías, fingerprint y once títulos de sección.
+
+Implementación:
+
+`src/almas_tfa/pdf_publication.py`
+
+CLI:
+
+`scripts/publish_authored_report_pdf.py`
+
+Dependencia Python opcional:
+
+`publication-pdf = ["pypdf==6.19.0"]`
+
+LibreOffice sigue siendo una dependencia externa de materialización. Este perfil no declara todavía PDF/X ni certificación específica de imprenta.
+
 ## Publicación
 
 M31 cierra el pipeline analítico M00–M31. La autoría narrativa, selección de formato, maquetación, DOCX, PDF y preflight comienzan únicamente después de M31.
