@@ -10,7 +10,7 @@
 - M15 expone `technique_dependency_registry_id` como procedencia normativa.
 - Mantiene todos los pesos de técnica/aspecto en 1.0, la robustez horaria en M23–M25 y `support_only` fuera de la creación de núcleo.
 - No añade módulos analíticos, técnicas, scores, discriminadores ni ontología.
-- La suite de release se amplía a **443 tests deterministas**, pendiente de confirmación final del CI.
+- La suite de release alcanza **443 tests deterministas** en Python 3.10 y 3.12.
 
 ## 1.16.0 — 2026-09-27
 
