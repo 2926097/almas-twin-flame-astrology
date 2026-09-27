@@ -71,14 +71,14 @@ Sobre el HEAD funcional previo al cierre editorial:
 - `Contrato público`: SUCCESS;
 - `Núcleo Python 3.10`: SUCCESS;
 - `Núcleo Python 3.12`: SUCCESS;
-- **454 tests deterministas** por matriz del núcleo;
+- **468 tests deterministas** por matriz del núcleo;
 - `Backend astronómico 3.10`: SUCCESS;
 - `Backend astronómico 3.12`: SUCCESS;
 - `moira-astro: 6.8.2`;
-- **11 tests específicos** del adaptador en cada versión de Python;
+- **12 tests específicos** del adaptador, 9 del gate dorado y 4 de la referencia Skyfield en el workflow específico;
 - runtime contract: PASS.
 
-El CI específico no incluye ni descarga un kernel JPL real.
+El CI contractual no requiere un kernel. Una segunda matriz de validación descarga explícitamente el artefacto JPL/NAIF `de440s.bsp`, verifica sus fingerprints preregistrados y ejecuta la comparación planetaria independiente.
 
 ## Gate astronómico preregistrado
 
@@ -86,17 +86,16 @@ La implementación de producción queda disponible y la infraestructura de valid
 
 Antes de observar resultados se han congelado seis casos sintéticos, métricas obligatorias, tolerancias, geometría y regla de decisión. No existe agregación que permita compensar un error fuera de tolerancia con otros aciertos.
 
-El gate todavía no está ejecutado. Para cerrarlo se requiere:
+La etapa planetaria está ejecutada y cerrada: el workflow 36308957538 validó `de440s.bsp` por SHA-256 y MD5, ejecutó Moira 6.8.2 frente a Skyfield 1.55 en los seis casos congelados y obtuvo PASS en Python 3.10 y 3.12. Son 180 medidas por entorno, sin fallos y con resúmenes idénticos. El máximo observado fue 0,9257480642″ en longitud lunar, por debajo del límite preregistrado de 15″.
 
-1. kernel DE440 real identificado por SHA-256;
-2. ejecución Moira sobre los seis casos congelados;
-3. referencia planetaria independiente bajo la misma geometría;
-4. referencia independiente para True Node;
-5. referencia independiente de casas/ángulos;
-6. resultados conformes al schema y PASS individual de todas las medidas;
-7. reproducibilidad documentada.
+La evidencia canónica de esta etapa es `validation/astronomy/planetary-stage-evidence.v1.json`. No se modificó ningún threshold después de observar los resultados.
 
-Skyfield permanece como implementación preferida para la referencia independiente de posiciones fundamentales.
+Para cerrar el gate completo siguen pendientes únicamente:
+
+1. referencia independiente para True Node;
+2. referencia independiente de casas/ángulos;
+3. ensamblaje `COMPLETE_GATE` con PASS de todas las familias;
+4. actualización final de la auditoría y del estado de release.
 
 ## Registro de ejecución
 
