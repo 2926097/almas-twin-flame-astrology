@@ -10,6 +10,9 @@ requires-python = ">=3.10"
 authors = [{name = "Proyecto ALMAS"}]
 readme = "README.md"
 
+[project.optional-dependencies]
+astronomy-moira = ["moira-astro==6.8.2"]
+
 [project.scripts]
 almas-score = "almas_tfa.cli:main"
 
