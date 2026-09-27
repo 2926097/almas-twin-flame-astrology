@@ -99,10 +99,41 @@ pero mantiene:
 Por tanto V2 autoriza comenzar la evaluación congelada, no interpreta ningún
 resultado ni cambia el modelo de producción.
 
+## V3 · Append-only Validation Ledger
+
+V3 queda implementada mediante
+`ALMAS_VALIDATION_EXECUTION_LEDGER_V1`.
+
+El ledger registra una cadena estrictamente ordenada:
+
+1. `PREREGISTERED`;
+2. `HOLDOUT_OPENED`;
+3. `HOLDOUT_EVALUATED`;
+4. `DOCUMENTARY_REVEALED`;
+5. `VALIDATION_CLOSED`.
+
+Cada entrada contiene únicamente:
+
+- número de secuencia;
+- tipo de evento;
+- referencia opaca al artefacto;
+- SHA-256 del artefacto;
+- SHA-256 de la entrada anterior;
+- SHA-256 propio.
+
+La cadena es append-only. Cualquier modificación retroactiva de una entrada,
+del enlace previo, del contador, del evento actual o del chain head invalida el
+ledger.
+
+El ledger no almacena datos privados, snapshots, scores ni resultados del
+holdout. Sólo conserva referencias y fingerprints de artefactos externos.
+
+V3 tampoco decide promoción ni activa scoring, weighting, ontología o L3.
+
 ## Próximas fases
 
-V3 añadirá un ledger append-only de ejecución para registrar apertura,
-evaluación, revelado documental y cierre sin reescribir etapas anteriores.
+V4 conectará V1/V2/V3 con S7/S8 para exigir continuidad criptográfica entre
+preregistro, apertura, evaluación holdout y gate de promoción.
 
-V4 conectará ese ledger con S7/S8 para exigir continuidad criptográfica entre
-preregistro, apertura, holdout y promoción.
+V5 formalizará el cierre confirmatorio y el paquete de auditoría de release sin
+activar automáticamente PX v3.
