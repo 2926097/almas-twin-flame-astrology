@@ -33,7 +33,10 @@
   },
   "natal": {
     "zodiac": "TROPICAL",
+    "coordinate_origin": "GEOCENTRIC",
     "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+    "apparent_reduction": true,
+    "topocentric_positions": false,
     "required_points": [
       "SUN", "MOON", "MERCURY", "VENUS", "MARS",
       "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO",
