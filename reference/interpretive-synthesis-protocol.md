@@ -69,6 +69,8 @@ Las fuentes de M03–M04 permiten desarrollar dinámica interpersonal, combinaci
 
 Cuando `canonical_analysis.evidence[].concrete_contacts` preserve planetas concretos, usar `reference/planetary-function-hermeneutics.md` antes de resumir la raíz mediante un motivo.
 
+Cuando `relation_ids` preserve una geometría longitudinal mayor, aplicar además `reference/aspect-geometry-hermeneutics.md`. La función planetaria explica **qué** interactúa; la geometría explica **cómo**: conjunción concentra, oposición polariza, cuadratura fricciona, trígono facilita y sextil abre una vía de cooperación.
+
 La secuencia es:
 
 `función planetaria A → función planetaria B → geometría → casa receptora si existe → raíz → motivo`.
