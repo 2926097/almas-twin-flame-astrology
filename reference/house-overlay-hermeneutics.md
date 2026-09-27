@@ -17,6 +17,14 @@ La secuencia preferente es:
 
 Astrodienst describe la sinastría como comparación de cartas que permite observar dónde caen los planetas de una carta en las casas de la otra y señala que una concentración de planetas o ejes en una casa enfatiza sus temas para el propietario de esa casa. `arroyo_relationships_life_cycles_1993` y `davison_synastry_1983` ya documentan en el corpus ALMAS el uso de casas e intercambios de casas dentro de la comparación relacional.
 
+## Elegibilidad técnica
+
+`house_overlays` se deriva de las posiciones natales calculadas por M04. Por ello sólo debe acompañar una raíz cuando ésta contiene al menos una familia que use esos puntos natales reales: actualmente `SYN` o `DECLINATION`.
+
+Una raíz exclusivamente `ANTISCIA`, `NATAL_DRACONIC`, `DRACONIC_DD`, `RELCHART` o `SECONDARY` no hereda una casa natal por coincidencia del nombre del planeta. Cada una de esas técnicas necesitaría, en su caso, su propia geometría de proyección explícita.
+
+Si una raíz combina `SYN` o `DECLINATION` con otra familia, la casa puede utilizarse como contexto del componente natal ya presente, sin contarla como evidencia adicional.
+
 ## Regla direccional
 
 Un registro:
