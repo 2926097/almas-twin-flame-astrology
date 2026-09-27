@@ -26,8 +26,10 @@ REQUIRED_FILES = [
     "scripts/validate_astronomy_golden_result.py",
     "scripts/run_astronomy_golden_planetary.py",
     "scripts/run_astronomy_golden_true_node.py",
+    "scripts/run_astronomy_golden_houses.py",
     "validation/astronomy/golden-cases.v1.json",
     "validation/astronomy/planetary-stage-evidence.v1.json",
+    "validation/astronomy/true-node-stage-evidence.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -251,6 +253,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/astronomy_golden_validation.py",
     "src/almas_tfa/skyfield_planetary_reference.py",
     "src/almas_tfa/skyfield_true_node_reference.py",
+    "src/almas_tfa/skyfield_placidus_reference.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/structural_policies.py",
@@ -389,6 +392,7 @@ REQUIRED_FILES = [
     "tests/test_astronomy_golden_validation.py",
     "tests/test_skyfield_planetary_reference.py",
     "tests/test_skyfield_true_node_reference.py",
+    "tests/test_skyfield_placidus_reference.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -529,6 +533,9 @@ def main() -> int:
     )
     astronomy_planetary_evidence = load_json(
         "validation/astronomy/planetary-stage-evidence.v1.json"
+    )
+    astronomy_true_node_evidence = load_json(
+        "validation/astronomy/true-node-stage-evidence.v1.json"
     )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
@@ -930,6 +937,26 @@ def main() -> int:
     for key, expected in expected_true_node_reference.items():
         if true_node_reference.get(key) != expected:
             fail(f"astronomy true-node reference contract changed: {key}")
+    house_reference = astronomy_golden_policy.get("reference_contract", {}).get("houses_and_angles", {})
+    expected_house_reference = {
+        "method_family": "INDEPENDENT_PLACIDUS_SEMI_ARC_IMPLEMENTATION",
+        "preferred_implementation": "ALMAS_SKYFIELD_PLACIDUS_REFERENCE_V1",
+        "method_id": "ALMAS_SKYFIELD_PLACIDUS_REFERENCE_V1",
+        "house_system": "PLACIDUS",
+        "house_code": "P",
+        "armc": "GREENWICH_APPARENT_SIDEREAL_TIME_PLUS_GEOGRAPHIC_LONGITUDE",
+        "time_alignment": "BACKEND_JD_UT_PLUS_BACKEND_DELTA_T",
+        "delta_t_source": "BACKEND_RECEIPT",
+        "obliquity": "TRUE_OBLIQUITY_FROM_SKYFIELD_TRUE_EQUATOR_AND_TRUE_ECLIPTIC_FRAMES",
+        "intermediate_cusps": "CLASSIC_ITERATIVE_SEMI_ARC_TRISECTION",
+        "convergence_threshold_deg": 1e-7,
+        "max_iterations": 100,
+        "polar_fallback": "FORBIDDEN",
+        "same_software_implementation_forbidden": True,
+    }
+    for key, expected in expected_house_reference.items():
+        if house_reference.get(key) != expected:
+            fail(f"astronomy house reference contract changed: {key}")
     tolerances = astronomy_golden_policy.get("tolerances_arcsec", {})
     expected_defaults = {
         "planetary_longitude": 5.0,
@@ -1013,6 +1040,34 @@ def main() -> int:
         fail("astronomy planetary evidence maximum delta changed")
     if overall_max.get("tolerance_arcsec") != 15.0:
         fail("astronomy planetary evidence maximum tolerance changed")
+
+    if astronomy_true_node_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_TRUE_NODE_EVIDENCE_V1":
+        fail("astronomy true-node evidence id changed")
+    if astronomy_true_node_evidence.get("validation_stage") != "TRUE_NODE_REFERENCE":
+        fail("astronomy true-node evidence stage changed")
+    if astronomy_true_node_evidence.get("status") != "PASS":
+        fail("astronomy true-node evidence must remain PASS")
+    if astronomy_true_node_evidence.get("execution_commit") != "25226b69c2fded6d167175dc20bf682d9f14879e":
+        fail("astronomy true-node evidence execution commit changed")
+    if astronomy_true_node_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy true-node evidence Python matrix changed")
+    if astronomy_true_node_evidence.get("measurements_per_environment") != 6:
+        fail("astronomy true-node evidence measurement count changed")
+    true_node_repro = astronomy_true_node_evidence.get("reproducibility", {})
+    if true_node_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy true-node evidence must reproduce across Python versions")
+    if true_node_repro.get("failure_count") != 0:
+        fail("astronomy true-node evidence contains failures")
+    if true_node_repro.get("thresholds_modified_after_observation") is not False:
+        fail("astronomy true-node evidence cannot alter preregistered thresholds")
+    true_node_cases = astronomy_true_node_evidence.get("cases", [])
+    if len(true_node_cases) != 6 or any(case.get("status") != "PASS" for case in true_node_cases):
+        fail("all six astronomy true-node evidence cases must PASS")
+    true_node_max = astronomy_true_node_evidence.get("overall_max", {})
+    if true_node_max.get("delta_arcsec") != 0.005674621911566646:
+        fail("astronomy true-node evidence maximum delta changed")
+    if true_node_max.get("tolerance_arcsec") != 60.0:
+        fail("astronomy true-node evidence tolerance changed")
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
