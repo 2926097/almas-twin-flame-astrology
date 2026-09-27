@@ -20,6 +20,7 @@ REQUIRED_FILES = [
     "docs/MODULE_EXECUTION_CONTRACT.md",
     "docs/ASTRONOMY_BACKEND_DECISION.md",
     "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
+    "docs/CANONICAL_SCHEMA_AUDIT_1.18.md",
     ".github/workflows/astronomy-backend.yml",
     "scripts/validate_astronomy_backend_runtime.py",
     "scripts/validate_skyfield_reference_runtime.py",
