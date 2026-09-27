@@ -131,7 +131,7 @@ Los contratos de salida están en `schemas/synastry-output.schema.json` y `schem
 
 `M07` implementa una compuesta de puntos medios sobre los puntos compartidos de ambas cartas. Requiere `composite_policy.midpoint_mode=SHORTEST_ARC`. Una oposición exacta no se resuelve silenciosamente: `opposition_tie_break` puede quedar en `NOT_EVALUABLE` o declarar expresamente una de las dos soluciones.
 
-`M08` dispone de contrato y handler inyectable mediante `DavisonBackend`, pero permanece `BACKEND_REQUIRED`. Para evitar geocodificación implícita exige hora, zona horaria y coordenadas numéricas de ambos sujetos, además de una `davison_policy` registrada.
+`M08` dispone de contrato y handler inyectable mediante `DavisonBackend`. Desde 1.18 `MoiraProductionBackend` implementa también este contrato y M08 pasa a `EXECUTABLE_HANDLER`. Para evitar geocodificación implícita exige hora, zona horaria y coordenadas numéricas de ambos sujetos, además de una `davison_policy` registrada. El adaptador fija midpoint temporal UTC y midpoint geográfico esférico; cualquier política incompatible devuelve `NOT_EVALUABLE`.
 
 ## M10–M12 · capa dracónica
 

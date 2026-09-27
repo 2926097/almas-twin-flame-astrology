@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
-from .astrology_backend import AstrologyBackend, natal_request_from_subject
+from .astrology_backend import AstronomyBackendNotEvaluableError, AstrologyBackend, natal_request_from_subject
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 
 
@@ -25,7 +25,10 @@ def make_m02_natal(backend: AstrologyBackend):
                 raise ValueError("Cada subject debe ser un objeto.")
 
             request = natal_request_from_subject(subject)
-            chart = dict(backend.calculate_natal(request))
+            try:
+                chart = dict(backend.calculate_natal(request))
+            except AstronomyBackendNotEvaluableError as exc:
+                return not_evaluable_result("M02", str(exc))
 
             chart.setdefault("subject_id", request.subject_id)
             chart.setdefault("timed", request.timed)
@@ -40,11 +43,19 @@ def make_m02_natal(backend: AstrologyBackend):
 
             charts[request.subject_id] = chart
 
+        backend_info = {
+            "id": backend.backend_id,
+            "version": backend.backend_version,
+        }
+        provenance = getattr(backend, "provenance", None)
+        if isinstance(provenance, Mapping):
+            backend_info["provenance"] = dict(provenance)
+        capabilities = getattr(backend, "capabilities", None)
+        if isinstance(capabilities, Mapping):
+            backend_info["capabilities"] = dict(capabilities)
+
         output = {
-            "backend": {
-                "id": backend.backend_id,
-                "version": backend.backend_version,
-            },
+            "backend": backend_info,
             "charts": charts,
         }
 

@@ -88,7 +88,10 @@ def _statistic(snapshot: Mapping[str, Any], statistic_id: str) -> float:
         value = pillars.get("PX")
         if value is None:
             raise ValueError("PX no evaluable en snapshot Q6.")
-        return 100.0 * float(value)
+        score = float(value)
+        if not 0.0 <= score <= 100.0:
+            raise ValueError("PX debe estar en [0,100] en snapshot Q6.")
+        return score
     raise ValueError(f"Estadístico Q6 desconocido: {statistic_id}.")
 
 

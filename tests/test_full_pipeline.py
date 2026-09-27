@@ -5,6 +5,7 @@ from almas_tfa.handlers import configured_handlers
 from almas_tfa.module_contract import ExecutionStatus
 from almas_tfa.orchestrator import Orchestrator
 from almas_tfa.relationship_chart_handlers import DavisonRequest
+from test_canonical_schema_validation import canonical_validator
 
 
 def full_manifest():
@@ -432,6 +433,9 @@ class TestFullPipelineSynthetic(unittest.TestCase):
         self.assertFalse(report_model["rendered_document_created"])
         self.assertFalse(report_model["docx_created"])
         self.assertFalse(report_model["pdf_created"])
+        canonical_validator().validate(
+            run.canonical["canonical_analysis"]
+        )
         self.assertIn("promotion_reporting", report_model)
         promotion_reporting = report_model["promotion_reporting"]
         self.assertTrue(promotion_reporting["methodological_status_only"])

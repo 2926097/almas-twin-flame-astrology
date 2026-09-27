@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.17.0  
+**Versión pública:** 1.18.0  
 **Estado:** pipeline modular M00–M31 ejecutable + recurrencia semántica PX/PS v2 + calibración de especificidad S1–S9 + perfiles de análisis + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
@@ -72,6 +72,8 @@ Desde 1.15.0, ALMAS añade calibración de especificidad S1–S9 sin cambiar los
 Desde 1.16.0, ALMAS operacionaliza el ciclo de validación con preregistro V1, apertura holdout V2, ledger criptográfico V3, continuidad V4 y cierre/auditoría V5. Estos controles permiten demostrar trazabilidad del procedimiento sin convertir una evaluación en activación automática, validación L3 ni probabilidad metafísica.
 
 Desde 1.17.0, ALMAS publica un manifiesto estructural único que enlaza técnica, dependencia, orbes y loading. Los orbes siguen siendo explícitos y declarados por entrada; 1.17 no introduce valores implícitos, nuevas técnicas ni nuevos pesos.
+
+Desde 1.18.0, M02 y M08 pueden ejecutarse con el adaptador opcional `MoiraProductionBackend`. La instalación del núcleo sigue sin arrastrar un motor astronómico; el extra `astronomy-moira` fija Moira 6.8.2 y todo cálculo exige un kernel JPL local cuyo SHA-256 forma parte de la procedencia.
 
 ## Repositorio
 

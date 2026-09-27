@@ -19,6 +19,21 @@ REQUIRED_FILES = [
     "docs/MODULE_ARCHITECTURE.md",
     "docs/MODULE_EXECUTION_CONTRACT.md",
     "docs/ASTRONOMY_BACKEND_DECISION.md",
+    "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
+    "docs/CANONICAL_SCHEMA_AUDIT_1.18.md",
+    ".github/workflows/astronomy-backend.yml",
+    "scripts/validate_astronomy_backend_runtime.py",
+    "scripts/validate_skyfield_reference_runtime.py",
+    "scripts/validate_astronomy_golden_result.py",
+    "scripts/run_astronomy_golden_planetary.py",
+    "scripts/run_astronomy_golden_true_node.py",
+    "scripts/run_astronomy_golden_houses.py",
+    "scripts/run_astronomy_golden_complete.py",
+    "validation/astronomy/golden-cases.v1.json",
+    "validation/astronomy/planetary-stage-evidence.v1.json",
+    "validation/astronomy/true-node-stage-evidence.v1.json",
+    "validation/astronomy/house-stage-evidence.v1.json",
+    "validation/astronomy/complete-stage-evidence.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -38,9 +53,11 @@ REQUIRED_FILES = [
     "docs/RELEASE_AUDIT_1.15.0.md",
     "docs/RELEASE_AUDIT_1.16.0.md",
     "docs/RELEASE_AUDIT_1.17.0.md",
+    "docs/RELEASE_AUDIT_1.18.0.md",
     "docs/EVOLUTION_1.15.0.md",
     "docs/EVOLUTION_1.16.0.md",
     "docs/EVOLUTION_1.17.0.md",
+    "docs/EVOLUTION_1.18.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -53,6 +70,7 @@ REQUIRED_FILES = [
     "schemas/aspect-policy.schema.json",
     "schemas/structural-policy-manifest.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/semantic-motif-graph.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
     "schemas/discriminator-promotion-transition.schema.json",
@@ -64,6 +82,8 @@ REQUIRED_FILES = [
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
+    "schemas/astronomy-backend-provenance.schema.json",
+    "schemas/astronomy-golden-result.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
     "schemas/declination-output.schema.json",
@@ -203,6 +223,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/technique-dependency-registry.json",
     "src/almas_tfa/data/declared-orb-contract-policy.json",
     "src/almas_tfa/data/structural-loading-policy.json",
+    "src/almas_tfa/data/production-astronomy-backend-policy.json",
+    "src/almas_tfa/data/astronomy-golden-validation-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
     "src/almas_tfa/data/recurrence-quality-policy.json",
@@ -232,6 +254,11 @@ REQUIRED_FILES = [
     "src/almas_tfa/orchestrator.py",
     "src/almas_tfa/handlers.py",
     "src/almas_tfa/astrology_backend.py",
+    "src/almas_tfa/production_astronomy.py",
+    "src/almas_tfa/astronomy_golden_validation.py",
+    "src/almas_tfa/skyfield_planetary_reference.py",
+    "src/almas_tfa/skyfield_true_node_reference.py",
+    "src/almas_tfa/skyfield_placidus_reference.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/structural_policies.py",
@@ -366,6 +393,11 @@ REQUIRED_FILES = [
     "tests/test_validation_continuity.py",
     "tests/test_validation_closure.py",
     "tests/test_structural_policies.py",
+    "tests/test_production_astronomy.py",
+    "tests/test_astronomy_golden_validation.py",
+    "tests/test_skyfield_planetary_reference.py",
+    "tests/test_skyfield_true_node_reference.py",
+    "tests/test_skyfield_placidus_reference.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -492,6 +524,30 @@ def main() -> int:
             fail(f"contract module missing token: {needle}")
 
     raw_schema = load_json("schemas/raw-input.schema.json")
+    astronomy_backend_provenance_schema = load_json(
+        "schemas/astronomy-backend-provenance.schema.json"
+    )
+    astronomy_golden_result_schema = load_json(
+        "schemas/astronomy-golden-result.schema.json"
+    )
+    astronomy_golden_policy = load_json(
+        "src/almas_tfa/data/astronomy-golden-validation-policy.json"
+    )
+    astronomy_golden_cases = load_json(
+        "validation/astronomy/golden-cases.v1.json"
+    )
+    astronomy_planetary_evidence = load_json(
+        "validation/astronomy/planetary-stage-evidence.v1.json"
+    )
+    astronomy_true_node_evidence = load_json(
+        "validation/astronomy/true-node-stage-evidence.v1.json"
+    )
+    astronomy_house_evidence = load_json(
+        "validation/astronomy/house-stage-evidence.v1.json"
+    )
+    astronomy_complete_evidence = load_json(
+        "validation/astronomy/complete-stage-evidence.v1.json"
+    )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
@@ -527,6 +583,9 @@ def main() -> int:
     )
     structural_loading_policy = load_json(
         "src/almas_tfa/data/structural-loading-policy.json"
+    )
+    production_astronomy_backend_policy = load_json(
+        "src/almas_tfa/data/production-astronomy-backend-policy.json"
     )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
@@ -743,6 +802,349 @@ def main() -> int:
         fail("discriminator source genealogy target version diverges from VERSION")
     if operational_discriminator_candidates.get("target_almas_version") != version:
         fail("operational discriminator target version diverges from VERSION")
+
+    if production_astronomy_backend_policy.get("policy_id") != "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1":
+        fail("production astronomy backend policy id changed")
+    if production_astronomy_backend_policy.get("status") != "FROZEN_PRODUCTION_CONTRACT":
+        fail("production astronomy backend policy must remain frozen")
+    provider = production_astronomy_backend_policy.get("provider", {})
+    if provider.get("package") != "moira-astro" or provider.get("pinned_version") != "6.8.2":
+        fail("production astronomy provider/version changed")
+    if provider.get("license") != "MIT":
+        fail("production astronomy provider license declaration changed")
+    kernel = production_astronomy_backend_policy.get("kernel", {})
+    for key in (
+        "required",
+        "local_file_required",
+        "sha256_required",
+        "kernel_choice_is_part_of_result_identity",
+    ):
+        if kernel.get(key) is not True:
+            fail(f"production astronomy kernel invariant failed: {key}")
+    if kernel.get("network_download_during_calculation") is not False:
+        fail("production astronomy backend must forbid network download during calculation")
+    if set(kernel.get("allowed_families", [])) != {"DE430", "DE440", "DE441"}:
+        fail("production astronomy allowed kernel families changed")
+    time_policy = production_astronomy_backend_policy.get("time", {})
+    if time_policy.get("timezone_standard") != "IANA":
+        fail("production astronomy timezone standard changed")
+    for key in ("hidden_timezone_lookup",):
+        if time_policy.get(key) is not False:
+            fail(f"production astronomy time invariant failed: {key}")
+    if time_policy.get("ambiguous_local_time") != "FAIL_CLOSED":
+        fail("production astronomy ambiguous time must fail closed")
+    if time_policy.get("nonexistent_local_time") != "FAIL_CLOSED":
+        fail("production astronomy nonexistent time must fail closed")
+    location_policy = production_astronomy_backend_policy.get("location", {})
+    if location_policy.get("numeric_coordinates_required_for_timed_chart") is not True:
+        fail("production astronomy timed charts must require numeric coordinates")
+    if location_policy.get("hidden_geocoding") is not False:
+        fail("production astronomy backend must forbid hidden geocoding")
+    natal_policy = production_astronomy_backend_policy.get("natal", {})
+    if natal_policy.get("node_mode") != "TRUE_NODE":
+        fail("production astronomy node mode changed")
+    if natal_policy.get("house_system_must_be_explicit") is not True:
+        fail("production astronomy house system must be explicit")
+    if natal_policy.get("polar_house_fallback") != "FORBIDDEN":
+        fail("production astronomy polar house fallback must remain forbidden")
+    capabilities = production_astronomy_backend_policy.get("capabilities", {})
+    for key in (
+        "planetary_longitude",
+        "ecliptic_latitude",
+        "declination",
+        "longitudinal_speed",
+        "retrograde",
+        "true_lunar_node",
+        "houses",
+        "angles",
+        "davison",
+    ):
+        if capabilities.get(key) is not True:
+            fail(f"production astronomy capability missing: {key}")
+    for key in ("hidden_network_io", "hidden_geocoding"):
+        if capabilities.get(key) is not False:
+            fail(f"production astronomy capability firewall failed: {key}")
+
+    provenance_props = astronomy_backend_provenance_schema.get("properties", {})
+    if provenance_props.get("policy_id", {}).get("const") != "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1":
+        fail("astronomy backend provenance schema policy id changed")
+    if provenance_props.get("provider_version", {}).get("const") != "6.8.2":
+        fail("astronomy backend provenance schema provider version changed")
+    if "kernel_family" not in astronomy_backend_provenance_schema.get("required", []):
+        fail("astronomy backend provenance must require kernel_family")
+    for field in ("network_io_used", "geocoding_used"):
+        if provenance_props.get(field, {}).get("const") is not False:
+            fail(f"astronomy backend provenance must lock {field}=false")
+    natal_backend_ref = (
+        load_json("schemas/natal-chart.schema.json")
+        .get("properties", {})
+        .get("backend_provenance", {})
+        .get("$ref")
+    )
+    if natal_backend_ref != "astronomy-backend-provenance.schema.json":
+        fail("natal chart schema must reference astronomy backend provenance")
+
+    if astronomy_golden_policy.get("policy_id") != "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1":
+        fail("astronomy golden validation policy id changed")
+    if astronomy_golden_policy.get("status") != "PREREGISTERED_NOT_EXECUTED":
+        fail("astronomy golden validation must remain preregistered until real execution")
+    backend_contract = astronomy_golden_policy.get("backend_contract", {})
+    expected_golden_geometry = {
+        "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+        "provider_version": "6.8.2",
+        "kernel_family": "DE440",
+        "coordinate_origin": "GEOCENTRIC",
+        "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+        "apparent_reduction": True,
+        "topocentric_positions": False,
+        "zodiac": "TROPICAL",
+        "node_mode": "TRUE_NODE",
+    }
+    for key, expected in expected_golden_geometry.items():
+        if backend_contract.get(key) != expected:
+            fail(f"astronomy golden backend contract changed: {key}")
+    golden_artifact = astronomy_golden_policy.get("kernel_artifact", {})
+    expected_artifact = {
+        "filename": "de440s.bsp",
+        "family": "DE440",
+        "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+        "md5": "3917ee56769db332790c751e2168843d",
+        "size_bytes": 32726016,
+        "network_forbidden_during_calculation": True,
+    }
+    for key, expected in expected_artifact.items():
+        if golden_artifact.get(key) != expected:
+            fail(f"astronomy golden kernel artifact changed: {key}")
+    expected_stages = {
+        "PLANETARY_REFERENCE": {
+            "planetary_longitude", "ecliptic_latitude", "declination"
+        },
+        "TRUE_NODE_REFERENCE": {"true_node_longitude"},
+        "HOUSE_REFERENCE": {"angle_longitude", "house_cusp_longitude"},
+        "COMPLETE_GATE": {
+            "planetary_longitude", "ecliptic_latitude", "declination",
+            "true_node_longitude", "angle_longitude",
+            "house_cusp_longitude",
+        },
+    }
+    actual_stages = astronomy_golden_policy.get("validation_stages", {})
+    if set(actual_stages) != set(expected_stages):
+        fail("astronomy golden validation stages changed")
+    for stage_id, expected_metrics in expected_stages.items():
+        if set(actual_stages.get(stage_id, [])) != expected_metrics:
+            fail(f"astronomy golden stage metrics changed: {stage_id}")
+    true_node_reference = astronomy_golden_policy.get("reference_contract", {}).get("true_node", {})
+    expected_true_node_reference = {
+        "method_family": "INDEPENDENT_OSCULATING_GEOMETRIC_NODE",
+        "preferred_implementation": "SKYFIELD_DE440_FIRST_PRINCIPLES",
+        "method_id": "ALMAS_SKYFIELD_DE440_TRUE_NODE_REFERENCE_V1",
+        "definition": "INSTANTANEOUS_GEOCENTRIC_OSCULATING_LUNAR_PLANE_INTERSECTION_WITH_TRUE_ECLIPTIC_OF_DATE",
+        "state_vectors": "SIMULTANEOUS_MOON_MINUS_EARTH",
+        "orbital_normal": "ICRF_R_CROSS_V_THEN_ROTATE_TO_TRUE_ECLIPTIC_OF_DATE",
+        "ascending_node_orientation": "K_CROSS_H",
+        "time_alignment": "COMMON_TT_EPOCH_FROM_BACKEND_RECEIPT",
+        "same_software_implementation_forbidden": True,
+    }
+    for key, expected in expected_true_node_reference.items():
+        if true_node_reference.get(key) != expected:
+            fail(f"astronomy true-node reference contract changed: {key}")
+    house_reference = astronomy_golden_policy.get("reference_contract", {}).get("houses_and_angles", {})
+    expected_house_reference = {
+        "method_family": "INDEPENDENT_PLACIDUS_SEMI_ARC_IMPLEMENTATION",
+        "preferred_implementation": "ALMAS_SKYFIELD_PLACIDUS_REFERENCE_V1",
+        "method_id": "ALMAS_SKYFIELD_PLACIDUS_REFERENCE_V1",
+        "house_system": "PLACIDUS",
+        "house_code": "P",
+        "armc": "GREENWICH_APPARENT_SIDEREAL_TIME_PLUS_GEOGRAPHIC_LONGITUDE",
+        "time_alignment": "BACKEND_JD_UT_PLUS_BACKEND_DELTA_T",
+        "delta_t_source": "BACKEND_RECEIPT",
+        "obliquity": "TRUE_OBLIQUITY_FROM_SKYFIELD_TRUE_EQUATOR_AND_TRUE_ECLIPTIC_FRAMES",
+        "intermediate_cusps": "CLASSIC_ITERATIVE_SEMI_ARC_TRISECTION",
+        "convergence_threshold_deg": 1e-7,
+        "max_iterations": 100,
+        "polar_fallback": "FORBIDDEN",
+        "same_software_implementation_forbidden": True,
+    }
+    for key, expected in expected_house_reference.items():
+        if house_reference.get(key) != expected:
+            fail(f"astronomy house reference contract changed: {key}")
+    tolerances = astronomy_golden_policy.get("tolerances_arcsec", {})
+    expected_defaults = {
+        "planetary_longitude": 5.0,
+        "ecliptic_latitude": 5.0,
+        "declination": 10.0,
+        "true_node_longitude": 60.0,
+        "angle_longitude": 60.0,
+        "house_cusp_longitude": 60.0,
+    }
+    for metric, expected in expected_defaults.items():
+        if tolerances.get(metric, {}).get("default") != expected:
+            fail(f"astronomy golden tolerance changed: {metric}")
+    if tolerances.get("planetary_longitude", {}).get("overrides", {}).get("MOON") != 15.0:
+        fail("astronomy golden Moon longitude tolerance changed")
+    if tolerances.get("ecliptic_latitude", {}).get("overrides", {}).get("MOON") != 15.0:
+        fail("astronomy golden Moon latitude tolerance changed")
+    if tolerances.get("declination", {}).get("overrides", {}).get("MOON") != 20.0:
+        fail("astronomy golden Moon declination tolerance changed")
+    decision_rule = astronomy_golden_policy.get("decision_rule", {})
+    for key in (
+        "all_required_measurements_must_be_present",
+        "all_required_measurements_must_be_within_tolerance",
+        "threshold_change_after_observation_forbidden",
+        "threshold_change_requires_new_policy_id",
+    ):
+        if decision_rule.get(key) is not True:
+            fail(f"astronomy golden decision rule changed: {key}")
+    if decision_rule.get("aggregation") != "NONE":
+        fail("astronomy golden gate must not average failures")
+    if astronomy_golden_cases.get("case_set_id") != "ALMAS_ASTRONOMY_GOLDEN_CASES_V1":
+        fail("astronomy golden case set id changed")
+    if astronomy_golden_cases.get("status") != "PREREGISTERED_INPUTS_ONLY":
+        fail("astronomy golden cases must remain inputs-only before real execution")
+    golden_cases = astronomy_golden_cases.get("cases", [])
+    if len(golden_cases) != 6 or len({case.get("case_id") for case in golden_cases}) != 6:
+        fail("astronomy golden case set must contain six unique preregistered cases")
+    golden_schema_props = astronomy_golden_result_schema.get("properties", {})
+    if golden_schema_props.get("policy_id", {}).get("const") != "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1":
+        fail("astronomy golden result schema policy id changed")
+    if golden_schema_props.get("case_set_id", {}).get("const") != "ALMAS_ASTRONOMY_GOLDEN_CASES_V1":
+        fail("astronomy golden result schema case set id changed")
+    if golden_schema_props.get("reference_provenance", {}).get("type") != "array":
+        fail("astronomy golden result must support multiple references")
+    measurement_required = set(
+        golden_schema_props.get("measurements", {})
+        .get("items", {})
+        .get("required", [])
+    )
+    if "reference_method_id" not in measurement_required:
+        fail("astronomy golden measurements must identify reference method")
+
+    if astronomy_planetary_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_PLANETARY_EVIDENCE_V1":
+        fail("astronomy planetary evidence id changed")
+    if astronomy_planetary_evidence.get("validation_stage") != "PLANETARY_REFERENCE":
+        fail("astronomy planetary evidence stage changed")
+    if astronomy_planetary_evidence.get("status") != "PASS":
+        fail("astronomy planetary evidence must remain PASS")
+    if astronomy_planetary_evidence.get("execution_commit") != "ff9252dce9db6f1654fe52aeb3de3448f5371edc":
+        fail("astronomy planetary evidence execution commit changed")
+    if astronomy_planetary_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy planetary evidence Python matrix changed")
+    evidence_kernel = astronomy_planetary_evidence.get("kernel", {})
+    if evidence_kernel.get("sha256") != expected_artifact["sha256"]:
+        fail("astronomy planetary evidence kernel SHA diverges")
+    if evidence_kernel.get("md5") != expected_artifact["md5"]:
+        fail("astronomy planetary evidence kernel MD5 diverges")
+    if astronomy_planetary_evidence.get("measurements_per_environment") != 180:
+        fail("astronomy planetary evidence measurement count changed")
+    evidence_repro = astronomy_planetary_evidence.get("reproducibility", {})
+    if evidence_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy planetary evidence must reproduce across Python versions")
+    if evidence_repro.get("failure_count") != 0:
+        fail("astronomy planetary evidence contains failures")
+    if evidence_repro.get("thresholds_modified_after_observation") is not False:
+        fail("astronomy planetary evidence cannot alter preregistered thresholds")
+    evidence_cases = astronomy_planetary_evidence.get("cases", [])
+    if len(evidence_cases) != 6 or any(case.get("status") != "PASS" for case in evidence_cases):
+        fail("all six astronomy planetary evidence cases must PASS")
+    overall_max = astronomy_planetary_evidence.get("overall_max", {})
+    if overall_max.get("delta_arcsec") != 0.9257480642418159:
+        fail("astronomy planetary evidence maximum delta changed")
+    if overall_max.get("tolerance_arcsec") != 15.0:
+        fail("astronomy planetary evidence maximum tolerance changed")
+
+    if astronomy_true_node_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_TRUE_NODE_EVIDENCE_V1":
+        fail("astronomy true-node evidence id changed")
+    if astronomy_true_node_evidence.get("validation_stage") != "TRUE_NODE_REFERENCE":
+        fail("astronomy true-node evidence stage changed")
+    if astronomy_true_node_evidence.get("status") != "PASS":
+        fail("astronomy true-node evidence must remain PASS")
+    if astronomy_true_node_evidence.get("execution_commit") != "25226b69c2fded6d167175dc20bf682d9f14879e":
+        fail("astronomy true-node evidence execution commit changed")
+    if astronomy_true_node_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy true-node evidence Python matrix changed")
+    if astronomy_true_node_evidence.get("measurements_per_environment") != 6:
+        fail("astronomy true-node evidence measurement count changed")
+    true_node_repro = astronomy_true_node_evidence.get("reproducibility", {})
+    if true_node_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy true-node evidence must reproduce across Python versions")
+    if true_node_repro.get("failure_count") != 0:
+        fail("astronomy true-node evidence contains failures")
+    if true_node_repro.get("thresholds_modified_after_observation") is not False:
+        fail("astronomy true-node evidence cannot alter preregistered thresholds")
+    true_node_cases = astronomy_true_node_evidence.get("cases", [])
+    if len(true_node_cases) != 6 or any(case.get("status") != "PASS" for case in true_node_cases):
+        fail("all six astronomy true-node evidence cases must PASS")
+    true_node_max = astronomy_true_node_evidence.get("overall_max", {})
+    if true_node_max.get("delta_arcsec") != 0.005674621911566646:
+        fail("astronomy true-node evidence maximum delta changed")
+    if true_node_max.get("tolerance_arcsec") != 60.0:
+        fail("astronomy true-node evidence tolerance changed")
+
+    if astronomy_house_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_HOUSE_EVIDENCE_V1":
+        fail("astronomy house evidence id changed")
+    if astronomy_house_evidence.get("validation_stage") != "HOUSE_REFERENCE":
+        fail("astronomy house evidence stage changed")
+    if astronomy_house_evidence.get("status") != "PASS":
+        fail("astronomy house evidence must remain PASS")
+    if astronomy_house_evidence.get("execution_commit") != "f07696cee3e73f71032ea83f2eec24a3321e5f28":
+        fail("astronomy house evidence execution commit changed")
+    if astronomy_house_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy house evidence Python matrix changed")
+    if astronomy_house_evidence.get("measurements_per_environment") != 96:
+        fail("astronomy house evidence measurement count changed")
+    house_repro = astronomy_house_evidence.get("reproducibility", {})
+    if house_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy house evidence must reproduce across Python versions")
+    if house_repro.get("failure_count") != 0:
+        fail("astronomy house evidence contains failures")
+    house_max = astronomy_house_evidence.get("overall_max", {})
+    if house_max.get("delta_arcsec") != 39.89038871222874:
+        fail("astronomy house evidence maximum delta changed")
+    if house_max.get("tolerance_arcsec") != 60.0:
+        fail("astronomy house evidence tolerance changed")
+
+    if astronomy_complete_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_COMPLETE_EVIDENCE_V1":
+        fail("astronomy complete evidence id changed")
+    if astronomy_complete_evidence.get("validation_stage") != "COMPLETE_GATE":
+        fail("astronomy complete evidence stage changed")
+    if astronomy_complete_evidence.get("status") != "PASS":
+        fail("astronomy complete gate must remain PASS")
+    if astronomy_complete_evidence.get("execution_commit") != "40725734d15d83d0bb21b05c0e6496ef606ba8cb":
+        fail("astronomy complete evidence execution commit changed")
+    if astronomy_complete_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy complete evidence Python matrix changed")
+    if astronomy_complete_evidence.get("measurements_per_case") != 47:
+        fail("astronomy complete evidence per-case count changed")
+    if astronomy_complete_evidence.get("measurements_per_environment") != 282:
+        fail("astronomy complete evidence measurement count changed")
+    complete_repro = astronomy_complete_evidence.get("reproducibility", {})
+    if complete_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy complete evidence must reproduce across Python versions")
+    if complete_repro.get("summary_sha256") != "dcc6d349e6eabc22f90c6911e3fbf466579872f6b186471d822a7a892a8faa9a":
+        fail("astronomy complete summary fingerprint changed")
+    if complete_repro.get("failure_count") != 0:
+        fail("astronomy complete evidence contains failures")
+    if complete_repro.get("thresholds_modified_after_observation") is not False:
+        fail("astronomy complete evidence cannot alter preregistered thresholds")
+    complete_cases = astronomy_complete_evidence.get("cases", [])
+    if len(complete_cases) != 6 or any(case.get("status") != "PASS" for case in complete_cases):
+        fail("all six astronomy complete evidence cases must PASS")
+    if any(case.get("measurement_count") != 47 for case in complete_cases):
+        fail("each astronomy complete case must contain 47 measurements")
+    complete_max = astronomy_complete_evidence.get("overall_max", {})
+    if complete_max.get("delta_arcsec") != 39.89038871222874:
+        fail("astronomy complete evidence maximum delta changed")
+    if complete_max.get("tolerance_arcsec") != 60.0:
+        fail("astronomy complete evidence tolerance changed")
+    if astronomy_complete_evidence.get("remaining_stages") != []:
+        fail("astronomy complete evidence must close all golden stages")
+
+    if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
+        fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
+    if 'astronomy-validation = ["skyfield==1.55"]' not in pyproject:
+        fail("pyproject must pin optional skyfield 1.55 validation extra")
+    if 'schema-validation = ["jsonschema==4.26.0"]' not in pyproject:
+        fail("pyproject must pin jsonschema 4.26.0 validation extra")
 
     if structural_policy_manifest.get("almas_public_version") != version:
         fail("structural policy manifest version diverges from VERSION")
@@ -3148,6 +3550,20 @@ def main() -> int:
     if "identity_target_concept_id" not in claim_props:
         fail("doctrinal identity claims must declare an identity target concept")
 
+    support_ref_item = claim_props.get("source_support_refs", {}).get("items", {})
+    if set(support_ref_item.get("required", [])) != {"source_id", "support_index", "resolved"}:
+        fail("doctrinal source_support_ref must require resolution state")
+    if support_ref_item.get("properties", {}).get("resolved", {}).get("type") != "boolean":
+        fail("doctrinal source_support_ref resolved must be boolean")
+    for field in (
+        "contemporary_usage_promoted_to_ontology",
+        "project_hypothesis_promoted_to_doctrine",
+        "cross_tradition_identity_inferred",
+        "doctrine_adds_structural_score",
+    ):
+        if claim_props.get(field, {}).get("const") is not False:
+            fail(f"doctrinal claim firewall must lock {field}=false")
+
 
     if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
         fail("contract causal chain schema must expose 2.0.0")
@@ -3917,6 +4333,259 @@ def main() -> int:
     if embedded_fulfillment.get("why_not_more_specific") != fulfillment_example.get("why_not_more_specific"):
         fail("embedded fulfillment explanation diverges from standalone synthetic example")
 
+    expected_canonical_required = {
+        "schema_version",
+        "analysis_mode",
+        "analysis_profile",
+        "profile_policy_id",
+        "astronomy_backend",
+        "evidence",
+        "models",
+        "indices",
+        "pairwise_idd",
+        "coverage",
+        "robustness",
+        "counterevidence",
+        "counterevidence_state",
+        "ontology",
+        "doctrine",
+        "temporal",
+        "limitations",
+        "assembly",
+    }
+    if set(canonical_schema.get("required", [])) != expected_canonical_required:
+        fail("canonical schema required root field set changed")
+    if set(
+        canonical_schema.get("properties", {})
+        .get("analysis_mode", {})
+        .get("enum", [])
+    ) != {"FULL", "TEMPORAL"}:
+        fail("canonical analysis_mode must match current analysis profile policy")
+    ontology_schema = canonical_schema.get("properties", {}).get("ontology", {})
+    if ontology_schema.get("maxProperties") != 0:
+        fail("canonical ontology placeholder must remain empty in M30")
+    if ontology_schema.get("additionalProperties") is not False:
+        fail("canonical ontology placeholder must reject properties")
+
+    canonical_props = canonical_schema.get("properties", {})
+    expected_canonical_root_props = {
+        "schema_version",
+        "analysis_mode",
+        "analysis_profile",
+        "profile_policy_id",
+        "astronomy_backend",
+        "evidence",
+        "models",
+        "indices",
+        "pairwise_idd",
+        "coverage",
+        "robustness",
+        "counterevidence",
+        "counterevidence_state",
+        "ontology",
+        "doctrine",
+        "temporal",
+        "semantic_motifs",
+        "time_sensitivity",
+        "limitations",
+        "ontological_discrimination",
+        "null_models",
+        "assembly",
+    }
+    if set(canonical_props) != expected_canonical_root_props:
+        fail("canonical schema root surface diverges from M30 output contract")
+    if canonical_schema.get("additionalProperties") is not False:
+        fail("canonical schema root must reject undeclared namespaces")
+
+    if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
+        fail("canonical null_models must compose the M24 output schema")
+    if canonical_props.get("semantic_motifs", {}).get("$ref") != "semantic-motif-graph.schema.json":
+        fail("canonical semantic_motifs must compose the semantic motif graph schema")
+    if canonical_props.get("time_sensitivity", {}).get("$ref") != "time-sensitivity-output.schema.json":
+        fail("canonical time_sensitivity must compose the M23 output schema")
+    if canonical_props.get("doctrine", {}).get("items", {}).get("$ref") != "doctrinal-claim.schema.json":
+        fail("canonical doctrine items must compose the doctrinal claim schema")
+
+    temporal_schema = canonical_props.get("temporal", {})
+    if temporal_schema.get("additionalProperties") is not False:
+        fail("canonical temporal wrapper must reject undeclared fields")
+    temporal_props = temporal_schema.get("properties", {})
+    if set(temporal_props) != {"activation", "events"}:
+        fail("canonical temporal wrapper must expose exactly activation/events")
+    if temporal_props.get("activation", {}).get("$ref") != "temporal-activation-output.schema.json":
+        fail("canonical temporal.activation must compose M26 output schema")
+    if temporal_props.get("events", {}).get("$ref") != "documentary-event-output.schema.json":
+        fail("canonical temporal.events must compose M27 output schema")
+
+    pairwise_schema = canonical_props.get("pairwise_idd", {})
+    pairwise_item = pairwise_schema.get("additionalProperties", {})
+    if pairwise_item.get("additionalProperties") is not False:
+        fail("canonical pairwise_idd entries must reject undeclared fields")
+    if set(pairwise_item.get("required", [])) != {"idd", "band"}:
+        fail("canonical pairwise_idd entries must require idd and band")
+
+    astronomy_backend_schema = canonical_props.get("astronomy_backend", {})
+    expected_astronomy_backend_fields = {
+        "state",
+        "backend_id",
+        "backend_version",
+        "provenance_state",
+        "provenance",
+    }
+    if set(astronomy_backend_schema.get("properties", {})) != expected_astronomy_backend_fields:
+        fail("canonical astronomy backend trace surface changed")
+    if set(astronomy_backend_schema.get("required", [])) != expected_astronomy_backend_fields:
+        fail("canonical astronomy backend trace must require all trace fields")
+    if astronomy_backend_schema.get("additionalProperties") is not False:
+        fail("canonical astronomy backend trace must reject undeclared fields")
+    production_rule_found = False
+    for rule in astronomy_backend_schema.get("allOf", []):
+        condition = (
+            rule.get("if", {})
+            .get("properties", {})
+            .get("backend_id", {})
+            .get("const")
+        )
+        if condition != "MOIRA_JPL_SPK":
+            continue
+        production_rule_found = True
+        then_props = rule.get("then", {}).get("properties", {})
+        if then_props.get("backend_version", {}).get("const") != "6.8.2":
+            fail("canonical production astronomy backend version changed")
+        if then_props.get("provenance_state", {}).get("const") != "DECLARED":
+            fail("canonical production astronomy backend must require declared provenance")
+        if then_props.get("provenance", {}).get("$ref") != "astronomy-backend-provenance.schema.json":
+            fail("canonical production astronomy provenance must compose the production provenance schema")
+    if not production_rule_found:
+        fail("canonical schema lacks production astronomy provenance conditional")
+
+    evidence_schema = canonical_props.get("evidence", {})
+    evidence_item = evidence_schema.get("items", {})
+    expected_evidence_fields = {
+        "evidence_id",
+        "source_module",
+        "root_id",
+        "root_key",
+        "strength",
+        "strength_state",
+        "core_eligible",
+        "dependency_families",
+    }
+    if set(evidence_item.get("properties", {})) != expected_evidence_fields:
+        fail("canonical evidence projection surface changed")
+    if set(evidence_item.get("required", [])) != expected_evidence_fields:
+        fail("canonical evidence projection must require all M17 projection fields")
+    if evidence_item.get("additionalProperties") is not False:
+        fail("canonical evidence projection must reject undeclared fields")
+    if evidence_item.get("properties", {}).get("source_module", {}).get("const") != "M17":
+        fail("canonical evidence must remain rooted in M17")
+
+    counter_item = canonical_schema.get("$defs", {}).get("counterevidence_item", {})
+    expected_counter_fields = {
+        "id",
+        "model",
+        "kind",
+        "contradiction_key",
+        "dependency_family",
+        "essential",
+        "severity",
+        "evidence_refs",
+        "note",
+    }
+    if set(counter_item.get("properties", {})) != expected_counter_fields:
+        fail("canonical counterevidence item surface changed")
+    if set(counter_item.get("required", [])) != expected_counter_fields:
+        fail("canonical counterevidence item must require all M20 projection fields")
+    if counter_item.get("additionalProperties") is not False:
+        fail("canonical counterevidence items must reject undeclared fields")
+    if canonical_props.get("counterevidence", {}).get("items", {}).get("$ref") != "#/$defs/counterevidence_item":
+        fail("canonical counterevidence must use the normalized M20 item contract")
+
+    counter_state_schema = canonical_props.get("counterevidence_state", {})
+    if counter_state_schema.get("additionalProperties") is not False:
+        fail("canonical counterevidence_state must reject undeclared fields")
+    if set(counter_state_schema.get("required", [])) != {
+        "ice_evaluable",
+        "ice_by_model",
+        "essential_contradictions",
+    }:
+        fail("canonical counterevidence_state required fields changed")
+
+    assembly_schema = canonical_props.get("assembly", {})
+    if assembly_schema.get("additionalProperties") is not False:
+        fail("canonical assembly metadata must reject undeclared fields")
+    assembly_props = assembly_schema.get("properties", {})
+    if assembly_props.get("policy_id", {}).get("const") != "ALMAS_CANONICAL_ASSEMBLY_V2":
+        fail("canonical assembly policy id changed")
+    if assembly_props.get("source", {}).get("const") != "M01_M29_CANONICAL_NAMESPACES":
+        fail("canonical assembly source changed")
+    for field in (
+        "recalculated_astrology",
+        "recalculated_roots",
+        "recalculated_pillars",
+    ):
+        if assembly_props.get(field, {}).get("const") is not False:
+            fail(f"canonical assembly must lock {field}=false")
+
+    robustness_schema = canonical_props.get("robustness", {})
+    expected_robustness_fields = {
+        "IRC",
+        "R_min",
+        "component_count",
+        "components",
+        "null_model_rarity_used_as_robustness",
+        "timed_architecture_present",
+        "birth_time_component_present",
+    }
+    if set(robustness_schema.get("properties", {})) != expected_robustness_fields:
+        fail("canonical robustness surface changed")
+    if set(robustness_schema.get("required", [])) != expected_robustness_fields:
+        fail("canonical robustness must require all M30 fields")
+    if robustness_schema.get("additionalProperties") is not False:
+        fail("canonical robustness must reject undeclared fields")
+    component_ref = (
+        robustness_schema.get("properties", {})
+        .get("components", {})
+        .get("items", {})
+        .get("$ref")
+    )
+    if component_ref != "robustness-output.schema.json#/properties/components/items":
+        fail("canonical robustness components must reuse M25 component contract")
+    if (
+        robustness_schema.get("properties", {})
+        .get("null_model_rarity_used_as_robustness", {})
+        .get("const")
+        is not False
+    ):
+        fail("canonical robustness must forbid null rarity as robustness")
+
+    if canonical_props.get("profile_policy_id", {}).get("const") != "ALMAS_ANALYSIS_PROFILES_V1":
+        fail("canonical profile policy id changed")
+    profile_schema = assembly_props.get("analysis_profile", {})
+    expected_profile_fields = {
+        "profile_id",
+        "analysis_mode",
+        "required_modules",
+        "optional_modules",
+        "excluded_modules",
+        "policy_id",
+        "policy_status",
+        "epistemic_class",
+    }
+    if set(profile_schema.get("properties", {})) != expected_profile_fields:
+        fail("canonical embedded analysis profile surface changed")
+    if set(profile_schema.get("required", [])) != expected_profile_fields:
+        fail("canonical embedded analysis profile must require all trace fields")
+    if profile_schema.get("additionalProperties") is not False:
+        fail("canonical embedded analysis profile must reject undeclared fields")
+    profile_props = profile_schema.get("properties", {})
+    if profile_props.get("policy_id", {}).get("const") != "ALMAS_ANALYSIS_PROFILES_V1":
+        fail("canonical embedded analysis profile policy changed")
+    if profile_props.get("policy_status", {}).get("const") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("canonical embedded analysis profile status changed")
+    if profile_props.get("epistemic_class", {}).get("const") != "E_PROJECT_POLICY":
+        fail("canonical embedded analysis profile epistemic class changed")
+
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
         fail("canonical schema must expose exactly AF, KA, AG, LG model slots")
@@ -3936,6 +4605,74 @@ def main() -> int:
         required_model_fields = set(resolved_spec.get("required", []))
         if not {"iem", "state"}.issubset(required_model_fields):
             fail(f"{model} model contract must require iem and state")
+
+    model_result_schema = canonical_schema.get("$defs", {}).get("model_result", {})
+    if model_result_schema.get("additionalProperties") is not False:
+        fail("canonical model_result must reject undeclared fields")
+    expected_model_fields = {
+        "iem",
+        "state",
+        "core",
+        "support",
+        "iem_pre",
+        "iem_final",
+        "ice",
+        "ice_state",
+        "supported_gate",
+        "birth_time_gate_required",
+        "birth_time_gate_satisfied",
+    }
+    if set(model_result_schema.get("required", [])) != expected_model_fields:
+        fail("canonical model_result required field set changed")
+    if canonical_schema.get("properties", {}).get("models", {}).get("additionalProperties") is not False:
+        fail("canonical models wrapper must reject unknown model ids")
+
+    indices_schema = canonical_schema.get("properties", {}).get("indices", {})
+    expected_indices = {"IDD", "IAT", "ICC", "IRC", "ICE"}
+    if set(indices_schema.get("properties", {})) != expected_indices:
+        fail("canonical indices surface changed")
+    if set(indices_schema.get("required", [])) != expected_indices:
+        fail("canonical indices must require IDD/IAT/ICC/IRC/ICE")
+    if indices_schema.get("additionalProperties") is not False:
+        fail("canonical indices must reject undeclared indices")
+
+    coverage_schema = canonical_schema.get("properties", {}).get("coverage", {})
+    if coverage_schema.get("additionalProperties") is not False:
+        fail("canonical coverage must reject undeclared fields")
+    if set(coverage_schema.get("required", [])) != {
+        "ICC",
+        "domains",
+        "formula",
+        "policy_id",
+    }:
+        fail("canonical coverage required fields changed")
+    if coverage_schema.get("properties", {}).get("formula", {}).get("const") != "100*sum(q_domain)/7":
+        fail("canonical coverage formula changed")
+    if coverage_schema.get("properties", {}).get("policy_id", {}).get("const") != "ALMAS_CANONICAL_ASSEMBLY_V2":
+        fail("canonical coverage policy id changed")
+    coverage_domains_schema = coverage_schema.get("properties", {}).get("domains", {})
+    expected_coverage_domains = {
+        "BASE_NATAL",
+        "SYNASTRY_NODES",
+        "ANGLES_HOUSES",
+        "SYMMETRIES",
+        "RELATIONSHIP_CHARTS",
+        "DRACONIC",
+        "LOTS_SECONDARY",
+    }
+    if set(coverage_domains_schema.get("properties", {})) != expected_coverage_domains:
+        fail("canonical coverage domain set changed")
+    if set(coverage_domains_schema.get("required", [])) != expected_coverage_domains:
+        fail("canonical coverage must require all seven domains")
+    if coverage_domains_schema.get("additionalProperties") is not False:
+        fail("canonical coverage domains must reject unknown domains")
+    for domain_id, domain_schema in coverage_domains_schema.get("properties", {}).items():
+        if domain_schema.get("additionalProperties") is not False:
+            fail(f"canonical coverage domain must reject extra fields: {domain_id}")
+        if domain_schema.get("required") != ["q"]:
+            fail(f"canonical coverage domain must require q: {domain_id}")
+        if set(domain_schema.get("properties", {}).get("q", {}).get("enum", [])) != {0, 0.5, 1}:
+            fail(f"canonical coverage q contract changed: {domain_id}")
 
     subject_items = raw_schema.get("properties", {}).get("subjects", {})
     if subject_items.get("minItems") != 2 or subject_items.get("maxItems") != 2:

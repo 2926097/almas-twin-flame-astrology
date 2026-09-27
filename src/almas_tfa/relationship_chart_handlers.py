@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Mapping, Protocol
 
-from .astrology_backend import NatalRequest, natal_request_from_subject
+from .astrology_backend import AstronomyBackendNotEvaluableError, NatalRequest, natal_request_from_subject
 from .astrology_geometry import angular_distance, normalize_longitude
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 
@@ -191,7 +191,10 @@ def make_m08_davison(backend: DavisonBackend):
                 )
 
         request = DavisonRequest(subject_a=a, subject_b=b, policy=dict(policy))
-        chart = dict(backend.calculate_davison(request))
+        try:
+            chart = dict(backend.calculate_davison(request))
+        except AstronomyBackendNotEvaluableError as exc:
+            return not_evaluable_result("M08", str(exc))
         chart.setdefault("backend_id", backend.backend_id)
         chart.setdefault("backend_version", backend.backend_version)
 

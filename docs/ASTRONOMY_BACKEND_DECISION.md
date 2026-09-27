@@ -1,78 +1,117 @@
 # Decisión técnica sobre backend astronómico
 
-**Estado:** decisión de implementación aplazada; interfaz aprobada.  
-**Fecha:** 25 de septiembre de 2026.
+**Estado:** backend de producción seleccionado e implementado mediante adaptador opcional.  
+**Fecha de revisión:** 27 de septiembre de 2026.  
+**Release:** ALMAS 1.18.0.
 
 ## Contexto
 
-M02 necesita un backend capaz de producir posiciones astronómicas reproducibles y, en el despliegue completo de ALMAS, soportar o permitir construir casas, ángulos, nodos, declinaciones, asteroides y cálculos derivados.
+M02 y M08 necesitan un backend capaz de producir posiciones, nodos, declinaciones, casas, ángulos y carta Davison de forma reproducible sin ocultar efemérides, geocodificación, timezone, sistema de casas o fallback.
 
-El núcleo no debe acoplarse a una biblioteca externa antes de resolver cobertura, mantenimiento y licencia. Por ello se ha introducido primero el protocolo `AstrologyBackend`.
+ALMAS mantiene el desacoplamiento:
 
-## Candidatos revisados
+`ALMAS → AstrologyBackend/DavisonBackend → adaptador concreto`.
 
-### Swiss Ephemeris / pyswisseph
+La dependencia astronómica no forma parte del núcleo obligatorio.
 
-Ventajas:
+## Decisión de producción
 
-- cobertura muy orientada a astrología;
-- efemérides de alta precisión;
-- soporte directo de casas y asteroides;
-- amplia implantación en software astrológico.
+ALMAS 1.18 adopta `moira-astro==6.8.2` mediante
+`ALMAS_MOIRA_JPL_SPK_V1` como adaptador de producción opcional.
 
-Riesgo principal:
+Motivos de selección:
 
-- `pyswisseph` se publica bajo AGPL-3.0;
-- la integración debe evaluarse conjuntamente con la licencia futura del repositorio y, cuando proceda, con la licencia profesional de Swiss Ephemeris.
+- licencia MIT declarada por el paquete;
+- compatibilidad Python >=3.10;
+- wheels publicados para Python 3.10 y 3.12;
+- soporte de kernels JPL DE-series locales;
+- posiciones tropicales, nodos, casas y ángulos;
+- API pública para chart/houses;
+- cálculo Davison disponible en el proveedor, aunque ALMAS conserva su propia convención explícita de midpoint antes de volver a ejecutar el mismo pipeline natal;
+- ausencia de necesidad de Swiss Ephemeris como dependencia transitiva del adaptador ALMAS.
 
-### pysweph
+La dependencia se expone únicamente como extra:
 
-Es una continuación reciente compatible con el nombre de importación `swisseph`.
+`pip install -e ".[astronomy-moira]"`.
 
-A septiembre de 2026 presenta interés por mantenimiento reciente, pero su propia información de publicación ha indicado cambios en funciones de `calc`/`houses`, deprecación temporal de la suite de tests en una revisión de 2026 y una refactorización CFFI en curso. Mantiene las condiciones de licencia derivadas de Swiss Ephemeris.
+## Política de kernel
 
-No se adopta todavía como dependencia base.
+El paquete no aporta por sí solo la identidad astronómica completa. Todo cálculo de producción ALMAS exige:
 
-### Flatlib
+1. archivo JPL BSP local;
+2. familia declarada `DE430`, `DE440` o `DE441`;
+3. SHA-256 esperado;
+4. coincidencia exacta del SHA-256 antes de instanciar el motor;
+5. nombre del kernel y fingerprint incorporados a la procedencia de salida.
 
-Proporciona abstracciones astrológicas convenientes, pero depende de Swiss Ephemeris. Su propia documentación advierte de las consecuencias de licencia del motor subyacente.
+ALMAS no descarga kernels durante el cálculo.
 
-No aporta una separación suficiente respecto del problema de licencia y control del cálculo.
+El adaptador vincula el archivo ya verificado directamente al crear la fachada astronómica mediante `Moira(kernel_path=...)`. No depende de una ruta global mutable ni de autodetección posterior del kernel. De este modo, el mismo archivo cuyo SHA-256 forma parte de la procedencia es el que queda asociado a la instancia de cálculo.
 
-### Skyfield
+La recomendación operativa inicial es DE440 para el rango moderno, sin hacer del nombre de archivo una fuente de verdad: la identidad normativa es el fingerprint del archivo efectivamente utilizado.
 
-Ventajas:
+## Política temporal y geográfica
 
-- proyecto astronómico activo;
-- licencia MIT;
-- orientación a posiciones astronómicas de precisión;
-- adecuado para verificación independiente de posiciones planetarias.
+- timezone: IANA explícita;
+- hora local ambigua por DST: fail-closed;
+- hora local inexistente por DST: fail-closed;
+- carta natal sin hora: `NOT_EVALUABLE` en el backend de producción;
+- coordenadas numéricas: obligatorias para cartas horarias;
+- geocodificación implícita: prohibida.
 
-Limitación:
+## Casas y nodos
 
-- no es un motor astrológico integral; casas, sistemas de domificación y otras capas específicas tendrían que implementarse o integrarse por separado.
+El sistema de casas se configura explícitamente al construir el backend.
 
-## Decisión
+Cualquier fallback polar informado por el proveedor invalida esa ejecución para ALMAS. Si el sistema efectivo difiere del solicitado, el cálculo queda `NOT_EVALUABLE`.
 
-No añadir todavía ninguna dependencia astronómica obligatoria a `pyproject.toml`.
+La capa dracónica canónica utiliza `NORTH_NODE`. El adaptador 1.18 fija `TRUE_NODE` como fuente y deriva `SOUTH_NODE` por oposición exacta.
 
-Se conserva:
+## Declinar posiciones
 
-`ALMAS → AstrologyBackend → backend concreto`
+El adaptador conserva longitud y latitud eclípticas del proveedor y deriva declinación con la oblicuidad verdadera devuelta para la carta:
 
-La arquitectura deberá permitir al menos:
+`sin δ = sin β cos ε + cos β sin ε sin λ`.
 
-1. un backend de producción capaz de cubrir la geometría astrológica requerida;
-2. un backend o método independiente de verificación para posiciones fundamentales cuando resulte viable;
-3. fixtures dorados de regresión con resultados conocidos;
-4. tolerancias numéricas explícitas;
-5. registro del backend y versión utilizados en toda salida canónica.
+Esta operación está aislada y sometida a tests unitarios.
 
-La eventual adopción de Swiss Ephemeris deberá resolverse junto con la política de licencia del repositorio. Skyfield es un candidato especialmente útil para verificación astronómica independiente, pero no sustituye por sí solo toda la capa astrológica.
+## Davison
 
-## Fuentes consultadas
+ALMAS no delega al proveedor una convención Davison implícita.
 
-- PyPI · pyswisseph: https://pypi.org/project/pyswisseph/
-- PyPI · pysweph: https://pypi.org/project/pysweph/
-- PyPI · Skyfield: https://pypi.org/project/skyfield/
-- Flatlib · FAQ/licensing: https://github.com/flatangle/flatlib/blob/master/docs/source/faq.rst
+La versión 1.18 fija:
+
+- midpoint temporal: `UTC_INSTANT`;
+- midpoint geográfico: `SPHERICAL_GREAT_CIRCLE`;
+- cálculo final: mismo pipeline natal del backend en el instante/lugar midpoint.
+
+Si la política de entrada no admite esta convención, M08 queda `NOT_EVALUABLE`.
+
+## Swiss Ephemeris
+
+Swiss Ephemeris y sus bindings continúan excluidos como dependencia obligatoria de esta release.
+
+La distribución de software basado en Swiss exige resolver explícitamente la vía AGPL o la licencia profesional. ALMAS no modifica su régimen jurídico de forma implícita para incorporar un backend.
+
+## Verificación independiente
+
+Skyfield permanece como candidato preferente para una segunda vía de verificación de posiciones fundamentales por su licencia MIT y orientación astronómica.
+
+La adopción de Moira como backend de producción no autoriza a usar sus propios resultados como única prueba de exactitud.
+
+Antes de declarar completamente validado el frente astronómico debe existir una batería dorada con kernel real y comparación independiente dentro de tolerancias preregistradas.
+
+## Estado 1.18
+
+La release 1.18 cierra la selección e implementación del adaptador de producción y cambia M02/M08 a `EXECUTABLE_HANDLER`.
+
+Permanece abierto un gate específico de **validación astronómica dorada**:
+
+- kernel JPL real fingerprintado;
+- fixtures con fechas/lugares conocidos;
+- tolerancias explícitas por magnitud;
+- comparación independiente de longitudes planetarias y nodos;
+- validación separada de casas/ángulos;
+- evidencia de reproducibilidad en Python 3.10/3.12.
+
+Este gate no añade técnicas astrológicas ni altera el scoring.

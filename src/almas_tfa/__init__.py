@@ -1,9 +1,10 @@
 """Núcleo público de scoring y orquestación modular de ALMAS."""
 
 from .analysis import analyze_precomputed
-from .astrology_backend import AstrologyBackend, NatalRequest, natal_request_from_subject
+from .astrology_backend import AstronomyBackendNotEvaluableError, AstrologyBackend, NatalRequest, natal_request_from_subject
 from .astrology_handlers import make_m02_natal
 from .astrology_geometry import angular_distance, house_for_longitude, match_declared_aspect, normalize_longitude, zodiac_sign
+from .production_astronomy import MoiraBackendConfig, MoiraProductionBackend, load_production_astronomy_backend_policy
 from .core import (
     MODEL_PILLARS,
     SUPPORTED_THRESHOLDS,
@@ -78,6 +79,10 @@ from .orchestrator import (
 __all__ = [
     "analyze_precomputed",
     "AstrologyBackend",
+    "AstronomyBackendNotEvaluableError",
+    "MoiraBackendConfig",
+    "MoiraProductionBackend",
+    "load_production_astronomy_backend_policy",
     "NatalRequest",
     "natal_request_from_subject",
     "make_m02_natal",

@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.17.0
+**Versión pública:** 1.18.0
 
 ## Release pública
 
@@ -14,6 +14,9 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Schemas de entrada bruta/canónica | Publicados |
 | Manifiesto arquitectónico | `manifests/almas-module-manifest.json` |
 | Manifiesto estructural normativo | `ALMAS_STRUCTURAL_POLICY_MANIFEST_V1` · técnica/dependencia/orbes/loading |
+| Backend astronómico de producción | `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1` · Moira 6.8.2 + kernel local SHA-256 |
+| Gate astronómico dorado | `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` · `COMPLETE_GATE` PASS en Python 3.10/3.12 · 6 casos × 47 medidas |
+| Contrato `canonical_analysis` | Draft 2020-12 · raíz cerrada · composición `$ref` especializada · salida M30/FULL validada |
 | Pipeline FULL M00–M31 | `manifests/analysis-pipeline-manifest.json` |
 | Puente astrología→contrato | v1.0.0 |
 | Reconstrucción preencarnatoria | schema v1.9.0 |
@@ -25,7 +28,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Orquestador M00–M31 | Publicado y probado de extremo a extremo con fixture sintético |
 | M30 · gate de informe | READY/PARTIAL/BLOCKED + fingerprint canónico |
 | M31 · report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
-| M02 natal / M08 Davison | Contratos ejecutables; backend de producción pendiente |
+| M02 natal / M08 Davison | `ALMAS_MOIRA_JPL_SPK_V1` · ejecutables con kernel JPL local fingerprintado |
 | M13 · lotes | `ALMAS_HELLENISTIC_LOTS_V1` como baseline histórica Fortuna/Espíritu |
 | Núcleo Python IEM/IDD/IRC | Publicado y probado unitariamente |
 | Q1 · fuerza automática M17 | `ALMAS_ROOT_STRENGTH_BASELINE_V1` |
@@ -63,17 +66,20 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **443 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **483 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
-1. instalación editable del paquete;
+1. instalación editable del paquete con el extra `schema-validation` fijado a `jsonschema==4.26.0`;
 2. `python -m unittest discover -s tests -p "test_*.py" -v`;
-3. el validador del contrato público.
+3. validación Draft 2020-12 del `canonical_analysis` sintético M30 y del pipeline FULL M00–M31;
+4. el validador del contrato público.
 
 El workflow `Contrato público` ejecuta de forma independiente:
 
 `python scripts/validate_public_contract.py`
+
+El workflow `Backend astronómico` instala los extras astronómicos de validación en Python 3.10/3.12 y verifica los contratos Moira/Skyfield. Las matrices reales descargan explícitamente el `de440s.bsp` preregistrado desde JPL/NAIF, verifican SHA-256 y MD5 y ejecutan `PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y `COMPLETE_GATE`. Las cuatro etapas están en PASS en Python 3.10 y 3.12. El gate completo evalúa 282 medidas por entorno (47 por cada uno de los seis casos), sin fallos y con resúmenes idénticos entre ambas versiones de Python.
 
 El validador comprueba, entre otros:
 
@@ -94,7 +100,7 @@ La validación automatizada demuestra coherencia de implementación con las regl
 
 ## Validación externa
 
-**Infraestructura:** LISTA PARA PRERREGISTRO, APERTURA, CONTINUIDAD Y CIERRE AUDITABLE. Q1–Q7 y la recurrencia semántica siguen reproducibles; 1.15 añadió calibración de especificidad S1–S9, 1.16 Validation Operations V1–V5 y 1.17 formaliza técnica/dependencia/orbes/loading mediante manifiestos normativos. No se ha ejecutado todavía un holdout externo real ni se activa PX v3.  
+**Infraestructura:** LISTA PARA PRERREGISTRO, APERTURA, CONTINUIDAD Y CIERRE AUDITABLE. Q1–Q7 y la recurrencia semántica siguen reproducibles; 1.15 añadió calibración de especificidad S1–S9, 1.16 Validation Operations V1–V5, 1.17 formalizó técnica/dependencia/orbes/loading y 1.18 incorpora un backend astronómico de producción opcional y fail-closed. No se ha ejecutado todavía un holdout externo real ni se activa PX v3.  
 **Holdout externo real:** NO EJECUTADO.  
 **Discriminadores L3 reales:** NINGUNO.
 

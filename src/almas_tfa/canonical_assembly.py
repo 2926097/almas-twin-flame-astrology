@@ -206,6 +206,40 @@ def _temporal_index(canonical: Mapping[str, Any]) -> float | None:
     return float(value)
 
 
+def _astronomy_backend_trace(canonical: Mapping[str, Any]) -> dict[str, Any]:
+    natal = canonical.get("natal")
+    backend = natal.get("backend") if isinstance(natal, Mapping) else None
+    if not isinstance(backend, Mapping):
+        return {
+            "state": "NOT_AVAILABLE",
+            "backend_id": None,
+            "backend_version": None,
+            "provenance_state": "NOT_AVAILABLE",
+            "provenance": None,
+        }
+
+    backend_id = backend.get("id")
+    backend_version = backend.get("version")
+    provenance = backend.get("provenance")
+    declared = isinstance(provenance, Mapping)
+
+    return {
+        "state": "AVAILABLE",
+        "backend_id": (
+            str(backend_id)
+            if isinstance(backend_id, str) and backend_id
+            else None
+        ),
+        "backend_version": (
+            str(backend_version)
+            if isinstance(backend_version, str) and backend_version
+            else None
+        ),
+        "provenance_state": "DECLARED" if declared else "NOT_DECLARED",
+        "provenance": dict(provenance) if declared else None,
+    }
+
+
 def _doctrine_claims(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
     doctrine = canonical.get("doctrine_hermeneutics")
     if not isinstance(doctrine, Mapping):
@@ -444,6 +478,7 @@ def assemble_canonical_analysis(
         "analysis_mode": profile["analysis_mode"],
         "analysis_profile": profile["profile_id"],
         "profile_policy_id": profile["policy_id"],
+        "astronomy_backend": _astronomy_backend_trace(canonical),
         "evidence": _evidence_from_roots(canonical),
         "models": models,
         "indices": {

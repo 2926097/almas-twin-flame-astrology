@@ -109,8 +109,19 @@ def canonical_base(*, with_ice=True):
         "robustness_index": {
             "irc": 90.0,
             "r_min": 0.8,
-            "components": [],
-            "component_count": 4,
+            "components": [
+                {
+                    "id": "BIRTH_TIME",
+                    "kind": "BIRTH_TIME",
+                    "value": 0.9,
+                    "source_module": "M23",
+                    "preregistration_ref": "SYNTHETIC-ROBUSTNESS",
+                    "derivation_ref": "SYNTHETIC",
+                    "note": None,
+                    "auto_derived": True,
+                }
+            ],
+            "component_count": 1,
         },
     }
 
@@ -156,6 +167,54 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
             canonical["assembly"]["policy_id"],
             "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
+
+    def test_canonical_records_missing_backend_trace_explicitly(self):
+        result = assemble_canonical_analysis(
+            canonical_base(),
+            prior_all(),
+        )
+        trace = result["canonical_analysis"]["astronomy_backend"]
+        self.assertEqual(trace["state"], "NOT_AVAILABLE")
+        self.assertEqual(trace["provenance_state"], "NOT_AVAILABLE")
+        self.assertIsNone(trace["backend_id"])
+        self.assertIsNone(trace["provenance"])
+
+    def test_canonical_propagates_production_astronomy_provenance(self):
+        canonical = canonical_base()
+        provenance = {
+            "policy_id": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1",
+            "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+            "backend_id": "MOIRA_JPL_SPK",
+            "backend_version": "6.8.2",
+            "provider_package": "moira-astro",
+            "provider_version": "6.8.2",
+            "kernel_filename": "de440s.bsp",
+            "kernel_sha256": "a" * 64,
+            "house_system": "PLACIDUS",
+            "node_mode": "TRUE_NODE",
+            "zodiac": "TROPICAL",
+            "coordinate_origin": "GEOCENTRIC",
+            "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+            "apparent_reduction": True,
+            "topocentric_positions": False,
+            "network_io_used": False,
+            "geocoding_used": False,
+        }
+        canonical["natal"] = {
+            "backend": {
+                "id": "MOIRA_JPL_SPK",
+                "version": "6.8.2",
+                "provenance": provenance,
+            },
+            "charts": {},
+        }
+        result = assemble_canonical_analysis(canonical, prior_all())
+        trace = result["canonical_analysis"]["astronomy_backend"]
+        self.assertEqual(trace["state"], "AVAILABLE")
+        self.assertEqual(trace["backend_id"], "MOIRA_JPL_SPK")
+        self.assertEqual(trace["backend_version"], "6.8.2")
+        self.assertEqual(trace["provenance_state"], "DECLARED")
+        self.assertEqual(trace["provenance"], provenance)
 
     def test_supported_requires_evaluable_ice(self):
         result = assemble_canonical_analysis(

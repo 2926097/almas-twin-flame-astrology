@@ -144,7 +144,8 @@
         "type": "object",
         "required": [
           "source_id",
-          "support_index"
+          "support_index",
+          "resolved"
         ],
         "properties": {
           "source_id": {
@@ -154,6 +155,9 @@
           "support_index": {
             "type": "integer",
             "minimum": 0
+          },
+          "resolved": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -171,6 +175,73 @@
         "string",
         "null"
       ]
+    },
+    "source_audit": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "traditions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "doctrine_gate": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "academic_description_gate": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "contemporary_usage_gate": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "genealogy_checked": {
+      "type": "boolean"
+    },
+    "genealogy_edges": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "non_identity_genealogy_edges": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "comparative_only": {
+      "type": "boolean"
+    },
+    "doctrinal_identity_allowed": {
+      "type": "boolean"
+    },
+    "project_construction": {
+      "type": "boolean"
+    },
+    "contemporary_usage_promoted_to_ontology": {
+      "const": false
+    },
+    "project_hypothesis_promoted_to_doctrine": {
+      "const": false
+    },
+    "cross_tradition_identity_inferred": {
+      "const": false
+    },
+    "doctrine_adds_structural_score": {
+      "const": false
     }
   },
   "additionalProperties": false,
