@@ -60,7 +60,8 @@
           "independent_family_count",
           "point_ids",
           "relation_ids",
-          "max_exactness"
+          "max_exactness",
+          "house_overlays"
         ],
         "properties": {
           "evidence_id": {
@@ -131,6 +132,39 @@
             ],
             "minimum": 0,
             "maximum": 1
+          },
+          "house_overlays": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": [
+                "source_subject",
+                "point_id",
+                "target_subject",
+                "house"
+              ],
+              "properties": {
+                "source_subject": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "point_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target_subject": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "house": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 12
+                }
+              },
+              "additionalProperties": false
+            }
           }
         },
         "additionalProperties": false
