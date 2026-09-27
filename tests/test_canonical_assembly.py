@@ -220,6 +220,58 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
             ],
         )
 
+    def test_house_overlays_are_not_attached_to_draconic_roots(self):
+        canonical = canonical_base()
+        root = canonical["independent_roots"]["roots"][0]
+        root["root_key"] = "A:SUN|B:MOON|CONJUNCTION|NATAL>DRACONIC"
+        root["dependency_families"] = ["NATAL_DRACONIC"]
+        root["relation_ids"] = ["CONJUNCTION"]
+
+        result = assemble_canonical_analysis(canonical, prior_all())
+        evidence = result["canonical_analysis"]["evidence"]
+
+        self.assertEqual(evidence[0]["house_overlays"], [])
+
+    def test_house_overlays_are_not_attached_to_antiscia_only_roots(self):
+        canonical = canonical_base()
+        root = canonical["independent_roots"]["roots"][0]
+        root["root_key"] = "A:SUN|B:MOON|CONJUNCTION"
+        root["dependency_families"] = ["ANTISCIA"]
+        root["relation_ids"] = ["CONJUNCTION"]
+
+        result = assemble_canonical_analysis(canonical, prior_all())
+        evidence = result["canonical_analysis"]["evidence"]
+
+        self.assertEqual(evidence[0]["house_overlays"], [])
+
+    def test_declination_root_can_use_natal_house_context(self):
+        canonical = canonical_base()
+        root = canonical["independent_roots"]["roots"][0]
+        root["root_key"] = "A:SUN|B:MOON|PARALLEL"
+        root["dependency_families"] = ["DECLINATION"]
+        root["relation_ids"] = ["PARALLEL"]
+
+        result = assemble_canonical_analysis(canonical, prior_all())
+        evidence = result["canonical_analysis"]["evidence"]
+
+        self.assertEqual(
+            evidence[0]["house_overlays"],
+            [
+                {
+                    "source_subject": "A",
+                    "point_id": "SUN",
+                    "target_subject": "B",
+                    "house": 7,
+                },
+                {
+                    "source_subject": "B",
+                    "point_id": "MOON",
+                    "target_subject": "A",
+                    "house": 1,
+                },
+            ],
+        )
+
     def test_canonical_records_missing_backend_trace_explicitly(self):
         result = assemble_canonical_analysis(
             canonical_base(),
