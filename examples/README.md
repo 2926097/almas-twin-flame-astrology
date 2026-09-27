@@ -15,6 +15,16 @@ Si en el futuro se añade un ejemplo real, debe situarse en un corpus de casos p
 `origin-differential.synthetic.json` demuestra el motor diferencial de origen con modelos competidores, discriminadores doctrinales, dimensiones astrológicas y el fallback explícito `SHARED_ORIGIN_UNDIFFERENTIATED`. Es completamente sintético.
 
 
+## Autoría interpretativa
+
+El bloque de autoría utiliza tres fixtures sintéticos coordinados:
+
+- `authoring-canonical-context.synthetic.json`: proyección mínima del contexto analítico que alimenta la demostración de autoría;
+- `authoring-report-model-context.synthetic.json`: superficie M31 necesaria para autorizar rutas y clases epistemológicas;
+- `authored-report.synthetic.json`: informe interpretativo completo de once secciones.
+
+La narrativa es artificial y no describe a personas reales. Su finalidad es demostrar que ALMAS puede desarrollar una lectura astrológica y metafísica basada en fuentes sin reducirla a índices ni convertir las fuentes en peso analítico. Las referencias públicas incluidas proceden del registro de fuentes del proyecto.
+
 ## Manifiesto obligatorio
 
 Todos los JSON de este directorio, salvo el propio manifiesto, deben aparecer exactamente una vez en `examples/manifest.json`.

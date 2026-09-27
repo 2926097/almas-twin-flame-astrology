@@ -197,6 +197,47 @@ class AuthoredReportContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "NOT_AVAILABLE"):
             validate_authored_report_trace(authored, model, canonical)
 
+    def test_full_synthetic_authored_report_fixture_is_traceable(self):
+        canonical = json.loads(
+            (ROOT / "examples/authoring-canonical-context.synthetic.json")
+            .read_text(encoding="utf-8")
+        )
+        model = json.loads(
+            (ROOT / "examples/authoring-report-model-context.synthetic.json")
+            .read_text(encoding="utf-8")
+        )
+        authored = json.loads(
+            (ROOT / "examples/authored-report.synthetic.json")
+            .read_text(encoding="utf-8")
+        )
+        schema = json.loads(
+            (ROOT / "schemas/authored-report.schema.json")
+            .read_text(encoding="utf-8")
+        )
+
+        Draft202012Validator(schema).validate(authored)
+        validate_authored_report_trace(authored, model, canonical)
+
+        self.assertEqual(len(authored["sections"]), 11)
+        self.assertTrue(
+            all(
+                section["authoring_state"] == "AUTHORED"
+                for section in authored["sections"]
+            )
+        )
+        synthesis = {
+            section["section_id"]: section
+            for section in authored["sections"]
+        }
+        self.assertIn(
+            "doctrine",
+            synthesis["S10_FINAL_SYNTHESIS"]["canonical_paths_used"],
+        )
+        self.assertGreaterEqual(
+            len(synthesis["S09_DOCTRINE"]["source_refs"]),
+            2,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

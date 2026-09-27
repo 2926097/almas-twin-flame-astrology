@@ -1,0 +1,318 @@
+{
+  "schema_version": "1.0.0",
+  "document_kind": "ALMAS_AUTHORED_REPORT",
+  "language": "es",
+  "canonical_fingerprint": "35fe10967080061a1fc6c357ca7ff4bc80475942fc1a1c6a890216aa36180b76",
+  "report_state": "READY",
+  "interpretive_center": "ASTROLOGY_AND_SOURCE_BASED_METAPHYSICAL_HERMENEUTICS",
+  "technical_role": "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL",
+  "metaphysical_scientific_validation_claimed": false,
+  "canonical_values_mutated": false,
+  "new_calculations_performed": false,
+  "new_scores_created": false,
+  "sections": [
+    {
+      "section_id": "S01_SYNTHESIS",
+      "title": "Síntesis ejecutiva",
+      "authoring_state": "AUTHORED",
+      "narrative": "La arquitectura sintética describe un vínculo de alta densidad simbólica cuya coherencia no depende de un único aspecto. Tres raíces independientes convergen: reconocimiento nodal, transformación Venus-Plutón y consonancia Sol-Luna. La recurrencia de esos motivos entre capas sugiere, dentro del marco ALMAS, una relación con fuerte componente de continuidad, aprendizaje y transformación. La doctrina comparada ofrece lenguajes posibles para interpretar esa experiencia, pero ninguno se impone automáticamente sobre los demás: el cálculo sostiene la arquitectura; la hermenéutica determina cómo comprender su significado.",
+      "canonical_paths_used": [
+        "models",
+        "evidence",
+        "semantic_motifs",
+        "doctrine"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "C_DOCTRINE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [
+        "D_TF_ORIGIN",
+        "D_PREINCARNATIONAL_MISSION"
+      ],
+      "evidence_refs": [
+        "ROOT:R001",
+        "ROOT:R002",
+        "ROOT:R003"
+      ],
+      "source_refs": [
+        "summit_lighthouse_what_is_twin_flame",
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "limitations": []
+    },
+    {
+      "section_id": "S02_DATA_METHOD",
+      "title": "Calidad de datos y método",
+      "authoring_state": "AUTHORED",
+      "narrative": "El ejemplo parte de un contexto sintético con cobertura alta y robustez suficiente para mostrar el mecanismo de autoría. La función de esta sección es acotar la confianza en la base calculada, no competir con la lectura. Los controles de cobertura, dependencia y robustez permiten saber qué parte de la arquitectura puede narrarse con estabilidad y qué parte debería formularse como hipótesis.",
+      "canonical_paths_used": [
+        "coverage",
+        "limitations"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "B_TECHNIQUE"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [],
+      "source_refs": [],
+      "limitations": [
+        "Los datos son sintéticos y no representan una relación real."
+      ]
+    },
+    {
+      "section_id": "S03_NUMERIC_ONTOLOGY",
+      "title": "Ontología numérica",
+      "authoring_state": "AUTHORED",
+      "narrative": "Los índices sitúan el caso sintético en una zona de coherencia relevante, pero no funcionan como porcentajes de verdad metafísica. Su utilidad es comparativa: muestran qué modelos reciben mayor sostén estructural, cuánto resiste la arquitectura a perturbaciones y dónde aparece contraevidencia. El número organiza la lectura; no reemplaza la interpretación del símbolo.",
+      "canonical_paths_used": [
+        "models",
+        "indices"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [],
+      "source_refs": [],
+      "limitations": []
+    },
+    {
+      "section_id": "S04_STRUCTURE",
+      "title": "Arquitectura estructural",
+      "authoring_state": "AUTHORED",
+      "narrative": "La primera raíz concentra la lógica del reconocimiento: los nodos reaparecen en más de una capa y construyen una sensación de dirección o memoria relacional. La segunda raíz, Venus-Plutón, introduce profundidad, magnetismo y transformación, pero también obliga a distinguir intensidad de identidad ontológica. La tercera raíz, Sol-Luna, aporta una consonancia más integradora. Leídas conjuntamente, las raíces describen una arquitectura donde atracción, reconocimiento y transformación forman un sistema, no tres señales aisladas.",
+      "canonical_paths_used": [
+        "evidence",
+        "models",
+        "semantic_motifs"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [
+        "ROOT:R001",
+        "ROOT:R002",
+        "ROOT:R003"
+      ],
+      "source_refs": [],
+      "limitations": []
+    },
+    {
+      "section_id": "S05_RELATIONAL",
+      "title": "Capas relacionales y cruzadas",
+      "authoring_state": "AUTHORED",
+      "narrative": "La lectura relacional gana profundidad cuando una misma temática reaparece en técnicas que responden a lógicas distintas. La capa dracónica se utiliza aquí como una transformación nodal de la carta tropical, no como una prueba autónoma de reencarnación. Su valor hermenéutico surge cuando repite o ilumina una estructura ya visible en otros niveles. Esta disciplina permite usar la astrología esotérica con amplitud sin confundir método simbólico con demostración ontológica.",
+      "canonical_paths_used": [
+        "evidence"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [
+        "ROOT:R001",
+        "ROOT:R003"
+      ],
+      "source_refs": [
+        "blaquier_draconic_astrology_2017_2021"
+      ],
+      "limitations": []
+    },
+    {
+      "section_id": "S06_DIFFERENTIAL",
+      "title": "Diagnóstico diferencial y contraevidencia",
+      "authoring_state": "AUTHORED",
+      "narrative": "El patrón sintético sostiene con claridad modelos de alma gemela y continuidad kármica/contractual, mientras la hipótesis de llama gemela permanece compatible pero no queda diferenciada de manera exclusiva. La contraevidencia es importante precisamente aquí: una relación muy intensa puede reproducir firmas semejantes en varias ontologías. Por ello ALMAS no convierte Venus-Plutón, nodos o sincronicidad en una etiqueta automática. La conclusión diferencial se apoya en la configuración conjunta y conserva alternativas cuando la firma observable no discrimina por sí sola.",
+      "canonical_paths_used": [
+        "models",
+        "counterevidence"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [
+        "ROOT:R001",
+        "ROOT:R002"
+      ],
+      "source_refs": [],
+      "limitations": [
+        "La firma sintética no contiene un discriminador exclusivo de llama gemela."
+      ]
+    },
+    {
+      "section_id": "S07_TEMPORAL",
+      "title": "Activación temporal y eventos",
+      "authoring_state": "AUTHORED",
+      "narrative": "La temporalidad no crea el vínculo: activa lo que la arquitectura ya contiene. En este ejemplo, una fase de activación podría intensificar reconocimiento, crisis transformativa o necesidad de integración, pero su significado depende de las raíces estructurales previas. La lectura temporal se formula como dinámica simbólica y evolutiva, no como predicción obligatoria de una conducta futura.",
+      "canonical_paths_used": [
+        "temporal",
+        "limitations"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [],
+      "source_refs": [],
+      "limitations": []
+    },
+    {
+      "section_id": "S08_ROBUSTNESS",
+      "title": "Robustez y validación",
+      "authoring_state": "AUTHORED",
+      "narrative": "La robustez cumple una función discreta: indica si la lectura depende excesivamente de una hora, de una técnica o de una configuración frágil. En el fixture, la arquitectura se mantiene suficientemente estable para permitir síntesis. Esta sección no pretende validar científicamente el significado de los símbolos; verifica que los símbolos interpretados procedan de cálculos coherentes y no de una contingencia técnica inadvertida.",
+      "canonical_paths_used": [
+        "robustness",
+        "indices"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "B_TECHNIQUE"
+      ],
+      "doctrinal_claim_refs": [],
+      "evidence_refs": [],
+      "source_refs": [],
+      "limitations": []
+    },
+    {
+      "section_id": "S09_DOCTRINE",
+      "title": "Doctrina comparada y corpus",
+      "authoring_state": "AUTHORED",
+      "narrative": "Las fuentes ofrecen marcos de sentido distintos. The Summit Lighthouse formula una doctrina moderna de llamas gemelas como contrapartes procedentes de un mismo origen; Kardec documenta una tradición en la que los espíritus pueden solicitar misiones antes de encarnar. ALMAS puede comparar estos motivos con la arquitectura astrológica sin declarar que ambas tradiciones sean equivalentes ni que una carta pruebe literalmente sus afirmaciones. La doctrina amplía el campo interpretativo: aporta lenguaje, genealogía y significado allí donde el cálculo sólo ofrece forma.",
+      "canonical_paths_used": [
+        "doctrine"
+      ],
+      "epistemic_classes_used": [
+        "C_DOCTRINE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [
+        "D_TF_ORIGIN",
+        "D_PREINCARNATIONAL_MISSION"
+      ],
+      "evidence_refs": [],
+      "source_refs": [
+        "summit_lighthouse_what_is_twin_flame",
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "limitations": [
+        "Las doctrinas comparadas mantienen su identidad histórica y no se fusionan por analogía."
+      ]
+    },
+    {
+      "section_id": "S10_FINAL_SYNTHESIS",
+      "title": "Síntesis final",
+      "authoring_state": "AUTHORED",
+      "narrative": "La lectura conjunta dibuja una relación cuya nota dominante es el reconocimiento transformativo: hay señales de continuidad, resonancia y tarea evolutiva compartida, junto con suficiente intensidad para exigir discernimiento. El modelo de alma gemela aparece sólidamente sostenido en el fixture; la continuidad kármica/contractual también encuentra apoyo. La hipótesis de llama gemela puede emplearse como marco compatible cuando se desea explorar una doctrina de origen polar compartido, pero la arquitectura presentada no obliga a adoptarla como única explicación. La conclusión más fértil no es una etiqueta cerrada, sino la descripción de una función: un vínculo capaz de activar memoria simbólica, transformación profunda e integración consciente.",
+      "canonical_paths_used": [
+        "models",
+        "evidence",
+        "semantic_motifs",
+        "doctrine",
+        "limitations"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "C_DOCTRINE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [
+        "D_TF_ORIGIN",
+        "D_PREINCARNATIONAL_MISSION"
+      ],
+      "evidence_refs": [
+        "ROOT:R001",
+        "ROOT:R002",
+        "ROOT:R003"
+      ],
+      "source_refs": [
+        "summit_lighthouse_what_is_twin_flame",
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "limitations": [
+        "La síntesis preserva alternativas ontológicas cuando la firma no es exclusiva."
+      ]
+    },
+    {
+      "section_id": "S11_SOURCES_APPENDICES",
+      "title": "Fuentes y anexos",
+      "authoring_state": "AUTHORED",
+      "narrative": "Las fuentes se conservan como aparato de apoyo a la lectura. La referencia técnica de astrología dracónica explica el procedimiento utilizado; las fuentes doctrinales documentan los significados atribuidos a origen compartido y misión preencarnatoria. Su presencia no incrementa por sí misma ningún índice: permite al lector distinguir qué procede del cálculo, qué de una técnica y qué de una tradición metafísica concreta.",
+      "canonical_paths_used": [
+        "evidence",
+        "doctrine",
+        "limitations"
+      ],
+      "epistemic_classes_used": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "C_DOCTRINE",
+        "E_PROJECT_HYPOTHESIS"
+      ],
+      "doctrinal_claim_refs": [
+        "D_TF_ORIGIN",
+        "D_DRACONIC_METHOD",
+        "D_PREINCARNATIONAL_MISSION"
+      ],
+      "evidence_refs": [
+        "ROOT:R001",
+        "ROOT:R002",
+        "ROOT:R003"
+      ],
+      "source_refs": [
+        "summit_lighthouse_what_is_twin_flame",
+        "blaquier_draconic_astrology_2017_2021",
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "limitations": []
+    }
+  ],
+  "bibliography": [
+    {
+      "source_id": "summit_lighthouse_what_is_twin_flame",
+      "citation_label": "The Summit Lighthouse · What Is a Twin Flame?",
+      "source_scope": "DOCTRINE",
+      "author": "The Summit Lighthouse",
+      "work": "What Is a Twin Flame?",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "locator": "Section 'Your Twin Flame – Your Perfect Love'",
+      "url": "https://summitlighthouse.org/what-is-a-twin-flame/",
+      "verification_anchor": "Official explanation of twin flames as two counterpart spheres from one original white-fire ovoid."
+    },
+    {
+      "source_id": "blaquier_draconic_astrology_2017_2021",
+      "citation_label": "María Blaquier · Draconic Astrology",
+      "source_scope": "TECHNIQUE",
+      "author": "María Blaquier",
+      "work": "Draconic Astrology – Getting in Touch with our Deeper Self",
+      "tradition": "Astrología dracónica moderna",
+      "locator": "How to Calculate the Draconic Chart",
+      "url": "https://www.astro.com/astrology/aa_article210601_e.htm",
+      "verification_anchor": "Technical description of placing the tropical North Node at 0° Aries and shifting the chart."
+    },
+    {
+      "source_id": "kardec_spirits_book_missions_572_573",
+      "citation_label": "Allan Kardec · The Spirits' Book, 572–573",
+      "source_scope": "DOCTRINE",
+      "author": "Allan Kardec",
+      "work": "The Spirits' Book",
+      "tradition": "Espiritismo",
+      "locator": "Book II, Chapter X, questions 572-573",
+      "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
+      "verification_anchor": "Questions 572-573 on missions requested by spirits before incarnation."
+    }
+  ]
+}
