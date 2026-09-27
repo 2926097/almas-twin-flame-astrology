@@ -65,6 +65,22 @@ Fuentes técnicas registradas:
 
 Las fuentes de M03–M04 permiten desarrollar dinámica interpersonal, combinaciones concretas y zonas de experiencia activadas por casas. Para `house_overlays`, aplicar además `reference/house-overlay-hermeneutics.md`: el punto pertenece al sujeto fuente, la casa al sujeto receptor y la geometría de la raíz indica cómo se articula la interacción. Las fuentes de M05–M06 explican dimensiones distintas de los aspectos por longitud. Ninguna de estas fuentes convierte una técnica relacional en evidencia ontológica autónoma ni autoriza a inferir destino, reciprocidad o tipo de alma a partir de una configuración aislada.
 
+### Extremos concretos de ejes y nodos
+
+Cuando `canonical_analysis.evidence[].concrete_contacts` preserve ASC/DSC, MC/IC, Nodo Norte/Nodo Sur o Vertex/Anti-Vertex, usar `reference/angular-nodal-endpoint-hermeneutics.md`.
+
+La normalización M17 evita duplicar raíces, pero la autoría debe recuperar el polo concreto:
+
+- ASC: presencia, autoexpresión e interfaz inmediata;
+- DSC: alteridad, pareja y proyección;
+- IC: raíces, intimidad y fundamento privado;
+- MC: dirección pública, vocación y meta;
+- Nodo Sur: familiaridad, patrón adquirido o pasado simbólico;
+- Nodo Norte: dirección de desarrollo o territorio emergente;
+- Vertex: punto sensible de encuentro en la práctica moderna, sin convertir “fated” en hecho objetivo.
+
+La diferencia entre polos modifica significado, no scoring ni independencia.
+
 Pregunta interpretativa:
 
 > ¿Qué activa cada persona en la otra y mediante qué dinámica relacional?

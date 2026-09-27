@@ -22,6 +22,7 @@ REQUIRED_FILES = [
     "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
     "docs/CANONICAL_SCHEMA_AUDIT_1.18.md",
     "reference/authored-report.md",
+    "reference/angular-nodal-endpoint-hermeneutics.md",
     "reference/docx-publication.md",
     "reference/pdf-publication.md",
     ".github/workflows/astronomy-backend.yml",

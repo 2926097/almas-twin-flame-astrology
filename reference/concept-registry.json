@@ -1068,7 +1068,10 @@
         "arroyo_astrology_karma_transformation_1992",
         "greene_relating_1978",
         "astrodienst_synastry_houses",
-        "astrodienst_intro_houses"
+        "astrodienst_intro_houses",
+        "astrodienst_main_axis",
+        "astrodienst_moon_nodes",
+        "astrodienst_vertex"
       ],
       "historical_sources": [
         "firmicus_mathesis_2_29_antiscia"
