@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.15.0
+**Versión pública:** 1.16.0
 
 ## Release pública
 
@@ -43,6 +43,11 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | S7 · runner holdout PX v3 | `ALMAS_PX_V3_HOLDOUT_EVALUATION_V1` · agregado/fingerprint |
 | S8 · gate de promoción PX v3 | `ALMAS_PX_V3_PROMOTION_GATE_V1` · elegibilidad no activa |
 | S9 · firewall activación PX v3 | `ALMAS_PX_V3_ACTIVATION_FIREWALL_V1` · PX v2 sigue operativo |
+| V1 · preregistro de validación | `ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1` · freeze previo al holdout |
+| V2 · apertura holdout | `ALMAS_HOLDOUT_OPEN_GATE_V1` · apertura sin evaluación ni promoción |
+| V3 · ledger de validación | `ALMAS_VALIDATION_EXECUTION_LEDGER_V1` · cadena append-only SHA-256 |
+| V4 · continuidad de validación | `ALMAS_VALIDATION_CONTINUITY_GATE_V1` · certificado V1→V2→S7→V3 |
+| V5 · cierre y auditoría de release | `ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1` · revelado tardío + cierre sin activación |
 | Discriminación ontológica M21 | Ejecutable; separada de IDD; ambigüedad preservada si no existe L3 |
 | Registro de promoción | Activo; `validated_discriminator_ids=[]` |
 | Gate L3 hacia M25 | Ejecutable; ningún discriminador real autorizado actualmente |
@@ -57,7 +62,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **394 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **434 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
@@ -88,7 +93,7 @@ La validación automatizada demuestra coherencia de implementación con las regl
 
 ## Validación externa
 
-**Infraestructura:** LISTA PARA PRERREGISTRO. Q1–Q7 y la recurrencia semántica de 1.14 siguen reproducibles; 1.15 añade calibración de especificidad S1–S9, pero no aporta todavía un holdout externo real ni activa PX v3.  
+**Infraestructura:** LISTA PARA PRERREGISTRO, APERTURA, CONTINUIDAD Y CIERRE AUDITABLE. Q1–Q7 y la recurrencia semántica siguen reproducibles; 1.15 añadió calibración de especificidad S1–S9 y 1.16 añade Validation Operations V1–V5. No se ha ejecutado todavía un holdout externo real ni se activa PX v3.  
 **Holdout externo real:** NO EJECUTADO.  
 **Discriminadores L3 reales:** NINGUNO.
 

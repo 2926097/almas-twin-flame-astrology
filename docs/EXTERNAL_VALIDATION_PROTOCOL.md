@@ -522,3 +522,72 @@ Cualquier intento de activar PX v3 dentro de esta release debe terminar en
 
 Este firewall garantiza que la evidencia observada durante validación no pueda
 transformarse en una regla operativa sin un corte de versión explícito.
+
+
+## 23. Continuidad criptográfica de la operación de validación
+
+ALMAS 1.16 introduce `ALMAS_VALIDATION_CONTINUITY_GATE_V1`.
+
+Antes de que una evaluación S7 pueda presentarse al gate de promoción S8, la
+ruta operacional 1.16 exige demostrar continuidad entre:
+
+`V1 preregistration → V2 holdout opening → S7 holdout evaluation → V3 ledger`.
+
+El gate vuelve a calcular los fingerprints del preregistro, apertura y
+evaluación, verifica la cadena hash del ledger y comprueba continuidad de
+candidate/formula/cohorte/null model/versión/commit.
+
+El resultado válido es un certificado agregado
+`CONTINUITY_VERIFIED`. El certificado no contiene datos privados ni scores
+individuales.
+
+La continuidad criptográfica demuestra que los artefactos evaluados pertenecen
+al mismo ciclo congelado; no demuestra que el candidato sea correcto, no
+convierte S7 en validación ontológica y no habilita scoring.
+
+La ruta normativa hacia S8 en 1.16 exige este certificado. Un S8 técnicamente
+completo pero sin continuidad V4 debe permanecer `NOT_ELIGIBLE`.
+
+
+## 24. Cierre confirmatorio, revelado documental y auditoría de release
+
+ALMAS 1.16 formaliza el cierre del ciclo mediante
+`ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1`.
+
+El revelado documental sólo puede ejecutarse después de obtener un certificado
+V4 `CONTINUITY_VERIFIED` y mientras el ledger se encuentre exactamente en
+`HOLDOUT_EVALUATED`. La operación recibe únicamente referencias documentales,
+referencias de auditoría y fingerprints; no acepta narrativa cruda, scores
+individuales, muestras ni payloads privados.
+
+El fingerprint estructural congelado antes del revelado debe ser idéntico al
+fingerprint estructural posterior:
+
+`pre_reveal_structural_output_sha256 == post_reveal_structural_output_sha256`.
+
+Además, `forbidden_field_hits`, `label_leakage_count`,
+`narrative_leakage_count`, `case_fitting_count` y
+`post_holdout_rule_change_count` deben ser exactamente cero. Una identidad
+pública inevitable exige referencias explícitas del riesgo de cegamiento.
+
+Superado el revelado, el ledger añade `DOCUMENTARY_REVEALED`. El cierre exige
+un resultado S8 producido con el mismo certificado V4 y admite cerrar tanto
+un ciclo `PROMOTION_ELIGIBLE` como `NOT_ELIGIBLE`. El cierre no altera el
+resultado de S8; únicamente lo fija como artefacto auditable y añade
+`VALIDATION_CLOSED` como quinta y última entrada del ledger.
+
+Un cierre elegible se expresa como
+`PROMOTION_ELIGIBLE_AWAITING_VERSIONED_ACTIVATION`. Esta denominación no activa
+la fórmula. Cualquier activación posterior exige revisión manual de release,
+una nueva versión y modificación manual del registro canónico conforme al
+firewall S9.
+
+El paquete final de auditoría de release contiene sólo metadatos, referencias y
+SHA-256 de V1, V2, S7, V4, revelado, S8, cierre y chain head final. Mantiene
+`automatic_registry_mutation=false`, `scoring_activation=false`,
+`weighting_activation=false`, `ontology_activation=false`,
+`l3_validation=false` y `metaphysical_probability=false`.
+
+V5 cierra el procedimiento operativo de validación; no sustituye la ejecución
+de un holdout externo real ni constituye validación científica de una ontología
+metafísica.

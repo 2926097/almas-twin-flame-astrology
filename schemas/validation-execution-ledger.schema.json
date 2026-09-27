@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/validation-execution-ledger.schema.json",
+  "title": "ALMAS · Validation Execution Ledger",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy_id",
+    "policy_status",
+    "epistemic_class",
+    "validation_id",
+    "entries",
+    "entry_count",
+    "current_event",
+    "chain_head_sha256",
+    "closed",
+    "automatic_registry_mutation",
+    "promotion_decision",
+    "scoring_activation",
+    "weighting_activation",
+    "ontology_activation",
+    "l3_validation",
+    "metaphysical_probability"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "policy_id": {"const": "ALMAS_VALIDATION_EXECUTION_LEDGER_V1"},
+    "policy_status": {"type": "string"},
+    "epistemic_class": {"const": "E_PROJECT_POLICY"},
+    "validation_id": {"type": "string", "minLength": 1},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "sequence",
+          "event_type",
+          "artifact_ref",
+          "artifact_sha256",
+          "previous_entry_sha256",
+          "entry_sha256"
+        ],
+        "properties": {
+          "sequence": {"type": "integer", "minimum": 1, "maximum": 5},
+          "event_type": {
+            "enum": [
+              "PREREGISTERED",
+              "HOLDOUT_OPENED",
+              "HOLDOUT_EVALUATED",
+              "DOCUMENTARY_REVEALED",
+              "VALIDATION_CLOSED"
+            ]
+          },
+          "artifact_ref": {"type": "string", "minLength": 1},
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "previous_entry_sha256": {
+            "type": ["string", "null"]
+          },
+          "entry_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "entry_count": {"type": "integer", "minimum": 1, "maximum": 5},
+    "current_event": {
+      "enum": [
+        "PREREGISTERED",
+        "HOLDOUT_OPENED",
+        "HOLDOUT_EVALUATED",
+        "DOCUMENTARY_REVEALED",
+        "VALIDATION_CLOSED"
+      ]
+    },
+    "chain_head_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "closed": {"type": "boolean"},
+    "automatic_registry_mutation": {"const": false},
+    "promotion_decision": {"const": "FORBIDDEN"},
+    "scoring_activation": {"const": false},
+    "weighting_activation": {"const": false},
+    "ontology_activation": {"const": false},
+    "l3_validation": {"const": false},
+    "metaphysical_probability": {"const": false}
+  },
+  "additionalProperties": false
+}

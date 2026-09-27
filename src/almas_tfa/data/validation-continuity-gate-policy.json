@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_VALIDATION_CONTINUITY_GATE_V1",
+  "status": "FROZEN_EXPERIMENTAL_PROTOCOL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Verificar continuidad criptográfica V1→V2→S7→V3 antes de permitir que una evaluación holdout llegue al gate S8.",
+  "required_preregistration_policy_id": "ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1",
+  "required_open_policy_id": "ALMAS_HOLDOUT_OPEN_GATE_V1",
+  "required_holdout_policy_id": "ALMAS_PX_V3_HOLDOUT_EVALUATION_V1",
+  "required_ledger_policy_id": "ALMAS_VALIDATION_EXECUTION_LEDGER_V1",
+  "required_ledger_events": [
+    "PREREGISTERED",
+    "HOLDOUT_OPENED",
+    "HOLDOUT_EVALUATED"
+  ],
+  "principles": {
+    "preregistration_hash_must_match": true,
+    "opening_hash_must_match": true,
+    "holdout_artifact_hash_must_match": true,
+    "ledger_hash_chain_must_be_valid": true,
+    "candidate_id_continuity_required": true,
+    "formula_ref_continuity_required": true,
+    "cohort_identity_continuity_required": true,
+    "null_model_continuity_required": true,
+    "runtime_version_commit_frozen": true,
+    "promotion_bridge_requires_continuity": true,
+    "distribution_fingerprint_required": true,
+    "private_payloads_forbidden_in_certificate": true,
+    "automatic_registry_mutation_forbidden": true,
+    "continuity_does_not_promote_candidate": true,
+    "continuity_does_not_activate_scoring": true,
+    "scoring_activation": false,
+    "weighting_activation": false,
+    "ontology_activation": false,
+    "l3_validation": false,
+    "metaphysical_probability": false
+  }
+}

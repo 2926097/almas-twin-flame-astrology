@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/validation-closure-record.schema.json",
+  "title": "ALMAS · Registro de cierre confirmatorio",
+  "type": "object",
+  "required": [
+    "schema_version", "policy_id", "policy_status", "epistemic_class",
+    "validation_id", "candidate_id", "formula_ref", "cohort_id",
+    "closure_ref", "continuity_certificate_sha256",
+    "documentary_reveal_sha256", "promotion_result_sha256",
+    "promotion_state", "promotion_reason_codes", "validation_outcome",
+    "confirmatory_cycle_closed", "manual_new_version_required_for_activation",
+    "manual_release_review_required", "same_release_activation_forbidden",
+    "automatic_registry_mutation", "scoring_activation",
+    "weighting_activation", "ontology_activation", "l3_validation",
+    "metaphysical_probability"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "policy_id": {"const": "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1"},
+    "policy_status": {"type": "string"},
+    "epistemic_class": {"const": "E_PROJECT_POLICY"},
+    "validation_id": {"type": "string", "minLength": 1},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "formula_ref": {"type": "string", "minLength": 1},
+    "cohort_id": {"type": "string", "minLength": 1},
+    "closure_ref": {"type": "string", "minLength": 1},
+    "continuity_certificate_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "documentary_reveal_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "promotion_result_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "promotion_state": {"enum": ["PROMOTION_ELIGIBLE", "NOT_ELIGIBLE"]},
+    "promotion_reason_codes": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "validation_outcome": {
+      "enum": [
+        "PROMOTION_ELIGIBLE_AWAITING_VERSIONED_ACTIVATION",
+        "CLOSED_NOT_ELIGIBLE"
+      ]
+    },
+    "confirmatory_cycle_closed": {"const": true},
+    "manual_new_version_required_for_activation": {"const": true},
+    "manual_release_review_required": {"const": true},
+    "same_release_activation_forbidden": {"const": true},
+    "automatic_registry_mutation": {"const": false},
+    "scoring_activation": {"const": false},
+    "weighting_activation": {"const": false},
+    "ontology_activation": {"const": false},
+    "l3_validation": {"const": false},
+    "metaphysical_probability": {"const": false}
+  },
+  "additionalProperties": false
+}

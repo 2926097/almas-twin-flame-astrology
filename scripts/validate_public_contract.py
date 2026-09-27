@@ -36,7 +36,9 @@ REQUIRED_FILES = [
     "docs/RELEASE_AUDIT_1.13.0.md",
     "docs/RELEASE_AUDIT_1.14.0.md",
     "docs/RELEASE_AUDIT_1.15.0.md",
+    "docs/RELEASE_AUDIT_1.16.0.md",
     "docs/EVOLUTION_1.15.0.md",
+    "docs/EVOLUTION_1.16.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -77,6 +79,13 @@ REQUIRED_FILES = [
     "schemas/external-recurrence-control-cohort.schema.json",
     "schemas/px-v3-candidate-registry.schema.json",
     "schemas/px-v3-promotion-evidence.schema.json",
+    "schemas/validation-preregistration-bundle.schema.json",
+    "schemas/holdout-open-record.schema.json",
+    "schemas/validation-execution-ledger.schema.json",
+    "schemas/validation-continuity-certificate.schema.json",
+    "schemas/documentary-reveal-record.schema.json",
+    "schemas/validation-closure-record.schema.json",
+    "schemas/validation-release-audit-package.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -198,6 +207,11 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/px-v3-holdout-evaluation-policy.json",
     "src/almas_tfa/data/px-v3-promotion-gate-policy.json",
     "src/almas_tfa/data/px-v3-activation-firewall-policy.json",
+    "src/almas_tfa/data/validation-preregistration-bundle-policy.json",
+    "src/almas_tfa/data/holdout-open-gate-policy.json",
+    "src/almas_tfa/data/validation-execution-ledger-policy.json",
+    "src/almas_tfa/data/validation-continuity-gate-policy.json",
+    "src/almas_tfa/data/validation-closure-release-audit-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -232,6 +246,11 @@ REQUIRED_FILES = [
     "src/almas_tfa/px_v3_holdout.py",
     "src/almas_tfa/px_v3_promotion.py",
     "src/almas_tfa/px_v3_activation.py",
+    "src/almas_tfa/validation_preregistration.py",
+    "src/almas_tfa/holdout_open.py",
+    "src/almas_tfa/validation_ledger.py",
+    "src/almas_tfa/validation_continuity.py",
+    "src/almas_tfa/validation_closure.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -332,6 +351,11 @@ REQUIRED_FILES = [
     "tests/test_px_v3_holdout.py",
     "tests/test_px_v3_promotion.py",
     "tests/test_px_v3_activation.py",
+    "tests/test_validation_preregistration.py",
+    "tests/test_holdout_open.py",
+    "tests/test_validation_ledger.py",
+    "tests/test_validation_continuity.py",
+    "tests/test_validation_closure.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -514,6 +538,21 @@ def main() -> int:
     px_v3_activation_firewall_policy = load_json(
         "src/almas_tfa/data/px-v3-activation-firewall-policy.json"
     )
+    validation_preregistration_bundle_policy = load_json(
+        "src/almas_tfa/data/validation-preregistration-bundle-policy.json"
+    )
+    holdout_open_gate_policy = load_json(
+        "src/almas_tfa/data/holdout-open-gate-policy.json"
+    )
+    validation_execution_ledger_policy = load_json(
+        "src/almas_tfa/data/validation-execution-ledger-policy.json"
+    )
+    validation_continuity_gate_policy = load_json(
+        "src/almas_tfa/data/validation-continuity-gate-policy.json"
+    )
+    validation_closure_release_audit_policy = load_json(
+        "src/almas_tfa/data/validation-closure-release-audit-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -573,6 +612,27 @@ def main() -> int:
     )
     px_v3_promotion_evidence_schema = load_json(
         "schemas/px-v3-promotion-evidence.schema.json"
+    )
+    validation_preregistration_bundle_schema = load_json(
+        "schemas/validation-preregistration-bundle.schema.json"
+    )
+    holdout_open_record_schema = load_json(
+        "schemas/holdout-open-record.schema.json"
+    )
+    validation_execution_ledger_schema = load_json(
+        "schemas/validation-execution-ledger.schema.json"
+    )
+    validation_continuity_certificate_schema = load_json(
+        "schemas/validation-continuity-certificate.schema.json"
+    )
+    documentary_reveal_record_schema = load_json(
+        "schemas/documentary-reveal-record.schema.json"
+    )
+    validation_closure_record_schema = load_json(
+        "schemas/validation-closure-record.schema.json"
+    )
+    validation_release_audit_package_schema = load_json(
+        "schemas/validation-release-audit-package.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1203,6 +1263,344 @@ def main() -> int:
     ):
         if s9_principles.get(key) is not False:
             fail(f"S9 activation firewall field must remain false: {key}")
+
+    if validation_preregistration_bundle_policy.get("policy_id") != "ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1":
+        fail("1.16 preregistration bundle policy id changed")
+    if validation_preregistration_bundle_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 preregistration bundle policy must remain frozen")
+    if validation_preregistration_bundle_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 preregistration bundle must remain E_PROJECT_POLICY")
+    v1_principles = validation_preregistration_bundle_policy.get("principles", {})
+    for key in (
+        "candidate_must_be_frozen_for_validation",
+        "holdout_must_be_unopened",
+        "formula_ref_must_be_frozen",
+        "development_holdout_separation_required",
+        "endpoints_frozen_before_holdout",
+        "success_failure_criteria_frozen_before_holdout",
+        "blinding_plan_required",
+        "leakage_audit_plan_required",
+        "negative_controls_required",
+        "ablation_plan_required",
+        "independent_replication_plan_required",
+        "raw_holdout_samples_forbidden",
+        "observed_holdout_results_forbidden",
+        "private_case_material_forbidden",
+        "bundle_fingerprint_required",
+        "automatic_registry_mutation_forbidden",
+    ):
+        if v1_principles.get(key) is not True:
+            fail(f"1.16 V1 preregistration invariant failed: {key}")
+    for key in (
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation_enabled",
+        "metaphysical_probability",
+    ):
+        if v1_principles.get(key) is not False:
+            fail(f"1.16 V1 preregistration field must remain false: {key}")
+
+    v1_schema_props = validation_preregistration_bundle_schema.get("properties", {})
+    if v1_schema_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1":
+        fail("1.16 V1 schema policy id changed")
+    for field in (
+        "holdout_opened",
+        "observed_results_present",
+        "raw_samples_present",
+        "automatic_registry_mutation",
+        "scoring_enabled",
+        "weighting_enabled",
+        "ontology_enabled",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v1_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V1 schema must lock {field}=false")
+
+    if holdout_open_gate_policy.get("policy_id") != "ALMAS_HOLDOUT_OPEN_GATE_V1":
+        fail("1.16 V2 holdout open gate policy id changed")
+    if holdout_open_gate_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V2 holdout open gate must remain frozen")
+    if holdout_open_gate_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V2 holdout open gate must remain E_PROJECT_POLICY")
+    v2_principles = holdout_open_gate_policy.get("principles", {})
+    for key in (
+        "preregistration_fingerprint_must_match",
+        "runtime_version_must_match_frozen",
+        "runtime_commit_must_match_frozen",
+        "candidate_formula_must_match_frozen",
+        "cohort_metadata_must_match_frozen",
+        "minimum_sample_count_must_be_met",
+        "observed_results_forbidden_at_open",
+        "posthoc_changes_forbidden",
+        "open_gate_does_not_evaluate_holdout",
+        "open_gate_does_not_promote_candidate",
+        "automatic_registry_mutation_forbidden",
+        "scoring_activation_forbidden",
+        "weighting_activation_forbidden",
+        "ontology_activation_forbidden",
+        "l3_validation_forbidden",
+    ):
+        if v2_principles.get(key) is not True:
+            fail(f"1.16 V2 invariant failed: {key}")
+    if v2_principles.get("metaphysical_probability") is not False:
+        fail("1.16 V2 must forbid metaphysical probability")
+
+    v2_schema_props = holdout_open_record_schema.get("properties", {})
+    if v2_schema_props.get("policy_id", {}).get("const") != "ALMAS_HOLDOUT_OPEN_GATE_V1":
+        fail("1.16 V2 schema policy id changed")
+    for field in (
+        "holdout_evaluated",
+        "promotion_permitted",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v2_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V2 schema must lock {field}=false")
+    if v2_schema_props.get("holdout_opened", {}).get("const") is not True:
+        fail("1.16 V2 schema must require holdout_opened=true")
+    if v2_schema_props.get("holdout_evaluation_permitted", {}).get("const") is not True:
+        fail("1.16 V2 schema must permit holdout evaluation after gate")
+
+    if validation_execution_ledger_policy.get("policy_id") != "ALMAS_VALIDATION_EXECUTION_LEDGER_V1":
+        fail("1.16 V3 ledger policy id changed")
+    if validation_execution_ledger_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V3 ledger policy must remain frozen")
+    if validation_execution_ledger_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V3 ledger must remain E_PROJECT_POLICY")
+    if validation_execution_ledger_policy.get("event_order") != [
+        "PREREGISTERED",
+        "HOLDOUT_OPENED",
+        "HOLDOUT_EVALUATED",
+        "DOCUMENTARY_REVEALED",
+        "VALIDATION_CLOSED",
+    ]:
+        fail("1.16 V3 ledger event order changed")
+    v3_principles = validation_execution_ledger_policy.get("principles", {})
+    for key in (
+        "append_only",
+        "strict_event_order",
+        "hash_chain_required",
+        "prior_entries_immutable",
+        "opaque_references_only",
+        "private_payloads_forbidden",
+        "automatic_registry_mutation_forbidden",
+        "ledger_does_not_promote_candidate",
+        "ledger_does_not_activate_scoring",
+        "ledger_does_not_validate_l3",
+    ):
+        if v3_principles.get(key) is not True:
+            fail(f"1.16 V3 ledger invariant failed: {key}")
+    if v3_principles.get("metaphysical_probability") is not False:
+        fail("1.16 V3 must forbid metaphysical probability")
+
+    v3_schema_props = validation_execution_ledger_schema.get("properties", {})
+    if v3_schema_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_EXECUTION_LEDGER_V1":
+        fail("1.16 V3 schema policy id changed")
+    if v3_schema_props.get("promotion_decision", {}).get("const") != "FORBIDDEN":
+        fail("1.16 V3 ledger must forbid promotion decisions")
+    for field in (
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v3_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V3 schema must lock {field}=false")
+    if validation_continuity_gate_policy.get("policy_id") != "ALMAS_VALIDATION_CONTINUITY_GATE_V1":
+        fail("1.16 V4 continuity gate policy id changed")
+    if validation_continuity_gate_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V4 continuity gate must remain frozen")
+    if validation_continuity_gate_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V4 continuity gate must remain E_PROJECT_POLICY")
+    if validation_continuity_gate_policy.get("required_ledger_events") != [
+        "PREREGISTERED",
+        "HOLDOUT_OPENED",
+        "HOLDOUT_EVALUATED",
+    ]:
+        fail("1.16 V4 required ledger events changed")
+    v4_principles = validation_continuity_gate_policy.get("principles", {})
+    for key in (
+        "preregistration_hash_must_match",
+        "opening_hash_must_match",
+        "holdout_artifact_hash_must_match",
+        "ledger_hash_chain_must_be_valid",
+        "candidate_id_continuity_required",
+        "formula_ref_continuity_required",
+        "cohort_identity_continuity_required",
+        "null_model_continuity_required",
+        "runtime_version_commit_frozen",
+        "promotion_bridge_requires_continuity",
+        "distribution_fingerprint_required",
+        "private_payloads_forbidden_in_certificate",
+        "automatic_registry_mutation_forbidden",
+        "continuity_does_not_promote_candidate",
+        "continuity_does_not_activate_scoring",
+    ):
+        if v4_principles.get(key) is not True:
+            fail(f"1.16 V4 continuity invariant failed: {key}")
+    for key in (
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v4_principles.get(key) is not False:
+            fail(f"1.16 V4 continuity field must remain false: {key}")
+
+    v4_schema_props = validation_continuity_certificate_schema.get(
+        "properties", {}
+    )
+    if v4_schema_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CONTINUITY_GATE_V1":
+        fail("1.16 V4 certificate schema policy id changed")
+    for field in (
+        "required_ledger_events_verified",
+        "continuity_verified",
+        "promotion_bridge_permitted",
+    ):
+        if v4_schema_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V4 certificate must require {field}=true")
+    for field in (
+        "private_payloads_exposed",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v4_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V4 certificate must lock {field}=false")
+
+    if validation_closure_release_audit_policy.get("policy_id") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 closure/release policy id changed")
+    if validation_closure_release_audit_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V5 closure/release policy must remain frozen")
+    if validation_closure_release_audit_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V5 closure/release policy must remain E_PROJECT_POLICY")
+    if validation_closure_release_audit_policy.get("required_ledger_boundary_before_reveal") != "HOLDOUT_EVALUATED":
+        fail("1.16 V5 reveal boundary changed")
+    if validation_closure_release_audit_policy.get("required_ledger_boundary_before_close") != "DOCUMENTARY_REVEALED":
+        fail("1.16 V5 closure boundary changed")
+    if validation_closure_release_audit_policy.get("final_ledger_event") != "VALIDATION_CLOSED":
+        fail("1.16 V5 final ledger event changed")
+    v5_principles = validation_closure_release_audit_policy.get("principles", {})
+    for key in (
+        "documentary_reveal_requires_continuity",
+        "structural_output_invariance_required",
+        "leakage_counts_must_be_zero",
+        "unexpected_reveal_fields_fail_closed",
+        "public_identity_requires_risk_refs",
+        "s8_result_required_for_closure",
+        "eligible_and_noneligible_cycles_may_close",
+        "ledger_must_end_validation_closed",
+        "release_audit_package_aggregate_only",
+        "private_payloads_forbidden",
+        "manual_release_review_required",
+        "manual_new_version_required_for_activation",
+        "same_release_activation_forbidden",
+        "automatic_registry_mutation_forbidden",
+    ):
+        if v5_principles.get(key) is not True:
+            fail(f"1.16 V5 closure invariant failed: {key}")
+    for key in (
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_principles.get(key) is not False:
+            fail(f"1.16 V5 closure field must remain false: {key}")
+
+    v5_reveal_props = documentary_reveal_record_schema.get("properties", {})
+    if v5_reveal_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 reveal schema policy id changed")
+    for field in (
+        "structural_output_invariant",
+    ):
+        if v5_reveal_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V5 reveal schema must require {field}=true")
+    for field in (
+        "forbidden_field_hits",
+        "label_leakage_count",
+        "narrative_leakage_count",
+        "case_fitting_count",
+        "post_holdout_rule_change_count",
+    ):
+        if v5_reveal_props.get(field, {}).get("const") != 0:
+            fail(f"1.16 V5 reveal schema must require {field}=0")
+    if v5_reveal_props.get("promotion_decision", {}).get("const") != "FORBIDDEN":
+        fail("1.16 V5 reveal must forbid promotion decisions")
+    for field in (
+        "private_payloads_exposed",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_reveal_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V5 reveal schema must lock {field}=false")
+
+    v5_closure_props = validation_closure_record_schema.get("properties", {})
+    if v5_closure_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 closure schema policy id changed")
+    for field in (
+        "confirmatory_cycle_closed",
+        "manual_new_version_required_for_activation",
+        "manual_release_review_required",
+        "same_release_activation_forbidden",
+    ):
+        if v5_closure_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V5 closure schema must require {field}=true")
+    for field in (
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_closure_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V5 closure schema must lock {field}=false")
+
+    v5_release_props = validation_release_audit_package_schema.get(
+        "properties", {}
+    )
+    if v5_release_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 release-audit schema policy id changed")
+    if v5_release_props.get("closed_ledger_entry_count", {}).get("const") != 5:
+        fail("1.16 V5 release-audit package must require five ledger events")
+    for field in (
+        "release_audit_ready",
+        "manual_release_review_required",
+        "manual_new_version_required_for_activation",
+        "same_release_activation_forbidden",
+    ):
+        if v5_release_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V5 release-audit schema must require {field}=true")
+    for field in (
+        "private_payloads_exposed",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_release_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V5 release-audit schema must lock {field}=false")
+
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
         "candidate",

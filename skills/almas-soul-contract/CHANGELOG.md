@@ -2,6 +2,14 @@
 
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.
 
+## ALMAS 1.16.0 — 2026-09-27
+
+- El módulo contractual hereda la release pública 1.16.0 de la raíz.
+- Consume el mismo canonical y PX/PS v2; Validation Operations V1–V5 son infraestructura metodológica y no crean cláusulas contractuales.
+- El revelado documental V5 no puede alterar retrospectivamente la arquitectura estructural congelada.
+- Un cierre `PROMOTION_ELIGIBLE` sigue sin activar PX v3 ni elevar origen, contrato, misión o cumplimiento a L3.
+- `engine_revision` permanece 1.9.0 y los techos inferenciales del módulo no cambian.
+
 ## ALMAS 1.15.0 — 2026-09-27
 
 - El módulo contractual hereda la release pública 1.15.0 de la raíz.

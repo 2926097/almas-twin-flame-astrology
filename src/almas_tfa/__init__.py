@@ -52,6 +52,11 @@ from .px_v3_candidates import evaluate_px_v3_candidate, evaluate_px_v3_candidate
 from .px_v3_holdout import evaluate_px_v3_holdout, load_px_v3_holdout_evaluation_policy
 from .px_v3_promotion import evaluate_px_v3_promotion, load_px_v3_promotion_gate_policy
 from .px_v3_activation import evaluate_px_v3_activation_firewall, load_px_v3_activation_firewall_policy
+from .validation_preregistration import build_validation_preregistration_bundle, load_validation_preregistration_bundle_policy
+from .holdout_open import evaluate_holdout_open, load_holdout_open_gate_policy
+from .validation_ledger import append_validation_event, audit_validation_ledger, initialize_validation_ledger, load_validation_execution_ledger_policy
+from .validation_continuity import evaluate_px_v3_promotion_with_continuity, evaluate_validation_continuity, load_validation_continuity_gate_policy
+from .validation_closure import build_documentary_reveal_record, close_validation_cycle, load_validation_closure_release_audit_policy, record_documentary_reveal
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -147,6 +152,21 @@ __all__ = [
     "evaluate_px_v3_promotion",
     "load_px_v3_activation_firewall_policy",
     "evaluate_px_v3_activation_firewall",
+    "load_validation_preregistration_bundle_policy",
+    "build_validation_preregistration_bundle",
+    "load_holdout_open_gate_policy",
+    "evaluate_holdout_open",
+    "load_validation_execution_ledger_policy",
+    "initialize_validation_ledger",
+    "append_validation_event",
+    "audit_validation_ledger",
+    "load_validation_continuity_gate_policy",
+    "evaluate_validation_continuity",
+    "evaluate_px_v3_promotion_with_continuity",
+    "load_validation_closure_release_audit_policy",
+    "build_documentary_reveal_record",
+    "record_documentary_reveal",
+    "close_validation_cycle",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",

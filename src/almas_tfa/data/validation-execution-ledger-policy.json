@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_VALIDATION_EXECUTION_LEDGER_V1",
+  "status": "FROZEN_EXPERIMENTAL_PROTOCOL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Registrar una cadena append-only de preregistro, apertura, evaluación, revelado y cierre mediante referencias opacas y SHA-256.",
+  "event_order": [
+    "PREREGISTERED",
+    "HOLDOUT_OPENED",
+    "HOLDOUT_EVALUATED",
+    "DOCUMENTARY_REVEALED",
+    "VALIDATION_CLOSED"
+  ],
+  "forbidden_event_payload_keys": [
+    "raw_case_data",
+    "private_birth_data",
+    "private_case_data",
+    "private_messages",
+    "recurrence_snapshot",
+    "candidate_scores",
+    "holdout_results",
+    "outcome_label",
+    "holdout_label",
+    "ground_truth_ontology",
+    "posthoc_narrative"
+  ],
+  "principles": {
+    "append_only": true,
+    "strict_event_order": true,
+    "hash_chain_required": true,
+    "prior_entries_immutable": true,
+    "opaque_references_only": true,
+    "private_payloads_forbidden": true,
+    "automatic_registry_mutation_forbidden": true,
+    "ledger_does_not_promote_candidate": true,
+    "ledger_does_not_activate_scoring": true,
+    "ledger_does_not_validate_l3": true,
+    "metaphysical_probability": false
+  }
+}
