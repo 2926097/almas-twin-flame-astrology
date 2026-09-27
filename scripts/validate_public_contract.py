@@ -413,6 +413,11 @@ def main() -> int:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
 
+    if "\\n" in skill:
+        fail("SKILL.md contains a literal newline escape")
+    if "\\n" in readme:
+        fail("README.md contains a literal newline escape")
+
     for needle in [
         f"version: {version}",
         "Enfoque de investigación metafísica",
