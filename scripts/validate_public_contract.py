@@ -3555,6 +3555,14 @@ def main() -> int:
         fail("doctrinal source_support_ref must require resolution state")
     if support_ref_item.get("properties", {}).get("resolved", {}).get("type") != "boolean":
         fail("doctrinal source_support_ref resolved must be boolean")
+    for field in (
+        "contemporary_usage_promoted_to_ontology",
+        "project_hypothesis_promoted_to_doctrine",
+        "cross_tradition_identity_inferred",
+        "doctrine_adds_structural_score",
+    ):
+        if claim_props.get(field, {}).get("const") is not False:
+            fail(f"doctrinal claim firewall must lock {field}=false")
 
 
     if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
