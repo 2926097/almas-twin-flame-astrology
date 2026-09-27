@@ -56,7 +56,11 @@
           "strength",
           "strength_state",
           "core_eligible",
-          "dependency_families"
+          "dependency_families",
+          "independent_family_count",
+          "point_ids",
+          "relation_ids",
+          "max_exactness"
         ],
         "properties": {
           "evidence_id": {
@@ -99,6 +103,34 @@
               "type": "string",
               "minLength": 1
             }
+          },
+          "independent_family_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "point_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "relation_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "max_exactness": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
           }
         },
         "additionalProperties": false
