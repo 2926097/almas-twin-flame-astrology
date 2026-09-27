@@ -1889,6 +1889,82 @@
       "verification_anchor_type": "TABLE_OF_CONTENTS",
       "verification_anchor_url": "https://books.google.com/books/about/Chiron.html?id=SLpVngEACAAJ",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_synastry_houses",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional contemporánea",
+      "author": "Astrodienst",
+      "work": "Synastry",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Methods; Guidelines of Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Synastry",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "la sinastría compara dos o más horóscopos y permite observar interaspectos y dónde caen los planetas de una carta en la otra",
+        "varios planetas o un eje de una persona situados en una casa de la otra enfatizan los temas de esa casa para el propietario de la casa",
+        "base metodológica directa para tratar la superposición de casas como localización experiencial dentro de la sinastría"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una superposición de casa demuestre matrimonio, reciprocidad, destino o permanencia",
+        "que una casa permita identificar por sí sola alma gemela, karma, contrato álmico o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Synastry', secciones Methods y Guidelines of Interpretation: la comparación muestra dónde caen los planetas de una carta en la otra y los planetas/ejes en una casa enfatizan sus temas para el propietario de esa casa.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Synastry",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_intro_houses",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "A Brief Introduction to Astrology: The Houses",
+      "date": null,
+      "date_note": "Página introductoria de Astrodienst; consulta y verificación web 2026-09-27.",
+      "passage": "The Houses; descriptions of houses 1–12",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrologie/in_house2_f.htm?lang=e",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "las casas representan áreas concretas de la vida en las que se expresan las funciones planetarias",
+        "descripción temática de las doce casas utilizable como vocabulario base para localizar una activación relacional",
+        "base metodológica para distinguir función planetaria de campo experiencial de la casa"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de las casas",
+        "equivalencia necesaria entre casa y signo zodiacal como fundamento del modelo ALMAS",
+        "que el significado natal general de una casa determine por sí solo el resultado de una relación"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst, 'A Brief Introduction to Astrology: The Houses': las casas se presentan como áreas de vida donde se expresan los planetas y se describen temáticamente las casas 1–12.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrologie/in_house2_f.htm?lang=e",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"
