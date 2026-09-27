@@ -335,6 +335,54 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
 
         self.assertNotIn("draconic_context", result["canonical_analysis"])
 
+    def test_canonical_projects_lots_context_without_structural_weight(self):
+        source = canonical_base()
+        source["lots"] = {
+            "policy": {"policy_id": "ALMAS_HELLENISTIC_LOTS_V1"},
+            "policy_source": "ALMAS_HELLENISTIC_LOTS_V1",
+            "sect_by_subject": {"A": "DAY", "B": "NIGHT"},
+            "subjects": {
+                "A": {
+                    "FORTUNE": {
+                        "status": "CALCULATED",
+                        "longitude": 130.0,
+                        "sign": "LEO",
+                        "sign_index": 4,
+                        "degree_in_sign": 10.0,
+                        "house": 2,
+                        "source_ref": "paulus",
+                        "corroborating_source_ref": "valens",
+                        "formula": {},
+                        "sect": "DAY",
+                    }
+                },
+                "B": {},
+            },
+        }
+
+        result = assemble_canonical_analysis(source, prior_all())
+        context = result["canonical_analysis"]["lots_context"]
+
+        self.assertTrue(context["authoring_projection_only"])
+        self.assertFalse(context["creates_additional_evidence"])
+        self.assertTrue(context["historical_technique_context_only"])
+        self.assertEqual(
+            context["output"]["subjects"]["A"]["FORTUNE"]["sign"],
+            "LEO",
+        )
+        self.assertEqual(
+            context["output"]["subjects"]["A"]["FORTUNE"]["house"],
+            2,
+        )
+
+    def test_canonical_lots_context_is_optional(self):
+        result = assemble_canonical_analysis(
+            canonical_base(),
+            prior_all(),
+        )
+
+        self.assertNotIn("lots_context", result["canonical_analysis"])
+
     def test_canonical_evidence_preserves_root_interpretive_context(self):
         result = assemble_canonical_analysis(
             canonical_base(),
