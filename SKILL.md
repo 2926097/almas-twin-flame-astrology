@@ -442,6 +442,8 @@ Cada bloque sustantivo debe producir al menos una proposición integrada del tip
 
 `evidencia astrológica → motivo → dinámica → significado`.
 
+**Regla de síntesis vertical:** cuando un mismo motivo disponga de contexto en varias capas, organizar la prosa por el motivo y recorrer `natal_context → evidencia/sinastría → relationship_field → draconic_context → lots_context si aporta matiz → semantic_motifs → comparandum doctrinal`. No convertir cada técnica en un miniinforme autónomo ni exigir que todas las capas aparezcan cuando no añaden significado.
+
 Para los motivos producidos por `ALMAS_SEMANTIC_MOTIF_V2`, usar `reference/semantic-motif-hermeneutics.md`: desarrolla los nueve motivos primarios, cuatro overlays de misión y combinaciones interpretativas sin alterar PX/PS ni los techos inferenciales.
 
 Cuando una raíz preserve planetas concretos en `concrete_contacts` o `point_ids`, aplicar primero `reference/planetary-function-hermeneutics.md`. Resolver `función A → función B → geometría → casa si existe → raíz → motivo`; no redactar Venus–Plutón, Mercurio–Júpiter o Luna–Saturno como variaciones de un mismo texto genérico.
