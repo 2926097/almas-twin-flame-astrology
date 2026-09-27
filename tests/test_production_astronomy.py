@@ -176,8 +176,19 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         self.assertTrue(chart["positions"]["MERCURY"]["retrograde"])
         provenance = chart["backend_provenance"]
         self.assertEqual(provenance["kernel_sha256"], self.kernel_sha)
+        self.assertEqual(provenance["coordinate_origin"], "GEOCENTRIC")
+        self.assertEqual(
+            provenance["reference_frame"],
+            "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+        )
+        self.assertTrue(provenance["apparent_reduction"])
+        self.assertFalse(provenance["topocentric_positions"])
         self.assertFalse(provenance["network_io_used"])
         self.assertFalse(provenance["geocoding_used"])
+        self.assertEqual(len(backend._facade.chart_calls), 1)
+        _, chart_kwargs = backend._facade.chart_calls[0]
+        self.assertNotIn("observer_lat", chart_kwargs)
+        self.assertNotIn("observer_lon", chart_kwargs)
 
     def test_missing_coordinates_are_not_geocoded(self):
         backend = self.backend()
