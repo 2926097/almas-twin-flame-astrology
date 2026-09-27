@@ -324,6 +324,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/robustness_handlers.py",
     "src/almas_tfa/robustness_index_handlers.py",
     "src/almas_tfa/temporal_handlers.py",
+    "src/almas_tfa/transit_generation.py",
     "src/almas_tfa/doctrine_handlers.py",
     "src/almas_tfa/reality_handlers.py",
     "src/almas_tfa/report_gate_handlers.py",
@@ -392,6 +393,7 @@ REQUIRED_FILES = [
     "tests/test_null_model_handlers.py",
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
+    "tests/test_transit_generation.py",
     "tests/test_final_handlers.py",
     "tests/test_authored_report_contract.py",
     "tests/test_docx_publication.py",
@@ -3954,6 +3956,41 @@ def main() -> int:
                 "TTRANSIT guide missing required method term: "
                 + required_term
             )
+
+    transit_generation_text = (
+        ROOT / "src/almas_tfa/transit_generation.py"
+    ).read_text(encoding="utf-8")
+    for required_term in (
+        "match_declared_aspect",
+        "validate_declared_aspect_policy",
+        "ENDPOINT_ACTIVATION",
+        "TTRANSIT",
+        "astrodienst_transit",
+        "hand_planets_in_transit_2002",
+    ):
+        if required_term not in transit_generation_text:
+            fail(
+                "autonomous TTRANSIT generator missing contract term: "
+                + required_term
+            )
+    for forbidden_term in (
+        "DEFAULT_ORB",
+        "TRANSIT_ORB_DEFAULT",
+    ):
+        if forbidden_term in transit_generation_text:
+            fail("TTRANSIT generator must not define implicit orb defaults")
+
+    production_astronomy_text = (
+        ROOT / "src/almas_tfa/production_astronomy.py"
+    ).read_text(encoding="utf-8")
+    if "def calculate_transit_positions" not in production_astronomy_text:
+        fail("production astronomy backend must expose TTRANSIT positions")
+
+    handlers_text = (
+        ROOT / "src/almas_tfa/handlers.py"
+    ).read_text(encoding="utf-8")
+    if "make_m26_temporal_activation_auto" not in handlers_text:
+        fail("configured handlers must enable autonomous TTRANSIT in M26")
 
     temporal_guide = (
         ROOT / "reference/temporal-activation-hermeneutics.md"
