@@ -27,9 +27,12 @@ REQUIRED_FILES = [
     "scripts/run_astronomy_golden_planetary.py",
     "scripts/run_astronomy_golden_true_node.py",
     "scripts/run_astronomy_golden_houses.py",
+    "scripts/run_astronomy_golden_complete.py",
     "validation/astronomy/golden-cases.v1.json",
     "validation/astronomy/planetary-stage-evidence.v1.json",
     "validation/astronomy/true-node-stage-evidence.v1.json",
+    "validation/astronomy/house-stage-evidence.v1.json",
+    "validation/astronomy/complete-stage-evidence.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -536,6 +539,12 @@ def main() -> int:
     )
     astronomy_true_node_evidence = load_json(
         "validation/astronomy/true-node-stage-evidence.v1.json"
+    )
+    astronomy_house_evidence = load_json(
+        "validation/astronomy/house-stage-evidence.v1.json"
+    )
+    astronomy_complete_evidence = load_json(
+        "validation/astronomy/complete-stage-evidence.v1.json"
     )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
@@ -1068,6 +1077,65 @@ def main() -> int:
         fail("astronomy true-node evidence maximum delta changed")
     if true_node_max.get("tolerance_arcsec") != 60.0:
         fail("astronomy true-node evidence tolerance changed")
+
+    if astronomy_house_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_HOUSE_EVIDENCE_V1":
+        fail("astronomy house evidence id changed")
+    if astronomy_house_evidence.get("validation_stage") != "HOUSE_REFERENCE":
+        fail("astronomy house evidence stage changed")
+    if astronomy_house_evidence.get("status") != "PASS":
+        fail("astronomy house evidence must remain PASS")
+    if astronomy_house_evidence.get("execution_commit") != "f07696cee3e73f71032ea83f2eec24a3321e5f28":
+        fail("astronomy house evidence execution commit changed")
+    if astronomy_house_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy house evidence Python matrix changed")
+    if astronomy_house_evidence.get("measurements_per_environment") != 96:
+        fail("astronomy house evidence measurement count changed")
+    house_repro = astronomy_house_evidence.get("reproducibility", {})
+    if house_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy house evidence must reproduce across Python versions")
+    if house_repro.get("failure_count") != 0:
+        fail("astronomy house evidence contains failures")
+    house_max = astronomy_house_evidence.get("overall_max", {})
+    if house_max.get("delta_arcsec") != 39.89038871222874:
+        fail("astronomy house evidence maximum delta changed")
+    if house_max.get("tolerance_arcsec") != 60.0:
+        fail("astronomy house evidence tolerance changed")
+
+    if astronomy_complete_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_COMPLETE_EVIDENCE_V1":
+        fail("astronomy complete evidence id changed")
+    if astronomy_complete_evidence.get("validation_stage") != "COMPLETE_GATE":
+        fail("astronomy complete evidence stage changed")
+    if astronomy_complete_evidence.get("status") != "PASS":
+        fail("astronomy complete gate must remain PASS")
+    if astronomy_complete_evidence.get("execution_commit") != "40725734d15d83d0bb21b05c0e6496ef606ba8cb":
+        fail("astronomy complete evidence execution commit changed")
+    if astronomy_complete_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy complete evidence Python matrix changed")
+    if astronomy_complete_evidence.get("measurements_per_case") != 47:
+        fail("astronomy complete evidence per-case count changed")
+    if astronomy_complete_evidence.get("measurements_per_environment") != 282:
+        fail("astronomy complete evidence measurement count changed")
+    complete_repro = astronomy_complete_evidence.get("reproducibility", {})
+    if complete_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy complete evidence must reproduce across Python versions")
+    if complete_repro.get("summary_sha256") != "dcc6d349e6eabc22f90c6911e3fbf466579872f6b186471d822a7a892a8faa9a":
+        fail("astronomy complete summary fingerprint changed")
+    if complete_repro.get("failure_count") != 0:
+        fail("astronomy complete evidence contains failures")
+    if complete_repro.get("thresholds_modified_after_observation") is not False:
+        fail("astronomy complete evidence cannot alter preregistered thresholds")
+    complete_cases = astronomy_complete_evidence.get("cases", [])
+    if len(complete_cases) != 6 or any(case.get("status") != "PASS" for case in complete_cases):
+        fail("all six astronomy complete evidence cases must PASS")
+    if any(case.get("measurement_count") != 47 for case in complete_cases):
+        fail("each astronomy complete case must contain 47 measurements")
+    complete_max = astronomy_complete_evidence.get("overall_max", {})
+    if complete_max.get("delta_arcsec") != 39.89038871222874:
+        fail("astronomy complete evidence maximum delta changed")
+    if complete_max.get("tolerance_arcsec") != 60.0:
+        fail("astronomy complete evidence tolerance changed")
+    if astronomy_complete_evidence.get("remaining_stages") != []:
+        fail("astronomy complete evidence must close all golden stages")
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
