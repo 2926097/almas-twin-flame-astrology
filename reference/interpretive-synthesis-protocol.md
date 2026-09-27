@@ -34,6 +34,8 @@ La categoría final resume esa arquitectura; no la sustituye.
 
 La carta natal se interpreta primero como **estructura preexistente**. Debe identificar temas que cada sujeto trae antes del encuentro: necesidades relacionales, ejes de desarrollo, tensiones, recursos, patrones saturninos, plutonianos, quirónicos, nodales o de misión cuando sean relevantes.
 
+Para la autoría posterior a M31, usar `canonical_analysis.natal_context` cuando esté disponible. Esta ruta proyecta el contexto ya calculado —signos de puntos, nodos, ángulos, casas, colocaciones y regencias— sin copiar fechas/horas natales ni recalcular la carta. Si la ruta no existe en un análisis importado o degradado, declarar el sustrato natal como no disponible en vez de reconstruirlo silenciosamente desde otros datos.
+
 Pregunta interpretativa:
 
 > ¿Qué tema ya existía en cada persona antes de que apareciera la otra?
