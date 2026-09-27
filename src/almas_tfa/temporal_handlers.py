@@ -6,6 +6,7 @@ import re
 from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .transit_generation import generate_ttransit_signals
 
 
 TEMPORAL_FAMILIES = {
@@ -216,6 +217,71 @@ def _calculate_iat(
     }
 
     return iat, "CALCULATED", True, policy_output, eligible_ids
+
+
+def make_m26_temporal_activation_auto(backend: Any):
+    """Extiende M26 con generación TTRANSIT sólo cuando se solicita."""
+
+    def handler(context: ModuleContext) -> ModuleResult:
+        requests = context.raw_input.get("transit_requests")
+        if requests is None:
+            return m26_temporal_activation(context)
+
+        if not isinstance(requests, list) or not requests:
+            raise ValueError(
+                "transit_requests debe ser una lista no vacía cuando se declara."
+            )
+
+        aspect_policy = context.raw_input.get("aspect_policy")
+        if not isinstance(aspect_policy, Mapping):
+            raise ValueError(
+                "TTRANSIT requiere aspect_policy explícita; no se infieren orbes."
+            )
+
+        generated = generate_ttransit_signals(
+            requests=requests,
+            canonical=context.canonical_snapshot,
+            aspect_policy=aspect_policy,
+            backend=backend,
+        )
+
+        existing = context.raw_input.get("temporal_signals")
+        if existing is None:
+            existing_signals: list[Any] = []
+        elif isinstance(existing, list):
+            existing_signals = list(existing)
+        else:
+            raise ValueError(
+                "temporal_signals debe ser una lista cuando se combina con TTRANSIT."
+            )
+
+        raw_input = dict(context.raw_input)
+        raw_input["temporal_signals"] = existing_signals + generated
+
+        generated_context = ModuleContext(
+            module_id=context.module_id,
+            module_name=context.module_name,
+            mode=context.mode,
+            raw_input=raw_input,
+            canonical_snapshot=context.canonical_snapshot,
+            prior_results=context.prior_results,
+        )
+        result = m26_temporal_activation(generated_context)
+
+        diagnostics = tuple(result.diagnostics) + (
+            f"TTRANSIT_GENERATED:{len(generated)}",
+        )
+        return ModuleResult(
+            module_id=result.module_id,
+            status=result.status,
+            payload=result.payload,
+            canonical_updates=result.canonical_updates,
+            evidence_refs=result.evidence_refs,
+            limitations=result.limitations,
+            diagnostics=diagnostics,
+        )
+
+    return handler
 
 
 def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
