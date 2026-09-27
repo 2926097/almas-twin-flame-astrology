@@ -424,6 +424,8 @@ La secuencia hermenéutica preferente es:
 
 La lectura debe explicar primero la arquitectura sin depender de las etiquetas AF/KA/AG/LG. Debe desarrollar, cuando sean evaluables, el sustrato natal, la geometría sinástrica, nodos/ángulos/casas/regencias, declinaciones y antiscios, campo compuesto/Davison, cruces dracónicos, raíces/motivos recurrentes, función evolutiva, activación temporal y correspondencias doctrinales.
 
+En autoría posterior a M31, resolver el sustrato individual desde `canonical_analysis.natal_context` cuando exista. Usar sus `point_signs`, `nodes`, `angles`, `house_cusps`, `house_placements` y `rulerships` como datos derivados ya calculados; no volver a calcular la carta ni recuperar fecha/hora desde fuera del canonical. El sustrato natal debe formular qué tema trae cada sujeto **antes** de interpretar lo que la otra persona activa.
+
 Cada bloque sustantivo debe producir al menos una proposición integrada del tipo:
 
 `evidencia astrológica → motivo → dinámica → significado`.

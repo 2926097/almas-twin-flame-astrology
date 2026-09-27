@@ -21,6 +21,7 @@ SECTION_SPECS = (
         "purpose": "Sintetizar la arquitectura astrológica y su lectura metafísica trazable, distinguiendo cálculo, doctrina, uso contemporáneo e hipótesis.",
         "required_paths": ("models",),
         "optional_paths": (
+            "natal_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
@@ -60,7 +61,7 @@ SECTION_SPECS = (
         "title": "Arquitectura estructural",
         "purpose": "Describir evidencia y raíces estructurales con trazabilidad.",
         "required_paths": ("evidence", "models"),
-        "optional_paths": (),
+        "optional_paths": ("natal_context",),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
             "B_TECHNIQUE",
@@ -72,7 +73,7 @@ SECTION_SPECS = (
         "title": "Capas relacionales y cruzadas",
         "purpose": "Organizar las capas relacionales sin duplicar evidencia dependiente.",
         "required_paths": ("evidence",),
-        "optional_paths": (),
+        "optional_paths": ("natal_context",),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
             "B_TECHNIQUE",
@@ -132,6 +133,7 @@ SECTION_SPECS = (
         "purpose": "Integrar la lectura astrológica, la evidencia estructural y la hermenéutica metafísica basada en fuentes sin superar los techos inferenciales.",
         "required_paths": ("models",),
         "optional_paths": (
+            "natal_context",
             "evidence",
             "semantic_motifs",
             "doctrine",

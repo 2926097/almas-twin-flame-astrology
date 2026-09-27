@@ -3545,6 +3545,12 @@ def main() -> int:
         if required_path not in report_model_handler_text:
             fail(f"M31 reporting paths missing: {required_path}")
 
+    report_model_handler_text = (
+        ROOT / "src/almas_tfa/report_model_handlers.py"
+    ).read_text(encoding="utf-8")
+    if report_model_handler_text.count('"natal_context"') < 4:
+        fail("M31 must expose natal_context to core interpretive sections")
+
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
         fail("M31 must reference canonical_analysis as its sole analytical source")
@@ -4464,6 +4470,7 @@ def main() -> int:
         "analysis_profile",
         "profile_policy_id",
         "astronomy_backend",
+        "natal_context",
         "evidence",
         "models",
         "indices",
@@ -4486,6 +4493,11 @@ def main() -> int:
         fail("canonical schema root surface diverges from M30 output contract")
     if canonical_schema.get("additionalProperties") is not False:
         fail("canonical schema root must reject undeclared namespaces")
+
+    if canonical_props.get("natal_context", {}).get("$ref") != "natal-context-output.schema.json":
+        fail("canonical natal_context must compose the existing M04 output schema")
+    if "natal_context" in set(canonical_schema.get("required", [])):
+        fail("canonical natal_context must remain optional for legacy/imported analyses")
 
     if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
         fail("canonical null_models must compose the M24 output schema")

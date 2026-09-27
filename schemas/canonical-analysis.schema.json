@@ -44,6 +44,9 @@
     "profile_policy_id": {
       "const": "ALMAS_ANALYSIS_PROFILES_V1"
     },
+    "natal_context": {
+      "$ref": "natal-context-output.schema.json"
+    },
     "evidence": {
       "type": "array",
       "items": {

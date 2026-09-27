@@ -694,6 +694,10 @@ def assemble_canonical_analysis(
         },
     }
 
+    natal_context = canonical.get("natal_context")
+    if isinstance(natal_context, Mapping):
+        assembled["natal_context"] = dict(natal_context)
+
     pillar_attribution = canonical.get("pillar_attribution")
     if isinstance(pillar_attribution, Mapping):
         motifs = pillar_attribution.get("semantic_motifs")

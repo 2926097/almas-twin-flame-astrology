@@ -30,12 +30,22 @@ def natal_context():
     return {
         "subjects": {
             "A": {
+                "timed": True,
+                "point_signs": {"SUN": "ARIES", "MOON": "TAURUS"},
+                "nodes": {"NORTH_NODE": {"sign": "GEMINI"}},
                 "angles": {"ASC": {"longitude": 10.0}, "MC": {"longitude": 100.0}},
                 "house_cusps": houses,
+                "house_placements": {"SUN": 1, "MOON": 2},
+                "rulerships": {"ASC": "MARS"},
             },
             "B": {
+                "timed": True,
+                "point_signs": {"SUN": "LIBRA", "MOON": "SCORPIO"},
+                "nodes": {"NORTH_NODE": {"sign": "SAGITTARIUS"}},
                 "angles": {"ASC": {"longitude": 20.0}, "MC": {"longitude": 110.0}},
                 "house_cusps": houses,
+                "house_placements": {"SUN": 7, "MOON": 8},
+                "rulerships": {"ASC": "VENUS"},
             },
         },
         "cross_house_placements": {
@@ -187,6 +197,30 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
             canonical["assembly"]["policy_id"],
             "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
+
+    def test_canonical_preserves_natal_context_without_recalculation(self):
+        source = canonical_base()
+        expected = source["natal_context"]
+
+        result = assemble_canonical_analysis(
+            source,
+            prior_all(),
+        )
+        canonical = result["canonical_analysis"]
+
+        self.assertEqual(canonical["natal_context"], expected)
+        self.assertIsNot(canonical["natal_context"], expected)
+
+    def test_canonical_natal_context_is_optional(self):
+        source = canonical_base()
+        del source["natal_context"]
+
+        result = assemble_canonical_analysis(
+            source,
+            prior_all(),
+        )
+
+        self.assertNotIn("natal_context", result["canonical_analysis"])
 
     def test_canonical_evidence_preserves_root_interpretive_context(self):
         result = assemble_canonical_analysis(
