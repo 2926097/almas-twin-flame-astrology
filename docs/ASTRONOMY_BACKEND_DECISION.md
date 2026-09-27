@@ -46,6 +46,8 @@ El paquete no aporta por sí solo la identidad astronómica completa. Todo cálc
 
 ALMAS no descarga kernels durante el cálculo.
 
+El adaptador vincula el archivo ya verificado directamente al crear la fachada astronómica mediante `Moira(kernel_path=...)`. No depende de una ruta global mutable ni de autodetección posterior del kernel. De este modo, el mismo archivo cuyo SHA-256 forma parte de la procedencia es el que queda asociado a la instancia de cálculo.
+
 La recomendación operativa inicial es DE440 para el rango moderno, sin hacer del nombre de archivo una fuente de verdad: la identidad normativa es el fingerprint del archivo efectivamente utilizado.
 
 ## Política temporal y geográfica
