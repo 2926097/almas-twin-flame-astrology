@@ -337,6 +337,58 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
 
         self.assertNotIn("draconic_context", result["canonical_analysis"])
 
+    def test_canonical_projects_symbolic_context_without_recalculation(self):
+        source = canonical_base()
+        source["lots"] = {
+            "policy": {"policy_id": "SYNTHETIC_LOTS"},
+            "policy_source": "RAW_INPUT",
+            "sect_by_subject": {"A": "DAY", "B": "NIGHT"},
+            "subjects": {
+                "A": {
+                    "FORTUNE": {
+                        "status": "CALCULATED",
+                        "longitude": 120.0,
+                        "source_ref": "SRC_LOT",
+                        "formula": {"base": "ASC", "add": [], "subtract": []},
+                        "sect": "DAY",
+                    }
+                },
+                "B": {},
+            },
+        }
+        source["secondary_symbolic"] = {
+            "subjects": ["A", "B"],
+            "point_ids": ["JUNO"],
+            "support_only": True,
+            "aspect_policy": {
+                "CONJUNCTION": {"angle": 0, "orb": 3},
+            },
+            "missing_points_by_subject": {"A": [], "B": []},
+            "contacts": [],
+            "contact_count": 0,
+        }
+
+        expected_lots = source["lots"]
+        expected_secondary = source["secondary_symbolic"]
+        result = assemble_canonical_analysis(source, prior_all())
+        context = result["canonical_analysis"]["symbolic_context"]
+
+        self.assertTrue(context["authoring_projection_only"])
+        self.assertFalse(context["creates_additional_evidence"])
+        self.assertEqual(context["lots"], expected_lots)
+        self.assertEqual(context["secondary_symbolic"], expected_secondary)
+        self.assertIsNot(context["lots"], expected_lots)
+        self.assertIsNot(context["secondary_symbolic"], expected_secondary)
+        self.assertTrue(context["secondary_symbolic"]["support_only"])
+
+    def test_canonical_symbolic_context_is_optional(self):
+        result = assemble_canonical_analysis(
+            canonical_base(),
+            prior_all(),
+        )
+
+        self.assertNotIn("symbolic_context", result["canonical_analysis"])
+
     def test_canonical_evidence_preserves_root_interpretive_context(self):
         result = assemble_canonical_analysis(
             canonical_base(),
