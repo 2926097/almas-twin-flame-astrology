@@ -290,15 +290,21 @@ Aquí la lectura puede ser evolutiva y esotérica, siempre diferenciando lo calc
 
 La temporalidad responde a **cuándo y cómo se activa** una estructura previa.
 
-Debe enlazarse explícitamente con raíces o motivos ya descritos:
+Aplicar `reference/temporal-activation-hermeneutics.md` y consumir las rutas canónicas M26/M27 sin recalcular la astrología temporal durante la autoría.
 
-`raíz estructural → activador temporal → manifestación simbólica/documental`.
+Secuencia:
+
+`raíz estructural → activation_class → effective_strength → window_status/date_or_period → proceso simbólico → evento documentado si existe`.
+
+Priorizar `selected_independent_signals` y `root_activation_summary`. Cuando una raíz tenga `recurring_across_independent_families=true`, puede hablarse de concentración temporal multitécnica del mismo tema, no de nuevas raíces ni de mayor probabilidad de un hecho.
+
+`temporal_event_links` permite relacionar una señal con un evento M27 sólo cuando la referencia está resuelta. El hecho conserva su calidad documental y su rol; no se convierte en causa astrológica ni eleva retrospectivamente origen, cláusula o estructura.
 
 Pregunta interpretativa:
 
-> ¿Qué parte de la arquitectura está siendo activada ahora y qué proceso simboliza esa activación?
+> ¿Qué parte de la arquitectura está siendo activada, en qué ventana, con qué recurrencia y qué proceso simboliza esa activación?
 
-Evitar convertir una activación intensa en creación retroactiva del vínculo o en predicción obligatoria de decisiones futuras.
+Evitar convertir `CURRENT_ACTIVE` o `PROSPECTIVE_ACTIVATION` en predicción obligatoria de decisiones futuras. IAT y `effective_strength` son calibradores de activación, no probabilidades de contacto, reunión, separación, reconciliación, matrimonio, consentimiento o cierre.
 
 ### 9. Hermenéutica metafísica y fuentes · M28
 
