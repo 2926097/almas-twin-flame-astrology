@@ -255,6 +255,7 @@ class MoiraProductionBackend:
             "provider_package": self.policy["provider"]["package"],
             "provider_version": self.backend_version,
             "kernel_filename": self.kernel_path.name,
+            "kernel_family": self.kernel_family,
             "kernel_sha256": self.kernel_sha256,
             "house_system": self.config.house_system.upper(),
             "node_mode": self.policy["natal"]["node_mode"],
@@ -487,6 +488,20 @@ class MoiraProductionBackend:
             longitude=longitude,
         )
         houses, angles = self._house_payload(house_data)
+        jd_ut = _value(chart, "jd_ut")
+        delta_t = _value(chart, "delta_t")
+        if (
+            isinstance(jd_ut, bool)
+            or not isinstance(jd_ut, (int, float))
+            or isinstance(delta_t, bool)
+            or not isinstance(delta_t, (int, float))
+        ):
+            raise AstronomyBackendNotEvaluableError(
+                "Moira no devolvió jd_ut/delta_t numéricos."
+            )
+        jd_ut = float(jd_ut)
+        delta_t = float(delta_t)
+        jd_tt = jd_ut + delta_t / 86400.0
         return {
             "subject_id": subject_id,
             "timed": True,
@@ -499,6 +514,9 @@ class MoiraProductionBackend:
             "backend_provenance": self.provenance,
             "metadata": {
                 "utc_instant": instant.astimezone(timezone.utc).isoformat(),
+                "jd_ut": jd_ut,
+                "delta_t_seconds": delta_t,
+                "jd_tt": jd_tt,
                 "latitude": float(latitude),
                 "longitude": float(longitude),
                 "house_system_requested": self.config.house_system.upper(),
