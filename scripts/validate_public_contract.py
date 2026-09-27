@@ -37,6 +37,7 @@ REQUIRED_FILES = [
     "docs/RELEASE_AUDIT_1.14.0.md",
     "docs/RELEASE_AUDIT_1.15.0.md",
     "docs/RELEASE_AUDIT_1.16.0.md",
+    "docs/RELEASE_AUDIT_1.17.0.md",
     "docs/EVOLUTION_1.15.0.md",
     "docs/EVOLUTION_1.16.0.md",
     "docs/EVOLUTION_1.17.0.md",
