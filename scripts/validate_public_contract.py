@@ -79,6 +79,7 @@ REQUIRED_FILES = [
     "schemas/px-v3-candidate-registry.schema.json",
     "schemas/px-v3-promotion-evidence.schema.json",
     "schemas/validation-preregistration-bundle.schema.json",
+    "schemas/holdout-open-record.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -201,6 +202,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/px-v3-promotion-gate-policy.json",
     "src/almas_tfa/data/px-v3-activation-firewall-policy.json",
     "src/almas_tfa/data/validation-preregistration-bundle-policy.json",
+    "src/almas_tfa/data/holdout-open-gate-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -236,6 +238,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/px_v3_promotion.py",
     "src/almas_tfa/px_v3_activation.py",
     "src/almas_tfa/validation_preregistration.py",
+    "src/almas_tfa/holdout_open.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -337,6 +340,7 @@ REQUIRED_FILES = [
     "tests/test_px_v3_promotion.py",
     "tests/test_px_v3_activation.py",
     "tests/test_validation_preregistration.py",
+    "tests/test_holdout_open.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -522,6 +526,9 @@ def main() -> int:
     validation_preregistration_bundle_policy = load_json(
         "src/almas_tfa/data/validation-preregistration-bundle-policy.json"
     )
+    holdout_open_gate_policy = load_json(
+        "src/almas_tfa/data/holdout-open-gate-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -584,6 +591,9 @@ def main() -> int:
     )
     validation_preregistration_bundle_schema = load_json(
         "schemas/validation-preregistration-bundle.schema.json"
+    )
+    holdout_open_record_schema = load_json(
+        "schemas/holdout-open-record.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1268,6 +1278,55 @@ def main() -> int:
     ):
         if v1_schema_props.get(field, {}).get("const") is not False:
             fail(f"1.16 V1 schema must lock {field}=false")
+
+    if holdout_open_gate_policy.get("policy_id") != "ALMAS_HOLDOUT_OPEN_GATE_V1":
+        fail("1.16 V2 holdout open gate policy id changed")
+    if holdout_open_gate_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V2 holdout open gate must remain frozen")
+    if holdout_open_gate_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V2 holdout open gate must remain E_PROJECT_POLICY")
+    v2_principles = holdout_open_gate_policy.get("principles", {})
+    for key in (
+        "preregistration_fingerprint_must_match",
+        "runtime_version_must_match_frozen",
+        "runtime_commit_must_match_frozen",
+        "candidate_formula_must_match_frozen",
+        "cohort_metadata_must_match_frozen",
+        "minimum_sample_count_must_be_met",
+        "observed_results_forbidden_at_open",
+        "posthoc_changes_forbidden",
+        "open_gate_does_not_evaluate_holdout",
+        "open_gate_does_not_promote_candidate",
+        "automatic_registry_mutation_forbidden",
+        "scoring_activation_forbidden",
+        "weighting_activation_forbidden",
+        "ontology_activation_forbidden",
+        "l3_validation_forbidden",
+    ):
+        if v2_principles.get(key) is not True:
+            fail(f"1.16 V2 invariant failed: {key}")
+    if v2_principles.get("metaphysical_probability") is not False:
+        fail("1.16 V2 must forbid metaphysical probability")
+
+    v2_schema_props = holdout_open_record_schema.get("properties", {})
+    if v2_schema_props.get("policy_id", {}).get("const") != "ALMAS_HOLDOUT_OPEN_GATE_V1":
+        fail("1.16 V2 schema policy id changed")
+    for field in (
+        "holdout_evaluated",
+        "promotion_permitted",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v2_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V2 schema must lock {field}=false")
+    if v2_schema_props.get("holdout_opened", {}).get("const") is not True:
+        fail("1.16 V2 schema must require holdout_opened=true")
+    if v2_schema_props.get("holdout_evaluation_permitted", {}).get("const") is not True:
+        fail("1.16 V2 schema must permit holdout evaluation after gate")
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
         "candidate",
