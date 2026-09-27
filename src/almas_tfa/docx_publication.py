@@ -203,6 +203,16 @@ def _bibliography_text(entry: Mapping[str, Any]) -> str:
     return ". ".join(pieces)
 
 
+def _narrative_paragraphs(narrative: str) -> list[str]:
+    normalized = narrative.replace("\r\n", "\n").replace("\r", "\n")
+    blocks = [
+        block.strip()
+        for block in normalized.split("\n\n")
+        if block.strip()
+    ]
+    return blocks or [narrative]
+
+
 def build_authored_report_docx(
     authored_report: Mapping[str, Any],
     output_path: str | Path,
@@ -293,7 +303,8 @@ def build_authored_report_docx(
             raise DocxPublicationError(
                 f"{authored_section['section_id']}: narrative vacío."
             )
-        document.add_paragraph(narrative)
+        for paragraph_text in _narrative_paragraphs(narrative):
+            document.add_paragraph(paragraph_text)
 
         limitations = authored_section.get("limitations", [])
         if limitations:
