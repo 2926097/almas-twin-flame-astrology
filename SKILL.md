@@ -195,7 +195,10 @@ Reglas de dependencia:
 - Compuesta y Davison pertenecen a una única familia `RELCHART` para el cómputo de independencia.
 - Cuando M09 publique `field_context`, usar `canonical_analysis.relationship_field` y `reference/relationship-field-hermeneutics.md` para desarrollar el campo emergente. Sus aspectos internos son `authoring_only`: no crean evidencia M15, raíces, pilares ni scores.
 - La compuesta M07 declara `houses_calculated=false`; no inventar casas compuestas. El Davison puede interpretar casas sólo desde `relationship_field.davison.house_placements`, derivado antes de la autoría a partir de las doce cúspides M08; no recalcular pertenencias a casas durante la redacción.
+- Cuando M10–M12 estén disponibles, usar `canonical_analysis.draconic_context` para autoría. `individual` conserva las cartas dracónicas ya transformadas y sus signos; `natal_cross` conserva la dirección natal→dracónica de M11; `draconic_cross` conserva M12 como capa corroborativa. Esta proyección no crea evidencia adicional ni autoriza recalcular la técnica después de M31.
 - Dracónica↔dracónica es corroborativa y no es elegible por defecto como núcleo independiente.
+- En M11 interpretar siempre la dirección concreta: qué función natal de un sujeto contacta qué función dracónica del otro. No invertir A→B y B→A como si fueran equivalentes.
+- Las fuentes `crane_draconic_astrology_1987` y `blaquier_draconic_astrology_2017_2021` sustentan el método dracónico moderno; no convierten un contacto dracónico en prueba independiente de reencarnación, contrato álmico u origen twin-flame.
 - Los asteroides secundarios son `support_only=true`.
 - Casas y signos contextualizan raíces; no crean por sí solos raíces ontológicas.
 
@@ -429,6 +432,8 @@ La lectura debe explicar primero la arquitectura sin depender de las etiquetas A
 En autoría posterior a M31, resolver el sustrato individual desde `canonical_analysis.natal_context` cuando exista. Usar sus `point_signs`, `nodes`, `angles`, `house_cusps`, `house_placements` y `rulerships` como datos derivados ya calculados; no volver a calcular la carta ni recuperar fecha/hora desde fuera del canonical. El sustrato natal debe formular qué tema trae cada sujeto **antes** de interpretar lo que la otra persona activa.
 
 Para esa lectura aplicar `reference/natal-substrate-hermeneutics.md`. La secuencia es `función → signo/modo → casa natal → regencia declarada → tema individual → activación relacional`. No imponer una escuela de regencias cuando `rulerships` esté vacío y no introducir dignidades, símbolos sabianos, decanatos u otras técnicas a partir del mero `degree_in_sign`.
+
+Cuando exista `canonical_analysis.draconic_context`, aplicar además `reference/esoteric-draconic-astrology-matrix.md`. La secuencia preferente es `función natal → reencuadre dracónico/signo → contacto natal↔dracónico direccional → repetición en raíces/motivos → significado evolutivo`. La carta dracónica individual contextualiza cómo se reorganiza una función respecto del Nodo Norte; M11 muestra qué estructura natal de una persona activa esa capa en la otra; M12 sólo corrobora.
 
 Cada bloque sustantivo debe producir al menos una proposición integrada del tipo:
 

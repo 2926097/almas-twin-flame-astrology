@@ -3585,6 +3585,8 @@ def main() -> int:
         fail("M31 must expose natal_context to core interpretive sections")
     if report_model_handler_text.count('"relationship_field"') < 4:
         fail("M31 must expose relationship_field to core interpretive sections")
+    if report_model_handler_text.count('"draconic_context"') < 4:
+        fail("M31 must expose draconic_context to core interpretive sections")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
@@ -4521,6 +4523,7 @@ def main() -> int:
         "astronomy_backend",
         "natal_context",
         "relationship_field",
+        "draconic_context",
         "evidence",
         "models",
         "indices",
@@ -4555,6 +4558,23 @@ def main() -> int:
         fail("canonical relationship_field must compose M09 field_context")
     if "relationship_field" in set(canonical_schema.get("required", [])):
         fail("canonical relationship_field must remain optional")
+
+    draconic_context_schema = canonical_props.get("draconic_context", {})
+    if "draconic_context" in set(canonical_schema.get("required", [])):
+        fail("canonical draconic_context must remain optional")
+    if draconic_context_schema.get("additionalProperties") is not False:
+        fail("canonical draconic_context must reject undeclared fields")
+    draconic_props = draconic_context_schema.get("properties", {})
+    if draconic_props.get("authoring_projection_only", {}).get("const") is not True:
+        fail("draconic_context must remain an authoring projection")
+    if draconic_props.get("creates_additional_evidence", {}).get("const") is not False:
+        fail("draconic_context must not create additional evidence")
+    if draconic_props.get("individual", {}).get("$ref") != "draconic-output.schema.json":
+        fail("draconic_context individual output must reuse M10 schema")
+    if draconic_props.get("natal_cross", {}).get("$ref") != "draconic-cross-output.schema.json":
+        fail("draconic_context natal_cross must reuse M11 schema")
+    if draconic_props.get("draconic_cross", {}).get("$ref") != "draconic-cross-output.schema.json":
+        fail("draconic_context draconic_cross must reuse M12 schema")
 
     if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
         fail("canonical null_models must compose the M24 output schema")

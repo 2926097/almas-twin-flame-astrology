@@ -275,6 +275,66 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
 
         self.assertNotIn("relationship_field", result["canonical_analysis"])
 
+    def test_canonical_projects_draconic_context_without_recalculation(self):
+        source = canonical_base()
+        source["draconic"] = {
+            "policy": {
+                "node_id": "NORTH_NODE",
+                "transform": "NORTH_NODE_TO_ZERO",
+            },
+            "charts": {
+                "A": {
+                    "positions": {
+                        "SUN": {
+                            "longitude": 30.0,
+                            "sign": "TAURUS",
+                        }
+                    }
+                },
+                "B": {
+                    "positions": {
+                        "MOON": {
+                            "longitude": 90.0,
+                            "sign": "CANCER",
+                        }
+                    }
+                },
+            },
+        }
+        source["natal_draconic_cross"] = {
+            "subjects": ["A", "B"],
+            "policy": {},
+            "contacts": [],
+            "contact_count": 0,
+        }
+        source["draconic_draconic"] = {
+            "subjects": ["A", "B"],
+            "policy": {},
+            "contacts": [],
+            "contact_count": 0,
+            "corroborative_only": True,
+        }
+
+        result = assemble_canonical_analysis(source, prior_all())
+        context = result["canonical_analysis"]["draconic_context"]
+
+        self.assertTrue(context["authoring_projection_only"])
+        self.assertFalse(context["creates_additional_evidence"])
+        self.assertEqual(
+            context["individual"]["charts"]["A"]["positions"]["SUN"]["sign"],
+            "TAURUS",
+        )
+        self.assertEqual(context["natal_cross"]["contact_count"], 0)
+        self.assertTrue(context["draconic_cross"]["corroborative_only"])
+
+    def test_canonical_draconic_context_is_optional(self):
+        result = assemble_canonical_analysis(
+            canonical_base(),
+            prior_all(),
+        )
+
+        self.assertNotIn("draconic_context", result["canonical_analysis"])
+
     def test_canonical_evidence_preserves_root_interpretive_context(self):
         result = assemble_canonical_analysis(
             canonical_base(),

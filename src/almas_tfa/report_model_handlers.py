@@ -23,6 +23,7 @@ SECTION_SPECS = (
         "optional_paths": (
             "natal_context",
             "relationship_field",
+            "draconic_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
@@ -62,7 +63,11 @@ SECTION_SPECS = (
         "title": "Arquitectura estructural",
         "purpose": "Describir evidencia y raíces estructurales con trazabilidad.",
         "required_paths": ("evidence", "models"),
-        "optional_paths": ("natal_context", "relationship_field"),
+        "optional_paths": (
+            "natal_context",
+            "relationship_field",
+            "draconic_context",
+        ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
             "B_TECHNIQUE",
@@ -74,7 +79,11 @@ SECTION_SPECS = (
         "title": "Capas relacionales y cruzadas",
         "purpose": "Organizar las capas relacionales sin duplicar evidencia dependiente.",
         "required_paths": ("evidence",),
-        "optional_paths": ("natal_context", "relationship_field"),
+        "optional_paths": (
+            "natal_context",
+            "relationship_field",
+            "draconic_context",
+        ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
             "B_TECHNIQUE",
@@ -136,6 +145,7 @@ SECTION_SPECS = (
         "optional_paths": (
             "natal_context",
             "relationship_field",
+            "draconic_context",
             "evidence",
             "semantic_motifs",
             "doctrine",

@@ -130,13 +130,55 @@ Para autoría posterior a M31, usar `canonical_analysis.relationship_field` cuan
 
 La dracónica se interpreta como **reencuadre nodal** de la carta, no como prueba automática de vidas pasadas, contrato o identidad del alma.
 
-Las cartas dracónicas individuales pueden mostrar cómo se reorganiza una estructura cuando el Nodo Norte se toma como origen simbólico. Los cruces natal↔dracónica en ambas direcciones adquieren valor interpretativo cuando repiten temas ya presentes en capas independientes.
+Para autoría posterior a M31 usar `canonical_analysis.draconic_context` cuando exista. Esta ruta es una proyección de M10–M12 ya calculados: `authoring_projection_only=true` y `creates_additional_evidence=false`.
+
+Fuentes de método registradas:
+
+- `crane_draconic_astrology_1987`: fuente moderna identificada para uso interpretativo de cartas dracónicas;
+- `blaquier_draconic_astrology_2017_2021`: fuente primaria verificada para el procedimiento que lleva el Nodo Norte tropical a 0° Aries y desplaza el resto de posiciones por el mismo arco.
+
+#### M10 · carta dracónica individual
+
+`draconic_context.individual` conserva para cada sujeto las posiciones ya transformadas, su signo y grado dentro del signo, además del `source_longitude` tropical. No recalcular la dracónica durante la autoría.
+
+Leer:
+
+`función natal → desplazamiento nodal → signo dracónico → diferencia/repetición respecto del patrón tropical → tema evolutivo`.
+
+La pregunta no es «¿cuál es la verdadera carta?», sino:
+
+> ¿Cómo cambia el énfasis simbólico de una función cuando la carta se reordena tomando el Nodo Norte como origen?
+
+Una repetición entre tropical y dracónica puede intensificar hermenéuticamente un tema; una diferencia puede mostrar otro modo de organizarlo. Ninguna de las dos situaciones prueba por sí sola una memoria preencarnatoria.
+
+#### M11 · natal ↔ dracónica
+
+`draconic_context.natal_cross` conserva los contactos en ambas direcciones.
+
+La dirección es sustantiva:
+
+- natal A → dracónica B: una función manifiesta de A toca una función reencuadrada de B;
+- natal B → dracónica A: el circuito inverso y no necesariamente equivalente.
+
+Aplicar primero función planetaria y geometría del aspecto. Después preguntar si el mismo par o motivo aparece en sinastría, campo relacional o raíces independientes.
+
+Una formulación válida debe especificar **quién activa qué**. Evitar frases genéricas como «hay conexión dracónica» cuando los datos permiten describir el circuito concreto.
+
+#### M12 · dracónica ↔ dracónica
+
+`draconic_context.draconic_cross` permanece `corroborative_only=true`.
+
+Sirve para observar afinidades o tensiones dentro de dos marcos ya reencuadrados nodalmente. Puede enriquecer una recurrencia previamente establecida, pero no cuenta como confirmación astronómicamente independiente ni crea una raíz adicional por sí sola.
 
 Pregunta interpretativa:
 
-> ¿Qué patrón tropical reaparece o se profundiza al reencuadrar la carta desde el eje nodal?
+> ¿Qué patrón tropical o relacional reaparece, cambia de forma o se profundiza cuando ambas cartas se leen desde el eje nodal?
 
-La dracónica↔dracónica permanece corroborativa. Debe enriquecer la lectura de un motivo ya existente, no crear por sí sola una conclusión ontológica.
+La secuencia recomendada es:
+
+`tropical individual → sinastría → M10 reencuadre → M11 dirección natal↔dracónica → M12 corroboración → raíces/motivos → función evolutiva`.
+
+Sólo después de explicar esta arquitectura puede abrirse un comparandum metafísico —continuidad, memoria simbólica, contrato, misión— y siempre dentro del techo de la fuente doctrinal correspondiente.
 
 ### 5. Lotes y capas simbólicas secundarias · M13–M14
 

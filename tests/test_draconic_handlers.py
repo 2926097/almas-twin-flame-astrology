@@ -85,6 +85,12 @@ class TestDraconicHandlers(unittest.TestCase):
 
         self.assertAlmostEqual(charts["A"]["positions"]["NORTH_NODE"]["longitude"], 0)
         self.assertAlmostEqual(charts["A"]["positions"]["SUN"]["longitude"], 30)
+        self.assertEqual(charts["A"]["positions"]["NORTH_NODE"]["sign"], "ARIES")
+        self.assertEqual(charts["A"]["positions"]["SUN"]["sign"], "TAURUS")
+        self.assertAlmostEqual(
+            charts["A"]["positions"]["SUN"]["degree_in_sign"],
+            0.0,
+        )
         self.assertAlmostEqual(charts["A"]["angles"]["ASC"], 60)
         self.assertAlmostEqual(charts["A"]["houses"]["1"], 0)
 

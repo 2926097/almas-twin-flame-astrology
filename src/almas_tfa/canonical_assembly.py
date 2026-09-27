@@ -704,6 +704,22 @@ def assemble_canonical_analysis(
         if isinstance(field_context, Mapping):
             assembled["relationship_field"] = dict(field_context)
 
+    draconic_context: dict[str, Any] = {
+        "authoring_projection_only": True,
+        "creates_additional_evidence": False,
+    }
+    draconic = canonical.get("draconic")
+    if isinstance(draconic, Mapping):
+        draconic_context["individual"] = dict(draconic)
+    natal_draconic_cross = canonical.get("natal_draconic_cross")
+    if isinstance(natal_draconic_cross, Mapping):
+        draconic_context["natal_cross"] = dict(natal_draconic_cross)
+    draconic_draconic = canonical.get("draconic_draconic")
+    if isinstance(draconic_draconic, Mapping):
+        draconic_context["draconic_cross"] = dict(draconic_draconic)
+    if len(draconic_context) > 2:
+        assembled["draconic_context"] = draconic_context
+
     pillar_attribution = canonical.get("pillar_attribution")
     if isinstance(pillar_attribution, Mapping):
         motifs = pillar_attribution.get("semantic_motifs")
