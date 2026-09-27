@@ -5,11 +5,11 @@
 
 ## Línea base vigente
 
-- **38 fuentes**;
-- **92 conceptos**;
+- **42 fuentes**;
+- **97 conceptos**;
 - **73 relaciones doctrinales/genealógicas**;
-- **21 fuentes VERIFIED_PRIMARY**;
-- **17 fuentes VERIFIED_METADATA**;
+- **22 fuentes VERIFIED_PRIMARY**;
+- **20 fuentes VERIFIED_METADATA**;
 - **0 fuentes PARTIAL**;
 - **0 conceptos de fuente sin definición**;
 - **0 referencias de concepto a fuentes inexistentes**;
@@ -17,10 +17,10 @@
 
 Distribución:
 
-- P1 primaria: 23;
+- P1 primaria: 25;
 - P2 académica: 7;
 - P3 histórica/técnica: 1;
-- P4 método identificado: 7.
+- P4 método identificado: 9.
 
 ## Criterio
 
@@ -50,6 +50,12 @@ Véanse:
 - `docs/SOURCE_ANCHOR_POLICY.md`;
 - `docs/MAPPED_SOURCE_ANCHOR_REPORT.md`;
 - `reference/source-registry.json`.
+
+## Refuerzo interpretativo 1.20
+
+El corpus incorpora como fuentes de método a John Townley para la carta compuesta y a Ronald C. Davison para sinastría/`Relationship Horoscope`. La finalidad es mejorar la fundamentación de M07–M09 y de la narrativa de cartas relacionales.
+
+La incorporación no crea nuevos scores ni discriminadores. Permite distinguir con mayor precisión qué afirmaciones proceden del método astrológico y cuáles son síntesis hermenéuticas de ALMAS.
 
 ## Evolución
 
