@@ -42,6 +42,7 @@ class DocxPublicationReceipt:
 def _require_docx():
     try:
         from docx import Document
+        from docx.enum.style import WD_STYLE_TYPE
         from docx.enum.text import WD_ALIGN_PARAGRAPH
         from docx.oxml import OxmlElement
         from docx.oxml.ns import qn
@@ -51,7 +52,15 @@ def _require_docx():
             "La publicación DOCX requiere el extra opcional "
             "'publication-docx' (python-docx==1.2.0)."
         ) from exc
-    return Document, WD_ALIGN_PARAGRAPH, OxmlElement, qn, Mm, Pt
+    return (
+        Document,
+        WD_STYLE_TYPE,
+        WD_ALIGN_PARAGRAPH,
+        OxmlElement,
+        qn,
+        Mm,
+        Pt,
+    )
 
 
 def _validate_surface(authored_report: Mapping[str, Any]) -> None:
@@ -98,7 +107,7 @@ def _add_page_field(paragraph: Any, OxmlElement: Any, qn: Any) -> None:
     run._r.extend((begin, instr, separate, text, end))
 
 
-def _set_styles(document: Any, Pt: Any) -> None:
+def _set_styles(document: Any, WD_STYLE_TYPE: Any, Pt: Any) -> None:
     styles = document.styles
 
     normal = styles["Normal"]
@@ -134,14 +143,17 @@ def _set_styles(document: Any, Pt: Any) -> None:
     heading2.paragraph_format.space_after = Pt(4)
     heading2.paragraph_format.keep_with_next = True
 
-    trace = styles.add_style("ALMAS Trace", 1)
+    trace = styles.add_style("ALMAS Trace", WD_STYLE_TYPE.PARAGRAPH)
     trace.font.name = "Liberation Sans"
     trace.font.size = Pt(8)
     trace.font.italic = True
     trace.paragraph_format.space_before = Pt(5)
     trace.paragraph_format.space_after = Pt(3)
 
-    bibliography = styles.add_style("ALMAS Bibliography", 1)
+    bibliography = styles.add_style(
+        "ALMAS Bibliography",
+        WD_STYLE_TYPE.PARAGRAPH,
+    )
     bibliography.font.name = "Liberation Serif"
     bibliography.font.size = Pt(9)
     bibliography.paragraph_format.left_indent = Pt(12)
@@ -201,7 +213,15 @@ def build_authored_report_docx(
     """Materializa authored_report como DOCX B5 sin alterar la narrativa."""
 
     _validate_surface(authored_report)
-    Document, WD_ALIGN_PARAGRAPH, OxmlElement, qn, Mm, Pt = _require_docx()
+    (
+        Document,
+        WD_STYLE_TYPE,
+        WD_ALIGN_PARAGRAPH,
+        OxmlElement,
+        qn,
+        Mm,
+        Pt,
+    ) = _require_docx()
 
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -217,7 +237,7 @@ def build_authored_report_docx(
     section.header_distance = Mm(8)
     section.footer_distance = Mm(8)
 
-    _set_styles(document, Pt)
+    _set_styles(document, WD_STYLE_TYPE, Pt)
 
     fingerprint = str(authored_report["canonical_fingerprint"])
     properties = document.core_properties
