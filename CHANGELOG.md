@@ -13,8 +13,10 @@
 - Implementa Davison mediante midpoint UTC y midpoint geográfico esférico explícitos.
 - M02 y M08 pasan de `BACKEND_REQUIRED` a `EXECUTABLE_HANDLER`.
 - Añade schema de procedencia astronómica y workflow específico de compatibilidad Moira en Python 3.10/3.12.
-- La suite del núcleo alcanza **454 tests deterministas**; el workflow específico del backend ejecuta **11 tests** y valida la API real de Moira 6.8.2 en Python 3.10/3.12.
-- La validación dorada con kernel JPL real y verificación astronómica independiente permanece como gate separado.
+- La suite del núcleo alcanza **468 tests deterministas**; el workflow específico valida Moira 6.8.2, Skyfield 1.55 y los contratos del gate en Python 3.10/3.12.
+- Preregistra `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` con seis casos sintéticos, tolerancias inmutables y etapas planetas/nodo/casas.
+- Ejecuta `PLANETARY_REFERENCE` con el DE440s oficial fingerprintado: Moira 6.8.2 frente a Skyfield 1.55 obtiene PASS en los seis casos y en ambas versiones de Python; máximo observado 0,9257480642″ frente a un límite aplicable de 15″.
+- True Node y casas/ángulos permanecen como etapas independientes pendientes antes de cerrar el gate astronómico completo.
 - No cambia técnicas, pesos, scoring, ontología ni discriminadores.
 
 ## 1.17.0 — 2026-09-27
