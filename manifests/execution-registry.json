@@ -22,8 +22,8 @@
     },
     {
       "id": "M02",
-      "status": "BACKEND_REQUIRED",
-      "implementation": "src/almas_tfa/astrology_handlers.py:make_m02_natal"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/astrology_handlers.py:make_m02_natal + src/almas_tfa/production_astronomy.py:MoiraProductionBackend"
     },
     {
       "id": "M03",
@@ -52,8 +52,8 @@
     },
     {
       "id": "M08",
-      "status": "BACKEND_REQUIRED",
-      "implementation": "src/almas_tfa/relationship_chart_handlers.py:make_m08_davison"
+      "status": "EXECUTABLE_HANDLER",
+      "implementation": "src/almas_tfa/relationship_chart_handlers.py:make_m08_davison + src/almas_tfa/production_astronomy.py:MoiraProductionBackend"
     },
     {
       "id": "M09",
