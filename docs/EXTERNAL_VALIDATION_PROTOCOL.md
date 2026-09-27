@@ -522,3 +522,28 @@ Cualquier intento de activar PX v3 dentro de esta release debe terminar en
 
 Este firewall garantiza que la evidencia observada durante validación no pueda
 transformarse en una regla operativa sin un corte de versión explícito.
+
+
+## 23. Continuidad criptográfica de la operación de validación
+
+ALMAS 1.16 introduce `ALMAS_VALIDATION_CONTINUITY_GATE_V1`.
+
+Antes de que una evaluación S7 pueda presentarse al gate de promoción S8, la
+ruta operacional 1.16 exige demostrar continuidad entre:
+
+`V1 preregistration → V2 holdout opening → S7 holdout evaluation → V3 ledger`.
+
+El gate vuelve a calcular los fingerprints del preregistro, apertura y
+evaluación, verifica la cadena hash del ledger y comprueba continuidad de
+candidate/formula/cohorte/null model/versión/commit.
+
+El resultado válido es un certificado agregado
+`CONTINUITY_VERIFIED`. El certificado no contiene datos privados ni scores
+individuales.
+
+La continuidad criptográfica demuestra que los artefactos evaluados pertenecen
+al mismo ciclo congelado; no demuestra que el candidato sea correcto, no
+convierte S7 en validación ontológica y no habilita scoring.
+
+La ruta normativa hacia S8 en 1.16 exige este certificado. Un S8 técnicamente
+completo pero sin continuidad V4 debe permanecer `NOT_ELIGIBLE`.
