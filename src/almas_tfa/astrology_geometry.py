@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
+from .structural_policies import validate_declared_aspect_policy
+
 
 SIGNS = (
     "ARIES",
@@ -55,6 +57,8 @@ def match_declared_aspect(
     En caso de solapamiento se selecciona el menor orb absoluto y, después,
     el nombre lexicográficamente para mantener determinismo.
     """
+
+    validate_declared_aspect_policy(aspect_policy)
 
     distance = angular_distance(a, b)
     candidates: list[dict[str, Any]] = []
