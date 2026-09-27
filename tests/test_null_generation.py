@@ -90,11 +90,11 @@ class TestNullGeneration(unittest.TestCase):
         policy["generator"]["samples_per_subject"] = 2
 
         side_effect = [
-            snapshot(7, 82.0, 0.80),
-            snapshot(5, 70.0, 0.55),
-            snapshot(6, 76.0, 0.65),
-            snapshot(4, 68.0, 0.45),
-            snapshot(7, 80.0, 0.75),
+            snapshot(7, 82.0, 80.0),
+            snapshot(5, 70.0, 55.0),
+            snapshot(6, 76.0, 65.0),
+            snapshot(4, 68.0, 45.0),
+            snapshot(7, 80.0, 75.0),
         ]
 
         with patch(
@@ -123,6 +123,20 @@ class TestNullGeneration(unittest.TestCase):
         self.assertFalse(result["external_population_claim"])
 
         manifest = result["sample_manifest"]
+        self.assertEqual(
+            [sample["px_pillar_score"] for sample in manifest],
+            [55.0, 65.0, 45.0, 75.0],
+        )
+        self.assertTrue(
+            all(0.0 <= sample["px_pillar_score"] <= 100.0 for sample in manifest)
+        )
+        px_run = next(
+            run for run in result["run_specs"]
+            if run["statistic_id"] == "PX_PILLAR_SCORE"
+        )
+        self.assertEqual(px_run["observed_value"], 80.0)
+        self.assertEqual(px_run["null_samples"], [55.0, 65.0, 45.0, 75.0])
+
         years_by_subject = {"A": "2000", "B": "2001"}
         for sample in manifest:
             subject_id = sample["perturbed_subject_id"]
