@@ -55,10 +55,13 @@ La lectura debe desarrollar:
 
 Fuentes técnicas registradas:
 
+- `davison_synastry_1983` documenta comparación de cartas, aspectos planetarios cruzados e intercambios de casas como componentes del análisis relacional;
+- `sakoian_acker_human_relationships_1976` aporta una fuente de método centrada en comparación horoscópica y combinaciones planetarias;
+- `arroyo_relationships_life_cycles_1993` fundamenta el uso interpretativo de comparación de cartas y casas desde una escuela psicológica relacional;
 - `boehrer_declination_other_dimension` documenta el uso moderno de declinaciones, paralelos y contraparalelos como dimensión interpretativa adicional;
 - `firmicus_mathesis_2_29_antiscia` aporta una fuente histórica primaria para el sistema de antiscios y su correspondencia recíproca de signos/grados.
 
-Estas fuentes permiten explicar por qué M05 y M06 existen como capas interpretativas distintas de los aspectos por longitud. No autorizan a tratar paralelo, contraparalelo o antiscio como evidencia ontológica autónoma ni a imponer una equivalencia universal conjunción/oposición fuera de la escuela declarada.
+Las tres primeras fuentes permiten desarrollar M03–M04 desde dinámica interpersonal, combinaciones concretas y zonas de experiencia activadas por casas. Las dos últimas explican por qué M05–M06 añaden dimensiones distintas de los aspectos por longitud. Ninguna de estas fuentes convierte una técnica relacional en evidencia ontológica autónoma ni autoriza a inferir destino, reciprocidad o tipo de alma a partir de una configuración aislada.
 
 Pregunta interpretativa:
 
