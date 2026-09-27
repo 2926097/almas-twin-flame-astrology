@@ -53,12 +53,16 @@
   "semantic_motifs": {
     "motifs": [
       {
-        "motif_id": "MOTIF:NODAL_RECOGNITION",
-        "summary": "Reconocimiento nodal multitécnico."
+        "motif_id": "KARMIC_CONTINUITY",
+        "summary": "Recurrencia nodal multitécnica que organiza dirección, memoria simbólica y continuidad."
       },
       {
-        "motif_id": "MOTIF:TRANSFORMATIVE_BOND",
-        "summary": "Transformación relacional Venus-Plutón."
+        "motif_id": "TRANSFORMATION_POWER",
+        "summary": "Patrón Venus-Plutón recurrente que concentra magnetismo y transformación relacional."
+      },
+      {
+        "motif_id": "RELATIONAL_COHERENCE",
+        "summary": "Consonancia Sol-Luna en la familia relacional que aporta capacidad de integración."
       }
     ]
   },
@@ -99,6 +103,25 @@
       "epistemic_class": "C_DOCTRINE",
       "source_ids": [
         "kardec_spirits_book_missions_572_573"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "D_GILGUL_CONTINUITY",
+      "statement": "La Cábala luriana describe el gilgul como retorno del alma por distintas funciones de rectificación o cumplimiento, incluyendo continuidades relacionales en determinados contextos.",
+      "epistemic_class": "C_DOCTRINE",
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "D_ZIVUG_PAIRING",
+      "statement": "Fuentes zoháricas y lurianas contienen modelos de emparejamiento del alma y continuidad de la pareja dentro de sus propios marcos doctrinales.",
+      "epistemic_class": "C_DOCTRINE",
+      "source_ids": [
+        "zohar_lech_lecha_32_346_350",
+        "vital_shaar_hagilgulim_20_zivug"
       ],
       "status": "SUPPORTED"
     }
