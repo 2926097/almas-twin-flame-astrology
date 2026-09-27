@@ -65,6 +65,53 @@ def _signal_traceability(raw: Mapping[str, Any], signal_id: str) -> tuple[bool, 
     return not missing, missing
 
 
+def _normalize_trigger_context(
+    raw: Any,
+    signal_id: str,
+) -> dict[str, Any] | None:
+    """Conserva el disparador astrológico declarado sin recalcularlo ni puntuarlo."""
+
+    if raw is None:
+        return None
+    if not isinstance(raw, Mapping):
+        raise ValueError(f"{signal_id}: trigger_context debe ser un objeto.")
+
+    required = ("trigger_point", "target_point", "relation")
+    for field in required:
+        value = raw.get(field)
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(
+                f"{signal_id}: trigger_context.{field} debe ser texto no vacío."
+            )
+
+    for field in (
+        "source_layer",
+        "target_layer",
+        "source_subject",
+        "target_subject",
+    ):
+        value = raw.get(field)
+        if value is not None and (
+            not isinstance(value, str) or not value.strip()
+        ):
+            raise ValueError(
+                f"{signal_id}: trigger_context.{field} debe ser texto no vacío o null."
+            )
+
+    orb = raw.get("orb")
+    if orb is not None:
+        if (
+            isinstance(orb, bool)
+            or not isinstance(orb, (int, float))
+            or float(orb) < 0.0
+        ):
+            raise ValueError(
+                f"{signal_id}: trigger_context.orb debe ser numérico no negativo o null."
+            )
+
+    return dict(raw)
+
+
 def _calculate_iat(
     selected: list[dict[str, Any]],
     policy: Mapping[str, Any] | None,
@@ -240,6 +287,10 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
             raw,
             signal_id,
         )
+        trigger_context = _normalize_trigger_context(
+            raw.get("trigger_context"),
+            signal_id,
+        )
 
         k = ACTIVATION_COEFFICIENTS[activation_class]
         effective_strength = strength * k
@@ -272,6 +323,7 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
                 "window_status": status,
                 "date_or_period": raw.get("date_or_period"),
                 "event_refs": list(raw.get("event_refs", [])),
+                "trigger_context": trigger_context,
                 "traceability_complete": traceability_complete,
                 "missing_traceability": missing_traceability,
                 "iat_eligible": iat_eligible,
