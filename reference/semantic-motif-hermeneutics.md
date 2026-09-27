@@ -733,6 +733,81 @@ Representa la **polaridad de deseo, atracción, respuesta y creatividad relacion
 
 No se reduce a sexualidad: puede describir el modo en que receptividad/valor/placer (Venus) y impulso/acción/deseo (Marte) se encuentran.
 
+Las fuentes `sakoian_acker_human_relationships_1976` y `greene_relating_1978` permiten tratar Venus–Marte como interacción entre funciones relacionales y psíquicas, no como una fórmula biológica de género. La polaridad del motivo pertenece a las funciones astrológicas; ALMAS no asigna automáticamente Venus a mujer/divina femenina ni Marte a hombre/divino masculino.
+
+### Dirección relacional
+
+Cuando Venus(A) se relaciona con Marte(B), la lectura debe distinguir:
+
+- qué valora, recibe, atrae o armoniza A;
+- cómo desea, actúa, persigue o confronta B;
+- de qué manera cada función modifica la respuesta de la otra.
+
+La dirección inversa Marte(A)→Venus(B) no es idéntica en experiencia, aunque forme parte de la misma raíz o exista reciprocidad adicional. Sólo hablar de polaridad bilateral cuando la evidencia muestre realmente ambas direcciones o el campo relacional repita el tema.
+
+La pregunta central no es “¿quién es masculino o femenino?”, sino:
+
+> ¿Cómo negocian deseo, iniciativa, recepción, placer y valor estas dos personas?
+
+### Modulación por aspecto
+
+Venus–Marte conserva `EROTIC_POLARITY` cualquiera que sea la relación si no fue capturada por un motivo anterior.
+
+- **conjunción / paralelo**: concentra valor y deseo; puede aumentar inmediatez, creatividad y necesidad de respuesta;
+- **oposición / contraparalelo**: organiza una polaridad visible entre querer/recibir y actuar/desear; puede producir gran atracción junto con negociación de ritmo;
+- **cuadratura**: aumenta fricción entre estilo afectivo y modo de actuar; puede sentirse como química, irritación o ambas;
+- **trígono / sextil**: facilita coordinación entre deseo y afecto, sin garantizar profundidad emocional ni permanencia;
+- **antiscio / contra-antiscio**: se interpreta según su tradición específica y nunca como equivalencia universal de conjunción/oposición.
+
+Una Venus–Marte cuadrada no se reclasifica como `MIRROR_COMPLEMENTARITY`; una Venus–Marte trígono no se reclasifica como `RELATIONAL_COHERENCE`. La precedencia conserva el significado específico de la pareja planetaria.
+
+### Casas y encarnación del deseo
+
+Las casas muestran dónde se vuelve experiencial la polaridad.
+
+- casa 1: presencia, cuerpo, impresión inmediata;
+- casa 2: valor, placer, recursos, merecimiento;
+- casa 5: juego, deseo, creatividad, romance;
+- casa 7: negociación de pareja y alteridad;
+- casa 8: intimidad, sexualidad, vulnerabilidad, intercambio de poder;
+- casa 10: deseo/valor vinculados a visibilidad, proyecto o dirección pública.
+
+Otras casas deben interpretarse por su función concreta; no existe una “casa de llama gemela”. Toda lectura de casas depende de calidad horaria.
+
+### Polaridad integrada y polaridad compulsiva
+
+La intensidad erótica no informa por sí sola sobre calidad del vínculo.
+
+Una polaridad integrada permite:
+
+- expresar deseo sin coerción;
+- recibir sin pasividad impuesta;
+- negociar ritmos;
+- conservar identidad y límites;
+- convertir energía erótica en creatividad o acción conjunta.
+
+Una polaridad desintegrada puede mostrar:
+
+- persecución/retirada;
+- competencia por iniciativa;
+- objetificación;
+- confusión entre deseo y reciprocidad;
+- conflicto repetido utilizado para mantener excitación.
+
+La astrología describe la forma simbólica de la tensión; M29 y los hechos documentales determinan si existe reciprocidad real.
+
+### Combinaciones con otras raíces
+
+La prosa debe separar raíces independientes:
+
+- Venus–Marte + Venus–Plutón: deseo con transformación/poder;
+- Venus–Marte + Venus–Saturno: deseo con límite/compromiso;
+- Venus–Marte + Nodo–Venus/Marte: deseo dentro de continuidad/dirección;
+- Venus–Marte + Quirón–Venus/Marte: polaridad con vulnerabilidad;
+- Venus–Marte + coherencias Luna/Sol: deseo sostenido por otras formas de integración.
+
+La combinación puede producir una lectura rica de polaridad, pero no aumenta por sí misma la especificidad ontológica.
+
 ### Variables de lectura
 
 - aspecto y fuerza;
@@ -778,6 +853,96 @@ El “espejo” no debe entenderse como copia. En ALMAS puede significar:
 - complementariedad;
 - proyección;
 - conflicto que obliga a integrar una función negada.
+
+### Categoría residual por precedencia
+
+`MIRROR_COMPLEMENTARITY` no es sinónimo de “aspecto tenso”. Sólo aparece si una relación `HARD` entre puntos significativos **no** ha quedado antes explicada por continuidad kármica, Quirón, transformación, Neptuno o Venus–Marte.
+
+Esto es hermenéuticamente importante: una cuadratura Venus–Plutón se narra como transformación/poder; una cuadratura Venus–Marte como polaridad erótica; una cuadratura Nodo–Luna como continuidad. “Espejo” se reserva para tensiones cuya información principal es la diferencia funcional entre los puntos implicados.
+
+Las fuentes `greene_relating_1978` y `sakoian_acker_human_relationships_1976` proporcionan contexto para leer diferencia, proyección y combinación planetaria. La proyección es una hipótesis interpretativa, no un hecho psicológico demostrado por el aspecto.
+
+### Formas de espejo
+
+#### Sol + Luna
+
+Contrasta identidad/voluntad con necesidad emocional/hábito. Puede hacer visible una tensión entre “quién soy o quiero ser” y “qué necesito para sentirme seguro”.
+
+En una dinámica integrada, cada función puede obligar a la otra a incluir una dimensión que tendería a excluir. En una dinámica desintegrada, una persona puede vivir la otra como demasiado subjetiva, demandante, egocentrada o poco receptiva.
+
+No confundir tensión Sol–Luna con incompatibilidad total: otras raíces pueden contener una vía de regulación.
+
+#### Sol + Mercurio/Venus/Marte/Júpiter
+
+- Sol–Mercurio: identidad frente a modo de pensar/nombrar; tensión entre ser y explicar.
+- Sol–Venus: identidad frente a valores, gusto, afecto y aprobación.
+- Sol–Marte: identidad frente a iniciativa, conflicto y afirmación; puede hacer muy visible quién lidera o desafía.
+- Sol–Júpiter: identidad frente a expansión, creencia y expectativas; puede amplificar posibilidades o exceso.
+
+Si Marte/Venus aparecieran juntos en la misma raíz, la precedencia de `EROTIC_POLARITY` debe comprobarse antes de usar la categoría espejo.
+
+#### Luna + Mercurio/Venus/Marte/Júpiter
+
+- Luna–Mercurio: sentir frente a conceptualizar; una persona puede necesitar ser sentida donde la otra intenta explicar.
+- Luna–Venus: necesidad emocional frente a estilo de afecto/valor; amar no siempre coincide con cuidar del modo esperado.
+- Luna–Marte: seguridad frente a acción/impulso; puede activar defensa, irritación o capacidad de movilizar emoción.
+- Luna–Júpiter: necesidad frente a expansión; puede existir tensión entre contención y “hacerlo más grande”.
+
+La lectura debe evitar atribuir automáticamente trauma o apego patológico; el aspecto sólo organiza una tensión simbólica.
+
+#### Mercurio + Venus/Marte/Júpiter
+
+- Mercurio–Venus: lenguaje frente a valores/agrado; dificultad o aprendizaje para decir aquello que sostiene armonía real.
+- Mercurio–Marte: palabra frente a impulso; debate, rapidez, confrontación o capacidad de defender ideas.
+- Mercurio–Júpiter: detalle frente a visión; tensión entre precisión y significado global.
+
+Una comunicación intensa no implica telepatía, ni una discusión recurrente implica una función espiritual superior.
+
+#### Venus + Júpiter / Marte + Júpiter
+
+Venus–Júpiter puede confrontar medida de valor, placer y expectativas de expansión. Marte–Júpiter puede tensionar acción con escala, convicción o riesgo.
+
+Estas raíces son útiles para explicar exageración, entusiasmo o diferencias de valores sin recurrir a categorías kármicas.
+
+#### Personales + eje del horizonte
+
+Aspectos duros con ASC/DSC pueden volver la diferencia muy visible en presencia, identidad relacional y expectativas de pareja. El ángulo no es una persona: la narrativa debe explicar cómo la función planetaria entra en la forma de presentarse o relacionarse del otro.
+
+La calidad horaria sigue siendo condición de interpretación.
+
+### Cuatro modos narrativos
+
+Una raíz espejo puede desarrollarse como:
+
+1. **contraste** — dos funciones quieren cosas distintas;
+2. **complementariedad** — la diferencia aporta una función ausente o poco desarrollada;
+3. **proyección** — una cualidad del otro puede cargar con material que la persona no reconoce fácilmente en sí; tratarlo como hipótesis;
+4. **regulación** — la tensión obliga a encontrar una tercera forma de coordinación.
+
+No asumir que todo conflicto alcanza el cuarto modo. La evolución debe demostrarse en la arquitectura y, cuando se habla de realidad, en hechos.
+
+### Aspecto y dirección
+
+La oposición enfatiza polaridad y posibilidad de alternancia; la cuadratura, fricción que exige acción/ajuste; el contraparalelo y contra-antiscio se interpretan dentro de sus técnicas específicas.
+
+La dirección A→B sigue importando. Un planeta de A cuadrando un punto de B no demuestra que ambos experimenten la tensión con igual intensidad ni con el mismo significado. La reciprocidad requiere evidencia inversa, repetición independiente o campo relacional concordante.
+
+### Casas
+
+La casa receptora muestra el escenario donde el contraste se vuelve visible. La misma cuadratura cambia de función si activa pertenencia (4), expresión/deseo (5), pareja (7), intimidad/poder (8), creencias (9) o vocación (10). La casa especifica la experiencia; no transforma el aspecto duro en una doctrina de “espejo”.
+
+### Comparandum metafísico con límite
+
+El discurso de Aristófanes en el `Symposium` y doctrinas modernas de polaridad pueden servir como comparanda de división/complementariedad. Esa semejanza es narrativa y genealógica, no una identidad doctrinal.
+
+Una oposición o cuadratura no demuestra:
+
+- ser primordial escindido;
+- “divino masculino/divino femenino”;
+- origen compartido;
+- llama gemela.
+
+La utilidad del motivo es describir **qué diferencia activa al vínculo y qué integración exige**, incluso cuando la ontología permanezca abierta.
 
 ### Preguntas de lectura
 
