@@ -252,6 +252,96 @@ def _doctrine_claims(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
     ]
 
 
+def _root_house_overlays(
+    canonical: Mapping[str, Any],
+    root: Mapping[str, Any],
+) -> list[dict[str, Any]]:
+    """Une una raíz M17 con superposiciones de casas ya calculadas por M04."""
+
+    root_key = root.get("root_key")
+    if not isinstance(root_key, str) or not root_key:
+        return []
+
+    parts = root_key.split("|")
+    if len(parts) < 2:
+        return []
+
+    endpoints: list[tuple[str, str]] = []
+    for part in parts[:2]:
+        if ":" not in part:
+            return []
+        subject_id, point_id = part.split(":", 1)
+        subject_id = subject_id.strip()
+        point_id = point_id.strip().upper()
+        if not subject_id or not point_id:
+            return []
+        endpoints.append((subject_id, point_id))
+
+    context = canonical.get("natal_context")
+    cross = (
+        context.get("cross_house_placements")
+        if isinstance(context, Mapping)
+        else None
+    )
+    if not isinstance(cross, Mapping):
+        return []
+
+    output: list[dict[str, Any]] = []
+    for index, (source_subject, point_id) in enumerate(endpoints):
+        target_subject = endpoints[1 - index][0]
+        if source_subject == target_subject:
+            continue
+
+        # M17 agrupa nodos y ángulos en ejes. Esa normalización pierde
+        # cuál de los dos puntos concretos produjo la raíz; no se adivina.
+        if point_id.startswith("AXIS_"):
+            continue
+
+        overlay = cross.get(f"{source_subject}_IN_{target_subject}")
+        placements = (
+            overlay.get("placements")
+            if isinstance(overlay, Mapping)
+            else None
+        )
+        if not isinstance(placements, Mapping):
+            continue
+
+        placement = placements.get(point_id)
+        resolved_point_id = point_id
+        if not isinstance(placement, Mapping):
+            for candidate_id, candidate in placements.items():
+                if str(candidate_id).upper() == point_id:
+                    placement = candidate
+                    resolved_point_id = str(candidate_id)
+                    break
+        if not isinstance(placement, Mapping):
+            continue
+
+        house = placement.get("house")
+        if isinstance(house, bool) or not isinstance(house, int):
+            continue
+        if not 1 <= house <= 12:
+            continue
+
+        output.append(
+            {
+                "source_subject": source_subject,
+                "point_id": resolved_point_id,
+                "target_subject": target_subject,
+                "house": house,
+            }
+        )
+
+    output.sort(
+        key=lambda item: (
+            item["source_subject"],
+            item["target_subject"],
+            item["point_id"],
+        )
+    )
+    return output
+
+
 def _evidence_from_roots(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
     roots_obj = canonical.get("independent_roots")
     roots = roots_obj.get("roots") if isinstance(roots_obj, Mapping) else None
@@ -287,6 +377,10 @@ def _evidence_from_roots(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
                 "point_ids": list(root.get("point_ids", [])),
                 "relation_ids": list(root.get("relation_ids", [])),
                 "max_exactness": root.get("max_exactness"),
+                "house_overlays": _root_house_overlays(
+                    canonical,
+                    root,
+                ),
             }
         )
     return evidence
