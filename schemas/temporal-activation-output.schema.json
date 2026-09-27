@@ -39,6 +39,7 @@
           "window_status",
           "date_or_period",
           "event_refs",
+          "trigger_context",
           "traceability_complete",
           "missing_traceability",
           "iat_eligible",
@@ -159,6 +160,71 @@
           },
           "predicts_real_world_event": {
             "const": false
+          },
+          "trigger_context": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "trigger_point",
+                  "target_point",
+                  "relation"
+                ],
+                "properties": {
+                  "trigger_point": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target_point": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "relation": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_layer": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1
+                  },
+                  "target_layer": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1
+                  },
+                  "source_subject": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1
+                  },
+                  "target_subject": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1
+                  },
+                  "orb": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": true
+              }
+            ]
           }
         },
         "additionalProperties": true
