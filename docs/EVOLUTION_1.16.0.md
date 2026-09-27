@@ -130,10 +130,54 @@ holdout. Sólo conserva referencias y fingerprints de artefactos externos.
 
 V3 tampoco decide promoción ni activa scoring, weighting, ontología o L3.
 
+## V4 · Validation Continuity Gate
+
+V4 queda implementada mediante
+`ALMAS_VALIDATION_CONTINUITY_GATE_V1`.
+
+La finalidad es impedir que una evaluación S7 llegue al gate S8 si no puede
+demostrarse que pertenece exactamente al mismo ciclo congelado V1/V2/V3.
+
+V4 verifica:
+
+- SHA-256 del bundle V1;
+- SHA-256 del opening record V2;
+- enlace V2→V1 mediante `preregistration_sha256`;
+- continuidad de `validation_id`;
+- continuidad de `candidate_id` y `formula_ref`;
+- versión y commit runtime iguales a los congelados;
+- identidad de cohorte, null model y políticas de features/orbes;
+- fingerprint de distribución S7 válido;
+- número de muestras limpias compatible con la cohorte abierta;
+- ausencia de flags ilegales de activación/promoción en S7;
+- integridad completa del ledger V3;
+- presencia ordenada de PREREGISTERED → HOLDOUT_OPENED → HOLDOUT_EVALUATED;
+- coincidencia exacta entre los tres hashes de artefactos y las tres primeras
+  entradas del ledger.
+
+Cuando todo coincide, V4 genera un
+`Validation Continuity Certificate` y su fingerprint SHA-256.
+
+El certificado contiene exclusivamente metadatos, referencias y fingerprints.
+No contiene muestras, scores individuales, cartas, narrativas ni datos
+privados.
+
+La ruta normativa 1.16 hacia S8 es
+`evaluate_px_v3_promotion_with_continuity`. Esta ruta rechaza cualquier
+evidencia de promoción que no incluya un certificado V4 válido o cuyo
+fingerprint holdout no sea el mismo que S8 pretende evaluar.
+
+Superar V4 sólo permite **presentar** la evidencia al gate S8. No equivale a
+`PROMOTION_ELIGIBLE`, no activa PX v3 y mantiene:
+
+- `automatic_registry_mutation=false`;
+- `scoring_activation=false`;
+- `weighting_activation=false`;
+- `ontology_activation=false`;
+- `l3_validation=false`;
+- `metaphysical_probability=false`.
+
 ## Próximas fases
 
-V4 conectará V1/V2/V3 con S7/S8 para exigir continuidad criptográfica entre
-preregistro, apertura, evaluación holdout y gate de promoción.
-
-V5 formalizará el cierre confirmatorio y el paquete de auditoría de release sin
-activar automáticamente PX v3.
+V5 formalizará el cierre confirmatorio, el revelado documental y el paquete
+de auditoría de release sin activar automáticamente PX v3.
