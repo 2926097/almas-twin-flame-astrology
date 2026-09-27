@@ -698,6 +698,12 @@ def assemble_canonical_analysis(
     if isinstance(natal_context, Mapping):
         assembled["natal_context"] = dict(natal_context)
 
+    relationship_chart = canonical.get("relationship_chart_consonance")
+    if isinstance(relationship_chart, Mapping):
+        field_context = relationship_chart.get("field_context")
+        if isinstance(field_context, Mapping):
+            assembled["relationship_field"] = dict(field_context)
+
     pillar_attribution = canonical.get("pillar_attribution")
     if isinstance(pillar_attribution, Mapping):
         motifs = pillar_attribution.get("semantic_motifs")
