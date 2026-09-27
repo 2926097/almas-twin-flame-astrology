@@ -26,7 +26,7 @@ Esta matriz fija la procedencia de la superficie producida por M30 antes del end
 | `temporal` | M30 | M26/M27 | wrapper `activation` / `events` |
 | `limitations` | M30 | resultados M01–M29 | lista de strings trazables por módulo |
 | `assembly` | M30 | ensamblador/perfil | metadata cerrada y no recalculadora |
-| `semantic_motifs` | M30 opcional | M18 | grafo semántico; pendiente de schema especializado propio |
+| `semantic_motifs` | M30 opcional | M18 | `semantic-motif-graph.schema.json` |
 | `ontological_discrimination` | M30 opcional | M21 | `ontological-discriminator-output.schema.json` |
 | `null_models` | M30 opcional | M24 | `null-model-output.schema.json` |
 | `time_sensitivity` | M30 opcional | M23 | `time-sensitivity-output.schema.json` |
@@ -68,10 +68,10 @@ Cerrados en esta fase:
 - placeholder ontológico;
 - trazabilidad del backend astronómico.
 
-Pendiente de cierre interno específico:
+Pendiente fuera de la superficie propia de M30:
 
-- `semantic_motifs`, porque todavía no existe un schema público especializado de su grafo;
-- cualquier apertura heredada dentro de schemas especializados externos, que debe corregirse en el schema propietario y no mediante duplicación dentro de `canonical-analysis.schema.json`.
+- cualquier apertura o desajuste heredado dentro de schemas especializados externos debe corregirse en el schema propietario y no mediante duplicación dentro de `canonical-analysis.schema.json`;
+- la aceptación final depende de que la salida FULL M00–M31 valide todos los `$ref` especializados en Python 3.10 y 3.12.
 
 ## Gate de aceptación
 
