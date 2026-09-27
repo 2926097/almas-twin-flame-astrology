@@ -19,6 +19,8 @@ REQUIRED_FILES = [
     "docs/MODULE_ARCHITECTURE.md",
     "docs/MODULE_EXECUTION_CONTRACT.md",
     "docs/ASTRONOMY_BACKEND_DECISION.md",
+    ".github/workflows/astronomy-backend.yml",
+    "scripts/validate_astronomy_backend_runtime.py",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -64,6 +66,7 @@ REQUIRED_FILES = [
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
+    "schemas/astronomy-backend-provenance.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
     "schemas/declination-output.schema.json",
@@ -203,6 +206,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/technique-dependency-registry.json",
     "src/almas_tfa/data/declared-orb-contract-policy.json",
     "src/almas_tfa/data/structural-loading-policy.json",
+    "src/almas_tfa/data/production-astronomy-backend-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
     "src/almas_tfa/data/recurrence-quality-policy.json",
@@ -232,6 +236,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/orchestrator.py",
     "src/almas_tfa/handlers.py",
     "src/almas_tfa/astrology_backend.py",
+    "src/almas_tfa/production_astronomy.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/structural_policies.py",
@@ -366,6 +371,7 @@ REQUIRED_FILES = [
     "tests/test_validation_continuity.py",
     "tests/test_validation_closure.py",
     "tests/test_structural_policies.py",
+    "tests/test_production_astronomy.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -492,6 +498,9 @@ def main() -> int:
             fail(f"contract module missing token: {needle}")
 
     raw_schema = load_json("schemas/raw-input.schema.json")
+    astronomy_backend_provenance_schema = load_json(
+        "schemas/astronomy-backend-provenance.schema.json"
+    )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
@@ -527,6 +536,9 @@ def main() -> int:
     )
     structural_loading_policy = load_json(
         "src/almas_tfa/data/structural-loading-policy.json"
+    )
+    production_astronomy_backend_policy = load_json(
+        "src/almas_tfa/data/production-astronomy-backend-policy.json"
     )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
@@ -743,6 +755,88 @@ def main() -> int:
         fail("discriminator source genealogy target version diverges from VERSION")
     if operational_discriminator_candidates.get("target_almas_version") != version:
         fail("operational discriminator target version diverges from VERSION")
+
+    if production_astronomy_backend_policy.get("policy_id") != "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1":
+        fail("production astronomy backend policy id changed")
+    if production_astronomy_backend_policy.get("status") != "FROZEN_PRODUCTION_CONTRACT":
+        fail("production astronomy backend policy must remain frozen")
+    provider = production_astronomy_backend_policy.get("provider", {})
+    if provider.get("package") != "moira-astro" or provider.get("pinned_version") != "6.8.2":
+        fail("production astronomy provider/version changed")
+    if provider.get("license") != "MIT":
+        fail("production astronomy provider license declaration changed")
+    kernel = production_astronomy_backend_policy.get("kernel", {})
+    for key in (
+        "required",
+        "local_file_required",
+        "sha256_required",
+        "kernel_choice_is_part_of_result_identity",
+    ):
+        if kernel.get(key) is not True:
+            fail(f"production astronomy kernel invariant failed: {key}")
+    if kernel.get("network_download_during_calculation") is not False:
+        fail("production astronomy backend must forbid network download during calculation")
+    if set(kernel.get("allowed_families", [])) != {"DE430", "DE440", "DE441"}:
+        fail("production astronomy allowed kernel families changed")
+    time_policy = production_astronomy_backend_policy.get("time", {})
+    if time_policy.get("timezone_standard") != "IANA":
+        fail("production astronomy timezone standard changed")
+    for key in ("hidden_timezone_lookup",):
+        if time_policy.get(key) is not False:
+            fail(f"production astronomy time invariant failed: {key}")
+    if time_policy.get("ambiguous_local_time") != "FAIL_CLOSED":
+        fail("production astronomy ambiguous time must fail closed")
+    if time_policy.get("nonexistent_local_time") != "FAIL_CLOSED":
+        fail("production astronomy nonexistent time must fail closed")
+    location_policy = production_astronomy_backend_policy.get("location", {})
+    if location_policy.get("numeric_coordinates_required_for_timed_chart") is not True:
+        fail("production astronomy timed charts must require numeric coordinates")
+    if location_policy.get("hidden_geocoding") is not False:
+        fail("production astronomy backend must forbid hidden geocoding")
+    natal_policy = production_astronomy_backend_policy.get("natal", {})
+    if natal_policy.get("node_mode") != "TRUE_NODE":
+        fail("production astronomy node mode changed")
+    if natal_policy.get("house_system_must_be_explicit") is not True:
+        fail("production astronomy house system must be explicit")
+    if natal_policy.get("polar_house_fallback") != "FORBIDDEN":
+        fail("production astronomy polar house fallback must remain forbidden")
+    capabilities = production_astronomy_backend_policy.get("capabilities", {})
+    for key in (
+        "planetary_longitude",
+        "ecliptic_latitude",
+        "declination",
+        "longitudinal_speed",
+        "retrograde",
+        "true_lunar_node",
+        "houses",
+        "angles",
+        "davison",
+    ):
+        if capabilities.get(key) is not True:
+            fail(f"production astronomy capability missing: {key}")
+    for key in ("hidden_network_io", "hidden_geocoding"):
+        if capabilities.get(key) is not False:
+            fail(f"production astronomy capability firewall failed: {key}")
+
+    provenance_props = astronomy_backend_provenance_schema.get("properties", {})
+    if provenance_props.get("policy_id", {}).get("const") != "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1":
+        fail("astronomy backend provenance schema policy id changed")
+    if provenance_props.get("provider_version", {}).get("const") != "6.8.2":
+        fail("astronomy backend provenance schema provider version changed")
+    for field in ("network_io_used", "geocoding_used"):
+        if provenance_props.get(field, {}).get("const") is not False:
+            fail(f"astronomy backend provenance must lock {field}=false")
+    natal_backend_ref = (
+        load_json("schemas/natal-chart.schema.json")
+        .get("properties", {})
+        .get("backend_provenance", {})
+        .get("$ref")
+    )
+    if natal_backend_ref != "astronomy-backend-provenance.schema.json":
+        fail("natal chart schema must reference astronomy backend provenance")
+
+    if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
+        fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
 
     if structural_policy_manifest.get("almas_public_version") != version:
         fail("structural policy manifest version diverges from VERSION")
