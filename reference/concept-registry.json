@@ -1071,7 +1071,9 @@
         "astrodienst_intro_houses",
         "astrodienst_main_axis",
         "astrodienst_moon_nodes",
-        "astrodienst_vertex"
+        "astrodienst_vertex",
+        "george_bloch_asteroid_goddesses_2003",
+        "lang_wescott_eros_basic_resources"
       ],
       "historical_sources": [
         "firmicus_mathesis_2_29_antiscia"
