@@ -48,6 +48,7 @@ REQUIRED_FILES = [
     "validation/holdouts/manifest.json",
     "pyproject.toml",
     "schemas/raw-input.schema.json",
+    "schemas/aspect-policy.schema.json",
     "schemas/canonical-analysis.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
@@ -127,6 +128,7 @@ REQUIRED_FILES = [
     "manifests/analysis-pipeline-manifest.json",
     "manifests/execution-registry.json",
     "manifests/almas-module-manifest.json",
+    "manifests/structural-policy-manifest.json",
     "manifests/causal-type-registry.json",
     "manifests/cross-model-discriminator-registry.json",
     "manifests/differential-discriminator-registry.json",
@@ -195,6 +197,9 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/discriminator-source-genealogy.json",
     "src/almas_tfa/data/public-data-isolation-policy.json",
     "src/almas_tfa/data/root-strength-policy.json",
+    "src/almas_tfa/data/technique-dependency-registry.json",
+    "src/almas_tfa/data/declared-orb-contract-policy.json",
+    "src/almas_tfa/data/structural-loading-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
     "src/almas_tfa/data/recurrence-quality-policy.json",
@@ -226,6 +231,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/astrology_backend.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
+    "src/almas_tfa/structural_policies.py",
     "src/almas_tfa/relational_handlers.py",
     "src/almas_tfa/symmetry_handlers.py",
     "src/almas_tfa/relationship_chart_handlers.py",
@@ -356,6 +362,7 @@ REQUIRED_FILES = [
     "tests/test_validation_ledger.py",
     "tests/test_validation_continuity.py",
     "tests/test_validation_closure.py",
+    "tests/test_structural_policies.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -482,6 +489,7 @@ def main() -> int:
             fail(f"contract module missing token: {needle}")
 
     raw_schema = load_json("schemas/raw-input.schema.json")
+    aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
     ontological_discriminator_output_schema = load_json(
         "schemas/ontological-discriminator-output.schema.json"
@@ -506,6 +514,15 @@ def main() -> int:
     )
     root_strength_policy = load_json(
         "src/almas_tfa/data/root-strength-policy.json"
+    )
+    technique_dependency_registry = load_json(
+        "src/almas_tfa/data/technique-dependency-registry.json"
+    )
+    declared_orb_contract_policy = load_json(
+        "src/almas_tfa/data/declared-orb-contract-policy.json"
+    )
+    structural_loading_policy = load_json(
+        "src/almas_tfa/data/structural-loading-policy.json"
     )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
@@ -708,6 +725,7 @@ def main() -> int:
     causal_registry = load_json("manifests/causal-type-registry.json")
     cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
+    structural_policy_manifest = load_json("manifests/structural-policy-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
     preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
@@ -721,6 +739,133 @@ def main() -> int:
         fail("discriminator source genealogy target version diverges from VERSION")
     if operational_discriminator_candidates.get("target_almas_version") != version:
         fail("operational discriminator target version diverges from VERSION")
+
+    if structural_policy_manifest.get("almas_public_version") != version:
+        fail("structural policy manifest version diverges from VERSION")
+    if structural_policy_manifest.get("manifest_id") != "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1":
+        fail("structural policy manifest id changed")
+
+    if technique_dependency_registry.get("registry_id") != "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1":
+        fail("technique/dependency registry id changed")
+    if technique_dependency_registry.get("status") != "FROZEN_NORMATIVE":
+        fail("technique/dependency registry must remain frozen normative")
+
+    expected_structural_bindings = {
+        "synastry": ("M03", "SYN", "SYN", False, True, False),
+        "declinations": ("M05", "DECLINATION", "DECLINATION", False, True, False),
+        "antiscia": ("M06", "ANTISCIA", "ANTISCIA", False, True, False),
+        "relationship_chart_consonance": ("M09", "RELCHART", "RELCHART", False, True, False),
+        "natal_draconic_cross": ("M11", "NATAL_DRACONIC", "NATAL_DRACONIC", False, True, True),
+        "draconic_draconic": ("M12", "DRACONIC_DD", "DRACONIC_DD", True, False, False),
+        "secondary_symbolic": ("M14", "SECONDARY", "SECONDARY", True, False, False),
+    }
+    bindings = technique_dependency_registry.get("source_bindings", {})
+    if set(bindings) != set(expected_structural_bindings):
+        fail("technique/dependency registry source set changed")
+    for source, expected in expected_structural_bindings.items():
+        spec = bindings.get(source, {})
+        actual = (
+            spec.get("module_id"),
+            spec.get("technique_family"),
+            spec.get("dependency_family"),
+            spec.get("support_only"),
+            spec.get("core_eligible"),
+            spec.get("directional"),
+        )
+        if actual != expected:
+            fail(f"technique/dependency binding changed: {source}")
+        if spec.get("support_only") is True and spec.get("core_eligible") is True:
+            fail(f"support-only binding became core eligible: {source}")
+
+    technique_families = {
+        spec.get("technique_family")
+        for spec in bindings.values()
+        if isinstance(spec, dict)
+    }
+    root_technique_weights = root_strength_policy.get("technique_reliability", {})
+    if not technique_families.issubset(set(root_technique_weights)):
+        fail("root strength policy does not cover all registered technique families")
+    for family in technique_families:
+        if root_technique_weights.get(family) != 1.0:
+            fail(f"1.17 must not introduce technique weighting: {family}")
+
+    if declared_orb_contract_policy.get("policy_id") != "ALMAS_DECLARED_ORB_CONTRACT_V1":
+        fail("declared orb contract id changed")
+    orb_principles = declared_orb_contract_policy.get("principles", {})
+    for key in (
+        "implicit_orbs_forbidden",
+        "aspect_angle_must_be_declared",
+        "aspect_orb_must_be_declared",
+        "runtime_orb_inference_forbidden",
+        "overlap_resolution_deterministic",
+        "orb_rarity_not_ontological",
+        "case_fitting_forbidden",
+    ):
+        if orb_principles.get(key) is not True:
+            fail(f"declared orb invariant failed: {key}")
+
+    aspect_items = aspect_policy_schema.get("additionalProperties", {})
+    if set(aspect_items.get("required", [])) != {"angle", "orb"}:
+        fail("aspect policy schema must require exactly angle and orb")
+    if aspect_items.get("additionalProperties") is not False:
+        fail("aspect policy schema must forbid undeclared aspect fields")
+    raw_aspect_ref = raw_schema.get("properties", {}).get("aspect_policy", {}).get("$ref")
+    if raw_aspect_ref != "aspect-policy.schema.json":
+        fail("raw input aspect_policy must reference the canonical aspect policy schema")
+
+    if structural_loading_policy.get("policy_id") != "ALMAS_STRUCTURAL_LOADING_CONTRACT_V1":
+        fail("structural loading contract id changed")
+    if structural_loading_policy.get("root_strength_policy_id") != root_strength_policy.get("policy_id"):
+        fail("structural loading root-strength reference diverges")
+    if structural_loading_policy.get("root_pillar_policy_id") != root_pillar_policy.get("policy_id"):
+        fail("structural loading root-pillar reference diverges")
+    loading_constraints = structural_loading_policy.get("loading_constraints", {})
+    if loading_constraints.get("raw_loading_sum_max") != 1.0:
+        fail("structural loading raw loading maximum changed")
+    if loading_constraints.get("normalized_loading_sum_for_scored_unit") != 1.0:
+        fail("structural loading normalized sum changed")
+    if loading_constraints.get("support_only_can_create_core") is not False:
+        fail("structural loading must forbid support-only core creation")
+
+    contracts = structural_policy_manifest.get("contracts", {})
+    expected_policy_paths = {
+        "technique_dependency_registry": (
+            "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1",
+            "src/almas_tfa/data/technique-dependency-registry.json",
+        ),
+        "declared_orb_contract": (
+            "ALMAS_DECLARED_ORB_CONTRACT_V1",
+            "src/almas_tfa/data/declared-orb-contract-policy.json",
+        ),
+        "structural_loading_contract": (
+            "ALMAS_STRUCTURAL_LOADING_CONTRACT_V1",
+            "src/almas_tfa/data/structural-loading-policy.json",
+        ),
+        "root_strength": (
+            "ALMAS_ROOT_STRENGTH_BASELINE_V1",
+            "src/almas_tfa/data/root-strength-policy.json",
+        ),
+        "root_pillar_attribution": (
+            "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2",
+            "src/almas_tfa/data/root-pillar-attribution-policy.json",
+        ),
+    }
+    for key, (policy_id, path) in expected_policy_paths.items():
+        contract = contracts.get(key, {})
+        if contract.get("policy_id") != policy_id or contract.get("path") != path:
+            fail(f"structural policy manifest contract mismatch: {key}")
+    manifest_invariants = structural_policy_manifest.get("invariants", {})
+    for key in (
+        "no_new_analytical_module",
+        "no_score_change",
+        "no_implicit_orbs",
+        "no_runtime_case_fitting",
+        "support_only_cannot_create_core",
+        "dependency_deduplication_precedes_root_construction",
+        "birth_time_robustness_remains_m23_m25",
+    ):
+        if manifest_invariants.get(key) is not True:
+            fail(f"structural policy manifest invariant failed: {key}")
 
     if canonical_schema.get("properties", {}).get("schema_version", {}).get("const") != "1.0.0":
         fail("canonical astrology schema contract must remain 1.0.0")
@@ -2709,6 +2854,8 @@ def main() -> int:
 
     if evidence_graph_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not False:
         fail("evidence graph must declare strength_policy_applied=false")
+    if evidence_graph_schema.get("properties", {}).get("technique_dependency_registry_id", {}).get("const") != "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1":
+        fail("evidence graph must expose the canonical technique/dependency registry id")
     if "retained" not in deduplicated_evidence_schema.get("required", []):
         fail("deduplicated evidence schema must require retained")
     if independent_roots_schema.get("properties", {}).get("strength_policy_applied", {}).get("const") is not True:
