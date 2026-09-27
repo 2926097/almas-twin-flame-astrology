@@ -1207,6 +1207,60 @@ class TestReportingFirewall(unittest.TestCase):
                 by_id[section_id]["available_paths"],
             )
 
+    def test_m31_exposes_lots_context_selectively(self):
+        canonical = self.canonical(
+            lots_context={
+                "authoring_projection_only": True,
+                "creates_additional_evidence": False,
+                "historical_technique_context_only": True,
+                "output": {
+                    "policy": {},
+                    "policy_source": "ALMAS_HELLENISTIC_LOTS_V1",
+                    "sect_by_subject": {"A": "DAY", "B": "NIGHT"},
+                    "subjects": {},
+                },
+            }
+        )
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        by_id = {
+            section["section_id"]: section
+            for section in result.canonical_updates[
+                "report_document_model"
+            ]["sections"]
+        }
+
+        for section_id in (
+            "S04_STRUCTURE",
+            "S05_RELATIONAL",
+            "S10_FINAL_SYNTHESIS",
+            "S11_SOURCES_APPENDICES",
+        ):
+            self.assertIn(
+                "lots_context",
+                by_id[section_id]["available_paths"],
+            )
+        self.assertNotIn(
+            "lots_context",
+            by_id["S01_SYNTHESIS"]["available_paths"],
+        )
+
     def test_m31_partial_inherits_degradation_reasons(self):
         canonical = self.canonical(mode="TARGETED")
         gate_result = m30_report_gate(
