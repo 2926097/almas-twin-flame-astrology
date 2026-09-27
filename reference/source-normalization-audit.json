@@ -2,18 +2,18 @@
   "audit_version": "1.0.0",
   "almas_version": "1.15.0",
   "date": "2026-09-27",
-  "sources_total": 42,
+  "sources_total": 44,
   "concepts_total": 97,
   "genealogy_edges_total": 73,
   "by_priority": {
     "P1_PRIMARY": 25,
     "P2_ACADEMIC": 7,
-    "P3_HISTORICAL_TECHNICAL": 1,
-    "P4_IDENTIFIED_METHOD": 9
+    "P3_HISTORICAL_TECHNICAL": 2,
+    "P4_IDENTIFIED_METHOD": 10
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 22,
-    "VERIFIED_METADATA": 20
+    "VERIFIED_PRIMARY": 23,
+    "VERIFIED_METADATA": 21
   },
   "integrity": {
     "unknown_concepts_from_sources": 0,
@@ -28,6 +28,7 @@
     "Una fuente define procedencia, significado y límites; nunca añade puntuación astrológica por el mero hecho de existir.",
     "Las entradas source_basis mapeadas de doctrina→astrología deben incluir un ancla de verificación explícita.",
     "ALMAS 1.14.0 añade las fuentes técnicas de Paulus Alexandrinus y Vettius Valens para la baseline histórica de Fortuna/Espíritu; esta ampliación documental no convierte los lotes en discriminadores ontológicos.",
-    "ALMAS 1.20 incorpora las fuentes de método de John Townley y Ronald C. Davison para reforzar la interpretación de cartas relacionales; esta ampliación documental no añade puntuación estructural ni validación ontológica."
+    "ALMAS 1.20 incorpora las fuentes de método de John Townley y Ronald C. Davison para reforzar la interpretación de cartas relacionales; esta ampliación documental no añade puntuación estructural ni validación ontológica.",
+    "ALMAS 1.20 incorpora Kt Boehrer para declinaciones y Firmicus Maternus II.29 para antiscios, reforzando M05–M06 sin añadir puntuación ni inferencia ontológica."
   ]
 }
