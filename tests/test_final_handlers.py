@@ -1082,6 +1082,67 @@ class TestReportingFirewall(unittest.TestCase):
                 by_id[section_id]["available_paths"],
             )
 
+    def test_m31_exposes_relationship_field_to_interpretive_sections(self):
+        canonical = self.canonical(
+            relationship_field={
+                "authoring_only": True,
+                "structural_evidence_used": False,
+                "creates_independent_roots": False,
+                "aspect_policy_source": (
+                    "relationship_chart_consonance_policy.aspect_policy"
+                ),
+                "point_ids": ["SUN"],
+                "composite": {
+                    "positions": {},
+                    "angles": {},
+                    "internal_contacts": [],
+                    "houses_calculated": False,
+                },
+                "davison": {
+                    "positions": {},
+                    "angles": {},
+                    "house_cusps": {},
+                    "internal_contacts": [],
+                },
+                "cross_consonance_contact_count": 0,
+            }
+        )
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        by_id = {
+            section["section_id"]: section
+            for section in result.canonical_updates[
+                "report_document_model"
+            ]["sections"]
+        }
+
+        for section_id in (
+            "S01_SYNTHESIS",
+            "S04_STRUCTURE",
+            "S05_RELATIONAL",
+            "S10_FINAL_SYNTHESIS",
+        ):
+            self.assertIn(
+                "relationship_field",
+                by_id[section_id]["available_paths"],
+            )
+
     def test_m31_partial_inherits_degradation_reasons(self):
         canonical = self.canonical(mode="TARGETED")
         gate_result = m30_report_gate(
