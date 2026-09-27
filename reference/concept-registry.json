@@ -939,10 +939,13 @@
       "status": "DEFINED_FOR_DISCRIMINATION",
       "primary_sources": [],
       "academic_sources": [],
-      "method_sources": [],
+      "method_sources": [
+        "reinhart_chiron_healing_journey_2010",
+        "hand_clow_chiron_rainbow_bridge_1987"
+      ],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Categoría funcional para interpretar exposición, activación, conciencia e integración de vulnerabilidad mediante raíces quirónicas. Las fuentes de método ayudan a diferenciar el contenido según planeta/casa/aspecto; no convierten dolor en evidencia ontológica ni equivalen a tikkun."
     },
     {
       "id": "MISSION_SERVICE_RELATIONAL",
