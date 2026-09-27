@@ -14,7 +14,8 @@ readme = "README.md"
 astronomy-moira = ["moira-astro==6.8.2"]
 astronomy-validation = ["skyfield==1.55"]
 schema-validation = ["jsonschema==4.26.0"]
-publication-docx = ["python-docx==1.2.0"]\npublication-pdf = ["pypdf==6.19.0"]
+publication-docx = ["python-docx==1.2.0"]
+publication-pdf = ["pypdf==6.19.0"]
 
 [project.scripts]
 almas-score = "almas_tfa.cli:main"
