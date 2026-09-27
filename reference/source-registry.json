@@ -1509,6 +1509,82 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "townley_composite_charts_2000",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "John Townley",
+      "work": "Composite Charts: The Astrology of Relationships",
+      "date": "2000",
+      "date_note": "Llewellyn Publications, 2000; expanded treatment of the composite-chart technique introduced by Townley in the 1970s.",
+      "url": "https://books.google.com/books/about/Composite_Charts.html?id=dUulSwQoEC4C",
+      "supports": [
+        "fuente de método identificada para la construcción e interpretación de cartas compuestas de relación",
+        "lectura de la relación como un campo astrológico emergente con dinámica propia",
+        "integración interpretativa de cartas natales, sinastría y carta compuesta"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una carta compuesta demuestre por sí sola origen compartido, contrato álmico o llama gemela",
+        "independencia estadística total entre carta compuesta y otras técnicas derivadas de las mismas cartas natales"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional moderna",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Google Books/Llewellyn description identifies the book as a method source for constructing composite charts, interpreting composite factors, and synthesizing natal, synastry and composite charts.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Composite_Charts.html?id=dUulSwQoEC4C",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "davison_synastry_1983",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "Ronald C. Davison",
+      "work": "Synastry: Understanding Human Relations Through Astrology",
+      "date": "1983",
+      "date_note": "Revised edition, Aurora Press, 1983; earlier edition published in 1977.",
+      "url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
+      "supports": [
+        "fuente de método identificada para comparación e interpretación de cartas en sinastría",
+        "descripción del Relationship Horoscope como una carta única destinada a representar la relación entre dos personas",
+        "tratamiento conjunto de aspectos cruzados, intercambios de casas y carta relacional"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "equivalencia metodológica entre carta Davison y carta compuesta por puntos medios planetarios",
+        "que una carta relacional demuestre por sí sola alma gemela, llama gemela, contrato álmico u otra ontología metafísica"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional moderna",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "passage": null,
+      "pages": "333",
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Google Books/Aurora Press description identifies the book as a systematic source on chart comparison and the Relationship Horoscope, including planetary cross-aspects and house interchanges.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-24-origin-differential-1"

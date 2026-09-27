@@ -65,6 +65,13 @@ La compuesta y el Davison se leen como dos perspectivas de un **campo relacional
 
 La compuesta ayuda a describir la organización simbólica interna del vínculo. El Davison sitúa esa relación en una carta espacio-temporal. La consonancia entre ambas permite preguntar qué temas sobreviven al cambio de construcción.
 
+Fuentes de método registradas:
+
+- `townley_composite_charts_2000` fundamenta el uso moderno de la carta compuesta como técnica de relación y su lectura integrada con natal y sinastría;
+- `davison_synastry_1983` documenta la comparación de cartas y el `Relationship Horoscope` como carta única de la relación.
+
+Estas fuentes respaldan el método y su vocabulario interpretativo. No convierten la familia `RELCHART` en prueba de origen compartido, contrato álmico, alma gemela o llama gemela. Compuesta y Davison deben conservar sus diferencias de construcción aunque ALMAS las agrupe en una misma familia de dependencia para no inflar independencia.
+
 Pregunta interpretativa:
 
 > ¿Qué existe en la relación que no se explica sólo por sumar las dos cartas individuales?
