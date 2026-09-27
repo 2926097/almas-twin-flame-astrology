@@ -13,10 +13,14 @@
 - Implementa Davison mediante midpoint UTC y midpoint geográfico esférico explícitos.
 - M02 y M08 pasan de `BACKEND_REQUIRED` a `EXECUTABLE_HANDLER`.
 - Añade schema de procedencia astronómica y workflow específico de compatibilidad Moira en Python 3.10/3.12.
-- La suite del núcleo alcanza **468 tests deterministas**; el workflow específico valida Moira 6.8.2, Skyfield 1.55 y los contratos del gate en Python 3.10/3.12.
+- La suite del núcleo alcanza **483 tests deterministas**; el workflow específico valida Moira 6.8.2, Skyfield 1.55 y los contratos del gate en Python 3.10/3.12.
 - Preregistra `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` con seis casos sintéticos, tolerancias inmutables y etapas planetas/nodo/casas.
 - Ejecuta con el DE440s oficial fingerprintado las etapas `PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y `COMPLETE_GATE`; todas obtienen PASS en los seis casos y en Python 3.10/3.12.
 - El `COMPLETE_GATE` valida 47 medidas por caso y 282 por entorno con cero fallos; el máximo global es 39,8903887122″ en ASC/H1 de `G06_CAPE_TOWN_2050`, por debajo del límite preregistrado de 60″, sin modificar thresholds tras observar resultados.
+- Endurece `canonical-analysis.schema.json`: raíz cerrada, superficie M30 completa, composición de schemas especializados y trazabilidad obligatoria del backend astronómico.
+- Añade `semantic-motif-graph.schema.json`, la auditoría namespace→productor→schema y validación Draft 2020-12 con `jsonschema==4.26.0`.
+- Valida tanto una salida M30 sintética como la ejecución FULL M00–M31 y añade pruebas negativas de namespace/campo/procedencia inválidos.
+- Corrige Q6 para conservar `PX_PILLAR_SCORE` en la escala canónica 0–100; elimina la doble multiplicación por 100 detectada al validar el pipeline completo.
 - No cambia técnicas, pesos, scoring, ontología ni discriminadores.
 
 ## 1.17.0 — 2026-09-27
