@@ -539,6 +539,38 @@ class MoiraProductionBackend:
             subject_id=request.subject_id,
         )
 
+    def calculate_transit_positions(
+        self,
+        instant_utc: datetime,
+    ) -> Mapping[str, Any]:
+        """Calcula posiciones geocéntricas para TTRANSIT sin casas."""
+
+        if not isinstance(instant_utc, datetime) or instant_utc.tzinfo is None:
+            raise AstronomyBackendNotEvaluableError(
+                "TTRANSIT requiere un datetime timezone-aware."
+            )
+        instant = instant_utc.astimezone(timezone.utc)
+        chart = self._facade.chart(
+            instant,
+            include_nodes=True,
+        )
+        positions = self._positions(chart)
+        planet_ids = {
+            "SUN", "MOON", "MERCURY", "VENUS", "MARS",
+            "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO",
+        }
+        return {
+            "instant_utc": instant.isoformat(),
+            "positions": {
+                point_id: dict(data)
+                for point_id, data in positions.items()
+                if point_id in planet_ids
+            },
+            "backend_id": self.backend_id,
+            "backend_version": self.backend_version,
+            "backend_provenance": self.provenance,
+        }
+
     def calculate_davison(self, request: DavisonRequest) -> Mapping[str, Any]:
         a = request.subject_a
         b = request.subject_b
