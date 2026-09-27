@@ -260,6 +260,22 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         ):
             backend.calculate_natal(request())
 
+    def test_house_effective_provider_code_matches_enum_value(self):
+        token = SimpleNamespace(name="PLACIDUS", value="P")
+        backend = MoiraProductionBackend(
+            MoiraBackendConfig(
+                kernel_path=str(self.kernel),
+                kernel_sha256=self.kernel_sha,
+                kernel_family="DE440",
+                house_system="PLACIDUS",
+            ),
+            facade=FakeFacade(effective_system="P"),
+            house_system_token=token,
+            provider_version="6.8.2",
+        )
+        chart = backend.calculate_natal(request())
+        self.assertEqual(len(chart["houses"]), 12)
+
     def test_davison_uses_utc_and_spherical_midpoints(self):
         backend = self.backend()
         result = backend.calculate_davison(
