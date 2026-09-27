@@ -4,9 +4,9 @@
 
 Este documento delimita la familia temporal `TTRANSIT` dentro de ALMAS.
 
-Su función es establecer una base de método documentada para calcular y narrar, en un bloque posterior, contactos entre posiciones planetarias en movimiento y factores natales o estructurales ya existentes.
+Su función es establecer la base de método del generador autónomo TTRANSIT y de su lectura posterior: contactos entre posiciones planetarias en movimiento y endpoints natales de raíces estructurales ya existentes.
 
-No implementa todavía el generador de tránsitos. Tampoco fija nuevos orbes, ventanas, pesos o reglas de agregación.
+El generador se integra como productor previo del M26 existente. No crea una etapa nueva y no fija nuevos orbes, ventanas, pesos o reglas de agregación.
 
 Fuentes de método:
 
@@ -85,9 +85,36 @@ se lee como interacción temporal entre estructura/límite/tiempo y vínculo/val
 
 No se traduce automáticamente como separación, compromiso, pérdida o duración.
 
+## Solicitud de generación
+
+Cuando existe backend astronómico configurado, M26 puede recibir:
+
+`transit_requests[]`.
+
+Cada solicitud declara como mínimo:
+
+- `request_id`;
+- `instant_utc` ISO-8601 con offset o `Z`;
+- `window_status`;
+- `preregistered`;
+- `preregistered_window_rule`.
+
+Opcionalmente:
+
+- `target_subjects`;
+- `clause_id`;
+- `date_or_period`;
+- `event_refs`.
+
+La política geométrica procede siempre de `raw_input.aspect_policy`. No existen orbes implícitos.
+
+La primera implementación genera exclusivamente `ENDPOINT_ACTIVATION`: compara los diez planetas en tránsito con planetas natales y ASC/MC que ya aparezcan como endpoints concretos de una raíz M17. No explora puntos natales ajenos a las raíces ni reinterpreta endpoints dracónicos como natales.
+
+La fuerza inicial de la señal es la `exactness` producida por `match_declared_aspect()`; M26 aplica después el coeficiente ya existente para `ENDPOINT_ACTIVATION`. No se introduce una segunda escala temporal.
+
 ## Relación con M26
 
-El futuro generador TTRANSIT debe producir señales compatibles con M26.
+El generador TTRANSIT produce señales compatibles con M26.
 
 Cuando el contacto concreto esté disponible, debe conservarse en:
 
