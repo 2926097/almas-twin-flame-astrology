@@ -259,6 +259,10 @@ class MoiraProductionBackend:
             "house_system": self.config.house_system.upper(),
             "node_mode": self.policy["natal"]["node_mode"],
             "zodiac": self.policy["natal"]["zodiac"],
+            "coordinate_origin": self.policy["natal"]["coordinate_origin"],
+            "reference_frame": self.policy["natal"]["reference_frame"],
+            "apparent_reduction": self.policy["natal"]["apparent_reduction"],
+            "topocentric_positions": self.policy["natal"]["topocentric_positions"],
             "network_io_used": False,
             "geocoding_used": False,
         }
@@ -277,8 +281,6 @@ class MoiraProductionBackend:
         chart = self._facade.chart(
             instant,
             include_nodes=True,
-            observer_lat=float(latitude),
-            observer_lon=float(longitude),
         )
         houses = self._facade.houses(
             instant,
