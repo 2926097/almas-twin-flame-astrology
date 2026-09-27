@@ -26,6 +26,7 @@ REQUIRED_FILES = [
     "scripts/validate_astronomy_golden_result.py",
     "scripts/run_astronomy_golden_planetary.py",
     "validation/astronomy/golden-cases.v1.json",
+    "validation/astronomy/planetary-stage-evidence.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -523,6 +524,9 @@ def main() -> int:
     astronomy_golden_cases = load_json(
         "validation/astronomy/golden-cases.v1.json"
     )
+    astronomy_planetary_evidence = load_json(
+        "validation/astronomy/planetary-stage-evidence.v1.json"
+    )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
@@ -958,6 +962,39 @@ def main() -> int:
     )
     if "reference_method_id" not in measurement_required:
         fail("astronomy golden measurements must identify reference method")
+
+    if astronomy_planetary_evidence.get("evidence_id") != "ALMAS_ASTRONOMY_GOLDEN_PLANETARY_EVIDENCE_V1":
+        fail("astronomy planetary evidence id changed")
+    if astronomy_planetary_evidence.get("validation_stage") != "PLANETARY_REFERENCE":
+        fail("astronomy planetary evidence stage changed")
+    if astronomy_planetary_evidence.get("status") != "PASS":
+        fail("astronomy planetary evidence must remain PASS")
+    if astronomy_planetary_evidence.get("execution_commit") != "ff9252dce9db6f1654fe52aeb3de3448f5371edc":
+        fail("astronomy planetary evidence execution commit changed")
+    if astronomy_planetary_evidence.get("python_versions") != ["3.10", "3.12"]:
+        fail("astronomy planetary evidence Python matrix changed")
+    evidence_kernel = astronomy_planetary_evidence.get("kernel", {})
+    if evidence_kernel.get("sha256") != expected_artifact["sha256"]:
+        fail("astronomy planetary evidence kernel SHA diverges")
+    if evidence_kernel.get("md5") != expected_artifact["md5"]:
+        fail("astronomy planetary evidence kernel MD5 diverges")
+    if astronomy_planetary_evidence.get("measurements_per_environment") != 180:
+        fail("astronomy planetary evidence measurement count changed")
+    evidence_repro = astronomy_planetary_evidence.get("reproducibility", {})
+    if evidence_repro.get("identical_summaries_across_python_versions") is not True:
+        fail("astronomy planetary evidence must reproduce across Python versions")
+    if evidence_repro.get("failure_count") != 0:
+        fail("astronomy planetary evidence contains failures")
+    if evidence_repro.get("thresholds_modified_after_observation") is not False:
+        fail("astronomy planetary evidence cannot alter preregistered thresholds")
+    evidence_cases = astronomy_planetary_evidence.get("cases", [])
+    if len(evidence_cases) != 6 or any(case.get("status") != "PASS" for case in evidence_cases):
+        fail("all six astronomy planetary evidence cases must PASS")
+    overall_max = astronomy_planetary_evidence.get("overall_max", {})
+    if overall_max.get("delta_arcsec") != 0.9257480642418159:
+        fail("astronomy planetary evidence maximum delta changed")
+    if overall_max.get("tolerance_arcsec") != 15.0:
+        fail("astronomy planetary evidence maximum tolerance changed")
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
