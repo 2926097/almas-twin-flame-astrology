@@ -414,6 +414,26 @@ La doctrina y la metafísica no se usan como decoración posterior. Cuando exist
 
 La contraevidencia debe integrarse en la interpretación de forma proporcional. Su función es evitar una etiqueta automática, no vaciar de contenido la lectura.
 
+### Protocolo obligatorio de síntesis interpretativa
+
+Para lecturas narrativas, informes y libros, aplicar `reference/interpretive-synthesis-protocol.md` antes de redactar `authored_report`.
+
+La secuencia hermenéutica preferente es:
+
+`configuración → patrón → dinámica → función evolutiva → correspondencia metafísica/doctrinal → diferencial → síntesis`.
+
+La lectura debe explicar primero la arquitectura sin depender de las etiquetas AF/KA/AG/LG. Debe desarrollar, cuando sean evaluables, el sustrato natal, la geometría sinástrica, nodos/ángulos/casas/regencias, declinaciones y antiscios, campo compuesto/Davison, cruces dracónicos, raíces/motivos recurrentes, función evolutiva, activación temporal y correspondencias doctrinales.
+
+Cada bloque sustantivo debe producir al menos una proposición integrada del tipo:
+
+`evidencia astrológica → motivo → dinámica → significado`.
+
+Cuando exista fuente pertinente:
+
+`→ correspondencia doctrinal → límite de la correspondencia`.
+
+Los índices y gates calibran confianza y estabilidad; no sustituyen esta cadena interpretativa.
+
 ## 22. Contrato canónico, M31 y `authored_report`
 
 `canonical_analysis.json` es la única verdad analítica.

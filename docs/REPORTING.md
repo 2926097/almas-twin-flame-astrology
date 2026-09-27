@@ -87,6 +87,16 @@ El informe debe mantener diferenciados:
 
 No se convierten rareza estadística, intensidad, sincronicidad, doctrina o activación temporal en probabilidad metafísica o predicción de hechos reales.
 
+## Síntesis interpretativa
+
+Antes de materializar `authored_report`, la lectura debe seguir `reference/interpretive-synthesis-protocol.md`.
+
+El protocolo organiza las capacidades existentes en una secuencia de significado:
+
+`sustrato individual → geometría interpersonal → campo relacional → reencuadre dracónico → raíces/motivos → función evolutiva → activación temporal → doctrina → diferencial → síntesis`.
+
+Su objetivo es que el informe explique la relación aunque se oculten los nombres de los modelos y los índices. Una sección interpretativa no se considera desarrollada por enumerar aspectos: debe conectar evidencia, motivo, dinámica y significado; cuando existan fuentes pertinentes, debe integrar también la correspondencia doctrinal y su límite.
+
 ## Autoría interpretativa
 
 Después de M31, `authored_report` convierte las rutas disponibles en prosa sin modificar el análisis. El centro del documento es la lectura astrológica y la hermenéutica/metafísica basada en fuentes; la capa técnica conserva la función de cálculo, trazabilidad y control de calidad.

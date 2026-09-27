@@ -201,6 +201,7 @@ REQUIRED_FILES = [
     "reference/viability-reciprocity.md",
     "reference/report-gate.md",
     "reference/report-document-model.md",
+    "reference/interpretive-synthesis-protocol.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
