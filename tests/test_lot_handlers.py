@@ -65,6 +65,15 @@ class TestLots(unittest.TestCase):
         self.assertAlmostEqual(lots["A"]["FORTUNE"]["longitude"], 130.0)
         self.assertAlmostEqual(lots["B"]["FORTUNE"]["longitude"], 50.0)
         self.assertEqual(lots["A"]["FORTUNE"]["source_ref"], "SRC_TEST")
+        self.assertEqual(lots["A"]["FORTUNE"]["sign"], "LEO")
+        self.assertAlmostEqual(
+            lots["A"]["FORTUNE"]["degree_in_sign"],
+            10.0,
+        )
+        self.assertEqual(lots["A"]["FORTUNE"]["house"], 2)
+        self.assertIsNone(
+            lots["A"]["FORTUNE"]["corroborating_source_ref"]
+        )
 
     def test_default_policy_resolves_fortune_and_spirit_from_house_sect(self):
         canonical = {
@@ -109,6 +118,17 @@ class TestLots(unittest.TestCase):
             output["subjects"]["A"]["SPIRIT"]["longitude"],
             70.0,
         )
+        self.assertEqual(
+            output["subjects"]["A"]["SPIRIT"]["sign"],
+            "GEMINI",
+        )
+        self.assertEqual(output["subjects"]["A"]["SPIRIT"]["house"], 12)
+        self.assertEqual(
+            output["subjects"]["A"]["SPIRIT"][
+                "corroborating_source_ref"
+            ],
+            "vettius_valens_anthology_lots",
+        )
         self.assertAlmostEqual(
             output["subjects"]["B"]["FORTUNE"]["longitude"],
             50.0,
@@ -145,6 +165,8 @@ class TestLots(unittest.TestCase):
         lot = result.canonical_updates["lots"]["subjects"]["A"]["FORTUNE"]
         self.assertEqual(lot["status"], "NOT_EVALUABLE")
         self.assertIsNone(lot["longitude"])
+        self.assertIsNone(lot["sign"])
+        self.assertIsNone(lot["house"])
 
 
 if __name__ == "__main__":
