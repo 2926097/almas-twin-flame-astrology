@@ -4,7 +4,7 @@ El objeto `canonical_analysis.json` es la única verdad analítica del informe.
 
 Pipeline recomendado:
 
-`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → documento estructurado → PDF → preflight → renderizado de todas las páginas → inspección → corrección → re-render/verificación`
+`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → authored_report → DOCX/PDF → preflight → renderizado de todas las páginas → inspección → corrección → re-render/verificación`
 
 Para informes largos se prefiere una fase de autoría DOCX antes de la conversión a PDF.
 
@@ -87,10 +87,26 @@ El informe debe mantener diferenciados:
 
 No se convierten rareza estadística, intensidad, sincronicidad, doctrina o activación temporal en probabilidad metafísica o predicción de hechos reales.
 
+## Autoría interpretativa
+
+Después de M31, `authored_report` convierte las rutas disponibles en prosa sin modificar el análisis. El centro del documento es la lectura astrológica y la hermenéutica/metafísica basada en fuentes; la capa técnica conserva la función de cálculo, trazabilidad y control de calidad.
+
+La trazabilidad se exige por sección, no por frase. Cada sección registra rutas canónicas utilizadas, clases epistemológicas, claims doctrinales, evidencia estructural, fuentes y limitaciones. Esto permite una narrativa desarrollada sin reducirla a un formulario de auditoría.
+
+`authored_report.bibliography` es editorial: permite construir citas, notas y anexos, pero no añade peso a modelos ni scores.
+
+Contrato:
+
+`schemas/authored-report.schema.json`
+
+Validador semántico:
+
+`src/almas_tfa/authored_report.py`
+
 ## Publicación
 
 M31 cierra el pipeline analítico M00–M31. La autoría narrativa, selección de formato, maquetación, DOCX, PDF y preflight comienzan únicamente después de M31.
 
 La secuencia de publicación debe respetar:
 
-`canonical_analysis → report_document_model → documento → PDF → preflight → render completo → inspección → corrección → verificación final`.
+`canonical_analysis → report_document_model → authored_report → DOCX/PDF → preflight → render completo → inspección → corrección → verificación final`.
