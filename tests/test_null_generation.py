@@ -6,6 +6,7 @@ from unittest.mock import patch
 
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
 from almas_tfa.null_generation import (
+    _statistic,
     generate_within_year_null_runs,
     load_null_generation_policy,
 )
@@ -144,6 +145,13 @@ class TestNullGeneration(unittest.TestCase):
                 sample["replacement_birth_date"].startswith(
                     years_by_subject[subject_id]
                 )
+            )
+
+    def test_px_statistic_rejects_noncanonical_scale(self):
+        with self.assertRaisesRegex(ValueError, "PX debe estar"):
+            _statistic(
+                {"pillars": {"PX": 7689.0}},
+                "PX_PILLAR_SCORE",
             )
 
     def test_generator_does_not_use_pair_shuffle_without_external_pool(self):
