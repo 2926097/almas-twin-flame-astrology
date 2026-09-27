@@ -1965,6 +1965,120 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrologie/in_house2_f.htm?lang=e",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_main_axis",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Main Axis",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretive description of the Ascendant/Descendant and MC/IC axes",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Main_Axis",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el eje Ascendente–Descendente diferencia presentación/entrada en el mundo y respuesta o relación con los otros",
+        "el eje IC–MC diferencia raíces/origen/pasado y orientación pública, meta o dirección futura",
+        "base metodológica para no tratar los extremos de un eje como significados intercambiables durante la autoría relacional"
+      ],
+      "does_not_support": [
+        "que un contacto angular demuestre destino, matrimonio o identidad ontológica del vínculo",
+        "que ASC y DSC o MC e IC deban puntuarse como raíces independientes cuando la política estructural los normaliza en un mismo eje",
+        "validación científica de la interpretación astrológica de los ángulos"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Main Axis': el Ascendente describe cómo nos presentamos y el Descendente cómo reaccionamos a los otros; IC se vincula con origen/pasado y MC con futuro/dirección.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Main_Axis",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_moon_nodes",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Moon's Nodes",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation of ascending/north and descending/south lunar nodes",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Ketu",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el Nodo Sur puede interpretarse como experiencia ya adquirida, pasado, herencia o zona de familiaridad",
+        "el Nodo Norte puede interpretarse como dirección de desarrollo, territorio emergente o desafío de crecimiento",
+        "la lectura nodal no exige una creencia literal en karma o reencarnación y puede formularse como continuidad simbólica y desarrollo"
+      ],
+      "does_not_support": [
+        "que un contacto con el Nodo Sur pruebe una vida pasada concreta",
+        "que un contacto con el Nodo Norte pruebe destino conjunto o misión preencarnatoria",
+        "que el eje nodal deba leerse como bueno/malo o futuro/pasado de forma determinista"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Moon's Nodes': Nodo Sur como pasado/familiaridad y Nodo Norte como dirección de desarrollo, con indicación explícita de que no es necesario creer en karma o reencarnación para trabajar con el eje.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Ketu",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_vertex",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Vertex",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Astronomical definition and contemporary interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Vertex",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el Vertex es la intersección occidental de la eclíptica con el primer vertical y se ha comparado en astrología moderna con un segundo Descendente",
+        "la práctica astrológica contemporánea asocia el Vertex con encuentros percibidos como especialmente influyentes o significativos",
+        "base documental para tratar Vertex como punto sensible relacional sin equipararlo a los ángulos principales"
+      ],
+      "does_not_support": [
+        "que un contacto con Vertex demuestre objetivamente destino o predestinación",
+        "que Vertex identifique por sí solo alma gemela, karma o llama gemela",
+        "una interpretación autónoma y equivalente del Anti-Vertex más allá de su condición de polo opuesto"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Vertex': definición astronómica, comparación moderna con un segundo Descendente y asociación interpretativa con encuentros influyentes o percibidos como destinados.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Vertex",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"
