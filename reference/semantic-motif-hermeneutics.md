@@ -56,6 +56,120 @@ Representa una dinámica de **continuidad, consecuencia, maduración o direcció
 
 El eje nodal orienta la lectura hacia trayectoria, memoria simbólica, repetición o dirección evolutiva. Saturno introduce estructura, duración, responsabilidad, límite, tiempo y necesidad de elaboración.
 
+### Formas concretas según la raíz
+
+La raíz debe leerse antes que la etiqueta. Las fuentes de método `davison_synastry_1983`, `sakoian_acker_human_relationships_1976` y `arroyo_relationships_life_cycles_1993` permiten tratar aspectos cruzados, combinaciones planetarias y casas como una dinámica interpersonal concreta. La interpretación siguiente es una gramática ALMAS de autoría: organiza esos factores, pero no convierte una combinación en prueba de karma literal.
+
+#### Nodo + Sol
+
+La continuidad se concentra en identidad, voluntad y dirección vital. La persona solar puede funcionar como figura que hace visible una orientación ya latente en la persona nodal; en sentido inverso, la persona nodal puede situar la identidad solar dentro de una trayectoria que adquiere mayor significado relacional.
+
+La pregunta central es:
+
+> ¿Qué parte de la identidad o propósito se vuelve más visible porque ambas trayectorias se cruzan?
+
+En conjunción o paralelo puede sentirse como reconocimiento inmediato o concentración de propósito; en oposición, cuadratura o contraparalelo, como una dirección que exige ajuste, negociación o redefinición de identidad. No concluir “destino compartido” sólo por el contacto.
+
+#### Nodo + Luna
+
+Introduce continuidad en necesidades emocionales, hábitos, pertenencia, cuidado y memoria afectiva. Es una de las raíces que más fácilmente puede vivirse subjetivamente como familiaridad, porque el eje nodal toca una función lunar de seguridad y reconocimiento.
+
+La lectura debe distinguir familiaridad de evidencia histórica:
+
+> El vínculo puede sentirse conocido porque activa patrones emocionales profundos; esa experiencia es compatible con lenguajes de continuidad, pero no identifica una vida pasada concreta.
+
+Cuando la Luna pertenece a A y el Nodo a B, describir qué necesidad emocional de A entra en la trayectoria de B; no convertir la bidireccionalidad en automática si no existe evidencia equivalente B→A.
+
+#### Nodo + Mercurio
+
+La continuidad se expresa mediante palabra, aprendizaje, información, decisiones y marcos mentales. Puede simbolizar una relación que reactiva conversaciones pendientes, modifica la manera de pensar o introduce una enseñanza que cambia dirección.
+
+Su función evolutiva frecuente no es “telepatía”, sino reorganización de significado:
+
+> ¿Qué idea, conversación o aprendizaje se vuelve inevitable a partir del encuentro?
+
+#### Nodo + Venus
+
+Vincula trayectoria con afecto, valores, atracción, reciprocidad estética y elección relacional. Puede sentirse como afinidad significativa porque aquello que una persona valora entra directamente en el eje de dirección de la otra.
+
+La lectura debe preguntar si Venus aporta sólo atracción o también coherencia de valores, cuidado y capacidad de sostener el vínculo. Nodo–Venus puede participar en una arquitectura de emparejamiento, pero no demuestra por sí solo `ZIVUG`, alma gemela o llama gemela.
+
+#### Nodo + Marte
+
+Introduce acción, deseo, iniciativa, conflicto y capacidad de corte dentro de la trayectoria nodal. La persona marciana puede acelerar decisiones o empujar a la persona nodal fuera de una inercia previa; también puede producir fricción cuando la acción y la dirección no coinciden.
+
+La pregunta útil es:
+
+> ¿Qué movimiento se vuelve necesario porque esta persona entra en la trayectoria de la otra?
+
+No confundir activación intensa con compatibilidad.
+
+#### Nodo + Júpiter
+
+Asocia continuidad con expansión, creencias, enseñanza, horizonte cultural, confianza o sentido. Puede aparecer en relaciones donde una persona amplía el marco de referencia de la otra o convierte un encuentro en apertura intelectual, espiritual, educativa o geográfica.
+
+Cuando reaparece en casas 9/10, ejes angulares o campo relacional, puede adquirir dimensión de transmisión o misión; aun así, “ampliar horizonte” no equivale a misión preencarnatoria demostrada.
+
+#### Nodo + Saturno
+
+Es una de las expresiones más estructurales de `KARMIC_CONTINUITY`: trayectoria y tiempo quedan enlazados con responsabilidad, forma, límite y consecuencia.
+
+Puede vivirse como deber, compromiso, prueba, demora, necesidad de construcción o imposibilidad de ignorar una cuestión. El sentido depende de si Saturno da forma al vínculo o lo rigidiza.
+
+Una formulación más precisa que “deuda kármica” es:
+
+> La relación coloca una trayectoria bajo condiciones de tiempo, responsabilidad y realidad; aquello que une a ambos exige forma, límite o elaboración antes de poder integrarse.
+
+Sólo después, si existe recurrencia independiente y corpus doctrinal pertinente, abrir comparaciones con continuidad kármica.
+
+#### Nodo + Urano, Neptuno o Plutón
+
+Estos contactos colorean la dirección nodal con procesos transpersonales o transformativos.
+
+Nodo–Urano puede describir reorientación, ruptura de trayectoria, liberación o entrada súbita en un camino diferente. Nodo–Neptuno puede asociar la dirección a ideal, inspiración, devoción o confusión; requiere especial control de proyección. Nodo–Plutón intensifica transformación, poder, verdad subyacente y procesos de pérdida/regeneración.
+
+Cuando el planeta exterior es generacional, exigir especificidad adicional —ángulos, casas, exactitud, recurrencia o conexión con personales— antes de convertirlo en tema central.
+
+#### Nodo + Quirón
+
+Por precedencia, una raíz Nodo–Quirón se emite como `KARMIC_CONTINUITY`, no como `WOUND_REPAIR`. La hermenéutica, sin embargo, debe conservar el matiz quirónico: la trayectoria compartida toca una vulnerabilidad o proceso de integración.
+
+La lectura correcta no añade un segundo motivo; desarrolla una **continuidad con contenido de herida/reparación** dentro del motivo primario emitido.
+
+#### Nodo + ángulos
+
+Cuando el eje nodal conecta con horizonte o meridiano, la continuidad se vuelve más encarnada: identidad relacional y forma de encuentro en ASC/DSC; vocación, visibilidad y dirección pública en MC/IC.
+
+Estos contactos dependen especialmente de la fiabilidad horaria. Si M23 muestra sensibilidad fuerte, la prosa debe rebajar el peso del ángulo antes de construir una conclusión metafísica.
+
+#### Saturno + Sol/Luna
+
+Saturno–Sol sitúa identidad y voluntad bajo exigencia de maduración, responsabilidad o definición. Puede mostrar una relación que obliga a construir una identidad más consistente, pero también una dinámica de juicio, autoridad o restricción.
+
+Saturno–Luna lleva esa estructura al terreno emocional: cuidado, seguridad, deber afectivo, miedo a perder, contención o dificultad para expresar necesidad. La lectura debe distinguir sostén de control.
+
+#### Saturno + Mercurio/Venus/Marte
+
+Saturno–Mercurio puede dar seriedad, aprendizaje lento, palabra responsable o bloqueo comunicativo. Saturno–Venus puede simbolizar compromiso, lealtad, sobriedad afectiva, pruebas de valor o sensación de carencia. Saturno–Marte combina acción con fricción, disciplina y resistencia: puede construir esfuerzo sostenido o producir frustración acumulada.
+
+En los tres casos, la pregunta es qué función exige forma y qué coste psicológico implica esa forma.
+
+#### Saturno + Júpiter/ángulos
+
+Saturno–Júpiter confronta expansión y límite: puede estructurar una visión, transformar creencia en obra o hacer visible la tensión entre confianza y prudencia.
+
+Saturno con ASC/DSC o MC/IC tiende a materializar la continuidad en rol, responsabilidad, convivencia, imagen pública o dirección vital. La hora natal debe estar suficientemente documentada antes de desarrollar esta lectura como eje central.
+
+### Modulación por relación, dirección y casas
+
+El motivo primario no sustituye al aspecto concreto.
+
+Una conjunción o paralelo concentra funciones; una oposición o contraparalelo organiza polaridad y negociación; una cuadratura introduce fricción y tarea; trígono y sextil facilitan circulación sin garantizar profundidad. Antiscios y contra-antiscios se leen según su tradición específica y no como equivalentes universales de conjunción/oposición.
+
+La dirección importa. Cuando la evidencia es A→B, describir qué función de A entra en qué trayectoria o zona de experiencia de B. Sólo hablar de reciprocidad estructural cuando exista evidencia independiente en la dirección inversa o una repetición relacional que realmente la sostenga.
+
+Las casas aportan el **dónde** de la continuidad. Si el contacto cae, por ejemplo, en casa 4, 7, 8, 9 o 10, la narrativa debe traducir el motivo a pertenencia/origen, vínculo, intimidad-transformación, sentido/horizonte o vocación/manifestación respectivamente. La casa contextualiza la raíz; no crea por sí sola continuidad kármica.
+
 ### Preguntas de lectura
 
 - ¿Qué tema parece venir ya cargado de historia o consecuencia?
