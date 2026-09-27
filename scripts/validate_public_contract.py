@@ -80,6 +80,7 @@ REQUIRED_FILES = [
     "schemas/px-v3-promotion-evidence.schema.json",
     "schemas/validation-preregistration-bundle.schema.json",
     "schemas/holdout-open-record.schema.json",
+    "schemas/validation-execution-ledger.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -203,6 +204,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/px-v3-activation-firewall-policy.json",
     "src/almas_tfa/data/validation-preregistration-bundle-policy.json",
     "src/almas_tfa/data/holdout-open-gate-policy.json",
+    "src/almas_tfa/data/validation-execution-ledger-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -239,6 +241,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/px_v3_activation.py",
     "src/almas_tfa/validation_preregistration.py",
     "src/almas_tfa/holdout_open.py",
+    "src/almas_tfa/validation_ledger.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -341,6 +344,7 @@ REQUIRED_FILES = [
     "tests/test_px_v3_activation.py",
     "tests/test_validation_preregistration.py",
     "tests/test_holdout_open.py",
+    "tests/test_validation_ledger.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -529,6 +533,9 @@ def main() -> int:
     holdout_open_gate_policy = load_json(
         "src/almas_tfa/data/holdout-open-gate-policy.json"
     )
+    validation_execution_ledger_policy = load_json(
+        "src/almas_tfa/data/validation-execution-ledger-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -594,6 +601,9 @@ def main() -> int:
     )
     holdout_open_record_schema = load_json(
         "schemas/holdout-open-record.schema.json"
+    )
+    validation_execution_ledger_schema = load_json(
+        "schemas/validation-execution-ledger.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1327,6 +1337,54 @@ def main() -> int:
         fail("1.16 V2 schema must require holdout_opened=true")
     if v2_schema_props.get("holdout_evaluation_permitted", {}).get("const") is not True:
         fail("1.16 V2 schema must permit holdout evaluation after gate")
+
+    if validation_execution_ledger_policy.get("policy_id") != "ALMAS_VALIDATION_EXECUTION_LEDGER_V1":
+        fail("1.16 V3 ledger policy id changed")
+    if validation_execution_ledger_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V3 ledger policy must remain frozen")
+    if validation_execution_ledger_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V3 ledger must remain E_PROJECT_POLICY")
+    if validation_execution_ledger_policy.get("event_order") != [
+        "PREREGISTERED",
+        "HOLDOUT_OPENED",
+        "HOLDOUT_EVALUATED",
+        "DOCUMENTARY_REVEALED",
+        "VALIDATION_CLOSED",
+    ]:
+        fail("1.16 V3 ledger event order changed")
+    v3_principles = validation_execution_ledger_policy.get("principles", {})
+    for key in (
+        "append_only",
+        "strict_event_order",
+        "hash_chain_required",
+        "prior_entries_immutable",
+        "opaque_references_only",
+        "private_payloads_forbidden",
+        "automatic_registry_mutation_forbidden",
+        "ledger_does_not_promote_candidate",
+        "ledger_does_not_activate_scoring",
+        "ledger_does_not_validate_l3",
+    ):
+        if v3_principles.get(key) is not True:
+            fail(f"1.16 V3 ledger invariant failed: {key}")
+    if v3_principles.get("metaphysical_probability") is not False:
+        fail("1.16 V3 must forbid metaphysical probability")
+
+    v3_schema_props = validation_execution_ledger_schema.get("properties", {})
+    if v3_schema_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_EXECUTION_LEDGER_V1":
+        fail("1.16 V3 schema policy id changed")
+    if v3_schema_props.get("promotion_decision", {}).get("const") != "FORBIDDEN":
+        fail("1.16 V3 ledger must forbid promotion decisions")
+    for field in (
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v3_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V3 schema must lock {field}=false")
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
         "candidate",
