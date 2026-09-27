@@ -107,6 +107,18 @@ Las cuatro etapas —`PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERE
 
 La evidencia consolidada se fija en `validation/astronomy/complete-stage-evidence.v1.json`. Ningún threshold, técnica, peso, score, discriminador u ontología fue alterado como consecuencia de los resultados.
 
+## A9 · Contrato canónico endurecido
+
+`canonical-analysis.schema.json` queda alineado con la superficie real emitida por M30. La raíz declara 22 namespaces y rechaza cualquier namespace no registrado mediante `additionalProperties=false`; 18 campos siempre emitidos son obligatorios y los cuatro namespaces condicionales permanecen explícitamente opcionales.
+
+Se cierran las superficies propias de M30 para modelos AF/KA/AG/LG, índices, IDD por pares, cobertura, robustez, evidencia M17, contraevidencia M20, estado ICE, ensamblaje, perfil y trazabilidad del backend astronómico. Cuando `backend_id=MOIRA_JPL_SPK`, la procedencia completa de `astronomy-backend-provenance.schema.json` es obligatoria.
+
+La composición especializada reutiliza schemas propietarios para doctrina, temporalidad, modelos nulos, sensibilidad horaria, discriminación ontológica, componentes de robustez y el nuevo `semantic-motif-graph.schema.json`. El pipeline FULL se valida con JSON Schema Draft 2020-12 mediante `jsonschema==4.26.0`, además de pruebas negativas para namespaces desconocidos, campos de modelo inesperados y procedencia astronómica incompleta.
+
+Durante esta validación se detectó y corrigió un defecto real de escala en Q6: `PX_PILLAR_SCORE` estaba multiplicándose dos veces por 100. M24 conserva ahora la escala canónica 0–100 y falla cerrado ante valores fuera de rango. El fix de producción `a91ced8891c79cf992fc666282b9fe2b3bdfb5bc` pasó la suite completa y el contrato público en Python 3.10 y 3.12.
+
+La matriz de propiedad namespace→productor→schema queda documentada en `docs/CANONICAL_SCHEMA_AUDIT_1.18.md`. No se añadieron técnicas, pesos, thresholds, scores, discriminadores ni ontología.
+
 ## Invariantes
 
 1. El backend no altera scoring ni weighting.
