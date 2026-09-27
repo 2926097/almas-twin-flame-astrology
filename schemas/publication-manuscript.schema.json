@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/publication-manuscript.schema.json",
+  "title": "ALMAS · Manuscrito de publicación",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "document_kind",
+    "language",
+    "title",
+    "canonical_fingerprint",
+    "authoring_principle",
+    "sections"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "document_kind": {"const": "ALMAS_PUBLICATION_MANUSCRIPT"},
+    "language": {"const": "es"},
+    "title": {"type": "string", "minLength": 1},
+    "subtitle": {"type": ["string", "null"]},
+    "canonical_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "authoring_principle": {
+      "const": "INTERPRETATION_PRIMARY_METHOD_SUPPORT"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "type": "object",
+        "required": [
+          "section_id",
+          "title",
+          "section_state",
+          "blocks"
+        ],
+        "properties": {
+          "section_id": {
+            "enum": [
+              "S01_SYNTHESIS",
+              "S02_DATA_METHOD",
+              "S03_NUMERIC_ONTOLOGY",
+              "S04_STRUCTURE",
+              "S05_RELATIONAL",
+              "S06_DIFFERENTIAL",
+              "S07_TEMPORAL",
+              "S08_ROBUSTNESS",
+              "S09_DOCTRINE",
+              "S10_FINAL_SYNTHESIS",
+              "S11_SOURCES_APPENDICES"
+            ]
+          },
+          "title": {"type": "string", "minLength": 1},
+          "section_state": {
+            "enum": ["READY", "PARTIAL", "NOT_AVAILABLE"]
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "block_id",
+                "role",
+                "epistemic_class",
+                "text",
+                "canonical_paths",
+                "source_ids"
+              ],
+              "properties": {
+                "block_id": {
+                  "type": "string",
+                  "pattern": "^[A-Z0-9_:-]+$"
+                },
+                "role": {
+                  "enum": [
+                    "ASTROLOGICAL_READING",
+                    "METAPHYSICAL_HERMENEUTICS",
+                    "DOCTRINAL_INTERPRETATION",
+                    "TECHNICAL_SUPPORT",
+                    "LIMITATION",
+                    "SOURCE_NOTE"
+                  ]
+                },
+                "epistemic_class": {
+                  "enum": [
+                    "A_CALCULATED",
+                    "B_TECHNIQUE",
+                    "C_DOCTRINE",
+                    "D_CONTEMPORARY_USAGE",
+                    "E_PROJECT_HYPOTHESIS"
+                  ]
+                },
+                "text": {"type": "string", "minLength": 1},
+                "canonical_paths": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {"type": "string", "minLength": 1}
+                },
+                "source_ids": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {"type": "string", "minLength": 1}
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
