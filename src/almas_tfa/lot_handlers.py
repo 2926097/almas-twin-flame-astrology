@@ -4,7 +4,7 @@ from importlib import resources
 import json
 from typing import Any, Mapping
 
-from .astrology_geometry import normalize_longitude
+from .astrology_geometry import house_for_longitude, normalize_longitude, zodiac_sign
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .relational_handlers import _chart_points
 
@@ -172,7 +172,14 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
                 subject_lots[lot_id] = {
                     "status": "NOT_EVALUABLE",
                     "longitude": None,
+                    "sign": None,
+                    "sign_index": None,
+                    "degree_in_sign": None,
+                    "house": None,
                     "source_ref": spec["source_ref"],
+                    "corroborating_source_ref": spec.get(
+                        "corroborating_source_ref"
+                    ),
                     "reason": "FORMULA_OR_SECT_NOT_RESOLVED",
                 }
                 limitations.append(
@@ -185,7 +192,14 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
                 subject_lots[lot_id] = {
                     "status": "NOT_EVALUABLE",
                     "longitude": None,
+                    "sign": None,
+                    "sign_index": None,
+                    "degree_in_sign": None,
+                    "house": None,
                     "source_ref": spec["source_ref"],
+                    "corroborating_source_ref": spec.get(
+                        "corroborating_source_ref"
+                    ),
                     "formula": dict(formula),
                     "reason": "MISSING_FORMULA_POINT",
                 }
@@ -194,10 +208,21 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
                 )
                 continue
 
+            houses = chart.get("houses")
+            house = (
+                house_for_longitude(longitude, houses)
+                if isinstance(houses, Mapping)
+                else None
+            )
             subject_lots[lot_id] = {
                 "status": "CALCULATED",
                 "longitude": longitude,
+                **zodiac_sign(longitude),
+                "house": house,
                 "source_ref": spec["source_ref"],
+                "corroborating_source_ref": spec.get(
+                    "corroborating_source_ref"
+                ),
                 "formula": dict(formula),
                 "sect": sect_by_subject.get(subject_id),
             }
