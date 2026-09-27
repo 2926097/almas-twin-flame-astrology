@@ -720,6 +720,15 @@ def assemble_canonical_analysis(
     if len(draconic_context) > 2:
         assembled["draconic_context"] = draconic_context
 
+    lots = canonical.get("lots")
+    if isinstance(lots, Mapping):
+        assembled["lots_context"] = {
+            "authoring_projection_only": True,
+            "creates_additional_evidence": False,
+            "historical_technique_context_only": True,
+            "output": dict(lots),
+        }
+
     pillar_attribution = canonical.get("pillar_attribution")
     if isinstance(pillar_attribution, Mapping):
         motifs = pillar_attribution.get("semantic_motifs")
