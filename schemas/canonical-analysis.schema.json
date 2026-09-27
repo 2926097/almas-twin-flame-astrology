@@ -845,6 +845,30 @@
         }
       },
       "additionalProperties": false
+    },
+    "lots_context": {
+      "type": "object",
+      "required": [
+        "authoring_projection_only",
+        "creates_additional_evidence",
+        "historical_technique_context_only",
+        "output"
+      ],
+      "properties": {
+        "authoring_projection_only": {
+          "const": true
+        },
+        "creates_additional_evidence": {
+          "const": false
+        },
+        "historical_technique_context_only": {
+          "const": true
+        },
+        "output": {
+          "$ref": "lots-output.schema.json"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,
