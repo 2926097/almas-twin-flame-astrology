@@ -1,14 +1,14 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.16.0
+version: 1.17.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.16.0
+# ALMAS · Astrología Metafísica Relacional v1.17.0
 
 ## 0. Estado de la release pública
 
@@ -19,6 +19,8 @@ La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una
 La release 1.15.0 añade una capa de **calibración de especificidad S1–S9** sobre PX/PS v2: diagnóstico de calidad de recurrencia, calibración nula WITHIN_YEAR, controles sintéticos deterministas, firewall y calibración de cohortes externas, registro/gate de candidatos PX v3, runner holdout, gate de promoción y firewall de activación versionada. Ninguna de estas capas modifica todavía PX/PS, IEM, IDD, IRC u ontología; PX v2 sigue siendo el único score operativo y el registro PX v3 permanece vacío.
 
 La release 1.16.0 añade **Validation Operations V1–V5**: preregistro congelado, apertura controlada del holdout, ledger append-only, certificado de continuidad y cierre confirmatorio con paquete de auditoría de release. V1–V5 son infraestructura metodológica; no activan PX v3, no mutan registros, no autorizan L3 y no convierten el rendimiento operacional en probabilidad metafísica.
+
+La release 1.17.0 formaliza los **manifiestos normativos estructurales**: taxonomía técnica/dependencia, contrato de orbes declarados y loading estructural. M15 deja de depender de una tabla hardcodeada y consume el registro congelado, manteniendo exactamente las mismas familias, elegibilidad y pesos neutrales de 1.16.
 
 ### Enfoque de investigación metafísica
 
