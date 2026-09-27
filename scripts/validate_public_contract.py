@@ -3549,6 +3549,12 @@ def main() -> int:
     if "identity_target_concept_id" not in claim_props:
         fail("doctrinal identity claims must declare an identity target concept")
 
+    support_ref_item = claim_props.get("source_support_refs", {}).get("items", {})
+    if set(support_ref_item.get("required", [])) != {"source_id", "support_index", "resolved"}:
+        fail("doctrinal source_support_ref must require resolution state")
+    if support_ref_item.get("properties", {}).get("resolved", {}).get("type") != "boolean":
+        fail("doctrinal source_support_ref resolved must be boolean")
+
 
     if contract_chain_schema.get("properties", {}).get("schema_version", {}).get("const") != "2.0.0":
         fail("contract causal chain schema must expose 2.0.0")
