@@ -978,6 +978,64 @@ class TestReportingFirewall(unittest.TestCase):
         self.assertFalse(model["pdf_created"])
         self.assertFalse(model["pdf_preflight_performed"])
 
+        by_id = {
+            section["section_id"]: section
+            for section in model["sections"]
+        }
+        for section_id in ("S01_SYNTHESIS", "S10_FINAL_SYNTHESIS"):
+            section = by_id[section_id]
+            self.assertIn("evidence", section["optional_paths"])
+            self.assertIn("doctrine", section["optional_paths"])
+            self.assertIn("semantic_motifs", section["optional_paths"])
+            self.assertIn("evidence", section["available_paths"])
+            self.assertIn("doctrine", section["available_paths"])
+
+        self.assertIn(
+            "C_DOCTRINE",
+            by_id["S01_SYNTHESIS"]["epistemic_classes_allowed"],
+        )
+        self.assertIn(
+            "D_CONTEMPORARY_USAGE",
+            by_id["S01_SYNTHESIS"]["epistemic_classes_allowed"],
+        )
+
+    def test_m31_synthesis_exposes_semantic_motifs_when_available(self):
+        canonical = self.canonical(
+            semantic_motifs={
+                "policy_id": "SYNTHETIC",
+                "motifs": [],
+            }
+        )
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        by_id = {
+            section["section_id"]: section
+            for section in result.canonical_updates[
+                "report_document_model"
+            ]["sections"]
+        }
+        for section_id in ("S01_SYNTHESIS", "S10_FINAL_SYNTHESIS"):
+            self.assertIn(
+                "semantic_motifs",
+                by_id[section_id]["available_paths"],
+            )
+
     def test_m31_partial_inherits_degradation_reasons(self):
         canonical = self.canonical(mode="TARGETED")
         gate_result = m30_report_gate(
