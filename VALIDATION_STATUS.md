@@ -76,7 +76,7 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 | Genealogía de discriminadores | OD01–OD07 trazados documentalmente |
 | Aislamiento de casos privados | `ALMAS_PUBLIC_DATA_ISOLATION_V1` + manifests exhaustivos |
 | CLI de pilares precomputados | Publicada y probada unitariamente |
-| Corpus doctrinal/técnico | 42 fuentes / 97 conceptos / 73 relaciones |
+| Corpus doctrinal/técnico | 44 fuentes / 97 conceptos / 73 relaciones |
 | Fixtures sintéticos | Publicados |
 | Casos privados | Excluidos |
 | Casos públicos verificables | Admitidos sólo en `public_cases/` |

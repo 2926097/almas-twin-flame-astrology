@@ -5,11 +5,11 @@
 
 ## Línea base vigente
 
-- **42 fuentes**;
+- **44 fuentes**;
 - **97 conceptos**;
 - **73 relaciones doctrinales/genealógicas**;
-- **22 fuentes VERIFIED_PRIMARY**;
-- **20 fuentes VERIFIED_METADATA**;
+- **23 fuentes VERIFIED_PRIMARY**;
+- **21 fuentes VERIFIED_METADATA**;
 - **0 fuentes PARTIAL**;
 - **0 conceptos de fuente sin definición**;
 - **0 referencias de concepto a fuentes inexistentes**;
@@ -19,8 +19,12 @@ Distribución:
 
 - P1 primaria: 25;
 - P2 académica: 7;
-- P3 histórica/técnica: 1;
-- P4 método identificado: 9.
+- P3 histórica/técnica: 2;
+- P4 método identificado: 10.
+
+### Declinaciones y antiscios
+
+La misma fase incorpora a Kt Boehrer como fuente de método para declinaciones/paralelos y a Firmicus Maternus, `Mathesis` II.29, como fuente histórica primaria para antiscios. El objetivo es fortalecer el significado técnico de M05–M06 sin convertir simetrías o declinaciones en discriminadores metafísicos.
 
 ## Criterio
 
