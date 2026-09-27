@@ -159,6 +159,9 @@
       },
       "additionalProperties": false
     },
+    "backend_provenance": {
+      "$ref": "astronomy-backend-provenance.schema.json"
+    },
     "metadata": {
       "type": "object"
     }
