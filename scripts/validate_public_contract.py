@@ -3342,8 +3342,19 @@ def main() -> int:
     if "contacts" not in draconic_cross_schema.get("required", []):
         fail("draconic cross schema must require contacts")
 
-    if "subjects" not in lots_schema.get("required", []):
-        fail("lots schema must require subjects")
+    if set(lots_schema.get("required", [])) != {
+        "policy",
+        "policy_source",
+        "sect_by_subject",
+        "subjects",
+    }:
+        fail("lots schema must match the complete M13 output surface")
+    if set(
+        lots_schema.get("properties", {})
+        .get("policy_source", {})
+        .get("enum", [])
+    ) != {"RAW_INPUT", "ALMAS_HELLENISTIC_LOTS_V1"}:
+        fail("lots schema policy_source contract changed")
 
     if secondary_symbolic_schema.get("properties", {}).get("support_only", {}).get("const") is not True:
         fail("secondary symbolic schema must freeze support_only=true")
@@ -3601,6 +3612,8 @@ def main() -> int:
         fail("M31 must expose relationship_field to core interpretive sections")
     if report_model_handler_text.count('"draconic_context"') < 4:
         fail("M31 must expose draconic_context to core interpretive sections")
+    if report_model_handler_text.count('"symbolic_context"') < 5:
+        fail("M31 must expose symbolic_context to interpretive/source sections")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
@@ -4538,6 +4551,7 @@ def main() -> int:
         "natal_context",
         "relationship_field",
         "draconic_context",
+        "symbolic_context",
         "evidence",
         "models",
         "indices",
@@ -4589,6 +4603,21 @@ def main() -> int:
         fail("draconic_context natal_cross must reuse M11 schema")
     if draconic_props.get("draconic_cross", {}).get("$ref") != "draconic-cross-output.schema.json":
         fail("draconic_context draconic_cross must reuse M12 schema")
+
+    symbolic_context_schema = canonical_props.get("symbolic_context", {})
+    if "symbolic_context" in set(canonical_schema.get("required", [])):
+        fail("canonical symbolic_context must remain optional")
+    if symbolic_context_schema.get("additionalProperties") is not False:
+        fail("canonical symbolic_context must reject undeclared fields")
+    symbolic_props = symbolic_context_schema.get("properties", {})
+    if symbolic_props.get("authoring_projection_only", {}).get("const") is not True:
+        fail("symbolic_context must remain an authoring projection")
+    if symbolic_props.get("creates_additional_evidence", {}).get("const") is not False:
+        fail("symbolic_context must not create additional evidence")
+    if symbolic_props.get("lots", {}).get("$ref") != "lots-output.schema.json":
+        fail("symbolic_context lots must reuse M13 schema")
+    if symbolic_props.get("secondary_symbolic", {}).get("$ref") != "secondary-symbolic-output.schema.json":
+        fail("symbolic_context secondary layer must reuse M14 schema")
 
     if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
         fail("canonical null_models must compose the M24 output schema")
