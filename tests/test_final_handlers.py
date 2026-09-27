@@ -991,6 +991,10 @@ class TestReportingFirewall(unittest.TestCase):
             self.assertIn("doctrine", section["available_paths"])
 
         self.assertIn(
+            "B_TECHNIQUE",
+            by_id["S01_SYNTHESIS"]["epistemic_classes_allowed"],
+        )
+        self.assertIn(
             "C_DOCTRINE",
             by_id["S01_SYNTHESIS"]["epistemic_classes_allowed"],
         )
