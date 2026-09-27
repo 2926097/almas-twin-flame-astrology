@@ -120,6 +120,7 @@ def canonical_base(*, with_ice=True):
                     "positions": {},
                     "angles": {},
                     "internal_contacts": [],
+                    "angle_contacts": [],
                     "houses_calculated": False,
                 },
                 "davison": {
@@ -128,6 +129,7 @@ def canonical_base(*, with_ice=True):
                     "house_cusps": {},
                     "house_placements": {},
                     "internal_contacts": [],
+                    "angle_contacts": [],
                 },
                 "cross_consonance_contact_count": 0,
             }
