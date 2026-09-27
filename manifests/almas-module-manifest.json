@@ -11,7 +11,8 @@
       "id": "M_ASTROLOGY",
       "name": "Astrología metafísica relacional",
       "status": "CORE",
-      "entrypoint": "SKILL.md"
+      "entrypoint": "SKILL.md",
+      "structural_policy_manifest": "manifests/structural-policy-manifest.json"
     },
     {
       "id": "M_ONTOLOGY",
