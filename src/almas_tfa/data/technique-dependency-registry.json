@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1",
+  "status": "FROZEN_NORMATIVE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Centralizar la taxonomía técnica, familias de dependencia y elegibilidad estructural consumida por M15-M17 sin introducir nuevas técnicas ni pesos.",
+  "source_bindings": {
+    "synastry": {
+      "module_id": "M03",
+      "technique_family": "SYN",
+      "dependency_family": "SYN",
+      "support_only": false,
+      "core_eligible": true,
+      "directional": false
+    },
+    "declinations": {
+      "module_id": "M05",
+      "technique_family": "DECLINATION",
+      "dependency_family": "DECLINATION",
+      "support_only": false,
+      "core_eligible": true,
+      "directional": false
+    },
+    "antiscia": {
+      "module_id": "M06",
+      "technique_family": "ANTISCIA",
+      "dependency_family": "ANTISCIA",
+      "support_only": false,
+      "core_eligible": true,
+      "directional": false
+    },
+    "relationship_chart_consonance": {
+      "module_id": "M09",
+      "technique_family": "RELCHART",
+      "dependency_family": "RELCHART",
+      "support_only": false,
+      "core_eligible": true,
+      "directional": false
+    },
+    "natal_draconic_cross": {
+      "module_id": "M11",
+      "technique_family": "NATAL_DRACONIC",
+      "dependency_family": "NATAL_DRACONIC",
+      "support_only": false,
+      "core_eligible": true,
+      "directional": true
+    },
+    "draconic_draconic": {
+      "module_id": "M12",
+      "technique_family": "DRACONIC_DD",
+      "dependency_family": "DRACONIC_DD",
+      "support_only": true,
+      "core_eligible": false,
+      "directional": false
+    },
+    "secondary_symbolic": {
+      "module_id": "M14",
+      "technique_family": "SECONDARY",
+      "dependency_family": "SECONDARY",
+      "support_only": true,
+      "core_eligible": false,
+      "directional": false
+    }
+  },
+  "principles": {
+    "source_binding_must_be_explicit": true,
+    "dependency_family_must_be_explicit": true,
+    "support_only_cannot_be_core_eligible": true,
+    "family_identity_does_not_imply_independence_across_roots": true,
+    "new_binding_requires_versioned_registry_change": true,
+    "runtime_case_fitting_forbidden": true
+  }
+}
