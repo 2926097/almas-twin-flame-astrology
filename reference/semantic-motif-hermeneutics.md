@@ -224,6 +224,119 @@ Representa una dinámica de **exposición de vulnerabilidad y posibilidad de ela
 
 No presupone que la relación sea sanadora. Una misma configuración puede abrir una herida, hacerla consciente, reproducirla o crear condiciones para integrarla.
 
+Las fuentes `reinhart_chiron_healing_journey_2010` y `hand_clow_chiron_rainbow_bridge_1987` proporcionan la base técnica para diferenciar Quirón por planeta, casa y aspecto. ALMAS conserva su uso como método astrológico identificado: no trata el arquetipo del Wounded Healer como diagnóstico clínico ni como prueba de contrato o tikkun.
+
+### Tres resultados que no deben confundirse
+
+Una raíz quirónica puede describir al menos tres procesos distintos:
+
+1. **activación** — el vínculo hace visible una sensibilidad preexistente;
+2. **repetición** — la interacción reproduce defensas, rechazo, vergüenza o dolor sin integración suficiente;
+3. **elaboración/reparación** — la vulnerabilidad puede nombrarse, regularse, dotarse de límites y transformarse en aprendizaje.
+
+La presencia de Quirón no permite saltar directamente del primer nivel al tercero.
+
+### Formas concretas según la raíz
+
+#### Quirón + Sol
+
+La vulnerabilidad toca identidad, derecho a existir, expresión y sentido de valor personal. La persona solar puede iluminar un contenido quirónico del otro; la persona de Quirón puede activar en el Sol una zona donde mostrarse plenamente se siente arriesgado, expuesto o insuficiente.
+
+La pregunta evolutiva es:
+
+> ¿La relación permite una identidad más auténtica o convierte la necesidad de ser reconocido en una fuente constante de herida?
+
+Si el Sol está involucrado con un planeta exterior pero Quirón participa en la misma raíz y la regla quirónica tiene precedencia, el motivo emitido sigue siendo `WOUND_REPAIR`; la transformación solar se desarrolla como matiz, no como segundo motivo.
+
+#### Quirón + Luna
+
+La sensibilidad se concentra en apego, pertenencia, necesidad de cuidado y regulación emocional. Puede hacer visible una herida temprana de seguridad o una dificultad para recibir/expresar protección.
+
+No asumir que la persona de Quirón “hiere” a la Luna. La dirección indica qué configuración se está observando, pero la dinámica real debe describirse como interacción:
+
+> ¿Qué necesidad emocional se vuelve visible y qué respuesta recibe dentro del vínculo?
+
+Puede ser una raíz de gran capacidad reparadora cuando existen contención, reciprocidad y coherencia; también puede reabrir vulnerabilidad sin reparación si esas condiciones faltan.
+
+#### Quirón + Mercurio
+
+Toca voz, aprendizaje, pensamiento y experiencia de ser entendido. Puede activar vergüenza al hablar, miedo a equivocarse, dificultad para nombrar una experiencia o, en el polo integrador, una capacidad especial para traducir dolor en comprensión.
+
+La función no es “leer la mente” del otro, sino crear o bloquear lenguaje para aquello que antes no podía decirse.
+
+#### Quirón + Venus
+
+La vulnerabilidad se sitúa en valor, merecimiento, afecto, belleza, recepción y elección relacional. Puede hacer visible el miedo a no ser amado, a ser reemplazado, a necesitar demasiado o a no poder recibir amor sin deuda.
+
+La reparación no se deduce de la intensidad afectiva. Preguntar:
+
+> ¿La relación devuelve dignidad y capacidad de recibir/valorar o reproduce un esquema donde el amor se obtiene mediante sacrificio, carencia o prueba?
+
+Cuando Venus–Quirón coexiste con Venus–Plutón o Venus–Saturno en raíces independientes, la síntesis debe separar herida, poder y compromiso en vez de fundirlos en “amor kármico”.
+
+#### Quirón + Marte
+
+La herida afecta iniciativa, deseo, enfado, autonomía y capacidad de defender límites. Puede manifestarse como inhibición de la acción, reacción defensiva, dificultad para pedir o confrontar, o aprendizaje para actuar sin violencia ni autoanulación.
+
+En relaciones intensas es especialmente importante no romantizar conflicto o agresividad como “sanación a través del dolor”.
+
+#### Quirón + Júpiter
+
+Toca fe, esperanza, conocimiento, autoridad moral y sentido. La vulnerabilidad puede aparecer como pérdida de confianza, sensación de no pertenecer a una visión, herida en relación con enseñanza o búsqueda de significado.
+
+En su polo integrador, una persona puede ayudar a la otra a reconstruir un marco de sentido; eso no convierte automáticamente la relación en misión espiritual.
+
+#### Quirón + Urano
+
+Por precedencia, una raíz Quirón–Urano se emite como `WOUND_REPAIR`, no como `TRANSFORMATION_POWER`. La vulnerabilidad se combina con ruptura, diferencia, libertad o experiencia de no encajar.
+
+Puede describir una herida ligada a singularidad/autonomía y una reparación que exige dejar de normalizarse a costa de la propia identidad. También puede aumentar inestabilidad si la libertad se vive sólo como corte.
+
+#### Quirón + Neptuno
+
+La vulnerabilidad se combina con ideal, compasión, entrega y límites porosos. Puede sostener una gran sensibilidad al dolor ajeno y, a la vez, facilitar salvación, sacrificio o confusión entre empatía y responsabilidad.
+
+La reparación requiere límites claros:
+
+> Comprender el dolor del otro no equivale a estar obligado a rescatarlo.
+
+Esta raíz no debe duplicarse como `TRANSPERSONAL_FIELD`.
+
+#### Quirón + Plutón
+
+La herida entra en un campo de poder, pérdida, intensidad y regeneración. Puede hacer visibles experiencias profundas de control, impotencia, vergüenza o supervivencia y exigir una elaboración que no sea meramente intelectual.
+
+Por precedencia se mantiene en `WOUND_REPAIR`; el matiz plutoniano describe profundidad y potencia del proceso, no un segundo motivo de transformación.
+
+#### Quirón + ángulos
+
+Con ASC/DSC, la vulnerabilidad puede ser especialmente visible en identidad y modo de vincularse. Con MC/IC puede tocar pertenencia, familia, exposición pública o sentido de lugar en el mundo.
+
+La interpretación angular está condicionada por calidad de hora y sensibilidad M23. Un ángulo inestable no debe sostener por sí solo una narrativa de “misión de sanación”.
+
+### Raíces desplazadas por KARMIC_CONTINUITY
+
+Cuando Quirón comparte raíz con Nodo o Saturno, `KARMIC_CONTINUITY` tiene precedencia. La autoría puede conservar el contenido quirónico como matiz:
+
+- Nodo–Quirón: continuidad con vulnerabilidad/elaboración;
+- Saturno–Quirón: tiempo, límite y responsabilidad alrededor de una herida.
+
+No se cuentan ni se narran como dos motivos primarios independientes.
+
+### Aspecto, dirección y casas
+
+La conjunción concentra y hace difícil separar las funciones. Oposición y cuadratura pueden volver la vulnerabilidad más relacionalmente visible; trígono y sextil pueden facilitar acceso o elaboración, pero no significan que la herida esté “resuelta”. Paralelos y contraparalelos conservan su gramática declinacional; antiscios sólo se usan cuando la técnica correspondiente los genera.
+
+La dirección A→B debe traducirse con cuidado. Un contacto Quirón(A)→Venus(B), por ejemplo, describe cómo el campo quirónico de A y la función venusina de B quedan relacionados en esa evidencia; no establece causalmente que A haya producido la herida de B.
+
+Las casas indican dónde se vuelve experiencial la vulnerabilidad. Casa 1: identidad/cuerpo; 2: valor/recursos; 3: voz/aprendizaje; 4: pertenencia/origen; 5: expresión/creatividad; 6: cuidado/trabajo/cuerpo cotidiano; 7: vínculo; 8: intimidad/pérdida/poder; 9: sentido/creencia; 10: vocación/visibilidad; 11: pertenencia grupal/proyecto; 12: contenidos difíciles de objetivar. La casa contextualiza y no crea por sí misma un contrato de reparación.
+
+### Comparandum con tikkun
+
+`TIKKUN` y `WOUND_REPAIR` permanecen explícitamente no equivalentes.
+
+Una lectura puede comparar una función de reparación con un lenguaje de rectificación luriana sólo cuando el corpus doctrinal y la arquitectura contractual aporten una cadena independiente. Quirón no es un sustituto astrológico de tikkun.
+
 ### Preguntas de lectura
 
 - ¿Qué función o necesidad queda especialmente expuesta?
