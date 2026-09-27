@@ -108,6 +108,7 @@
             "positions",
             "angles",
             "house_cusps",
+            "house_placements",
             "internal_contacts"
           ],
           "properties": {
@@ -122,6 +123,14 @@
             },
             "internal_contacts": {
               "$ref": "#/$defs/internal_contacts"
+            },
+            "house_placements": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12
+              }
             }
           },
           "additionalProperties": false
