@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.18.0
+**Versión pública:** 1.19.0
 
 ## Release pública
 
