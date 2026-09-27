@@ -495,6 +495,9 @@ def main() -> int:
         "CONTRADICTED",
         "NOT_EVALUABLE",
         "canonical_analysis.json",
+        "authored_report",
+        "ASTROLOGY_AND_SOURCE_BASED_METAPHYSICAL_HERMENEUTICS",
+        "report_document_model + canonical_analysis → authored_report",
         "Interoperabilidad con ALMAS Contrato Álmico",
     ]:
         if needle not in skill:
