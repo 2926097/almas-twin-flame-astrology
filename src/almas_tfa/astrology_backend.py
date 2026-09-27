@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any, Mapping, Protocol
 
 
@@ -42,6 +43,20 @@ class AstrologyBackend(Protocol):
 
     def calculate_natal(self, request: NatalRequest) -> Mapping[str, Any]:
         """Devuelve una carta natal normalizada para el sujeto."""
+        ...
+
+
+class TransitAstrologyBackend(Protocol):
+    """Capacidad opcional para posiciones geocéntricas en un instante UTC."""
+
+    backend_id: str
+    backend_version: str
+
+    def calculate_transit_positions(
+        self,
+        instant_utc: datetime,
+    ) -> Mapping[str, Any]:
+        """Devuelve posiciones planetarias para un instante temporal."""
         ...
 
 

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
 from types import SimpleNamespace
@@ -198,6 +199,39 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         _, chart_kwargs = backend._facade.chart_calls[0]
         self.assertNotIn("observer_lat", chart_kwargs)
         self.assertNotIn("observer_lon", chart_kwargs)
+
+    def test_transit_positions_are_geocentric_and_do_not_compute_houses(self):
+        facade = FakeFacade()
+        backend = self.backend(facade)
+        instant = datetime(2030, 1, 1, 12, tzinfo=timezone.utc)
+
+        result = backend.calculate_transit_positions(instant)
+
+        self.assertEqual(set(result["positions"]), {
+            "SUN", "MOON", "MERCURY", "VENUS", "MARS",
+            "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO",
+        })
+        self.assertEqual(
+            result["instant_utc"],
+            "2030-01-01T12:00:00+00:00",
+        )
+        self.assertEqual(result["backend_id"], "MOIRA_JPL_SPK")
+        self.assertEqual(
+            result["backend_provenance"]["coordinate_origin"],
+            "GEOCENTRIC",
+        )
+        self.assertEqual(len(facade.chart_calls), 1)
+        self.assertEqual(len(facade.house_calls), 0)
+
+    def test_transit_positions_require_timezone_aware_datetime(self):
+        backend = self.backend()
+        with self.assertRaisesRegex(
+            AstronomyBackendNotEvaluableError,
+            "timezone-aware",
+        ):
+            backend.calculate_transit_positions(
+                datetime(2030, 1, 1, 12)
+            )
 
     def test_missing_coordinates_are_not_geocoded(self):
         backend = self.backend()

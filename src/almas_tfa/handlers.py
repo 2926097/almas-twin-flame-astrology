@@ -31,7 +31,11 @@ from .ablation_handlers import m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensitivity
 from .null_model_handlers import m24_null_models, make_m24_null_models
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
-from .temporal_handlers import m26_temporal_activation, m27_dated_events
+from .temporal_handlers import (
+    m26_temporal_activation,
+    m27_dated_events,
+    make_m26_temporal_activation_auto,
+)
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
@@ -467,6 +471,9 @@ def configured_handlers(*, astrology_backend=None, davison_backend=None):
     handlers = default_handlers()
     if astrology_backend is not None:
         handlers["M02"] = make_m02_natal(astrology_backend)
+        handlers["M26"] = make_m26_temporal_activation_auto(
+            astrology_backend
+        )
     if davison_backend is not None:
         handlers["M08"] = make_m08_davison(davison_backend)
     if astrology_backend is not None and davison_backend is not None:
