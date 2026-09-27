@@ -37,23 +37,41 @@ def tolerance_arcsec(
     return float(table.get("overrides", {}).get(point_id, table["default"]))
 
 
-def _required_keys(policy: Mapping[str, Any]) -> set[tuple[str, str]]:
+def _required_keys(
+    policy: Mapping[str, Any],
+    metrics: set[str] | None = None,
+) -> set[tuple[str, str]]:
     keys: set[tuple[str, str]] = set()
     for metric, points in policy["required_measurements"].items():
+        if metrics is not None and metric not in metrics:
+            continue
         for point_id in points:
             keys.add((metric, point_id))
     return keys
 
 
-def evaluate_golden_result(
+def evaluate_golden_stage(
     result: Mapping[str, Any],
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     policy = dict(policy or load_astronomy_golden_validation_policy())
-    required = _required_keys(policy)
+    stage = str(result.get("validation_stage", ""))
+    stage_metrics = policy.get("validation_stages", {}).get(stage)
+    if not isinstance(stage_metrics, list) or not stage_metrics:
+        raise ValueError(f"Etapa de validación dorada desconocida: {stage}")
+
+    required = _required_keys(policy, set(stage_metrics))
     seen: set[tuple[str, str]] = set()
     evaluations: list[dict[str, Any]] = []
     failures: list[str] = []
+
+    reference_methods = {
+        str(item.get("method_id"))
+        for item in result.get("reference_provenance", [])
+        if isinstance(item, Mapping) and item.get("method_id")
+    }
+    if not reference_methods:
+        failures.append("MISSING_REFERENCE_PROVENANCE")
 
     for measurement in result.get("measurements", []):
         metric = str(measurement.get("metric", ""))
@@ -61,12 +79,21 @@ def evaluate_golden_result(
         key = (metric, point_id)
 
         if key not in required:
-            failures.append(f"UNREGISTERED:{metric}:{point_id}")
+            failures.append(f"UNREGISTERED_FOR_STAGE:{metric}:{point_id}")
             continue
         if key in seen:
             failures.append(f"DUPLICATE:{metric}:{point_id}")
             continue
         seen.add(key)
+
+        reference_method_id = str(
+            measurement.get("reference_method_id", "")
+        )
+        if reference_method_id not in reference_methods:
+            failures.append(
+                f"UNKNOWN_REFERENCE_METHOD:{metric}:{point_id}"
+            )
+            continue
 
         implementation = float(measurement["implementation_deg"])
         reference = float(measurement["reference_deg"])
@@ -89,6 +116,7 @@ def evaluate_golden_result(
             {
                 "metric": metric,
                 "point_id": point_id,
+                "reference_method_id": reference_method_id,
                 "delta_arcsec": delta,
                 "tolerance_arcsec": tolerance,
                 "passed": passed,
@@ -102,9 +130,21 @@ def evaluate_golden_result(
     return {
         "policy_id": policy["policy_id"],
         "case_id": result.get("case_id"),
+        "validation_stage": stage,
         "status": "PASS" if not failures else "FAIL",
         "required_measurement_count": len(required),
         "evaluated_measurement_count": len(seen),
         "failures": failures,
         "evaluations": evaluations,
     }
+
+
+def evaluate_golden_result(
+    result: Mapping[str, Any],
+    policy: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    if result.get("validation_stage") != "COMPLETE_GATE":
+        raise ValueError(
+            "evaluate_golden_result exige validation_stage=COMPLETE_GATE."
+        )
+    return evaluate_golden_stage(result, policy)
