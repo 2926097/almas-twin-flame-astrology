@@ -384,6 +384,8 @@ def close_validation_cycle(
     promotion_state = promotion_result.get("state")
     if promotion_state not in ("PROMOTION_ELIGIBLE", "NOT_ELIGIBLE"):
         return _blocked("S8_RESULT_REQUIRED")
+    if promotion_result.get("policy_id") != policy["required_promotion_policy_id"]:
+        return _blocked("S8_POLICY_MISMATCH")
     if (
         promotion_result.get("candidate_id") != certificate.get("candidate_id")
         or promotion_result.get("formula_ref") != certificate.get("formula_ref")
