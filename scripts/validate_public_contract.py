@@ -25,6 +25,7 @@ REQUIRED_FILES = [
     "scripts/validate_skyfield_reference_runtime.py",
     "scripts/validate_astronomy_golden_result.py",
     "scripts/run_astronomy_golden_planetary.py",
+    "scripts/run_astronomy_golden_true_node.py",
     "validation/astronomy/golden-cases.v1.json",
     "validation/astronomy/planetary-stage-evidence.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
@@ -249,6 +250,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/production_astronomy.py",
     "src/almas_tfa/astronomy_golden_validation.py",
     "src/almas_tfa/skyfield_planetary_reference.py",
+    "src/almas_tfa/skyfield_true_node_reference.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/structural_policies.py",
@@ -386,6 +388,7 @@ REQUIRED_FILES = [
     "tests/test_production_astronomy.py",
     "tests/test_astronomy_golden_validation.py",
     "tests/test_skyfield_planetary_reference.py",
+    "tests/test_skyfield_true_node_reference.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -912,6 +915,21 @@ def main() -> int:
     for stage_id, expected_metrics in expected_stages.items():
         if set(actual_stages.get(stage_id, [])) != expected_metrics:
             fail(f"astronomy golden stage metrics changed: {stage_id}")
+    true_node_reference = astronomy_golden_policy.get("reference_contract", {}).get("true_node", {})
+    expected_true_node_reference = {
+        "method_family": "INDEPENDENT_OSCULATING_GEOMETRIC_NODE",
+        "preferred_implementation": "SKYFIELD_DE440_FIRST_PRINCIPLES",
+        "method_id": "ALMAS_SKYFIELD_DE440_TRUE_NODE_REFERENCE_V1",
+        "definition": "INSTANTANEOUS_GEOCENTRIC_OSCULATING_LUNAR_PLANE_INTERSECTION_WITH_TRUE_ECLIPTIC_OF_DATE",
+        "state_vectors": "SIMULTANEOUS_MOON_MINUS_EARTH",
+        "orbital_normal": "ICRF_R_CROSS_V_THEN_ROTATE_TO_TRUE_ECLIPTIC_OF_DATE",
+        "ascending_node_orientation": "K_CROSS_H",
+        "time_alignment": "COMMON_TT_EPOCH_FROM_BACKEND_RECEIPT",
+        "same_software_implementation_forbidden": True,
+    }
+    for key, expected in expected_true_node_reference.items():
+        if true_node_reference.get(key) != expected:
+            fail(f"astronomy true-node reference contract changed: {key}")
     tolerances = astronomy_golden_policy.get("tolerances_arcsec", {})
     expected_defaults = {
         "planetary_longitude": 5.0,
