@@ -135,6 +135,27 @@ class TestRelationalHandlers(unittest.TestCase):
         self.assertEqual(subjects["A"]["rulerships"]["1"]["rulers"], ["MARS"])
 
         self.assertEqual(subjects["B"]["house_cusps"], {})
+
+        cross = result.canonical_updates["natal_context"][
+            "cross_house_placements"
+        ]
+        self.assertNotIn("A_IN_B", cross)
+        self.assertEqual(
+            cross["B_IN_A"]["source_subject"],
+            "B",
+        )
+        self.assertEqual(
+            cross["B_IN_A"]["target_subject"],
+            "A",
+        )
+        self.assertEqual(
+            cross["B_IN_A"]["placements"]["MOON"]["house"],
+            1,
+        )
+        self.assertEqual(
+            cross["B_IN_A"]["placements"]["SOUTH_NODE"]["house"],
+            1,
+        )
         self.assertTrue(result.limitations)
 
 
