@@ -43,6 +43,9 @@ jobs:
       - name: Validar referencia Skyfield inyectable
         run: python -m unittest discover -s tests -p "test_skyfield_planetary_reference.py" -v
 
+      - name: Validar referencia True Node de primeros principios
+        run: python -m unittest discover -s tests -p "test_skyfield_true_node_reference.py" -v
+
   golden-planets-de440:
     runs-on: ubuntu-latest
     strategy:
@@ -86,4 +89,49 @@ jobs:
         with:
           name: astronomy-golden-planets-py${{ matrix.python-version }}
           path: /tmp/almas-golden-${{ matrix.python-version }}
+          if-no-files-found: error
+
+  golden-true-node-de440:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    env:
+      DE440S_SHA256: c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2
+      DE440S_MD5: 3917ee56769db332790c751e2168843d
+      DE440S_URL: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Instalar ALMAS y referencia True Node
+        run: python -m pip install -e ".[astronomy-moira,astronomy-validation]"
+
+      - name: Descargar DE440s desde JPL/NAIF
+        run: curl --fail --location --retry 3 "$DE440S_URL" --output /tmp/de440s.bsp
+
+      - name: Verificar identidad exacta de DE440s
+        run: |
+          echo "$DE440S_SHA256  /tmp/de440s.bsp" | sha256sum --check -
+          echo "$DE440S_MD5  /tmp/de440s.bsp" | md5sum --check -
+
+      - name: Ejecutar etapa True Node dorada
+        run: |
+          python scripts/run_astronomy_golden_true_node.py \
+            --kernel /tmp/de440s.bsp \
+            --sha256 "$DE440S_SHA256" \
+            --output-dir "/tmp/almas-golden-node-${{ matrix.python-version }}"
+
+      - name: Publicar recibos True Node
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astronomy-golden-true-node-py${{ matrix.python-version }}
+          path: /tmp/almas-golden-node-${{ matrix.python-version }}
           if-no-files-found: error
