@@ -11,7 +11,7 @@
 - Un ciclo S8 elegible sólo puede cerrar como `PROMOTION_ELIGIBLE_AWAITING_VERSIONED_ACTIVATION`; la activación en la misma release permanece prohibida.
 - Mantiene `automatic_registry_mutation=false`, scoring/weighting/ontology/L3 deshabilitados y `metaphysical_probability=false` en V1–V5.
 - Mantiene vacío el registro canónico PX v3 y no declara holdout externo real ejecutado ni discriminador L3 real validado.
-- La suite de release se amplía a **434 tests deterministas**, pendiente de confirmación final del runner de CI para este commit de cierre.
+- La suite de release alcanza **434 tests deterministas** en Python 3.10 y 3.12.
 
 ## 1.15.0 — 2026-09-27
 
