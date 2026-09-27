@@ -24,6 +24,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "symbolic_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
@@ -67,6 +68,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "symbolic_context",
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
@@ -83,6 +85,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "symbolic_context",
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
@@ -146,6 +149,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "symbolic_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
@@ -167,6 +171,7 @@ SECTION_SPECS = (
         "required_paths": ("evidence",),
         "optional_paths": (
             "doctrine",
+            "symbolic_context",
             "limitations",
             "ontological_discrimination.promotion_trace",
         ),
