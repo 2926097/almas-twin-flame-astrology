@@ -1,0 +1,44 @@
+{
+  "manifest_version": "1.0.0",
+  "manifest_id": "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1",
+  "almas_public_version": "1.17.0",
+  "status": "FROZEN_NORMATIVE",
+  "purpose": "Punto único de descubrimiento público para técnica, orbes, dependencia, elegibilidad estructural y loading.",
+  "contracts": {
+    "technique_dependency_registry": {
+      "policy_id": "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1",
+      "path": "src/almas_tfa/data/technique-dependency-registry.json",
+      "consumers": ["M15", "M16", "M17"]
+    },
+    "declared_orb_contract": {
+      "policy_id": "ALMAS_DECLARED_ORB_CONTRACT_V1",
+      "path": "src/almas_tfa/data/declared-orb-contract-policy.json",
+      "input_schema": "schemas/aspect-policy.schema.json",
+      "consumers": ["M03", "astrology_geometry.match_declared_aspect"]
+    },
+    "structural_loading_contract": {
+      "policy_id": "ALMAS_STRUCTURAL_LOADING_CONTRACT_V1",
+      "path": "src/almas_tfa/data/structural-loading-policy.json",
+      "consumers": ["M17", "M18"]
+    },
+    "root_strength": {
+      "policy_id": "ALMAS_ROOT_STRENGTH_BASELINE_V1",
+      "path": "src/almas_tfa/data/root-strength-policy.json",
+      "consumers": ["M17"]
+    },
+    "root_pillar_attribution": {
+      "policy_id": "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2",
+      "path": "src/almas_tfa/data/root-pillar-attribution-policy.json",
+      "consumers": ["M18"]
+    }
+  },
+  "invariants": {
+    "no_new_analytical_module": true,
+    "no_score_change": true,
+    "no_implicit_orbs": true,
+    "no_runtime_case_fitting": true,
+    "support_only_cannot_create_core": true,
+    "dependency_deduplication_precedes_root_construction": true,
+    "birth_time_robustness_remains_m23_m25": true
+  }
+}
