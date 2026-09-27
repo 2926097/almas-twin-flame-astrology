@@ -69,6 +69,7 @@ REQUIRED_FILES = [
     "schemas/aspect-policy.schema.json",
     "schemas/structural-policy-manifest.schema.json",
     "schemas/canonical-analysis.schema.json",
+    "schemas/semantic-motif-graph.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
     "schemas/discriminator-promotion-registry.schema.json",
     "schemas/discriminator-promotion-transition.schema.json",
@@ -4383,6 +4384,8 @@ def main() -> int:
 
     if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
         fail("canonical null_models must compose the M24 output schema")
+    if canonical_props.get("semantic_motifs", {}).get("$ref") != "semantic-motif-graph.schema.json":
+        fail("canonical semantic_motifs must compose the semantic motif graph schema")
     if canonical_props.get("time_sensitivity", {}).get("$ref") != "time-sensitivity-output.schema.json":
         fail("canonical time_sensitivity must compose the M23 output schema")
     if canonical_props.get("doctrine", {}).get("items", {}).get("$ref") != "doctrinal-claim.schema.json":
