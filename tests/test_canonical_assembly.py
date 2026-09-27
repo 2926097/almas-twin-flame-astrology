@@ -37,7 +37,23 @@ def natal_context():
                 "angles": {"ASC": {"longitude": 20.0}, "MC": {"longitude": 110.0}},
                 "house_cusps": houses,
             },
-        }
+        },
+        "cross_house_placements": {
+            "A_IN_B": {
+                "source_subject": "A",
+                "target_subject": "B",
+                "placements": {
+                    "SUN": {"house": 7, "longitude": 10.0},
+                },
+            },
+            "B_IN_A": {
+                "source_subject": "B",
+                "target_subject": "A",
+                "placements": {
+                    "MOON": {"house": 1, "longitude": 12.0},
+                },
+            },
+        },
     }
 
 
@@ -186,6 +202,23 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         self.assertEqual(root["independent_family_count"], 1)
         self.assertAlmostEqual(root["max_exactness"], 0.98)
         self.assertEqual(root["root_key"], "A:SUN|B:MOON|TRINE")
+        self.assertEqual(
+            root["house_overlays"],
+            [
+                {
+                    "source_subject": "A",
+                    "point_id": "SUN",
+                    "target_subject": "B",
+                    "house": 7,
+                },
+                {
+                    "source_subject": "B",
+                    "point_id": "MOON",
+                    "target_subject": "A",
+                    "house": 1,
+                },
+            ],
+        )
 
     def test_canonical_records_missing_backend_trace_explicitly(self):
         result = assemble_canonical_analysis(
