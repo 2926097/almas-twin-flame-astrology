@@ -85,7 +85,60 @@ class TestRelationshipChartConsonance(unittest.TestCase):
             field["davison"]["house_cusps"]["1"]["sign"],
             "ARIES",
         )
+        self.assertEqual(field["davison"]["house_placements"], {})
         self.assertEqual(field["cross_consonance_contact_count"], 2)
+
+    def test_field_context_assigns_davison_points_to_precomputed_houses(self):
+        houses = {
+            str(index): float((index - 1) * 30)
+            for index in range(1, 13)
+        }
+        canonical = {
+            "composite": {
+                "positions": {
+                    "SUN": {"longitude": 12.0},
+                    "MOON": {"longitude": 270.0},
+                },
+                "angles": {},
+                "houses_calculated": False,
+            },
+            "davison": {
+                "chart": {
+                    "positions": {
+                        "SUN": {"longitude": 12.0},
+                        "MOON": {"longitude": 270.0},
+                    },
+                    "angles": {},
+                    "houses": houses,
+                }
+            },
+        }
+        raw = {
+            "relationship_chart_consonance_policy": {
+                "point_ids": ["SUN", "MOON"],
+                "aspect_policy": {
+                    "CONJUNCTION": {"angle": 0, "orb": 3},
+                    "OPPOSITION": {"angle": 180, "orb": 3},
+                },
+            }
+        }
+
+        result = m09_relationship_chart_consonance(
+            ModuleContext(
+                module_id="M09",
+                module_name="relchart",
+                mode="FULL",
+                raw_input=raw,
+                canonical_snapshot=canonical,
+                prior_results={},
+            )
+        )
+        placements = result.canonical_updates[
+            "relationship_chart_consonance"
+        ]["field_context"]["davison"]["house_placements"]
+
+        self.assertEqual(placements["SUN"], 1)
+        self.assertEqual(placements["MOON"], 10)
 
     def test_field_context_calculates_internal_aspects_without_structural_contacts(self):
         canonical = {
