@@ -115,8 +115,8 @@ def _concrete_contact(member: Mapping[str, Any]) -> dict[str, Any] | None:
         "subject_b": subject_b,
         "point_b": point_b,
         "relation_id": relation_id,
-        "layer_a": str(contact.get("layer_a", "")).strip(),
-        "layer_b": str(contact.get("layer_b", "")).strip(),
+        "layer_a": str(contact.get("layer_a") or "").strip(),
+        "layer_b": str(contact.get("layer_b") or "").strip(),
         "exactness": float(exactness) if exactness is not None else None,
     }
 
