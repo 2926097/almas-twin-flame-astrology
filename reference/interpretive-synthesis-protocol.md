@@ -228,6 +228,19 @@ Asteroides u otros puntos secundarios sólo deben aparecer cuando:
 2. su significado está documentado por una fuente identificada;
 3. añade un matiz que no puede expresarse mejor desde planetas, nodos, ángulos o cartas relacionales.
 
+Para `JUNO` y `EROS`, aplicar `reference/secondary-symbolic-hermeneutics.md`.
+
+- Juno: `george_bloch_asteroid_goddesses_2003`. Puede matizar compromiso, asociación significativa, igualdad/equidad y tensiones de pareja, siempre dentro de la raíz que ya la contiene.
+- Eros: `lang_wescott_eros_basic_resources`. Puede matizar erotismo, deseo, aquello que activa la excitación y pasión/vitalidad.
+
+La secuencia es:
+
+`raíz → función principal → geometría → punto secundario documentado → matiz → motivo → límite`.
+
+Juno no equivale a matrimonio o reciprocidad factual. Eros no equivale a actividad sexual, consentimiento o deseo recíproco. Ninguno demuestra soulmate, twin flame, contrato álmico o destino.
+
+Para cualquier otro punto secundario sin fuente registrada, conservar el contacto como dato técnico de apoyo y declarar el significado especializado como no establecido en el corpus ALMAS actual.
+
 Pregunta interpretativa:
 
 > ¿Qué matiz aporta esta capa a una arquitectura que ya existe sin depender de ella?

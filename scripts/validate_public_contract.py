@@ -208,6 +208,7 @@ REQUIRED_FILES = [
     "reference/planetary-function-hermeneutics.md",
     "reference/aspect-geometry-hermeneutics.md",
     "reference/semantic-motif-hermeneutics.md",
+    "reference/secondary-symbolic-hermeneutics.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -3842,6 +3843,43 @@ def main() -> int:
             "aspect-geometry hermeneutics missing registered sources: "
             + ", ".join(sorted(missing_aspect_sources))
         )
+
+    required_secondary_symbolic_sources = {
+        "george_bloch_asteroid_goddesses_2003",
+        "lang_wescott_eros_basic_resources",
+    }
+    missing_secondary_sources = required_secondary_symbolic_sources - source_ids
+    if missing_secondary_sources:
+        fail(
+            "secondary-symbolic hermeneutics missing registered sources: "
+            + ", ".join(sorted(missing_secondary_sources))
+        )
+
+    secondary_guide = (
+        ROOT / "reference/secondary-symbolic-hermeneutics.md"
+    ).read_text(encoding="utf-8")
+    for source_id in required_secondary_symbolic_sources:
+        if source_id not in secondary_guide:
+            fail(
+                "secondary-symbolic guide does not cite registered source: "
+                + source_id
+            )
+
+    relationship_astrology = next(
+        (
+            concept
+            for concept in concept_registry.get("concepts", [])
+            if concept.get("id") == "RELATIONSHIP_ASTROLOGY"
+        ),
+        None,
+    )
+    if not isinstance(relationship_astrology, dict):
+        fail("RELATIONSHIP_ASTROLOGY concept missing")
+    relationship_methods = set(
+        relationship_astrology.get("method_sources", [])
+    )
+    if not required_secondary_symbolic_sources.issubset(relationship_methods):
+        fail("Juno/Eros methods must remain linked to RELATIONSHIP_ASTROLOGY")
 
     required_source_fields = {"id", "priority", "author", "work", "supports", "does_not_support"}
     for entry in source_registry.get("entries", []):

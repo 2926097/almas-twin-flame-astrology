@@ -2,18 +2,18 @@
   "audit_version": "1.0.0",
   "almas_version": "1.15.0",
   "date": "2026-09-27",
-  "sources_total": 72,
+  "sources_total": 74,
   "concepts_total": 97,
   "genealogy_edges_total": 73,
   "by_priority": {
     "P1_PRIMARY": 25,
     "P2_ACADEMIC": 7,
-    "P4_IDENTIFIED_METHOD": 38,
+    "P4_IDENTIFIED_METHOD": 40,
     "P3_HISTORICAL_TECHNICAL": 2
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 45,
-    "VERIFIED_METADATA": 27
+    "VERIFIED_PRIMARY": 46,
+    "VERIFIED_METADATA": 28
   },
   "integrity": {
     "unknown_concepts_from_sources": 0,
@@ -37,6 +37,7 @@
     "ALMAS 1.20 incorpora fuentes directas de Astrodienst para diferenciar ASC/DSC, MC/IC, Nodo Norte/Nodo Sur y Vertex en la autoría relacional; estas distinciones enriquecen significado sin crear nuevas raíces ni peso estructural.",
     "ALMAS 1.20 incorpora referencias directas de Astrodienst para funciones planetarias concretas: planetas personales, Júpiter, Saturno, Urano, Neptuno y Plutón. Estas fuentes enriquecen la lectura root-first de contactos concretos y no añaden peso estructural ni validación ontológica.",
     "ALMAS 1.20 incorpora referencias directas de Astrodienst para la geometría de aspectos mayores: aspecto general, conjunción, oposición, cuadratura, trígono y sextil. Se usan como moduladores hermenéuticos de funciones ya identificadas y no crean raíces ni peso estructural adicional.",
-    "ALMAS 1.20 incorpora referencias directas de Astrodienst para signo zodiacal, elemento, modalidad, regencia de signo y regencia de casa. Estas fuentes estructuran la lectura del sustrato natal ya calculado y no añaden puntuación ni una escuela de regencias por defecto."
+    "ALMAS 1.20 incorpora referencias directas de Astrodienst para signo zodiacal, elemento, modalidad, regencia de signo y regencia de casa. Estas fuentes estructuran la lectura del sustrato natal ya calculado y no añaden puntuación ni una escuela de regencias por defecto.",
+    "ALMAS 1.20 incorpora Demetra George/Douglas Bloch para Juno y Martha Lang-Wescott para Eros como fuentes de método de la capa secundaria M14; ambos puntos permanecen support-only y no añaden peso ontológico."
   ]
 }
