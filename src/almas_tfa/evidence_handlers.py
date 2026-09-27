@@ -66,6 +66,61 @@ def _root_key(
     return f"{endpoints[0]}|{endpoints[1]}|{relation}{layer_suffix}"
 
 
+CONCRETE_POINT_ALIASES = {
+    "NN": "NORTH_NODE",
+    "SN": "SOUTH_NODE",
+    "ANTIVERTEX": "ANTI_VERTEX",
+}
+
+
+def _concrete_point(point_id: Any) -> str:
+    value = str(point_id or "").strip().upper()
+    return CONCRETE_POINT_ALIASES.get(value, value)
+
+
+def _concrete_contact(member: Mapping[str, Any]) -> dict[str, Any] | None:
+    """Conserva el contacto original como contexto hermenéutico, no como nueva raíz."""
+
+    contact = member.get("contact")
+    if not isinstance(contact, Mapping):
+        return None
+
+    subject_a = str(contact.get("subject_a", "")).strip()
+    subject_b = str(contact.get("subject_b", "")).strip()
+    point_a = _concrete_point(contact.get("point_a"))
+    point_b = _concrete_point(contact.get("point_b"))
+    if not subject_a or not subject_b or not point_a or not point_b:
+        return None
+
+    relation_id = (
+        str(
+            contact.get("aspect")
+            or contact.get("relation")
+            or "UNSPECIFIED"
+        )
+        .strip()
+        .upper()
+        .replace(" ", "_")
+        .replace("-", "_")
+    )
+    exactness = member.get("exactness")
+
+    return {
+        "evidence_id": str(member.get("evidence_id", "")),
+        "source_module": str(member.get("source_module", "")),
+        "dependency_family": str(member.get("dependency_family", "")),
+        "directional": bool(member.get("directional")),
+        "subject_a": subject_a,
+        "point_a": point_a,
+        "subject_b": subject_b,
+        "point_b": point_b,
+        "relation_id": relation_id,
+        "layer_a": str(contact.get("layer_a", "")).strip(),
+        "layer_b": str(contact.get("layer_b", "")).strip(),
+        "exactness": float(exactness) if exactness is not None else None,
+    }
+
+
 def m15_evidence_extraction(context: ModuleContext) -> ModuleResult:
     """M15: normaliza contactos geométricos sin inventar pesos ni ontología."""
 
@@ -266,6 +321,22 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
                 for contact in [member["contact"]]
             }
         )
+        concrete_contacts = [
+            concrete
+            for member in members
+            for concrete in [_concrete_contact(member)]
+            if concrete is not None
+        ]
+        concrete_contacts.sort(
+            key=lambda item: (
+                item["dependency_family"],
+                item["evidence_id"],
+                item["subject_a"],
+                item["point_a"],
+                item["subject_b"],
+                item["point_b"],
+            )
+        )
 
         strength_data = derive_root_strength(
             members,
@@ -284,6 +355,7 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
                 "support_evidence_ids": support_ids,
                 "point_ids": point_ids,
                 "relation_ids": relation_ids,
+                "concrete_contacts": concrete_contacts,
                 "max_exactness": max(exactness_values) if exactness_values else None,
                 **strength_data,
             }
