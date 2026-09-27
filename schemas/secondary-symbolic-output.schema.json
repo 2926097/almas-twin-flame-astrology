@@ -32,7 +32,7 @@
       "const": true
     },
     "aspect_policy": {
-      "type": "object"
+      "$ref": "aspect-policy.schema.json"
     },
     "missing_points_by_subject": {
       "type": "object"
