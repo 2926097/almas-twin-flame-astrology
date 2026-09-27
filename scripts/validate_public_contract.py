@@ -82,6 +82,9 @@ REQUIRED_FILES = [
     "schemas/holdout-open-record.schema.json",
     "schemas/validation-execution-ledger.schema.json",
     "schemas/validation-continuity-certificate.schema.json",
+    "schemas/documentary-reveal-record.schema.json",
+    "schemas/validation-closure-record.schema.json",
+    "schemas/validation-release-audit-package.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -207,6 +210,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/holdout-open-gate-policy.json",
     "src/almas_tfa/data/validation-execution-ledger-policy.json",
     "src/almas_tfa/data/validation-continuity-gate-policy.json",
+    "src/almas_tfa/data/validation-closure-release-audit-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -245,6 +249,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/holdout_open.py",
     "src/almas_tfa/validation_ledger.py",
     "src/almas_tfa/validation_continuity.py",
+    "src/almas_tfa/validation_closure.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -349,6 +354,7 @@ REQUIRED_FILES = [
     "tests/test_holdout_open.py",
     "tests/test_validation_ledger.py",
     "tests/test_validation_continuity.py",
+    "tests/test_validation_closure.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -543,6 +549,9 @@ def main() -> int:
     validation_continuity_gate_policy = load_json(
         "src/almas_tfa/data/validation-continuity-gate-policy.json"
     )
+    validation_closure_release_audit_policy = load_json(
+        "src/almas_tfa/data/validation-closure-release-audit-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -614,6 +623,15 @@ def main() -> int:
     )
     validation_continuity_certificate_schema = load_json(
         "schemas/validation-continuity-certificate.schema.json"
+    )
+    documentary_reveal_record_schema = load_json(
+        "schemas/documentary-reveal-record.schema.json"
+    )
+    validation_closure_record_schema = load_json(
+        "schemas/validation-closure-record.schema.json"
+    )
+    validation_release_audit_package_schema = load_json(
+        "schemas/validation-release-audit-package.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1460,6 +1478,127 @@ def main() -> int:
     ):
         if v4_schema_props.get(field, {}).get("const") is not False:
             fail(f"1.16 V4 certificate must lock {field}=false")
+
+    if validation_closure_release_audit_policy.get("policy_id") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 closure/release policy id changed")
+    if validation_closure_release_audit_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V5 closure/release policy must remain frozen")
+    if validation_closure_release_audit_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V5 closure/release policy must remain E_PROJECT_POLICY")
+    if validation_closure_release_audit_policy.get("required_ledger_boundary_before_reveal") != "HOLDOUT_EVALUATED":
+        fail("1.16 V5 reveal boundary changed")
+    if validation_closure_release_audit_policy.get("required_ledger_boundary_before_close") != "DOCUMENTARY_REVEALED":
+        fail("1.16 V5 closure boundary changed")
+    if validation_closure_release_audit_policy.get("final_ledger_event") != "VALIDATION_CLOSED":
+        fail("1.16 V5 final ledger event changed")
+    v5_principles = validation_closure_release_audit_policy.get("principles", {})
+    for key in (
+        "documentary_reveal_requires_continuity",
+        "structural_output_invariance_required",
+        "leakage_counts_must_be_zero",
+        "unexpected_reveal_fields_fail_closed",
+        "public_identity_requires_risk_refs",
+        "s8_result_required_for_closure",
+        "eligible_and_noneligible_cycles_may_close",
+        "ledger_must_end_validation_closed",
+        "release_audit_package_aggregate_only",
+        "private_payloads_forbidden",
+        "manual_release_review_required",
+        "manual_new_version_required_for_activation",
+        "same_release_activation_forbidden",
+        "automatic_registry_mutation_forbidden",
+    ):
+        if v5_principles.get(key) is not True:
+            fail(f"1.16 V5 closure invariant failed: {key}")
+    for key in (
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_principles.get(key) is not False:
+            fail(f"1.16 V5 closure field must remain false: {key}")
+
+    v5_reveal_props = documentary_reveal_record_schema.get("properties", {})
+    if v5_reveal_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 reveal schema policy id changed")
+    for field in (
+        "structural_output_invariant",
+    ):
+        if v5_reveal_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V5 reveal schema must require {field}=true")
+    for field in (
+        "forbidden_field_hits",
+        "label_leakage_count",
+        "narrative_leakage_count",
+        "case_fitting_count",
+        "post_holdout_rule_change_count",
+    ):
+        if v5_reveal_props.get(field, {}).get("const") != 0:
+            fail(f"1.16 V5 reveal schema must require {field}=0")
+    if v5_reveal_props.get("promotion_decision", {}).get("const") != "FORBIDDEN":
+        fail("1.16 V5 reveal must forbid promotion decisions")
+    for field in (
+        "private_payloads_exposed",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_reveal_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V5 reveal schema must lock {field}=false")
+
+    v5_closure_props = validation_closure_record_schema.get("properties", {})
+    if v5_closure_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 closure schema policy id changed")
+    for field in (
+        "confirmatory_cycle_closed",
+        "manual_new_version_required_for_activation",
+        "manual_release_review_required",
+        "same_release_activation_forbidden",
+    ):
+        if v5_closure_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V5 closure schema must require {field}=true")
+    for field in (
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_closure_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V5 closure schema must lock {field}=false")
+
+    v5_release_props = validation_release_audit_package_schema.get(
+        "properties", {}
+    )
+    if v5_release_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1":
+        fail("1.16 V5 release-audit schema policy id changed")
+    if v5_release_props.get("closed_ledger_entry_count", {}).get("const") != 5:
+        fail("1.16 V5 release-audit package must require five ledger events")
+    for field in (
+        "release_audit_ready",
+        "manual_release_review_required",
+        "manual_new_version_required_for_activation",
+        "same_release_activation_forbidden",
+    ):
+        if v5_release_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V5 release-audit schema must require {field}=true")
+    for field in (
+        "private_payloads_exposed",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v5_release_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V5 release-audit schema must lock {field}=false")
 
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
