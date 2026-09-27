@@ -40,12 +40,8 @@ True Node y casas/ángulos requieren implementaciones independientes específica
 
 ## Estado
 
-El gate permanece `PREREGISTERED_NOT_EXECUTED` hasta que se incorporen:
+El gate fue ejecutado con `de440s.bsp` fingerprintado y cerró como `PASS` en Python 3.10 y 3.12. Las etapas `PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y `COMPLETE_GATE` resultaron satisfactorias en los seis casos preregistrados.
 
-1. SHA-256 del kernel DE440 real utilizado;
-2. resultados del backend;
-3. resultados de las referencias independientes;
-4. archivos de resultado conformes a `astronomy-golden-result.schema.json`;
-5. ejecución satisfactoria del evaluador para todos los casos.
+El `COMPLETE_GATE` contiene 47 medidas obligatorias por caso, 282 por entorno. Los resúmenes de Python 3.10 y 3.12 son byte-equivalentes a nivel JSON y comparten SHA-256 `dcc6d349e6eabc22f90c6911e3fbf466579872f6b186471d822a7a892a8faa9a`. No hubo fallos ni modificación posterior de tolerancias. El máximo global observado fue 39,8903887122″ en ASC/H1 de `G06_CAPE_TOWN_2050`, por debajo del límite preregistrado de 60″.
 
-Hasta entonces ALMAS puede considerar implementado el adaptador, pero no cerrado el frente de validación astronómica dorada.
+La evidencia de cierre es `validation/astronomy/complete-stage-evidence.v1.json`, complementada por las evidencias de las tres etapas parciales. El campo `status=PREREGISTERED_NOT_EXECUTED` de la política se conserva deliberadamente como huella histórica del estado en que fueron congelados los criterios antes de observar resultados; el estado empírico posterior se registra exclusivamente en los archivos de evidencia para no reescribir el preregistro.
