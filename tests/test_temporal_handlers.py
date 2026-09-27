@@ -230,6 +230,126 @@ class TestTemporalActivation(unittest.TestCase):
         )
         self.assertFalse(output["structural_score_modified"])
 
+    def test_trigger_context_is_preserved_for_authoring_only(self):
+        signal = self.signal("T1", strength=0.8)
+        signal["trigger_context"] = {
+            "trigger_point": "SATURN",
+            "target_point": "VENUS",
+            "relation": "SQUARE",
+            "source_layer": "TRANSIT",
+            "target_layer": "NATAL_B",
+            "source_subject": None,
+            "target_subject": "B",
+            "orb": 0.42,
+            "technique_ref": "DECLARED_UPSTREAM",
+        }
+
+        result = m26_temporal_activation(
+            context("M26", {"temporal_signals": [signal]}, self.canonical)
+        )
+        output = result.canonical_updates["temporal_activation"]
+        normalized = output["signals"][0]
+
+        self.assertEqual(
+            normalized["trigger_context"],
+            signal["trigger_context"],
+        )
+        self.assertEqual(normalized["effective_strength"], 0.8)
+        self.assertTrue(normalized["iat_eligible"])
+        self.assertIsNone(output["iat"])
+        self.assertEqual(
+            output["selected_independent_signals"][0]["trigger_context"],
+            signal["trigger_context"],
+        )
+
+    def test_trigger_context_absence_is_backward_compatible(self):
+        signal = self.signal("T1")
+        result = m26_temporal_activation(
+            context("M26", {"temporal_signals": [signal]}, self.canonical)
+        )
+        normalized = result.canonical_updates[
+            "temporal_activation"
+        ]["signals"][0]
+
+        self.assertIsNone(normalized["trigger_context"])
+        self.assertTrue(normalized["traceability_complete"])
+        self.assertTrue(normalized["iat_eligible"])
+
+    def test_trigger_context_requires_concrete_points_and_relation(self):
+        signal = self.signal("T1")
+        signal["trigger_context"] = {
+            "trigger_point": "SATURN",
+            "target_point": "VENUS",
+        }
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "trigger_context.relation",
+        ):
+            m26_temporal_activation(
+                context("M26", {"temporal_signals": [signal]}, self.canonical)
+            )
+
+    def test_trigger_context_rejects_negative_orb(self):
+        signal = self.signal("T1")
+        signal["trigger_context"] = {
+            "trigger_point": "MARS",
+            "target_point": "MOON",
+            "relation": "OPPOSITION",
+            "orb": -0.1,
+        }
+
+        with self.assertRaisesRegex(
+            ValueError,
+            "trigger_context.orb",
+        ):
+            m26_temporal_activation(
+                context("M26", {"temporal_signals": [signal]}, self.canonical)
+            )
+
+    def test_trigger_context_does_not_change_iat(self):
+        base = self.signal("T1", strength=0.8)
+        with_context = dict(base)
+        with_context["trigger_context"] = {
+            "trigger_point": "SATURN",
+            "target_point": "VENUS",
+            "relation": "SQUARE",
+            "orb": 0.4,
+        }
+        policy = {
+            "preregistration_ref": "IAT-PREREG-TCTX",
+            "window_scope_ref": "WINDOW-TCTX",
+            "formula": "WEIGHTED_MEAN_EFFECTIVE_STRENGTH",
+            "family_weights": {"TTRANSIT": 1.0},
+            "root_weights": {"R0001": 1.0},
+        }
+
+        plain = m26_temporal_activation(
+            context(
+                "M26",
+                {
+                    "temporal_signals": [base],
+                    "iat_aggregation_policy": policy,
+                },
+                self.canonical,
+            )
+        ).canonical_updates["temporal_activation"]
+        enriched = m26_temporal_activation(
+            context(
+                "M26",
+                {
+                    "temporal_signals": [with_context],
+                    "iat_aggregation_policy": policy,
+                },
+                self.canonical,
+            )
+        ).canonical_updates["temporal_activation"]
+
+        self.assertEqual(plain["iat"], enriched["iat"])
+        self.assertEqual(
+            plain["signals"][0]["effective_strength"],
+            enriched["signals"][0]["effective_strength"],
+        )
 
 
 
