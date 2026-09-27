@@ -252,11 +252,22 @@ def _doctrine_claims(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
     ]
 
 
+HOUSE_OVERLAY_NATAL_FAMILIES = {"SYN", "DECLINATION"}
+
+
 def _root_house_overlays(
     canonical: Mapping[str, Any],
     root: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    """Une una raíz M17 con superposiciones de casas ya calculadas por M04."""
+    """Une una raíz M17 con casas M04 sólo si existe geometría natal compatible."""
+
+    dependency_families = {
+        str(value)
+        for value in root.get("dependency_families", [])
+        if str(value)
+    }
+    if not dependency_families.intersection(HOUSE_OVERLAY_NATAL_FAMILIES):
+        return []
 
     root_key = root.get("root_key")
     if not isinstance(root_key, str) or not root_key:
