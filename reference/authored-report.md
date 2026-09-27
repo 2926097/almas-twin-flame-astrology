@@ -40,6 +40,26 @@ Cada una de las once secciones conserva:
 
 Esto permite una prosa literaria, evolutiva y esotérica sin perder el vínculo con el análisis.
 
+## Síntesis vertical por motivo
+
+La profundidad del informe no procede de dedicar un apartado aislado a cada técnica. Cuando varias rutas están disponibles, la unidad narrativa preferente es el **motivo** o problema interpretativo.
+
+Secuencia recomendada:
+
+`sustrato individual → activación/interacción → campo relacional → reencuadre dracónico → contexto histórico auxiliar → raíz/motivo → comparandum metafísico → límite inferencial`.
+
+Por tanto:
+
+- `natal_context` explica qué existe antes del vínculo;
+- `evidence` identifica las raíces estructurales que realmente sostienen el análisis;
+- `relationship_field` muestra cómo esas funciones se organizan como campo compuesto/Davison;
+- `draconic_context` puede reencuadrar o corroborar el mismo tema desde el eje nodal;
+- `lots_context` sólo añade contexto histórico selectivo y nunca desplaza la arquitectura principal;
+- `semantic_motifs` organiza la síntesis entre capas;
+- `doctrine` entra después como comparandum documentado, no como sustituto de la explicación astrológica.
+
+El fixture `examples/authored-report.synthetic.json` demuestra esta secuencia. Es una regresión editorial de integración, no una plantilla textual obligatoria ni un evaluador automático de calidad.
+
 ## Fuentes
 
 `bibliography[]` es una superficie editorial. No añade peso analítico.

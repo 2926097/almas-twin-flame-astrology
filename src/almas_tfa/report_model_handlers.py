@@ -33,6 +33,7 @@ SECTION_SPECS = (
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
+            "B_TECHNIQUE",
             "C_DOCTRINE",
             "D_CONTEMPORARY_USAGE",
             "E_PROJECT_HYPOTHESIS",
@@ -68,6 +69,7 @@ SECTION_SPECS = (
             "relationship_field",
             "draconic_context",
             "lots_context",
+            "semantic_motifs",
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
@@ -85,6 +87,7 @@ SECTION_SPECS = (
             "relationship_field",
             "draconic_context",
             "lots_context",
+            "semantic_motifs",
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
