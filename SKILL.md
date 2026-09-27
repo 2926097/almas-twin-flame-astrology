@@ -202,6 +202,10 @@ Reglas de dependencia:
 - Cuando M13 esté disponible, usar `canonical_analysis.lots_context` sólo como contexto histórico de autoría. Fortuna/Espíritu conservan fórmula, secta, signo, grado, casa y fuentes antes de M31; no entran en M15 ni crean raíces o puntuación.
 - En la baseline histórica, Valens distingue Fortuna —cuerpo y trabajo manual— de Daimon/Espíritu —asuntos intelectuales/espirituales y actividades de dar/recibir—. Aplicar signo y casa para cualificar el campo, no para equiparar Daimon con alma, Mónada, Yo Superior, misión o contrato.
 - M14 permanece `support_only=true` y no recibe una proyección narrativa paralela: sus contactos se interpretan únicamente cuando ya han sobrevivido como soporte de una raíz o motivo principal.
+- Cuando una raíz retenida preserve `JUNO` o `EROS` en `concrete_contacts`, aplicar `reference/secondary-symbolic-hermeneutics.md` después de resolver las funciones planetarias/nodales/angulares principales y la geometría.
+- Juno usa `george_bloch_asteroid_goddesses_2003` como fuente de método para relación significativa, compromiso/asociación y equidad relacional; no prueba matrimonio, reciprocidad factual, contrato ni tipo de alma.
+- Eros usa `lang_wescott_eros_basic_resources` como fuente de método para erotismo, deseo, aquello que enciende y pasión/vitalidad; no prueba actividad sexual real, consentimiento, reciprocidad, exclusividad ni tipo de alma.
+- Para cualquier otro punto secundario sin fuente de método registrada, conservar la geometría como dato pero declarar el significado especializado como no establecido en el corpus ALMAS actual.
 - Los asteroides secundarios son `support_only=true`.
 - Casas y signos contextualizan raíces; no crean por sí solos raíces ontológicas.
 
