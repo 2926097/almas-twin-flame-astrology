@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.18.0 — 2026-09-27
+
+### Backend astronómico de producción
+- Añade `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1` y el adaptador opcional `ALMAS_MOIRA_JPL_SPK_V1`.
+- Fija `moira-astro==6.8.2` como extra `astronomy-moira`; el núcleo ALMAS no adquiere una dependencia astronómica obligatoria.
+- Exige kernel JPL BSP local, familia DE430/DE440/DE441 y SHA-256 verificado antes de cálculo.
+- Prohíbe descargas de efemérides y geocodificación implícita durante el cálculo.
+- Añade timezone IANA fail-closed para horas ambiguas/inexistentes y exige coordenadas numéricas.
+- Normaliza True Node como `NORTH_NODE` y deriva `SOUTH_NODE`; produce declinaciones, casas y ASC/DSC/MC/IC.
+- Bloquea cualquier fallback polar o cambio efectivo del sistema de casas.
+- Implementa Davison mediante midpoint UTC y midpoint geográfico esférico explícitos.
+- M02 y M08 pasan de `BACKEND_REQUIRED` a `EXECUTABLE_HANDLER`.
+- Añade schema de procedencia astronómica y workflow específico de compatibilidad Moira en Python 3.10/3.12.
+- La suite del núcleo alcanza **454 tests deterministas**; el workflow específico del backend ejecuta **11 tests** y valida la API real de Moira 6.8.2 en Python 3.10/3.12.
+- La validación dorada con kernel JPL real y verificación astronómica independiente permanece como gate separado.
+- No cambia técnicas, pesos, scoring, ontología ni discriminadores.
+
 ## 1.17.0 — 2026-09-27
 
 ### Manifiestos normativos estructurales
