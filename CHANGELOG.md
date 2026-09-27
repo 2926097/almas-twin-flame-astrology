@@ -5,6 +5,7 @@
 ### Autoría interpretativa y publicación B5
 - Reorienta la fase 1.19 hacia la lectura astrológica y la hermenéutica/metafísica basada en fuentes; la infraestructura técnica queda como soporte de cálculo, trazabilidad y control de calidad.
 - M31 expone `evidence`, `semantic_motifs` y `doctrine` a S01/S10 para que la síntesis no quede reducida a índices.
+- Activa `authored_report` en `SKILL.md` como paso obligatorio después de M31 cuando se solicita una lectura o informe, priorizando significado astrológico/hermenéutico sobre exposición metodológica.
 - Añade `ALMAS_AUTHORED_REPORT` con once secciones, fingerprint canónico, referencias de evidencia/claims/fuentes y bibliografía editorial.
 - Añade un fixture interpretativo sintético completo que integra astrología, doctrina comparada y contraevidencia sin representar personas reales.
 - Añade `ALMAS_B5_BOOK_V1` para DOCX ISO B5 176×250 mm mediante `python-docx==1.2.0`.
