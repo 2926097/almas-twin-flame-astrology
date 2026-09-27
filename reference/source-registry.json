@@ -1737,7 +1737,83 @@
       "verification_anchor_type": "PUBLISHER_SUMMARY",
       "verification_anchor_url": "https://books.google.com/books/about/Relationships_Life_Cycles.html?id=Q9UOAAAACAAJ",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "arroyo_astrology_karma_transformation_1992",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica y orientada al crecimiento",
+      "author": "Stephen Arroyo",
+      "work": "Astrology, Karma & Transformation: The Inner Dimensions of the Birth Chart",
+      "date": "1992",
+      "date_note": "Second revised edition, CRCS Publications, 1992; the work originated in earlier editions.",
+      "passage": "Chapters on Uranus, Pluto, Saturn, aspects of transformation, and karma & relationships",
+      "pages": "255",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Astrology_Karma_Transformation.html?id=_YYCAAAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada que interpreta Saturno, Urano, Neptuno y Plutón desde crecimiento psicológico y transformación",
+        "tratamiento explícito de aspectos transformativos y de karma y relaciones dentro de una astrología no fatalista",
+        "base metodológica para distinguir intensidad, transformación y crecimiento de una predicción literal o una ontología relacional"
+      ],
+      "does_not_support": [
+        "validación científica de karma, reencarnación o significados astrológicos",
+        "que Plutón, Urano o Neptuno identifiquen por sí solos una relación kármica, alma gemela o llama gemela",
+        "que crisis, intensidad o cambio garanticen crecimiento espiritual"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books publisher description identifies the work as growth-oriented astrology emphasizing the transformative and karmic significance of Saturn, Uranus, Neptune and Pluto, with chapters on Pluto, aspects and karma & relationships.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Astrology_Karma_Transformation.html?id=_YYCAAAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "greene_relating_1978",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica junguiana",
+      "author": "Liz Greene",
+      "work": "Relating: An Astrological Guide to Living With Others on a Small Planet",
+      "date": "1978",
+      "date_note": "Weiser Books edition, 1978.",
+      "passage": "The Language of the Unconscious; The Planets; The Outer Planets; The Inner Partner; The Sex Life of the Psyche",
+      "pages": "304",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Relating.html?id=6yBi8pjy1XoC",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada que utiliza conceptos astrológicos dentro de un marco junguiano para interpretar relaciones conscientes e inconscientes",
+        "tratamiento relacional de funciones planetarias, planetas exteriores, proyección, sombra y dinámica psíquica",
+        "base metodológica para narrar una configuración intensa como interacción psicológica y simbólica antes de atribuirle una categoría espiritual"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología o de la psicología junguiana aplicada a cartas",
+        "que proyección, sombra o polaridad psíquica prueben una ontología de almas",
+        "que la intensidad inconsciente implique reciprocidad, destino o permanencia"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/Weiser description states that Greene uses astrological concepts symbolically and practically within Jungian psychology to show conscious and unconscious ways people relate; the contents include the outer planets and relational psychological themes.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Relating.html?id=6yBi8pjy1XoC",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
-  "registry_revision": "2026-09-27-synastry-house-sources-1"
+  "registry_revision": "2026-09-27-transformative-hermeneutics-1"
 }
