@@ -51,6 +51,10 @@ def canonical_base(*, with_ice=True):
                 "strength_state": "CALCULATED_CORE",
                 "core_eligible": True,
                 "dependency_families": ["SYN"],
+                "independent_family_count": 1,
+                "point_ids": ["MOON", "SUN"],
+                "relation_ids": ["TRINE"],
+                "max_exactness": 0.98,
             }
         ],
         "root_count": 1,
@@ -167,6 +171,21 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
             canonical["assembly"]["policy_id"],
             "ALMAS_CANONICAL_ASSEMBLY_V2",
         )
+
+    def test_canonical_evidence_preserves_root_interpretive_context(self):
+        result = assemble_canonical_analysis(
+            canonical_base(),
+            prior_all(),
+        )
+        evidence = result["canonical_analysis"]["evidence"]
+        self.assertEqual(len(evidence), 1)
+        root = evidence[0]
+        self.assertEqual(root["root_id"], "R0001")
+        self.assertEqual(root["point_ids"], ["MOON", "SUN"])
+        self.assertEqual(root["relation_ids"], ["TRINE"])
+        self.assertEqual(root["independent_family_count"], 1)
+        self.assertAlmostEqual(root["max_exactness"], 0.98)
+        self.assertEqual(root["root_key"], "A:SUN|B:MOON|TRINE")
 
     def test_canonical_records_missing_backend_trace_explicitly(self):
         result = assemble_canonical_analysis(
