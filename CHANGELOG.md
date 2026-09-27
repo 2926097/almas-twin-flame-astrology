@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.19.0 — 2026-09-27
+
+### Autoría interpretativa y publicación B5
+- Reorienta la fase 1.19 hacia la lectura astrológica y la hermenéutica/metafísica basada en fuentes; la infraestructura técnica queda como soporte de cálculo, trazabilidad y control de calidad.
+- M31 expone `evidence`, `semantic_motifs` y `doctrine` a S01/S10 para que la síntesis no quede reducida a índices.
+- Añade `ALMAS_AUTHORED_REPORT` con once secciones, fingerprint canónico, referencias de evidencia/claims/fuentes y bibliografía editorial.
+- Añade un fixture interpretativo sintético completo que integra astrología, doctrina comparada y contraevidencia sin representar personas reales.
+- Añade `ALMAS_B5_BOOK_V1` para DOCX ISO B5 176×250 mm mediante `python-docx==1.2.0`.
+- Añade `ALMAS_B5_PDF_V1` con conversión LibreOffice y preflight fail-closed mediante `pypdf==6.19.0`.
+- El preflight PDF comprueba B5/CropBox, cifrado, páginas vacías, texto, fingerprint, once títulos y fuentes embebidas.
+- QA visual: 13/13 páginas del fixture renderizadas e inspeccionadas sin cortes, solapamientos ni desbordes.
+- La suite del núcleo alcanza **498 tests** en Python 3.10 y 3.12; los workflows de contrato público, backend astronómico, publicación DOCX y publicación PDF terminan en PASS.
+- No añade técnicas, pesos, thresholds, scores, discriminadores ni validación científica de ontologías metafísicas.
+
 ## 1.18.0 — 2026-09-27
 
 ### Backend astronómico de producción
