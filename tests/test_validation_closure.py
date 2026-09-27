@@ -341,6 +341,22 @@ class ValidationClosureTests(unittest.TestCase):
         )
         self.assertFalse(result["release_audit_package"]["scoring_activation"])
 
+    def test_closure_rejects_wrong_s8_policy(self):
+        continuity, promotion, ledger = chain()
+        reveal = record_documentary_reveal(
+            continuity, ledger, reveal_request()
+        )
+        bad = deepcopy(promotion)
+        bad["policy_id"] = "OTHER_POLICY"
+        result = close_validation_cycle(
+            continuity,
+            bad,
+            reveal,
+            reveal["ledger"],
+            closure_request(),
+        )
+        self.assertEqual(result["reason"], "S8_POLICY_MISMATCH")
+
     def test_closure_rejects_s8_without_continuity_certificate(self):
         continuity, promotion, ledger = chain()
         reveal = record_documentary_reveal(
