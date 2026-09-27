@@ -4395,6 +4395,65 @@ def main() -> int:
         if assembly_props.get(field, {}).get("const") is not False:
             fail(f"canonical assembly must lock {field}=false")
 
+    robustness_schema = canonical_props.get("robustness", {})
+    expected_robustness_fields = {
+        "IRC",
+        "R_min",
+        "component_count",
+        "components",
+        "null_model_rarity_used_as_robustness",
+        "timed_architecture_present",
+        "birth_time_component_present",
+    }
+    if set(robustness_schema.get("properties", {})) != expected_robustness_fields:
+        fail("canonical robustness surface changed")
+    if set(robustness_schema.get("required", [])) != expected_robustness_fields:
+        fail("canonical robustness must require all M30 fields")
+    if robustness_schema.get("additionalProperties") is not False:
+        fail("canonical robustness must reject undeclared fields")
+    component_ref = (
+        robustness_schema.get("properties", {})
+        .get("components", {})
+        .get("items", {})
+        .get("$ref")
+    )
+    if component_ref != "robustness-output.schema.json#/properties/components/items":
+        fail("canonical robustness components must reuse M25 component contract")
+    if (
+        robustness_schema.get("properties", {})
+        .get("null_model_rarity_used_as_robustness", {})
+        .get("const")
+        is not False
+    ):
+        fail("canonical robustness must forbid null rarity as robustness")
+
+    if canonical_props.get("profile_policy_id", {}).get("const") != "ALMAS_ANALYSIS_PROFILES_V1":
+        fail("canonical profile policy id changed")
+    profile_schema = assembly_props.get("analysis_profile", {})
+    expected_profile_fields = {
+        "profile_id",
+        "analysis_mode",
+        "required_modules",
+        "optional_modules",
+        "excluded_modules",
+        "policy_id",
+        "policy_status",
+        "epistemic_class",
+    }
+    if set(profile_schema.get("properties", {})) != expected_profile_fields:
+        fail("canonical embedded analysis profile surface changed")
+    if set(profile_schema.get("required", [])) != expected_profile_fields:
+        fail("canonical embedded analysis profile must require all trace fields")
+    if profile_schema.get("additionalProperties") is not False:
+        fail("canonical embedded analysis profile must reject undeclared fields")
+    profile_props = profile_schema.get("properties", {})
+    if profile_props.get("policy_id", {}).get("const") != "ALMAS_ANALYSIS_PROFILES_V1":
+        fail("canonical embedded analysis profile policy changed")
+    if profile_props.get("policy_status", {}).get("const") != "FROZEN_EXPERIMENTAL_BASELINE":
+        fail("canonical embedded analysis profile status changed")
+    if profile_props.get("epistemic_class", {}).get("const") != "E_PROJECT_POLICY":
+        fail("canonical embedded analysis profile epistemic class changed")
+
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
         fail("canonical schema must expose exactly AF, KA, AG, LG model slots")
