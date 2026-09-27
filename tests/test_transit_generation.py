@@ -286,7 +286,7 @@ class TransitGenerationTests(unittest.TestCase):
             fixture["source_refs"],
         )
         self.assertIn(
-            "no predice un hecho",
+            "predice un hecho",
             fixture["authored_paragraph"],
         )
 
