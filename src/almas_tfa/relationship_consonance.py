@@ -81,6 +81,39 @@ def _internal_contacts(
     return contacts
 
 
+def _house_placements(
+    positions: Mapping[str, Any],
+    house_cusps: Mapping[str, Any],
+) -> dict[str, int]:
+    """Asigna posiciones a casas usando únicamente las doce cúspides ya calculadas."""
+
+    cusps: dict[int, float] = {}
+    for house in range(1, 13):
+        longitude = _longitude_value(house_cusps.get(str(house)))
+        if longitude is None:
+            return {}
+        cusps[house] = float(longitude) % 360.0
+
+    output: dict[str, int] = {}
+    for point_id, raw in sorted(positions.items()):
+        longitude = _longitude_value(raw)
+        if longitude is None:
+            continue
+        lon = float(longitude) % 360.0
+        for house in range(1, 13):
+            next_house = 1 if house == 12 else house + 1
+            start = cusps[house]
+            end = cusps[next_house]
+            span = (end - start) % 360.0
+            if span <= 0.0:
+                continue
+            offset = (lon - start) % 360.0
+            if offset < span:
+                output[str(point_id)] = house
+                break
+    return output
+
+
 def _field_context(
     composite: Mapping[str, Any],
     davison_chart: Mapping[str, Any],
@@ -131,6 +164,10 @@ def _field_context(
             "positions": _zodiac_context(davison_positions),
             "angles": _zodiac_context(davison_angles),
             "house_cusps": _zodiac_context(davison_houses),
+            "house_placements": _house_placements(
+                davison_positions,
+                davison_houses,
+            ),
             "internal_contacts": _internal_contacts(
                 davison_positions,
                 point_ids,
