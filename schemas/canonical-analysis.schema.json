@@ -43,6 +43,12 @@
     },
     "models": {
       "type": "object",
+      "required": [
+        "AF",
+        "KA",
+        "AG",
+        "LG"
+      ],
       "properties": {
         "AF": {
           "$ref": "#/$defs/model_result"
@@ -57,10 +63,17 @@
           "$ref": "#/$defs/model_result"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "indices": {
       "type": "object",
+      "required": [
+        "IDD",
+        "IAT",
+        "ICC",
+        "IRC",
+        "ICE"
+      ],
       "properties": {
         "IDD": {
           "type": [
@@ -102,10 +115,158 @@
           "minimum": 0,
           "maximum": 100
         }
-      }
+      },
+      "additionalProperties": false
     },
     "coverage": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "ICC",
+        "domains",
+        "formula",
+        "policy_id"
+      ],
+      "properties": {
+        "ICC": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "domains": {
+          "type": "object",
+          "required": [
+            "BASE_NATAL",
+            "SYNASTRY_NODES",
+            "ANGLES_HOUSES",
+            "SYMMETRIES",
+            "RELATIONSHIP_CHARTS",
+            "DRACONIC",
+            "LOTS_SECONDARY"
+          ],
+          "properties": {
+            "BASE_NATAL": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "SYNASTRY_NODES": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "ANGLES_HOUSES": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "SYMMETRIES": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "RELATIONSHIP_CHARTS": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "DRACONIC": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "LOTS_SECONDARY": {
+              "type": "object",
+              "required": [
+                "q"
+              ],
+              "properties": {
+                "q": {
+                  "enum": [
+                    0,
+                    0.5,
+                    1
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "formula": {
+          "const": "100*sum(q_domain)/7"
+        },
+        "policy_id": {
+          "const": "ALMAS_CANONICAL_ASSEMBLY_V2"
+        }
+      },
+      "additionalProperties": false
     },
     "robustness": {
       "type": "object"
@@ -305,7 +466,16 @@
       "type": "object",
       "required": [
         "iem",
-        "state"
+        "state",
+        "core",
+        "support",
+        "iem_pre",
+        "iem_final",
+        "ice",
+        "ice_state",
+        "supported_gate",
+        "birth_time_gate_required",
+        "birth_time_gate_satisfied"
       ],
       "properties": {
         "iem": {
@@ -324,9 +494,58 @@
             "CONTRADICTED",
             "NOT_EVALUABLE"
           ]
+        },
+        "core": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "support": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "iem_pre": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "iem_final": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "ice": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "ice_state": {
+          "enum": [
+            "EVALUABLE",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "supported_gate": {
+          "type": "boolean"
+        },
+        "birth_time_gate_required": {
+          "type": "boolean"
+        },
+        "birth_time_gate_satisfied": {
+          "type": "boolean"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "allOf": [
