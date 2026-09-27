@@ -146,7 +146,10 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
     if rulership_policy is not None and not isinstance(rulership_policy, Mapping):
         raise ValueError("rulership_policy debe ser un objeto cuando se declara.")
 
-    output: dict[str, Any] = {"subjects": {}}
+    output: dict[str, Any] = {
+        "subjects": {},
+        "cross_house_placements": {},
+    }
     limitations: list[str] = []
 
     for subject_id, chart in charts.items():
@@ -233,6 +236,45 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
             "house_placements": placements,
             "rulerships": regencies,
         }
+
+    subject_ids = [str(subject_id) for subject_id in charts]
+    for source_id in subject_ids:
+        source_chart = charts.get(source_id)
+        if not isinstance(source_chart, Mapping):
+            continue
+        source_points = _chart_points(source_chart)
+
+        for target_id in subject_ids:
+            if source_id == target_id:
+                continue
+            target_chart = charts.get(target_id)
+            if not isinstance(target_chart, Mapping):
+                continue
+            target_houses = target_chart.get("houses")
+            if not (
+                isinstance(target_houses, Mapping)
+                and all(str(i) in target_houses for i in range(1, 13))
+            ):
+                continue
+
+            placements = {}
+            for point_id, data in sorted(source_points.items()):
+                longitude = float(data["longitude"])
+                placements[point_id] = {
+                    "house": house_for_longitude(
+                        longitude,
+                        target_houses,
+                    ),
+                    "longitude": longitude,
+                }
+
+            output["cross_house_placements"][
+                f"{source_id}_IN_{target_id}"
+            ] = {
+                "source_subject": source_id,
+                "target_subject": target_id,
+                "placements": placements,
+            }
 
     return ModuleResult(
         module_id="M04",
