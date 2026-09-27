@@ -1144,6 +1144,69 @@ class TestReportingFirewall(unittest.TestCase):
                 by_id[section_id]["available_paths"],
             )
 
+    def test_m31_exposes_draconic_context_to_interpretive_sections(self):
+        canonical = self.canonical(
+            draconic_context={
+                "authoring_projection_only": True,
+                "creates_additional_evidence": False,
+                "individual": {
+                    "policy": {
+                        "node_id": "NORTH_NODE",
+                        "transform": "NORTH_NODE_TO_ZERO",
+                    },
+                    "charts": {},
+                },
+                "natal_cross": {
+                    "subjects": ["A", "B"],
+                    "policy": {},
+                    "contacts": [],
+                    "contact_count": 0,
+                },
+                "draconic_cross": {
+                    "subjects": ["A", "B"],
+                    "policy": {},
+                    "contacts": [],
+                    "contact_count": 0,
+                    "corroborative_only": True,
+                },
+            }
+        )
+        gate_result = m30_report_gate(
+            ctx(
+                "M30",
+                {"canonical_analysis": canonical},
+                prior=self.completed_trace(),
+            )
+        )
+        gate = gate_result.canonical_updates["report_gate"]
+
+        result = m31_report(
+            ctx(
+                "M31",
+                canonical={
+                    "canonical_analysis": canonical,
+                    "report_gate": gate,
+                },
+            )
+        )
+        by_id = {
+            section["section_id"]: section
+            for section in result.canonical_updates[
+                "report_document_model"
+            ]["sections"]
+        }
+
+        for section_id in (
+            "S01_SYNTHESIS",
+            "S04_STRUCTURE",
+            "S05_RELATIONAL",
+            "S10_FINAL_SYNTHESIS",
+        ):
+            self.assertIn(
+                "draconic_context",
+                by_id[section_id]["available_paths"],
+            )
+
     def test_m31_partial_inherits_degradation_reasons(self):
         canonical = self.canonical(mode="TARGETED")
         gate_result = m30_report_gate(
