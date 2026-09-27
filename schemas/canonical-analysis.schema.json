@@ -38,7 +38,61 @@
     "evidence": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "source_module",
+          "root_id",
+          "root_key",
+          "strength",
+          "strength_state",
+          "core_eligible",
+          "dependency_families"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "pattern": "^ROOT:.+"
+          },
+          "source_module": {
+            "const": "M17"
+          },
+          "root_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "strength": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "strength_state": {
+            "enum": [
+              "CALCULATED_CORE",
+              "CALCULATED_SUPPORT_ONLY",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "core_eligible": {
+            "type": "boolean"
+          },
+          "dependency_families": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "additionalProperties": false
       }
     },
     "models": {
@@ -316,7 +370,7 @@
     "counterevidence": {
       "type": "array",
       "items": {
-        "type": "object"
+        "$ref": "#/$defs/counterevidence_item"
       }
     },
     "ontology": {
@@ -644,6 +698,65 @@
         "birth_time_gate_satisfied": {
           "type": "boolean"
         }
+      },
+      "additionalProperties": false
+    },
+    "counterevidence_item": {
+      "type": "object",
+      "required": [
+        "id",
+        "model",
+        "kind",
+        "contradiction_key",
+        "dependency_family",
+        "essential",
+        "severity",
+        "evidence_refs",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "enum": [
+            "AF",
+            "KA",
+            "AG",
+            "LG"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "EXPLICIT_CONTRADICTION",
+            "STRUCTURAL_INCOMPATIBILITY"
+          ]
+        },
+        "contradiction_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependency_family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "essential": {
+          "type": "boolean"
+        },
+        "severity": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {}
+        },
+        "note": {}
       },
       "additionalProperties": false
     }
