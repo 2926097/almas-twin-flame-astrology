@@ -80,22 +80,17 @@ Sobre el HEAD funcional previo al cierre editorial:
 
 El CI contractual no requiere un kernel. Una segunda matriz de validación descarga explícitamente el artefacto JPL/NAIF `de440s.bsp`, verifica sus fingerprints preregistrados y ejecuta la comparación planetaria independiente.
 
-## Gate astronómico preregistrado
+## Gate astronómico dorado cerrado
 
-La implementación de producción queda disponible y la infraestructura de validación dorada queda preregistrada mediante `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1`.
+`ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` fue congelado antes de observar resultados con seis casos sintéticos, métricas obligatorias, tolerancias, geometría y regla de decisión sin agregación compensatoria.
 
-Antes de observar resultados se han congelado seis casos sintéticos, métricas obligatorias, tolerancias, geometría y regla de decisión. No existe agregación que permita compensar un error fuera de tolerancia con otros aciertos.
+La validación real utilizó `de440s.bsp` con SHA-256 `c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2` y MD5 `3917ee56769db332790c751e2168843d`. Moira 6.8.2 fue contrastado con tres referencias independientes basadas en Skyfield 1.55: posiciones planetarias DE440, True Node por geometría osculadora y casas Placidus por implementación independiente de semi-arcos.
 
-La etapa planetaria está ejecutada y cerrada: el workflow 36308957538 validó `de440s.bsp` por SHA-256 y MD5, ejecutó Moira 6.8.2 frente a Skyfield 1.55 en los seis casos congelados y obtuvo PASS en Python 3.10 y 3.12. Son 180 medidas por entorno, sin fallos y con resúmenes idénticos. El máximo observado fue 0,9257480642″ en longitud lunar, por debajo del límite preregistrado de 15″.
+El workflow 36309678855 ejecutó y cerró satisfactoriamente `PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y `COMPLETE_GATE` en Python 3.10 y 3.12. El gate completo contiene 47 medidas por caso y 282 por entorno; todos los casos resultaron `PASS`, no hubo fallos y los resúmenes fueron idénticos entre ambas versiones de Python.
 
-La evidencia canónica de esta etapa es `validation/astronomy/planetary-stage-evidence.v1.json`. No se modificó ningún threshold después de observar los resultados.
+El máximo global fue 39,8903887122″ en ASC/H1 de `G06_CAPE_TOWN_2050`, frente al límite preregistrado de 60″. Los thresholds no fueron modificados después de observar los resultados.
 
-Para cerrar el gate completo siguen pendientes únicamente:
-
-1. referencia independiente para True Node;
-2. referencia independiente de casas/ángulos;
-3. ensamblaje `COMPLETE_GATE` con PASS de todas las familias;
-4. actualización final de la auditoría y del estado de release.
+La evidencia canónica de cierre es `validation/astronomy/complete-stage-evidence.v1.json`, junto con las evidencias parciales planetaria, True Node y casas/ángulos.
 
 ## Registro de ejecución
 
