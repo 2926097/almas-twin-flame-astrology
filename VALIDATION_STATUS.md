@@ -16,6 +16,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Manifiesto estructural normativo | `ALMAS_STRUCTURAL_POLICY_MANIFEST_V1` · técnica/dependencia/orbes/loading |
 | Backend astronómico de producción | `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1` · Moira 6.8.2 + kernel local SHA-256 |
 | Gate astronómico dorado | `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` · `COMPLETE_GATE` PASS en Python 3.10/3.12 · 6 casos × 47 medidas |
+| Contrato `canonical_analysis` | Draft 2020-12 · raíz cerrada · composición `$ref` especializada · salida M30/FULL validada |
 | Pipeline FULL M00–M31 | `manifests/analysis-pipeline-manifest.json` |
 | Puente astrología→contrato | v1.0.0 |
 | Reconstrucción preencarnatoria | schema v1.9.0 |
@@ -65,13 +66,14 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 
 ## Pruebas automatizadas
 
-La suite Python contiene **468 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **483 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
-1. instalación editable del paquete;
+1. instalación editable del paquete con el extra `schema-validation` fijado a `jsonschema==4.26.0`;
 2. `python -m unittest discover -s tests -p "test_*.py" -v`;
-3. el validador del contrato público.
+3. validación Draft 2020-12 del `canonical_analysis` sintético M30 y del pipeline FULL M00–M31;
+4. el validador del contrato público.
 
 El workflow `Contrato público` ejecuta de forma independiente:
 
