@@ -129,7 +129,13 @@ class TestRelationshipChartConsonance(unittest.TestCase):
         )
         output = result.canonical_updates["relationship_chart_consonance"]
 
-        self.assertEqual(output["contact_count"], 1)
+        self.assertEqual(output["contact_count"], 2)
+        self.assertTrue(
+            all(
+                item["point_a"] == item["point_b"]
+                for item in output["contacts"]
+            )
+        )
         field = output["field_context"]
         self.assertEqual(
             field["composite"]["internal_contacts"][0]["aspect"],
