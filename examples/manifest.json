@@ -27,11 +27,7 @@
       "derived_from_private_case": false,
       "reversible_from_private_case": false,
       "independently_verifiable": false,
-      "public_source_refs": [
-        "summit_lighthouse_what_is_twin_flame",
-        "blaquier_draconic_astrology_2017_2021",
-        "kardec_spirits_book_missions_572_573"
-      ]
+      "public_source_refs": []
     },
     {
       "path": "examples/authoring-canonical-context.synthetic.json",
@@ -42,11 +38,7 @@
       "derived_from_private_case": false,
       "reversible_from_private_case": false,
       "independently_verifiable": false,
-      "public_source_refs": [
-        "summit_lighthouse_what_is_twin_flame",
-        "blaquier_draconic_astrology_2017_2021",
-        "kardec_spirits_book_missions_572_573"
-      ]
+      "public_source_refs": []
     },
     {
       "path": "examples/authoring-report-model-context.synthetic.json",
@@ -57,11 +49,7 @@
       "derived_from_private_case": false,
       "reversible_from_private_case": false,
       "independently_verifiable": false,
-      "public_source_refs": [
-        "summit_lighthouse_what_is_twin_flame",
-        "blaquier_draconic_astrology_2017_2021",
-        "kardec_spirits_book_missions_572_573"
-      ]
+      "public_source_refs": []
     },
     {
       "path": "examples/clause-assembly.synthetic.json",
