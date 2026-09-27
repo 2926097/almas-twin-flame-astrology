@@ -6,7 +6,8 @@
   "required": [
     "items",
     "count",
-    "strength_policy_applied"
+    "strength_policy_applied",
+    "technique_dependency_registry_id"
   ],
   "properties": {
     "items": {
@@ -34,6 +35,9 @@
     },
     "strength_policy_applied": {
       "const": false
+    },
+    "technique_dependency_registry_id": {
+      "const": "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1"
     }
   },
   "additionalProperties": false
