@@ -32,6 +32,18 @@ Por ejemplo, `KARMIC_CONTINUITY` no significa siempre lo mismo:
 
 El `motif_id` agrupa una familia de significado; las raíces determinan su forma concreta.
 
+### Contexto experiencial por superposición de casas
+
+Cuando una raíz canónica contiene `house_overlays`, la interpretación debe aplicar `reference/house-overlay-hermeneutics.md` antes de desarrollar el motivo.
+
+La casa modifica **dónde se vive** la raíz, no qué motivo primario emitió el sistema. Una misma raíz Nodo–Venus puede adquirir una expresión de pertenencia en casa 4, romance/creatividad en casa 5, vínculo uno-a-uno en casa 7 o expansión de sentido en casa 9, sin dejar de pertenecer al motivo primario que le corresponda por precedencia.
+
+La formulación mínima es:
+
+`función del punto fuente → campo de casa del receptor → geometría de la raíz → motivo primario`.
+
+No usar la casa para fabricar un segundo motivo, duplicar una raíz ni aumentar su fuerza. No invertir A→B en B→A salvo que el canonical contenga ambas superposiciones.
+
 ### Precedencia obligatoria de motivos primarios
 
 Cada raíz core recibe **un solo motivo primario**. La implementación evalúa, en este orden:
