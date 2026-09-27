@@ -1,10 +1,27 @@
 # Estado de validación
 
-**Versión pública:** 1.18.0
+**Versión pública:** 1.19.0
 
 ## Release pública
 
 El repositorio publica una especificación generalizada con fixtures sintéticos y un núcleo Python determinista. Los casos privados/no públicos permanecen excluidos.
+
+### Cierre 1.19 · autoría y publicación
+
+La cadena documental se encuentra implementada hasta PDF B5 validado:
+
+`canonical_analysis → M30 → M31 → authored_report → DOCX → PDF → preflight → inspección visual`.
+
+En el cierre funcional de 1.19:
+
+- Núcleo Python 3.10/3.12: 498 tests, PASS;
+- Contrato público: PASS;
+- Publicación DOCX: PASS;
+- Publicación PDF: 3 tests materiales, PASS;
+- Backend astronómico: PASS como regresión independiente;
+- QA visual: 13/13 páginas B5 inspeccionadas sin cortes, solapamientos ni desbordes.
+
+Este cierre valida coherencia de implementación y materialización. No constituye validación científica de la astrología ni de las ontologías metafísicas.
 
 ### Capas vigentes
 

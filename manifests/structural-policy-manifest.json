@@ -1,7 +1,7 @@
 {
   "manifest_version": "1.0.0",
   "manifest_id": "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1",
-  "almas_public_version": "1.18.0",
+  "almas_public_version": "1.19.0",
   "status": "FROZEN_NORMATIVE",
   "purpose": "Punto único de descubrimiento público para técnica, orbes, dependencia, elegibilidad estructural y loading.",
   "contracts": {
