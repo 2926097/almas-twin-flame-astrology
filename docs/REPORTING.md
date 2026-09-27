@@ -4,7 +4,7 @@ El objeto `canonical_analysis.json` es la única verdad analítica del informe.
 
 Pipeline recomendado:
 
-`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → authored_report → DOCX/PDF → preflight → renderizado de todas las páginas → inspección → corrección → re-render/verificación`
+`canonical_analysis.json → M30 report_gate → M31 report_document_model.json → authored_report → DOCX → PDF/preflight → renderizado de todas las páginas → inspección → corrección → re-render/verificación`
 
 Para informes largos se prefiere una fase de autoría DOCX antes de la conversión a PDF.
 
@@ -103,10 +103,28 @@ Validador semántico:
 
 `src/almas_tfa/authored_report.py`
 
+## Publicación DOCX
+
+La primera materialización es `ALMAS_B5_BOOK_V1`: ISO B5 vertical (176 × 250 mm). El generador copia literalmente las narrativas de `authored_report`, conserva límites y bibliografía y relega evidencias/claims/fuentes a notas de trazabilidad secundarias.
+
+Implementación:
+
+`src/almas_tfa/docx_publication.py`
+
+CLI:
+
+`scripts/render_authored_report_docx.py`
+
+Dependencia opcional:
+
+`publication-docx = ["python-docx==1.2.0"]`
+
+La publicación DOCX no recalcula astrología, no modifica el canonical, no crea scores y no reescribe la interpretación.
+
 ## Publicación
 
 M31 cierra el pipeline analítico M00–M31. La autoría narrativa, selección de formato, maquetación, DOCX, PDF y preflight comienzan únicamente después de M31.
 
 La secuencia de publicación debe respetar:
 
-`canonical_analysis → report_document_model → authored_report → DOCX/PDF → preflight → render completo → inspección → corrección → verificación final`.
+`canonical_analysis → report_document_model → authored_report → DOCX → PDF/preflight → render completo → inspección → corrección → verificación final`.
