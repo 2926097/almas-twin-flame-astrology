@@ -55,6 +55,7 @@ from .px_v3_activation import evaluate_px_v3_activation_firewall, load_px_v3_act
 from .validation_preregistration import build_validation_preregistration_bundle, load_validation_preregistration_bundle_policy
 from .holdout_open import evaluate_holdout_open, load_holdout_open_gate_policy
 from .validation_ledger import append_validation_event, audit_validation_ledger, initialize_validation_ledger, load_validation_execution_ledger_policy
+from .validation_continuity import evaluate_px_v3_promotion_with_continuity, evaluate_validation_continuity, load_validation_continuity_gate_policy
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -158,6 +159,9 @@ __all__ = [
     "initialize_validation_ledger",
     "append_validation_event",
     "audit_validation_ledger",
+    "load_validation_continuity_gate_policy",
+    "evaluate_validation_continuity",
+    "evaluate_px_v3_promotion_with_continuity",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",
