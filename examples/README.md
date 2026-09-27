@@ -25,6 +25,8 @@ El bloque de autoría utiliza tres fixtures sintéticos coordinados:
 
 La narrativa es artificial y no describe a personas reales. Su finalidad es demostrar que ALMAS puede desarrollar una lectura astrológica y metafísica basada en fuentes sin reducirla a índices ni convertir las fuentes en peso analítico. Las referencias públicas incluidas proceden del registro de fuentes del proyecto.
 
+Desde 1.20, el fixture demuestra además **síntesis vertical por motivo**: integra sustrato natal, raíces, campo compuesto/Davison, reencuadre dracónico y Fortuna/Espíritu cuando aportan contexto. No presenta esas técnicas como capítulos independientes ni exige su presencia en todo caso real.
+
 ## Manifiesto obligatorio
 
 Todos los JSON de este directorio, salvo el propio manifiesto, deben aparecer exactamente una vez en `examples/manifest.json`.
