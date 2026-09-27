@@ -36,6 +36,8 @@ La carta natal se interpreta primero como **estructura preexistente**. Debe iden
 
 Para la autoría posterior a M31, usar `canonical_analysis.natal_context` cuando esté disponible. Esta ruta proyecta el contexto ya calculado —signos de puntos, nodos, ángulos, casas, colocaciones y regencias— sin copiar fechas/horas natales ni recalcular la carta. Si la ruta no existe en un análisis importado o degradado, declarar el sustrato natal como no disponible en vez de reconstruirlo silenciosamente desde otros datos.
 
+Aplicar `reference/natal-substrate-hermeneutics.md`: `función planetaria → signo/modo → casa natal/campo → regencia declarada/conexión → tema individual`. La sinastría se redacta después como activación de esa estructura previa, no como origen retroactivo de ella.
+
 Pregunta interpretativa:
 
 > ¿Qué tema ya existía en cada persona antes de que apareciera la otra?
