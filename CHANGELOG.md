@@ -15,8 +15,8 @@
 - Añade schema de procedencia astronómica y workflow específico de compatibilidad Moira en Python 3.10/3.12.
 - La suite del núcleo alcanza **468 tests deterministas**; el workflow específico valida Moira 6.8.2, Skyfield 1.55 y los contratos del gate en Python 3.10/3.12.
 - Preregistra `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` con seis casos sintéticos, tolerancias inmutables y etapas planetas/nodo/casas.
-- Ejecuta `PLANETARY_REFERENCE` con el DE440s oficial fingerprintado: Moira 6.8.2 frente a Skyfield 1.55 obtiene PASS en los seis casos y en ambas versiones de Python; máximo observado 0,9257480642″ frente a un límite aplicable de 15″.
-- True Node y casas/ángulos permanecen como etapas independientes pendientes antes de cerrar el gate astronómico completo.
+- Ejecuta con el DE440s oficial fingerprintado las etapas `PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y `COMPLETE_GATE`; todas obtienen PASS en los seis casos y en Python 3.10/3.12.
+- El `COMPLETE_GATE` valida 47 medidas por caso y 282 por entorno con cero fallos; el máximo global es 39,8903887122″ en ASC/H1 de `G06_CAPE_TOWN_2050`, por debajo del límite preregistrado de 60″, sin modificar thresholds tras observar resultados.
 - No cambia técnicas, pesos, scoring, ontología ni discriminadores.
 
 ## 1.17.0 — 2026-09-27
