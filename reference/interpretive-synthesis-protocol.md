@@ -182,11 +182,20 @@ Sólo después de explicar esta arquitectura puede abrirse un comparandum metaf�
 
 ### 5. Lotes y capas simbólicas secundarias · M13–M14
 
-Fortuna, Espíritu y otras capas secundarias sirven para ampliar contexto cuando su fórmula y procedencia están declaradas.
+Cuando exista `canonical_analysis.symbolic_context`, consumir esa ruta antes de cualquier elaboración narrativa. Es una proyección de salidas ya calculadas:
+
+- `symbolic_context.lots` → M13;
+- `symbolic_context.secondary_symbolic` → M14.
+
+El contrato fija `authoring_projection_only=true` y `creates_additional_evidence=false`. No recalcular lotes ni contactos secundarios después de M31.
+
+M13 conserva fórmula, sect, longitud y `source_ref`. La baseline Fortuna/Espíritu dispone de procedencia histórica registrada en Paulus Alexandrinus y Vettius Valens. En esta fase esa procedencia permite identificar la técnica y su genealogía; no autoriza todavía a añadir una hermenéutica extensa no documentada por el corpus.
+
+M14 conserva exclusivamente los `point_ids` declarados y sus contactos ya calculados. Sigue siendo `support_only=true`: un asteroide o punto secundario no crea por sí solo una raíz, un motivo o una conclusión ontológica. Si el corpus no contiene una fuente de método específica para el punto concreto, describir la geometría y declarar el significado especializado como no establecido en ALMAS en vez de importarlo de memoria o de una escuela no registrada.
 
 Pregunta interpretativa:
 
-> ¿Qué matiz histórico, vocacional, experiencial o simbólico aporta esta capa a una arquitectura ya establecida?
+> ¿Qué matiz documentado aporta esta capa a una arquitectura que ya existe?
 
 No convertir lotes, asteroides, atacires u otras técnicas auxiliares en el centro de la interpretación si las capas estructurales no sostienen el mismo motivo.
 
