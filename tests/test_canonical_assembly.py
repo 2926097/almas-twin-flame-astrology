@@ -220,6 +220,68 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
             ],
         )
 
+    def test_house_overlay_projects_declared_ruler_and_placement(self):
+        canonical = canonical_base()
+        subjects = canonical["natal_context"]["subjects"]
+
+        subjects["A"]["rulerships"] = {
+            "1": {"cusp_sign": "ARIES", "rulers": ["MARS"]}
+        }
+        subjects["A"]["point_signs"] = {
+            "MARS": {"sign": "CAPRICORN"}
+        }
+        subjects["A"]["house_placements"] = {
+            "MARS": {"house": 10, "longitude": 280.0}
+        }
+
+        subjects["B"]["rulerships"] = {
+            "7": {"cusp_sign": "LIBRA", "rulers": ["VENUS"]}
+        }
+        subjects["B"]["point_signs"] = {
+            "VENUS": {"sign": "TAURUS"}
+        }
+        subjects["B"]["house_placements"] = {
+            "VENUS": {"house": 4, "longitude": 45.0}
+        }
+
+        result = assemble_canonical_analysis(canonical, prior_all())
+        overlays = result["canonical_analysis"]["evidence"][0]["house_overlays"]
+
+        self.assertEqual(
+            overlays[0]["rulership"],
+            {
+                "cusp_sign": "LIBRA",
+                "rulers": ["VENUS"],
+                "ruler_context": [
+                    {
+                        "ruler_id": "VENUS",
+                        "sign": "TAURUS",
+                        "house": 4,
+                    }
+                ],
+            },
+        )
+        self.assertEqual(
+            overlays[1]["rulership"],
+            {
+                "cusp_sign": "ARIES",
+                "rulers": ["MARS"],
+                "ruler_context": [
+                    {
+                        "ruler_id": "MARS",
+                        "sign": "CAPRICORN",
+                        "house": 10,
+                    }
+                ],
+            },
+        )
+
+    def test_house_overlay_omits_rulership_when_policy_was_not_declared(self):
+        result = assemble_canonical_analysis(canonical_base(), prior_all())
+        overlays = result["canonical_analysis"]["evidence"][0]["house_overlays"]
+
+        self.assertTrue(all("rulership" not in item for item in overlays))
+
     def test_concrete_axis_contact_resolves_house_without_changing_root_key(self):
         canonical = canonical_base()
         cross = canonical["natal_context"]["cross_house_placements"]
