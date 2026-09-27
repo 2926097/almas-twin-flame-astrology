@@ -193,6 +193,8 @@ Incluir, cuando los datos lo permitan:
 
 Reglas de dependencia:
 - Compuesta y Davison pertenecen a una única familia `RELCHART` para el cómputo de independencia.
+- Cuando M09 publique `field_context`, usar `canonical_analysis.relationship_field` y `reference/relationship-field-hermeneutics.md` para desarrollar el campo emergente. Sus aspectos internos son `authoring_only`: no crean evidencia M15, raíces, pilares ni scores.
+- La compuesta M07 declara `houses_calculated=false`; no inventar casas compuestas. El Davison puede usar cúspides calculadas por el backend cuando estén presentes.
 - Dracónica↔dracónica es corroborativa y no es elegible por defecto como núcleo independiente.
 - Los asteroides secundarios son `support_only=true`.
 - Casas y signos contextualizan raíces; no crean por sí solos raíces ontológicas.
