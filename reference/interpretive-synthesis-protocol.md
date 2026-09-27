@@ -124,7 +124,7 @@ Pregunta interpretativa:
 
 Cuando un motivo sinástrico reaparece en la familia RELCHART, desarrollar el significado de esa continuidad: el patrón no sólo conecta a los individuos, también organiza el campo conjunto.
 
-Para autoría posterior a M31, usar `canonical_analysis.relationship_field` cuando exista y aplicar `reference/relationship-field-hermeneutics.md`. Distinguir tres niveles: `sustrato individual → activación sinástrica → campo emergente`. Los aspectos internos de `field_context` son contexto de autoría y no nuevas raíces. La compuesta no tiene casas en M07; el Davison puede exponer cúspides cuando el backend las calculó.
+Para autoría posterior a M31, usar `canonical_analysis.relationship_field` cuando exista y aplicar `reference/relationship-field-hermeneutics.md`. Distinguir tres niveles: `sustrato individual → activación sinástrica → campo emergente`. Los aspectos internos de `field_context` son contexto de autoría y no nuevas raíces. La compuesta no tiene casas en M07; el Davison puede exponer `house_placements` cuando M08 produjo doce cúspides válidas; la autoría consume esa asignación y no la recalcula.
 
 ### 4. Reencuadre nodal y capa dracónica · M10–M12
 
