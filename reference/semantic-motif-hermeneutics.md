@@ -150,7 +150,9 @@ La lectura correcta no añade un segundo motivo; desarrolla una **continuidad co
 
 #### Nodo + ángulos
 
-Cuando el eje nodal conecta con horizonte o meridiano, la continuidad se vuelve más encarnada: identidad relacional y forma de encuentro en ASC/DSC; vocación, visibilidad y dirección pública en MC/IC.
+Cuando el eje nodal conecta con horizonte o meridiano, resolver primero el extremo concreto mediante `reference/angular-nodal-endpoint-hermeneutics.md`.
+
+No condensar ASC/DSC o MC/IC en una frase genérica: ASC localiza la continuidad en presencia/autoexpresión; DSC en alteridad/pareja/proyección; IC en raíces/intimidad; MC en dirección pública/vocación. Del mismo modo, Nodo Sur aporta familiaridad o patrón adquirido y Nodo Norte dirección de desarrollo.
 
 Estos contactos dependen especialmente de la fiabilidad horaria. Si M23 muestra sensibilidad fuerte, la prosa debe rebajar el peso del ángulo antes de construir una conclusión metafísica.
 
