@@ -4579,6 +4579,34 @@ def main() -> int:
     if concrete_item.get("additionalProperties") is not False:
         fail("M17 concrete contacts must reject undeclared fields")
 
+    overlay_item = (
+        evidence_item.get("properties", {})
+        .get("house_overlays", {})
+        .get("items", {})
+    )
+    rulership_schema = overlay_item.get("properties", {}).get("rulership", {})
+    if set(rulership_schema.get("required", [])) != {
+        "cusp_sign",
+        "rulers",
+        "ruler_context",
+    }:
+        fail("canonical house overlay rulership trace changed")
+    if rulership_schema.get("additionalProperties") is not False:
+        fail("canonical house overlay rulership must reject undeclared fields")
+    ruler_context_item = (
+        rulership_schema.get("properties", {})
+        .get("ruler_context", {})
+        .get("items", {})
+    )
+    if set(ruler_context_item.get("required", [])) != {
+        "ruler_id",
+        "sign",
+        "house",
+    }:
+        fail("canonical house ruler context fields changed")
+    if ruler_context_item.get("additionalProperties") is not False:
+        fail("canonical house ruler context must reject undeclared fields")
+
     if evidence_item.get("properties", {}).get("source_module", {}).get("const") != "M17":
         fail("canonical evidence must remain rooted in M17")
 
