@@ -55,8 +55,9 @@ Quedan `NOT_EVALUABLE`:
 El adaptador produce:
 
 - Sol, Luna y planetas clásicos hasta Plutón;
-- longitud eclíptica;
-- latitud eclíptica;
+- longitud eclíptica geocéntrica aparente en eclíptica/equinoccio verdaderos de fecha;
+- latitud eclíptica bajo el mismo contrato geométrico;
+- ausencia de topocentrismo en las posiciones zodiacales canónicas;
 - velocidad longitudinal;
 - retrogradación;
 - declinación;
@@ -105,7 +106,7 @@ Permanece abierto un gate específico:
 - kernel JPL real fingerprintado;
 - fixtures dorados;
 - tolerancias numéricas preregistradas;
-- comparación independiente de posiciones fundamentales;
+- comparación independiente de posiciones fundamentales bajo el mismo origen, frame y política de reducción;
 - prueba separada de casas/ángulos;
 - evidencia de reproducibilidad.
 
