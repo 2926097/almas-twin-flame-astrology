@@ -59,6 +59,45 @@ class CanonicalAnalysisSchemaValidationTests(unittest.TestCase):
     def test_m30_synthetic_output_validates_against_canonical_schema(self):
         self.validator.validate(valid_canonical_analysis())
 
+    def test_symbolic_context_projection_validates_against_canonical_schema(self):
+        source = canonical_base()
+        source["lots"] = {
+            "policy": {"policy_id": "SYNTHETIC"},
+            "policy_source": "RAW_INPUT",
+            "sect_by_subject": {"A": "DAY", "B": "NIGHT"},
+            "subjects": {
+                "A": {
+                    "FORTUNE": {
+                        "status": "CALCULATED",
+                        "longitude": 120.0,
+                        "source_ref": "SRC_LOT",
+                        "formula": {
+                            "base": "ASC",
+                            "add": [],
+                            "subtract": [],
+                        },
+                        "sect": "DAY",
+                    }
+                },
+                "B": {},
+            },
+        }
+        source["secondary_symbolic"] = {
+            "subjects": ["A", "B"],
+            "point_ids": ["JUNO"],
+            "support_only": True,
+            "aspect_policy": {
+                "CONJUNCTION": {"angle": 0, "orb": 3},
+            },
+            "missing_points_by_subject": {"A": [], "B": []},
+            "contacts": [],
+            "contact_count": 0,
+        }
+
+        result = assemble_canonical_analysis(source, prior_all())
+        self.assertEqual(result["state"], "EVALUABLE")
+        self.validator.validate(result["canonical_analysis"])
+
     def test_unknown_root_namespace_is_rejected(self):
         payload = valid_canonical_analysis()
         payload["unexpected_namespace"] = {}
