@@ -19,7 +19,7 @@
       }
     },
     "aspect_policy": {
-      "type": "object"
+      "$ref": "aspect-policy.schema.json"
     },
     "contacts": {
       "type": "array",
