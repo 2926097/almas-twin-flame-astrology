@@ -75,6 +75,7 @@ REQUIRED_FILES = [
     "examples/authoring-canonical-context.synthetic.json",
     "examples/authoring-report-model-context.synthetic.json",
     "examples/authored-report.synthetic.json",
+    "examples/temporal-reading.synthetic.json",
     "public_cases/README.md",
     "public_cases/manifest.json",
     "validation/holdouts/README.md",
