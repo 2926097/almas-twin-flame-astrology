@@ -3604,6 +3604,8 @@ def main() -> int:
         fail("M31 must expose draconic_context to core interpretive sections")
     if report_model_handler_text.count('"lots_context"') < 4:
         fail("M31 must expose lots_context to detailed interpretive/source sections")
+    if report_model_handler_text.count('"semantic_motifs"') < 4:
+        fail("M31 must expose semantic_motifs to synthesis, structural and relational sections")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
