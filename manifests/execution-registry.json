@@ -143,7 +143,7 @@
     {
       "id": "M26",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/temporal_handlers.py:m26_temporal_activation"
+      "implementation": "src/almas_tfa/temporal_handlers.py:m26_temporal_activation + make_m26_temporal_activation_auto + src/almas_tfa/transit_generation.py + production backend TTRANSIT positions"
     },
     {
       "id": "M27",
