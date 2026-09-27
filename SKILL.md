@@ -426,6 +426,8 @@ La lectura debe explicar primero la arquitectura sin depender de las etiquetas A
 
 En autoría posterior a M31, resolver el sustrato individual desde `canonical_analysis.natal_context` cuando exista. Usar sus `point_signs`, `nodes`, `angles`, `house_cusps`, `house_placements` y `rulerships` como datos derivados ya calculados; no volver a calcular la carta ni recuperar fecha/hora desde fuera del canonical. El sustrato natal debe formular qué tema trae cada sujeto **antes** de interpretar lo que la otra persona activa.
 
+Para esa lectura aplicar `reference/natal-substrate-hermeneutics.md`. La secuencia es `función → signo/modo → casa natal → regencia declarada → tema individual → activación relacional`. No imponer una escuela de regencias cuando `rulerships` esté vacío y no introducir dignidades, símbolos sabianos, decanatos u otras técnicas a partir del mero `degree_in_sign`.
+
 Cada bloque sustantivo debe producir al menos una proposición integrada del tipo:
 
 `evidencia astrológica → motivo → dinámica → significado`.
