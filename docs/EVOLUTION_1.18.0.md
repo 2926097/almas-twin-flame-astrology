@@ -105,7 +105,9 @@ ALMAS incorpora ahora `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1`, congelado antes de
 
 El evaluador `astronomy_golden_validation.py` exige que todas las medidas estén presentes y dentro de tolerancia; faltas, duplicados, métricas no registradas o desviaciones hacen fallar el caso.
 
-La ejecución empírica permanece abierta: todavía faltan el SHA-256 de un DE440 real, resultados Moira, referencias independientes de posiciones/True Node/casas y los archivos dorados resultantes. Skyfield continúa como implementación preferida para la referencia planetaria independiente.
+La etapa `PLANETARY_REFERENCE` ya fue ejecutada con el artefacto JPL `de440s.bsp` preregistrado (SHA-256 `c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2`, MD5 oficial `3917ee56769db332790c751e2168843d`). Moira 6.8.2 se contrastó con Skyfield 1.55 sobre los seis casos congelados y 180 medidas por entorno. Python 3.10 y 3.12 produjeron resúmenes idénticos y los seis casos resultaron PASS, sin alterar tolerancias. La divergencia máxima observada fue 0,9257480642 segundos de arco en la longitud de la Luna del caso G06_CAPE_TOWN_2050, frente a una tolerancia preregistrada de 15 segundos de arco.
+
+La evidencia queda fijada en `validation/astronomy/planetary-stage-evidence.v1.json`. El gate completo permanece abierto exclusivamente para `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y el ensamblaje final `COMPLETE_GATE`.
 
 ## Invariantes
 
