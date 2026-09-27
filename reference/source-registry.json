@@ -2079,6 +2079,82 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrowiki/en/Vertex",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_house_ruler",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "House Ruler",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Definition and interpretive use of the ruler of a house cusp",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/House_Ruler",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el regente efectivo de una casa puede definirse como el planeta que rige el signo situado en la cúspide de esa casa",
+        "los regentes de casas ayudan a mostrar relaciones internas entre áreas de una carta",
+        "la posición y condición del regente pueden emplearse para desarrollar cómo se expresan los asuntos de la casa regida"
+      ],
+      "does_not_support": [
+        "una tabla única obligatoria de regencias tradicionales, modernas o híbridas",
+        "que la regencia cree por sí sola una raíz sinástrica independiente",
+        "que una cadena de regencias demuestre una ontología metafísica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'House Ruler': el regente de una casa puede ser el planeta que rige el signo de su cúspide, y los regentes/dispositores ayudan a descubrir conexiones internas de la carta.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/House_Ruler",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_dispositor",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Dispositor",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Definition and interpretation of dispositorship",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Dispositor",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "un planeta situado en un signo regido por otro planeta queda relacionado con ese regente como dispositor",
+        "la casa, signo y condición del dispositor aportan contexto para interpretar la función dispuesta",
+        "las cadenas de disposición pueden conectar una función con otras áreas de la carta"
+      ],
+      "does_not_support": [
+        "que ALMAS deba calcular una cadena completa de dispositores cuando el usuario no la haya solicitado",
+        "que una relación de disposición equivalga a un aspecto geométrico ya observado",
+        "que el dispositor añada peso estructural por mera existencia"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Dispositor': la posición por signo y casa del planeta regente aporta información adicional sobre la expresión del planeta o tema dispuesto.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Dispositor",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"
