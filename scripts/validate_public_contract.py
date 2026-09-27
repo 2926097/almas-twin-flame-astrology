@@ -81,6 +81,7 @@ REQUIRED_FILES = [
     "schemas/validation-preregistration-bundle.schema.json",
     "schemas/holdout-open-record.schema.json",
     "schemas/validation-execution-ledger.schema.json",
+    "schemas/validation-continuity-certificate.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
     "schemas/documentary-event-output.schema.json",
@@ -205,6 +206,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/validation-preregistration-bundle-policy.json",
     "src/almas_tfa/data/holdout-open-gate-policy.json",
     "src/almas_tfa/data/validation-execution-ledger-policy.json",
+    "src/almas_tfa/data/validation-continuity-gate-policy.json",
     "src/almas_tfa/data/analysis-profile-policy.json",
     "src/almas_tfa/data/hellenistic-lots-policy.json",
     "src/almas_tfa/data/model-attribution-policy.json",
@@ -242,6 +244,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/validation_preregistration.py",
     "src/almas_tfa/holdout_open.py",
     "src/almas_tfa/validation_ledger.py",
+    "src/almas_tfa/validation_continuity.py",
     "src/almas_tfa/analysis_profiles.py",
     "src/almas_tfa/model_attribution.py",
     "src/almas_tfa/time_perturbation.py",
@@ -345,6 +348,7 @@ REQUIRED_FILES = [
     "tests/test_validation_preregistration.py",
     "tests/test_holdout_open.py",
     "tests/test_validation_ledger.py",
+    "tests/test_validation_continuity.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -536,6 +540,9 @@ def main() -> int:
     validation_execution_ledger_policy = load_json(
         "src/almas_tfa/data/validation-execution-ledger-policy.json"
     )
+    validation_continuity_gate_policy = load_json(
+        "src/almas_tfa/data/validation-continuity-gate-policy.json"
+    )
     analysis_profile_policy = load_json(
         "src/almas_tfa/data/analysis-profile-policy.json"
     )
@@ -604,6 +611,9 @@ def main() -> int:
     )
     validation_execution_ledger_schema = load_json(
         "schemas/validation-execution-ledger.schema.json"
+    )
+    validation_continuity_certificate_schema = load_json(
+        "schemas/validation-continuity-certificate.schema.json"
     )
     temporal_activation_schema = load_json("schemas/temporal-activation-output.schema.json")
     documentary_event_output_schema = load_json("schemas/documentary-event-output.schema.json")
@@ -1385,6 +1395,72 @@ def main() -> int:
     ):
         if v3_schema_props.get(field, {}).get("const") is not False:
             fail(f"1.16 V3 schema must lock {field}=false")
+    if validation_continuity_gate_policy.get("policy_id") != "ALMAS_VALIDATION_CONTINUITY_GATE_V1":
+        fail("1.16 V4 continuity gate policy id changed")
+    if validation_continuity_gate_policy.get("status") != "FROZEN_EXPERIMENTAL_PROTOCOL":
+        fail("1.16 V4 continuity gate must remain frozen")
+    if validation_continuity_gate_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("1.16 V4 continuity gate must remain E_PROJECT_POLICY")
+    if validation_continuity_gate_policy.get("required_ledger_events") != [
+        "PREREGISTERED",
+        "HOLDOUT_OPENED",
+        "HOLDOUT_EVALUATED",
+    ]:
+        fail("1.16 V4 required ledger events changed")
+    v4_principles = validation_continuity_gate_policy.get("principles", {})
+    for key in (
+        "preregistration_hash_must_match",
+        "opening_hash_must_match",
+        "holdout_artifact_hash_must_match",
+        "ledger_hash_chain_must_be_valid",
+        "candidate_id_continuity_required",
+        "formula_ref_continuity_required",
+        "cohort_identity_continuity_required",
+        "null_model_continuity_required",
+        "runtime_version_commit_frozen",
+        "promotion_bridge_requires_continuity",
+        "distribution_fingerprint_required",
+        "private_payloads_forbidden_in_certificate",
+        "automatic_registry_mutation_forbidden",
+        "continuity_does_not_promote_candidate",
+        "continuity_does_not_activate_scoring",
+    ):
+        if v4_principles.get(key) is not True:
+            fail(f"1.16 V4 continuity invariant failed: {key}")
+    for key in (
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v4_principles.get(key) is not False:
+            fail(f"1.16 V4 continuity field must remain false: {key}")
+
+    v4_schema_props = validation_continuity_certificate_schema.get(
+        "properties", {}
+    )
+    if v4_schema_props.get("policy_id", {}).get("const") != "ALMAS_VALIDATION_CONTINUITY_GATE_V1":
+        fail("1.16 V4 certificate schema policy id changed")
+    for field in (
+        "required_ledger_events_verified",
+        "continuity_verified",
+        "promotion_bridge_permitted",
+    ):
+        if v4_schema_props.get(field, {}).get("const") is not True:
+            fail(f"1.16 V4 certificate must require {field}=true")
+    for field in (
+        "private_payloads_exposed",
+        "automatic_registry_mutation",
+        "scoring_activation",
+        "weighting_activation",
+        "ontology_activation",
+        "l3_validation",
+        "metaphysical_probability",
+    ):
+        if v4_schema_props.get(field, {}).get("const") is not False:
+            fail(f"1.16 V4 certificate must lock {field}=false")
+
     s8_required = set(px_v3_promotion_evidence_schema.get("required", []))
     for field in (
         "candidate",
