@@ -75,6 +75,8 @@ Desde 1.17.0, ALMAS publica un manifiesto estructural único que enlaza técnica
 
 Desde 1.18.0, M02 y M08 pueden ejecutarse con el adaptador opcional `MoiraProductionBackend`. La instalación del núcleo sigue sin arrastrar un motor astronómico; el extra `astronomy-moira` fija Moira 6.8.2 y todo cálculo exige un kernel JPL local cuyo SHA-256 forma parte de la procedencia.
 
+Desde 1.19.0, el cierre M31 alimenta `authored_report`: una capa de autoría centrada en astrología y hermenéutica/metafísica basada en fuentes. La cadena materializa después DOCX y PDF B5 con fingerprint, bibliografía y preflight, sin recalcular la astrología ni convertir la infraestructura técnica en el contenido principal del informe.
+
 ## Repositorio
 
 ```text
