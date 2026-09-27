@@ -83,6 +83,23 @@ class DocxPublicationTests(unittest.TestCase):
                 footer_text,
             )
 
+    def test_multparagraph_narrative_is_materialized_as_real_paragraphs(self):
+        from docx import Document
+
+        authored = self.authored()
+        authored["sections"][0]["narrative"] = (
+            "Primer párrafo interpretativo.\n\n"
+            "Segundo párrafo interpretativo."
+        )
+        with TemporaryDirectory() as temp:
+            output = Path(temp) / "report.docx"
+            build_authored_report_docx(authored, output)
+            document = Document(str(output))
+            texts = [p.text for p in document.paragraphs]
+
+        self.assertIn("Primer párrafo interpretativo.", texts)
+        self.assertIn("Segundo párrafo interpretativo.", texts)
+
     def test_docx_publication_does_not_mutate_authored_report(self):
         authored = self.authored()
         snapshot = json.dumps(
