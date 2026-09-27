@@ -37,6 +37,14 @@ Las secciones contienen rutas, no copias de los valores analíticos.
 
 El modelo documental nunca se convierte en una segunda verdad analítica.
 
+### Jerarquía instrumental e interpretativa
+
+La capa técnica cumple una función instrumental: asegurar que cartas, aspectos, raíces, recurrencias, índices, procedencia y límites lleguen a la autoría sin errores ni mutaciones.
+
+El contenido sustantivo del informe es la lectura astrológica y su elaboración hermenéutica/metafísica basada en fuentes. La reproducibilidad astronómica y los controles cuantitativos no sustituyen esa interpretación ni pretenden validar científicamente sus significados; proporcionan un soporte calculado y auditable para que la interpretación se construya sobre datos consistentes.
+
+Por ello S01 y S10 exponen, cuando existen, `evidence`, `semantic_motifs` y `doctrine`. La autoría posterior puede integrar esas rutas en una narrativa unificada, conservando sus clases epistemológicas y los límites de cada fuente.
+
 ## 4. Estados del documento
 
 `report_state` hereda M30:
