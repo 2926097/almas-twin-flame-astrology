@@ -1071,7 +1071,9 @@
         "astrodienst_intro_houses",
         "astrodienst_main_axis",
         "astrodienst_moon_nodes",
-        "astrodienst_vertex"
+        "astrodienst_vertex",
+        "astrodienst_house_ruler",
+        "astrodienst_dispositor"
       ],
       "historical_sources": [
         "firmicus_mathesis_2_29_antiscia"
