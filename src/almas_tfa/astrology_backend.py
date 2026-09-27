@@ -4,6 +4,11 @@ from dataclasses import dataclass
 from typing import Any, Mapping, Protocol
 
 
+class AstronomyBackendNotEvaluableError(RuntimeError):
+    """El backend no puede calcular sin inventar o degradar datos."""
+
+
+
 @dataclass(frozen=True)
 class NatalRequest:
     """Solicitud normalizada para un cálculo natal."""
