@@ -1,11 +1,16 @@
 from __future__ import annotations
 
 from datetime import datetime
+import json
+from pathlib import Path
 import unittest
 
 from almas_tfa.module_contract import ModuleContext
 from almas_tfa.temporal_handlers import make_m26_temporal_activation_auto
 from almas_tfa.transit_generation import generate_ttransit_signals
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 ASPECT_POLICY = {
@@ -243,6 +248,47 @@ class TransitGenerationTests(unittest.TestCase):
             "SATURN",
         )
         self.assertIn("TTRANSIT_GENERATED:1", result.diagnostics)
+
+    def test_temporal_reading_fixture_is_root_first_and_source_traced(self):
+        fixture = json.loads(
+            (ROOT / "examples/temporal-reading.synthetic.json")
+            .read_text(encoding="utf-8")
+        )
+        signal = fixture["temporal_signal"]
+
+        self.assertEqual(signal["temporal_family"], "TTRANSIT")
+        self.assertEqual(
+            signal["activation_class"],
+            "ENDPOINT_ACTIVATION",
+        )
+        self.assertAlmostEqual(
+            signal["effective_strength"],
+            signal["strength"] * signal["k"],
+        )
+        self.assertEqual(
+            [stage["stage"] for stage in fixture["interpretive_sequence"]],
+            [
+                "ROOT",
+                "TRIGGER_FUNCTION",
+                "TARGET_FUNCTION",
+                "GEOMETRY",
+                "ROOT_INTEGRATION",
+                "EVOLUTIONARY_FUNCTION",
+                "BOUNDARY",
+            ],
+        )
+        self.assertIn(
+            "astrodienst_transit",
+            fixture["source_refs"],
+        )
+        self.assertIn(
+            "hand_planets_in_transit_2002",
+            fixture["source_refs"],
+        )
+        self.assertIn(
+            "no predice un hecho",
+            fixture["authored_paragraph"],
+        )
 
     def test_wrapper_preserves_manual_signals_alongside_generated(self):
         handler = make_m26_temporal_activation_auto(
