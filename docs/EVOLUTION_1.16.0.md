@@ -177,7 +177,40 @@ Superar V4 sólo permite **presentar** la evidencia al gate S8. No equivale a
 - `l3_validation=false`;
 - `metaphysical_probability=false`.
 
-## Próximas fases
+## V5 · Confirmatory Closure and Release Audit
 
-V5 formalizará el cierre confirmatorio, el revelado documental y el paquete
-de auditoría de release sin activar automáticamente PX v3.
+V5 queda implementada mediante
+`ALMAS_VALIDATION_CLOSURE_RELEASE_AUDIT_V1`.
+
+El cierre se divide en dos operaciones. Primero, el revelado documental tardío
+sólo puede comenzar cuando V4 ha verificado la continuidad y el ledger se
+encuentra exactamente en `HOLDOUT_EVALUATED`. El artefacto de revelado conserva
+referencias documentales y fingerprints, pero no narrativa cruda ni payloads
+privados. La salida estructural anterior y posterior al revelado debe conservar
+el mismo SHA-256; cualquier mutación, leakage, case fitting o cambio de regla
+posterior al holdout bloquea el cierre.
+
+Después, el cierre confirmatorio exige un resultado S8 enlazado al mismo
+certificado V4. Tanto un ciclo `PROMOTION_ELIGIBLE` como uno `NOT_ELIGIBLE`
+pueden cerrarse de forma auditable. El primero queda expresado únicamente como
+`PROMOTION_ELIGIBLE_AWAITING_VERSIONED_ACTIVATION`; no constituye activación.
+
+V5 añade al ledger los eventos `DOCUMENTARY_REVEALED` y
+`VALIDATION_CLOSED`, exige una cadena final de cinco entradas y produce un
+paquete agregado de auditoría de release que enlaza los fingerprints de V1,
+V2, S7, V4, revelado, S8, cierre y chain head final.
+
+Incluso tras un cierre válido permanecen obligatoriamente:
+
+- `automatic_registry_mutation=false`;
+- `same_release_activation_forbidden=true`;
+- `manual_new_version_required_for_activation=true`;
+- `scoring_activation=false`;
+- `weighting_activation=false`;
+- `ontology_activation=false`;
+- `l3_validation=false`;
+- `metaphysical_probability=false`.
+
+La infraestructura V1–V5 puede publicarse sin ejecutar un holdout externo real.
+En ese supuesto no existe candidato real promovido ni discriminador L3 validado;
+se publica el procedimiento reproducible, no un resultado empírico inexistente.
