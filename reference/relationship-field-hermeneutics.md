@@ -120,7 +120,9 @@ En ALMAS se utiliza para explorar:
 
 `relationship_field.davison.house_cusps`
 
-A diferencia de la compuesta, el Davison puede disponer de casas calculadas.
+`relationship_field.davison.house_placements`
+
+A diferencia de la compuesta, el Davison puede disponer de casas calculadas. Cuando existen las doce cúspides, M09 deriva además la casa de cada punto Davison antes de la autoría; la redacción debe consumir `house_placements` y no recalcular la pertenencia a casas.
 
 ---
 
@@ -251,7 +253,7 @@ La casa responde:
 
 > ¿En qué campo experiencial se organiza una función del vínculo?
 
-Aplicar el vocabulario de `house-overlay-hermeneutics.md`, pero en gramática de campo, no de superposición.
+Aplicar el vocabulario de `house-overlay-hermeneutics.md`, pero en gramática de campo, no de superposición. `house_placements` se deriva exclusivamente de las cúspides M08 ya calculadas y permanece `authoring_only`; no crea raíces ni peso adicional.
 
 Ejemplo:
 
