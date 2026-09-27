@@ -3472,6 +3472,41 @@ def main() -> int:
         fail("M26 temporal signals must never create structural roots")
     if signal_props.get("predicts_real_world_event", {}).get("const") is not False:
         fail("M26 temporal signals must never predict real-world events")
+    signal_required = set(
+        temporal_props.get("signals", {})
+        .get("items", {})
+        .get("required", [])
+    )
+    if "trigger_context" not in signal_required:
+        fail("M26 normalized signals must expose trigger_context")
+    trigger_schema = signal_props.get("trigger_context", {})
+    trigger_variants = trigger_schema.get("oneOf", [])
+    trigger_object = next(
+        (
+            variant
+            for variant in trigger_variants
+            if variant.get("type") == "object"
+        ),
+        None,
+    )
+    if trigger_object is None:
+        fail("M26 trigger_context must allow a structured object")
+    if not any(variant.get("type") == "null" for variant in trigger_variants):
+        fail("M26 trigger_context must remain optional/backward-compatible")
+    if set(trigger_object.get("required", [])) != {
+        "trigger_point",
+        "target_point",
+        "relation",
+    }:
+        fail("M26 trigger_context core trace fields changed")
+    trigger_props = trigger_object.get("properties", {})
+    if trigger_props.get("orb", {}).get("minimum") != 0:
+        fail("M26 trigger_context orb must remain nonnegative")
+    temporal_handler_text = (
+        ROOT / "src/almas_tfa/temporal_handlers.py"
+    ).read_text(encoding="utf-8")
+    if 'raw.get("trigger_context")' not in temporal_handler_text:
+        fail("M26 must preserve upstream trigger_context instead of recalculating it")
     documentary_props = documentary_event_output_schema.get("properties", {})
     if documentary_props.get("structural_mutation_allowed", {}).get("const") is not False:
         fail("M27 must forbid retrospective structural mutation")
