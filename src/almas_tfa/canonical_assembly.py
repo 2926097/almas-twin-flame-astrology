@@ -265,6 +265,9 @@ def _evidence_from_roots(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
         root_id = root.get("root_id")
         if not isinstance(root_id, str) or not root_id:
             continue
+        dependency_families = list(
+            root.get("dependency_families", [])
+        )
         evidence.append(
             {
                 "evidence_id": "ROOT:" + root_id,
@@ -274,9 +277,16 @@ def _evidence_from_roots(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
                 "strength": root.get("strength"),
                 "strength_state": root.get("strength_state"),
                 "core_eligible": bool(root.get("core_eligible")),
-                "dependency_families": list(
-                    root.get("dependency_families", [])
+                "dependency_families": dependency_families,
+                "independent_family_count": int(
+                    root.get(
+                        "independent_family_count",
+                        len(dependency_families),
+                    )
                 ),
+                "point_ids": list(root.get("point_ids", [])),
+                "relation_ids": list(root.get("relation_ids", [])),
+                "max_exactness": root.get("max_exactness"),
             }
         )
     return evidence
