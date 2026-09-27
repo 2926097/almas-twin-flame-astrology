@@ -203,6 +203,7 @@ REQUIRED_FILES = [
     "reference/report-gate.md",
     "reference/report-document-model.md",
     "reference/interpretive-synthesis-protocol.md",
+    "reference/natal-substrate-hermeneutics.md",
     "reference/planetary-function-hermeneutics.md",
     "reference/aspect-geometry-hermeneutics.md",
     "reference/semantic-motif-hermeneutics.md",
@@ -3744,6 +3745,20 @@ def main() -> int:
     if len(source_ids_list) != len(set(source_ids_list)):
         fail("source registry contains duplicate ids")
     source_ids = set(source_ids_list)
+
+    required_natal_substrate_sources = {
+        "astrodienst_zodiac_sign",
+        "astrodienst_element",
+        "astrodienst_quality",
+        "astrodienst_sign_ruler",
+        "astrodienst_house_ruler",
+    }
+    missing_natal_sources = required_natal_substrate_sources - source_ids
+    if missing_natal_sources:
+        fail(
+            "natal-substrate hermeneutics missing registered sources: "
+            + ", ".join(sorted(missing_natal_sources))
+        )
 
     required_planetary_function_sources = {
         "astrodienst_personal_planet",
