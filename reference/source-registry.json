@@ -2307,6 +2307,234 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrowiki/en/Pluto",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_aspect",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Aspect",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "General; Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Aspect",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "definición del aspecto como relación angular entre dos factores del horóscopo y listado de los cinco aspectos mayores",
+        "distinción contemporánea entre aspectos facilitadores y aspectos analíticos/desafiantes sin reducirlos a bueno/malo",
+        "regla interpretativa explícita de considerar primero la naturaleza de los planetas implicados y cómo cada función modifica a la otra"
+      ],
+      "does_not_support": [
+        "validación científica de los significados astrológicos de los aspectos",
+        "que una geometría armónica garantice compatibilidad, felicidad o permanencia",
+        "que una geometría desafiante pruebe karma, conflicto inevitable o fracaso relacional"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Aspect', secciones General e Interpretation: define los aspectos mayores, cuestiona la dicotomía bueno/malo y exige interpretar la geometría a partir de la naturaleza de los factores implicados.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Aspect",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_conjunction",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Conjunction",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Conjunct",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "conjunción como vínculo estrecho e interpenetración de las funciones implicadas",
+        "influencia mutua continua entre los dos factores",
+        "dependencia del resultado respecto de la compatibilidad o diferencia funcional entre los planetas"
+      ],
+      "does_not_support": [
+        "que toda conjunción sea armónica, benéfica o compatible",
+        "que una conjunción implique fusión psicológica literal o reciprocidad",
+        "que la potencia de una conjunción identifique una ontología del vínculo"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Conjunction', sección Interpretation: describe una unión estrecha e interpenetración de energías cuya expresión depende de las funciones planetarias implicadas.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Conjunct",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_opposition",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Opposition",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Opposition",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "oposición como geometría de polaridad y confrontación directa entre dos funciones",
+        "posibilidad de alternancia o proyección de uno de los polos",
+        "integración de ambos polos como tarea interpretativa central"
+      ],
+      "does_not_support": [
+        "que toda oposición implique incompatibilidad o separación",
+        "que la polaridad astrológica determine roles de género o polaridad espiritual fija",
+        "que una oposición pruebe relación espejo, llama gemela o destino"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Opposition', sección Interpretation: presenta confrontación, polaridad, posible proyección/alternancia y la tarea de integrar ambos polos.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Opposition",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_square",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Square",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Square",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "cuadratura como aspecto de tensión, fricción y presión entre funciones",
+        "potencial de conflicto o bloqueo que exige actividad y elaboración",
+        "lectura contemporánea de la cuadratura como desafío con potencial de desarrollo en lugar de aspecto simplemente malo"
+      ],
+      "does_not_support": [
+        "que una cuadratura determine fracaso, toxicidad o incompatibilidad",
+        "que tensión equivalga a crecimiento efectivo o sanación",
+        "que una cuadratura fuerte pruebe karma o contrato"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Square', sección Interpretation: describe tensión, presión, posible conflicto y el potencial de trabajo/desarrollo constructivo.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Square",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_trine",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Trine",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Trine",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "trígono como flujo relativamente fácil, apoyo y expresión natural entre funciones",
+        "carácter poco forzado de la cooperación entre los factores implicados",
+        "posibilidad de comodidad o falta de motivación cuando la facilidad no exige desarrollo"
+      ],
+      "does_not_support": [
+        "que un trígono garantice compromiso, crecimiento, reciprocidad o permanencia",
+        "que la facilidad sea siempre más evolutiva que la tensión",
+        "que un trígono pruebe afinidad álmica u origen compartido"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Trine', sección Interpretation: describe apoyo y flujo no impedido, junto con el riesgo de comodidad o falta de motivación.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Trine",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_sextile",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Sextile",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Sextile",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "sextil como geometría armónica de oportunidad, complementariedad y posibilidad de cooperación",
+        "presencia de un componente de activación más marcado que en el trígono",
+        "necesidad de participación para convertir la oportunidad en una dinámica desarrollada"
+      ],
+      "does_not_support": [
+        "que un sextil garantice que la oportunidad se realice",
+        "que la cooperación sea automática o recíproca",
+        "que un sextil constituya por sí solo evidencia de afinidad espiritual"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Sextile', sección Interpretation: describe oportunidad, complementariedad y una invitación a actuar, con menor presión que los aspectos desafiantes.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sextile",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"

@@ -2,17 +2,17 @@
   "audit_version": "1.0.0",
   "almas_version": "1.15.0",
   "date": "2026-09-27",
-  "sources_total": 61,
+  "sources_total": 67,
   "concepts_total": 97,
   "genealogy_edges_total": 73,
   "by_priority": {
     "P1_PRIMARY": 25,
     "P2_ACADEMIC": 7,
-    "P4_IDENTIFIED_METHOD": 27,
+    "P4_IDENTIFIED_METHOD": 33,
     "P3_HISTORICAL_TECHNICAL": 2
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 34,
+    "VERIFIED_PRIMARY": 40,
     "VERIFIED_METADATA": 27
   },
   "integrity": {
@@ -35,6 +35,7 @@
     "ALMAS 1.20 incorpora Melanie Reinhart y Barbara Hand Clow como fuentes de método para Quirón, casas y aspectos; fundamentan WOUND_REPAIR como hermenéutica de vulnerabilidad/elaboración sin equipararla a tikkun, contrato o prueba kármica.",
     "ALMAS 1.20 incorpora referencias directas de Astrodienst para la mecánica sinástrica de superposición de casas y para las significaciones generales de las doce casas; se usan como soporte hermenéutico y no como evidencia ontológica ni peso estructural.",
     "ALMAS 1.20 incorpora fuentes directas de Astrodienst para diferenciar ASC/DSC, MC/IC, Nodo Norte/Nodo Sur y Vertex en la autoría relacional; estas distinciones enriquecen significado sin crear nuevas raíces ni peso estructural.",
-    "ALMAS 1.20 incorpora referencias directas de Astrodienst para funciones planetarias concretas: planetas personales, Júpiter, Saturno, Urano, Neptuno y Plutón. Estas fuentes enriquecen la lectura root-first de contactos concretos y no añaden peso estructural ni validación ontológica."
+    "ALMAS 1.20 incorpora referencias directas de Astrodienst para funciones planetarias concretas: planetas personales, Júpiter, Saturno, Urano, Neptuno y Plutón. Estas fuentes enriquecen la lectura root-first de contactos concretos y no añaden peso estructural ni validación ontológica.",
+    "ALMAS 1.20 incorpora referencias directas de Astrodienst para la geometría de aspectos mayores: aspecto general, conjunción, oposición, cuadratura, trígono y sextil. Se usan como moduladores hermenéuticos de funciones ya identificadas y no crean raíces ni peso estructural adicional."
   ]
 }

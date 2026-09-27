@@ -432,6 +432,8 @@ Para los motivos producidos por `ALMAS_SEMANTIC_MOTIF_V2`, usar `reference/seman
 
 Cuando una raíz preserve planetas concretos en `concrete_contacts` o `point_ids`, aplicar primero `reference/planetary-function-hermeneutics.md`. Resolver `función A → función B → geometría → casa si existe → raíz → motivo`; no redactar Venus–Plutón, Mercurio–Júpiter o Luna–Saturno como variaciones de un mismo texto genérico.
 
+Cuando `relation_ids` contenga `CONJUNCTION`, `OPPOSITION`, `SQUARE`, `TRINE` o `SEXTILE`, aplicar `reference/aspect-geometry-hermeneutics.md`. La geometría modifica el verbo de la interacción y no se convierte en una etiqueta buena/mala ni en un indicador ontológico.
+
 Antes de interpretar una superposición de casas, usar `reference/house-overlay-hermeneutics.md`. Esa guía fija la dirección fuente→receptor, las doce áreas experienciales y la regla `punto → casa → geometría → raíz → motivo`. La casa contextualiza dónde opera la raíz; no crea una evidencia independiente ni eleva por sí sola su peso metafísico.
 
 Cuando `concrete_contacts` incluya ASC/DSC, MC/IC, NORTH_NODE/SOUTH_NODE, VERTEX/ANTI_VERTEX, aplicar `reference/angular-nodal-endpoint-hermeneutics.md` antes de redactar el contacto. El eje normalizado conserva identidad estructural; el extremo concreto determina la forma experiencial.
