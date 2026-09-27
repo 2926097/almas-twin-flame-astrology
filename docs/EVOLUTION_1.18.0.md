@@ -97,20 +97,15 @@ Ese workflow:
 
 El smoke de runtime no carga un kernel externo en CI.
 
-## A8 · Validación dorada pendiente
+## A8 · Gate dorado preregistrado
 
 La disponibilidad del adaptador no equivale a validación astronómica independiente.
 
-Permanece abierto un gate específico:
+ALMAS incorpora ahora `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1`, congelado antes de observar resultados reales. El gate fija seis casos sintéticos, la geometría común, métricas obligatorias, tolerancias en segundos de arco y una regla sin promedios compensatorios.
 
-- kernel JPL real fingerprintado;
-- fixtures dorados;
-- tolerancias numéricas preregistradas;
-- comparación independiente de posiciones fundamentales bajo el mismo origen, frame y política de reducción;
-- prueba separada de casas/ángulos;
-- evidencia de reproducibilidad.
+El evaluador `astronomy_golden_validation.py` exige que todas las medidas estén presentes y dentro de tolerancia; faltas, duplicados, métricas no registradas o desviaciones hacen fallar el caso.
 
-Skyfield permanece como candidato de verificación independiente para posiciones fundamentales.
+La ejecución empírica permanece abierta: todavía faltan el SHA-256 de un DE440 real, resultados Moira, referencias independientes de posiciones/True Node/casas y los archivos dorados resultantes. Skyfield continúa como implementación preferida para la referencia planetaria independiente.
 
 ## Invariantes
 
