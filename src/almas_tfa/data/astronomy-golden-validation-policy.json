@@ -29,7 +29,14 @@
     },
     "true_node": {
       "required": true,
-      "method_family": "INDEPENDENT_TRUE_NODE_IMPLEMENTATION",
+      "method_family": "INDEPENDENT_OSCULATING_GEOMETRIC_NODE",
+      "preferred_implementation": "SKYFIELD_DE440_FIRST_PRINCIPLES",
+      "method_id": "ALMAS_SKYFIELD_DE440_TRUE_NODE_REFERENCE_V1",
+      "definition": "INSTANTANEOUS_GEOCENTRIC_OSCULATING_LUNAR_PLANE_INTERSECTION_WITH_TRUE_ECLIPTIC_OF_DATE",
+      "state_vectors": "SIMULTANEOUS_MOON_MINUS_EARTH",
+      "orbital_normal": "ICRF_R_CROSS_V_THEN_ROTATE_TO_TRUE_ECLIPTIC_OF_DATE",
+      "ascending_node_orientation": "K_CROSS_H",
+      "time_alignment": "COMMON_TT_EPOCH_FROM_BACKEND_RECEIPT",
       "same_software_implementation_forbidden": true
     },
     "houses_and_angles": {
