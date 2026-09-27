@@ -986,6 +986,108 @@ Representa la capacidad de **coordinar, resonar o construir una experiencia comp
 
 No significa ausencia de conflicto. Indica que ciertas funciones encuentran una vía relativamente inteligible de integración.
 
+Las fuentes `davison_synastry_1983`, `sakoian_acker_human_relationships_1976` y `arroyo_relationships_life_cycles_1993` permiten traducir esa coherencia a dinámica interpersonal concreta. El motivo no significa “compatibilidad total”: identifica una vía de coordinación entre las funciones presentes en la raíz.
+
+### Formas concretas de coherencia
+
+#### Sol + Luna
+
+Coordina identidad/voluntad con necesidad emocional. Puede facilitar que una persona se sienta reconocida mientras la otra encuentra espacio para expresar cuidado, pertenencia o respuesta emocional.
+
+La pregunta no es sólo si “se llevan bien”, sino:
+
+> ¿La identidad de uno puede existir sin invalidar la necesidad emocional del otro?
+
+Cuando la misma temática aparece en RELCHART, la relación puede disponer de un mecanismo propio de integración entre propósito y clima emocional.
+
+#### Sol + Mercurio
+
+Facilita que identidad y pensamiento/lenguaje se reconozcan. Puede dar sensación de ser entendido, claridad para explicar quién se es o capacidad para convertir una intuición personal en conversación compartida.
+
+No confundir facilidad comunicativa con igualdad de opinión.
+
+#### Sol + Venus
+
+Puede producir reconocimiento afectivo, apreciación y compatibilidad entre identidad y valores. Venus puede confirmar o suavizar la expresión solar; el Sol puede dar visibilidad a aquello que Venus aprecia.
+
+Su valor aumenta cuando existe reciprocidad y otras raíces sostienen intimidad/realidad. Aprecio no equivale a compromiso.
+
+#### Sol + Marte
+
+Coordina identidad con acción e iniciativa. Puede generar impulso compartido, admiración por la capacidad de actuar o facilidad para movilizar proyectos.
+
+La integración no elimina competencia. La lectura debe observar si la energía marciana potencia al Sol o invade su dirección.
+
+#### Sol + Júpiter
+
+Favorece confianza, expansión y visión alrededor de la identidad. Puede ampliar propósito, optimismo, enseñanza o apertura de horizontes.
+
+El riesgo es sobreestimar posibilidades. Coherencia Sol–Júpiter no garantiza que una visión compartida sea realista.
+
+#### Luna + Mercurio
+
+Permite traducir emoción a lenguaje. Puede ayudar a que necesidades afectivas sean nombradas y comprendidas en lugar de actuar sólo por reacción.
+
+La pregunta útil es si la palabra regula la emoción o la racionaliza en exceso.
+
+#### Luna + Venus
+
+Integra necesidad emocional con afecto, gusto y capacidad de recibir/dar placer. Puede ser una de las formas más claras de ternura o cuidado compatible, pero no implica por sí sola profundidad transformativa.
+
+#### Luna + Marte
+
+Puede coordinar sentimiento con respuesta y protección. La persona marciana puede movilizar lo que la Luna siente; la Luna puede dar dirección emocional a la acción.
+
+Incluso con aspecto coherente, observar si la rapidez de Marte respeta el ritmo lunar.
+
+#### Luna + Júpiter
+
+Asocia seguridad con expansión, generosidad y sentido. Puede favorecer apoyo, confianza y una experiencia de “espacio emocional” más amplia.
+
+Evitar convertir optimismo emocional en garantía de estabilidad.
+
+#### Mercurio + Venus / Marte / Júpiter
+
+- Mercurio–Venus: lenguaje y valores encuentran una vía amable o estéticamente afín;
+- Mercurio–Marte: pensamiento y acción pueden coordinarse con rapidez y eficacia;
+- Mercurio–Júpiter: detalle e idea general se complementan, facilitando aprendizaje y visión.
+
+En todos los casos, coherencia funcional no significa ausencia de discrepancia.
+
+#### Venus + Júpiter
+
+Puede ampliar placer, generosidad, valores compartidos, sociabilidad o disfrute. Es una raíz de afinidad expansiva cuando no ha sido capturada por un motivo anterior.
+
+La expansión debe contrastarse con realidad material para evitar promesas o expectativas desproporcionadas.
+
+#### Marte + Júpiter
+
+Coordina iniciativa con confianza y escala. Puede dar entusiasmo para actuar, emprender, viajar, aprender o defender una visión.
+
+El exceso de confianza sigue siendo posible aunque la relación sea fluida.
+
+#### Personales + eje del horizonte
+
+Una relación coherente con ASC/DSC puede hacer que una función planetaria encaje con naturalidad en la forma de presentarse o vincularse de la otra persona. Es especialmente relevante para reconocimiento inmediato y convivencia interpersonal.
+
+La hora natal debe ser suficientemente robusta para sostener el argumento.
+
+### Qué significa cada relación coherente
+
+- **conjunción**: concentra las funciones; integración intensa, no necesariamente fácil;
+- **trígono**: circulación relativamente espontánea;
+- **sextil**: posibilidad cooperativa que suele requerir participación;
+- **paralelo**: refuerzo declinacional interpretado dentro de su técnica;
+- **antiscio**: simetría tradicional que añade resonancia sin equivaler universalmente a conjunción.
+
+El motivo `RELATIONAL_COHERENCE` no aparece si la raíz ya fue clasificada como Venus–Marte, Neptuno, transformación, Quirón o continuidad. La prosa debe respetar ese contenido más específico.
+
+### Dirección, reciprocidad y realidad
+
+La coherencia A→B no demuestra automáticamente que B experimente la relación del mismo modo. Para hablar de integración bilateral, buscar dirección inversa, recurrencia independiente o una carta relacional concordante.
+
+M29 continúa siendo el lugar para reciprocidad y viabilidad factual. Una raíz coherente describe capacidad simbólica de coordinación; no demuestra una relación estable en la realidad.
+
 ### Preguntas de lectura
 
 - ¿Qué funciones fluyen o se reconocen?
@@ -1028,15 +1130,87 @@ Se asigna cuando una raíz core reúne al menos dos puntos del conjunto `AFFINIT
 
 ### Núcleo interpretativo
 
-Es el motivo más general de **afinidad, compatibilidad o reconocimiento interpersonal**.
+Es el motivo más general de **afinidad potencial o reconocimiento interpersonal por composición de funciones**. No equivale por definición a compatibilidad ni a facilidad.
 
-Su valor crece cuando:
+### Fallback estructural, no aspecto armónico
+
+`STRUCTURAL_AFFINITY` es la última regla de precedencia. Se activa por reunir al menos dos puntos del conjunto `AFFINITY` cuando ninguna regla anterior ha clasificado la raíz.
+
+Por ello no exige que `relation_ids` pertenezca a `COHERENT`. Si una relación fuera conjunción/trígono/sextil/paralelo/antiscio entre personales, normalmente `RELATIONAL_COHERENCE` tendría precedencia; si fuera oposición/cuadratura/contraparalelo/contra-antiscio entre puntos significativos, `MIRROR_COMPLEMENTARITY` podría capturarla antes. La afinidad estructural suele conservar raíces cuyo **contenido interpersonal es significativo aunque su relación concreta no encaje en esas dos familias**.
+
+Esta precisión evita narrar el motivo como “todo fluye”.
+
+### Tipos de afinidad según puntos
+
+#### Sol + Luna
+
+Aporta un sustrato de reconocimiento entre identidad y necesidad emocional. Si no existe una relación clasificada como coherente o espejo, el interés está en que ambas funciones comparten raíz y merecen leerse juntas, no en suponer armonía.
+
+#### Sol + Venus
+
+Relaciona identidad con valor, gusto y afecto. Puede señalar que una persona activa en la otra una apreciación significativa o una revisión de qué considera deseable/valioso.
+
+#### Sol + Júpiter
+
+Conecta identidad con expansión, sentido y visión. Puede constituir una afinidad vital/ideológica incluso si la relación específica exige ajustes.
+
+#### Luna + Venus
+
+Reúne necesidad emocional y forma de valorar/afectar. Puede ser base de reconocimiento afectivo, pero la calidad de cuidado debe comprobarse en la dinámica completa.
+
+#### Luna + Júpiter
+
+Relaciona pertenencia con expansión y confianza. Puede crear una sensación de amplitud emocional o compartir marcos de significado.
+
+#### Venus + Júpiter
+
+Vincula valores, placer y expansión. Puede sostener afinidad social, cultural, estética o ética.
+
+#### Marte + Júpiter
+
+Relaciona acción con visión/escala. Puede indicar afinidad para movimiento, empresa, aprendizaje o exploración compartida.
+
+#### Luminarias/personales + eje del horizonte
+
+El eje ASC/DSC vuelve interpersonal una función del otro y puede producir fuerte reconocimiento de presencia o rol relacional. Su interpretación depende de hora natal fiable.
+
+Venus–Marte no debe llegar aquí cuando ambos están presentes en la misma raíz, porque `EROTIC_POLARITY` tiene precedencia.
+
+### Afinidad no es uniformidad
+
+Dos personas pueden mostrar afinidad estructural y, simultáneamente:
+
+- discrepar en comunicación;
+- activar heridas;
+- tener diferente nivel de reciprocidad;
+- no ser viables como pareja;
+- atravesar fases de distancia;
+- no compartir una ontología metafísica específica.
+
+El motivo describe **material relacional común o mutuamente significativo**, no un resultado final.
+
+### Su valor crece cuando
 
 - es bilateral;
 - involucra luminarias o ángulos;
 - reaparece en familias independientes;
 - se combina con coherencia relacional;
-- sobrevive a ablaciones.
+- sobrevive a ablaciones;
+- aparece en campo compuesto/Davison como tema de la relación.
+
+### Afinidad y modelos metafísicos
+
+Cuando la afinidad recurrente se combina con coherencia, bilateralidad y especificidad de pareja, puede enriquecer una lectura de alma afín o alma gemela en sentido amplio. Si además aparecen continuidad, transformación, reparación o misión, la síntesis puede comparar modelos más complejos.
+
+Pero `STRUCTURAL_AFFINITY` por sí sola no discrimina:
+
+- origen común;
+- vida pasada;
+- contrato preencarnatorio;
+- twin flame;
+- permanencia material.
+
+La lectura debe poder decir **de qué son afines** antes de decir que existe “afinidad”.
 
 ### Preguntas de lectura
 
