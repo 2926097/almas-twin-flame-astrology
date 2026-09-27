@@ -4315,6 +4315,86 @@ def main() -> int:
     if embedded_fulfillment.get("why_not_more_specific") != fulfillment_example.get("why_not_more_specific"):
         fail("embedded fulfillment explanation diverges from standalone synthetic example")
 
+    canonical_props = canonical_schema.get("properties", {})
+    expected_canonical_root_props = {
+        "schema_version",
+        "analysis_mode",
+        "analysis_profile",
+        "profile_policy_id",
+        "evidence",
+        "models",
+        "indices",
+        "pairwise_idd",
+        "coverage",
+        "robustness",
+        "counterevidence",
+        "counterevidence_state",
+        "ontology",
+        "doctrine",
+        "temporal",
+        "semantic_motifs",
+        "time_sensitivity",
+        "limitations",
+        "ontological_discrimination",
+        "null_models",
+        "assembly",
+    }
+    if set(canonical_props) != expected_canonical_root_props:
+        fail("canonical schema root surface diverges from M30 output contract")
+    if canonical_schema.get("additionalProperties") is not False:
+        fail("canonical schema root must reject undeclared namespaces")
+
+    if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
+        fail("canonical null_models must compose the M24 output schema")
+    if canonical_props.get("time_sensitivity", {}).get("$ref") != "time-sensitivity-output.schema.json":
+        fail("canonical time_sensitivity must compose the M23 output schema")
+    if canonical_props.get("doctrine", {}).get("items", {}).get("$ref") != "doctrinal-claim.schema.json":
+        fail("canonical doctrine items must compose the doctrinal claim schema")
+
+    temporal_schema = canonical_props.get("temporal", {})
+    if temporal_schema.get("additionalProperties") is not False:
+        fail("canonical temporal wrapper must reject undeclared fields")
+    temporal_props = temporal_schema.get("properties", {})
+    if set(temporal_props) != {"activation", "events"}:
+        fail("canonical temporal wrapper must expose exactly activation/events")
+    if temporal_props.get("activation", {}).get("$ref") != "temporal-activation-output.schema.json":
+        fail("canonical temporal.activation must compose M26 output schema")
+    if temporal_props.get("events", {}).get("$ref") != "documentary-event-output.schema.json":
+        fail("canonical temporal.events must compose M27 output schema")
+
+    pairwise_schema = canonical_props.get("pairwise_idd", {})
+    pairwise_item = pairwise_schema.get("additionalProperties", {})
+    if pairwise_item.get("additionalProperties") is not False:
+        fail("canonical pairwise_idd entries must reject undeclared fields")
+    if set(pairwise_item.get("required", [])) != {"idd", "band"}:
+        fail("canonical pairwise_idd entries must require idd and band")
+
+    counter_state_schema = canonical_props.get("counterevidence_state", {})
+    if counter_state_schema.get("additionalProperties") is not False:
+        fail("canonical counterevidence_state must reject undeclared fields")
+    if set(counter_state_schema.get("required", [])) != {
+        "ice_evaluable",
+        "ice_by_model",
+        "essential_contradictions",
+    }:
+        fail("canonical counterevidence_state required fields changed")
+
+    assembly_schema = canonical_props.get("assembly", {})
+    if assembly_schema.get("additionalProperties") is not False:
+        fail("canonical assembly metadata must reject undeclared fields")
+    assembly_props = assembly_schema.get("properties", {})
+    if assembly_props.get("policy_id", {}).get("const") != "ALMAS_CANONICAL_ASSEMBLY_V2":
+        fail("canonical assembly policy id changed")
+    if assembly_props.get("source", {}).get("const") != "M01_M29_CANONICAL_NAMESPACES":
+        fail("canonical assembly source changed")
+    for field in (
+        "recalculated_astrology",
+        "recalculated_roots",
+        "recalculated_pillars",
+    ):
+        if assembly_props.get(field, {}).get("const") is not False:
+            fail(f"canonical assembly must lock {field}=false")
+
     model_props = canonical_schema.get("properties", {}).get("models", {}).get("properties", {})
     if set(model_props) != {"AF", "KA", "AG", "LG"}:
         fail("canonical schema must expose exactly AF, KA, AG, LG model slots")
