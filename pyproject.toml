@@ -13,6 +13,7 @@ readme = "README.md"
 [project.optional-dependencies]
 astronomy-moira = ["moira-astro==6.8.2"]
 astronomy-validation = ["skyfield==1.55"]
+schema-validation = ["jsonschema==4.26.0"]
 
 [project.scripts]
 almas-score = "almas_tfa.cli:main"
