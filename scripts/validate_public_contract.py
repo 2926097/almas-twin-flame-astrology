@@ -21,6 +21,9 @@ REQUIRED_FILES = [
     "docs/ASTRONOMY_BACKEND_DECISION.md",
     "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
     "docs/CANONICAL_SCHEMA_AUDIT_1.18.md",
+    "docs/PUBLICATION_AUTHORING.md",
+    ".github/workflows/publication-authoring.yml",
+    "scripts/render_publication_docx.py",
     ".github/workflows/astronomy-backend.yml",
     "scripts/validate_astronomy_backend_runtime.py",
     "scripts/validate_skyfield_reference_runtime.py",
@@ -118,6 +121,7 @@ REQUIRED_FILES = [
     "schemas/viability-reciprocity-output.schema.json",
     "schemas/report-gate-output.schema.json",
     "schemas/report-document-model.schema.json",
+    "schemas/publication-manuscript.schema.json",
     "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
@@ -304,6 +308,8 @@ REQUIRED_FILES = [
     "src/almas_tfa/reality_handlers.py",
     "src/almas_tfa/report_gate_handlers.py",
     "src/almas_tfa/report_model_handlers.py",
+    "src/almas_tfa/publication_authoring.py",
+    "src/almas_tfa/publication_docx.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -366,6 +372,7 @@ REQUIRED_FILES = [
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
+    "tests/test_publication_authoring.py",
     "tests/test_full_pipeline.py",
     "tests/test_ontological_discriminator_adversarial.py",
     "tests/test_ontological_discriminator_metamorphic.py",
@@ -1141,6 +1148,8 @@ def main() -> int:
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
+    if 'publication-docx = ["python-docx==1.2.0"]' not in pyproject:
+        fail("pyproject must pin optional python-docx 1.2.0 publication extra")
     if 'astronomy-validation = ["skyfield==1.55"]' not in pyproject:
         fail("pyproject must pin optional skyfield 1.55 validation extra")
     if 'schema-validation = ["jsonschema==4.26.0"]' not in pyproject:
