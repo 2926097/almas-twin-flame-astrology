@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1",
+  "status": "PREREGISTERED_NOT_EXECUTED",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Regression and independent cross-check gate for the production astronomy backend. Thresholds are engineering acceptance bounds, not claims of astronomical measurement uncertainty or validation of astrology.",
+  "backend_contract": {
+    "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+    "provider_package": "moira-astro",
+    "provider_version": "6.8.2",
+    "kernel_family": "DE440",
+    "kernel_sha256_required": true,
+    "coordinate_origin": "GEOCENTRIC",
+    "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+    "apparent_reduction": true,
+    "topocentric_positions": false,
+    "zodiac": "TROPICAL",
+    "node_mode": "TRUE_NODE"
+  },
+  "reference_contract": {
+    "planetary_positions": {
+      "required": true,
+      "method_family": "INDEPENDENT_SOFTWARE_JPL_DE440",
+      "preferred_implementation": "SKYFIELD",
+      "same_ephemeris_family_allowed": true,
+      "same_software_implementation_forbidden": true,
+      "geometry_must_match_backend_contract": true
+    },
+    "true_node": {
+      "required": true,
+      "method_family": "INDEPENDENT_TRUE_NODE_IMPLEMENTATION",
+      "same_software_implementation_forbidden": true
+    },
+    "houses_and_angles": {
+      "required": true,
+      "method_family": "INDEPENDENT_HOUSE_IMPLEMENTATION",
+      "same_software_implementation_forbidden": true,
+      "requested_house_system_must_match": true
+    }
+  },
+  "tolerances_arcsec": {
+    "planetary_longitude": {
+      "default": 5.0,
+      "overrides": {"MOON": 15.0}
+    },
+    "ecliptic_latitude": {
+      "default": 5.0,
+      "overrides": {"MOON": 15.0}
+    },
+    "declination": {
+      "default": 10.0,
+      "overrides": {"MOON": 20.0}
+    },
+    "true_node_longitude": {
+      "default": 60.0,
+      "overrides": {}
+    },
+    "angle_longitude": {
+      "default": 60.0,
+      "overrides": {}
+    },
+    "house_cusp_longitude": {
+      "default": 60.0,
+      "overrides": {}
+    }
+  },
+  "required_measurements": {
+    "planetary_longitude": ["SUN", "MOON", "MERCURY", "VENUS", "MARS", "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO"],
+    "ecliptic_latitude": ["SUN", "MOON", "MERCURY", "VENUS", "MARS", "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO"],
+    "declination": ["SUN", "MOON", "MERCURY", "VENUS", "MARS", "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO"],
+    "true_node_longitude": ["NORTH_NODE"],
+    "angle_longitude": ["ASC", "DSC", "MC", "IC"],
+    "house_cusp_longitude": ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10", "H11", "H12"]
+  },
+  "decision_rule": {
+    "aggregation": "NONE",
+    "all_required_measurements_must_be_present": true,
+    "all_required_measurements_must_be_within_tolerance": true,
+    "missing_required_measurement": "FAIL",
+    "duplicate_measurement": "FAIL",
+    "unregistered_metric_or_point": "FAIL",
+    "threshold_change_after_observation_forbidden": true,
+    "threshold_change_requires_new_policy_id": true
+  }
+}
