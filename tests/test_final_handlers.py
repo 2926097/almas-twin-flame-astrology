@@ -1102,6 +1102,7 @@ class TestReportingFirewall(unittest.TestCase):
                     "positions": {},
                     "angles": {},
                     "house_cusps": {},
+                    "house_placements": {},
                     "internal_contacts": [],
                 },
                 "cross_consonance_contact_count": 0,
