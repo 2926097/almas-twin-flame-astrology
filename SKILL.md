@@ -199,7 +199,9 @@ Reglas de dependencia:
 - Dracónica↔dracónica es corroborativa y no es elegible por defecto como núcleo independiente.
 - En M11 interpretar siempre la dirección concreta: qué función natal de un sujeto contacta qué función dracónica del otro. No invertir A→B y B→A como si fueran equivalentes.
 - Las fuentes `crane_draconic_astrology_1987` y `blaquier_draconic_astrology_2017_2021` sustentan el método dracónico moderno; no convierten un contacto dracónico en prueba independiente de reencarnación, contrato álmico u origen twin-flame.
-- Los asteroides secundarios son `support_only=true`.
+- Cuando M13–M14 estén disponibles, usar `canonical_analysis.symbolic_context` para autoría. `lots` conserva las salidas M13 y `secondary_symbolic` conserva M14 sin recalcular; la proyección declara `authoring_projection_only=true` y `creates_additional_evidence=false`.
+- Los asteroides y puntos secundarios permanecen `support_only=true`. No asignarles un significado especializado si no existe una fuente de método registrada para ese punto concreto.
+- Fortuna/Espíritu conservan fórmula, sect y `source_ref`; Paulus/Valens sustentan la procedencia histórica de la técnica, no una clasificación moderna del vínculo.
 - Casas y signos contextualizan raíces; no crean por sí solos raíces ontológicas.
 
 ## 9. Fuerza de evidencia
