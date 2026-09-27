@@ -22,7 +22,9 @@ REQUIRED_FILES = [
     "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
     ".github/workflows/astronomy-backend.yml",
     "scripts/validate_astronomy_backend_runtime.py",
+    "scripts/validate_skyfield_reference_runtime.py",
     "scripts/validate_astronomy_golden_result.py",
+    "scripts/run_astronomy_golden_planetary.py",
     "validation/astronomy/golden-cases.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
@@ -245,6 +247,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/astrology_backend.py",
     "src/almas_tfa/production_astronomy.py",
     "src/almas_tfa/astronomy_golden_validation.py",
+    "src/almas_tfa/skyfield_planetary_reference.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/structural_policies.py",
@@ -381,6 +384,7 @@ REQUIRED_FILES = [
     "tests/test_structural_policies.py",
     "tests/test_production_astronomy.py",
     "tests/test_astronomy_golden_validation.py",
+    "tests/test_skyfield_planetary_reference.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -841,6 +845,8 @@ def main() -> int:
         fail("astronomy backend provenance schema policy id changed")
     if provenance_props.get("provider_version", {}).get("const") != "6.8.2":
         fail("astronomy backend provenance schema provider version changed")
+    if "kernel_family" not in astronomy_backend_provenance_schema.get("required", []):
+        fail("astronomy backend provenance must require kernel_family")
     for field in ("network_io_used", "geocoding_used"):
         if provenance_props.get(field, {}).get("const") is not False:
             fail(f"astronomy backend provenance must lock {field}=false")
@@ -872,6 +878,36 @@ def main() -> int:
     for key, expected in expected_golden_geometry.items():
         if backend_contract.get(key) != expected:
             fail(f"astronomy golden backend contract changed: {key}")
+    golden_artifact = astronomy_golden_policy.get("kernel_artifact", {})
+    expected_artifact = {
+        "filename": "de440s.bsp",
+        "family": "DE440",
+        "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+        "md5": "3917ee56769db332790c751e2168843d",
+        "size_bytes": 32726016,
+        "network_forbidden_during_calculation": True,
+    }
+    for key, expected in expected_artifact.items():
+        if golden_artifact.get(key) != expected:
+            fail(f"astronomy golden kernel artifact changed: {key}")
+    expected_stages = {
+        "PLANETARY_REFERENCE": {
+            "planetary_longitude", "ecliptic_latitude", "declination"
+        },
+        "TRUE_NODE_REFERENCE": {"true_node_longitude"},
+        "HOUSE_REFERENCE": {"angle_longitude", "house_cusp_longitude"},
+        "COMPLETE_GATE": {
+            "planetary_longitude", "ecliptic_latitude", "declination",
+            "true_node_longitude", "angle_longitude",
+            "house_cusp_longitude",
+        },
+    }
+    actual_stages = astronomy_golden_policy.get("validation_stages", {})
+    if set(actual_stages) != set(expected_stages):
+        fail("astronomy golden validation stages changed")
+    for stage_id, expected_metrics in expected_stages.items():
+        if set(actual_stages.get(stage_id, [])) != expected_metrics:
+            fail(f"astronomy golden stage metrics changed: {stage_id}")
     tolerances = astronomy_golden_policy.get("tolerances_arcsec", {})
     expected_defaults = {
         "planetary_longitude": 5.0,
@@ -913,9 +949,20 @@ def main() -> int:
         fail("astronomy golden result schema policy id changed")
     if golden_schema_props.get("case_set_id", {}).get("const") != "ALMAS_ASTRONOMY_GOLDEN_CASES_V1":
         fail("astronomy golden result schema case set id changed")
+    if golden_schema_props.get("reference_provenance", {}).get("type") != "array":
+        fail("astronomy golden result must support multiple references")
+    measurement_required = set(
+        golden_schema_props.get("measurements", {})
+        .get("items", {})
+        .get("required", [])
+    )
+    if "reference_method_id" not in measurement_required:
+        fail("astronomy golden measurements must identify reference method")
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
+    if 'astronomy-validation = ["skyfield==1.55"]' not in pyproject:
+        fail("pyproject must pin optional skyfield 1.55 validation extra")
 
     if structural_policy_manifest.get("almas_public_version") != version:
         fail("structural policy manifest version diverges from VERSION")
