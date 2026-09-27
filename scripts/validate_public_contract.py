@@ -19,8 +19,11 @@ REQUIRED_FILES = [
     "docs/MODULE_ARCHITECTURE.md",
     "docs/MODULE_EXECUTION_CONTRACT.md",
     "docs/ASTRONOMY_BACKEND_DECISION.md",
+    "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
     ".github/workflows/astronomy-backend.yml",
     "scripts/validate_astronomy_backend_runtime.py",
+    "scripts/validate_astronomy_golden_result.py",
+    "validation/astronomy/golden-cases.v1.json",
     "docs/history/SOURCE_INTEGRATION_PLAN_PHASE1.md",
     "docs/SOURCE_RESEARCH_BACKLOG.md",
     "docs/SOURCE_NORMALIZATION_REPORT.md",
@@ -69,6 +72,7 @@ REQUIRED_FILES = [
     "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
     "schemas/astronomy-backend-provenance.schema.json",
+    "schemas/astronomy-golden-result.schema.json",
     "schemas/synastry-output.schema.json",
     "schemas/natal-context-output.schema.json",
     "schemas/declination-output.schema.json",
@@ -209,6 +213,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/declared-orb-contract-policy.json",
     "src/almas_tfa/data/structural-loading-policy.json",
     "src/almas_tfa/data/production-astronomy-backend-policy.json",
+    "src/almas_tfa/data/astronomy-golden-validation-policy.json",
     "src/almas_tfa/data/root-pillar-attribution-policy.json",
     "src/almas_tfa/data/semantic-motif-policy.json",
     "src/almas_tfa/data/recurrence-quality-policy.json",
@@ -239,6 +244,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/handlers.py",
     "src/almas_tfa/astrology_backend.py",
     "src/almas_tfa/production_astronomy.py",
+    "src/almas_tfa/astronomy_golden_validation.py",
     "src/almas_tfa/astrology_handlers.py",
     "src/almas_tfa/astrology_geometry.py",
     "src/almas_tfa/structural_policies.py",
@@ -374,6 +380,7 @@ REQUIRED_FILES = [
     "tests/test_validation_closure.py",
     "tests/test_structural_policies.py",
     "tests/test_production_astronomy.py",
+    "tests/test_astronomy_golden_validation.py",
     "tests/test_analysis_profiles.py",
     "tests/test_model_attribution.py",
     "tests/test_m21_auto_idd.py",
@@ -502,6 +509,15 @@ def main() -> int:
     raw_schema = load_json("schemas/raw-input.schema.json")
     astronomy_backend_provenance_schema = load_json(
         "schemas/astronomy-backend-provenance.schema.json"
+    )
+    astronomy_golden_result_schema = load_json(
+        "schemas/astronomy-golden-result.schema.json"
+    )
+    astronomy_golden_policy = load_json(
+        "src/almas_tfa/data/astronomy-golden-validation-policy.json"
+    )
+    astronomy_golden_cases = load_json(
+        "validation/astronomy/golden-cases.v1.json"
     )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
@@ -836,6 +852,67 @@ def main() -> int:
     )
     if natal_backend_ref != "astronomy-backend-provenance.schema.json":
         fail("natal chart schema must reference astronomy backend provenance")
+
+    if astronomy_golden_policy.get("policy_id") != "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1":
+        fail("astronomy golden validation policy id changed")
+    if astronomy_golden_policy.get("status") != "PREREGISTERED_NOT_EXECUTED":
+        fail("astronomy golden validation must remain preregistered until real execution")
+    backend_contract = astronomy_golden_policy.get("backend_contract", {})
+    expected_golden_geometry = {
+        "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+        "provider_version": "6.8.2",
+        "kernel_family": "DE440",
+        "coordinate_origin": "GEOCENTRIC",
+        "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+        "apparent_reduction": True,
+        "topocentric_positions": False,
+        "zodiac": "TROPICAL",
+        "node_mode": "TRUE_NODE",
+    }
+    for key, expected in expected_golden_geometry.items():
+        if backend_contract.get(key) != expected:
+            fail(f"astronomy golden backend contract changed: {key}")
+    tolerances = astronomy_golden_policy.get("tolerances_arcsec", {})
+    expected_defaults = {
+        "planetary_longitude": 5.0,
+        "ecliptic_latitude": 5.0,
+        "declination": 10.0,
+        "true_node_longitude": 60.0,
+        "angle_longitude": 60.0,
+        "house_cusp_longitude": 60.0,
+    }
+    for metric, expected in expected_defaults.items():
+        if tolerances.get(metric, {}).get("default") != expected:
+            fail(f"astronomy golden tolerance changed: {metric}")
+    if tolerances.get("planetary_longitude", {}).get("overrides", {}).get("MOON") != 15.0:
+        fail("astronomy golden Moon longitude tolerance changed")
+    if tolerances.get("ecliptic_latitude", {}).get("overrides", {}).get("MOON") != 15.0:
+        fail("astronomy golden Moon latitude tolerance changed")
+    if tolerances.get("declination", {}).get("overrides", {}).get("MOON") != 20.0:
+        fail("astronomy golden Moon declination tolerance changed")
+    decision_rule = astronomy_golden_policy.get("decision_rule", {})
+    for key in (
+        "all_required_measurements_must_be_present",
+        "all_required_measurements_must_be_within_tolerance",
+        "threshold_change_after_observation_forbidden",
+        "threshold_change_requires_new_policy_id",
+    ):
+        if decision_rule.get(key) is not True:
+            fail(f"astronomy golden decision rule changed: {key}")
+    if decision_rule.get("aggregation") != "NONE":
+        fail("astronomy golden gate must not average failures")
+    if astronomy_golden_cases.get("case_set_id") != "ALMAS_ASTRONOMY_GOLDEN_CASES_V1":
+        fail("astronomy golden case set id changed")
+    if astronomy_golden_cases.get("status") != "PREREGISTERED_INPUTS_ONLY":
+        fail("astronomy golden cases must remain inputs-only before real execution")
+    golden_cases = astronomy_golden_cases.get("cases", [])
+    if len(golden_cases) != 6 or len({case.get("case_id") for case in golden_cases}) != 6:
+        fail("astronomy golden case set must contain six unique preregistered cases")
+    golden_schema_props = astronomy_golden_result_schema.get("properties", {})
+    if golden_schema_props.get("policy_id", {}).get("const") != "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1":
+        fail("astronomy golden result schema policy id changed")
+    if golden_schema_props.get("case_set_id", {}).get("const") != "ALMAS_ASTRONOMY_GOLDEN_CASES_V1":
+        fail("astronomy golden result schema case set id changed")
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
