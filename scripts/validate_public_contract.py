@@ -4315,6 +4315,39 @@ def main() -> int:
     if embedded_fulfillment.get("why_not_more_specific") != fulfillment_example.get("why_not_more_specific"):
         fail("embedded fulfillment explanation diverges from standalone synthetic example")
 
+    expected_canonical_required = {
+        "schema_version",
+        "analysis_mode",
+        "analysis_profile",
+        "profile_policy_id",
+        "evidence",
+        "models",
+        "indices",
+        "pairwise_idd",
+        "coverage",
+        "robustness",
+        "counterevidence",
+        "counterevidence_state",
+        "ontology",
+        "doctrine",
+        "temporal",
+        "limitations",
+        "assembly",
+    }
+    if set(canonical_schema.get("required", [])) != expected_canonical_required:
+        fail("canonical schema required root field set changed")
+    if set(
+        canonical_schema.get("properties", {})
+        .get("analysis_mode", {})
+        .get("enum", [])
+    ) != {"FULL", "TEMPORAL"}:
+        fail("canonical analysis_mode must match current analysis profile policy")
+    ontology_schema = canonical_schema.get("properties", {}).get("ontology", {})
+    if ontology_schema.get("maxProperties") != 0:
+        fail("canonical ontology placeholder must remain empty in M30")
+    if ontology_schema.get("additionalProperties") is not False:
+        fail("canonical ontology placeholder must reject properties")
+
     canonical_props = canonical_schema.get("properties", {})
     expected_canonical_root_props = {
         "schema_version",
