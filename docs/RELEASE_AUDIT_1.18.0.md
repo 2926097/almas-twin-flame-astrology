@@ -71,7 +71,7 @@ Sobre el HEAD funcional previo al cierre editorial:
 - `Contrato público`: SUCCESS;
 - `Núcleo Python 3.10`: SUCCESS;
 - `Núcleo Python 3.12`: SUCCESS;
-- **468 tests deterministas** por matriz del núcleo;
+- **483 tests deterministas** por matriz del núcleo;
 - `Backend astronómico 3.10`: SUCCESS;
 - `Backend astronómico 3.12`: SUCCESS;
 - `moira-astro: 6.8.2`;
@@ -91,6 +91,16 @@ El workflow 36309678855 ejecutó y cerró satisfactoriamente `PLANETARY_REFERENC
 El máximo global fue 39,8903887122″ en ASC/H1 de `G06_CAPE_TOWN_2050`, frente al límite preregistrado de 60″. Los thresholds no fueron modificados después de observar los resultados.
 
 La evidencia canónica de cierre es `validation/astronomy/complete-stage-evidence.v1.json`, junto con las evidencias parciales planetaria, True Node y casas/ángulos.
+
+## Contrato canónico cerrado
+
+La superficie M30 queda sometida a `canonical-analysis.schema.json` Draft 2020-12 con raíz cerrada y trazabilidad namespace→productor documentada en `docs/CANONICAL_SCHEMA_AUDIT_1.18.md`.
+
+El contrato exige los namespaces siempre emitidos, distingue los cuatro namespaces condicionales y compone schemas especializados mediante `$ref`. La procedencia astronómica se propaga desde M02 hasta M30; para `MOIRA_JPL_SPK` es obligatoria la procedencia completa del backend, versión y kernel.
+
+La suite incorpora validación positiva de una salida M30 sintética y de una ejecución FULL M00–M31, además de pruebas negativas de namespace desconocido, propiedad inesperada de modelo y procedencia Moira incompleta.
+
+La validación FULL expuso dos divergencias reales que se corrigieron en los productores/schemas propietarios sin reabrir el canonical: M28 añadía trazabilidad doctrinal no declarada y Q6 multiplicaba por 100 una segunda vez el score PX ya expresado en 0–100. El commit de producción Q6 `a91ced8891c79cf992fc666282b9fe2b3bdfb5bc` cerró con `Núcleo Python` y `Contrato público` en SUCCESS para Python 3.10/3.12.
 
 ## Registro de ejecución
 
