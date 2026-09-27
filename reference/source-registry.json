@@ -1585,6 +1585,82 @@
       "verification_anchor_type": "PUBLISHER_SUMMARY",
       "verification_anchor_url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "boehrer_declination_other_dimension",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "Kt Boehrer",
+      "work": "Declination: The Other Dimension",
+      "date": "2018",
+      "date_note": "American Federation of Astrologers reprint; earlier editions of Boehrer's work circulated before the 2018 edition.",
+      "url": "https://astrologers.com/product/declination-the-other-dimension/",
+      "supports": [
+        "fuente de método identificada dedicada al uso astrológico de la declinación",
+        "tratamiento de paralelos y contraparalelos como información interpretativa adicional a los aspectos por longitud",
+        "contexto técnico para integrar declinaciones en la delineación sinástrica cuando M05 las calcula"
+      ],
+      "does_not_support": [
+        "que todo paralelo equivalga de forma universal y exacta a una conjunción en cualquier escuela",
+        "que todo contraparalelo equivalga de forma universal y exacta a una oposición en cualquier escuela",
+        "que paralelos o contraparalelos demuestren por sí solos una ontología metafísica relacional"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de declinaciones",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "passage": null,
+      "pages": "104",
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "American Federation of Astrologers catalog identifies Boehrer's book as a dedicated declination method source; independent bibliographic descriptions explicitly identify parallels and contraparallels as its core subject.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://astrologers.com/product/declination-the-other-dimension/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "firmicus_mathesis_2_29_antiscia",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "author": "Julius Firmicus Maternus",
+      "work": "Mathesis",
+      "date": "4th century CE",
+      "date_note": "Book II, chapter 29; Latin text in the Kroll-Skutsch Teubner edition is publicly accessible through LacusCurtius.",
+      "url": "https://penelope.uchicago.edu/thayer/l/roman/texts/Firmicus_Maternus/Mathesis/2%2A.html",
+      "supports": [
+        "fuente astrológica antigua explícita para la doctrina técnica de los antiscios",
+        "parejas zodiacales de antiscios y correspondencia recíproca entre grados",
+        "precedente histórico para tratar antiscios como una técnica diferenciada de los aspectos longitudinales ordinarios"
+      ],
+      "does_not_support": [
+        "que el uso moderno de contra-antiscios sea idéntico en todas las escuelas a la exposición de Firmicus",
+        "que los antiscios demuestren por sí solos vínculo kármico, alma gemela, llama gemela u origen compartido",
+        "que una simetría por antiscios constituya evidencia independiente cuando deriva del mismo patrón geométrico ya contado"
+      ],
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología tardoantigua latina",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "The cited Latin Teubner text is public-domain material; translations may have separate rights.",
+      "passage": "Book II, chapter 29, De antisciis",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": "Public-domain Latin source text",
+      "local_file": null,
+      "sha256": null,
+      "translation_note": "ALMAS uses the Latin source as the verification anchor and paraphrases the technical rule rather than reproducing a copyrighted modern translation.",
+      "verification_anchor": "Mathesis II.29 explicitly names antiscia, gives the reciprocal sign pairs and explains degree-by-degree correspondence.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://penelope.uchicago.edu/thayer/l/roman/texts/Firmicus_Maternus/Mathesis/2%2A.html",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-24-origin-differential-1"
