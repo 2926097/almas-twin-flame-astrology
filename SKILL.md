@@ -12,7 +12,7 @@ metadata:
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.16.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.17.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
