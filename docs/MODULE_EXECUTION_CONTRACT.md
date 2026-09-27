@@ -115,7 +115,7 @@ El registro de ejecución marca M02 como `BACKEND_REQUIRED`: la interfaz y el ha
 
 ## M03 y M04 · geometría relacional y contexto natal
 
-`M03` calcula sinastría geométrica únicamente cuando la entrada proporciona una `aspect_policy` con ángulo y orbe de cada aspecto. No existen orbes implícitos en el motor. La salida conserva distancia angular, orbe, límite y exactitud, pero no transforma por sí sola un contacto en evidencia ontológica.
+`M03` calcula sinastría geométrica únicamente cuando la entrada proporciona una `aspect_policy` con ángulo y orbe de cada aspecto. No existen orbes implícitos en el motor. La salida conserva distancia angular, orbe, límite y exactitud, pero no transforma por sí sola un contacto en evidencia ontológica. Desde 1.17, `ALMAS_DECLARED_ORB_CONTRACT_V1` y `schemas/aspect-policy.schema.json` formalizan esta regla y `match_declared_aspect` valida el contrato antes del cálculo.
 
 `M04` deriva signos, identifica nodos por `point_type=NODE`, conserva ángulos, sitúa puntos en casas utilizando exclusivamente las doce cúspides suministradas por el backend y calcula regencias sólo cuando se declara una `rulership_policy`. De este modo no se impone por defecto una escuela tradicional, moderna o híbrida de regencias.
 
@@ -151,7 +151,7 @@ La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0�
 
 ## M15–M17 · grafo de evidencia y raíces independientes
 
-`M15` normaliza contactos de las capas ejecutables en un grafo de evidencia. No asigna todavía fuerza final: `strength_policy_applied=false`. Cada elemento conserva módulo de origen, familia técnica, familia de dependencia, condición `support_only`, elegibilidad para núcleo, exactitud y `root_key`.
+`M15` normaliza contactos de las capas ejecutables en un grafo de evidencia. No asigna todavía fuerza final: `strength_policy_applied=false`. Cada elemento conserva módulo de origen, familia técnica, familia de dependencia, condición `support_only`, elegibilidad para núcleo, exactitud y `root_key`. Desde 1.17, estos metadatos proceden de `ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1`; M15 publica el `technique_dependency_registry_id` utilizado y ya no contiene una tabla local de taxonomía.
 
 `M16` deduplica dentro de la misma `dependency_family + root_key`, reteniendo de forma determinista la observación de mayor exactitud y conservando las suprimidas con su razón. Los pares ASC/DSC, MC/IC, NN/SN y Vertex/Anti-Vertex se normalizan como ejes para impedir inflar evidencia equivalente; en aspectos angulares, 0°/180° y 60°/120° se reducen por simetría del eje.
 

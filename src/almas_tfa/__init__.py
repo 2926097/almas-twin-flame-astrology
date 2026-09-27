@@ -34,6 +34,7 @@ from .lot_handlers import m13_lots, load_default_lot_policy
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .root_strengths import derive_root_strength, evidence_strength, load_root_strength_policy
+from .structural_policies import load_declared_orb_contract_policy, load_structural_loading_policy, load_technique_dependency_registry, validate_declared_aspect_policy
 from .pillar_attribution import classify_root, derive_pillars_from_roots, load_root_pillar_policy
 from .semantic_motifs import classify_primary_motif, derive_semantic_motif_graph, load_semantic_motif_policy, mission_motifs
 from .recurrence_quality import derive_recurrence_quality_diagnostics, load_recurrence_quality_policy
@@ -109,6 +110,10 @@ __all__ = [
     "load_root_strength_policy",
     "evidence_strength",
     "derive_root_strength",
+    "load_technique_dependency_registry",
+    "load_declared_orb_contract_policy",
+    "load_structural_loading_policy",
+    "validate_declared_aspect_policy",
     "load_root_pillar_policy",
     "classify_root",
     "derive_pillars_from_roots",

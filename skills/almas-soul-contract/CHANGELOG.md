@@ -2,6 +2,13 @@
 
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.
 
+## ALMAS 1.17.0 — 2026-09-27
+
+- El módulo contractual hereda la release pública 1.17.0 de la raíz.
+- Los manifiestos normativos estructurales formalizan técnica/dependencia/orbes/loading antes del bridge contractual; no crean nuevas cláusulas ni modifican el canonical.
+- El módulo sigue consumiendo PX/PS v2 y la misma arquitectura estructural de 1.16.
+- `engine_revision` permanece 1.9.0 y los techos inferenciales no cambian.
+
 ## ALMAS 1.16.0 — 2026-09-27
 
 - El módulo contractual hereda la release pública 1.16.0 de la raíz.

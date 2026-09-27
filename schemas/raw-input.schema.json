@@ -67,6 +67,9 @@
         }
       }
     },
+    "aspect_policy": {
+      "$ref": "aspect-policy.schema.json"
+    },
     "events": {
       "type": "array",
       "items": {

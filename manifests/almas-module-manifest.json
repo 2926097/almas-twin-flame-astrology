@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_public_version": "1.16.0",
+  "almas_public_version": "1.17.0",
   "architecture": "single_skill_modular",
   "root_skill": {
     "id": "almas-twin-flame-astrology",
@@ -11,7 +11,8 @@
       "id": "M_ASTROLOGY",
       "name": "Astrología metafísica relacional",
       "status": "CORE",
-      "entrypoint": "SKILL.md"
+      "entrypoint": "SKILL.md",
+      "structural_policy_manifest": "manifests/structural-policy-manifest.json"
     },
     {
       "id": "M_ONTOLOGY",

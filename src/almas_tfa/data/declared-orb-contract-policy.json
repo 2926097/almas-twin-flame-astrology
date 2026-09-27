@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_DECLARED_ORB_CONTRACT_V1",
+  "status": "FROZEN_NORMATIVE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Definir el contrato reproducible de aspectos y orbes sin imponer valores de orbe implícitos.",
+  "required_fields_per_aspect": ["angle", "orb"],
+  "numeric_constraints": {
+    "angle_min": 0.0,
+    "angle_max": 180.0,
+    "orb_min": 0.0
+  },
+  "exactness_formula": "F = max(0, 1 - (orb / orb_limit)^2)",
+  "exact_zero_orb_rule": "orb_limit=0 sólo admite coincidencia exacta y produce exactness=1",
+  "overlap_resolution": ["LOWEST_ABSOLUTE_ORB", "LEXICOGRAPHIC_ASPECT_NAME"],
+  "principles": {
+    "implicit_orbs_forbidden": true,
+    "aspect_angle_must_be_declared": true,
+    "aspect_orb_must_be_declared": true,
+    "runtime_orb_inference_forbidden": true,
+    "overlap_resolution_deterministic": true,
+    "orb_rarity_not_ontological": true,
+    "case_fitting_forbidden": true
+  }
+}

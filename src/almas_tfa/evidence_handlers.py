@@ -5,66 +5,8 @@ from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .root_strengths import derive_root_strength, load_root_strength_policy
+from .structural_policies import load_technique_dependency_registry
 
-
-SOURCE_SPECS = {
-    "synastry": {
-        "module_id": "M03",
-        "technique_family": "SYN",
-        "dependency_family": "SYN",
-        "support_only": False,
-        "core_eligible": True,
-        "directional": False,
-    },
-    "declinations": {
-        "module_id": "M05",
-        "technique_family": "DECLINATION",
-        "dependency_family": "DECLINATION",
-        "support_only": False,
-        "core_eligible": True,
-        "directional": False,
-    },
-    "antiscia": {
-        "module_id": "M06",
-        "technique_family": "ANTISCIA",
-        "dependency_family": "ANTISCIA",
-        "support_only": False,
-        "core_eligible": True,
-        "directional": False,
-    },
-    "relationship_chart_consonance": {
-        "module_id": "M09",
-        "technique_family": "RELCHART",
-        "dependency_family": "RELCHART",
-        "support_only": False,
-        "core_eligible": True,
-        "directional": False,
-    },
-    "natal_draconic_cross": {
-        "module_id": "M11",
-        "technique_family": "NATAL_DRACONIC",
-        "dependency_family": "NATAL_DRACONIC",
-        "support_only": False,
-        "core_eligible": True,
-        "directional": True,
-    },
-    "draconic_draconic": {
-        "module_id": "M12",
-        "technique_family": "DRACONIC_DD",
-        "dependency_family": "DRACONIC_DD",
-        "support_only": True,
-        "core_eligible": False,
-        "directional": False,
-    },
-    "secondary_symbolic": {
-        "module_id": "M14",
-        "technique_family": "SECONDARY",
-        "dependency_family": "SECONDARY",
-        "support_only": True,
-        "core_eligible": False,
-        "directional": False,
-    },
-}
 
 AXIS_GROUPS = {
     "ASC": "AXIS_HORIZON",
@@ -129,8 +71,10 @@ def m15_evidence_extraction(context: ModuleContext) -> ModuleResult:
 
     evidence: list[dict[str, Any]] = []
     counters: dict[str, int] = defaultdict(int)
+    registry = load_technique_dependency_registry()
+    source_specs = registry["source_bindings"]
 
-    for canonical_key, spec in SOURCE_SPECS.items():
+    for canonical_key, spec in source_specs.items():
         source = context.canonical_snapshot.get(canonical_key)
         if not isinstance(source, Mapping):
             continue
@@ -181,6 +125,7 @@ def m15_evidence_extraction(context: ModuleContext) -> ModuleResult:
         "items": evidence,
         "count": len(evidence),
         "strength_policy_applied": False,
+        "technique_dependency_registry_id": registry["registry_id"],
     }
 
     return ModuleResult(

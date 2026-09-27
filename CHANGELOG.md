@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.17.0 — 2026-09-27
+
+### Manifiestos normativos estructurales
+- Añade `ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1` y elimina de M15 la tabla hardcodeada de fuente→familia técnica/dependencia/elegibilidad, conservando exactamente la taxonomía 1.16.
+- Añade `ALMAS_DECLARED_ORB_CONTRACT_V1` y `schemas/aspect-policy.schema.json`: cada aspecto debe declarar `angle` y `orb`; no existen orbes implícitos ni inferencia runtime.
+- Añade `ALMAS_STRUCTURAL_LOADING_CONTRACT_V1`, que enlaza root strength, root→pillar y recurrencia semántica sin introducir una segunda capa de pesos.
+- Añade `ALMAS_STRUCTURAL_POLICY_MANIFEST_V1` como punto público único de descubrimiento para técnica, dependencia, orbes, elegibilidad y loading.
+- M15 expone `technique_dependency_registry_id` como procedencia normativa.
+- Mantiene todos los pesos de técnica/aspecto en 1.0, la robustez horaria en M23–M25 y `support_only` fuera de la creación de núcleo.
+- No añade módulos analíticos, técnicas, scores, discriminadores ni ontología.
+- La suite de release alcanza **443 tests deterministas** en Python 3.10 y 3.12.
+
 ## 1.16.0 — 2026-09-27
 
 ### Validation Operations V1–V5

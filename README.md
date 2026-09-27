@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.16.0  
+**Versión pública:** 1.17.0  
 **Estado:** pipeline modular M00–M31 ejecutable + recurrencia semántica PX/PS v2 + calibración de especificidad S1–S9 + perfiles de análisis + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
@@ -34,6 +34,7 @@ La arquitectura normativa está en `docs/MODULE_ARCHITECTURE.md`.
 Los manifiestos y registros principales tienen funciones distintas:
 
 - `manifests/almas-module-manifest.json`: módulos arquitectónicos de ALMAS;
+- `manifests/structural-policy-manifest.json`: técnica, dependencia, orbes, elegibilidad y loading estructural;
 - `manifests/analysis-pipeline-manifest.json`: secuencia M00–M31 de un análisis FULL;
 - `manifests/preincarnation-pipeline-manifest.json`: pipeline preencarnatorio de ocho etapas;
 - `manifests/execution-registry.json`: estado ejecutable real de cada etapa M00–M31.
@@ -69,6 +70,8 @@ Desde 1.13.0, una ejecución FULL configurada puede derivar automáticamente fue
 Desde 1.15.0, ALMAS añade calibración de especificidad S1–S9 sin cambiar los scores de producción: mide dependencia/diversidad de la recurrencia, calibra motivos contra nulls y controles sintéticos, define firewalls para cohortes externas y candidatos PX v3, y bloquea por release cualquier activación PX v3 no versionada.
 
 Desde 1.16.0, ALMAS operacionaliza el ciclo de validación con preregistro V1, apertura holdout V2, ledger criptográfico V3, continuidad V4 y cierre/auditoría V5. Estos controles permiten demostrar trazabilidad del procedimiento sin convertir una evaluación en activación automática, validación L3 ni probabilidad metafísica.
+
+Desde 1.17.0, ALMAS publica un manifiesto estructural único que enlaza técnica, dependencia, orbes y loading. Los orbes siguen siendo explícitos y declarados por entrada; 1.17 no introduce valores implícitos, nuevas técnicas ni nuevos pesos.
 
 ## Repositorio
 
