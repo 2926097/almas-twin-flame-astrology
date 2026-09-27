@@ -33,6 +33,7 @@ SECTION_SPECS = (
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
+            "B_TECHNIQUE",
             "C_DOCTRINE",
             "D_CONTEMPORARY_USAGE",
             "E_PROJECT_HYPOTHESIS",
