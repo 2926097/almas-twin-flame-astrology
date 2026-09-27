@@ -255,8 +255,83 @@ def _doctrine_claims(canonical: Mapping[str, Any]) -> list[dict[str, Any]]:
 HOUSE_OVERLAY_NATAL_FAMILIES = {"SYN", "DECLINATION"}
 
 
+def _house_rulership_context(
+    subjects: Mapping[str, Any],
+    *,
+    target_subject: str,
+    house: int,
+) -> dict[str, Any] | None:
+    target = subjects.get(target_subject)
+    if not isinstance(target, Mapping):
+        return None
+
+    rulerships = target.get("rulerships")
+    rule = (
+        rulerships.get(str(house))
+        if isinstance(rulerships, Mapping)
+        else None
+    )
+    if not isinstance(rule, Mapping):
+        return None
+
+    cusp_sign = rule.get("cusp_sign")
+    raw_rulers = rule.get("rulers")
+    if not isinstance(cusp_sign, str) or not cusp_sign:
+        return None
+    if not isinstance(raw_rulers, list) or not raw_rulers:
+        return None
+
+    point_signs = target.get("point_signs")
+    placements = target.get("house_placements")
+    ruler_context: list[dict[str, Any]] = []
+
+    for raw_ruler in raw_rulers:
+        ruler_id = str(raw_ruler).strip().upper()
+        if not ruler_id:
+            continue
+
+        sign = None
+        if isinstance(point_signs, Mapping):
+            sign_data = point_signs.get(ruler_id)
+            if isinstance(sign_data, Mapping):
+                value = sign_data.get("sign")
+                if isinstance(value, str) and value:
+                    sign = value
+
+        ruler_house = None
+        if isinstance(placements, Mapping):
+            placement = placements.get(ruler_id)
+            if isinstance(placement, Mapping):
+                value = placement.get("house")
+                if (
+                    isinstance(value, int)
+                    and not isinstance(value, bool)
+                    and 1 <= value <= 12
+                ):
+                    ruler_house = value
+
+        ruler_context.append(
+            {
+                "ruler_id": ruler_id,
+                "sign": sign,
+                "house": ruler_house,
+            }
+        )
+
+    rulers = [item["ruler_id"] for item in ruler_context]
+    if not rulers:
+        return None
+
+    return {
+        "cusp_sign": cusp_sign,
+        "rulers": rulers,
+        "ruler_context": ruler_context,
+    }
+
+
 def _house_overlay_for_point(
     cross: Mapping[str, Any],
+    subjects: Mapping[str, Any],
     *,
     source_subject: str,
     point_id: str,
@@ -293,12 +368,20 @@ def _house_overlay_for_point(
     if not 1 <= house <= 12:
         return None
 
-    return {
+    output = {
         "source_subject": source_subject,
         "point_id": resolved_point_id,
         "target_subject": target_subject,
         "house": house,
     }
+    rulership = _house_rulership_context(
+        subjects,
+        target_subject=target_subject,
+        house=house,
+    )
+    if rulership is not None:
+        output["rulership"] = rulership
+    return output
 
 
 def _root_house_overlays(
@@ -321,8 +404,15 @@ def _root_house_overlays(
         if isinstance(context, Mapping)
         else None
     )
+    subjects = (
+        context.get("subjects")
+        if isinstance(context, Mapping)
+        else None
+    )
     if not isinstance(cross, Mapping):
         return []
+    if not isinstance(subjects, Mapping):
+        subjects = {}
 
     output_by_key: dict[tuple[str, str, str, int], dict[str, Any]] = {}
     concrete_contacts = root.get("concrete_contacts")
@@ -350,6 +440,7 @@ def _root_house_overlays(
             ):
                 item = _house_overlay_for_point(
                     cross,
+                    subjects,
                     source_subject=source_subject,
                     point_id=point_id,
                     target_subject=target_subject,
@@ -387,6 +478,7 @@ def _root_house_overlays(
                         target_subject = endpoints[1 - index][0]
                         item = _house_overlay_for_point(
                             cross,
+                            subjects,
                             source_subject=source_subject,
                             point_id=point_id,
                             target_subject=target_subject,
