@@ -406,7 +406,7 @@
       "additionalProperties": false
     },
     "semantic_motifs": {
-      "type": "object"
+      "$ref": "semantic-motif-graph.schema.json"
     },
     "time_sensitivity": {
       "$ref": "time-sensitivity-output.schema.json"
