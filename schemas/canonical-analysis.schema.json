@@ -845,6 +845,28 @@
         }
       },
       "additionalProperties": false
+    },
+    "symbolic_context": {
+      "type": "object",
+      "required": [
+        "authoring_projection_only",
+        "creates_additional_evidence"
+      ],
+      "properties": {
+        "authoring_projection_only": {
+          "const": true
+        },
+        "creates_additional_evidence": {
+          "const": false
+        },
+        "lots": {
+          "$ref": "lots-output.schema.json"
+        },
+        "secondary_symbolic": {
+          "$ref": "secondary-symbolic-output.schema.json"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,
