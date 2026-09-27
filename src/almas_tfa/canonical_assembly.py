@@ -720,6 +720,19 @@ def assemble_canonical_analysis(
     if len(draconic_context) > 2:
         assembled["draconic_context"] = draconic_context
 
+    symbolic_context: dict[str, Any] = {
+        "authoring_projection_only": True,
+        "creates_additional_evidence": False,
+    }
+    lots = canonical.get("lots")
+    if isinstance(lots, Mapping):
+        symbolic_context["lots"] = dict(lots)
+    secondary_symbolic = canonical.get("secondary_symbolic")
+    if isinstance(secondary_symbolic, Mapping):
+        symbolic_context["secondary_symbolic"] = dict(secondary_symbolic)
+    if len(symbolic_context) > 2:
+        assembled["symbolic_context"] = symbolic_context
+
     pillar_attribution = canonical.get("pillar_attribution")
     if isinstance(pillar_attribution, Mapping):
         motifs = pillar_attribution.get("semantic_motifs")
