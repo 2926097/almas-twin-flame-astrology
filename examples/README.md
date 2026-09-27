@@ -27,6 +27,16 @@ La narrativa es artificial y no describe a personas reales. Su finalidad es demo
 
 Desde 1.20, el fixture demuestra además **síntesis vertical por motivo**: integra sustrato natal, raíces, campo compuesto/Davison, reencuadre dracónico y Fortuna/Espíritu cuando aportan contexto. No presenta esas técnicas como capítulos independientes ni exige su presencia en todo caso real.
 
+## Lectura temporal root-first
+
+`temporal-reading.synthetic.json` demuestra el destino interpretativo de una señal TTRANSIT ya calculada.
+
+El ejemplo parte de una raíz Venus–Plutón y desarrolla una activación Saturno cuadratura Venus mediante:
+
+`raíz → función transitante → función objetivo → geometría → integración en la raíz → función evolutiva → límite factual`.
+
+No representa una pareja real, no añade puntuación y no convierte el tránsito en predicción de un acontecimiento.
+
 ## Manifiesto obligatorio
 
 Todos los JSON de este directorio, salvo el propio manifiesto, deben aparecer exactamente una vez en `examples/manifest.json`.
