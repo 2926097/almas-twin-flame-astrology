@@ -41,9 +41,20 @@
     },
     "houses_and_angles": {
       "required": true,
-      "method_family": "INDEPENDENT_HOUSE_IMPLEMENTATION",
-      "same_software_implementation_forbidden": true,
-      "requested_house_system_must_match": true
+      "method_family": "INDEPENDENT_PLACIDUS_SEMI_ARC_IMPLEMENTATION",
+      "preferred_implementation": "ALMAS_SKYFIELD_PLACIDUS_REFERENCE_V1",
+      "method_id": "ALMAS_SKYFIELD_PLACIDUS_REFERENCE_V1",
+      "house_system": "PLACIDUS",
+      "house_code": "P",
+      "armc": "GREENWICH_APPARENT_SIDEREAL_TIME_PLUS_GEOGRAPHIC_LONGITUDE",
+      "time_alignment": "BACKEND_JD_UT_PLUS_BACKEND_DELTA_T",
+      "delta_t_source": "BACKEND_RECEIPT",
+      "obliquity": "TRUE_OBLIQUITY_FROM_SKYFIELD_TRUE_EQUATOR_AND_TRUE_ECLIPTIC_FRAMES",
+      "intermediate_cusps": "CLASSIC_ITERATIVE_SEMI_ARC_TRISECTION",
+      "convergence_threshold_deg": 1e-7,
+      "max_iterations": 100,
+      "polar_fallback": "FORBIDDEN",
+      "same_software_implementation_forbidden": true
     }
   },
   "tolerances_arcsec": {
