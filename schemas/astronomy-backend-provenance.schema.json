@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/astronomy-backend-provenance.schema.json",
+  "title": "ALMAS · Procedencia del backend astronómico",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "adapter_id",
+    "backend_id",
+    "backend_version",
+    "provider_package",
+    "provider_version",
+    "kernel_filename",
+    "kernel_sha256",
+    "house_system",
+    "node_mode",
+    "zodiac",
+    "network_io_used",
+    "geocoding_used"
+  ],
+  "properties": {
+    "policy_id": {"const": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1"},
+    "adapter_id": {"const": "ALMAS_MOIRA_JPL_SPK_V1"},
+    "backend_id": {"const": "MOIRA_JPL_SPK"},
+    "backend_version": {"const": "6.8.2"},
+    "provider_package": {"const": "moira-astro"},
+    "provider_version": {"const": "6.8.2"},
+    "kernel_filename": {"type": "string", "minLength": 1},
+    "kernel_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "house_system": {"type": "string", "minLength": 1},
+    "node_mode": {"const": "TRUE_NODE"},
+    "zodiac": {"const": "TROPICAL"},
+    "network_io_used": {"const": false},
+    "geocoding_used": {"const": false}
+  },
+  "additionalProperties": false
+}
