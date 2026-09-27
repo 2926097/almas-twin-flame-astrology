@@ -182,11 +182,55 @@ Sólo después de explicar esta arquitectura puede abrirse un comparandum metaf�
 
 ### 5. Lotes y capas simbólicas secundarias · M13–M14
 
-Fortuna, Espíritu y otras capas secundarias sirven para ampliar contexto cuando su fórmula y procedencia están declaradas.
+M13 y M14 no cumplen la misma función y no deben narrarse con el mismo peso.
+
+#### M13 · Fortuna y Espíritu/Daimon
+
+Cuando exista `canonical_analysis.lots_context`, consumir la salida ya calculada de M13. La proyección conserva fórmula, secta, longitud, signo, grado dentro del signo, casa natal, fuente principal y fuente corroborativa.
+
+La baseline `ALMAS_HELLENISTIC_LOTS_V1` utiliza únicamente Fortuna y Espíritu porque son los lotes cuya fórmula y genealogía están fijadas en el corpus.
+
+Fuentes históricas:
+
+- `paulus_alexandrinus_introductory_matters_ch23`: fórmula de Fortuna/Espíritu con inversión por secta;
+- `vettius_valens_anthology_lots`: uso histórico de ambos lotes y distinción interpretativa entre ellos.
+
+En Valens:
+
+- Fortuna informa sobre asuntos corporales y trabajo de las manos;
+- Daimon/Espíritu y su regente informan sobre asuntos intelectuales/espirituales y actividades de dar y recibir;
+- signo/lugar y regentes cualifican la forma concreta de la actividad y la fortuna.
+
+La secuencia de lectura es:
+
+`lote → significado histórico documentado → signo → casa → resonancia con sustrato natal → posible eco en arquitectura relacional`.
+
+El signo describe el modo cualitativo y la casa el campo de experiencia. No convertir automáticamente:
+
+- Espíritu/Daimon → alma superior;
+- Espíritu/Daimon → misión preencarnatoria;
+- Fortuna → destino inevitable;
+- una coincidencia de lote → contrato o tipo de alma.
+
+Un lote merece entrar en S10 sólo cuando aclare un motivo ya desarrollado. En caso contrario permanece en S04/S05 o en fuentes/anexos como contexto histórico.
 
 Pregunta interpretativa:
 
-> ¿Qué matiz histórico, vocacional, experiencial o simbólico aporta esta capa a una arquitectura ya establecida?
+> ¿El lugar donde se sitúan Fortuna o Espíritu ayuda a comprender un tema individual que después la relación activa o reorganiza?
+
+#### M14 · capa simbólica secundaria
+
+M14 ya entra en M15 como familia `SECONDARY` con `support_only=true`. No necesita una segunda proyección canónica para autoría.
+
+Asteroides u otros puntos secundarios sólo deben aparecer cuando:
+
+1. el contacto sobrevivió como apoyo de una raíz/motivo principal;
+2. su significado está documentado por una fuente identificada;
+3. añade un matiz que no puede expresarse mejor desde planetas, nodos, ángulos o cartas relacionales.
+
+Pregunta interpretativa:
+
+> ¿Qué matiz aporta esta capa a una arquitectura que ya existe sin depender de ella?
 
 No convertir lotes, asteroides, atacires u otras técnicas auxiliares en el centro de la interpretación si las capas estructurales no sostienen el mismo motivo.
 

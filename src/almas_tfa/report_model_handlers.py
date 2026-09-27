@@ -67,6 +67,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "lots_context",
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
@@ -83,6 +84,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "lots_context",
         ),
         "epistemic_classes_allowed": (
             "A_CALCULATED",
@@ -146,6 +148,7 @@ SECTION_SPECS = (
             "natal_context",
             "relationship_field",
             "draconic_context",
+            "lots_context",
             "evidence",
             "semantic_motifs",
             "doctrine",
@@ -166,6 +169,7 @@ SECTION_SPECS = (
         "purpose": "Conservar trazabilidad de evidencia, doctrina y limitaciones.",
         "required_paths": ("evidence",),
         "optional_paths": (
+            "lots_context",
             "doctrine",
             "limitations",
             "ontological_discrimination.promotion_trace",

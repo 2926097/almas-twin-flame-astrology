@@ -708,6 +708,7 @@ def main() -> int:
     relationship_chart_consonance_schema = load_json("schemas/relationship-chart-consonance.schema.json")
     draconic_schema = load_json("schemas/draconic-output.schema.json")
     draconic_cross_schema = load_json("schemas/draconic-cross-output.schema.json")
+    lots_output_schema = load_json("schemas/lots-output.schema.json")
     lots_schema = load_json("schemas/lots-output.schema.json")
     secondary_symbolic_schema = load_json("schemas/secondary-symbolic-output.schema.json")
     evidence_graph_schema = load_json("schemas/evidence-graph.schema.json")
@@ -3601,6 +3602,8 @@ def main() -> int:
         fail("M31 must expose relationship_field to core interpretive sections")
     if report_model_handler_text.count('"draconic_context"') < 4:
         fail("M31 must expose draconic_context to core interpretive sections")
+    if report_model_handler_text.count('"lots_context"') < 4:
+        fail("M31 must expose lots_context to detailed interpretive/source sections")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
@@ -4538,6 +4541,7 @@ def main() -> int:
         "natal_context",
         "relationship_field",
         "draconic_context",
+        "lots_context",
         "evidence",
         "models",
         "indices",
@@ -4589,6 +4593,40 @@ def main() -> int:
         fail("draconic_context natal_cross must reuse M11 schema")
     if draconic_props.get("draconic_cross", {}).get("$ref") != "draconic-cross-output.schema.json":
         fail("draconic_context draconic_cross must reuse M12 schema")
+
+    lots_context_schema = canonical_props.get("lots_context", {})
+    if "lots_context" in set(canonical_schema.get("required", [])):
+        fail("canonical lots_context must remain optional")
+    if lots_context_schema.get("additionalProperties") is not False:
+        fail("canonical lots_context must reject undeclared fields")
+    lots_context_props = lots_context_schema.get("properties", {})
+    if lots_context_props.get("authoring_projection_only", {}).get("const") is not True:
+        fail("lots_context must remain an authoring projection")
+    if lots_context_props.get("creates_additional_evidence", {}).get("const") is not False:
+        fail("lots_context must not create additional evidence")
+    if lots_context_props.get("historical_technique_context_only", {}).get("const") is not True:
+        fail("lots_context must remain historical technique context only")
+    if lots_context_props.get("output", {}).get("$ref") != "lots-output.schema.json":
+        fail("lots_context output must reuse M13 schema")
+
+    lots_required = set(lots_output_schema.get("required", []))
+    if lots_required != {"policy", "policy_source", "sect_by_subject", "subjects"}:
+        fail("M13 lots output root fields changed")
+    lot_item = (
+        lots_output_schema.get("properties", {})
+        .get("subjects", {})
+        .get("additionalProperties", {})
+        .get("additionalProperties", {})
+    )
+    for field in (
+        "sign",
+        "sign_index",
+        "degree_in_sign",
+        "house",
+        "corroborating_source_ref",
+    ):
+        if field not in set(lot_item.get("required", [])):
+            fail(f"M13 calculated lot context must require {field}")
 
     if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
         fail("canonical null_models must compose the M24 output schema")

@@ -1497,7 +1497,10 @@
       ],
       "supports": [
         "uso técnico de Fortuna y Daimon/Spirit en la tradición helenística",
-        "corroboración histórica independiente de la centralidad de ambos lotes"
+        "corroboración histórica independiente de la centralidad de ambos lotes",
+        "Fortuna se asocia explícitamente con asuntos del cuerpo y trabajo de las manos",
+        "Daimon/Espíritu y su regente se asocian explícitamente con asuntos espirituales e intelectuales y con actividades de dar y recibir",
+        "Valens indica examinar lugares/signos y sus regentes para cualificar el tipo de actividad, fortuna y calidad de la actividad"
       ],
       "does_not_support": [
         "probabilidad metafísica de tipos de alma",
@@ -1505,8 +1508,8 @@
       ],
       "translation_note": "Modern English verification edition; source text is Vettius Valens' Anthology.",
       "verification_status": "VERIFIED_PRIMARY",
-      "verification_anchor": "The Anthology explicitly treats the Lot of Fortune and Daimon/Spirit in Book II and later books.",
-      "verification_anchor_type": "SECTION",
+      "verification_anchor": "Anthology, Book II, section on Fortune and Daimon: Fortune concerns bodily matters and handwork; Daimon concerns spiritual/intellectual matters and giving/receiving; signs/places and rulers qualify the activity and fortune.",
+      "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
       "evidence_scope": "METHOD_DESCRIPTION"
     },

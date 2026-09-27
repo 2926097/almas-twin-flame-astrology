@@ -199,6 +199,9 @@ Reglas de dependencia:
 - Dracónica↔dracónica es corroborativa y no es elegible por defecto como núcleo independiente.
 - En M11 interpretar siempre la dirección concreta: qué función natal de un sujeto contacta qué función dracónica del otro. No invertir A→B y B→A como si fueran equivalentes.
 - Las fuentes `crane_draconic_astrology_1987` y `blaquier_draconic_astrology_2017_2021` sustentan el método dracónico moderno; no convierten un contacto dracónico en prueba independiente de reencarnación, contrato álmico u origen twin-flame.
+- Cuando M13 esté disponible, usar `canonical_analysis.lots_context` sólo como contexto histórico de autoría. Fortuna/Espíritu conservan fórmula, secta, signo, grado, casa y fuentes antes de M31; no entran en M15 ni crean raíces o puntuación.
+- En la baseline histórica, Valens distingue Fortuna —cuerpo y trabajo manual— de Daimon/Espíritu —asuntos intelectuales/espirituales y actividades de dar/recibir—. Aplicar signo y casa para cualificar el campo, no para equiparar Daimon con alma, Mónada, Yo Superior, misión o contrato.
+- M14 permanece `support_only=true` y no recibe una proyección narrativa paralela: sus contactos se interpretan únicamente cuando ya han sobrevivido como soporte de una raíz o motivo principal.
 - Los asteroides secundarios son `support_only=true`.
 - Casas y signos contextualizan raíces; no crean por sí solos raíces ontológicas.
 

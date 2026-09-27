@@ -15,6 +15,10 @@ class TestLots(unittest.TestCase):
                             "MOON": {"longitude": 40.0},
                         },
                         "angles": {"ASC": 100.0},
+                        "houses": {
+                            str(i): float((100 + (i - 1) * 30) % 360)
+                            for i in range(1, 13)
+                        },
                     },
                     "B": {
                         "positions": {
@@ -22,6 +26,10 @@ class TestLots(unittest.TestCase):
                             "MOON": {"longitude": 180.0},
                         },
                         "angles": {"ASC": 20.0},
+                        "houses": {
+                            str(i): float((20 + (i - 1) * 30) % 360)
+                            for i in range(1, 13)
+                        },
                     },
                 }
             }
@@ -65,6 +73,15 @@ class TestLots(unittest.TestCase):
         self.assertAlmostEqual(lots["A"]["FORTUNE"]["longitude"], 130.0)
         self.assertAlmostEqual(lots["B"]["FORTUNE"]["longitude"], 50.0)
         self.assertEqual(lots["A"]["FORTUNE"]["source_ref"], "SRC_TEST")
+        self.assertEqual(lots["A"]["FORTUNE"]["sign"], "LEO")
+        self.assertAlmostEqual(
+            lots["A"]["FORTUNE"]["degree_in_sign"],
+            10.0,
+        )
+        self.assertEqual(lots["A"]["FORTUNE"]["house"], 2)
+        self.assertIsNone(
+            lots["A"]["FORTUNE"]["corroborating_source_ref"]
+        )
 
     def test_default_policy_resolves_fortune_and_spirit_from_house_sect(self):
         canonical = {
@@ -109,6 +126,17 @@ class TestLots(unittest.TestCase):
             output["subjects"]["A"]["SPIRIT"]["longitude"],
             70.0,
         )
+        self.assertEqual(
+            output["subjects"]["A"]["SPIRIT"]["sign"],
+            "GEMINI",
+        )
+        self.assertEqual(output["subjects"]["A"]["SPIRIT"]["house"], 12)
+        self.assertEqual(
+            output["subjects"]["A"]["SPIRIT"][
+                "corroborating_source_ref"
+            ],
+            "vettius_valens_anthology_lots",
+        )
         self.assertAlmostEqual(
             output["subjects"]["B"]["FORTUNE"]["longitude"],
             50.0,
@@ -117,6 +145,58 @@ class TestLots(unittest.TestCase):
             output["subjects"]["B"]["SPIRIT"]["longitude"],
             350.0,
         )
+
+    def test_calculated_lot_without_houses_keeps_house_unknown(self):
+        canonical = {
+            "natal": {
+                "charts": {
+                    subject_id: {
+                        key: value
+                        for key, value in chart.items()
+                        if key != "houses"
+                    }
+                    for subject_id, chart in self.canonical["natal"]["charts"].items()
+                }
+            }
+        }
+        raw = {
+            "lot_policy": {
+                "sect_by_subject": {"A": "DAY", "B": "NIGHT"},
+                "lots": [
+                    {
+                        "id": "FORTUNE",
+                        "source_ref": "SRC_TEST",
+                        "variants": {
+                            "DAY": {
+                                "base": "ASC",
+                                "add": ["MOON"],
+                                "subtract": ["SUN"],
+                            },
+                            "NIGHT": {
+                                "base": "ASC",
+                                "add": ["SUN"],
+                                "subtract": ["MOON"],
+                            },
+                        },
+                    }
+                ],
+            }
+        }
+        result = m13_lots(
+            ModuleContext(
+                module_id="M13",
+                module_name="lots",
+                mode="FULL",
+                raw_input=raw,
+                canonical_snapshot=canonical,
+                prior_results={},
+            )
+        )
+        lot = result.canonical_updates["lots"]["subjects"]["A"]["FORTUNE"]
+
+        self.assertEqual(lot["status"], "CALCULATED")
+        self.assertEqual(lot["sign"], "LEO")
+        self.assertIsNone(lot["house"])
 
     def test_missing_sect_does_not_guess_variant(self):
         raw = {
@@ -145,6 +225,8 @@ class TestLots(unittest.TestCase):
         lot = result.canonical_updates["lots"]["subjects"]["A"]["FORTUNE"]
         self.assertEqual(lot["status"], "NOT_EVALUABLE")
         self.assertIsNone(lot["longitude"])
+        self.assertIsNone(lot["sign"])
+        self.assertIsNone(lot["house"])
 
 
 if __name__ == "__main__":
