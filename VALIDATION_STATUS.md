@@ -15,7 +15,7 @@ El repositorio publica una especificación generalizada con fixtures sintéticos
 | Manifiesto arquitectónico | `manifests/almas-module-manifest.json` |
 | Manifiesto estructural normativo | `ALMAS_STRUCTURAL_POLICY_MANIFEST_V1` · técnica/dependencia/orbes/loading |
 | Backend astronómico de producción | `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1` · Moira 6.8.2 + kernel local SHA-256 |
-| Gate astronómico dorado | `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` · etapa planetaria PASS; True Node y casas/ángulos pendientes |
+| Gate astronómico dorado | `ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1` · `COMPLETE_GATE` PASS en Python 3.10/3.12 · 6 casos × 47 medidas |
 | Pipeline FULL M00–M31 | `manifests/analysis-pipeline-manifest.json` |
 | Puente astrología→contrato | v1.0.0 |
 | Reconstrucción preencarnatoria | schema v1.9.0 |
@@ -77,7 +77,7 @@ El workflow `Contrato público` ejecuta de forma independiente:
 
 `python scripts/validate_public_contract.py`
 
-El workflow `Backend astronómico` instala `.[astronomy-moira]` en Python 3.10/3.12, verifica `moira-astro==6.8.2`, ejecuta 12 tests específicos del adaptador, 9 tests del gate dorado preregistrado y 4 tests de la referencia planetaria Skyfield. Además, una matriz independiente descarga explícitamente el DE440s preregistrado desde JPL/NAIF, verifica SHA-256 y MD5 y ejecuta la etapa planetaria real Moira↔Skyfield en Python 3.10/3.12. Esa etapa está en PASS; True Node y casas/ángulos permanecen pendientes.
+El workflow `Backend astronómico` instala los extras astronómicos de validación en Python 3.10/3.12 y verifica los contratos Moira/Skyfield. Las matrices reales descargan explícitamente el `de440s.bsp` preregistrado desde JPL/NAIF, verifican SHA-256 y MD5 y ejecutan `PLANETARY_REFERENCE`, `TRUE_NODE_REFERENCE`, `HOUSE_REFERENCE` y `COMPLETE_GATE`. Las cuatro etapas están en PASS en Python 3.10 y 3.12. El gate completo evalúa 282 medidas por entorno (47 por cada uno de los seis casos), sin fallos y con resúmenes idénticos entre ambas versiones de Python.
 
 El validador comprueba, entre otros:
 
