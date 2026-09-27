@@ -2729,6 +2729,82 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrowiki/en/House_Ruler",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "george_bloch_asteroid_goddesses_2003",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de asteroides / psicología arquetípica",
+      "author": "Demetra George; Douglas Bloch",
+      "work": "Asteroid Goddesses: The Mythology, Psychology, and Astrology of the Re-Emerging Feminine",
+      "date": "2003",
+      "date_note": "Edición revisada de una obra publicada originalmente en 1986; verificación bibliográfica y resumen de autora.",
+      "passage": "The Astrology of Juno; Juno as the Capacity for Meaningful Relationships",
+      "pages": null,
+      "doi": null,
+      "url": "https://books.google.com/books/about/Asteroid_Goddesses.html?id=LGThprOnsR0C",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica protegida por copyright; usar paráfrasis y citas breves dentro de los límites aplicables.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Juno como función astrológica moderna vinculada a relaciones significativas y al arquetipo de consorte/pareja",
+        "lectura de Juno por signo, casa y aspectos dentro de la escuela moderna de asteroides",
+        "uso de Juno como capa complementaria para precisar temas de compromiso, asociación e igualdad relacional"
+      ],
+      "does_not_support": [
+        "que un contacto con Juno demuestre matrimonio, compromiso factual o reciprocidad real",
+        "que Juno identifique por sí sola alma gemela, llama gemela, contrato álmico o destino relacional",
+        "que la presencia de Juno deba pesar como evidencia estructural independiente en ALMAS"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "La ficha bibliográfica identifica capítulos específicos dedicados a la astrología de Juno y a Juno como capacidad para relaciones significativas; la página oficial de Demetra George confirma delineación de los cuatro asteroides mayores por signo, casa y aspectos.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://demetra-george.com/asteroid-goddess-report/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "lang_wescott_eros_basic_resources",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de asteroides",
+      "author": "Martha Lang-Wescott",
+      "work": "Basic Resources / Mechanics of the Future: Asteroids",
+      "date": null,
+      "date_note": "Página oficial © 1995, 2014; referencia al libro Mechanics of the Future: Asteroids (1988).",
+      "passage": "ASTEROIDS — EROS",
+      "pages": null,
+      "doi": null,
+      "url": "https://marthalangwescott.com/basic-resources/",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web de la autora; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Eros como punto astrológico moderno relacionado con sexualidad, experiencia y repertorio erótico",
+        "Eros como indicador de aquello que excita o enciende y de una dimensión de pasión o vitalidad",
+        "aplicación a Eros de signos, casas y aspectos como a otros puntos adicionales dentro del método de la autora"
+      ],
+      "does_not_support": [
+        "que un contacto de Eros pruebe actividad sexual real, consentimiento o reciprocidad",
+        "que Eros demuestre exclusividad, destino romántico, alma gemela o llama gemela",
+        "que Eros cree por sí solo una raíz core o una conclusión ontológica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Página oficial de Martha Lang-Wescott, sección ASTEROIDS, entrada EROS: delimita su campo a sexualidad, erotismo, aquello que activa el deseo y pasión/vitalidad.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://marthalangwescott.com/basic-resources/",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"
