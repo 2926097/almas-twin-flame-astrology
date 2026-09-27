@@ -238,6 +238,54 @@ class AuthoredReportContractTests(unittest.TestCase):
             2,
         )
 
+        expected_integrated_paths = {
+            "S04_STRUCTURE": {
+                "natal_context",
+                "relationship_field",
+                "draconic_context",
+                "lots_context",
+                "evidence",
+                "semantic_motifs",
+            },
+            "S05_RELATIONAL": {
+                "natal_context",
+                "relationship_field",
+                "draconic_context",
+                "lots_context",
+                "evidence",
+                "semantic_motifs",
+            },
+            "S10_FINAL_SYNTHESIS": {
+                "natal_context",
+                "relationship_field",
+                "draconic_context",
+                "lots_context",
+                "evidence",
+                "semantic_motifs",
+                "doctrine",
+            },
+        }
+        for section_id, expected_paths in expected_integrated_paths.items():
+            self.assertTrue(
+                expected_paths.issubset(
+                    set(synthesis[section_id]["canonical_paths_used"])
+                ),
+                section_id,
+            )
+
+        self.assertNotIn(
+            "lots_context",
+            synthesis["S01_SYNTHESIS"]["canonical_paths_used"],
+        )
+        self.assertIn(
+            "vettius_valens_anthology_lots",
+            synthesis["S05_RELATIONAL"]["source_refs"],
+        )
+        self.assertIn(
+            "townley_composite_charts_2000",
+            synthesis["S04_STRUCTURE"]["source_refs"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
