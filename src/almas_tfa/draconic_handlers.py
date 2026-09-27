@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
-from .astrology_geometry import match_declared_aspect, normalize_longitude
+from .astrology_geometry import match_declared_aspect, normalize_longitude, zodiac_sign
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .relational_handlers import _chart_points
 
@@ -64,8 +64,12 @@ def m10_individual_draconics(context: ModuleContext) -> ModuleResult:
             if not isinstance(data, Mapping) or "longitude" not in data:
                 continue
             natal_longitude = float(data["longitude"])
+            draconic_longitude = normalize_longitude(
+                natal_longitude - node_longitude
+            )
             d_positions[str(point_id)] = {
-                "longitude": normalize_longitude(natal_longitude - node_longitude),
+                "longitude": draconic_longitude,
+                **zodiac_sign(draconic_longitude),
                 "source_longitude": natal_longitude,
                 "point_type": data.get("point_type"),
             }
