@@ -21,6 +21,7 @@ REQUIRED_FILES = [
     "docs/ASTRONOMY_BACKEND_DECISION.md",
     "docs/ASTRONOMY_GOLDEN_VALIDATION.md",
     "docs/CANONICAL_SCHEMA_AUDIT_1.18.md",
+    "reference/authored-report.md",
     ".github/workflows/astronomy-backend.yml",
     "scripts/validate_astronomy_backend_runtime.py",
     "scripts/validate_skyfield_reference_runtime.py",
@@ -29,6 +30,7 @@ REQUIRED_FILES = [
     "scripts/run_astronomy_golden_true_node.py",
     "scripts/run_astronomy_golden_houses.py",
     "scripts/run_astronomy_golden_complete.py",
+    "scripts/validate_authored_report.py",
     "validation/astronomy/golden-cases.v1.json",
     "validation/astronomy/planetary-stage-evidence.v1.json",
     "validation/astronomy/true-node-stage-evidence.v1.json",
@@ -118,6 +120,7 @@ REQUIRED_FILES = [
     "schemas/viability-reciprocity-output.schema.json",
     "schemas/report-gate-output.schema.json",
     "schemas/report-document-model.schema.json",
+    "schemas/authored-report.schema.json",
     "schemas/final-pipeline-output.schema.json",
     "schemas/deduplicated-evidence.schema.json",
     "schemas/evidence-graph.schema.json",
@@ -304,6 +307,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/reality_handlers.py",
     "src/almas_tfa/report_gate_handlers.py",
     "src/almas_tfa/report_model_handlers.py",
+    "src/almas_tfa/authored_report.py",
     "src/almas_tfa/final_handlers.py",
     "tests/INVARIANTS.md",
     "tests/MODULE_ARCHITECTURE_INVARIANTS.md",
@@ -366,6 +370,7 @@ REQUIRED_FILES = [
     "tests/test_robustness_handlers.py",
     "tests/test_temporal_handlers.py",
     "tests/test_final_handlers.py",
+    "tests/test_authored_report_contract.py",
     "tests/test_full_pipeline.py",
     "tests/test_ontological_discriminator_adversarial.py",
     "tests/test_ontological_discriminator_metamorphic.py",
@@ -726,6 +731,7 @@ def main() -> int:
     viability_output_schema = load_json("schemas/viability-reciprocity-output.schema.json")
     report_gate_schema = load_json("schemas/report-gate-output.schema.json")
     report_document_model_schema = load_json("schemas/report-document-model.schema.json")
+    authored_report_schema = load_json("schemas/authored-report.schema.json")
     promotion_reporting_schema = load_json(
         "schemas/discriminator-promotion-reporting.schema.json"
     )
@@ -3526,6 +3532,28 @@ def main() -> int:
             fail(f"M31 field {field} must remain false")
     if report_model_props.get("publication_pipeline_required", {}).get("const") is not True:
         fail("M31 must require a separate publication pipeline")
+
+    authored_props = authored_report_schema.get("properties", {})
+    if authored_props.get("document_kind", {}).get("const") != "ALMAS_AUTHORED_REPORT":
+        fail("authored report document kind changed")
+    if authored_props.get("interpretive_center", {}).get("const") != "ASTROLOGY_AND_SOURCE_BASED_METAPHYSICAL_HERMENEUTICS":
+        fail("authored report must keep astrology and source-based metaphysical hermeneutics as interpretive center")
+    if authored_props.get("technical_role", {}).get("const") != "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL":
+        fail("authored report technical role changed")
+    for field in (
+        "metaphysical_scientific_validation_claimed",
+        "canonical_values_mutated",
+        "new_calculations_performed",
+        "new_scores_created",
+    ):
+        if authored_props.get(field, {}).get("const") is not False:
+            fail(f"authored report field {field} must remain false")
+    authored_sections = authored_props.get("sections", {})
+    if authored_sections.get("minItems") != 11 or authored_sections.get("maxItems") != 11:
+        fail("authored report must preserve the eleven-section M31 structure")
+    if "bibliography" not in authored_report_schema.get("required", []):
+        fail("authored report must require publication bibliography")
+
     section_schema = report_model_props.get("sections", {})
     if section_schema.get("minItems") != 11 or section_schema.get("maxItems") != 11:
         fail("M31 must expose exactly eleven report sections")
