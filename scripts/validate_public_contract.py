@@ -209,6 +209,7 @@ REQUIRED_FILES = [
     "reference/aspect-geometry-hermeneutics.md",
     "reference/semantic-motif-hermeneutics.md",
     "reference/secondary-symbolic-hermeneutics.md",
+    "reference/temporal-activation-hermeneutics.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
     "reference/contrato-almico.md",
@@ -3880,6 +3881,23 @@ def main() -> int:
     )
     if not required_secondary_symbolic_sources.issubset(relationship_methods):
         fail("Juno/Eros methods must remain linked to RELATIONSHIP_ASTROLOGY")
+
+    temporal_guide = (
+        ROOT / "reference/temporal-activation-hermeneutics.md"
+    ).read_text(encoding="utf-8")
+    for required_term in (
+        "DIRECT_REPETITION",
+        "RELATIONAL_ROOT_ACTIVATION",
+        "ENDPOINT_ACTIVATION",
+        "PROSPECTIVE_ACTIVATION",
+        "temporal_event_links",
+        "real_world_event_prediction_made=false",
+    ):
+        if required_term not in temporal_guide:
+            fail(
+                "temporal hermeneutics missing required contract term: "
+                + required_term
+            )
 
     required_source_fields = {"id", "priority", "author", "work", "supports", "does_not_support"}
     for entry in source_registry.get("entries", []):
