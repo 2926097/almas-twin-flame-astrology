@@ -1,0 +1,95 @@
+{
+  "fixture_version": "1.0.0",
+  "classification": "SYNTHETIC",
+  "purpose": "TEMPORAL_INTERPRETIVE_EXAMPLE",
+  "root_context": {
+    "root_id": "R-TEMP-001",
+    "structural_theme": "TRANSFORMATION_POWER",
+    "point_ids": [
+      "VENUS",
+      "PLUTO"
+    ],
+    "interpretation": "La raíz Venus–Plutón describe un circuito de vínculo, valoración, magnetismo, profundidad y transformación. La activación temporal no crea este circuito: vuelve más saliente una de sus funciones."
+  },
+  "temporal_signal": {
+    "signal_id": "TTRANSIT:DEMO-2030:R-TEMP-001:SATURN:A:VENUS:SQUARE",
+    "root_id": "R-TEMP-001",
+    "temporal_family": "TTRANSIT",
+    "activation_class": "ENDPOINT_ACTIVATION",
+    "strength": 0.75,
+    "k": 0.7,
+    "effective_strength": 0.525,
+    "exactitude_orb": 1,
+    "preregistered": true,
+    "preregistered_window_rule": "DEMO-DECLARED-WINDOW",
+    "window_status": "PROSPECTIVE_ACTIVATION",
+    "date_or_period": "2030-01-01T12:00:00+00:00",
+    "trigger_context": {
+      "trigger_point": "SATURN",
+      "target_point": "VENUS",
+      "relation": "SQUARE",
+      "source_layer": "TRANSIT",
+      "target_layer": "NATAL",
+      "target_subject": "A",
+      "orb": 1,
+      "orb_limit": 2,
+      "aspect_angle": 90,
+      "transit_longitude": 11,
+      "target_longitude": 100,
+      "method_sources": [
+        "astrodienst_transit",
+        "hand_planets_in_transit_2002"
+      ]
+    }
+  },
+  "interpretive_sequence": [
+    {
+      "stage": "ROOT",
+      "text": "La lectura comienza por la raíz Venus–Plutón ya existente: el vínculo contiene un tema estable de atracción/valoración que entra en contacto con intensidad, poder y transformación."
+    },
+    {
+      "stage": "TRIGGER_FUNCTION",
+      "text": "Saturno introduce temporalmente estructura, límite, responsabilidad, realidad, tiempo y necesidad de dar forma."
+    },
+    {
+      "stage": "TARGET_FUNCTION",
+      "text": "Venus representa la función de valorar, vincularse, atraer, recibir placer y establecer criterios de afinidad."
+    },
+    {
+      "stage": "GEOMETRY",
+      "text": "La cuadratura hace que ambas funciones se encuentren bajo fricción y exigencia de ajuste: la forma saturnina presiona la función venusina para definir límites, prioridades o condiciones de vínculo."
+    },
+    {
+      "stage": "ROOT_INTEGRATION",
+      "text": "Como Venus ya pertenece a una raíz Venus–Plutón, el tránsito no se lee como un episodio aislado. Activa el extremo venusino de un circuito transformativo previo y puede hacer más visible la pregunta por cómo sostener intensidad, deseo y profundidad dentro de una forma viable."
+    },
+    {
+      "stage": "EVOLUTIONARY_FUNCTION",
+      "text": "La función evolutiva de la ventana es confrontar valor y deseo con estructura y realidad: qué merece continuidad, qué límite protege el vínculo, qué forma puede contener la intensidad y qué patrón necesita madurar."
+    },
+    {
+      "stage": "BOUNDARY",
+      "text": "La señal describe una activación simbólica. No predice por sí sola separación, compromiso, contacto, reconciliación ni decisión de otra persona."
+    }
+  ],
+  "authored_paragraph": "La raíz Venus–Plutón ya sitúa el vínculo en un campo de magnetismo, profundidad y transformación. Durante la ventana considerada, Saturno en tránsito forma cuadratura con Venus natal, activando precisamente el extremo venusino de esa arquitectura. Saturno introduce estructura, límite, responsabilidad y tiempo; Venus concentra valoración, atracción y modo de vincularse; la cuadratura obliga a ambas funciones a encontrarse bajo tensión y reajuste. La lectura no es «Saturno separa» ni «Saturno consolida»: el tránsito plantea una prueba de forma. Dentro de una raíz transformativa, la cuestión central pasa a ser cómo dar contorno, realidad y responsabilidad a una intensidad que ya existía antes de la ventana. Puede volverse más visible qué se valora, qué condiciones son sostenibles, dónde hace falta límite y qué modo de relación puede contener la profundidad sin quedar gobernado por ella. Al tratarse de una activación de endpoint, el tránsito moviliza una parte del circuito y no equivale a repetir toda la raíz. Tampoco predice un hecho: cualquier contacto, separación, reconciliación o decisión requiere evidencia documental independiente.",
+  "source_refs": [
+    "astrodienst_transit",
+    "hand_planets_in_transit_2002",
+    "astrodienst_saturn",
+    "astrodienst_venus",
+    "astrodienst_square"
+  ],
+  "epistemic_classes": [
+    "A_CALCULATED",
+    "B_TECHNIQUE",
+    "E_PROJECT_HYPOTHESIS"
+  ],
+  "boundaries": [
+    "El ejemplo es completamente sintético y no representa a personas reales.",
+    "La exactitud geométrica calibra el contacto; no expresa probabilidad de un acontecimiento.",
+    "El tránsito activa una raíz preexistente y no crea arquitectura estructural.",
+    "Los significados astrológicos pertenecen a las fuentes de método registradas y no constituyen validación científica.",
+    "La interpretación evolutiva es síntesis ALMAS y debe permanecer distinguible de la técnica calculada."
+  ]
+}
