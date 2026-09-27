@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.15.0  
+**Versión pública:** 1.16.0  
 **Estado:** pipeline modular M00–M31 ejecutable + recurrencia semántica PX/PS v2 + calibración de especificidad S1–S9 + perfiles de análisis + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
@@ -66,7 +66,7 @@ La ontología completa se analiza por ejes independientes de origen, contrato pr
 
 Desde 1.13.0, una ejecución FULL configurada puede derivar automáticamente fuerza de raíces, pilares, atribuciones Shapley/IDD, sensibilidad horaria, componentes de robustez, un universo nulo autocontenido y `canonical_analysis`. Desde 1.14.0, PX y PS se reconstruyen mediante recurrencia semántica multitécnica sin reescribir `root_key`; M23 publica una curva R5/R15/R30/R60/R120 incluso sin rating horario documentado; y M30 evalúa completitud relativa a perfiles como `FULL_ASTROLOGY` o `FULL_MULTIDISCIPLINARY`.
 
-Desde 1.15.0, ALMAS añade calibración de especificidad S1–S9 sin cambiar los scores de producción: mide dependencia/diversidad de la recurrencia, calibra motivos contra nulls y controles sintéticos, define firewalls para cohortes externas y candidatos PX v3, y bloquea por release cualquier activación PX v3 no versionada.
+Desde 1.15.0, ALMAS añade calibración de especificidad S1–S9 sin cambiar los scores de producción: mide dependencia/diversidad de la recurrencia, calibra motivos contra nulls y controles sintéticos, define firewalls para cohortes externas y candidatos PX v3, y bloquea por release cualquier activación PX v3 no versionada.\n\nDesde 1.16.0, ALMAS operacionaliza el ciclo de validación con preregistro V1, apertura holdout V2, ledger criptográfico V3, continuidad V4 y cierre/auditoría V5. Estos controles permiten demostrar trazabilidad del procedimiento sin convertir una evaluación en activación automática, validación L3 ni probabilidad metafísica.
 
 ## Repositorio
 
