@@ -204,6 +204,7 @@ REQUIRED_FILES = [
     "reference/report-document-model.md",
     "reference/interpretive-synthesis-protocol.md",
     "reference/planetary-function-hermeneutics.md",
+    "reference/aspect-geometry-hermeneutics.md",
     "reference/semantic-motif-hermeneutics.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
@@ -3751,6 +3752,21 @@ def main() -> int:
         fail(
             "planetary-function hermeneutics missing registered sources: "
             + ", ".join(sorted(missing_planetary_sources))
+        )
+
+    required_aspect_geometry_sources = {
+        "astrodienst_aspect",
+        "astrodienst_conjunction",
+        "astrodienst_opposition",
+        "astrodienst_square",
+        "astrodienst_trine",
+        "astrodienst_sextile",
+    }
+    missing_aspect_sources = required_aspect_geometry_sources - source_ids
+    if missing_aspect_sources:
+        fail(
+            "aspect-geometry hermeneutics missing registered sources: "
+            + ", ".join(sorted(missing_aspect_sources))
         )
 
     required_source_fields = {"id", "priority", "author", "work", "supports", "does_not_support"}
