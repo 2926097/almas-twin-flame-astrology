@@ -166,7 +166,7 @@ class TestEvidenceGraph(unittest.TestCase):
         }
 
         result = m15_evidence_extraction(ctx("M15", canonical))
-        evidence = result.canonical_updates["evidence_graph"]["evidence"]
+        evidence = result.canonical_updates["evidence_graph"]["items"]
 
         self.assertEqual(len(evidence), 1)
         self.assertEqual(evidence[0]["source_module"], "M09")
