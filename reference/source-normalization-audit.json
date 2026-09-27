@@ -2,17 +2,17 @@
   "audit_version": "1.0.0",
   "almas_version": "1.15.0",
   "date": "2026-09-27",
-  "sources_total": 52,
+  "sources_total": 55,
   "concepts_total": 97,
   "genealogy_edges_total": 73,
   "by_priority": {
     "P1_PRIMARY": 25,
     "P2_ACADEMIC": 7,
-    "P4_IDENTIFIED_METHOD": 18,
+    "P4_IDENTIFIED_METHOD": 21,
     "P3_HISTORICAL_TECHNICAL": 2
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 25,
+    "VERIFIED_PRIMARY": 28,
     "VERIFIED_METADATA": 27
   },
   "integrity": {
@@ -33,6 +33,7 @@
     "ALMAS 1.20 incorpora Sakoian/Acker y Stephen Arroyo como fuentes de método para comparación horoscópica, combinaciones planetarias y casas en sinastría; refuerzan la autoría M03–M04 sin añadir puntuación ni inferencia ontológica.",
     "ALMAS 1.20 incorpora Stephen Arroyo (Astrology, Karma & Transformation) y Liz Greene (Relating) como fuentes de método para transformación, planetas exteriores, proyección y dinámica relacional; su función es hermenéutica y no añade peso estructural ni validación ontológica.",
     "ALMAS 1.20 incorpora Melanie Reinhart y Barbara Hand Clow como fuentes de método para Quirón, casas y aspectos; fundamentan WOUND_REPAIR como hermenéutica de vulnerabilidad/elaboración sin equipararla a tikkun, contrato o prueba kármica.",
-    "ALMAS 1.20 incorpora referencias directas de Astrodienst para la mecánica sinástrica de superposición de casas y para las significaciones generales de las doce casas; se usan como soporte hermenéutico y no como evidencia ontológica ni peso estructural."
+    "ALMAS 1.20 incorpora referencias directas de Astrodienst para la mecánica sinástrica de superposición de casas y para las significaciones generales de las doce casas; se usan como soporte hermenéutico y no como evidencia ontológica ni peso estructural.",
+    "ALMAS 1.20 incorpora fuentes directas de Astrodienst para diferenciar ASC/DSC, MC/IC, Nodo Norte/Nodo Sur y Vertex en la autoría relacional; estas distinciones enriquecen significado sin crear nuevas raíces ni peso estructural."
   ]
 }
