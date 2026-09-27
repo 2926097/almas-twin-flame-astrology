@@ -56,6 +56,8 @@ class FakeFacade:
             for name, longitude in PLANET_LONGITUDES.items()
         }
         return SimpleNamespace(
+            jd_ut=2451545.0,
+            delta_t=64.0,
             planets=planets,
             nodes={
                 "True Node": SimpleNamespace(
@@ -176,6 +178,7 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         self.assertTrue(chart["positions"]["MERCURY"]["retrograde"])
         provenance = chart["backend_provenance"]
         self.assertEqual(provenance["kernel_sha256"], self.kernel_sha)
+        self.assertEqual(provenance["kernel_family"], "DE440")
         self.assertEqual(provenance["coordinate_origin"], "GEOCENTRIC")
         self.assertEqual(
             provenance["reference_frame"],
@@ -185,6 +188,12 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         self.assertFalse(provenance["topocentric_positions"])
         self.assertFalse(provenance["network_io_used"])
         self.assertFalse(provenance["geocoding_used"])
+        self.assertEqual(chart["metadata"]["jd_ut"], 2451545.0)
+        self.assertEqual(chart["metadata"]["delta_t_seconds"], 64.0)
+        self.assertAlmostEqual(
+            chart["metadata"]["jd_tt"],
+            2451545.0 + 64.0 / 86400.0,
+        )
         self.assertEqual(len(backend._facade.chart_calls), 1)
         _, chart_kwargs = backend._facade.chart_calls[0]
         self.assertNotIn("observer_lat", chart_kwargs)
