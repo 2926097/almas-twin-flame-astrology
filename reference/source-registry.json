@@ -1813,7 +1813,83 @@
       "verification_anchor_type": "PUBLISHER_SUMMARY",
       "verification_anchor_url": "https://books.google.com/books/about/Relating.html?id=6yBi8pjy1XoC",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "reinhart_chiron_healing_journey_2010",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica de Quirón",
+      "author": "Melanie Reinhart",
+      "work": "Chiron and the Healing Journey: An Astrological and Psychological Perspective",
+      "date": "2010",
+      "date_note": "Revised Starwalker Press edition, 2010; first edition published in 1989.",
+      "passage": "Wounded Healer archetype; Chiron through signs and houses; Chiron aspecting the planets; transits and healing journey",
+      "pages": "462",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Chiron_and_the_Healing_Journey.html?id=lIZfRwAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "WOUND_REPAIR"
+      ],
+      "supports": [
+        "fuente de método identificada para el simbolismo astrológico de Quirón y el arquetipo del Wounded Healer",
+        "tratamiento de Quirón por signos, casas y aspectos como proceso de vulnerabilidad, conciencia e integración",
+        "base metodológica para distinguir activación de una herida, elaboración y posible reparación sin asumir que el contacto sea automáticamente sanador"
+      ],
+      "does_not_support": [
+        "validación científica de Quirón como indicador psicológico o espiritual",
+        "que todo contacto de Quirón sea sanador, kármico o preencarnatoriamente pactado",
+        "que dolor, herida o sufrimiento obliguen a mantener una relación"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/Starwalker description identifies the work as an astrological and psychological exploration of the Wounded Healer archetype, with Chiron interpreted through signs, houses and aspects.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Chiron_and_the_Healing_Journey.html?id=lIZfRwAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "hand_clow_chiron_rainbow_bridge_1987",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de Quirón",
+      "author": "Barbara Hand Clow",
+      "work": "Chiron: Rainbow Bridge Between the Inner and Outer Planets",
+      "date": "1987",
+      "date_note": "Llewellyn Worldwide edition, 1987.",
+      "passage": "Chiron in houses and signs; Chiron aspects structure; aspects to Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto and Lunar Nodes",
+      "pages": "296",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Chiron.html?id=SLpVngEACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "WOUND_REPAIR"
+      ],
+      "supports": [
+        "fuente de método identificada dedicada a la interpretación astrológica de Quirón",
+        "tratamiento explícito de Quirón en aspecto a planetas personales, exteriores y nodos, además de casas y signos",
+        "base metodológica para diferenciar el contenido de una raíz quirónica según la función planetaria implicada"
+      ],
+      "does_not_support": [
+        "validación científica de las interpretaciones astrológicas de Quirón",
+        "que una configuración quirónica pruebe tikkun, contrato álmico, vida pasada o misión compartida",
+        "que la figura del Wounded Healer convierta automáticamente a una persona en sanadora de la otra"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/Llewellyn description and contents identify dedicated sections for Chiron in houses/signs and in aspect to personal planets, outer planets and Lunar Nodes.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://books.google.com/books/about/Chiron.html?id=SLpVngEACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
-  "registry_revision": "2026-09-27-transformative-hermeneutics-1"
+  "registry_revision": "2026-09-27-wound-repair-sources-1"
 }
