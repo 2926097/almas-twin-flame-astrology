@@ -430,6 +430,8 @@ Cada bloque sustantivo debe producir al menos una proposición integrada del tip
 
 Para los motivos producidos por `ALMAS_SEMANTIC_MOTIF_V2`, usar `reference/semantic-motif-hermeneutics.md`: desarrolla los nueve motivos primarios, cuatro overlays de misión y combinaciones interpretativas sin alterar PX/PS ni los techos inferenciales.
 
+**Regla root-first obligatoria:** no redactar un `motif_id` a partir de su etiqueta. Resolver primero sus `root_ids` contra raíces/evidencia canónicas y, cuando estén disponibles, identificar `point_ids`, `relation_ids`, dirección A→B/B→A/campo común, casas/ángulos y familia técnica. La forma concreta de la raíz tiene prioridad hermenéutica sobre el nombre genérico del motivo. Si esos datos no están disponibles, mantener la interpretación al nivel general permitido por el motivo y declarar la falta de resolución; no inventar planetas, aspectos, casas, dirección ni reciprocidad.
+
 Cuando exista fuente pertinente:
 
 `→ correspondencia doctrinal → límite de la correspondencia`.
