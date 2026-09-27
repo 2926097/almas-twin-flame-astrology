@@ -4369,6 +4369,48 @@ def main() -> int:
     if set(pairwise_item.get("required", [])) != {"idd", "band"}:
         fail("canonical pairwise_idd entries must require idd and band")
 
+    evidence_schema = canonical_props.get("evidence", {})
+    evidence_item = evidence_schema.get("items", {})
+    expected_evidence_fields = {
+        "evidence_id",
+        "source_module",
+        "root_id",
+        "root_key",
+        "strength",
+        "strength_state",
+        "core_eligible",
+        "dependency_families",
+    }
+    if set(evidence_item.get("properties", {})) != expected_evidence_fields:
+        fail("canonical evidence projection surface changed")
+    if set(evidence_item.get("required", [])) != expected_evidence_fields:
+        fail("canonical evidence projection must require all M17 projection fields")
+    if evidence_item.get("additionalProperties") is not False:
+        fail("canonical evidence projection must reject undeclared fields")
+    if evidence_item.get("properties", {}).get("source_module", {}).get("const") != "M17":
+        fail("canonical evidence must remain rooted in M17")
+
+    counter_item = canonical_schema.get("$defs", {}).get("counterevidence_item", {})
+    expected_counter_fields = {
+        "id",
+        "model",
+        "kind",
+        "contradiction_key",
+        "dependency_family",
+        "essential",
+        "severity",
+        "evidence_refs",
+        "note",
+    }
+    if set(counter_item.get("properties", {})) != expected_counter_fields:
+        fail("canonical counterevidence item surface changed")
+    if set(counter_item.get("required", [])) != expected_counter_fields:
+        fail("canonical counterevidence item must require all M20 projection fields")
+    if counter_item.get("additionalProperties") is not False:
+        fail("canonical counterevidence items must reject undeclared fields")
+    if canonical_props.get("counterevidence", {}).get("items", {}).get("$ref") != "#/$defs/counterevidence_item":
+        fail("canonical counterevidence must use the normalized M20 item contract")
+
     counter_state_schema = canonical_props.get("counterevidence_state", {})
     if counter_state_schema.get("additionalProperties") is not False:
         fail("canonical counterevidence_state must reject undeclared fields")
