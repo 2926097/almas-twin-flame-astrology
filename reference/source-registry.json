@@ -2079,6 +2079,234 @@
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.astro.com/astrowiki/en/Vertex",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_personal_planet",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Personal Planet",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Personal Planet",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Personal_Planet",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "identificación directa de Sol, Luna, Mercurio, Venus y Marte como planetas personales dentro de la práctica astrológica moderna",
+        "asignación funcional de identidad al Sol, emoción a la Luna, comunicación/aprendizaje a Mercurio, relaciones/valor estético a Venus y afirmación a Marte",
+        "base metodológica para traducir un contacto relacional entre planetas personales a interacción entre funciones concretas antes de resumirlo en un motivo semántico"
+      ],
+      "does_not_support": [
+        "validación científica de los significados astrológicos de los planetas personales",
+        "que una combinación entre planetas personales determine por sí sola permanencia, reciprocidad o destino",
+        "que afinidad, atracción o activación entre planetas personales identifique automáticamente alma gemela, karma o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Personal Planet': enumera Sol, Luna, Mercurio, Venus y Marte y resume respectivamente identidad, emociones, comunicación/aprendizaje, relaciones/valor estético y afirmación.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Personal_Planet",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_jupiter",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Jupiter",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Jupiter",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Júpiter como principio de expansión, amplitud de horizonte, significado y crecimiento",
+        "vinculación de Júpiter con ideales, filosofía, moral, religión y comprensión panorámica",
+        "base metodológica para interpretar un contacto de Júpiter como ampliación o sobredimensión de la función planetaria o angular implicada"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Júpiter",
+        "que Júpiter garantice beneficio, permanencia o crecimiento efectivo de una relación",
+        "que un contacto jupiteriano demuestre misión, contrato álmico o afinidad ontológica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Jupiter', sección Interpretation: Júpiter se describe como principio de expansión, horizonte, significado, ideales y comprensión amplia; sus aspectos enfatizan expansión y significado en el factor tocado.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Jupiter",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_saturn",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Saturn",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Saturn",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Saturno como principio de límite, contracción, concentración, estructura, estabilidad y responsabilidad",
+        "lectura de Saturno como zona de dificultad, inhibición o temor que puede requerir tiempo, disciplina y maduración",
+        "base metodológica para distinguir en sinastría entre contención/estructura y bloqueo/peso sin reducir Saturno a karma literal"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Saturno",
+        "que un contacto saturnino pruebe deuda kármica, vida pasada o contrato preencarnatorio",
+        "que dificultad, duración o responsabilidad impliquen por sí mismas que una relación deba mantenerse"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Saturn', sección Interpretation: Saturno simboliza limitaciones y dificultades, contracción/concentración, estructura/estabilidad, responsabilidad y maduración mediante tiempo y trabajo.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Saturn",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_uranus",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Uranus",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Uranus",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Urano como principio de liberación, originalidad, ruptura de convención y cambio radical",
+        "los aspectos de Urano electrifican o vuelven inesperada/original la expresión del factor tocado",
+        "base metodológica para interpretar raíces uranianas como activación de libertad, discontinuidad, innovación o desestabilización según la geometría y el contexto"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Urano",
+        "que un contacto uraniano prediga ruptura, reunión súbita o destino relacional",
+        "que intensidad eléctrica, sincronicidad o cambio inesperado prueben llama gemela u otra ontología"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Uranus', sección Interpretation: Urano se vincula con cambio radical, liberación, originalidad y con la tendencia a electrificar el planeta o ángulo aspectado.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Uranus",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_neptune",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Neptune",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Neptune",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Neptuno como principio de disolución de fronteras, anhelo de fusión, inspiración, trascendencia e idealización",
+        "reconocimiento simultáneo de expresiones de intuición/misticismo y de ilusión, decepción o confusión",
+        "base metodológica para leer raíces neptunianas como permeabilidad e idealización de la función tocada sin elegir automáticamente entre inspiración y proyección"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Neptuno",
+        "que un contacto neptuniano pruebe unión espiritual, telepatía, destino o identidad del alma",
+        "que idealización, inspiración o sensación de fusión impliquen reciprocidad o exactitud perceptiva"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Neptune', sección Interpretation: Neptuno disuelve fronteras y se asocia tanto a fusión, inspiración y trascendencia como a idealización, ilusión, decepción y confusión.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Neptune",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_pluto",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Pluto",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Pluto",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Plutón como principio de intensidad, poder/pérdida de poder, dependencia, tabú y transformación profunda",
+        "los aspectos de Plutón intensifican y profundizan el factor tocado y pueden implicarlo en procesos de eliminación, crisis y regeneración",
+        "base metodológica para interpretar raíces plutonianas como profundización y transformación de la función implicada sin convertir intensidad en prueba ontológica"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Plutón",
+        "que intensidad, sexualidad, poder o crisis prueben karma, contrato, alma gemela o llama gemela",
+        "que una dinámica plutoniana sea necesariamente saludable, recíproca o transformadora en sentido positivo"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Pluto', sección Interpretation: Plutón se asocia con poder/pérdida de poder, dependencia, crisis y transformación; sus aspectos intensifican y profundizan el factor tocado.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Pluto",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
   "registry_revision": "2026-09-27-wound-repair-sources-1"

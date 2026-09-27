@@ -203,6 +203,7 @@ REQUIRED_FILES = [
     "reference/report-gate.md",
     "reference/report-document-model.md",
     "reference/interpretive-synthesis-protocol.md",
+    "reference/planetary-function-hermeneutics.md",
     "reference/semantic-motif-hermeneutics.md",
     "reference/cross-model-differential.md",
     "reference/doctrine-to-astrology-map.json",
@@ -3736,6 +3737,21 @@ def main() -> int:
     if len(source_ids_list) != len(set(source_ids_list)):
         fail("source registry contains duplicate ids")
     source_ids = set(source_ids_list)
+
+    required_planetary_function_sources = {
+        "astrodienst_personal_planet",
+        "astrodienst_jupiter",
+        "astrodienst_saturn",
+        "astrodienst_uranus",
+        "astrodienst_neptune",
+        "astrodienst_pluto",
+    }
+    missing_planetary_sources = required_planetary_function_sources - source_ids
+    if missing_planetary_sources:
+        fail(
+            "planetary-function hermeneutics missing registered sources: "
+            + ", ".join(sorted(missing_planetary_sources))
+        )
 
     required_source_fields = {"id", "priority", "author", "work", "supports", "does_not_support"}
     for entry in source_registry.get("entries", []):

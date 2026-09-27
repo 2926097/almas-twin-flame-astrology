@@ -65,6 +65,18 @@ Fuentes técnicas registradas:
 
 Las fuentes de M03–M04 permiten desarrollar dinámica interpersonal, combinaciones concretas y zonas de experiencia activadas por casas. Para `house_overlays`, aplicar además `reference/house-overlay-hermeneutics.md`: el punto pertenece al sujeto fuente, la casa al sujeto receptor y la geometría de la raíz indica cómo se articula la interacción. Las fuentes de M05–M06 explican dimensiones distintas de los aspectos por longitud. Ninguna de estas fuentes convierte una técnica relacional en evidencia ontológica autónoma ni autoriza a inferir destino, reciprocidad o tipo de alma a partir de una configuración aislada.
 
+### Funciones planetarias concretas
+
+Cuando `canonical_analysis.evidence[].concrete_contacts` preserve planetas concretos, usar `reference/planetary-function-hermeneutics.md` antes de resumir la raíz mediante un motivo.
+
+La secuencia es:
+
+`función planetaria A → función planetaria B → geometría → casa receptora si existe → raíz → motivo`.
+
+Esto evita que contactos diferentes terminen narrados con el mismo párrafo genérico. Por ejemplo, una raíz Venus–Plutón debe explicar primero qué ocurre entre valoración/vínculo e intensidad/poder/transformación; una raíz Mercurio–Júpiter debe explicar pensamiento/comunicación frente a expansión/significado. El motivo recurrente se formula después.
+
+Quirón, nodos, ángulos y casas conservan sus guías especializadas.
+
 ### Extremos concretos de ejes y nodos
 
 Cuando `canonical_analysis.evidence[].concrete_contacts` preserve ASC/DSC, MC/IC, Nodo Norte/Nodo Sur o Vertex/Anti-Vertex, usar `reference/angular-nodal-endpoint-hermeneutics.md`.
@@ -148,6 +160,8 @@ Pregunta interpretativa:
 > ¿Cuál es el pequeño número de temas que explica la mayor parte de la relación?
 
 La síntesis debe preferir tres o cuatro motivos bien desarrollados antes que veinte contactos enumerados.
+
+Antes de llegar al motivo, cada raíz con planetas identificables debe pasar por `reference/planetary-function-hermeneutics.md`. La prueba editorial es que el párrafo deje de ser intercambiable: Venus–Plutón, Mercurio–Júpiter y Luna–Saturno deben producir dinámicas materialmente distintas.
 
 Para desarrollar el significado de los nueve motivos primarios y sus combinaciones, usar `reference/semantic-motif-hermeneutics.md`. Ese documento no cambia la clasificación M18: traduce los motivos existentes a dinámica, función evolutiva, comparanda metafísicos y límites inferenciales.
 
