@@ -12,7 +12,8 @@
       "name": "Astrología metafísica relacional",
       "status": "CORE",
       "entrypoint": "SKILL.md",
-      "structural_policy_manifest": "manifests/structural-policy-manifest.json"
+      "structural_policy_manifest": "manifests/structural-policy-manifest.json",
+      "astronomy_backend_policy": "src/almas_tfa/data/production-astronomy-backend-policy.json"
     },
     {
       "id": "M_ONTOLOGY",
