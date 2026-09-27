@@ -1141,6 +1141,8 @@ def main() -> int:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
     if 'astronomy-validation = ["skyfield==1.55"]' not in pyproject:
         fail("pyproject must pin optional skyfield 1.55 validation extra")
+    if 'schema-validation = ["jsonschema==4.26.0"]' not in pyproject:
+        fail("pyproject must pin jsonschema 4.26.0 validation extra")
 
     if structural_policy_manifest.get("almas_public_version") != version:
         fail("structural policy manifest version diverges from VERSION")
