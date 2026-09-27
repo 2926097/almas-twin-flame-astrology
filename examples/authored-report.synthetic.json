@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "document_kind": "ALMAS_AUTHORED_REPORT",
   "language": "es",
-  "canonical_fingerprint": "35fe10967080061a1fc6c357ca7ff4bc80475942fc1a1c6a890216aa36180b76",
+  "canonical_fingerprint": "0bc5723693193890d2ac5ac09fc41dfd2dcdccf137528ada42577f645912eaf2",
   "report_state": "READY",
   "interpretive_center": "ASTROLOGY_AND_SOURCE_BASED_METAPHYSICAL_HERMENEUTICS",
   "technical_role": "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL",
@@ -15,15 +15,19 @@
       "section_id": "S01_SYNTHESIS",
       "title": "Síntesis ejecutiva",
       "authoring_state": "AUTHORED",
-      "narrative": "La arquitectura sintética describe un vínculo de alta densidad simbólica cuya coherencia no depende de un único aspecto. Tres raíces independientes convergen: reconocimiento nodal, transformación Venus-Plutón y consonancia Sol-Luna. La recurrencia de esos motivos entre capas sugiere, dentro del marco ALMAS, una relación con fuerte componente de continuidad, aprendizaje y transformación. La doctrina comparada ofrece lenguajes posibles para interpretar esa experiencia, pero ninguno se impone automáticamente sobre los demás: el cálculo sostiene la arquitectura; la hermenéutica determina cómo comprender su significado.",
+      "narrative": "La arquitectura sintética no se reduce a una suma de aspectos. El sustrato individual ya contiene temas de estabilidad, intensidad y dirección; la interacción activa tres raíces dominantes —Saturno–Nodo, Venus–Plutón y Sol–Luna— y el campo compuesto/Davison vuelve a organizarlas como continuidad, transformación y coherencia. La capa dracónica no introduce una historia nueva: reencuadra nodalmente esas mismas funciones y repite parte del circuito. Por eso la lectura central es la de un vínculo que reactiva material previo y lo convierte en una experiencia relacional con capacidad de transformación e integración. Los modelos metafísicos se comparan después de esta explicación astrológica, no antes.",
       "canonical_paths_used": [
         "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
         "evidence",
         "semantic_motifs",
         "doctrine"
       ],
       "epistemic_classes_used": [
         "A_CALCULATED",
+        "B_TECHNIQUE",
         "C_DOCTRINE",
         "E_PROJECT_HYPOTHESIS"
       ],
@@ -37,6 +41,9 @@
         "ROOT:R003"
       ],
       "source_refs": [
+        "townley_composite_charts_2000",
+        "davison_synastry_1983",
+        "blaquier_draconic_astrology_2017_2021",
         "summit_lighthouse_what_is_twin_flame",
         "kardec_spirits_book_missions_572_573"
       ],
@@ -84,10 +91,14 @@
       "section_id": "S04_STRUCTURE",
       "title": "Arquitectura estructural",
       "authoring_state": "AUTHORED",
-      "narrative": "La primera raíz concentra la lógica del reconocimiento: los nodos reaparecen en más de una capa y construyen una sensación de dirección o memoria relacional. La segunda raíz, Venus-Plutón, introduce profundidad, magnetismo y transformación, pero también obliga a distinguir intensidad de identidad ontológica. La tercera raíz, Sol-Luna, aporta una consonancia más integradora. Leídas conjuntamente, las raíces describen una arquitectura donde atracción, reconocimiento y transformación forman un sistema, no tres señales aisladas.",
+      "narrative": "La primera línea estructural es KARMIC_CONTINUITY. En el sustrato natal de A, Saturno ya ocupa una posición fuerte y el eje nodal define una dirección individual; en la interacción, Saturno y el eje nodal forman la raíz R001. El campo relacional no copia esa geometría, pero sí conserva una organización saturnina: tanto en la compuesta como en el Davison Saturno queda próximo al MC, y en el Davison se sitúa en casa 10. La dracónica vuelve a desplazar Saturno dentro del marco nodal y M11 conserva contactos cruzados sin convertirlos en una raíz adicional. La lectura no es «karma porque aparece Saturno», sino continuidad que adquiere forma de responsabilidad, tiempo y construcción. La segunda línea combina TRANSFORMATION_POWER con RELATIONAL_COHERENCE: R002 enlaza Venus–Plutón, mientras R003 articula Sol–Luna; la compuesta y el Davison repiten respectivamente Venus–Plutón por conjunción y Sol–Luna por trígono. La intensidad, por tanto, no aparece sola: el propio campo contiene una vía de integración.",
       "canonical_paths_used": [
         "evidence",
         "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
         "semantic_motifs"
       ],
       "epistemic_classes_used": [
@@ -101,16 +112,27 @@
         "ROOT:R002",
         "ROOT:R003"
       ],
-      "source_refs": [],
+      "source_refs": [
+        "townley_composite_charts_2000",
+        "davison_synastry_1983",
+        "blaquier_draconic_astrology_2017_2021",
+        "paulus_alexandrinus_introductory_matters_ch23",
+        "vettius_valens_anthology_lots"
+      ],
       "limitations": []
     },
     {
       "section_id": "S05_RELATIONAL",
       "title": "Capas relacionales y cruzadas",
       "authoring_state": "AUTHORED",
-      "narrative": "La lectura relacional gana profundidad cuando una misma temática reaparece en técnicas que responden a lógicas distintas. La capa dracónica se utiliza aquí como una transformación nodal de la carta tropical, no como una prueba autónoma de reencarnación. Su valor hermenéutico surge cuando repite o ilumina una estructura ya visible en otros niveles. Esta disciplina permite usar la astrología esotérica con amplitud sin confundir método simbólico con demostración ontológica.",
+      "narrative": "Las capas relacionales se leen como un circuito y no como cinco diagnósticos separados. A aporta una Venus natal en Géminis que cae en la casa 7 de B, mientras el Plutón de B cae en la casa 10 de A; R002 condensa esa interacción Venus–Plutón. El campo relacional vuelve a reunir ambas funciones: conjunción Venus–Plutón en compuesta y Davison, con ambas funciones concentradas en casa 8 del Davison. M11 añade dirección: la Venus natal de A contacta el Plutón dracónico de B; el significado es que una función vincular manifiesta de A activa una capa de transformación reencuadrada nodalmente en B, no que «la dracónica pruebe una vida pasada». M12 sólo corrobora. El Lote de Espíritu de A aparece en Géminis/casa 10 y el de B en Leo/casa 11. Según la distinción histórica de Valens, Espíritu/Daimon contextualiza actividad intelectual o espiritual y dinámicas de dar/recibir; ALMAS utiliza esas posiciones únicamente como matiz de una función ya visible en el eje Saturno–MC y no como prueba de misión. Así, el motivo relacional se construye desde la recurrencia: interacción → campo → reencuadre nodal → matiz histórico.",
       "canonical_paths_used": [
-        "evidence"
+        "evidence",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
+        "semantic_motifs"
       ],
       "epistemic_classes_used": [
         "A_CALCULATED",
@@ -123,7 +145,11 @@
         "ROOT:R003"
       ],
       "source_refs": [
-        "blaquier_draconic_astrology_2017_2021"
+        "townley_composite_charts_2000",
+        "davison_synastry_1983",
+        "blaquier_draconic_astrology_2017_2021",
+        "paulus_alexandrinus_introductory_matters_ch23",
+        "vettius_valens_anthology_lots"
       ],
       "limitations": []
     },
@@ -216,9 +242,13 @@
       "section_id": "S10_FINAL_SYNTHESIS",
       "title": "Síntesis final",
       "authoring_state": "AUTHORED",
-      "narrative": "La lectura conjunta dibuja una relación cuya nota dominante es el reconocimiento transformativo: hay señales de continuidad, resonancia y tarea evolutiva compartida, junto con suficiente intensidad para exigir discernimiento. El modelo de alma gemela aparece sólidamente sostenido en el fixture; la continuidad kármica/contractual también encuentra apoyo. La hipótesis de llama gemela puede emplearse como marco compatible cuando se desea explorar una doctrina de origen polar compartido, pero la arquitectura presentada no obliga a adoptarla como única explicación. La conclusión más fértil no es una etiqueta cerrada, sino la descripción de una función: un vínculo capaz de activar memoria simbólica, transformación profunda e integración consciente.",
+      "narrative": "La síntesis reúne tres funciones. KARMIC_CONTINUITY describe un cruce de trayectorias que exige forma, responsabilidad y elaboración; TRANSFORMATION_POWER muestra que el vínculo moviliza material profundo, especialmente a través del circuito Venus–Plutón; RELATIONAL_COHERENCE indica que esa intensidad no carece de recursos integradores, porque Sol–Luna reaparece de forma armónica en el campo relacional. El overlay saturnino sobre el meridiano permite hablar de una posible dimensión de construcción o externalización, pero los lotes sólo la matizan: Espíritu/Daimon aporta un contexto histórico de actividad intelectual/espiritual, no una certificación de misión preencarnatoria. La dracónica refuerza la continuidad temática al reordenar funciones ya presentes respecto del Nodo Norte, sin convertirse en prueba ontológica. En este fixture, alma gemela y continuidad kármica/contractual siguen siendo marcos ampliamente compatibles con la arquitectura; la llama gemela puede compararse como doctrina moderna de origen polar compartido, pero no queda discriminada de forma exclusiva. La conclusión con más contenido no es la etiqueta: es la función del vínculo —hacer visible una continuidad que transforma y que, al mismo tiempo, contiene capacidad de integración y construcción consciente.",
       "canonical_paths_used": [
         "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
         "evidence",
         "semantic_motifs",
         "doctrine",
@@ -226,6 +256,7 @@
       ],
       "epistemic_classes_used": [
         "A_CALCULATED",
+        "B_TECHNIQUE",
         "C_DOCTRINE",
         "E_PROJECT_HYPOTHESIS"
       ],
@@ -239,6 +270,11 @@
         "ROOT:R003"
       ],
       "source_refs": [
+        "townley_composite_charts_2000",
+        "davison_synastry_1983",
+        "blaquier_draconic_astrology_2017_2021",
+        "paulus_alexandrinus_introductory_matters_ch23",
+        "vettius_valens_anthology_lots",
         "summit_lighthouse_what_is_twin_flame",
         "kardec_spirits_book_missions_572_573"
       ],
@@ -250,9 +286,10 @@
       "section_id": "S11_SOURCES_APPENDICES",
       "title": "Fuentes y anexos",
       "authoring_state": "AUTHORED",
-      "narrative": "Las fuentes se conservan como aparato de apoyo a la lectura. La referencia técnica de astrología dracónica explica el procedimiento utilizado; las fuentes doctrinales documentan los significados atribuidos a origen compartido y misión preencarnatoria. Su presencia no incrementa por sí misma ningún índice: permite al lector distinguir qué procede del cálculo, qué de una técnica y qué de una tradición metafísica concreta.",
+      "narrative": "El aparato de fuentes distingue cálculo, método y doctrina. Townley y Davison documentan las técnicas de cartas relacionales; Blaquier documenta el procedimiento dracónico moderno utilizado por M10–M12; Paulus y Valens sustentan la fórmula y el marco histórico de Fortuna/Espíritu; las fuentes doctrinales de The Summit Lighthouse y Kardec sólo entran después como comparanda metafísicos. Ninguna fuente añade puntos por existir y ninguna técnica secundaria sustituye las raíces estructurales.",
       "canonical_paths_used": [
         "evidence",
+        "lots_context",
         "doctrine",
         "limitations"
       ],
@@ -273,8 +310,12 @@
         "ROOT:R003"
       ],
       "source_refs": [
-        "summit_lighthouse_what_is_twin_flame",
+        "townley_composite_charts_2000",
+        "davison_synastry_1983",
         "blaquier_draconic_astrology_2017_2021",
+        "paulus_alexandrinus_introductory_matters_ch23",
+        "vettius_valens_anthology_lots",
+        "summit_lighthouse_what_is_twin_flame",
         "kardec_spirits_book_missions_572_573"
       ],
       "limitations": []
@@ -313,6 +354,50 @@
       "locator": "Book II, Chapter X, questions 572-573",
       "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
       "verification_anchor": "Questions 572-573 on missions requested by spirits before incarnation."
+    },
+    {
+      "source_id": "townley_composite_charts_2000",
+      "citation_label": "John Townley · Composite Charts: The Astrology of Relationships",
+      "source_scope": "TECHNIQUE",
+      "author": "John Townley",
+      "work": "Composite Charts: The Astrology of Relationships",
+      "tradition": "Astrología relacional moderna",
+      "locator": null,
+      "url": "https://books.google.com/books/about/Composite_Charts.html?id=dUulSwQoEC4C",
+      "verification_anchor": "Google Books/Llewellyn description identifies the book as a method source for constructing composite charts, interpreting composite factors, and synthesizing natal, synastry and composite charts."
+    },
+    {
+      "source_id": "davison_synastry_1983",
+      "citation_label": "Ronald C. Davison · Synastry: Understanding Human Relations Through Astrology",
+      "source_scope": "TECHNIQUE",
+      "author": "Ronald C. Davison",
+      "work": "Synastry: Understanding Human Relations Through Astrology",
+      "tradition": "Astrología relacional moderna",
+      "locator": "333",
+      "url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
+      "verification_anchor": "Google Books/Aurora Press description identifies the book as a systematic source on chart comparison and the Relationship Horoscope, including planetary cross-aspects and house interchanges."
+    },
+    {
+      "source_id": "paulus_alexandrinus_introductory_matters_ch23",
+      "citation_label": "Paulus Alexandrinus · Introductory Matters",
+      "source_scope": "TECHNIQUE",
+      "author": "Paulus Alexandrinus",
+      "work": "Introductory Matters",
+      "tradition": "Astrología helenística tardía",
+      "locator": "Chapter 23, Concerning the Seven Lots in the Panaretus",
+      "url": "https://www.starmedia.ne.jp/bookcont/",
+      "verification_anchor": "Table of contents and bibliographic record identify chapter 23 as the seven lots; the Schmidt translation is the declared operational edition."
+    },
+    {
+      "source_id": "vettius_valens_anthology_lots",
+      "citation_label": "Vettius Valens · Anthology",
+      "source_scope": "TECHNIQUE",
+      "author": "Vettius Valens",
+      "work": "Anthology",
+      "tradition": "Astrología helenística",
+      "locator": "Book II, especially sections on Fortune and Daimon/Spirit; Book IV and Book IX for later uses.",
+      "url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
+      "verification_anchor": "Anthology, Book II, section on Fortune and Daimon: Fortune concerns bodily matters and handwork; Daimon concerns spiritual/intellectual matters and giving/receiving; signs/places and rulers qualify the activity and fortune."
     }
   ]
 }
