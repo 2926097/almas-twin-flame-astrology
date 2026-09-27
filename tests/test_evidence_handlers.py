@@ -126,6 +126,53 @@ class TestEvidenceGraph(unittest.TestCase):
             "A:AXIS_HORIZON|B:SUN|AXIS_ANGLE:0.000000",
         )
 
+    def test_m15_ignores_relationship_field_internal_contacts(self):
+        canonical = {
+            "relationship_chart_consonance": {
+                "contacts": [
+                    {
+                        "subject_a": "RELCHART_COMPOSITE",
+                        "point_a": "SUN",
+                        "subject_b": "RELCHART_DAVISON",
+                        "point_b": "SUN",
+                        "aspect": "CONJUNCTION",
+                        "angle": 0.0,
+                        "orb": 1.0,
+                        "orb_limit": 3.0,
+                        "exactness": 0.9,
+                    }
+                ],
+                "field_context": {
+                    "authoring_only": True,
+                    "structural_evidence_used": False,
+                    "creates_independent_roots": False,
+                    "composite": {
+                        "internal_contacts": [
+                            {
+                                "subject_a": "RELCHART_COMPOSITE",
+                                "point_a": "SUN",
+                                "subject_b": "RELCHART_COMPOSITE",
+                                "point_b": "VENUS",
+                                "aspect": "TRINE",
+                                "angle": 120.0,
+                                "orb": 0.5,
+                                "orb_limit": 3.0,
+                                "exactness": 0.97,
+                            }
+                        ]
+                    },
+                },
+            }
+        }
+
+        result = m15_evidence_extraction(ctx("M15", canonical))
+        evidence = result.canonical_updates["evidence_graph"]["items"]
+
+        self.assertEqual(len(evidence), 1)
+        self.assertEqual(evidence[0]["source_module"], "M09")
+        self.assertEqual(evidence[0]["contact"]["point_a"], "SUN")
+        self.assertEqual(evidence[0]["contact"]["point_b"], "SUN")
+
     def test_secondary_only_root_never_becomes_core(self):
         canonical = {
             "secondary_symbolic": {

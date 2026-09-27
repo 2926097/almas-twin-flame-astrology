@@ -203,6 +203,7 @@ REQUIRED_FILES = [
     "reference/report-gate.md",
     "reference/report-document-model.md",
     "reference/interpretive-synthesis-protocol.md",
+    "reference/relationship-field-hermeneutics.md",
     "reference/natal-substrate-hermeneutics.md",
     "reference/planetary-function-hermeneutics.md",
     "reference/aspect-geometry-hermeneutics.md",
@@ -3290,6 +3291,37 @@ def main() -> int:
         fail("M09 must remain in the single RELCHART dependency family")
     if relationship_chart_consonance_schema.get("properties", {}).get("score_state", {}).get("const") != "NOT_DEFINED":
         fail("M09 must not invent an unregistered consonance score")
+    if "field_context" not in relationship_chart_consonance_schema.get("required", []):
+        fail("M09 must expose relationship field authoring context")
+    field_context_schema = (
+        relationship_chart_consonance_schema.get("properties", {})
+        .get("field_context", {})
+    )
+    field_props = field_context_schema.get("properties", {})
+    if field_props.get("authoring_only", {}).get("const") is not True:
+        fail("M09 relationship field must remain authoring_only")
+    if field_props.get("structural_evidence_used", {}).get("const") is not False:
+        fail("M09 relationship field must not become structural evidence")
+    if field_props.get("creates_independent_roots", {}).get("const") is not False:
+        fail("M09 relationship field must not create independent roots")
+    if (
+        field_props.get("composite", {})
+        .get("properties", {})
+        .get("houses_calculated", {})
+        .get("const")
+        is not False
+    ):
+        fail("M07 composite houses must remain unavailable")
+    davison_field = field_props.get("davison", {})
+    if "house_placements" not in set(davison_field.get("required", [])):
+        fail("M09 relationship field must expose explicit Davison house placements")
+    placement_schema = (
+        davison_field.get("properties", {})
+        .get("house_placements", {})
+        .get("additionalProperties", {})
+    )
+    if placement_schema.get("minimum") != 1 or placement_schema.get("maximum") != 12:
+        fail("Davison house placements must remain within houses 1..12")
 
     if "charts" not in draconic_schema.get("required", []):
         fail("draconic schema must require charts")
@@ -3551,6 +3583,8 @@ def main() -> int:
     ).read_text(encoding="utf-8")
     if report_model_handler_text.count('"natal_context"') < 4:
         fail("M31 must expose natal_context to core interpretive sections")
+    if report_model_handler_text.count('"relationship_field"') < 4:
+        fail("M31 must expose relationship_field to core interpretive sections")
 
     report_model_props = report_document_model_schema.get("properties", {})
     if report_model_props.get("canonical_source", {}).get("const") != "canonical_analysis":
@@ -4486,6 +4520,7 @@ def main() -> int:
         "profile_policy_id",
         "astronomy_backend",
         "natal_context",
+        "relationship_field",
         "evidence",
         "models",
         "indices",
@@ -4513,6 +4548,13 @@ def main() -> int:
         fail("canonical natal_context must compose the existing M04 output schema")
     if "natal_context" in set(canonical_schema.get("required", [])):
         fail("canonical natal_context must remain optional for legacy/imported analyses")
+    if (
+        canonical_props.get("relationship_field", {}).get("$ref")
+        != "relationship-chart-consonance.schema.json#/properties/field_context"
+    ):
+        fail("canonical relationship_field must compose M09 field_context")
+    if "relationship_field" in set(canonical_schema.get("required", [])):
+        fail("canonical relationship_field must remain optional")
 
     if canonical_props.get("null_models", {}).get("$ref") != "null-model-output.schema.json":
         fail("canonical null_models must compose the M24 output schema")

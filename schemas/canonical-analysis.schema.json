@@ -47,6 +47,9 @@
     "natal_context": {
       "$ref": "natal-context-output.schema.json"
     },
+    "relationship_field": {
+      "$ref": "relationship-chart-consonance.schema.json#/properties/field_context"
+    },
     "evidence": {
       "type": "array",
       "items": {
