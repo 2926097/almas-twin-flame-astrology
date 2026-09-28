@@ -290,6 +290,118 @@ class TransitGenerationTests(unittest.TestCase):
             fixture["authored_paragraph"],
         )
 
+    def test_temporal_reading_fixture_matches_generated_m26_signal(self):
+        fixture = json.loads(
+            (ROOT / "examples/temporal-reading.synthetic.json")
+            .read_text(encoding="utf-8")
+        )
+        expected = fixture["temporal_signal"]
+
+        data = {
+            "independent_roots": {
+                "roots": [
+                    {
+                        "root_id": "R-TEMP-001",
+                        "dependency_families": ["SYN"],
+                        "concrete_contacts": [
+                            {
+                                "subject_a": "A",
+                                "point_a": "VENUS",
+                                "layer_a": "NATAL",
+                                "subject_b": "B",
+                                "point_b": "PLUTO",
+                                "layer_b": "NATAL",
+                            }
+                        ],
+                    }
+                ]
+            },
+            "natal_context": {
+                "subjects": {
+                    "A": {
+                        "point_signs": {
+                            "VENUS": {"longitude": 100.0},
+                        },
+                        "angles": {},
+                    },
+                    "B": {
+                        "point_signs": {
+                            "PLUTO": {"longitude": 250.0},
+                        },
+                        "angles": {},
+                    },
+                }
+            },
+        }
+        handler = make_m26_temporal_activation_auto(
+            FakeTransitBackend(
+                {"SATURN": {"longitude": 11.0}}
+            )
+        )
+        ctx = ModuleContext(
+            module_id="M26",
+            module_name="M26",
+            mode="TEMPORAL",
+            raw_input={
+                "transit_requests": [
+                    {
+                        "request_id": "DEMO-2030",
+                        "instant_utc": "2030-01-01T12:00:00Z",
+                        "target_subjects": ["A"],
+                        "window_status": expected["window_status"],
+                        "preregistered": expected["preregistered"],
+                        "preregistered_window_rule": (
+                            expected["preregistered_window_rule"]
+                        ),
+                    }
+                ],
+                "aspect_policy": ASPECT_POLICY,
+            },
+            canonical_snapshot=data,
+            prior_results={},
+        )
+
+        result = handler(ctx)
+        actual = result.canonical_updates["temporal_activation"]["signals"][0]
+
+        for field in (
+            "signal_id",
+            "root_id",
+            "temporal_family",
+            "activation_class",
+            "strength",
+            "k",
+            "effective_strength",
+            "exactitude_orb",
+            "preregistered",
+            "preregistered_window_rule",
+            "window_status",
+            "date_or_period",
+        ):
+            self.assertEqual(actual[field], expected[field], field)
+
+        for field in (
+            "trigger_point",
+            "target_point",
+            "relation",
+            "source_layer",
+            "target_layer",
+            "target_subject",
+            "orb",
+            "orb_limit",
+            "aspect_angle",
+            "transit_longitude",
+            "target_longitude",
+            "method_sources",
+        ):
+            self.assertEqual(
+                actual["trigger_context"][field],
+                expected["trigger_context"][field],
+                field,
+            )
+
+        self.assertIn("TTRANSIT_GENERATED:1", result.diagnostics)
+
     def test_wrapper_preserves_manual_signals_alongside_generated(self):
         handler = make_m26_temporal_activation_auto(
             FakeTransitBackend(
