@@ -234,6 +234,16 @@ class PillarAttributionV2Tests(unittest.TestCase):
         self.assertTrue(
             all(item["derived_unit_not_independent_root"] for item in motif_units)
         )
+        self.assertTrue(derived["pillar_source_roots"]["PX"])
+        source_union = {
+            source
+            for item in motif_units
+            for source in item["source_root_ids"]
+        }
+        self.assertEqual(
+            set(derived["pillar_source_roots"]["PX"]),
+            source_union,
+        )
 
     def test_pu_remains_not_evaluable(self):
         derived = derive_pillars_from_roots(
