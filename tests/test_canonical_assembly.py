@@ -579,6 +579,26 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         self.assertEqual(trace["provenance_state"], "DECLARED")
         self.assertEqual(trace["provenance"], provenance)
 
+    def test_partial_canonical_ice_map_is_rejected(self):
+        canonical = canonical_base(with_ice=True)
+        canonical["counterevidence"]["ice_by_model"].pop("LG")
+        with self.assertRaises(ValueError):
+            assemble_canonical_analysis(canonical, prior_all())
+
+    def test_canonical_ice_boundaries_remain_exact(self):
+        canonical = canonical_base(with_ice=True)
+        canonical["counterevidence"]["ice_by_model"] = {
+            "AF": 0,
+            "KA": 100,
+            "AG": 0,
+            "LG": 100,
+        }
+        result = assemble_canonical_analysis(canonical, prior_all())
+        assembled = result["canonical_analysis"]
+        self.assertEqual(assembled["models"]["AF"]["ice"], 0.0)
+        self.assertEqual(assembled["models"]["KA"]["ice"], 100.0)
+        self.assertEqual(assembled["indices"]["ICE"], 100.0)
+
     def test_supported_requires_evaluable_ice(self):
         result = assemble_canonical_analysis(
             canonical_base(with_ice=False),
