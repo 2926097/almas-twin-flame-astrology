@@ -278,7 +278,7 @@ def grouped_robustness_index(
         if not isinstance(group_id, str) or not group_id.strip():
             raise ValueError("robustness dependency group must be non-empty")
         value = float(raw_value)
-        _validate_unit_interval(value, name="robustness component")
+        _check_unit(value, "robustness component")
         grouped.setdefault(group_id, []).append(value)
         all_values.append(value)
 
