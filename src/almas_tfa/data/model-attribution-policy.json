@@ -1,17 +1,17 @@
 {
-  "schema_version": "2.0.0",
-  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
+  "schema_version": "3.0.0",
+  "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3",
   "status": "FROZEN_EXPERIMENTAL_BASELINE",
   "epistemic_class": "E_PROJECT_HYPOTHESIS",
-  "purpose": "Derivar atribuciones Shapley para AF/KA/AG/LG sobre unidades canónicas de evidencia: raíces independientes y motivos semánticos derivados de PX/PS.",
+  "purpose": "Derivar atribuciones Shapley para AF/KA/AG/LG usando coaliciones de dependencia: las raíces independientes y los motivos PX/PS derivados de esas mismas raíces no actúan como jugadores independientes.",
   "value_function": "IEM_PRE",
   "counterevidence_in_value_function": false,
   "structural_coverage_required": true,
-  "attribution_unit": "CANONICAL_EVIDENCE_UNIT",
+  "attribution_unit": "DEPENDENCY_COALITION",
   "derived_motif_units_are_independent_evidence": false,
   "exact_method": {
     "name": "EXACT_SHAPLEY",
-    "max_units": 10
+    "max_dependency_coalitions": 10
   },
   "approximation_method": {
     "name": "DETERMINISTIC_ANTITHETIC_PERMUTATIONS",
@@ -33,6 +33,9 @@
     "ice_not_used_for_attribution": true,
     "temporal_activation_not_used": true,
     "null_rarity_not_used": true,
-    "motif_units_are_derived_features_not_new_roots": true
+    "motif_units_are_derived_features_not_new_roots": true,
+    "root_and_derived_motif_share_player": true,
+    "idd_uses_dependency_coalitions": true,
+    "full_iem_pre_preserved": true
   }
 }
