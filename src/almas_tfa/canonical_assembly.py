@@ -8,6 +8,7 @@ from .analysis_profiles import resolve_analysis_profile
 from .core import score_model, supported_gate
 from .module_contract import ExecutionStatus, ModuleResult
 from .quantitative_contracts import MODELS, validate_ice_by_model
+from .quantitative_v122 import score_model_dependency_aware
 
 
 POLICY_RESOURCE = "canonical-assembly-policy.json"
@@ -140,10 +141,22 @@ def derive_canonical_coverage(
 
 def _counterevidence_state(
     canonical: Mapping[str, Any],
-) -> tuple[dict[str, float] | None, dict[str, bool], list[dict[str, Any]]]:
+) -> tuple[
+    dict[str, float] | None,
+    dict[str, bool],
+    list[dict[str, Any]],
+    str,
+    str | None,
+]:
     counter = canonical.get("counterevidence")
     if not isinstance(counter, Mapping):
-        return None, {model: False for model in MODELS}, []
+        return (
+            None,
+            {model: False for model in MODELS},
+            [],
+            "NOT_CALCULATED",
+            None,
+        )
 
     ice_by_model = validate_ice_by_model(
         counter.get("ice_by_model"),
@@ -167,7 +180,12 @@ def _counterevidence_state(
                     if isinstance(item, Mapping):
                         flattened.append(dict(item))
 
-    return ice_by_model, essential, flattened
+    ice_state = str(counter.get("ice_state") or "NOT_CALCULATED")
+    ice_formula_id = counter.get("ice_formula_id")
+    if ice_formula_id is not None:
+        ice_formula_id = str(ice_formula_id)
+
+    return ice_by_model, essential, flattened, ice_state, ice_formula_id
 
 
 def _global_idd(canonical: Mapping[str, Any]) -> tuple[float | None, dict[str, Any]]:
@@ -559,9 +577,13 @@ def assemble_canonical_analysis(
             "reason": "PILLARS_NOT_MAPPING",
         }
 
-    ice_by_model, essential, counter_items = _counterevidence_state(
-        canonical
-    )
+    (
+        ice_by_model,
+        essential,
+        counter_items,
+        ice_source_state,
+        ice_formula_id,
+    ) = _counterevidence_state(canonical)
     ice_evaluable = ice_by_model is not None
 
     timed_architecture = _timed_architecture_present(canonical)
@@ -578,6 +600,14 @@ def assemble_canonical_analysis(
         or birth_time_component
     )
 
+    pillar_attribution = canonical.get("pillar_attribution")
+    pillar_sources = (
+        pillar_attribution.get("pillar_source_roots")
+        if isinstance(pillar_attribution, Mapping)
+        else None
+    )
+    dependency_aware = isinstance(pillar_sources, Mapping)
+
     models: dict[str, Any] = {}
     model_ice_values: list[float] = []
     for model in MODELS:
@@ -589,7 +619,15 @@ def assemble_canonical_analysis(
         if ice_evaluable:
             model_ice_values.append(ice_value)
 
-        score = score_model(model, pillars, ice=ice_value)
+        if dependency_aware:
+            score = score_model_dependency_aware(
+                model,
+                pillars,
+                pillar_sources,
+                ice=ice_value,
+            )
+        else:
+            score = score_model(model, pillars, ice=ice_value)
         if not score.essential_evaluable:
             state = "NOT_EVALUABLE"
             iem = None
@@ -600,7 +638,7 @@ def assemble_canonical_analysis(
             iem_final = score.iem_final if ice_evaluable else None
         else:
             gate = False
-            if ice_evaluable and birth_time_gate_ok:
+            if dependency_aware and ice_evaluable and birth_time_gate_ok:
                 gate = supported_gate(
                     score,
                     icc=icc,
@@ -665,6 +703,14 @@ def assemble_canonical_analysis(
             "R_min": r_min,
             "component_count": robustness.get("component_count"),
             "components": robustness.get("components", []),
+            "dependency_family_count": robustness.get(
+                "dependency_family_count",
+                robustness.get("component_count"),
+            ),
+            "dependency_families": robustness.get(
+                "dependency_families",
+                [],
+            ),
             "null_model_rarity_used_as_robustness": False,
             "timed_architecture_present": timed_architecture,
             "birth_time_component_present": birth_time_component,
@@ -673,12 +719,21 @@ def assemble_canonical_analysis(
         "counterevidence_state": {
             "ice_evaluable": ice_evaluable,
             "ice_by_model": ice_by_model,
+            "ice_source_state": ice_source_state,
+            "ice_formula_id": ice_formula_id,
             "essential_contradictions": essential,
         },
         "ontology": {},
         "doctrine": _doctrine_claims(canonical),
         "temporal": temporal,
-        "limitations": _limitations(prior_results),
+        "limitations": _limitations(prior_results)
+        + (
+            []
+            if dependency_aware
+            else [
+                "ALMAS 1.22: falta linaje raíz→pilar; se conserva puntuación descriptiva legacy, pero el gate SUPPORTED permanece cerrado."
+            ]
+        ),
         "assembly": {
             "policy_id": policy["policy_id"],
             "policy_status": policy["status"],
