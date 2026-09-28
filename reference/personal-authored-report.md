@@ -39,4 +39,4 @@ La bibliografía es más estricta que en la capa relacional inicial: toda `sourc
 - `new_calculations_performed=false`;
 - `new_scores_created=false`.
 
-Este bloque termina en autoría estructurada. La adaptación a DOCX/PDF B5 pertenece al bloque siguiente.
+Tras validar la autoría estructurada, `build_personal_authored_report_docx()` y `publish_personal_authored_report_pdf()` materializan el mismo contenido con la infraestructura B5 compartida. La publicación no amplía ni corrige la interpretación.
