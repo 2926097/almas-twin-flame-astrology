@@ -12,13 +12,15 @@ La capa interpretativa profundiza la arquitectura ya calculada sin introducir un
 
 La temporalidad M26 conserva `trigger_context` para autoría y el generador `TTRANSIT` deriva contactos planeta en tránsito → aspecto mayor declarado → endpoint natal de una raíz existente. La lectura sintética de referencia sigue la secuencia `raíz → función transitante → función objetivo → geometría → integración → función evolutiva → límite factual`.
 
-En el último head funcional previo al bump de release:
+En la PR de cierre 1.20.0:
 
-- Núcleo Python 3.10/3.12: 537 tests, PASS;
+- Núcleo Python 3.10: 537 tests, PASS (7 skipped);
+- Núcleo Python 3.12: 537 tests, PASS (7 skipped);
 - Contrato público: PASS;
 - Backend astronómico: PASS;
-- fixture temporal enlazado al señal M26 generada: PASS;
-- perfiles DOCX/PDF B5: sin modificación analítica respecto de 1.19.
+- Publicación DOCX: PASS;
+- Publicación PDF: PASS;
+- fixture temporal enlazado a la señal M26 generada: PASS.
 
 1.20 no añade scores, pesos, thresholds ni discriminadores activados. La interpretación temporal describe activación simbólica y no constituye predicción factual.
 
