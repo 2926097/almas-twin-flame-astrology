@@ -15,27 +15,36 @@ def pillar_attribution(units, *, complete=True):
     }
 
 
-def attributed(unit_id, pillar, value, *, unit_type="ROOT"):
-    return {
+def attributed(unit_id, pillar, value, *, unit_type="ROOT", source_root_ids=None):
+    item = {
         "unit_id": unit_id,
         "root_id": unit_id,
         "unit_type": unit_type,
         "eligible": True,
         "contributions": {pillar: value},
     }
+    if unit_type == "SEMANTIC_MOTIF":
+        item["source_root_ids"] = list(source_root_ids or [unit_id + ":SOURCE"])
+    return item
 
 
-class ModelAttributionV2Tests(unittest.TestCase):
+class ModelAttributionV3Tests(unittest.TestCase):
     def test_policy_is_frozen_and_case_fit_forbidden(self):
         policy = load_model_attribution_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
+            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
-        self.assertEqual(policy["value_function"], "IEM_PRE")
+        self.assertEqual(
+            policy["value_function"],
+            "IEM_PRE_DEPENDENCY_AWARE",
+        )
         self.assertFalse(
             policy["derived_motif_units_are_independent_evidence"]
+        )
+        self.assertTrue(
+            policy["principles"]["root_motif_source_overlap_corrected"]
         )
 
     def test_incomplete_coverage_is_not_evaluable(self):
