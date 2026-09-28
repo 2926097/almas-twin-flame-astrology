@@ -135,6 +135,18 @@ def canonical_base(*, with_ice=True):
             }
         },
         "independent_roots": roots,
+        "pillar_attribution": {
+            "pillar_source_roots": {
+                "PA": ["R0001"],
+                "PK": ["R0001"],
+                "PE": ["R0001"],
+                "PR": ["R0001"],
+                "PX": ["R0001"],
+                "PT": ["R0001"],
+                "PS": ["R0001"],
+                "PU": [],
+            }
+        },
         "pillars": {
             "PA": 90.0,
             "PK": 90.0,
@@ -620,6 +632,24 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
                 canonical["models"][model]["ice_state"],
                 "NOT_EVALUABLE",
             )
+
+    def test_supported_gate_stays_closed_without_root_lineage(self):
+        source = canonical_base(with_ice=True)
+        source.pop("pillar_attribution")
+        result = assemble_canonical_analysis(source, prior_all())
+        canonical = result["canonical_analysis"]
+        self.assertTrue(
+            all(
+                canonical["models"][model]["state"] != "SUPPORTED"
+                for model in ("AF", "KA", "AG", "LG")
+            )
+        )
+        self.assertTrue(
+            any(
+                "falta linaje raíz" in limitation
+                for limitation in canonical["limitations"]
+            )
+        )
 
     def test_supported_gate_can_close_after_m25(self):
         result = assemble_canonical_analysis(
