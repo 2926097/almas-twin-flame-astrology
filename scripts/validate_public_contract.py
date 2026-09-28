@@ -5036,7 +5036,7 @@ def main() -> int:
             fail(f"canonical assembly must lock {field}=false")
 
     robustness_schema = canonical_props.get("robustness", {})
-    expected_robustness_fields = {
+    expected_robustness_required = {
         "IRC",
         "R_min",
         "component_count",
@@ -5045,10 +5045,14 @@ def main() -> int:
         "timed_architecture_present",
         "birth_time_component_present",
     }
+    expected_robustness_fields = expected_robustness_required | {
+        "group_count",
+        "dependency_groups",
+    }
     if set(robustness_schema.get("properties", {})) != expected_robustness_fields:
         fail("canonical robustness surface changed")
-    if set(robustness_schema.get("required", [])) != expected_robustness_fields:
-        fail("canonical robustness must require all M30 fields")
+    if set(robustness_schema.get("required", [])) != expected_robustness_required:
+        fail("canonical robustness required surface changed")
     if robustness_schema.get("additionalProperties") is not False:
         fail("canonical robustness must reject undeclared fields")
     component_ref = (
