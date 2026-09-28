@@ -152,6 +152,23 @@ class PersonalRequestPipelineTests(unittest.TestCase):
                 NoProvenanceBackend(),
             )
 
+    def test_incomplete_production_provenance_is_rejected(self):
+        class IncompleteBackend(FakePersonalBackend):
+            @property
+            def provenance(self):
+                value = provenance()
+                value.pop("kernel_filename")
+                return value
+
+        with self.assertRaisesRegex(
+            PersonalRequestError,
+            "kernel_filename",
+        ):
+            build_personal_canonical_from_request(
+                request(),
+                IncompleteBackend(),
+            )
+
     def test_low_quality_time_remains_reportable_but_partial(self):
         canonical = build_personal_canonical_from_request(
             request("C"),
