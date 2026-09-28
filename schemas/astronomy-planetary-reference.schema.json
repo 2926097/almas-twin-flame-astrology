@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/astronomy-planetary-reference.schema.json",
+  "title": "ALMAS · Referencia planetaria astronómica independiente",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy_id",
+    "case_set_id",
+    "case_id",
+    "reference_provenance",
+    "resolved_kernel_targets",
+    "measurements"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "policy_id": {"const": "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1"},
+    "case_set_id": {"const": "ALMAS_ASTRONOMY_GOLDEN_CASES_V1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "reference_provenance": {
+      "type": "object",
+      "required": [
+        "method_id",
+        "software",
+        "software_version",
+        "ephemeris_family",
+        "kernel_filename",
+        "kernel_sha256",
+        "coordinate_origin",
+        "reference_frame",
+        "apparent_reduction",
+        "topocentric_positions",
+        "network_io_used"
+      ],
+      "properties": {
+        "method_id": {"const": "ALMAS_SKYFIELD_DE440_PLANETARY_REFERENCE_V1"},
+        "software": {"const": "skyfield"},
+        "software_version": {"const": "1.55"},
+        "ephemeris_family": {"const": "DE440"},
+        "kernel_filename": {"type": "string", "minLength": 1},
+        "kernel_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "coordinate_origin": {"const": "GEOCENTRIC"},
+        "reference_frame": {"const": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE"},
+        "apparent_reduction": {"const": true},
+        "topocentric_positions": {"const": false},
+        "network_io_used": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "resolved_kernel_targets": {
+      "type": "object",
+      "minProperties": 10,
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 30,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "required": ["metric", "point_id", "reference_deg"],
+        "properties": {
+          "metric": {
+            "enum": [
+              "planetary_longitude",
+              "ecliptic_latitude",
+              "declination"
+            ]
+          },
+          "point_id": {
+            "enum": [
+              "SUN", "MOON", "MERCURY", "VENUS", "MARS",
+              "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO"
+            ]
+          },
+          "reference_deg": {"type": "number"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
