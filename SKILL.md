@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.21.0
+version: 1.22.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.21.0
+# ALMAS · Astrología Metafísica Relacional v1.22.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.21.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.22.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
@@ -25,6 +25,8 @@ La release 1.17.0 formaliza los **manifiestos normativos estructurales**: taxono
 La release 1.18.0 incorpora un **backend astronómico de producción por capacidades** mediante `ALMAS_MOIRA_JPL_SPK_V1`. El adaptador exige `moira-astro==6.8.2`, kernel JPL local fingerprintado, timezone IANA, coordenadas numéricas y sistema de casas explícito; prohíbe descarga de efemérides, geocodificación y fallback polar durante el cálculo. M02 y M08 pasan a implementación ejecutable, sin añadir técnicas ni alterar scoring.
 
 La release 1.19.0 materializa autoría y publicación B5 trazables; 1.20.0 añade síntesis root-first y temporalidad `TTRANSIT`. La release 1.21.0 porta los **informes astrológicos personales** a la arquitectura vigente: canonical personal minimizado y fingerprintable, cinco perfiles, autoría trazable, publicación DOCX/PDF B5 compartida, construcción desde solicitud natal mediante el backend de producción y router de referencias contra el corpus canónico. Esta superficie es interna a la única skill ALMAS y no altera el scoring relacional, los discriminadores ni la ontología.
+
+La release 1.22.0 versiona la evolución cuantitativa posterior: corrige dependencia raíz↔motivo en la agregación de IEM/IDD mediante trazabilidad de procedencia, agrupa IRC por familias de dependencia y permite derivar ICE autónomo sólo desde una evaluación de contraevidencia explícitamente completa. Estos cambios son `E_PROJECT_HYPOTHESIS`/política cuantitativa del proyecto; no convierten los índices en probabilidades metafísicas.
 
 ### Enfoque de investigación metafísica
 
@@ -263,11 +265,11 @@ Pilares de apoyo:
 - AG: PK, PT, PS.
 - LG: PK, PS, PU.
 
-`CORE` = media geométrica de pilares esenciales evaluables en [0,1].
+`CORE` = media geométrica ponderada de pilares esenciales evaluables en [0,1]. El peso efectivo de cada pilar se reduce únicamente por el solapamiento de sus raíces de procedencia con otros pilares esenciales: `w_p = 1/(1 + suma de solapamientos)`. Un motivo PX/PS derivado no cuenta como una raíz independiente adicional.
 
-`SUPPORT` = media aritmética de pilares de apoyo evaluables.
+`SUPPORT` = media aritmética ponderada de pilares de apoyo evaluables, multiplicando su peso por la novedad de procedencia respecto al núcleo. Un apoyo completamente redundante con el núcleo no vuelve a sumar masa.
 
-`IEM_pre = 100 × CORE × (0.90 + 0.10 × SUPPORT)`
+`IEM_pre = 100 × CORE_dependency_aware × (0.90 + 0.10 × SUPPORT_novel)` cuando existe apoyo no redundante; si no existe, el multiplicador es neutro.
 
 `IEM_final = IEM_pre × (1 - 0.30 × ICE/100)`
 
@@ -279,7 +281,7 @@ Los IEM son independientes y no suman 100.
 
 Usar atribución Shapley sobre `IEM_pre` para estimar qué unidades canónicas de evidencia distinguen modelos. Una unidad puede ser una raíz independiente o una feature de motivo semántico derivada para PX/PS; una feature de motivo no se declara raíz independiente adicional. Se prefiere la atribución exacta para conjuntos pequeños; para conjuntos mayores puede usarse una aproximación determinista por permutaciones con control de convergencia.
 
-Normalizar las contribuciones primarias por modelo y comparar distribuciones mediante divergencia Jensen–Shannon. Una forma práctica 0–100 es:
+Las atribuciones Shapley automáticas conservan contribuciones positivas y negativas. Para IDD, cada unidad firmada se desdobla en un canal `POS` o `NEG` por su magnitud; después se normalizan esos canales no negativos y se comparan mediante divergencia Jensen–Shannon. Una forma práctica 0–100 es:
 
 `IDD(m,n) = 100 × sqrt(JSD_base2(p_m, p_n))`.
 
@@ -305,7 +307,7 @@ Para la familia de perturbación X:
 
 donde `G` es la fracción que preserva las bandas interpretativas preregistradas.
 
-`IRC = 100 × geometric_mean(applicable R_i)`
+`IRC = 100 × geometric_mean(dependency_family_scores)`, donde cada familia se resume primero mediante media geométrica de sus componentes. `PARAMETER_PERTURBATION` e `IDD_STABILITY` comparten por defecto `PARAMETER_ENSEMBLE` porque proceden del mismo ensemble Q5.
 
 `R_min = min(applicable R_i)`.
 
@@ -357,7 +359,7 @@ La cobertura temporal y documental puede informarse separadamente como `ICC_T` e
 
 `ICE` = **Índice de Contraevidencia Estructural**.
 
-ICE mide contradicciones explícitas o incompatibilidades estructurales. No penaliza datos ausentes y no debe contar dos veces la misma contradicción a través de capas dependientes.
+ICE mide contradicciones explícitas o incompatibilidades estructurales. No penaliza datos ausentes y no debe contar dos veces la misma contradicción a través de capas dependientes. Cuando `counterevidence_assessment_complete=true`, M20 deriva ICE de forma autónoma: conserva la severidad máxima dentro de cada familia de dependencia y combina familias independientes mediante una agregación saturante del complemento del producto residual. Una evaluación completa y vacía produce ICE=0; una contradicción retenida sin severidad bloquea el cálculo. ICE es severidad estructural, no probabilidad metafísica.
 
 ## 17. Gate de soporte estructural
 
