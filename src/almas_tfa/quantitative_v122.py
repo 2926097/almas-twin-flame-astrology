@@ -5,7 +5,7 @@ from math import prod
 from numbers import Real
 from typing import Any, Mapping, Sequence
 
-from .core import MODEL_PILLARS, geometric_mean
+from .core import MODEL_PILLARS, diagnostic_discrimination, geometric_mean
 from .quantitative_contracts import MODELS
 
 
@@ -371,3 +371,36 @@ def derive_autonomous_ice(
         diagnostics[model] = family_rows
 
     return ice_by_model, diagnostics
+
+
+def signed_contribution_channels(
+    values: Mapping[str, float],
+) -> dict[str, float]:
+    """Convierte una atribución Shapley firmada en masa no negativa para IDD."""
+
+    channels: dict[str, float] = {}
+    for raw_key, raw_value in values.items():
+        if isinstance(raw_value, bool) or not isinstance(raw_value, Real):
+            raise ValueError("Las atribuciones firmadas deben ser numéricas.")
+        value = float(raw_value)
+        if value > 0.0:
+            channels[f"{raw_key}::POS"] = value
+        elif value < 0.0:
+            channels[f"{raw_key}::NEG"] = -value
+    return channels
+
+
+def diagnostic_discrimination_signed(
+    model_a: Mapping[str, float],
+    model_b: Mapping[str, float],
+) -> float | None:
+    """IDD 1.22 sobre canales de magnitud y signo de Shapley.
+
+    La transformación POS/NEG conserva la dirección del efecto sin introducir
+    probabilidades ni truncar a cero las contribuciones negativas.
+    """
+
+    return diagnostic_discrimination(
+        signed_contribution_channels(model_a),
+        signed_contribution_channels(model_b),
+    )
