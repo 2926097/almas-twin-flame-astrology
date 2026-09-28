@@ -7,13 +7,16 @@ from almas_tfa.module_contract import ExecutionStatus, ModuleContext
 
 
 def root_attr(root_id, pillar, value, *, unit_type="ROOT"):
-    return {
+    item = {
         "unit_id": root_id,
         "root_id": root_id,
         "unit_type": unit_type,
         "eligible": True,
         "contributions": {pillar: value},
     }
+    if unit_type == "SEMANTIC_MOTIF":
+        item["source_root_ids"] = ["R1", "R2"]
+    return item
 
 
 class M21AutomaticIDDTests(unittest.TestCase):
