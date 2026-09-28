@@ -8,7 +8,10 @@
     "suppressed",
     "ice_state",
     "ice_by_model",
-    "missing_data_penalized"
+    "missing_data_penalized",
+    "ice_formula_id",
+    "counterevidence_review_complete",
+    "precomputed_consistency_checked"
   ],
   "properties": {
     "models": {
@@ -23,6 +26,7 @@
     "ice_state": {
       "enum": [
         "PRECOMPUTED",
+        "DERIVED_AUTONOMOUS_V1",
         "NOT_CALCULATED"
       ]
     },
@@ -38,6 +42,22 @@
     },
     "missing_data_penalized": {
       "const": false
+    },
+    "ice_formula_id": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "const": "ALMAS_ICE_AUTONOMOUS_V1"
+        }
+      ]
+    },
+    "counterevidence_review_complete": {
+      "type": "boolean"
+    },
+    "precomputed_consistency_checked": {
+      "type": "boolean"
     }
   },
   "additionalProperties": false,
@@ -109,6 +129,53 @@
       "then": {
         "properties": {
           "ice_by_model": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ice_state": {
+            "const": "DERIVED_AUTONOMOUS_V1"
+          }
+        },
+        "required": [
+          "ice_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "ice_by_model": {
+            "$ref": "#/$defs/iceByModel"
+          },
+          "ice_formula_id": {
+            "const": "ALMAS_ICE_AUTONOMOUS_V1"
+          },
+          "counterevidence_review_complete": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ice_state": {
+            "enum": [
+              "PRECOMPUTED",
+              "NOT_CALCULATED"
+            ]
+          }
+        },
+        "required": [
+          "ice_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "ice_formula_id": {
             "type": "null"
           }
         }
