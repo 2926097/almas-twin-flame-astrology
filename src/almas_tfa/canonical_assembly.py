@@ -7,11 +7,11 @@ from typing import Any, Mapping
 from .analysis_profiles import resolve_analysis_profile
 from .core import score_model, supported_gate
 from .module_contract import ExecutionStatus, ModuleResult
+from .quantitative_contracts import MODELS, validate_ice_by_model
 
 
 POLICY_RESOURCE = "canonical-assembly-policy.json"
 POLICY_PACKAGE = "almas_tfa"
-MODELS = ("AF", "KA", "AG", "LG")
 
 
 def load_canonical_assembly_policy() -> dict[str, Any]:
@@ -145,13 +145,10 @@ def _counterevidence_state(
     if not isinstance(counter, Mapping):
         return None, {model: False for model in MODELS}, []
 
-    ice_raw = counter.get("ice_by_model")
-    ice_by_model = None
-    if isinstance(ice_raw, Mapping):
-        ice_by_model = {
-            model: float(ice_raw.get(model, 0.0))
-            for model in MODELS
-        }
+    ice_by_model = validate_ice_by_model(
+        counter.get("ice_by_model"),
+        field_name="counterevidence.ice_by_model",
+    )
 
     essential = {model: False for model in MODELS}
     flattened: list[dict[str, Any]] = []
