@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.22.0 — 2026-09-28
+
+### Cierre de evolución matemática del núcleo cuantitativo
+- Sustituye `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2` por `V3`: sólo las raíces independientes son jugadores; PX/PS se recalculan dentro de cada coalición como interacciones derivadas.
+- Elimina la posibilidad de que un motivo semántico reciba una segunda cuota Shapley como si fuese evidencia independiente.
+- Introduce agrupación de dependencia en IRC: `TIME_INPUT`, `STRUCTURAL_PERTURBATION` y `DIAGNOSTIC_STABILITY`; cada grupo aporta su mínimo a la media geométrica.
+- Añade ICE autónomo en M20 exclusivamente con `counterevidence_complete=true`, severidad explícita y deduplicación semántica por `contradiction_key`.
+- Conserva compatibilidad con ICE precomputado completo y mantiene fail-closed la ausencia o evaluación parcial de contraevidencia.
+- Proyecta grupos de IRC y procedencia/derivación de ICE al canonical para auditoría.
+- Añade `ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2`.
+- No activa PX v3, no declara discriminadores L3 y no convierte índices en probabilidades metafísicas.
+- Mantiene sin cambios la fórmula de `IEM_pre`, la penalización `IEM_final`, los thresholds del gate SUPPORTED y las reglas de temporalidad/doctrina/realidad.
+- Gate de release: **596 tests** PASS en Python 3.10 y 3.12 (10 skipped), Contrato público PASS, Backend astronómico PASS, Publicación DOCX PASS y Publicación PDF PASS.
+
 ## 1.21.0 — 2026-09-28
 
 ### Informes astrológicos personales sobre la arquitectura 1.20

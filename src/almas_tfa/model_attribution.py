@@ -7,13 +7,17 @@ from importlib import resources
 import random
 from typing import Any, Mapping, Sequence
 
-from .core import MODEL_PILLARS, pillar_score, score_model
+from .core import pillar_score, score_model
+from .pillar_attribution import classify_root, load_root_pillar_policy
+from .semantic_motifs import (
+    load_semantic_motif_policy,
+    semantic_root_signature,
+)
 
 
 POLICY_RESOURCE = "model-attribution-policy.json"
 POLICY_PACKAGE = "almas_tfa"
 MODELS = ("AF", "KA", "AG", "LG")
-PILLARS = ("PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU")
 
 
 def load_model_attribution_policy() -> dict[str, Any]:
@@ -23,108 +27,210 @@ def load_model_attribution_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         raise ValueError("Política de atribución de modelos desconocida.")
     return policy
 
 
-def _eligible_units(
+def _eligible_root_players(
     pillar_attribution: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    raw = pillar_attribution.get("attribution_units")
-    if not isinstance(raw, list):
-        raw = pillar_attribution.get("root_attributions")
-    if not isinstance(raw, list):
-        raise ValueError(
-            "pillar_attribution requiere attribution_units o root_attributions."
-        )
+    """Devuelve exclusivamente raíces independientes como jugadores Shapley.
 
-    units: list[dict[str, Any]] = []
+    Los motivos PX/PS son funciones derivadas de coaliciones de raíces. No
+    pueden entrar como jugadores separados porque eso contaría la misma
+    arquitectura una segunda vez.
+    """
+
+    raw = pillar_attribution.get("source_roots")
+    if not isinstance(raw, list):
+        return []
+
+    roots: list[dict[str, Any]] = []
     seen: set[str] = set()
     for item in raw:
-        if not isinstance(item, Mapping) or not item.get("eligible"):
+        if not isinstance(item, Mapping):
             continue
-        unit_id = str(item.get("unit_id") or item.get("root_id") or "")
-        if not unit_id:
-            raise ValueError("Toda atribución elegible requiere unit_id.")
-        if unit_id in seen:
-            raise ValueError(f"unit_id duplicado en atribución: {unit_id}.")
-        seen.add(unit_id)
-
-        contributions = item.get("contributions")
-        if not isinstance(contributions, Mapping) or not contributions:
+        if not bool(item.get("core_eligible")):
+            continue
+        if item.get("strength_state") != "CALCULATED_CORE":
             continue
 
-        clean: dict[str, float] = {}
-        for pillar, value in contributions.items():
-            pillar = str(pillar)
-            if pillar not in PILLARS or pillar == "PU":
-                continue
-            if isinstance(value, bool) or not isinstance(value, (int, float)):
-                raise ValueError(
-                    f"{unit_id}:{pillar}: contribution debe ser numérica."
-                )
-            value = float(value)
-            if not 0.0 <= value <= 1.0:
-                raise ValueError(
-                    f"{unit_id}:{pillar}: contribution debe estar en [0,1]."
-                )
-            if value > 0:
-                clean[pillar] = value
+        root_id = str(item.get("root_id") or "")
+        if not root_id:
+            raise ValueError("Toda raíz Shapley elegible requiere root_id.")
+        if root_id in seen:
+            raise ValueError(f"root_id duplicado en raíces fuente: {root_id}.")
 
-        if clean:
-            units.append(
-                {
-                    "unit_id": unit_id,
-                    "unit_type": str(item.get("unit_type") or "ROOT"),
-                    "contributions": clean,
-                }
+        strength = item.get("strength")
+        if (
+            isinstance(strength, bool)
+            or not isinstance(strength, (int, float))
+        ):
+            raise ValueError(f"{root_id}: strength debe ser numérico.")
+        strength = float(strength)
+        if not 0.0 <= strength <= 1.0:
+            raise ValueError(f"{root_id}: strength debe estar en [0,1].")
+
+        seen.add(root_id)
+        roots.append(dict(item))
+
+    roots.sort(key=lambda item: str(item["root_id"]))
+    return roots
+
+
+class _CoalitionValueEngine:
+    """Función de valor IEM_pre con PX/PS recalculados por coalición.
+
+    Las firmas invariantes por raíz se precalculan una sola vez. La evaluación
+    de cada coalición reproduce exactamente las reglas de M18/PXv2 sin releer
+    políticas ni reclasificar geometría miles de veces.
+    """
+
+    _DIRECT_PILLARS = ("PA", "PK", "PE", "PR", "PT")
+
+    def __init__(self, roots: Sequence[Mapping[str, Any]]) -> None:
+        self._roots_by_id = {
+            str(root["root_id"]): dict(root)
+            for root in roots
+        }
+        self._pillar_policy = load_root_pillar_policy()
+        self._motif_policy = load_semantic_motif_policy()
+        self._direct = {
+            root_id: classify_root(
+                root,
+                policy=self._pillar_policy,
             )
+            for root_id, root in self._roots_by_id.items()
+        }
+        self._semantic = {
+            root_id: semantic_root_signature(
+                root,
+                policy=self._motif_policy,
+            )
+            for root_id, root in self._roots_by_id.items()
+        }
+        limits = self._motif_policy["minimum_recurrence"]
+        self._min_families = int(limits["distinct_dependency_families"])
+        self._min_roots = int(limits["distinct_roots"])
+        self._allow_exact_multifamily = bool(
+            limits["allow_single_exact_root_when_multifamily"]
+        )
+        self._cache: dict[tuple[str, ...], dict[str, float]] = {}
 
-    units.sort(key=lambda item: item["unit_id"])
-    return units
+    def _motif_pillar(
+        self,
+        selected: set[str],
+        *,
+        mission: bool,
+    ) -> float:
+        groups: dict[str, list[dict[str, Any]]] = {}
 
+        for root_id in selected:
+            signature = self._semantic[root_id]
+            motif_ids = (
+                list(signature["mission_motifs"])
+                if mission
+                else (
+                    [str(signature["primary_motif"])]
+                    if signature["primary_motif"] is not None
+                    else []
+                )
+            )
+            for motif_id in motif_ids:
+                groups.setdefault(motif_id, []).append(signature)
 
-def _coalition_pillars(
-    roots_by_id: Mapping[str, Mapping[str, float]],
-    selected: set[str],
-) -> dict[str, float | None]:
-    strengths: dict[str, list[float]] = {
-        pillar: [] for pillar in PILLARS if pillar != "PU"
-    }
+        motif_strengths: list[float] = []
+        for signatures in groups.values():
+            family_maxima: dict[str, float] = {}
+            root_ids: set[str] = set()
+            exact_multifamily = False
 
-    for root_id in selected:
-        contributions = roots_by_id[root_id]
-        for pillar, value in contributions.items():
-            if pillar != "PU":
-                strengths[pillar].append(float(value))
+            for signature in signatures:
+                root_id = str(signature["root_id"])
+                if root_id:
+                    root_ids.add(root_id)
+                exact_multifamily = (
+                    exact_multifamily
+                    or bool(signature["exact_multifamily"])
+                )
+                for family, raw_value in signature["family_strengths"].items():
+                    value = float(raw_value)
+                    family_maxima[family] = max(
+                        family_maxima.get(family, 0.0),
+                        value,
+                    )
 
-    pillars: dict[str, float | None] = {}
-    for pillar in PILLARS:
-        if pillar == "PU":
-            pillars[pillar] = None
-        else:
-            values = strengths[pillar]
-            pillars[pillar] = pillar_score(values) if values else 0.0
-    return pillars
+            recurrent = (
+                len(family_maxima) >= self._min_families
+                and (
+                    len(root_ids) >= self._min_roots
+                    or (
+                        self._allow_exact_multifamily
+                        and exact_multifamily
+                    )
+                )
+            )
+            if recurrent and family_maxima:
+                motif_strengths.append(
+                    pillar_score(list(family_maxima.values())) / 100.0
+                )
 
+        return pillar_score(motif_strengths) if motif_strengths else 0.0
 
-def _value(
-    model: str,
-    roots_by_id: Mapping[str, Mapping[str, float]],
-    selected: set[str],
-) -> float:
-    pillars = _coalition_pillars(roots_by_id, selected)
-    return score_model(model, pillars, ice=0.0).iem_pre
+    def _pillars(self, selected: set[str]) -> dict[str, float | None]:
+        strengths: dict[str, list[float]] = {
+            pillar: [] for pillar in self._DIRECT_PILLARS
+        }
+
+        for root_id in selected:
+            item = self._direct[root_id]
+            if not item.get("eligible"):
+                continue
+            contributions = item.get("contributions")
+            if not isinstance(contributions, Mapping):
+                continue
+            for pillar, raw_value in contributions.items():
+                if pillar in strengths:
+                    strengths[str(pillar)].append(float(raw_value))
+
+        pillars: dict[str, float | None] = {
+            pillar: (
+                pillar_score(values)
+                if values
+                else 0.0
+            )
+            for pillar, values in strengths.items()
+        }
+        pillars["PX"] = self._motif_pillar(selected, mission=False)
+        pillars["PS"] = self._motif_pillar(selected, mission=True)
+        pillars["PU"] = None
+        return pillars
+
+    def values(self, selected: set[str]) -> dict[str, float]:
+        key = tuple(sorted(selected))
+        cached = self._cache.get(key)
+        if cached is not None:
+            return cached
+
+        pillars = self._pillars(selected)
+        values = {
+            model: float(score_model(model, pillars, ice=0.0).iem_pre)
+            for model in MODELS
+        }
+        self._cache[key] = values
+        return values
 
 
 def _exact_shapley(
-    model: str,
     root_ids: Sequence[str],
-    roots_by_id: Mapping[str, Mapping[str, float]],
-) -> dict[str, float]:
+    engine: _CoalitionValueEngine,
+) -> dict[str, dict[str, float]]:
     n = len(root_ids)
-    output = {root_id: 0.0 for root_id in root_ids}
+    output = {
+        model: {root_id: 0.0 for root_id in root_ids}
+        for model in MODELS
+    }
     if n == 0:
         return output
 
@@ -134,14 +240,16 @@ def _exact_shapley(
             weight = 1.0 / n / comb(n - 1, size)
             for subset in combinations(others, size):
                 base = set(subset)
-                before = _value(model, roots_by_id, base)
-                after = _value(model, roots_by_id, base | {root_id})
-                marginal = after - before
-                if marginal < -1e-9:
-                    raise ValueError(
-                        f"{model}:{root_id}: marginal Shapley negativo {marginal}."
-                    )
-                output[root_id] += weight * max(0.0, marginal)
+                before = engine.values(base)
+                after = engine.values(base | {root_id})
+                for model in MODELS:
+                    marginal = after[model] - before[model]
+                    if marginal < -1e-9:
+                        raise ValueError(
+                            f"{model}:{root_id}: marginal Shapley negativo "
+                            f"{marginal}."
+                        )
+                    output[model][root_id] += weight * max(0.0, marginal)
 
     return output
 
@@ -166,7 +274,7 @@ def _permutation_batch(
 
 def _approximate_all_models(
     root_ids: Sequence[str],
-    roots_by_id: Mapping[str, Mapping[str, float]],
+    engine: _CoalitionValueEngine,
     policy: Mapping[str, Any],
 ) -> tuple[dict[str, dict[str, float]], dict[str, Any]]:
     spec = policy["approximation_method"]
@@ -201,19 +309,20 @@ def _approximate_all_models(
         )
 
         for permutation in permutations:
-            for model in MODELS:
-                selected: set[str] = set()
-                before = _value(model, roots_by_id, selected)
-                for root_id in permutation:
-                    selected.add(root_id)
-                    after = _value(model, roots_by_id, selected)
-                    marginal = after - before
+            selected: set[str] = set()
+            before = engine.values(selected)
+            for root_id in permutation:
+                selected.add(root_id)
+                after = engine.values(selected)
+                for model in MODELS:
+                    marginal = after[model] - before[model]
                     if marginal < -1e-9:
                         raise ValueError(
-                            f"{model}:{root_id}: marginal negativo en permutación."
+                            f"{model}:{root_id}: marginal negativo "
+                            "en permutación."
                         )
                     sums[model][root_id] += max(0.0, marginal)
-                    before = after
+                before = after
 
         used += len(permutations)
         current = {
@@ -272,11 +381,11 @@ def derive_model_attributions(
     *,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Deriva atribuciones Shapley por unidad canónica para AF/KA/AG/LG.
+    """Atribuye IEM_pre a raíces independientes con Shapley de interacciones.
 
-    Las unidades pueden ser raíces independientes o motivos semánticos
-    derivados que materializan PX/PS. Estos motivos no se interpretan como
-    raíces independientes adicionales. La función de valor es IEM_pre.
+    PX y PS se recalculan dentro de cada coalición de raíces. Por tanto, los
+    motivos semánticos conservan su efecto sobre IEM pero nunca se convierten
+    en jugadores independientes ni reciben una segunda cuota de evidencia.
     """
 
     if policy is None:
@@ -292,53 +401,52 @@ def derive_model_attributions(
                 "method": None,
             }
 
-    roots = _eligible_units(pillar_attribution)
+    roots = _eligible_root_players(pillar_attribution)
     if not roots:
         return {
             "policy_id": policy["policy_id"],
             "state": "NOT_EVALUABLE",
-            "reason": "NO_ELIGIBLE_ROOTS",
+            "reason": "SOURCE_ROOTS_REQUIRED_FOR_DEPENDENCY_SAFE_SHAPLEY",
             "attributions": {},
             "method": None,
         }
 
-    root_ids = [item["unit_id"] for item in roots]
-    roots_by_id = {
-        item["unit_id"]: dict(item["contributions"])
-        for item in roots
-    }
+    root_ids = [str(item["root_id"]) for item in roots]
+    engine = _CoalitionValueEngine(roots)
 
-    exact_max = int(policy["exact_method"].get("max_units", policy["exact_method"].get("max_roots", 10)))
+    exact_max = int(
+        policy["exact_method"].get(
+            "max_roots",
+            policy["exact_method"].get("max_units", 10),
+        )
+    )
     if len(root_ids) <= exact_max:
-        attributions = {
-            model: _exact_shapley(model, root_ids, roots_by_id)
-            for model in MODELS
-        }
+        attributions = _exact_shapley(root_ids, engine)
         method = {
             "method": policy["exact_method"]["name"],
-            "unit_count": len(root_ids),
+            "root_count": len(root_ids),
             "convergence_state": "EXACT",
             "permutations_used": None,
         }
     else:
         attributions, method = _approximate_all_models(
             root_ids,
-            roots_by_id,
+            engine,
             policy,
         )
-        method["unit_count"] = len(root_ids)
+        method["root_count"] = len(root_ids)
 
     totals = {
         model: sum(values.values())
         for model, values in attributions.items()
     }
-    grand_values = {
-        model: _value(model, roots_by_id, set(root_ids))
-        for model in MODELS
-    }
+    grand_values = engine.values(set(root_ids))
+    empty_values = engine.values(set())
 
     efficiency_error = {
-        model: abs(totals[model] - grand_values[model])
+        model: abs(
+            totals[model] - (grand_values[model] - empty_values[model])
+        )
         for model in MODELS
     }
 
@@ -351,18 +459,26 @@ def derive_model_attributions(
         for model, values in attributions.items()
     }
 
+    motif_records = pillar_attribution.get("motif_attributions")
+    motif_count = len(motif_records) if isinstance(motif_records, list) else 0
+
     return {
         "policy_id": policy["policy_id"],
         "policy_status": policy["status"],
         "epistemic_class": policy["epistemic_class"],
         "state": "EVALUABLE",
         "value_function": policy["value_function"],
+        "player_unit": "INDEPENDENT_ROOT",
         "unit_count": len(root_ids),
         "unit_ids": root_ids,
-        "root_count": sum(1 for item in roots if item["unit_type"] == "ROOT"),
-        "motif_unit_count": sum(1 for item in roots if item["unit_type"] == "SEMANTIC_MOTIF"),
+        "root_count": len(root_ids),
+        "motif_unit_count": motif_count,
+        "motif_player_count": 0,
+        "motifs_recomputed_inside_coalitions": True,
+        "interaction_allocation": "SHAPLEY_TO_SOURCE_ROOTS",
         "attributions": positive,
         "model_iem_pre_from_roots": grand_values,
+        "empty_coalition_iem_pre": empty_values,
         "shapley_efficiency_error": efficiency_error,
         "method": method,
         "idd_is_ontological_discriminator": False,

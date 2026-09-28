@@ -69,6 +69,7 @@ REQUIRED_FILES = [
     "docs/RELEASE_AUDIT_1.19.0.md",
     "docs/RELEASE_AUDIT_1.20.0.md",
     "docs/RELEASE_AUDIT_1.21.0.md",
+    "docs/RELEASE_AUDIT_1.22.0.md",
     "docs/EVOLUTION_1.15.0.md",
     "docs/EVOLUTION_1.16.0.md",
     "docs/EVOLUTION_1.17.0.md",
@@ -76,6 +77,7 @@ REQUIRED_FILES = [
     "docs/EVOLUTION_1.19.0.md",
     "docs/EVOLUTION_1.20.0.md",
     "docs/EVOLUTION_1.21.0.md",
+    "docs/EVOLUTION_1.22.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -91,6 +93,7 @@ REQUIRED_FILES = [
     "schemas/raw-input.schema.json",
     "schemas/aspect-policy.schema.json",
     "schemas/structural-policy-manifest.schema.json",
+    "schemas/quantitative-policy-manifest.schema.json",
     "schemas/canonical-analysis.schema.json",
     "schemas/semantic-motif-graph.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
@@ -181,6 +184,7 @@ REQUIRED_FILES = [
     "manifests/execution-registry.json",
     "manifests/almas-module-manifest.json",
     "manifests/structural-policy-manifest.json",
+    "manifests/quantitative-policy-manifest.json",
     "manifests/causal-type-registry.json",
     "manifests/cross-model-discriminator-registry.json",
     "manifests/differential-discriminator-registry.json",
@@ -600,6 +604,7 @@ def main() -> int:
     )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
+    quantitative_policy_manifest_schema = load_json("schemas/quantitative-policy-manifest.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
     ontological_discriminator_output_schema = load_json(
         "schemas/ontological-discriminator-output.schema.json"
@@ -841,6 +846,7 @@ def main() -> int:
     cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     structural_policy_manifest = load_json("manifests/structural-policy-manifest.json")
+    quantitative_policy_manifest = load_json("manifests/quantitative-policy-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
     preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
@@ -1211,6 +1217,33 @@ def main() -> int:
         fail("structural policy manifest schema id changed")
     if structural_policy_manifest_schema.get("properties", {}).get("almas_public_version", {}).get("const") != version:
         fail("structural policy manifest schema version diverges from VERSION")
+
+    if quantitative_policy_manifest.get("manifest_id") != "ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2":
+        fail("quantitative policy manifest id changed")
+    if quantitative_policy_manifest.get("almas_public_version") != version:
+        fail("quantitative policy manifest version diverges from VERSION")
+    if quantitative_policy_manifest.get("baseline_release") != "1.21.0":
+        fail("quantitative policy baseline must remain 1.21.0")
+    qmanifest_props = quantitative_policy_manifest_schema.get("properties", {})
+    if qmanifest_props.get("manifest_id", {}).get("const") != "ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2":
+        fail("quantitative policy manifest schema id changed")
+    if qmanifest_props.get("almas_public_version", {}).get("const") != version:
+        fail("quantitative policy schema version diverges from VERSION")
+    qinv = quantitative_policy_manifest.get("invariants", {})
+    for key in (
+        "root_motif_double_counting_as_players_forbidden",
+        "motifs_recomputed_inside_shapley_coalitions",
+        "correlated_robustness_components_grouped_before_geometric_mean",
+        "autonomous_ice_requires_explicit_counterevidence_completeness",
+        "same_contradiction_key_cannot_multiply_across_dependency_families",
+        "essential_contradiction_gate_remains_separate",
+        "missingness_never_becomes_zero_without_explicit_complete_assessment",
+        "px_v3_activation_requires_external_validation",
+        "metaphysical_probability_forbidden",
+        "case_fitting_forbidden",
+    ):
+        if qinv.get(key) is not True:
+            fail(f"quantitative policy manifest invariant failed: {key}")
 
     if technique_dependency_registry.get("registry_id") != "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1":
         fail("technique/dependency registry id changed")
@@ -2261,7 +2294,7 @@ def main() -> int:
     if "pillar_attribution" not in recurrence_snapshot_schema.get("required", []):
         fail("S4 recurrence snapshot must require pillar_attribution")
 
-    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         fail("model attribution policy id changed")
     if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("model attribution policy must remain frozen")
@@ -2269,6 +2302,14 @@ def main() -> int:
         fail("model attribution policy must remain E_PROJECT_HYPOTHESIS")
     if model_attribution_policy.get("value_function") != "IEM_PRE":
         fail("M21 automatic attribution must use IEM_PRE")
+    if model_attribution_policy.get("player_unit") != "INDEPENDENT_ROOT":
+        fail("M21 Shapley must use independent roots as the only player unit")
+    if model_attribution_policy.get("derived_motif_units_are_independent_evidence") is not False:
+        fail("derived motif units must not be declared independent evidence")
+    if model_attribution_policy.get("derived_motif_units_are_shapley_players") is not False:
+        fail("derived motif units must never be Shapley players")
+    if model_attribution_policy.get("motifs_recomputed_inside_each_coalition") is not True:
+        fail("PX/PS motifs must be recomputed inside each Shapley coalition")
     attribution_principles = model_attribution_policy.get("principles", {})
     if attribution_principles.get("case_fitting_forbidden") is not True:
         fail("model attribution policy must forbid case fitting")
@@ -2276,10 +2317,8 @@ def main() -> int:
         fail("IDD must remain separated from ontological discrimination")
     if attribution_principles.get("ice_not_used_for_attribution") is not True:
         fail("ICE must remain outside Shapley attribution value function")
-    if model_attribution_policy.get("attribution_unit") != "CANONICAL_EVIDENCE_UNIT":
-        fail("1.14 Shapley must operate on canonical evidence units")
-    if model_attribution_policy.get("derived_motif_units_are_independent_evidence") is not False:
-        fail("derived motif units must not be declared independent evidence")
+    if attribution_principles.get("root_motif_double_counting_as_players_forbidden") is not True:
+        fail("root-motif double counting must be explicitly forbidden")
 
     if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_SENSITIVITY_V2":
         fail("birth-time perturbation policy id changed")
@@ -3382,6 +3421,13 @@ def main() -> int:
 
     if counterevidence_output_schema.get("properties", {}).get("missing_data_penalized", {}).get("const") is not False:
         fail("counterevidence schema must forbid missing-data penalty")
+    counter_props = counterevidence_output_schema.get("properties", {})
+    if "AUTONOMOUS" not in set(counter_props.get("ice_state", {}).get("enum", [])):
+        fail("counterevidence schema must expose autonomous ICE")
+    if counter_props.get("counterevidence_complete", {}).get("type") != "boolean":
+        fail("autonomous ICE must expose an explicit completeness declaration")
+    if "ice_derivation" not in set(counterevidence_output_schema.get("required", [])):
+        fail("counterevidence output must expose ICE derivation trace")
 
     if structural_ablation_schema.get("properties", {}).get("structural_only", {}).get("const") is not True:
         fail("structural ablation must declare structural_only=true")
@@ -3411,6 +3457,12 @@ def main() -> int:
         fail("M25 must forbid null-model rarity as robustness")
     if robustness_props.get("components", {}).get("minItems") != 1:
         fail("M25 robustness schema must require at least one component")
+    if robustness_props.get("group_count", {}).get("minimum") != 1:
+        fail("M25 robustness schema must expose dependency group count")
+    if robustness_props.get("dependency_groups", {}).get("minProperties") != 1:
+        fail("M25 robustness schema must expose dependency groups")
+    if robustness_props.get("formula", {}).get("const") != "100 * geometric_mean(min(R_i within dependency_group))":
+        fail("M25 robustness formula must aggregate group minima")
     allowed_m25_kinds = set(
         robustness_props.get("components", {})
         .get("items", {})
@@ -4984,7 +5036,7 @@ def main() -> int:
             fail(f"canonical assembly must lock {field}=false")
 
     robustness_schema = canonical_props.get("robustness", {})
-    expected_robustness_fields = {
+    expected_robustness_required = {
         "IRC",
         "R_min",
         "component_count",
@@ -4993,10 +5045,14 @@ def main() -> int:
         "timed_architecture_present",
         "birth_time_component_present",
     }
+    expected_robustness_fields = expected_robustness_required | {
+        "group_count",
+        "dependency_groups",
+    }
     if set(robustness_schema.get("properties", {})) != expected_robustness_fields:
         fail("canonical robustness surface changed")
-    if set(robustness_schema.get("required", [])) != expected_robustness_fields:
-        fail("canonical robustness must require all M30 fields")
+    if set(robustness_schema.get("required", [])) != expected_robustness_required:
+        fail("canonical robustness required surface changed")
     if robustness_schema.get("additionalProperties") is not False:
         fail("canonical robustness must reject undeclared fields")
     component_ref = (

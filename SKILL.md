@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.21.0
+version: 1.22.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.21.0
+# ALMAS · Astrología Metafísica Relacional v1.22.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.21.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.22.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
@@ -25,6 +25,8 @@ La release 1.17.0 formaliza los **manifiestos normativos estructurales**: taxono
 La release 1.18.0 incorpora un **backend astronómico de producción por capacidades** mediante `ALMAS_MOIRA_JPL_SPK_V1`. El adaptador exige `moira-astro==6.8.2`, kernel JPL local fingerprintado, timezone IANA, coordenadas numéricas y sistema de casas explícito; prohíbe descarga de efemérides, geocodificación y fallback polar durante el cálculo. M02 y M08 pasan a implementación ejecutable, sin añadir técnicas ni alterar scoring.
 
 La release 1.19.0 materializa autoría y publicación B5 trazables; 1.20.0 añade síntesis root-first y temporalidad `TTRANSIT`. La release 1.21.0 porta los **informes astrológicos personales** a la arquitectura vigente: canonical personal minimizado y fingerprintable, cinco perfiles, autoría trazable, publicación DOCX/PDF B5 compartida, construcción desde solicitud natal mediante el backend de producción y router de referencias contra el corpus canónico. Esta superficie es interna a la única skill ALMAS y no altera el scoring relacional, los discriminadores ni la ontología.
+
+La release 1.22.0 cierra la evolución matemática abierta tras la auditoría 1.21: M21 usa **Shapley V3 root-only** y recalcula PX/PS dentro de cada coalición; M25 agrupa componentes correlacionados antes de calcular IRC; M20 puede derivar ICE autónomo sólo con una evaluación de contraevidencia declarada completa. Estas reglas son políticas E del proyecto, no probabilidades metafísicas. PX v3 permanece inactivo mientras no exista holdout externo real conforme al protocolo de validación.
 
 ### Enfoque de investigación metafísica
 
@@ -277,7 +279,7 @@ Los IEM son independientes y no suman 100.
 
 `IDD` = **Índice de Discriminación Diagnóstica**. `IDE` puede aparecer como alias histórico de `IDD`.
 
-Usar atribución Shapley sobre `IEM_pre` para estimar qué unidades canónicas de evidencia distinguen modelos. Una unidad puede ser una raíz independiente o una feature de motivo semántico derivada para PX/PS; una feature de motivo no se declara raíz independiente adicional. Se prefiere la atribución exacta para conjuntos pequeños; para conjuntos mayores puede usarse una aproximación determinista por permutaciones con control de convergencia.
+Usar atribución Shapley sobre `IEM_pre` para estimar qué raíces independientes distinguen modelos. Desde 1.22.0, **sólo las raíces independientes son jugadores Shapley**. PX y PS son interacciones derivadas: se recalculan desde las raíces presentes en cada coalición y su efecto marginal se reparte entre las raíces fuente. Un motivo semántico nunca entra como jugador adicional. Se prefiere la atribución exacta para conjuntos pequeños; para conjuntos mayores se usa aproximación determinista por permutaciones con control de convergencia.
 
 Normalizar las contribuciones primarias por modelo y comparar distribuciones mediante divergencia Jensen–Shannon. Una forma práctica 0–100 es:
 
@@ -305,9 +307,13 @@ Para la familia de perturbación X:
 
 donde `G` es la fracción que preserva las bandas interpretativas preregistradas.
 
-`IRC = 100 × geometric_mean(applicable R_i)`
+`G_j = min(R_i)` para todos los componentes pertenecientes al mismo grupo de dependencia `j`.
 
-`R_min = min(applicable R_i)`.
+`IRC = 100 × geometric_mean(G_j)` sobre grupos de dependencia distintos.
+
+`R_min = min(applicable R_i)` sobre todos los componentes individuales.
+
+La política 1.22 agrupa `ABLATION` y `PARAMETER_PERTURBATION` en `STRUCTURAL_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR` en `DIAGNOSTIC_STABILITY`, y mantiene `BIRTH_TIME` en `TIME_INPUT`. El mínimo intragrupo impide que varias medidas correlacionadas reciban votos independientes.
 
 ## 14. Activación temporal — IAT
 
@@ -358,6 +364,12 @@ La cobertura temporal y documental puede informarse separadamente como `ICC_T` e
 `ICE` = **Índice de Contraevidencia Estructural**.
 
 ICE mide contradicciones explícitas o incompatibilidades estructurales. No penaliza datos ausentes y no debe contar dos veces la misma contradicción a través de capas dependientes.
+
+M20 admite dos procedencias trazables. Un `ice_by_model` precomputado completo conserva estado `PRECOMPUTED`. Si no existe ICE precomputado, sólo puede derivarse un ICE autónomo cuando la entrada declara `counterevidence_complete=true`; en ese caso todas las contradicciones retenidas requieren severidad finita `s ∈ [0,1]`. Primero se deduplica por modelo + familia de dependencia + `contradiction_key`; después, una misma `contradiction_key` presente en varias familias conserva la severidad máxima. Para contradicciones semánticamente distintas:
+
+`ICE_model = 100 × (1 - Π_k (1 - s_k))`.
+
+Esta agregación es un operador de saturación acotado definido por ALMAS, no una probabilidad. Si no existe declaración explícita de completitud, ICE permanece `NOT_CALCULATED`; una lista parcial jamás implica ausencia de contraevidencia. Las contradicciones esenciales mantienen además su gate categórico separado y no reciben una penalización numérica adicional por el hecho de ser esenciales.
 
 ## 17. Gate de soporte estructural
 

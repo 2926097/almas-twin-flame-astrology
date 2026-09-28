@@ -87,6 +87,128 @@ class TestCounterevidence(unittest.TestCase):
         ice = result.canonical_updates["counterevidence"]["ice_by_model"]
         self.assertEqual(ice, {"AF": 0.0, "KA": 100.0, "AG": 0.0, "LG": 100.0})
 
+    def test_autonomous_ice_requires_explicit_complete_assessment(self):
+        raw = {
+            "counterevidence_items": [
+                {
+                    "id": "CE-A",
+                    "kind": "EXPLICIT_CONTRADICTION",
+                    "models": ["LG"],
+                    "contradiction_key": "SAME_CONTRADICTION",
+                    "dependency_family": "FACTS",
+                    "essential": False,
+                    "severity": 0.8,
+                }
+            ]
+        }
+        result = m20_counterevidence(context(raw))
+        output = result.canonical_updates["counterevidence"]
+        self.assertEqual(output["ice_state"], "NOT_CALCULATED")
+        self.assertIsNone(output["ice_by_model"])
+        self.assertFalse(output["counterevidence_complete"])
+
+    def test_autonomous_ice_deduplicates_same_semantic_contradiction_across_families(self):
+        raw = {
+            "counterevidence_complete": True,
+            "counterevidence_items": [
+                {
+                    "id": "CE-A",
+                    "kind": "EXPLICIT_CONTRADICTION",
+                    "models": ["LG"],
+                    "contradiction_key": "SAME_CONTRADICTION",
+                    "dependency_family": "FACTS",
+                    "essential": False,
+                    "severity": 0.4,
+                },
+                {
+                    "id": "CE-B",
+                    "kind": "STRUCTURAL_INCOMPATIBILITY",
+                    "models": ["LG"],
+                    "contradiction_key": "SAME_CONTRADICTION",
+                    "dependency_family": "ASTROLOGY",
+                    "essential": False,
+                    "severity": 0.8,
+                },
+            ],
+        }
+        result = m20_counterevidence(context(raw))
+        output = result.canonical_updates["counterevidence"]
+        self.assertEqual(output["ice_state"], "AUTONOMOUS")
+        self.assertTrue(output["counterevidence_complete"])
+        self.assertAlmostEqual(output["ice_by_model"]["LG"], 80.0)
+        self.assertEqual(
+            output["ice_derivation"]["by_model"]["LG"][
+                "semantic_contradiction_count"
+            ],
+            1,
+        )
+
+    def test_autonomous_ice_accumulates_distinct_contradiction_keys_bounded(self):
+        raw = {
+            "counterevidence_complete": True,
+            "counterevidence_items": [
+                {
+                    "id": "CE-A",
+                    "kind": "EXPLICIT_CONTRADICTION",
+                    "models": ["AG"],
+                    "contradiction_key": "A",
+                    "dependency_family": "FACTS",
+                    "essential": False,
+                    "severity": 0.5,
+                },
+                {
+                    "id": "CE-B",
+                    "kind": "EXPLICIT_CONTRADICTION",
+                    "models": ["AG"],
+                    "contradiction_key": "B",
+                    "dependency_family": "FACTS",
+                    "essential": False,
+                    "severity": 0.5,
+                },
+            ],
+        }
+        output = m20_counterevidence(
+            context(raw)
+        ).canonical_updates["counterevidence"]
+        self.assertAlmostEqual(output["ice_by_model"]["AG"], 75.0)
+        self.assertEqual(output["ice_by_model"]["AF"], 0.0)
+        self.assertLessEqual(output["ice_by_model"]["AG"], 100.0)
+
+    def test_complete_empty_counterevidence_means_zero_not_missing(self):
+        output = m20_counterevidence(
+            context(
+                {
+                    "counterevidence_complete": True,
+                    "counterevidence_items": [],
+                }
+            )
+        ).canonical_updates["counterevidence"]
+        self.assertEqual(output["ice_state"], "AUTONOMOUS")
+        self.assertEqual(
+            output["ice_by_model"],
+            {"AF": 0.0, "KA": 0.0, "AG": 0.0, "LG": 0.0},
+        )
+
+    def test_complete_counterevidence_requires_numeric_severity(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(
+                context(
+                    {
+                        "counterevidence_complete": True,
+                        "counterevidence_items": [
+                            {
+                                "id": "CE-NO-SEVERITY",
+                                "kind": "EXPLICIT_CONTRADICTION",
+                                "models": ["LG"],
+                                "contradiction_key": "A",
+                                "dependency_family": "FACTS",
+                                "essential": False,
+                            }
+                        ],
+                    }
+                )
+            )
+
     def test_non_numeric_and_boolean_ice_are_rejected(self):
         for invalid in ("0", True):
             with self.subTest(invalid=invalid):

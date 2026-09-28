@@ -25,6 +25,40 @@ def root_attributions():
     ]
 
 
+def shapley_source_roots():
+    def item(root_id, points, relation, family, strength):
+        return {
+            "root_id": root_id,
+            "root_key": root_id + ":KEY",
+            "point_ids": list(points),
+            "relation_ids": [relation],
+            "strength": strength,
+            "strength_state": "CALCULATED_CORE",
+            "core_eligible": True,
+            "independent_family_count": 1,
+            "dependency_families": [family],
+            "evidence_strengths": [
+                {
+                    "evidence_id": root_id + ":" + family,
+                    "strength": strength,
+                    "core_eligible": True,
+                    "support_only": False,
+                    "dependency_family": family,
+                    "technique_family": family,
+                }
+            ],
+        }
+
+    return [
+        item("R1", ["SUN", "MOON"], "TRINE", "SYN", 0.90),
+        item("R2", ["SUN", "MOON"], "PARALLEL", "DECLINATION", 0.82),
+        item("R3", ["MERCURY", "MOON"], "TRINE", "ANTISCIA", 0.84),
+        item("R4", ["SUN", "MOON"], "SQUARE", "RELCHART", 0.78),
+        item("R5", ["SATURN", "MOON"], "CONJUNCTION", "SYN", 0.76),
+        item("R6", ["PLUTO", "SUN"], "SQUARE", "NATAL_DRACONIC", 0.74),
+    ]
+
+
 def pillars_from(items):
     strengths = {
         "PA": [], "PK": [], "PE": [], "PR": [],
@@ -81,6 +115,7 @@ def canonical_for_ablation():
         "pillar_attribution": {
             "structural_absence_is_zero": True,
             "root_attributions": attrs,
+            "source_roots": shapley_source_roots(),
         },
         "structural_model_indices": indices,
         "ablation": {
@@ -103,6 +138,7 @@ def snapshot(iem):
         "pillar_attribution": {
             "structural_absence_is_zero": True,
             "root_attributions": attrs,
+            "source_roots": shapley_source_roots(),
         },
     }
 

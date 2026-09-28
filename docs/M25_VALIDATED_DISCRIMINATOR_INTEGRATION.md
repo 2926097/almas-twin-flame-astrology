@@ -63,13 +63,13 @@ El adaptador de M25 sólo extrae raíces de pares cuyo estado confirmatorio sea 
 
 `SEPARABLE_VALIDATED`.
 
-Esto evita que dos discriminadores L3 incompatibles aumenten IRC.
+Esto evita que dos discriminadores L3 incompatibles aumenten IRC. Desde 1.22, todos los componentes `VALIDATED_DISCRIMINATOR` comparten además el grupo `DIAGNOSTIC_STABILITY` con `IDD_STABILITY`; el mínimo intragrupo impide que medidas diagnósticas correlacionadas reciban votos independientes.
 
 ## Relación con IRC
 
 Una vez superado el gate, el componente entra en la fórmula ya existente:
 
-`IRC = 100 × geometric_mean(applicable_R_i)`
+`IRC = 100 × geometric_mean(min(R_i within dependency_group))`
 
 y:
 

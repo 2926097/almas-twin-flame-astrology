@@ -8,6 +8,8 @@
     "r_min",
     "components",
     "component_count",
+    "group_count",
+    "dependency_groups",
     "time_sensitivity_state",
     "ablation_state",
     "null_model_state",
@@ -89,9 +91,56 @@
       "type": "integer",
       "minimum": 1
     },
+    "group_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "dependency_groups": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "component_ids",
+          "component_kinds",
+          "group_value",
+          "aggregation"
+        ],
+        "properties": {
+          "component_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "component_kinds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "group_value": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "aggregation": {
+            "const": "MIN_WITHIN_DEPENDENCY_GROUP"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "time_sensitivity_state": {
       "enum": [
         "ABSENT",
+        "DIAGNOSTIC_ONLY",
         "INCLUDED"
       ]
     },
@@ -113,7 +162,7 @@
       "const": false
     },
     "formula": {
-      "const": "100 * geometric_mean(applicable_R_i)"
+      "const": "100 * geometric_mean(min(R_i within dependency_group))"
     },
     "r_min_formula": {
       "const": "min(applicable_R_i)"

@@ -247,9 +247,47 @@ def robustness_component(delta90: float, preserved_fraction: float) -> float:
 
 
 def robustness_index(components: Sequence[float]) -> tuple[float, float]:
-    """Return (IRC percent, R_min) from applicable 0–1 components."""
-    vals = [_check_unit(v, "robustness component") for v in components]
-    if not vals:
-        raise ValueError("se requiere al menos un componente de robustez")
+    """Agregación histórica de componentes independientes de robustez."""
 
-    return 100.0 * geometric_mean(vals), min(vals)
+    values = [float(value) for value in components]
+    if not values:
+        raise ValueError("robustness_index requires at least one component")
+    for value in values:
+        _check_unit(value, "robustness component")
+    return 100.0 * geometric_mean(values), min(values)
+
+
+def grouped_robustness_index(
+    components: Sequence[tuple[str, float]],
+) -> tuple[float, float, dict[str, float]]:
+    """Agrega robustez evitando tratar componentes correlacionados como réplicas.
+
+    Dentro de cada grupo de dependencia se conserva el componente más débil.
+    Sólo los grupos distintos entran después en la media geométrica. R_min
+    continúa siendo el mínimo de todos los componentes observados.
+    """
+
+    if not components:
+        raise ValueError(
+            "grouped_robustness_index requires at least one component"
+        )
+
+    grouped: dict[str, list[float]] = {}
+    all_values: list[float] = []
+    for group_id, raw_value in components:
+        if not isinstance(group_id, str) or not group_id.strip():
+            raise ValueError("robustness dependency group must be non-empty")
+        value = float(raw_value)
+        _check_unit(value, "robustness component")
+        grouped.setdefault(group_id, []).append(value)
+        all_values.append(value)
+
+    group_values = {
+        group_id: min(values)
+        for group_id, values in sorted(grouped.items())
+    }
+    return (
+        100.0 * geometric_mean(list(group_values.values())),
+        min(all_values),
+        group_values,
+    )
