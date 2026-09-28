@@ -432,7 +432,7 @@ def build_personal_report_document_model(
         "publication_contract": {
             "profile_family": "ALMAS_B5",
             "reuse_existing_publication_infrastructure": True,
-            "adapter_status": "PENDING_ADAPTER",
+            "adapter_status": "READY",
         },
         "canonical_values_embedded": False,
         "canonical_values_mutated": False,
