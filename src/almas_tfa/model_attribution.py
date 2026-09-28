@@ -7,10 +7,11 @@ from importlib import resources
 import random
 from typing import Any, Mapping, Sequence
 
-from .core import score_model
-from .pillar_attribution import (
-    derive_pillar_scores_from_roots,
-    load_root_pillar_policy,
+from .core import pillar_score, score_model
+from .pillar_attribution import classify_root, load_root_pillar_policy
+from .semantic_motifs import (
+    load_semantic_motif_policy,
+    semantic_root_signature,
 )
 
 
@@ -79,7 +80,14 @@ def _eligible_root_players(
 
 
 class _CoalitionValueEngine:
-    """Función de valor IEM_pre con PX/PS recalculados por coalición."""
+    """Función de valor IEM_pre con PX/PS recalculados por coalición.
+
+    Las firmas invariantes por raíz se precalculan una sola vez. La evaluación
+    de cada coalición reproduce exactamente las reglas de M18/PXv2 sin releer
+    políticas ni reclasificar geometría miles de veces.
+    """
+
+    _DIRECT_PILLARS = ("PA", "PK", "PE", "PR", "PT")
 
     def __init__(self, roots: Sequence[Mapping[str, Any]]) -> None:
         self._roots_by_id = {
@@ -87,7 +95,117 @@ class _CoalitionValueEngine:
             for root in roots
         }
         self._pillar_policy = load_root_pillar_policy()
+        self._motif_policy = load_semantic_motif_policy()
+        self._direct = {
+            root_id: classify_root(
+                root,
+                policy=self._pillar_policy,
+            )
+            for root_id, root in self._roots_by_id.items()
+        }
+        self._semantic = {
+            root_id: semantic_root_signature(
+                root,
+                policy=self._motif_policy,
+            )
+            for root_id, root in self._roots_by_id.items()
+        }
+        limits = self._motif_policy["minimum_recurrence"]
+        self._min_families = int(limits["distinct_dependency_families"])
+        self._min_roots = int(limits["distinct_roots"])
+        self._allow_exact_multifamily = bool(
+            limits["allow_single_exact_root_when_multifamily"]
+        )
         self._cache: dict[tuple[str, ...], dict[str, float]] = {}
+
+    def _motif_pillar(
+        self,
+        selected: set[str],
+        *,
+        mission: bool,
+    ) -> float:
+        groups: dict[str, list[dict[str, Any]]] = {}
+
+        for root_id in selected:
+            signature = self._semantic[root_id]
+            motif_ids = (
+                list(signature["mission_motifs"])
+                if mission
+                else (
+                    [str(signature["primary_motif"])]
+                    if signature["primary_motif"] is not None
+                    else []
+                )
+            )
+            for motif_id in motif_ids:
+                groups.setdefault(motif_id, []).append(signature)
+
+        motif_strengths: list[float] = []
+        for signatures in groups.values():
+            family_maxima: dict[str, float] = {}
+            root_ids: set[str] = set()
+            exact_multifamily = False
+
+            for signature in signatures:
+                root_id = str(signature["root_id"])
+                if root_id:
+                    root_ids.add(root_id)
+                exact_multifamily = (
+                    exact_multifamily
+                    or bool(signature["exact_multifamily"])
+                )
+                for family, raw_value in signature["family_strengths"].items():
+                    value = float(raw_value)
+                    family_maxima[family] = max(
+                        family_maxima.get(family, 0.0),
+                        value,
+                    )
+
+            recurrent = (
+                len(family_maxima) >= self._min_families
+                and (
+                    len(root_ids) >= self._min_roots
+                    or (
+                        self._allow_exact_multifamily
+                        and exact_multifamily
+                    )
+                )
+            )
+            if recurrent and family_maxima:
+                motif_strengths.append(
+                    pillar_score(list(family_maxima.values())) / 100.0
+                )
+
+        return pillar_score(motif_strengths) if motif_strengths else 0.0
+
+    def _pillars(self, selected: set[str]) -> dict[str, float | None]:
+        strengths: dict[str, list[float]] = {
+            pillar: [] for pillar in self._DIRECT_PILLARS
+        }
+
+        for root_id in selected:
+            item = self._direct[root_id]
+            if not item.get("eligible"):
+                continue
+            contributions = item.get("contributions")
+            if not isinstance(contributions, Mapping):
+                continue
+            for pillar, raw_value in contributions.items():
+                if pillar in strengths:
+                    strengths[str(pillar)].append(float(raw_value))
+
+        pillars: dict[str, float | None] = {
+            pillar: (
+                pillar_score(values)
+                if values
+                else 0.0
+            )
+            for pillar, values in strengths.items()
+        }
+        pillars["PX"] = self._motif_pillar(selected, mission=False)
+        pillars["PS"] = self._motif_pillar(selected, mission=True)
+        pillars["PU"] = None
+        return pillars
 
     def values(self, selected: set[str]) -> dict[str, float]:
         key = tuple(sorted(selected))
@@ -95,12 +213,7 @@ class _CoalitionValueEngine:
         if cached is not None:
             return cached
 
-        roots = [self._roots_by_id[root_id] for root_id in key]
-        pillars = derive_pillar_scores_from_roots(
-            roots,
-            structural_absence_is_zero=True,
-            policy=self._pillar_policy,
-        )
+        pillars = self._pillars(selected)
         values = {
             model: float(score_model(model, pillars, ice=0.0).iem_pre)
             for model in MODELS
