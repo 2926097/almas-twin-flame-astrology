@@ -1,6 +1,6 @@
 # Estado de validación
 
-**Versión pública:** 1.20.0
+**Versión pública:** 1.21.0
 
 ## Release pública
 
