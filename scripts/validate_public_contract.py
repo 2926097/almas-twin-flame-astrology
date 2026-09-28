@@ -76,6 +76,7 @@ REQUIRED_FILES = [
     "docs/EVOLUTION_1.19.0.md",
     "docs/EVOLUTION_1.20.0.md",
     "docs/EVOLUTION_1.21.0.md",
+    "docs/EVOLUTION_1.22.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -245,6 +246,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
     "src/almas_tfa/quantitative_contracts.py",
+    "src/almas_tfa/quantitative_v122.py",
     "src/almas_tfa/discriminator_promotion_registry.py",
     "src/almas_tfa/discriminant_validation.py",
     "src/almas_tfa/blinding_leakage.py",
@@ -2261,14 +2263,14 @@ def main() -> int:
     if "pillar_attribution" not in recurrence_snapshot_schema.get("required", []):
         fail("S4 recurrence snapshot must require pillar_attribution")
 
-    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         fail("model attribution policy id changed")
     if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("model attribution policy must remain frozen")
     if model_attribution_policy.get("epistemic_class") != "E_PROJECT_HYPOTHESIS":
         fail("model attribution policy must remain E_PROJECT_HYPOTHESIS")
-    if model_attribution_policy.get("value_function") != "IEM_PRE":
-        fail("M21 automatic attribution must use IEM_PRE")
+    if model_attribution_policy.get("value_function") != "IEM_PRE_DEPENDENCY_AWARE":
+        fail("M21 automatic attribution must use dependency-aware IEM_PRE")
     attribution_principles = model_attribution_policy.get("principles", {})
     if attribution_principles.get("case_fitting_forbidden") is not True:
         fail("model attribution policy must forbid case fitting")
@@ -2280,6 +2282,10 @@ def main() -> int:
         fail("1.14 Shapley must operate on canonical evidence units")
     if model_attribution_policy.get("derived_motif_units_are_independent_evidence") is not False:
         fail("derived motif units must not be declared independent evidence")
+    if attribution_principles.get("root_motif_source_overlap_corrected") is not True:
+        fail("1.22 must correct root-motif source overlap")
+    if attribution_principles.get("signed_attributions_preserved") is not True:
+        fail("1.22 must preserve signed Shapley contributions")
 
     if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_SENSITIVITY_V2":
         fail("birth-time perturbation policy id changed")
