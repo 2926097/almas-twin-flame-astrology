@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from importlib import metadata
+from collections.abc import Mapping
 import inspect
 
 EXPECTED = "6.8.2"
@@ -68,13 +69,27 @@ def main() -> int:
                 + name
             )
 
-    if not isinstance(PARAN_POLICY_PRESETS, dict):
-        raise AssertionError("PARAN_POLICY_PRESETS debe ser un mapping")
-    normalized_preset_keys = {
-        str(getattr(key, "value", key)).lower()
-        for key in PARAN_POLICY_PRESETS
-    }
-    if "star_planet_only" not in normalized_preset_keys:
+    preset_tokens: set[str] = set()
+    if isinstance(PARAN_POLICY_PRESETS, Mapping):
+        candidates = list(PARAN_POLICY_PRESETS.keys()) + list(
+            PARAN_POLICY_PRESETS.values()
+        )
+    else:
+        try:
+            candidates = list(PARAN_POLICY_PRESETS)
+        except TypeError as exc:
+            raise AssertionError(
+                "PARAN_POLICY_PRESETS debe ser iterable"
+            ) from exc
+
+    for candidate in candidates:
+        preset_tokens.add(str(candidate).lower())
+        for attr in ("name", "value", "id", "preset_id"):
+            value = getattr(candidate, attr, None)
+            if value is not None:
+                preset_tokens.add(str(value).lower())
+
+    if not any("star_planet_only" in token for token in preset_tokens):
         raise AssertionError(
             "Moira 6.8.2 no expone el preset star_planet_only"
         )
@@ -82,6 +97,10 @@ def main() -> int:
     print("ALMAS astronomy backend runtime contract: PASS")
     print(f"moira-astro: {installed}")
     print("Kernel binding: explicit Moira(kernel_path=...)")
+    print(
+        "Paran preset container: "
+        + type(PARAN_POLICY_PRESETS).__name__
+    )
     return 0
 
 
