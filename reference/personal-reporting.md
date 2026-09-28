@@ -4,11 +4,11 @@
 
 El perfil personal es una superficie interna de la única skill ALMAS. No añade una segunda versión pública ni modifica M00–M31.
 
-La primera fase 1.21 introduce únicamente:
+Las dos primeras fases 1.21 cubren:
 
-`natal normalizado → personal_canonical_analysis → validación/fingerprint → personal_report_document_model`.
+`natal normalizado → personal_canonical_analysis → validación/fingerprint → personal_report_document_model → personal_authored_report`.
 
-La autoría, adaptación DOCX/PDF y preflight se incorporarán en bloques posteriores.
+La adaptación DOCX/PDF y el preflight se incorporarán en el bloque posterior.
 
 ## Minimización de datos
 
