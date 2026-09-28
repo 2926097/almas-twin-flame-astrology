@@ -105,5 +105,102 @@ class TestCounterevidence(unittest.TestCase):
                     )
 
 
+    def test_complete_review_derives_zero_when_no_contradictions_exist(self):
+        result = m20_counterevidence(
+            context({"counterevidence_review_complete": True})
+        )
+        output = result.canonical_updates["counterevidence"]
+        self.assertEqual(output["ice_state"], "DERIVED_AUTONOMOUS_V1")
+        self.assertEqual(
+            output["ice_by_model"],
+            {"AF": 0.0, "KA": 0.0, "AG": 0.0, "LG": 0.0},
+        )
+        self.assertEqual(output["ice_formula_id"], "ALMAS_ICE_AUTONOMOUS_V1")
+
+    def test_autonomous_ice_collapses_same_dependency_family(self):
+        result = m20_counterevidence(
+            context(
+                {
+                    "counterevidence_review_complete": True,
+                    "counterevidence_items": [
+                        {
+                            "id": "CE-A",
+                            "kind": "EXPLICIT_CONTRADICTION",
+                            "models": ["LG"],
+                            "contradiction_key": "A",
+                            "dependency_family": "FACTS",
+                            "severity": 0.2,
+                        },
+                        {
+                            "id": "CE-B",
+                            "kind": "EXPLICIT_CONTRADICTION",
+                            "models": ["LG"],
+                            "contradiction_key": "B",
+                            "dependency_family": "FACTS",
+                            "severity": 0.8,
+                        },
+                        {
+                            "id": "CE-C",
+                            "kind": "STRUCTURAL_INCOMPATIBILITY",
+                            "models": ["LG"],
+                            "contradiction_key": "C",
+                            "dependency_family": "ASTRO_STRUCTURE",
+                            "severity": 0.5,
+                        },
+                    ],
+                }
+            )
+        )
+        output = result.canonical_updates["counterevidence"]
+        self.assertAlmostEqual(output["ice_by_model"]["LG"], 70.0)
+        self.assertEqual(
+            output["models"]["LG"]["dependency_family_scores"],
+            {"ASTRO_STRUCTURE": 0.5, "FACTS": 0.8},
+        )
+
+    def test_complete_review_requires_severity(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(
+                context(
+                    {
+                        "counterevidence_review_complete": True,
+                        "counterevidence_items": [
+                            {
+                                "id": "CE-NO-SEVERITY",
+                                "kind": "EXPLICIT_CONTRADICTION",
+                                "models": ["AF"],
+                                "contradiction_key": "A",
+                                "dependency_family": "FACTS",
+                            }
+                        ],
+                    }
+                )
+            )
+
+    def test_precomputed_ice_must_match_autonomous_when_both_are_declared(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(
+                context(
+                    {
+                        "counterevidence_review_complete": True,
+                        "ice_by_model": {"AF": 1, "KA": 0, "AG": 0, "LG": 0},
+                    }
+                )
+            )
+
+    def test_matching_precomputed_ice_is_only_a_consistency_check(self):
+        result = m20_counterevidence(
+            context(
+                {
+                    "counterevidence_review_complete": True,
+                    "ice_by_model": {"AF": 0, "KA": 0, "AG": 0, "LG": 0},
+                }
+            )
+        )
+        output = result.canonical_updates["counterevidence"]
+        self.assertEqual(output["ice_state"], "DERIVED_AUTONOMOUS_V1")
+        self.assertTrue(output["precomputed_consistency_checked"])
+
+
 if __name__ == "__main__":
     unittest.main()
