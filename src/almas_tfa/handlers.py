@@ -15,7 +15,7 @@ from .core import (
     supported_gate,
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
-from .quantitative_contracts import MODELS, validate_ice_by_model
+from .quantitative_contracts import MODELS
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
