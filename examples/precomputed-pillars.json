@@ -27,5 +27,29 @@
       "root_affinity": 1,
       "root_transform": 1
     }
+  },
+  "pillar_source_roots": {
+    "PA": [
+      "EXAMPLE_R_PA"
+    ],
+    "PK": [
+      "EXAMPLE_R_PK"
+    ],
+    "PE": [
+      "EXAMPLE_R_PE"
+    ],
+    "PR": [
+      "EXAMPLE_R_PR"
+    ],
+    "PX": [
+      "EXAMPLE_R_PX"
+    ],
+    "PT": [
+      "EXAMPLE_R_PT"
+    ],
+    "PS": [
+      "EXAMPLE_R_PS"
+    ],
+    "PU": []
   }
 }
