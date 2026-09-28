@@ -1,19 +1,19 @@
 {
   "audit_version": "1.0.0",
   "almas_version": "1.15.0",
-  "date": "2026-09-27",
-  "sources_total": 76,
-  "concepts_total": 97,
+  "date": "2026-09-28",
+  "sources_total": 78,
+  "concepts_total": 98,
   "genealogy_edges_total": 73,
   "by_priority": {
     "P1_PRIMARY": 25,
     "P2_ACADEMIC": 7,
-    "P4_IDENTIFIED_METHOD": 42,
-    "P3_HISTORICAL_TECHNICAL": 2
+    "P4_IDENTIFIED_METHOD": 43,
+    "P3_HISTORICAL_TECHNICAL": 3
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 47,
-    "VERIFIED_METADATA": 29
+    "VERIFIED_PRIMARY": 48,
+    "VERIFIED_METADATA": 30
   },
   "integrity": {
     "unknown_concepts_from_sources": 0,
@@ -39,6 +39,7 @@
     "ALMAS 1.20 incorpora referencias directas de Astrodienst para la geometría de aspectos mayores: aspecto general, conjunción, oposición, cuadratura, trígono y sextil. Se usan como moduladores hermenéuticos de funciones ya identificadas y no crean raíces ni peso estructural adicional.",
     "ALMAS 1.20 incorpora referencias directas de Astrodienst para signo zodiacal, elemento, modalidad, regencia de signo y regencia de casa. Estas fuentes estructuran la lectura del sustrato natal ya calculado y no añaden puntuación ni una escuela de regencias por defecto.",
     "ALMAS 1.20 incorpora Demetra George/Douglas Bloch para Juno y Martha Lang-Wescott para Eros como fuentes de método de la capa secundaria M14; ambos puntos permanecen support-only y no añaden peso ontológico.",
-    "ALMAS 1.20 incorpora Astrodienst y Robert Hand como fuentes de método para TTRANSIT: planeta transitante → aspecto → factor natal. Estas fuentes sustentan cálculo e interpretación temporal, sin convertir activación en predicción factual ni evidencia ontológica."
+    "ALMAS 1.20 incorpora Astrodienst y Robert Hand como fuentes de método para TTRANSIT: planeta transitante → aspecto → factor natal. Estas fuentes sustentan cálculo e interpretación temporal, sin convertir activación en predicción factual ni evidencia ontológica.",
+    "ALMAS 1.22 preregistra a Bernadette Brady como método moderno identificado para estrellas fijas/parans y Tetrabiblos I.9 como antecedente histórico técnico. Esta ampliación documental no activa todavía la capa fixed_stars ni añade scoring u ontología."
   ]
 }
