@@ -70,6 +70,86 @@ class TestCounterevidence(unittest.TestCase):
         self.assertEqual(output["ice_by_model"]["LG"], 20.0)
         self.assertFalse(output["missing_data_penalized"])
 
+    def test_autonomous_ice_is_derived_only_from_complete_assessment(self):
+        raw = {
+            "counterevidence_assessment_complete": True,
+            "counterevidence_items": [
+                {
+                    "id": "CE1",
+                    "kind": "EXPLICIT_CONTRADICTION",
+                    "models": ["LG"],
+                    "contradiction_key": "FACT_A",
+                    "dependency_family": "FACTS",
+                    "essential": False,
+                    "severity": 0.6,
+                },
+                {
+                    "id": "CE2",
+                    "kind": "STRUCTURAL_INCOMPATIBILITY",
+                    "models": ["LG"],
+                    "contradiction_key": "STRUCT_A",
+                    "dependency_family": "STRUCTURE",
+                    "essential": False,
+                    "severity": 0.5,
+                },
+            ],
+        }
+        result = m20_counterevidence(context(raw))
+        output = result.canonical_updates["counterevidence"]
+        self.assertEqual(output["ice_state"], "AUTONOMOUS")
+        self.assertEqual(output["ice_formula_id"], "ALMAS_ICE_AUTONOMOUS_V1")
+        self.assertAlmostEqual(output["ice_by_model"]["LG"], 80.0)
+        self.assertEqual(output["ice_by_model"]["AF"], 0.0)
+        self.assertTrue(output["assessment_complete"])
+
+    def test_complete_empty_assessment_yields_zero_ice(self):
+        result = m20_counterevidence(
+            context(
+                {
+                    "counterevidence_assessment_complete": True,
+                    "counterevidence_items": [],
+                }
+            )
+        )
+        output = result.canonical_updates["counterevidence"]
+        self.assertEqual(
+            output["ice_by_model"],
+            {"AF": 0.0, "KA": 0.0, "AG": 0.0, "LG": 0.0},
+        )
+
+    def test_autonomous_and_precomputed_ice_are_mutually_exclusive(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(
+                context(
+                    {
+                        "counterevidence_assessment_complete": True,
+                        "ice_by_model": {
+                            "AF": 0, "KA": 0, "AG": 0, "LG": 0
+                        },
+                    }
+                )
+            )
+
+    def test_autonomous_ice_requires_severity_on_retained_items(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(
+                context(
+                    {
+                        "counterevidence_assessment_complete": True,
+                        "counterevidence_items": [
+                            {
+                                "id": "CE1",
+                                "kind": "EXPLICIT_CONTRADICTION",
+                                "models": ["AF"],
+                                "contradiction_key": "NO_SEVERITY",
+                                "dependency_family": "FACTS",
+                                "essential": False,
+                            }
+                        ],
+                    }
+                )
+            )
+
     def test_partial_precomputed_ice_is_rejected(self):
         with self.assertRaises(ValueError):
             m20_counterevidence(
