@@ -2,6 +2,14 @@
 
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.
 
+## ALMAS 1.22.0 — 2026-09-28
+
+- El módulo contractual hereda la release pública 1.22.0 de la raíz.
+- La revisión Shapley/IRC/ICE cambia la infraestructura cuantitativa consumida por el canonical, pero no crea cláusulas, roles, origen, misión ni cumplimiento contractual.
+- ICE autónomo sigue siendo contraevidencia estructural y no una afirmación doctrinal o una probabilidad metafísica.
+- PX v3 y L3 permanecen inactivos sin validación externa real.
+- `engine_revision` contractual permanece 1.9.0.
+
 ## ALMAS 1.21.0 — 2026-09-28
 
 - El módulo contractual hereda la release pública 1.21.0 de la raíz.
