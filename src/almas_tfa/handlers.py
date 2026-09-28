@@ -16,7 +16,10 @@ from .core import (
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .quantitative_contracts import MODELS, validate_ice_by_model
-from .quantitative_v122 import score_model_dependency_aware
+from .quantitative_v122 import (
+    diagnostic_discrimination_signed,
+    score_model_dependency_aware,
+)
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
@@ -361,7 +364,11 @@ def m21_differential_discrimination(context: ModuleContext) -> ModuleResult:
             av = attributions.get(a)
             bv = attributions.get(b)
             if isinstance(av, Mapping) and isinstance(bv, Mapping):
-                value = diagnostic_discrimination(av, bv)
+                value = (
+                    diagnostic_discrimination_signed(av, bv)
+                    if attribution_source == "AUTO_SHAPLEY_CANONICAL_UNITS"
+                    else diagnostic_discrimination(av, bv)
+                )
                 idd_output[f"{a}_vs_{b}"] = {
                     "idd": value,
                     "band": idd_band(value),
