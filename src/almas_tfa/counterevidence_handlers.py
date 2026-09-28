@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from math import isfinite
+from numbers import Real
 from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
@@ -68,9 +70,22 @@ def m20_counterevidence(context: ModuleContext) -> ModuleResult:
 
         severity = raw.get("severity")
         if severity is not None:
+            if (
+                isinstance(severity, bool)
+                or not isinstance(severity, Real)
+            ):
+                raise ValueError(
+                    f"{item_id}: severity debe ser numérico real."
+                )
             severity = float(severity)
-            if not 0.0 <= severity <= 1.0:
-                raise ValueError(f"{item_id}: severity debe estar en [0,1].")
+            if not isfinite(severity) or not 0.0 <= severity <= 1.0:
+                raise ValueError(
+                    f"{item_id}: severity debe ser finito y estar en [0,1]."
+                )
+
+        essential = raw.get("essential", False)
+        if not isinstance(essential, bool):
+            raise ValueError(f"{item_id}: essential debe ser booleano.")
 
         for model in models:
             if model not in MODELS:
@@ -82,7 +97,7 @@ def m20_counterevidence(context: ModuleContext) -> ModuleResult:
                     "kind": kind,
                     "contradiction_key": contradiction_key,
                     "dependency_family": dependency_family,
-                    "essential": bool(raw.get("essential", False)),
+                    "essential": essential,
                     "severity": severity,
                     "evidence_refs": list(raw.get("evidence_refs", [])),
                     "note": raw.get("note"),
