@@ -1326,7 +1326,7 @@ def main() -> int:
     manifest_invariants = structural_policy_manifest.get("invariants", {})
     for key in (
         "no_new_analytical_module",
-        "no_score_change",
+        "score_change_is_versioned",
         "no_implicit_orbs",
         "no_runtime_case_fitting",
         "support_only_cannot_create_core",
@@ -4969,6 +4969,8 @@ def main() -> int:
     if set(counter_state_schema.get("required", [])) != {
         "ice_evaluable",
         "ice_by_model",
+        "ice_source_state",
+        "ice_formula_id",
         "essential_contradictions",
     }:
         fail("canonical counterevidence_state required fields changed")
@@ -4995,6 +4997,8 @@ def main() -> int:
         "R_min",
         "component_count",
         "components",
+        "dependency_family_count",
+        "dependency_families",
         "null_model_rarity_used_as_robustness",
         "timed_architecture_present",
         "birth_time_component_present",
