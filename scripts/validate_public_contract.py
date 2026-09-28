@@ -636,6 +636,9 @@ def main() -> int:
     production_astronomy_backend_policy = load_json(
         "src/almas_tfa/data/production-astronomy-backend-policy.json"
     )
+    fixed_star_paran_policy = load_json(
+        "src/almas_tfa/data/fixed-star-paran-policy.json"
+    )
     root_pillar_policy = load_json(
         "src/almas_tfa/data/root-pillar-attribution-policy.json"
     )
@@ -1189,6 +1192,35 @@ def main() -> int:
         fail("astronomy complete evidence tolerance changed")
     if astronomy_complete_evidence.get("remaining_stages") != []:
         fail("astronomy complete evidence must close all golden stages")
+
+    if fixed_star_paran_policy.get("policy_id") != "ALMAS_FIXED_STAR_PARAN_POLICY_V1":
+        fail("fixed-star/paran policy id changed")
+    if fixed_star_paran_policy.get("structural_role") != "SUPPORT_ONLY":
+        fail("fixed-star/paran layer must remain SUPPORT_ONLY")
+    fixed_provider = fixed_star_paran_policy.get("provider", {})
+    if fixed_provider.get("adapter_id") != "ALMAS_MOIRA_JPL_SPK_V1":
+        fail("fixed-star/paran policy must reuse the production adapter")
+    if fixed_provider.get("pinned_version") != "6.8.2":
+        fail("fixed-star/paran policy provider version changed")
+    if fixed_provider.get("reuse_existing_backend") is not True:
+        fail("fixed-star/paran policy must not introduce a second backend")
+    star_canon = fixed_star_paran_policy.get("star_canon", {})
+    if star_canon.get("selection") != "ALL_AVAILABLE_ENGINE_CANON":
+        fail("fixed-star canon selection changed")
+    if set(star_canon.get("documented_memberships", [])) != {"ROYAL", "BEHENIAN", "PTOLEMAIC"}:
+        fail("fixed-star canon memberships changed")
+    if star_canon.get("runtime_canon_fingerprint_required") is not True:
+        fail("fixed-star canon fingerprint must remain required")
+    if fixed_star_paran_policy.get("parans", {}).get("orb_minutes") != 4.0:
+        fail("paran orb changed without a new policy id")
+    if fixed_star_paran_policy.get("natal_angular_contacts", {}).get("orb_minutes") != 2.0:
+        fail("natal angular-contact orb changed without a new policy id")
+    firewall = fixed_star_paran_policy.get("inferential_firewall", {})
+    for key in ("creates_structural_root", "changes_iem", "changes_idd", "changes_irc", "changes_ontology"):
+        if firewall.get(key) is not False:
+            fail(f"fixed-star inferential firewall changed: {key}")
+    if firewall.get("discriminating_power") != "SUPPORT_ONLY":
+        fail("fixed-star/paran discriminating power must remain SUPPORT_ONLY")
 
     if 'astronomy-moira = ["moira-astro==6.8.2"]' not in pyproject:
         fail("pyproject must pin optional moira-astro 6.8.2 backend extra")
