@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
-from .core import robustness_index
+from .quantitative_v122 import grouped_robustness_index
 from .discriminator_promotion_registry import (
     authorize_promoted_discriminator_component,
 )
@@ -173,6 +173,14 @@ def _validated_component(raw: Mapping[str, Any], index: int) -> dict[str, Any]:
     if not isinstance(derivation_ref, str) or not derivation_ref:
         raise ValueError(f"{component_id}: derivation_ref es obligatorio.")
 
+    dependency_family = raw.get("dependency_family")
+    if dependency_family is not None and (
+        not isinstance(dependency_family, str) or not dependency_family.strip()
+    ):
+        raise ValueError(
+            f"{component_id}: dependency_family debe ser texto no vacío."
+        )
+
     return {
         "id": component_id,
         "kind": kind,
@@ -182,6 +190,11 @@ def _validated_component(raw: Mapping[str, Any], index: int) -> dict[str, Any]:
         "derivation_ref": derivation_ref,
         "note": raw.get("note"),
         "auto_derived": False,
+        **(
+            {"dependency_family": dependency_family.strip()}
+            if isinstance(dependency_family, str)
+            else {}
+        ),
     }
 
 
@@ -376,8 +389,9 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
             "No existen componentes de robustez aplicables y preregistrados.",
         )
 
-    values = [component["value"] for component in components]
-    irc, r_min = robustness_index(values)
+    irc, r_min, dependency_families = grouped_robustness_index(
+        components
+    )
 
     if ablation_auto:
         ablation_state = "INCLUDED_AUTO_Q5"
@@ -400,11 +414,13 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
         "r_min": r_min,
         "components": components,
         "component_count": len(components),
+        "dependency_families": dependency_families,
+        "dependency_family_count": len(dependency_families),
         "time_sensitivity_state": time_state,
         "ablation_state": ablation_state,
         "null_model_state": null_model_state,
         "null_model_rarity_used_as_robustness": False,
-        "formula": "100 * geometric_mean(applicable_R_i)",
+        "formula": "100 * geometric_mean(dependency_family_scores)",
         "r_min_formula": "min(applicable_R_i)",
     }
 
@@ -418,6 +434,7 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
             "La rareza/frecuencia de M24 queda excluida de IRC.",
             "Sólo discriminadores L3 validados y trazables desde M21 pueden entrar en IRC.",
             "Los componentes Q5 automáticos sustituyen al adaptador legacy del mismo kind; nunca se cuentan dos veces.",
+            "IRC agrupa primero componentes por familia de dependencia; PARAMETER_PERTURBATION e IDD_STABILITY comparten PARAMETER_ENSEMBLE salvo declaración explícita.",
         ),
     )
 
