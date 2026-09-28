@@ -1090,6 +1090,11 @@
       "concept_id": "DAIMON",
       "coverage_state": "CONTEXT_ONLY",
       "reason": "Término histórico vinculado a Spirit/Daimon; ALMAS evita equipararlo automáticamente con alma, Mónada, Yo Superior o contrato preencarnatorio."
+    },
+    {
+      "concept_id": "FIXED_STAR_ASTROLOGY",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "Fuentes técnica moderna e histórica preregistradas; la operacionalización ejecutable permanece pendiente de F2–F3 y no genera scoring ni inferencia ontológica."
     }
   ],
   "audit_summary": {
@@ -1098,7 +1103,7 @@
     "academic_or_method_context_sources": 5,
     "ontological_discriminators_validated": 0,
     "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory.",
-    "coverage_total": 97,
+    "coverage_total": 98,
     "note_1_14": "Fortuna/Espíritu y reglas de secta se registran como técnica/contexto histórico, no como validación ontológica."
   }
 }
