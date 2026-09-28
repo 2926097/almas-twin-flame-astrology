@@ -25,12 +25,12 @@ def attributed(unit_id, pillar, value, *, unit_type="ROOT"):
     }
 
 
-class ModelAttributionV2Tests(unittest.TestCase):
+class ModelAttributionV3Tests(unittest.TestCase):
     def test_policy_is_frozen_and_case_fit_forbidden(self):
         policy = load_model_attribution_policy()
         self.assertEqual(
             policy["policy_id"],
-            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2",
+            "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3",
         )
         self.assertTrue(policy["principles"]["case_fitting_forbidden"])
         self.assertEqual(policy["value_function"], "IEM_PRE")
@@ -99,6 +99,39 @@ class ModelAttributionV2Tests(unittest.TestCase):
             "MOTIF:REL",
             result["attributions"]["AG"],
         )
+
+
+    def test_motif_and_source_roots_are_one_dependency_player(self):
+        units = [
+            attributed("R1", "PA", 0.9),
+            attributed("R2", "PR", 0.8),
+            {
+                **attributed(
+                    "MOTIF:REL",
+                    "PX",
+                    0.75,
+                    unit_type="SEMANTIC_MOTIF",
+                ),
+                "source_root_ids": ["R1", "R2"],
+            },
+            attributed("R3", "PE", 0.7),
+            attributed("R4", "PT", 0.65),
+        ]
+        result = derive_model_attributions(pillar_attribution(units))
+        self.assertTrue(result["dependency_adjustment_applied"])
+        self.assertEqual(result["dependency_coalition_count"], 3)
+        linked = next(
+            item for item in result["dependency_coalitions"]
+            if "MOTIF:REL" in item["motif_unit_ids"]
+        )
+        self.assertEqual(
+            set(linked["unit_ids"]),
+            {"R1", "R2", "MOTIF:REL"},
+        )
+        self.assertFalse(result["motif_units_are_independent_players"])
+        for model, error in result["shapley_efficiency_error"].items():
+            self.assertLess(error, 1e-8, model)
+
 
     def test_temporal_or_null_inputs_are_not_part_of_contract(self):
         policy = load_model_attribution_policy()
