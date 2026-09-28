@@ -217,6 +217,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/temporal-reading.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_TEMPORAL_READING_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/validation-case.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "VALIDATION_SMOKE_FIXTURE",
