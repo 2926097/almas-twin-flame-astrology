@@ -37,6 +37,11 @@ jobs:
       - name: Ejecutar tests del adaptador
         run: python -m unittest discover -s tests -p "test_production_astronomy.py" -v
 
+      - name: Validar estrellas fijas y parans
+        run: |
+          python -m unittest discover -s tests -p "test_fixed_star_paran_policy.py" -v
+          python -m unittest discover -s tests -p "test_fixed_star_paran_backend.py" -v
+
       - name: Validar gate dorado preregistrado
         run: python -m unittest discover -s tests -p "test_astronomy_golden_validation.py" -v
 
