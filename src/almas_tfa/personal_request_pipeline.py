@@ -136,6 +136,30 @@ def _backend_provenance(
                 f"backend_provenance incompatible: {field}"
             )
 
+    for field in (
+        "kernel_filename",
+        "kernel_family",
+        "kernel_sha256",
+        "house_system",
+    ):
+        if not isinstance(selected.get(field), str) or not selected.get(field):
+            raise PersonalRequestError(
+                f"backend_provenance incompleta: {field}"
+            )
+
+    if selected["kernel_family"] not in {"DE430", "DE440", "DE441"}:
+        raise PersonalRequestError(
+            "backend_provenance incompatible: kernel_family"
+        )
+    kernel_sha = selected["kernel_sha256"]
+    if (
+        len(kernel_sha) != 64
+        or any(ch not in "0123456789abcdef" for ch in kernel_sha)
+    ):
+        raise PersonalRequestError(
+            "backend_provenance incompatible: kernel_sha256"
+        )
+
     return deepcopy(dict(selected))
 
 
