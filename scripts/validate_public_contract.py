@@ -5155,11 +5155,30 @@ def main() -> int:
     if precomputed_ice_schema.get("additionalProperties") is not False:
         fail("precomputed ice_by_model must reject unknown models")
 
+    raw_props = raw_schema.get("properties", {})
+    if raw_props.get("counterevidence_assessment_complete", {}).get("type") != "boolean":
+        fail("raw input must expose counterevidence_assessment_complete as boolean")
+    if set(raw_props.get("ice_by_model", {}).get("required", [])) != expected_ice_models:
+        fail("raw input ice_by_model must require AF/KA/AG/LG")
+    counter_items = raw_props.get("counterevidence_items", {}).get("items", {})
+    if "severity" not in counter_items.get("properties", {}):
+        fail("raw counterevidence items must expose severity")
+    if robustness_output_schema.get("properties", {}).get("formula", {}).get("const") != "100 * geometric_mean(dependency_family_scores)":
+        fail("IRC 1.22 must aggregate dependency_family_scores")
+
     counter_ice_def = counterevidence_output_schema.get("$defs", {}).get("iceByModel", {})
     if set(counter_ice_def.get("required", [])) != expected_ice_models:
         fail("counterevidence ICE must require AF/KA/AG/LG when PRECOMPUTED")
     if counter_ice_def.get("additionalProperties") is not False:
         fail("counterevidence ICE must reject unknown models")
+
+    ice_states = set(
+        counterevidence_output_schema.get("properties", {})
+        .get("ice_state", {})
+        .get("enum", [])
+    )
+    if ice_states != {"PRECOMPUTED", "AUTONOMOUS", "NOT_CALCULATED"}:
+        fail("counterevidence ICE states diverge from 1.22 contract")
 
     result_model_schema = result_schema.get("$defs", {}).get("modelResult", {})
     if "ice_state" not in set(result_model_schema.get("required", [])):

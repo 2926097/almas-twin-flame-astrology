@@ -702,6 +702,50 @@
               }
             }
           }
+        },
+        {
+          "if": {
+            "properties": {
+              "ice_source_state": {
+                "const": "PRECOMPUTED"
+              }
+            },
+            "required": [
+              "ice_source_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice_formula_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ice_source_state": {
+                "const": "NOT_CALCULATED"
+              }
+            },
+            "required": [
+              "ice_source_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice_formula_id": {
+                "type": "null"
+              },
+              "ice_evaluable": {
+                "const": false
+              },
+              "ice_by_model": {
+                "type": "null"
+              }
+            }
+          }
         }
       ]
     },

@@ -226,6 +226,11 @@
               ]
             }
           }
+        },
+        "not": {
+          "required": [
+            "ice_by_model"
+          ]
         }
       }
     }

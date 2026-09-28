@@ -208,6 +208,12 @@
         "properties": {
           "ice_by_model": {
             "$ref": "#/$defs/iceByModel"
+          },
+          "assessment_complete": {
+            "const": false
+          },
+          "ice_formula_id": {
+            "type": "null"
           }
         }
       }
@@ -226,6 +232,12 @@
       "then": {
         "properties": {
           "ice_by_model": {
+            "type": "null"
+          },
+          "assessment_complete": {
+            "const": false
+          },
+          "ice_formula_id": {
             "type": "null"
           }
         }
