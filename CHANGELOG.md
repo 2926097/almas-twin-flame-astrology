@@ -10,7 +10,7 @@
 - Añade hermenéutica temporal M26–M27 y conserva `trigger_context` como superficie de autoría sin alterar IAT.
 - Registra fuentes y contrato de método para `TTRANSIT` y añade un generador autónomo de tránsitos contra endpoints natales de raíces M17 usando `aspect_policy` explícita.
 - Añade `temporal-reading.synthetic.json`, que demuestra una lectura Saturno cuadratura Venus integrada en una raíz Venus–Plutón y conserva el límite de no predicción factual.
-- La suite del núcleo alcanza **537 tests** en Python 3.10 y 3.12; `Núcleo Python`, `Contrato público` y `Backend astronómico` terminan en PASS en el último head funcional.
+- La suite del núcleo alcanza **537 tests** en Python 3.10 y 3.12; `Núcleo Python`, `Contrato público`, `Backend astronómico`, `Publicación DOCX` y `Publicación PDF` terminan en PASS en la PR de cierre.
 - No añade nuevos scores, pesos, thresholds, discriminadores activados ni afirmaciones de validación científica de ontologías metafísicas.
 
 ## 1.19.0 — 2026-09-27
