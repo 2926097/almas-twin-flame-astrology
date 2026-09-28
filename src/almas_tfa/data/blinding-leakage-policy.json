@@ -1,0 +1,58 @@
+{
+  "policy_id": "ALMAS_BLINDING_LEAKAGE_V1",
+  "policy_version": "1.0.0",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "hash_algorithm": "sha256",
+  "structural_stage": "STEP_A_BLINDED",
+  "late_reveal_stage": "STEP_B_DOCUMENTARY_REVEAL",
+  "forbidden_structural_keys": [
+    "self_label",
+    "self_labels",
+    "emic_label",
+    "emic_labels",
+    "claimed_ontology",
+    "claimed_model",
+    "relationship_narrative",
+    "case_narrative",
+    "case_story",
+    "expected_model",
+    "expected_classification",
+    "expected_result",
+    "expected_excluded_model",
+    "analyst_hint",
+    "analyst_expectation",
+    "holdout_truth",
+    "holdout_label",
+    "ground_truth_ontology",
+    "posthoc_label",
+    "posthoc_narrative",
+    "outcome_label"
+  ],
+  "ignored_annotation_keys": [
+    "note"
+  ],
+  "required_true_flags": [
+    "development_evaluation_disjoint",
+    "labels_hidden",
+    "narrative_hidden",
+    "expected_result_hidden",
+    "holdout_outcome_hidden",
+    "late_reveal_performed",
+    "structural_output_invariant_after_reveal"
+  ],
+  "required_zero_counts": [
+    "forbidden_field_hits",
+    "label_leakage_count",
+    "narrative_leakage_count",
+    "case_fitting_count",
+    "post_holdout_rule_change_count"
+  ],
+  "principles": [
+    "La ejecución estructural ciega precede al revelado documental.",
+    "Autoetiquetas y narrativa pueden registrarse después como uso contemporáneo o documentación, pero no alimentar la clasificación estructural.",
+    "La salida estructural congelada debe conservar exactamente su fingerprint tras el revelado.",
+    "Cualquier CASE_FITTING invalida la promoción confirmatoria.",
+    "La identidad pública inevitable se documenta como riesgo; no se confunde con ausencia de cegamiento de etiquetas y resultados.",
+    "El cegamiento protege la validez operacional del clasificador y no demuestra una ontología metafísica."
+  ]
+}

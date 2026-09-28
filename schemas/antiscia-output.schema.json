@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/antiscia-output.schema.json",
+  "title": "ALMAS · Salida de contactos por antiscios",
+  "type": "object",
+  "required": [
+    "subjects",
+    "policy",
+    "contacts",
+    "contact_count"
+  ],
+  "properties": {
+    "subjects": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "object"
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "subject_a",
+          "point_a",
+          "longitude_a",
+          "transformed_longitude",
+          "subject_b",
+          "point_b",
+          "longitude_b",
+          "relation",
+          "orb",
+          "orb_limit",
+          "exactness"
+        ],
+        "properties": {
+          "relation": {
+            "enum": [
+              "ANTISCION",
+              "CONTRA_ANTISCION"
+            ]
+          },
+          "orb": {
+            "type": "number",
+            "minimum": 0
+          },
+          "orb_limit": {
+            "type": "number",
+            "minimum": 0
+          },
+          "exactness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "contact_count": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

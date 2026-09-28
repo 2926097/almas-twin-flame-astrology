@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/discriminator-source-genealogy.schema.json",
+  "title": "ALMAS · Genealogía de fuentes de discriminadores",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "target_almas_version",
+    "authority",
+    "status",
+    "source_policy_ref",
+    "source_anchor_policy_ref",
+    "doctrinal_genealogy_ref",
+    "concept_registry_ref",
+    "operational_candidate_registry_ref",
+    "principles",
+    "source_snapshots",
+    "records"
+  ],
+  "properties": {
+    "registry_version": {
+      "const": "1.0.0"
+    },
+    "target_almas_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "const": "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY"
+    },
+    "status": {
+      "const": "ACTIVE_EXPERIMENTAL_GENEALOGY_LAYER"
+    },
+    "source_policy_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_anchor_policy_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "doctrinal_genealogy_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "concept_registry_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operational_candidate_registry_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "principles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_snapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "priority",
+          "source_role",
+          "tradition",
+          "author",
+          "work",
+          "date",
+          "date_note",
+          "passage",
+          "pages",
+          "verification_status",
+          "verification_anchor",
+          "verification_anchor_type",
+          "verification_anchor_url",
+          "evidence_scope",
+          "concepts"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "priority": {
+            "enum": [
+              "P1_PRIMARY",
+              "P2_ACADEMIC",
+              "P3_HISTORICAL_TECHNICAL",
+              "P4_IDENTIFIED_METHOD",
+              "P5_EMIC",
+              "P6_WEAK_UNVERIFIED"
+            ]
+          },
+          "source_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tradition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1
+          },
+          "work": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "passage": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pages": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_status": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_anchor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_anchor_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_anchor_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_scope": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "concepts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "discriminator_id",
+          "derived_from",
+          "provenance_class",
+          "epistemic_class",
+          "epistemic_ceiling",
+          "source_usage",
+          "required_genealogy_edges",
+          "forbidden_equivalences",
+          "operationalization_note",
+          "source_count_adds_weight",
+          "source_priority_adds_ontological_weight",
+          "cross_tradition_identity_allowed",
+          "direct_case_evidence",
+          "can_change_case_classification",
+          "can_raise_irc"
+        ],
+        "properties": {
+          "discriminator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "derived_from": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "provenance_class": {
+            "enum": [
+              "PROJECT_OPERATIONALIZATION",
+              "DOCTRINAL_SEPARABILITY_METHOD",
+              "NONOBSERVABLE_DOCTRINAL_CONSTRUCT",
+              "CONTEMPORARY_PHENOMENOLOGY"
+            ]
+          },
+          "epistemic_class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "epistemic_ceiling": {
+            "enum": [
+              "PROJECT_PROXY_ONLY",
+              "CONSTRUCT_SEPARABILITY_ONLY",
+              "DOCTRINAL_CONCEPT_ONLY",
+              "PHENOMENOLOGY_ONLY"
+            ]
+          },
+          "source_usage": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "source_id",
+                "relation",
+                "concept_refs",
+                "support_indexes",
+                "does_not_support_indexes",
+                "direct_case_evidence",
+                "ontological_validation"
+              ],
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relation": {
+                  "enum": [
+                    "DIRECT_DOCTRINAL_BASIS",
+                    "COMPARATIVE_ANTECEDENT",
+                    "MONADIC_DOCTRINAL_BASIS",
+                    "LITERARY_GENEALOGY",
+                    "ACADEMIC_PHENOMENOLOGY",
+                    "CONTEMPORARY_USAGE_CONTEXT",
+                    "DOCTRINAL_CONSTRAINT"
+                  ]
+                },
+                "concept_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                },
+                "support_indexes": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "uniqueItems": true
+                },
+                "does_not_support_indexes": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "uniqueItems": true
+                },
+                "direct_case_evidence": {
+                  "const": false
+                },
+                "ontological_validation": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required_genealogy_edges": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "from",
+                "to",
+                "relation",
+                "status"
+              ],
+              "properties": {
+                "from": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "to": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "forbidden_equivalences": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "operationalization_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_count_adds_weight": {
+            "const": false
+          },
+          "source_priority_adds_ontological_weight": {
+            "const": false
+          },
+          "cross_tradition_identity_allowed": {
+            "const": false
+          },
+          "direct_case_evidence": {
+            "const": false
+          },
+          "can_change_case_classification": {
+            "const": false
+          },
+          "can_raise_irc": {
+            "const": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_HOLDOUT_OPEN_GATE_V1",
+  "status": "FROZEN_EXPERIMENTAL_PROTOCOL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Autorizar la apertura de un holdout únicamente si coincide exactamente con el preregistro congelado y antes de evaluar resultados.",
+  "required_preregistration_policy_id": "ALMAS_VALIDATION_PREREGISTRATION_BUNDLE_V1",
+  "forbidden_open_request_keys": [
+    "candidate_scores",
+    "holdout_results",
+    "observed_distribution",
+    "observed_value",
+    "outcome_label",
+    "holdout_label",
+    "ground_truth_ontology",
+    "expected_result",
+    "posthoc_label",
+    "posthoc_narrative",
+    "recurrence_snapshot",
+    "private_birth_data",
+    "private_case_data",
+    "private_messages"
+  ],
+  "principles": {
+    "preregistration_fingerprint_must_match": true,
+    "runtime_version_must_match_frozen": true,
+    "runtime_commit_must_match_frozen": true,
+    "candidate_formula_must_match_frozen": true,
+    "cohort_metadata_must_match_frozen": true,
+    "minimum_sample_count_must_be_met": true,
+    "observed_results_forbidden_at_open": true,
+    "posthoc_changes_forbidden": true,
+    "open_gate_does_not_evaluate_holdout": true,
+    "open_gate_does_not_promote_candidate": true,
+    "automatic_registry_mutation_forbidden": true,
+    "scoring_activation_forbidden": true,
+    "weighting_activation_forbidden": true,
+    "ontology_activation_forbidden": true,
+    "l3_validation_forbidden": true,
+    "metaphysical_probability": false
+  }
+}

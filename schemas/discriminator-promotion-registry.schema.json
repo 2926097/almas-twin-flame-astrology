@@ -1,0 +1,563 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/discriminator-promotion-registry.schema.json",
+  "title": "ALMAS · Registro canónico de promoción de discriminadores",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "target_almas_version",
+    "authority",
+    "status",
+    "principle",
+    "state_machine_policy_id",
+    "promotion_states",
+    "runtime_l3_requirements",
+    "validated_discriminator_ids",
+    "records"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_almas_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "const": "ALMAS_CANONICAL_DISCRIMINATOR_PROMOTION_REGISTRY"
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "principle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "promotion_states": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "EXPLORATORY",
+          "REPRODUCIBLE",
+          "REPLICATION_READY",
+          "CONFIRMATORY_ELIGIBLE",
+          "VALIDATED_DISCRIMINATOR",
+          "BLOCKED",
+          "RETIRED"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "runtime_l3_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "validated_discriminator_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "discriminator_id",
+          "current_status",
+          "l3_authorized",
+          "promotion_ref",
+          "promoted_at",
+          "validated_pairs",
+          "root_key_prefix",
+          "frozen",
+          "validation_evidence",
+          "block_reason",
+          "uses_astrology",
+          "astrology_validation",
+          "discriminant_validation",
+          "blinding_audit",
+          "promotion_evidence",
+          "last_active_status",
+          "state_history"
+        ],
+        "properties": {
+          "discriminator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "current_status": {
+            "enum": [
+              "EXPLORATORY",
+              "REPRODUCIBLE",
+              "REPLICATION_READY",
+              "CONFIRMATORY_ELIGIBLE",
+              "VALIDATED_DISCRIMINATOR",
+              "BLOCKED",
+              "RETIRED"
+            ]
+          },
+          "l3_authorized": {
+            "type": "boolean"
+          },
+          "promotion_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "promoted_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "validated_pairs": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true
+            }
+          },
+          "root_key_prefix": {
+            "type": "string",
+            "minLength": 1
+          },
+          "frozen": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "almas_version": {
+                "type": "string"
+              },
+              "commit_sha": {
+                "type": "string"
+              },
+              "rule_ref": {
+                "type": "string"
+              },
+              "schema_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "almas_version",
+              "commit_sha",
+              "rule_ref",
+              "schema_refs"
+            ],
+            "additionalProperties": false
+          },
+          "validation_evidence": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "preregistration_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "independent_replication_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "external_holdout_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "negative_control_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "leakage_audit_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "preregistration_refs",
+              "independent_replication_refs",
+              "external_holdout_refs",
+              "negative_control_refs",
+              "leakage_audit_refs"
+            ],
+            "additionalProperties": false
+          },
+          "block_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "uses_astrology": {
+            "type": "boolean"
+          },
+          "astrology_validation": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "non_astrological_criterion_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "astrology_ablation_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "matched_control_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "dependency_audit_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "out_of_sample_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "astrology_specific_replication_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "single_feature_prohibition_acknowledged": {
+                "const": true
+              },
+              "null_rarity_not_ontological": {
+                "const": true
+              },
+              "temporal_activation_not_origin_proof": {
+                "const": true
+              }
+            },
+            "required": [
+              "non_astrological_criterion_refs",
+              "astrology_ablation_refs",
+              "matched_control_refs",
+              "dependency_audit_refs",
+              "out_of_sample_refs",
+              "astrology_specific_replication_refs",
+              "single_feature_prohibition_acknowledged",
+              "null_rarity_not_ontological",
+              "temporal_activation_not_origin_proof"
+            ],
+            "additionalProperties": false
+          },
+          "discriminant_validation": {
+            "anyOf": [
+              {
+                "$ref": "discriminant-validation-evidence.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "blinding_audit": {
+            "anyOf": [
+              {
+                "$ref": "blinding-leakage-audit.schema.json"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "promotion_evidence": {
+            "type": "object",
+            "required": [
+              "implementation_refs",
+              "reproducibility_refs",
+              "synthetic_test_refs",
+              "preregistration_refs",
+              "counterevidence_refs",
+              "negative_control_plan_refs",
+              "leakage_plan_refs",
+              "independent_replication_refs",
+              "negative_control_result_refs",
+              "doctrine_gate_refs",
+              "discriminator_evaluation_refs",
+              "holdout_protocol_refs",
+              "support_only_exclusion_refs"
+            ],
+            "properties": {
+              "implementation_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "reproducibility_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "synthetic_test_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "preregistration_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "counterevidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "negative_control_plan_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "leakage_plan_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "independent_replication_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "negative_control_result_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "doctrine_gate_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "discriminator_evaluation_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "holdout_protocol_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "support_only_exclusion_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "last_active_status": {
+            "enum": [
+              "EXPLORATORY",
+              "REPRODUCIBLE",
+              "REPLICATION_READY",
+              "CONFIRMATORY_ELIGIBLE",
+              null
+            ]
+          },
+          "state_history": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "transition_id",
+                "from_status",
+                "to_status",
+                "mode",
+                "occurred_at",
+                "actor_ref",
+                "reason",
+                "evidence_refs",
+                "record_fingerprint_before",
+                "record_fingerprint_after"
+              ],
+              "properties": {
+                "transition_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "from_status": {
+                  "enum": [
+                    "EXPLORATORY",
+                    "REPRODUCIBLE",
+                    "REPLICATION_READY",
+                    "CONFIRMATORY_ELIGIBLE",
+                    "VALIDATED_DISCRIMINATOR",
+                    "BLOCKED",
+                    "RETIRED",
+                    null
+                  ]
+                },
+                "to_status": {
+                  "enum": [
+                    "EXPLORATORY",
+                    "REPRODUCIBLE",
+                    "REPLICATION_READY",
+                    "CONFIRMATORY_ELIGIBLE",
+                    "VALIDATED_DISCRIMINATOR",
+                    "BLOCKED",
+                    "RETIRED"
+                  ]
+                },
+                "mode": {
+                  "enum": [
+                    "IMPORT",
+                    "FORWARD",
+                    "ROLLBACK",
+                    "BLOCK",
+                    "UNBLOCK",
+                    "RETIRE"
+                  ]
+                },
+                "occurred_at": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "actor_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "record_fingerprint_before": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "record_fingerprint_after": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "state_machine_policy_id": {
+      "const": "ALMAS_PROMOTION_STATE_MACHINE_V1"
+    }
+  },
+  "additionalProperties": false
+}

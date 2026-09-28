@@ -1,0 +1,31 @@
+{
+  "pillars": {
+    "PA": 90,
+    "PK": 80,
+    "PE": 85,
+    "PR": 92,
+    "PX": 88,
+    "PT": 82,
+    "PS": 70,
+    "PU": 50
+  },
+  "ice_by_model": {
+    "AF": 0,
+    "KA": 5,
+    "AG": 0,
+    "LG": 10
+  },
+  "icc": 90,
+  "irc": 85,
+  "r_min": 0.8,
+  "attributions": {
+    "AG": {
+      "root_affinity": 1,
+      "root_mirror": 1
+    },
+    "LG": {
+      "root_affinity": 1,
+      "root_transform": 1
+    }
+  }
+}

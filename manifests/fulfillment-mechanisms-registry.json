@@ -1,0 +1,57 @@
+{
+  "registry_version": "1.0.0",
+  "mechanisms": [
+    "FM_ACTIVACION",
+    "FM_REPETICION",
+    "FM_RECIPROCIDAD",
+    "FM_CATALISIS",
+    "FM_ENCARNACION",
+    "FM_TIKKUN_REPARACION",
+    "FM_SERVICIO",
+    "FM_LIBERACION",
+    "FM_TRANSFORMACION_MODALIDAD",
+    "FM_CIERRE",
+    "FM_RUTA_ALTERNATIVA",
+    "FM_APLAZAMIENTO"
+  ],
+  "discriminators": [
+    {
+      "id": "FMD1_ACTIVATION_VS_FULFILLMENT",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "FMD2_REPETITION_VS_REPAIR",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "FMD3_INTEGRATION_VS_SUPPRESSION",
+      "status": "OPERATIONAL_WITH_FACTS"
+    },
+    {
+      "id": "FMD4_TRANSFORMATION_VS_CLOSURE",
+      "status": "OPERATIONAL_RETROSPECTIVE"
+    },
+    {
+      "id": "FMD5_SERVICE_VS_DYADIC",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "FMD6_ALTERNATIVE_ROUTE",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "FMD7_POSTPONEMENT_VS_CLOSURE",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "FMD8_FUTURE_COMPLETION",
+      "status": "NOT_VALIDATED"
+    }
+  ],
+  "source_ids": [
+    "kardec_spirits_book_choice_trials",
+    "myss_sacred_contracts_2001",
+    "schwartz_your_souls_plan_2009",
+    "vital_shaar_hagilgulim_8_reasons_for_return"
+  ]
+}

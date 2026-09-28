@@ -1,0 +1,184 @@
+{
+  "canonical_fingerprint": "0bc5723693193890d2ac5ac09fc41dfd2dcdccf137528ada42577f645912eaf2",
+  "canonical_fingerprint_verified": true,
+  "report_state": "READY",
+  "sections": [
+    {
+      "section_id": "S01_SYNTHESIS",
+      "title": "Síntesis ejecutiva",
+      "section_state": "READY",
+      "available_paths": [
+        "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "evidence",
+        "semantic_motifs",
+        "doctrine",
+        "limitations"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "C_DOCTRINE",
+        "D_CONTEMPORARY_USAGE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S02_DATA_METHOD",
+      "title": "Calidad de datos y método",
+      "section_state": "READY",
+      "available_paths": [
+        "coverage",
+        "limitations"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "B_TECHNIQUE"
+      ]
+    },
+    {
+      "section_id": "S03_NUMERIC_ONTOLOGY",
+      "title": "Ontología numérica",
+      "section_state": "READY",
+      "available_paths": [
+        "models",
+        "indices"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S04_STRUCTURE",
+      "title": "Arquitectura estructural",
+      "section_state": "READY",
+      "available_paths": [
+        "evidence",
+        "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
+        "semantic_motifs"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S05_RELATIONAL",
+      "title": "Capas relacionales y cruzadas",
+      "section_state": "READY",
+      "available_paths": [
+        "evidence",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
+        "semantic_motifs"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S06_DIFFERENTIAL",
+      "title": "Diagnóstico diferencial y contraevidencia",
+      "section_state": "READY",
+      "available_paths": [
+        "models",
+        "counterevidence"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S07_TEMPORAL",
+      "title": "Activación temporal y eventos",
+      "section_state": "READY",
+      "available_paths": [
+        "temporal",
+        "limitations"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S08_ROBUSTNESS",
+      "title": "Robustez y validación",
+      "section_state": "READY",
+      "available_paths": [
+        "robustness",
+        "indices"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "B_TECHNIQUE"
+      ]
+    },
+    {
+      "section_id": "S09_DOCTRINE",
+      "title": "Doctrina comparada y corpus",
+      "section_state": "READY",
+      "available_paths": [
+        "doctrine"
+      ],
+      "epistemic_classes_allowed": [
+        "C_DOCTRINE",
+        "D_CONTEMPORARY_USAGE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S10_FINAL_SYNTHESIS",
+      "title": "Síntesis final",
+      "section_state": "READY",
+      "available_paths": [
+        "models",
+        "natal_context",
+        "relationship_field",
+        "draconic_context",
+        "lots_context",
+        "evidence",
+        "semantic_motifs",
+        "doctrine",
+        "limitations"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "C_DOCTRINE",
+        "D_CONTEMPORARY_USAGE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    },
+    {
+      "section_id": "S11_SOURCES_APPENDICES",
+      "title": "Fuentes y anexos",
+      "section_state": "READY",
+      "available_paths": [
+        "evidence",
+        "lots_context",
+        "doctrine",
+        "limitations"
+      ],
+      "epistemic_classes_allowed": [
+        "A_CALCULATED",
+        "B_TECHNIQUE",
+        "C_DOCTRINE",
+        "D_CONTEMPORARY_USAGE",
+        "E_PROJECT_HYPOTHESIS"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/lots-output.schema.json",
+  "title": "ALMAS · Salida de lotes helenísticos",
+  "type": "object",
+  "required": [
+    "policy",
+    "policy_source",
+    "sect_by_subject",
+    "subjects"
+  ],
+  "properties": {
+    "policy": {
+      "type": "object"
+    },
+    "subjects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "required": [
+            "status",
+            "longitude",
+            "source_ref",
+            "sign",
+            "sign_index",
+            "degree_in_sign",
+            "house",
+            "corroborating_source_ref"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "CALCULATED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "longitude": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "exclusiveMaximum": 360
+            },
+            "source_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "formula": {
+              "type": "object"
+            },
+            "sect": {
+              "enum": [
+                "DAY",
+                "NIGHT",
+                null
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "sign": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sign_index": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 11
+            },
+            "degree_in_sign": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "exclusiveMaximum": 30
+            },
+            "house": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1,
+              "maximum": 12
+            },
+            "corroborating_source_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "policy_source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sect_by_subject": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "DAY",
+          "NIGHT"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

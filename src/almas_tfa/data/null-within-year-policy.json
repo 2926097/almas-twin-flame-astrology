@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_NULL_WITHIN_YEAR_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Generar un universo nulo estructural autocontenido y reproducible cuando no existe un pool externo de pares.",
+  "null_model": "WITHIN_YEAR",
+  "generator": {
+    "name": "DETERMINISTIC_STRATIFIED_CALENDAR_DATE",
+    "subject_scope": "EACH_SUBJECT_HOLD_OTHER_FIXED",
+    "samples_per_subject": 32,
+    "preserve_birth_year": true,
+    "preserve_birth_time": true,
+    "preserve_timezone": true,
+    "preserve_location": true,
+    "exclude_original_date": true
+  },
+  "statistics": [
+    {
+      "id": "CORE_ROOT_COUNT",
+      "tail": "GREATER_OR_EQUAL"
+    },
+    {
+      "id": "MAX_IEM_PRE",
+      "tail": "GREATER_OR_EQUAL"
+    },
+    {
+      "id": "PX_PILLAR_SCORE",
+      "tail": "GREATER_OR_EQUAL"
+    }
+  ],
+  "frozen_refs": {
+    "feature_set_ref": "ALMAS_Q1_Q2_STRUCTURAL_FEATURES_V1",
+    "orb_policy_ref": "RAW_INPUT_DECLARED_ORBS_UNCHANGED",
+    "event_set_ref": "NOT_APPLICABLE_STRUCTURAL_NULL",
+    "generator_ref": "ALMAS_NULL_WITHIN_YEAR_V1:DETERMINISTIC_STRATIFIED_CALENDAR_DATE"
+  },
+  "confidence_level": 0.95,
+  "principles": {
+    "case_fitting_forbidden": true,
+    "metaphysical_probability": false,
+    "null_rarity_used_as_irc": false,
+    "no_external_population_claim": true,
+    "pair_shuffle_requires_external_pool": true,
+    "matched_age_requires_external_pool": true,
+    "matched_age_clock_requires_external_pool": true,
+    "ephemeris_date_requires_separate_policy": true,
+    "event_date_shift_requires_event_ledger": true,
+    "technique_specific_cycle_requires_separate_policy": true,
+    "all_generated_samples_must_be_evaluable": true,
+    "statistics_reported_separately": true,
+    "combined_p_value_forbidden": true
+  }
+}

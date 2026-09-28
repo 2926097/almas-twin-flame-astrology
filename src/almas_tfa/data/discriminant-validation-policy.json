@@ -1,0 +1,27 @@
+{
+  "policy_id": "ALMAS_DISCRIMINANT_VALIDATION_V1",
+  "policy_version": "1.0.0",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "confidence_level": 0.95,
+  "uncertainty_method": "WILSON_SCORE",
+  "minimums": {
+    "pairwise_sensitivity_ci_lower": 0.60,
+    "pairwise_specificity_ci_lower": 0.90,
+    "pairwise_balanced_accuracy": 0.75
+  },
+  "false_specificity": {
+    "max_ci_upper": 0.05,
+    "synthetic_adversarial_max_rate": 0.0
+  },
+  "calibration": {
+    "probabilistic_outputs_require_pass": true,
+    "categorical_mode": "NOT_APPLICABLE_CATEGORICAL"
+  },
+  "principles": [
+    "Los umbrales son política metodológica ALMAS versionada, no constantes científicas universales.",
+    "La incertidumbre debe impedir que muestras pequeñas parezcan confirmatorias.",
+    "La especificidad tiene prioridad sobre la sensibilidad porque el sistema debe preservar INSUFFICIENT antes que sobreclasificar.",
+    "FALSE_SPECIFICITY_RATE cuantifica sobreespecificación respecto del techo inferencial permitido, no falsedad metafísica.",
+    "Las métricas validan el clasificador operacional, no la ontología metafísica."
+  ]
+}

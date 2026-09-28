@@ -1,0 +1,89 @@
+{
+  "policy_id": "ALMAS_PROMOTION_STATE_MACHINE_V1",
+  "policy_version": "1.0.0",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "mainline_states": [
+    "EXPLORATORY",
+    "REPRODUCIBLE",
+    "REPLICATION_READY",
+    "CONFIRMATORY_ELIGIBLE",
+    "VALIDATED_DISCRIMINATOR"
+  ],
+  "special_states": [
+    "BLOCKED",
+    "RETIRED"
+  ],
+  "transition_modes": [
+    "IMPORT",
+    "FORWARD",
+    "ROLLBACK",
+    "BLOCK",
+    "UNBLOCK",
+    "RETIRE"
+  ],
+  "forward_transitions": {
+    "EXPLORATORY": "REPRODUCIBLE",
+    "REPRODUCIBLE": "REPLICATION_READY",
+    "REPLICATION_READY": "CONFIRMATORY_ELIGIBLE",
+    "CONFIRMATORY_ELIGIBLE": "VALIDATED_DISCRIMINATOR"
+  },
+  "rollback_transitions": {
+    "REPRODUCIBLE": "EXPLORATORY",
+    "REPLICATION_READY": "REPRODUCIBLE",
+    "CONFIRMATORY_ELIGIBLE": "REPLICATION_READY"
+  },
+  "validated_invalidation_target": "RETIRED",
+  "retired_is_terminal": true,
+  "blocked_requires_resume_state": true,
+  "forward_skips_allowed": false,
+  "validated_rollback_allowed": false,
+  "non_validated_l3_authorization_allowed": false,
+  "cumulative_stage_requirements": {
+    "REPRODUCIBLE": [
+      "implementation_refs",
+      "reproducibility_refs",
+      "synthetic_test_refs"
+    ],
+    "REPLICATION_READY": [
+      "implementation_refs",
+      "reproducibility_refs",
+      "synthetic_test_refs",
+      "preregistration_refs",
+      "counterevidence_refs",
+      "negative_control_plan_refs",
+      "leakage_plan_refs"
+    ],
+    "CONFIRMATORY_ELIGIBLE": [
+      "implementation_refs",
+      "reproducibility_refs",
+      "synthetic_test_refs",
+      "preregistration_refs",
+      "counterevidence_refs",
+      "negative_control_plan_refs",
+      "leakage_plan_refs",
+      "independent_replication_refs",
+      "negative_control_result_refs",
+      "doctrine_gate_refs",
+      "discriminator_evaluation_refs",
+      "holdout_protocol_refs",
+      "support_only_exclusion_refs"
+    ]
+  },
+  "l3_gate_dependencies": [
+    "ALMAS_DISCRIMINANT_VALIDATION_V1",
+    "ALMAS_BLINDING_LEAKAGE_V1",
+    "astrology_validation cuando uses_astrology=true",
+    "promotion_ref y promoted_at",
+    "validated_pairs",
+    "frozen snapshot",
+    "validation_evidence completa"
+  ],
+  "principles": [
+    "Las promociones hacia delante son de un solo estado; no se permiten saltos.",
+    "Los requisitos son acumulativos: un estado superior conserva los requisitos de estados anteriores.",
+    "BLOCKED conserva el último estado activo y sólo puede volver a ese estado tras documentar la resolución.",
+    "RETIRED es terminal.",
+    "VALIDATED_DISCRIMINATOR no retrocede: si pierde validez se retira.",
+    "La máquina valida promoción metodológica, no verdad metafísica."
+  ]
+}

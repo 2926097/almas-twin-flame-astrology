@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_ROOT_STRENGTH_BASELINE_V1",
+  "status": "FROZEN_NEUTRAL_BASELINE",
+  "purpose": "Cerrar de forma reproducible la fuerza de raíces M17 sin introducir pesos ajustados a casos particulares.",
+  "formula": "S = F * technique_reliability * birth_time_factor * aspect_coefficient",
+  "principles": {
+    "case_fitting_forbidden": true,
+    "support_only_creates_core_root": false,
+    "null_rarity_used_as_strength": false,
+    "temporal_activation_used_as_strength": false,
+    "birth_time_uncertainty_penalized_here": false,
+    "birth_time_uncertainty_handled_by": "M23_M25",
+    "root_aggregation": "MAX_CORE_EVIDENCE",
+    "rationale": "La baseline 1.0 no afirma superioridad empírica entre familias técnicas no calibradas; la discriminación por robustez se delega a M22-M25."
+  },
+  "technique_reliability": {
+    "DEFAULT": 1.0,
+    "SYN": 1.0,
+    "DECLINATION": 1.0,
+    "ANTISCIA": 1.0,
+    "RELCHART": 1.0,
+    "NATAL_DRACONIC": 1.0,
+    "DRACONIC_DD": 1.0,
+    "SECONDARY": 1.0
+  },
+  "birth_time_factor": {
+    "DEFAULT": 1.0,
+    "TIMED_POINT": 1.0,
+    "time_sensitive_point_ids": [
+      "ASC",
+      "DSC",
+      "MC",
+      "IC",
+      "VERTEX",
+      "ANTI_VERTEX",
+      "ANTIVERTEX",
+      "PART_OF_FORTUNE",
+      "FORTUNE"
+    ]
+  },
+  "aspect_coefficient": {
+    "DEFAULT": 1.0,
+    "CONJUNCTION": 1.0,
+    "OPPOSITION": 1.0,
+    "TRINE": 1.0,
+    "SQUARE": 1.0,
+    "SEXTILE": 1.0,
+    "PARALLEL": 1.0,
+    "CONTRA_PARALLEL": 1.0,
+    "ANTISCION": 1.0,
+    "CONTRA_ANTISCION": 1.0
+  },
+  "support_only_policy": {
+    "calculate_diagnostic_strength": true,
+    "core_eligible": false,
+    "may_create_pillar_without_core_evidence": false
+  }
+}

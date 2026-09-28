@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "analysis_freeze_ref": "SYNTHETIC_FREEZE_001",
+  "events": [
+    {
+      "event_id": "EV_SYNTH_001",
+      "subjects": [
+        "A",
+        "B"
+      ],
+      "event_type": "FIRST_MEETING",
+      "date": "2030-04-12",
+      "date_precision": "EXACT_DATE",
+      "place_general": "Synthetic City",
+      "fact_statement": "A and B met in person on 12 April 2030.",
+      "documentary_quality": "DQ3_CORROBORATED_REPORT",
+      "source_refs": [
+        "SYNTH_SOURCE_A",
+        "SYNTH_SOURCE_B"
+      ],
+      "privacy_class": "SYNTHETIC",
+      "evidence_roles": [
+        "ACTIVATION_CORROBORATION",
+        "CONTEXT_ONLY"
+      ],
+      "linked_root_refs": [
+        "R_SYNTH_01"
+      ],
+      "linked_clause_refs": [
+        "CL_SYNTH_01"
+      ],
+      "interpretations": []
+    }
+  ]
+}

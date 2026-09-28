@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "cases": [
+    {
+      "id": "CEIL_TF_HIGH_SCORE_NO_DISCRIMINATOR",
+      "concept_id": "TWIN_FLAME_ORIGIN",
+      "inputs": [
+        "IEM_LG=96",
+        "high_pair_specificity",
+        "bilateral_recurrence",
+        "rare_under_null",
+        "mission_signature"
+      ],
+      "requested_upgrade": "SUPPORTED_UNIQUE_DYADIC_ORIGIN",
+      "expected_ceiling": "COMPATIBLE_OR_INSUFFICIENT_UNIQUE_DYADIC_ORIGIN",
+      "expected_state": "INSUFFICIENT",
+      "reason": "No validated ontological discriminator separates twin-flame origin from neighboring shared-origin models."
+    },
+    {
+      "id": "CEIL_CONTRACT_STRONG_CHAIN_NO_LITERAL_AGREEMENT",
+      "concept_id": "SOUL_CONTRACT",
+      "inputs": [
+        "C1_C6_pass",
+        "preexisting_tasks",
+        "specific_activator",
+        "directional_roles",
+        "common_task",
+        "ablation_stable"
+      ],
+      "requested_upgrade": "R3_BILATERAL_AGREEMENT_MODEL",
+      "expected_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+      "expected_state": "INSUFFICIENT",
+      "reason": "Functional contract architecture does not establish that both souls literally negotiated an agreement before birth."
+    },
+    {
+      "id": "CEIL_DRACONIC_ONLY",
+      "concept_id": "DRACONIC_ASTROLOGY",
+      "inputs": [
+        "multiple_exact_draconic_contacts",
+        "natal_draconic_recurrence",
+        "no_independent_core_roots"
+      ],
+      "requested_upgrade": "SOUL_CONTRACT_PROOF",
+      "expected_ceiling": "CORROBORATIVE_NODAL_REFRAMING",
+      "expected_state": "INSUFFICIENT",
+      "reason": "Draconic structure is mathematically node-dependent and corroborative; it cannot independently create a contract."
+    },
+    {
+      "id": "CEIL_SOUL_ROOT_NETWORK_TO_UNIQUE_DYAD",
+      "concept_id": "SOUL_ROOT",
+      "inputs": [
+        "multi_layer_recurrence",
+        "nodal_regent_network",
+        "shared_task",
+        "nonromantic_root_alternatives_present"
+      ],
+      "requested_upgrade": "UNIQUE_DYADIC_ORIGIN",
+      "expected_ceiling": "RELATED_OR_SHARED_ROOT_MODEL_COMPATIBLE",
+      "expected_state": "INSUFFICIENT",
+      "reason": "Soul-root doctrine includes networks and non-romantic relational roles; unique dyadic origin is not discriminated."
+    },
+    {
+      "id": "CEIL_ZIVUG_TO_TWIN_FLAME",
+      "concept_id": "ZIVUG",
+      "inputs": [
+        "bilateral_core_roots",
+        "luminary_node_recurrence",
+        "relationship_chart_consonance",
+        "pair_specificity"
+      ],
+      "requested_upgrade": "TWIN_FLAME_MODEL",
+      "expected_ceiling": "PAIRING_ARCHITECTURE_COMPATIBLE",
+      "expected_state": "INSUFFICIENT",
+      "reason": "Zivug and modern twin-flame origin are doctrinally non-equivalent and lack a validated astrological discriminator."
+    },
+    {
+      "id": "CEIL_MONAD_TO_ROMANTIC_PAIR",
+      "concept_id": "MONAD",
+      "inputs": [
+        "shared_origin_like_signature",
+        "high_symmetry",
+        "rare_structure"
+      ],
+      "requested_upgrade": "MONADIC_PAIR",
+      "expected_ceiling": "NOT_EVALUABLE_FOR_MONADIC_PAIR",
+      "expected_state": "NOT_EVALUABLE",
+      "reason": "Blavatsky's Monad does not supply a doctrine or technique for identifying a romantic monadic pair."
+    },
+    {
+      "id": "CEIL_PHENOMENOLOGY_TO_ONTOLOGY",
+      "concept_id": "SOULMATE_EXPERIENCE",
+      "inputs": [
+        "instant_recognition",
+        "synchronicity",
+        "transformative_impact",
+        "reported_transpersonal_meaning"
+      ],
+      "requested_upgrade": "TWIN_FLAME_ORIGIN",
+      "expected_ceiling": "PHENOMENOLOGY_SUPPORTED_IF_DOCUMENTED",
+      "expected_state": "INSUFFICIENT",
+      "reason": "Documented phenomenology can be supported while origin remains unresolved."
+    }
+  ]
+}

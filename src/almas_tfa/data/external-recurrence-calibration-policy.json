@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_EXTERNAL_RECURRENCE_CALIBRATION_V1",
+  "status": "FROZEN_EXPERIMENTAL_DIAGNOSTIC",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Conectar cohortes externas S4 con el núcleo de calibración de recurrencia sin habilitar weighting ni promoción ontológica.",
+  "confidence_level": 0.95,
+  "minimum_clean_external_samples": 1,
+  "allowed_null_models": [
+    "PAIR_SHUFFLE",
+    "MATCHED_AGE",
+    "MATCHED_AGE_CLOCK"
+  ],
+  "principles": {
+    "case_fitting_forbidden": true,
+    "diagnostic_only": true,
+    "clean_external_candidates_only": true,
+    "preregistered_only": true,
+    "development_only_excluded": true,
+    "contaminated_samples_excluded": true,
+    "leakage_samples_excluded": true,
+    "aggregate_public_output_only": true,
+    "sample_identifiers_not_exposed": true,
+    "sample_snapshots_not_exposed": true,
+    "px_ps_scores_unchanged": true,
+    "iem_unchanged": true,
+    "idd_unchanged": true,
+    "irc_unchanged": true,
+    "ontology_unchanged": true,
+    "weighting_enabled": false,
+    "candidate_freeze_enabled": false,
+    "l3_validation_enabled": false,
+    "metaphysical_probability": false,
+    "population_probability_claim": false,
+    "combined_p_value_forbidden": true,
+    "multiple_testing_correction_not_claimed": true
+  }
+}

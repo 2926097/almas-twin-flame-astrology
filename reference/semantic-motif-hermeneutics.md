@@ -1,0 +1,1573 @@
+# Hermenéutica de motivos semánticos · ALMAS 1.20
+
+## Finalidad
+
+Este documento traduce los motivos producidos por `ALMAS_SEMANTIC_MOTIF_V2` a lenguaje interpretativo utilizable en lecturas, informes y libros.
+
+No modifica:
+
+- `root_key`;
+- `motif_id`;
+- PX o PS;
+- IEM, IDD, IRC, ICE o IAT;
+- reglas de dependencia;
+- estados ontológicos.
+
+Los motivos son **síntesis semánticas del proyecto** (`E_PROJECT_HYPOTHESIS`). Sirven para organizar significado entre técnicas ya calculadas. No son doctrinas históricas ni probabilidades metafísicas.
+
+La estructura mínima de una interpretación de motivo es:
+
+`base astrológica → dinámica → función evolutiva → posible comparandum metafísico → límite inferencial`.
+
+## Regla general
+
+Un motivo no debe narrarse a partir de su nombre solamente. La prosa debe volver a las raíces concretas que lo sostienen y explicar cómo se expresa en ese caso. Cuando exista `concrete_contacts`, esa lista tiene prioridad sobre el eje normalizado para distinguir ASC/DSC, MC/IC, Nodo Norte/Sur, Vertex/Anti-Vertex y la capa técnica concreta sin alterar la identidad deduplicada de la raíz.
+
+Por ejemplo, `KARMIC_CONTINUITY` no significa siempre lo mismo:
+
+- Nodo–Luna puede enfatizar familiaridad, memoria emocional o dirección;
+- Saturno–Venus puede enfatizar compromiso, límite, deber o prueba relacional;
+- Saturno–Mercurio puede organizar aprendizaje, palabra, responsabilidad o restricción;
+- Nodo–Plutón puede intensificar continuidad transformativa.
+
+El `motif_id` agrupa una familia de significado; las raíces determinan su forma concreta.
+
+### Contexto experiencial por superposición de casas
+
+Cuando una raíz canónica contiene `house_overlays`, la interpretación debe aplicar `reference/house-overlay-hermeneutics.md` antes de desarrollar el motivo.
+
+La casa modifica **dónde se vive** la raíz, no qué motivo primario emitió el sistema. Una misma raíz Nodo–Venus puede adquirir una expresión de pertenencia en casa 4, romance/creatividad en casa 5, vínculo uno-a-uno en casa 7 o expansión de sentido en casa 9, sin dejar de pertenecer al motivo primario que le corresponda por precedencia.
+
+La formulación mínima es:
+
+`función del punto fuente → campo de casa del receptor → geometría de la raíz → motivo primario`.
+
+No usar la casa para fabricar un segundo motivo, duplicar una raíz ni aumentar su fuerza. No invertir A→B en B→A salvo que el canonical contenga ambas superposiciones.
+
+### Precedencia obligatoria de motivos primarios
+
+Cada raíz core recibe **un solo motivo primario**. La implementación evalúa, en este orden:
+
+`KARMIC_CONTINUITY → WOUND_REPAIR → IDENTITY_TRANSFORMATION → TRANSFORMATION_POWER → TRANSPERSONAL_FIELD → EROTIC_POLARITY → MIRROR_COMPLEMENTARITY → RELATIONAL_COHERENCE → STRUCTURAL_AFFINITY`.
+
+Cuando una raíz cumple varias condiciones, se conserva únicamente el primer motivo aplicable. La hermenéutica puede desarrollar matices secundarios de los planetas implicados, pero no debe presentar como motivos emitidos aquellos que quedaron desplazados por precedencia.
+
+Ejemplo: una raíz Saturno–Quirón puede contener simultáneamente continuidad y herida, pero M18 emite `KARMIC_CONTINUITY` porque esa regla precede a `WOUND_REPAIR`. La prosa puede explicar la vulnerabilidad quirónica dentro del motivo kármico, sin afirmar que el sistema emitió dos motivos primarios.
+
+---
+
+## 1. KARMIC_CONTINUITY
+
+### Base de detección
+
+La política lo asigna cuando una raíz core conecta elementos del conjunto `KARMIC` —eje nodal o Saturno— con un punto significativo.
+
+### Núcleo interpretativo
+
+Representa una dinámica de **continuidad, consecuencia, maduración o dirección** que parece exceder una afinidad momentánea.
+
+El eje nodal orienta la lectura hacia trayectoria, memoria simbólica, repetición o dirección evolutiva. Saturno introduce estructura, duración, responsabilidad, límite, tiempo y necesidad de elaboración.
+
+### Formas concretas según la raíz
+
+La raíz debe leerse antes que la etiqueta. Las fuentes de método `davison_synastry_1983`, `sakoian_acker_human_relationships_1976` y `arroyo_relationships_life_cycles_1993` permiten tratar aspectos cruzados, combinaciones planetarias y casas como una dinámica interpersonal concreta. La interpretación siguiente es una gramática ALMAS de autoría: organiza esos factores, pero no convierte una combinación en prueba de karma literal.
+
+#### Nodo + Sol
+
+La continuidad se concentra en identidad, voluntad y dirección vital. La persona solar puede funcionar como figura que hace visible una orientación ya latente en la persona nodal; en sentido inverso, la persona nodal puede situar la identidad solar dentro de una trayectoria que adquiere mayor significado relacional.
+
+La pregunta central es:
+
+> ¿Qué parte de la identidad o propósito se vuelve más visible porque ambas trayectorias se cruzan?
+
+En conjunción o paralelo puede sentirse como reconocimiento inmediato o concentración de propósito; en oposición, cuadratura o contraparalelo, como una dirección que exige ajuste, negociación o redefinición de identidad. No concluir “destino compartido” sólo por el contacto.
+
+#### Nodo + Luna
+
+Introduce continuidad en necesidades emocionales, hábitos, pertenencia, cuidado y memoria afectiva. Es una de las raíces que más fácilmente puede vivirse subjetivamente como familiaridad, porque el eje nodal toca una función lunar de seguridad y reconocimiento.
+
+La lectura debe distinguir familiaridad de evidencia histórica:
+
+> El vínculo puede sentirse conocido porque activa patrones emocionales profundos; esa experiencia es compatible con lenguajes de continuidad, pero no identifica una vida pasada concreta.
+
+Cuando la Luna pertenece a A y el Nodo a B, describir qué necesidad emocional de A entra en la trayectoria de B; no convertir la bidireccionalidad en automática si no existe evidencia equivalente B→A.
+
+#### Nodo + Mercurio
+
+La continuidad se expresa mediante palabra, aprendizaje, información, decisiones y marcos mentales. Puede simbolizar una relación que reactiva conversaciones pendientes, modifica la manera de pensar o introduce una enseñanza que cambia dirección.
+
+Su función evolutiva frecuente no es “telepatía”, sino reorganización de significado:
+
+> ¿Qué idea, conversación o aprendizaje se vuelve inevitable a partir del encuentro?
+
+#### Nodo + Venus
+
+Vincula trayectoria con afecto, valores, atracción, reciprocidad estética y elección relacional. Puede sentirse como afinidad significativa porque aquello que una persona valora entra directamente en el eje de dirección de la otra.
+
+La lectura debe preguntar si Venus aporta sólo atracción o también coherencia de valores, cuidado y capacidad de sostener el vínculo. Nodo–Venus puede participar en una arquitectura de emparejamiento, pero no demuestra por sí solo `ZIVUG`, alma gemela o llama gemela.
+
+#### Nodo + Marte
+
+Introduce acción, deseo, iniciativa, conflicto y capacidad de corte dentro de la trayectoria nodal. La persona marciana puede acelerar decisiones o empujar a la persona nodal fuera de una inercia previa; también puede producir fricción cuando la acción y la dirección no coinciden.
+
+La pregunta útil es:
+
+> ¿Qué movimiento se vuelve necesario porque esta persona entra en la trayectoria de la otra?
+
+No confundir activación intensa con compatibilidad.
+
+#### Nodo + Júpiter
+
+Asocia continuidad con expansión, creencias, enseñanza, horizonte cultural, confianza o sentido. Puede aparecer en relaciones donde una persona amplía el marco de referencia de la otra o convierte un encuentro en apertura intelectual, espiritual, educativa o geográfica.
+
+Cuando reaparece en casas 9/10, ejes angulares o campo relacional, puede adquirir dimensión de transmisión o misión; aun así, “ampliar horizonte” no equivale a misión preencarnatoria demostrada.
+
+#### Nodo + Saturno
+
+Es una de las expresiones más estructurales de `KARMIC_CONTINUITY`: trayectoria y tiempo quedan enlazados con responsabilidad, forma, límite y consecuencia.
+
+Puede vivirse como deber, compromiso, prueba, demora, necesidad de construcción o imposibilidad de ignorar una cuestión. El sentido depende de si Saturno da forma al vínculo o lo rigidiza.
+
+Una formulación más precisa que “deuda kármica” es:
+
+> La relación coloca una trayectoria bajo condiciones de tiempo, responsabilidad y realidad; aquello que une a ambos exige forma, límite o elaboración antes de poder integrarse.
+
+Sólo después, si existe recurrencia independiente y corpus doctrinal pertinente, abrir comparaciones con continuidad kármica.
+
+#### Nodo + Urano, Neptuno o Plutón
+
+Estos contactos colorean la dirección nodal con procesos transpersonales o transformativos.
+
+Nodo–Urano puede describir reorientación, ruptura de trayectoria, liberación o entrada súbita en un camino diferente. Nodo–Neptuno puede asociar la dirección a ideal, inspiración, devoción o confusión; requiere especial control de proyección. Nodo–Plutón intensifica transformación, poder, verdad subyacente y procesos de pérdida/regeneración.
+
+Cuando el planeta exterior es generacional, exigir especificidad adicional —ángulos, casas, exactitud, recurrencia o conexión con personales— antes de convertirlo en tema central.
+
+#### Nodo + Quirón
+
+Por precedencia, una raíz Nodo–Quirón se emite como `KARMIC_CONTINUITY`, no como `WOUND_REPAIR`. La hermenéutica, sin embargo, debe conservar el matiz quirónico: la trayectoria compartida toca una vulnerabilidad o proceso de integración.
+
+La lectura correcta no añade un segundo motivo; desarrolla una **continuidad con contenido de herida/reparación** dentro del motivo primario emitido.
+
+#### Nodo + ángulos
+
+Cuando el eje nodal conecta con horizonte o meridiano, resolver primero el extremo concreto mediante `reference/angular-nodal-endpoint-hermeneutics.md`.
+
+No condensar ASC/DSC o MC/IC en una frase genérica: ASC localiza la continuidad en presencia/autoexpresión; DSC en alteridad/pareja/proyección; IC en raíces/intimidad; MC en dirección pública/vocación. Del mismo modo, Nodo Sur aporta familiaridad o patrón adquirido y Nodo Norte dirección de desarrollo.
+
+Estos contactos dependen especialmente de la fiabilidad horaria. Si M23 muestra sensibilidad fuerte, la prosa debe rebajar el peso del ángulo antes de construir una conclusión metafísica.
+
+#### Saturno + Sol/Luna
+
+Saturno–Sol sitúa identidad y voluntad bajo exigencia de maduración, responsabilidad o definición. Puede mostrar una relación que obliga a construir una identidad más consistente, pero también una dinámica de juicio, autoridad o restricción.
+
+Saturno–Luna lleva esa estructura al terreno emocional: cuidado, seguridad, deber afectivo, miedo a perder, contención o dificultad para expresar necesidad. La lectura debe distinguir sostén de control.
+
+#### Saturno + Mercurio/Venus/Marte
+
+Saturno–Mercurio puede dar seriedad, aprendizaje lento, palabra responsable o bloqueo comunicativo. Saturno–Venus puede simbolizar compromiso, lealtad, sobriedad afectiva, pruebas de valor o sensación de carencia. Saturno–Marte combina acción con fricción, disciplina y resistencia: puede construir esfuerzo sostenido o producir frustración acumulada.
+
+En los tres casos, la pregunta es qué función exige forma y qué coste psicológico implica esa forma.
+
+#### Saturno + Júpiter/ángulos
+
+Saturno–Júpiter confronta expansión y límite: puede estructurar una visión, transformar creencia en obra o hacer visible la tensión entre confianza y prudencia.
+
+Saturno con ASC/DSC o MC/IC tiende a materializar la continuidad en rol, responsabilidad, convivencia, imagen pública o dirección vital. La hora natal debe estar suficientemente documentada antes de desarrollar esta lectura como eje central.
+
+### Modulación por relación, dirección y casas
+
+El motivo primario no sustituye al aspecto concreto.
+
+Una conjunción o paralelo concentra funciones; una oposición o contraparalelo organiza polaridad y negociación; una cuadratura introduce fricción y tarea; trígono y sextil facilitan circulación sin garantizar profundidad. Antiscios y contra-antiscios se leen según su tradición específica y no como equivalentes universales de conjunción/oposición.
+
+La dirección importa. Cuando la evidencia es A→B, describir qué función de A entra en qué trayectoria o zona de experiencia de B. Sólo hablar de reciprocidad estructural cuando exista evidencia independiente en la dirección inversa o una repetición relacional que realmente la sostenga.
+
+Las casas aportan el **dónde** de la continuidad. Si el contacto cae, por ejemplo, en casa 4, 7, 8, 9 o 10, la narrativa debe traducir el motivo a pertenencia/origen, vínculo, intimidad-transformación, sentido/horizonte o vocación/manifestación respectivamente. La casa contextualiza la raíz; no crea por sí sola continuidad kármica.
+
+### Preguntas de lectura
+
+- ¿Qué tema parece venir ya cargado de historia o consecuencia?
+- ¿La relación obliga a madurar, reparar, sostener, completar o redefinir algo?
+- ¿El patrón es bilateral o recae principalmente sobre una persona?
+- ¿La misma temática reaparece en sinastría, cartas relacionales o cruces dracónicos?
+
+### Funciones evolutivas frecuentes
+
+Puede manifestarse como:
+
+- aprendizaje persistente;
+- responsabilidad;
+- confrontación con límites;
+- cierre de un ciclo;
+- maduración conjunta;
+- reorientación vital;
+- continuidad simbólica entre etapas de vida.
+
+### Comparanda metafísicos posibles
+
+Cuando existen raíces independientes suficientes puede compararse con:
+
+- `GILGUL` / continuidad interencarnatoria, con las fuentes lurianas registradas;
+- `ZIVUG`, si además existe arquitectura bilateral de emparejamiento;
+- `SOUL_CONTRACT`, sólo cuando se reconstruye una cadena funcional previa y no por la mera presencia de nodos/Saturno.
+
+La comparación doctrinal nunca convierte el motivo en prueba literal de vida pasada o contrato.
+
+### No concluir
+
+- que Nodo Sur = vida pasada demostrada;
+- que Saturno = deuda kármica literal;
+- que continuidad = llama gemela;
+- que una relación durará materialmente por tener este motivo.
+
+### Fórmula narrativa útil
+
+> La continuidad no aparece aquí como una sola señal nodal, sino como un tema que reaparece en varias capas. Astrológicamente describe una relación que obliga a elaborar un proceso ya cargado de dirección, responsabilidad o memoria simbólica; metafísicamente puede compararse con modelos de continuidad, sin fijar una identidad literal de vida pasada.
+
+---
+
+## 2. WOUND_REPAIR
+
+### Base de detección
+
+Se asigna cuando Quirón participa en una raíz core con otro punto significativo **si ninguna regla primaria anterior ya capturó la raíz**. En particular, una raíz que también cumpla `KARMIC_CONTINUITY` permanece clasificada bajo ese motivo prioritario.
+
+### Núcleo interpretativo
+
+Representa una dinámica de **exposición de vulnerabilidad y posibilidad de elaboración/reparación**.
+
+No presupone que la relación sea sanadora. Una misma configuración puede abrir una herida, hacerla consciente, reproducirla o crear condiciones para integrarla.
+
+Las fuentes `reinhart_chiron_healing_journey_2010` y `hand_clow_chiron_rainbow_bridge_1987` proporcionan la base técnica para diferenciar Quirón por planeta, casa y aspecto. ALMAS conserva su uso como método astrológico identificado: no trata el arquetipo del Wounded Healer como diagnóstico clínico ni como prueba de contrato o tikkun.
+
+### Tres resultados que no deben confundirse
+
+Una raíz quirónica puede describir al menos tres procesos distintos:
+
+1. **activación** — el vínculo hace visible una sensibilidad preexistente;
+2. **repetición** — la interacción reproduce defensas, rechazo, vergüenza o dolor sin integración suficiente;
+3. **elaboración/reparación** — la vulnerabilidad puede nombrarse, regularse, dotarse de límites y transformarse en aprendizaje.
+
+La presencia de Quirón no permite saltar directamente del primer nivel al tercero.
+
+### Formas concretas según la raíz
+
+#### Quirón + Sol
+
+La vulnerabilidad toca identidad, derecho a existir, expresión y sentido de valor personal. La persona solar puede iluminar un contenido quirónico del otro; la persona de Quirón puede activar en el Sol una zona donde mostrarse plenamente se siente arriesgado, expuesto o insuficiente.
+
+La pregunta evolutiva es:
+
+> ¿La relación permite una identidad más auténtica o convierte la necesidad de ser reconocido en una fuente constante de herida?
+
+Si el Sol está involucrado con un planeta exterior pero Quirón participa en la misma raíz y la regla quirónica tiene precedencia, el motivo emitido sigue siendo `WOUND_REPAIR`; la transformación solar se desarrolla como matiz, no como segundo motivo.
+
+#### Quirón + Luna
+
+La sensibilidad se concentra en apego, pertenencia, necesidad de cuidado y regulación emocional. Puede hacer visible una herida temprana de seguridad o una dificultad para recibir/expresar protección.
+
+No asumir que la persona de Quirón “hiere” a la Luna. La dirección indica qué configuración se está observando, pero la dinámica real debe describirse como interacción:
+
+> ¿Qué necesidad emocional se vuelve visible y qué respuesta recibe dentro del vínculo?
+
+Puede ser una raíz de gran capacidad reparadora cuando existen contención, reciprocidad y coherencia; también puede reabrir vulnerabilidad sin reparación si esas condiciones faltan.
+
+#### Quirón + Mercurio
+
+Toca voz, aprendizaje, pensamiento y experiencia de ser entendido. Puede activar vergüenza al hablar, miedo a equivocarse, dificultad para nombrar una experiencia o, en el polo integrador, una capacidad especial para traducir dolor en comprensión.
+
+La función no es “leer la mente” del otro, sino crear o bloquear lenguaje para aquello que antes no podía decirse.
+
+#### Quirón + Venus
+
+La vulnerabilidad se sitúa en valor, merecimiento, afecto, belleza, recepción y elección relacional. Puede hacer visible el miedo a no ser amado, a ser reemplazado, a necesitar demasiado o a no poder recibir amor sin deuda.
+
+La reparación no se deduce de la intensidad afectiva. Preguntar:
+
+> ¿La relación devuelve dignidad y capacidad de recibir/valorar o reproduce un esquema donde el amor se obtiene mediante sacrificio, carencia o prueba?
+
+Cuando Venus–Quirón coexiste con Venus–Plutón o Venus–Saturno en raíces independientes, la síntesis debe separar herida, poder y compromiso en vez de fundirlos en “amor kármico”.
+
+#### Quirón + Marte
+
+La herida afecta iniciativa, deseo, enfado, autonomía y capacidad de defender límites. Puede manifestarse como inhibición de la acción, reacción defensiva, dificultad para pedir o confrontar, o aprendizaje para actuar sin violencia ni autoanulación.
+
+En relaciones intensas es especialmente importante no romantizar conflicto o agresividad como “sanación a través del dolor”.
+
+#### Quirón + Júpiter
+
+Toca fe, esperanza, conocimiento, autoridad moral y sentido. La vulnerabilidad puede aparecer como pérdida de confianza, sensación de no pertenecer a una visión, herida en relación con enseñanza o búsqueda de significado.
+
+En su polo integrador, una persona puede ayudar a la otra a reconstruir un marco de sentido; eso no convierte automáticamente la relación en misión espiritual.
+
+#### Quirón + Urano
+
+Por precedencia, una raíz Quirón–Urano se emite como `WOUND_REPAIR`, no como `TRANSFORMATION_POWER`. La vulnerabilidad se combina con ruptura, diferencia, libertad o experiencia de no encajar.
+
+Puede describir una herida ligada a singularidad/autonomía y una reparación que exige dejar de normalizarse a costa de la propia identidad. También puede aumentar inestabilidad si la libertad se vive sólo como corte.
+
+#### Quirón + Neptuno
+
+La vulnerabilidad se combina con ideal, compasión, entrega y límites porosos. Puede sostener una gran sensibilidad al dolor ajeno y, a la vez, facilitar salvación, sacrificio o confusión entre empatía y responsabilidad.
+
+La reparación requiere límites claros:
+
+> Comprender el dolor del otro no equivale a estar obligado a rescatarlo.
+
+Esta raíz no debe duplicarse como `TRANSPERSONAL_FIELD`.
+
+#### Quirón + Plutón
+
+La herida entra en un campo de poder, pérdida, intensidad y regeneración. Puede hacer visibles experiencias profundas de control, impotencia, vergüenza o supervivencia y exigir una elaboración que no sea meramente intelectual.
+
+Por precedencia se mantiene en `WOUND_REPAIR`; el matiz plutoniano describe profundidad y potencia del proceso, no un segundo motivo de transformación.
+
+#### Quirón + ángulos
+
+Con ASC/DSC, la vulnerabilidad puede ser especialmente visible en identidad y modo de vincularse. Con MC/IC puede tocar pertenencia, familia, exposición pública o sentido de lugar en el mundo.
+
+La interpretación angular está condicionada por calidad de hora y sensibilidad M23. Un ángulo inestable no debe sostener por sí solo una narrativa de “misión de sanación”.
+
+### Raíces desplazadas por KARMIC_CONTINUITY
+
+Cuando Quirón comparte raíz con Nodo o Saturno, `KARMIC_CONTINUITY` tiene precedencia. La autoría puede conservar el contenido quirónico como matiz:
+
+- Nodo–Quirón: continuidad con vulnerabilidad/elaboración;
+- Saturno–Quirón: tiempo, límite y responsabilidad alrededor de una herida.
+
+No se cuentan ni se narran como dos motivos primarios independientes.
+
+### Aspecto, dirección y casas
+
+La conjunción concentra y hace difícil separar las funciones. Oposición y cuadratura pueden volver la vulnerabilidad más relacionalmente visible; trígono y sextil pueden facilitar acceso o elaboración, pero no significan que la herida esté “resuelta”. Paralelos y contraparalelos conservan su gramática declinacional; antiscios sólo se usan cuando la técnica correspondiente los genera.
+
+La dirección A→B debe traducirse con cuidado. Un contacto Quirón(A)→Venus(B), por ejemplo, describe cómo el campo quirónico de A y la función venusina de B quedan relacionados en esa evidencia; no establece causalmente que A haya producido la herida de B.
+
+Las casas indican dónde se vuelve experiencial la vulnerabilidad. Casa 1: identidad/cuerpo; 2: valor/recursos; 3: voz/aprendizaje; 4: pertenencia/origen; 5: expresión/creatividad; 6: cuidado/trabajo/cuerpo cotidiano; 7: vínculo; 8: intimidad/pérdida/poder; 9: sentido/creencia; 10: vocación/visibilidad; 11: pertenencia grupal/proyecto; 12: contenidos difíciles de objetivar. La casa contextualiza y no crea por sí misma un contrato de reparación.
+
+### Comparandum con tikkun
+
+`TIKKUN` y `WOUND_REPAIR` permanecen explícitamente no equivalentes.
+
+Una lectura puede comparar una función de reparación con un lenguaje de rectificación luriana sólo cuando el corpus doctrinal y la arquitectura contractual aporten una cadena independiente. Quirón no es un sustituto astrológico de tikkun.
+
+### Preguntas de lectura
+
+- ¿Qué función o necesidad queda especialmente expuesta?
+- ¿La otra persona actúa como detonante, espejo, acompañante o agente de reparación?
+- ¿Existen Saturno, Plutón, nodos o cartas relacionales que muestren integración del tema?
+- ¿La dinámica reduce o intensifica la herida a lo largo del tiempo?
+
+### Funciones evolutivas frecuentes
+
+- reconocimiento de una vulnerabilidad previa;
+- reparación;
+- aprendizaje compasivo;
+- redefinición de límites;
+- integración de una experiencia dolorosa;
+- transformación de herida en función de ayuda o servicio.
+
+### Comparanda metafísicos posibles
+
+Puede participar en una lectura de:
+
+- `HEALING_REPAIR`;
+- tarea evolutiva;
+- contrato funcional, si la herida preexiste al vínculo y existe activador específico + cadena contractual.
+
+No existe una doctrina única que permita traducir Quirón directamente a “contrato de sanación”.
+
+### No concluir
+
+- que el dolor confirma un vínculo espiritual superior;
+- que sufrir juntos implica misión;
+- que una relación dañina debe conservarse para “sanar karma”.
+
+### Fórmula narrativa útil
+
+> El vínculo toca una zona que ya contiene sensibilidad. Su función no se define por el dolor en sí, sino por lo que ocurre después: repetición, conciencia, reparación o integración.
+
+---
+
+## 3. IDENTITY_TRANSFORMATION
+
+### Base de detección
+
+Se asigna cuando el Sol forma una raíz core con Plutón, Urano o Neptuno según la política vigente **si la raíz no quedó antes clasificada como `KARMIC_CONTINUITY` o `WOUND_REPAIR`**; en la implementación actual el chequeo específico incluye Sol con Plutón/Urano/Neptuno.
+
+### Núcleo interpretativo
+
+Describe una relación que incide sobre **identidad, voluntad, centro vital o sentido de ser**, obligando a reorganizar la forma en que una persona se reconoce a sí misma.
+
+La cualidad concreta depende del planeta:
+
+- Plutón: intensidad, poder, muerte/renacimiento simbólico, verdad subyacente;
+- Urano: ruptura de patrón, liberación, individuación, discontinuidad;
+- Neptuno: ideal, inspiración, permeabilidad, entrega, disolución o confusión de identidad.
+
+Las fuentes `arroyo_astrology_karma_transformation_1992` y `greene_relating_1978` permiten situar estas raíces dentro de una astrología de transformación y dinámica psíquica. ALMAS utiliza ese fundamento para organizar la prosa; no convierte las interpretaciones de escuela en hechos psicológicos demostrados.
+
+### Formas concretas de transformación solar
+
+#### Sol + Plutón
+
+La identidad solar entra en contacto con una función plutoniana de intensidad, poder, revelación y regeneración. En dirección Plutón(A)→Sol(B), la lectura debe preguntar qué parte de la identidad de B queda sometida a una presión de profundización, exposición o cambio cuando A entra en su campo. En la dirección inversa, el Sol puede hacer visible y personal un contenido plutoniano de A que antes operaba de forma menos consciente.
+
+Puede aparecer magnetismo fuerte, necesidad de verdad, confrontación con control o una sensación de que la identidad anterior ya no basta. La interpretación madura no es “obsesión = destino”, sino:
+
+> ¿Qué definición de sí mismo deja de ser sostenible cuando el vínculo obliga a mirar material que antes podía permanecer oculto?
+
+La conjunción concentra el proceso; oposición y cuadratura pueden externalizar lucha de poder o polaridad; aspectos fluidos pueden facilitar integración sin volverla superficial. Si el patrón reaparece en RELCHART, la transformación deja de ser sólo un efecto interpersonal y pasa a organizar también el campo conjunto.
+
+#### Sol + Urano
+
+La función uraniana introduce discontinuidad, libertad, novedad e individuación en la identidad solar. Puede simbolizar una relación que despierta una versión menos convencional de uno mismo, rompe una trayectoria identitaria rígida o hace visible una necesidad de autonomía.
+
+En Urano(A)→Sol(B), describir cómo A activa en B una identidad más libre, experimental o inestable; evitar suponer que A “despierta” espiritualmente a B. La función puede ser liberadora o desorganizadora según el resto de la arquitectura.
+
+Pregunta central:
+
+> ¿Qué parte de la identidad sólo puede emerger cuando se rompe una forma anterior de ser?
+
+Una dinámica on/off o imprevisible no debe narrarse como fase necesaria de una relación espiritual.
+
+#### Sol + Neptuno
+
+La identidad solar entra en un campo de ideal, imaginación, sensibilidad, inspiración o disolución de límites. Neptuno(A)→Sol(B) puede inspirar, idealizar o volver más permeable la autopercepción de B; el Sol puede dar forma y visibilidad al ideal neptuniano de A.
+
+Esta raíz requiere distinguir inspiración de proyección. Puede producir un sentido profundo de significado, belleza o unión y, al mismo tiempo, hacer menos nítida la separación entre lo que la persona es, lo que la otra ve y lo que ambas desean que sea.
+
+La pregunta no es “¿hay unión espiritual?”, sino:
+
+> ¿La relación amplía una identidad más verdadera o sustituye la identidad real por una imagen ideal?
+
+Cuando Sol–Neptuno es la raíz emitida, pertenece a `IDENTITY_TRANSFORMATION` por precedencia y no debe duplicarse como `TRANSPERSONAL_FIELD`; el matiz neptuniano se desarrolla dentro del motivo solar.
+
+### Dirección, campo relacional y casas
+
+La persona del planeta exterior y la persona solar no desempeñan papeles intercambiables por defecto. La autoría debe conservar la dirección de la evidencia y comprobar si existe una raíz equivalente en sentido inverso.
+
+Las casas muestran dónde se reorganiza la identidad: casa 1 puede concentrar autopercepción/presencia; 4, pertenencia y base emocional; 5, creatividad y expresión; 7, identidad en vínculo; 8, intimidad/poder/regeneración; 9, visión; 10, vocación y manifestación. La casa contextualiza el proceso y depende de la fiabilidad horaria.
+
+### Preguntas de lectura
+
+- ¿Quién transforma a quién y en qué dirección?
+- ¿La transformación libera, concentra, desestructura o idealiza?
+- ¿Existe reciprocidad?
+- ¿El campo compuesto/Davison repite la transformación como tema de la relación?
+
+### Funciones evolutivas frecuentes
+
+- iniciación;
+- ruptura de identidad anterior;
+- individuación;
+- confrontación con poder o verdad;
+- apertura transpersonal;
+- redefinición del propósito.
+
+### Comparanda metafísicos posibles
+
+Puede sostener lecturas de:
+
+- `INITIATION`;
+- `EVOLUTION`;
+- `INTEGRATION`;
+- transformación del alma en sentido comparativo dentro de astrologías esotéricas.
+
+No demuestra origen compartido ni “despertar de llama gemela”.
+
+### No concluir
+
+- que transformación intensa identifica una categoría espiritual concreta;
+- que crisis = evolución asegurada;
+- que pérdida de límites = unión espiritual.
+
+---
+
+## 4. TRANSFORMATION_POWER
+
+### Base de detección
+
+Aparece cuando Plutón o Urano participan en una raíz core con otro punto significativo, salvo que una regla prioritaria haya asignado antes otro motivo.
+
+### Núcleo interpretativo
+
+Representa la **potencia de cambio** que circula por el vínculo.
+
+Es más amplio que `IDENTITY_TRANSFORMATION`: no exige que el centro solar sea el objeto principal. Puede transformar afecto, deseo, comunicación, seguridad, dirección, estructura o forma relacional.
+
+### Lectura de Plutón
+
+Plutón puede simbolizar:
+
+- magnetismo;
+- intensificación;
+- compulsión o concentración;
+- poder;
+- confrontación con sombra;
+- regeneración;
+- necesidad de verdad.
+
+### Lectura de Urano
+
+Urano puede simbolizar:
+
+- despertar;
+- novedad;
+- ruptura de hábito;
+- imprevisibilidad;
+- liberación;
+- cambio de forma relacional.
+
+Las raíces de este motivo excluyen por precedencia aquellas que ya fueron absorbidas por `KARMIC_CONTINUITY`, `WOUND_REPAIR` o `IDENTITY_TRANSFORMATION`. Por ello, por ejemplo, Plutón–Nodo se interpreta dentro de continuidad kármica, Plutón–Quirón dentro de herida/reparación y Sol–Plutón dentro de transformación de identidad.
+
+### Plutón con funciones personales
+
+#### Luna + Plutón
+
+La transformación entra en seguridad, apego, memoria afectiva y regulación emocional. Plutón puede intensificar aquello que la Luna necesita proteger, haciendo visibles miedos, necesidades de fusión, control, pérdida o regeneración emocional.
+
+En Plutón(A)→Luna(B), preguntar qué contenido emocional profundo de B se activa ante A y qué hace B con esa activación. No convertir una respuesta visceral intensa en prueba de vínculo predestinado.
+
+La función evolutiva puede consistir en abandonar una estrategia emocional basada en control, evitación o dependencia y construir una forma más consciente de intimidad.
+
+#### Mercurio + Plutón
+
+La transformación se produce a través de palabra, pensamiento, secreto, persuasión, investigación y significado. Puede dar conversaciones penetrantes y capacidad de llegar al fondo, pero también fijación mental, sospecha o lucha por definir “la verdad”.
+
+Pregunta central:
+
+> ¿La intensidad mental permite comprender mejor o convierte la comunicación en un territorio de control?
+
+En una lectura extensa, diferenciar profundidad comunicativa de lectura mental atribuida.
+
+#### Venus + Plutón
+
+Es una de las raíces más fácilmente confundidas con “destino” por su potencial de magnetismo. La función plutoniana intensifica afecto, deseo de unión, valor, apego, celos, pérdida y regeneración del modo de amar.
+
+La lectura debe separar tres planos:
+
+1. atracción y concentración afectiva;
+2. dinámica de poder/apego;
+3. posible transformación de valores y forma de vincularse.
+
+La fórmula útil no es “amor inevitable”, sino:
+
+> El vínculo concentra tanto valor afectivo que obliga a revisar qué significa amar sin poseer, fusionarse sin perder identidad y atravesar pérdida/cambio sin convertir intensidad en derecho sobre el otro.
+
+Si existe también `EROTIC_POLARITY` en otra raíz independiente, la combinación puede describir magnetismo erótico-transformativo. No constituye un discriminador de llama gemela.
+
+#### Marte + Plutón
+
+Acción, deseo, enfado, competencia y sexualidad reciben una carga de potencia y confrontación. Puede simbolizar enorme capacidad conjunta de movilización o una lucha destructiva si fuerza y control se vuelven recíprocos.
+
+La lectura debe identificar quién activa, quién resiste y dónde existe consentimiento/realidad factual. Un patrón Marte–Plutón nunca debe romantizar coerción, agresividad o conflicto como “prueba espiritual”.
+
+#### Júpiter + Plutón
+
+La transformación se desplaza a creencia, ambición, visión, influencia y expansión. Puede producir una relación que amplía poder de convicción, cambia la filosofía vital o convierte una idea en proyecto de gran escala.
+
+El riesgo hermenéutico es magnificar el propio significado de la relación. Preguntar:
+
+> ¿La expansión abre conciencia o convierte la convicción compartida en certeza incuestionable?
+
+#### Plutón + ángulos
+
+Plutón con ASC/DSC puede concentrar transformación en identidad relacional, presencia e intimidad interpersonal. Con MC/IC puede afectar dirección pública, vocación, pertenencia, familia o estructuras profundas de vida.
+
+Estas raíces son altamente sensibles a la hora natal; M23 y la calidad documental deben decidir cuánto protagonismo reciben.
+
+### Urano con funciones personales
+
+#### Luna + Urano
+
+Urano altera ritmo emocional, hábitos y seguridad. Puede despertar una necesidad de libertad afectiva, introducir formas nuevas de cuidado o producir discontinuidad difícil de regular.
+
+La función no es necesariamente separación: puede ser aprender a sostener conexión sin convertir estabilidad en inmovilidad.
+
+#### Mercurio + Urano
+
+Asocia pensamiento con descubrimiento, velocidad, diferencia y ruptura de marco. Puede simbolizar conversaciones estimulantes, ideas súbitas y reorganización mental, pero también comunicación errática o dificultad para sincronizar ritmos cognitivos.
+
+No traducir coincidencias mentales o ideas simultáneas en telepatía factual.
+
+#### Venus + Urano
+
+La relación entre afecto/valor y libertad/novedad puede producir atracción rápida, gusto por lo diferente y necesidad de espacio. También puede tensionar continuidad y autonomía.
+
+La pregunta evolutiva es:
+
+> ¿Puede el vínculo renovar la forma de amar sin necesitar inestabilidad para sentirse vivo?
+
+Una firma Venus–Urano puede ser intensamente significativa y, aun así, no decir nada concluyente sobre permanencia.
+
+#### Marte + Urano
+
+Acción e impulso se aceleran. Puede dar iniciativa, valentía y capacidad de ruptura, o impulsividad, conflicto súbito y dificultad para contener energía.
+
+Su significado depende especialmente de aspectos y casas. En configuraciones tensas, la autoría no debe convertir riesgo o explosividad en “electricidad de llamas gemelas”.
+
+#### Júpiter + Urano
+
+Expansión y libertad se refuerzan. Puede abrir horizontes, cambios de creencia, viajes, innovación o una visión vital más amplia. El vínculo funciona como catalizador de posibilidad, pero la amplitud no garantiza integración.
+
+#### Urano + ángulos
+
+La relación puede modificar forma de presentarse, pareja, hogar o dirección pública. Nuevamente, exigir estabilidad horaria antes de hacer del ángulo una raíz narrativa central.
+
+### Modulación compartida
+
+En Plutón, los aspectos tensos pueden exteriorizar lucha por control, pérdida o resistencia al cambio; los fluidos no eliminan la intensidad, sino que pueden facilitar su canalización. En Urano, los tensos pueden subrayar ruptura e imprevisibilidad; los fluidos pueden facilitar innovación y espacio.
+
+La dirección A→B debe conservarse en la narrativa. La repetición en compuesta/Davison o en otra familia independiente aumenta la centralidad interpretativa del tema, no su probabilidad metafísica.
+
+### Función evolutiva
+
+La pregunta no es “¿es intenso?”, sino:
+
+> ¿Qué estructura anterior deja de ser sostenible a causa de este vínculo?
+
+### Comparanda metafísicos
+
+Puede integrarse en modelos de catálisis, iniciación o transformación. Por sí solo tiene escaso poder para distinguir alma gemela, vínculo kármico o llama gemela.
+
+### No concluir
+
+- que magnetismo = destino;
+- que obsesión = profundidad espiritual;
+- que inestabilidad uraniana = fase necesaria de una doctrina concreta.
+
+---
+
+## 5. TRANSPERSONAL_FIELD
+
+### Base de detección
+
+Se asigna cuando Neptuno forma una raíz core con un punto significativo, salvo que la raíz haya sido capturada por una prioridad anterior.
+
+### Núcleo interpretativo
+
+Describe un campo de **permeabilidad simbólica, ideal, imaginación, devoción, inspiración o disolución de fronteras**.
+
+Puede ser una de las capas más espiritualmente significativas de una lectura y, al mismo tiempo, una de las más susceptibles a proyección.
+
+### Polaridad interpretativa
+
+Manifestaciones integradas:
+
+- empatía;
+- inspiración artística o espiritual;
+- compasión;
+- sentido de unidad;
+- apertura contemplativa.
+
+Manifestaciones desintegradas:
+
+- idealización;
+- confusión;
+- salvación/proyección;
+- evasión;
+- dificultad para separar intuición de deseo.
+
+La raíz Sol–Neptuno se emite antes como `IDENTITY_TRANSFORMATION`. Nodo/Saturno–Neptuno queda absorbido por `KARMIC_CONTINUITY` y Quirón–Neptuno por `WOUND_REPAIR`. `TRANSPERSONAL_FIELD` desarrolla las raíces neptunianas restantes sin duplicar esos motivos prioritarios.
+
+### Formas concretas del campo neptuniano
+
+#### Luna + Neptuno
+
+Puede intensificar empatía, imaginación emocional, sensibilidad y deseo de fusión afectiva. También puede volver más difícil distinguir necesidad propia, resonancia con la otra persona y proyección.
+
+La pregunta de control es:
+
+> ¿La sensibilidad compartida mejora el cuidado y la comprensión o hace más porosos los límites necesarios para saber qué siente cada uno?
+
+#### Mercurio + Neptuno
+
+Une mente, lenguaje e imaginación. Puede enriquecer simbolismo, arte, intuición y comunicación no literal; también puede generar ambigüedad, suposición, silencios llenados por fantasía o dificultad para verificar lo entendido.
+
+ALMAS no convierte esta raíz en prueba de telepatía. Si el usuario reporta coincidencias mentales, tratarlas como fenomenología separada de la evidencia estructural.
+
+#### Venus + Neptuno
+
+Afecto y valor se bañan en ideal, belleza, compasión y deseo de amor trascendente. Es una firma especialmente proclive a narrativas de “amor perfecto”.
+
+La autoría debe conservar simultáneamente inspiración y riesgo de idealización:
+
+> ¿La relación encarna valores compasivos y estéticos reales o una imagen ideal ocupa el lugar de la reciprocidad observable?
+
+No equiparar devoción con compatibilidad material.
+
+#### Marte + Neptuno
+
+Acción y deseo pueden orientarse hacia servicio, arte, entrega o una motivación difícil de definir. En su polo problemático puede haber dirección difusa, sacrificio no acordado o dificultad para actuar con claridad.
+
+La pregunta útil es qué deseo puede encarnarse y cuál permanece en fantasía.
+
+#### Júpiter + Neptuno
+
+Puede expandir fe, visión, imaginación, espiritualidad y sentido de posibilidad. También puede amplificar expectativas y construir una narrativa mayor que los hechos disponibles.
+
+Cuando aparece en una relación espiritualmente significativa, contrastar siempre la expansión simbólica con Saturno, realidad documental y reciprocidad.
+
+#### Neptuno + ángulos
+
+Puede volver especialmente visible una cualidad idealizada, artística, compasiva o evasiva en identidad/pareja/vocación/hogar. Como todo contacto angular, depende de la hora natal y de la robustez M23.
+
+### Anclajes de realidad
+
+Un campo neptuniano adquiere mayor capacidad integradora cuando otras raíces aportan forma: Saturno puede estructurar, Luna puede encarnar cuidado, Mercurio puede verbalizar, y hechos de M29 pueden mostrar reciprocidad real. Esa coexistencia debe describirse como arquitectura, no como “prueba” de espiritualidad.
+
+### Preguntas de lectura
+
+- ¿El resto de la arquitectura contiene Saturno o estructuras que den forma al campo?
+- ¿Neptuno amplía un motivo ya estable o es la principal fuente de “sensación espiritual”?
+- ¿Existe reciprocidad real o sólo significado subjetivo?
+
+### Comparanda metafísicos
+
+Puede dialogar con lenguajes de unión, mística, alma o trascendencia cuando existen fuentes pertinentes, pero ALMAS no convierte una firma neptuniana en prueba de telepatía, fusión de almas o origen común.
+
+### No concluir
+
+- que sensación de unidad = identidad ontológica;
+- que sueño/visión = hecho interpersonal;
+- que idealización es confirmación espiritual.
+
+---
+
+## 6. EROTIC_POLARITY
+
+### Base de detección
+
+Se asigna cuando Venus y Marte aparecen en la misma raíz core **si ninguna de las cinco reglas primarias anteriores ya capturó esa raíz**. Una raíz Venus–Marte que incluya además un anclaje kármico, quirónico o transformativo conserva el motivo prioritario anterior.
+
+### Núcleo interpretativo
+
+Representa la **polaridad de deseo, atracción, respuesta y creatividad relacional**.
+
+No se reduce a sexualidad: puede describir el modo en que receptividad/valor/placer (Venus) y impulso/acción/deseo (Marte) se encuentran.
+
+Las fuentes `sakoian_acker_human_relationships_1976` y `greene_relating_1978` permiten tratar Venus–Marte como interacción entre funciones relacionales y psíquicas, no como una fórmula biológica de género. La polaridad del motivo pertenece a las funciones astrológicas; ALMAS no asigna automáticamente Venus a mujer/divina femenina ni Marte a hombre/divino masculino.
+
+### Dirección relacional
+
+Cuando Venus(A) se relaciona con Marte(B), la lectura debe distinguir:
+
+- qué valora, recibe, atrae o armoniza A;
+- cómo desea, actúa, persigue o confronta B;
+- de qué manera cada función modifica la respuesta de la otra.
+
+La dirección inversa Marte(A)→Venus(B) no es idéntica en experiencia, aunque forme parte de la misma raíz o exista reciprocidad adicional. Sólo hablar de polaridad bilateral cuando la evidencia muestre realmente ambas direcciones o el campo relacional repita el tema.
+
+La pregunta central no es “¿quién es masculino o femenino?”, sino:
+
+> ¿Cómo negocian deseo, iniciativa, recepción, placer y valor estas dos personas?
+
+### Modulación por aspecto
+
+Venus–Marte conserva `EROTIC_POLARITY` cualquiera que sea la relación si no fue capturada por un motivo anterior.
+
+- **conjunción / paralelo**: concentra valor y deseo; puede aumentar inmediatez, creatividad y necesidad de respuesta;
+- **oposición / contraparalelo**: organiza una polaridad visible entre querer/recibir y actuar/desear; puede producir gran atracción junto con negociación de ritmo;
+- **cuadratura**: aumenta fricción entre estilo afectivo y modo de actuar; puede sentirse como química, irritación o ambas;
+- **trígono / sextil**: facilita coordinación entre deseo y afecto, sin garantizar profundidad emocional ni permanencia;
+- **antiscio / contra-antiscio**: se interpreta según su tradición específica y nunca como equivalencia universal de conjunción/oposición.
+
+Una Venus–Marte cuadrada no se reclasifica como `MIRROR_COMPLEMENTARITY`; una Venus–Marte trígono no se reclasifica como `RELATIONAL_COHERENCE`. La precedencia conserva el significado específico de la pareja planetaria.
+
+### Casas y encarnación del deseo
+
+Las casas muestran dónde se vuelve experiencial la polaridad.
+
+- casa 1: presencia, cuerpo, impresión inmediata;
+- casa 2: valor, placer, recursos, merecimiento;
+- casa 5: juego, deseo, creatividad, romance;
+- casa 7: negociación de pareja y alteridad;
+- casa 8: intimidad, sexualidad, vulnerabilidad, intercambio de poder;
+- casa 10: deseo/valor vinculados a visibilidad, proyecto o dirección pública.
+
+Otras casas deben interpretarse por su función concreta; no existe una “casa de llama gemela”. Toda lectura de casas depende de calidad horaria.
+
+### Polaridad integrada y polaridad compulsiva
+
+La intensidad erótica no informa por sí sola sobre calidad del vínculo.
+
+Una polaridad integrada permite:
+
+- expresar deseo sin coerción;
+- recibir sin pasividad impuesta;
+- negociar ritmos;
+- conservar identidad y límites;
+- convertir energía erótica en creatividad o acción conjunta.
+
+Una polaridad desintegrada puede mostrar:
+
+- persecución/retirada;
+- competencia por iniciativa;
+- objetificación;
+- confusión entre deseo y reciprocidad;
+- conflicto repetido utilizado para mantener excitación.
+
+La astrología describe la forma simbólica de la tensión; M29 y los hechos documentales determinan si existe reciprocidad real.
+
+### Combinaciones con otras raíces
+
+La prosa debe separar raíces independientes:
+
+- Venus–Marte + Venus–Plutón: deseo con transformación/poder;
+- Venus–Marte + Venus–Saturno: deseo con límite/compromiso;
+- Venus–Marte + Nodo–Venus/Marte: deseo dentro de continuidad/dirección;
+- Venus–Marte + Quirón–Venus/Marte: polaridad con vulnerabilidad;
+- Venus–Marte + coherencias Luna/Sol: deseo sostenido por otras formas de integración.
+
+La combinación puede producir una lectura rica de polaridad, pero no aumenta por sí misma la especificidad ontológica.
+
+### Variables de lectura
+
+- aspecto y fuerza;
+- dirección A→B/B→A;
+- casas y ángulos activados;
+- repetición en compuesta/Davison;
+- coexistencia con Luna, Saturno, Plutón o nodos.
+
+### Funciones evolutivas
+
+- aprendizaje del deseo;
+- negociación entre iniciativa y recepción;
+- creatividad;
+- encarnación corporal del vínculo;
+- confrontación con valores y límites.
+
+### Comparanda metafísicos
+
+Puede compararse con lenguajes doctrinales de polaridad cuando una fuente concreta lo sostenga. La doctrina moderna de llamas gemelas contiene polaridad masculino/femenino en algunas tradiciones registradas, pero Venus–Marte no discrimina esa ontología.
+
+### No concluir
+
+- que gran química = llama gemela;
+- que polaridad erótica = polaridad espiritual;
+- que atracción unilateral implica reciprocidad.
+
+---
+
+## 7. MIRROR_COMPLEMENTARITY
+
+### Base de detección
+
+La política lo asigna cuando existe una relación `HARD` —oposición, cuadratura, contraparalelo o contra-antiscio— entre al menos dos puntos significativos **y ninguna regla primaria anterior ha clasificado ya la raíz**.
+
+### Núcleo interpretativo
+
+Representa **diferencia activa**: dos funciones se obligan mutuamente a verse, responder, compensarse o confrontarse.
+
+El “espejo” no debe entenderse como copia. En ALMAS puede significar:
+
+- similitud que revela;
+- contraste que hace visible una polaridad;
+- complementariedad;
+- proyección;
+- conflicto que obliga a integrar una función negada.
+
+### Categoría residual por precedencia
+
+`MIRROR_COMPLEMENTARITY` no es sinónimo de “aspecto tenso”. Sólo aparece si una relación `HARD` entre puntos significativos **no** ha quedado antes explicada por continuidad kármica, Quirón, transformación, Neptuno o Venus–Marte.
+
+Esto es hermenéuticamente importante: una cuadratura Venus–Plutón se narra como transformación/poder; una cuadratura Venus–Marte como polaridad erótica; una cuadratura Nodo–Luna como continuidad. “Espejo” se reserva para tensiones cuya información principal es la diferencia funcional entre los puntos implicados.
+
+Las fuentes `greene_relating_1978` y `sakoian_acker_human_relationships_1976` proporcionan contexto para leer diferencia, proyección y combinación planetaria. La proyección es una hipótesis interpretativa, no un hecho psicológico demostrado por el aspecto.
+
+### Formas de espejo
+
+#### Sol + Luna
+
+Contrasta identidad/voluntad con necesidad emocional/hábito. Puede hacer visible una tensión entre “quién soy o quiero ser” y “qué necesito para sentirme seguro”.
+
+En una dinámica integrada, cada función puede obligar a la otra a incluir una dimensión que tendería a excluir. En una dinámica desintegrada, una persona puede vivir la otra como demasiado subjetiva, demandante, egocentrada o poco receptiva.
+
+No confundir tensión Sol–Luna con incompatibilidad total: otras raíces pueden contener una vía de regulación.
+
+#### Sol + Mercurio/Venus/Marte/Júpiter
+
+- Sol–Mercurio: identidad frente a modo de pensar/nombrar; tensión entre ser y explicar.
+- Sol–Venus: identidad frente a valores, gusto, afecto y aprobación.
+- Sol–Marte: identidad frente a iniciativa, conflicto y afirmación; puede hacer muy visible quién lidera o desafía.
+- Sol–Júpiter: identidad frente a expansión, creencia y expectativas; puede amplificar posibilidades o exceso.
+
+Si Marte/Venus aparecieran juntos en la misma raíz, la precedencia de `EROTIC_POLARITY` debe comprobarse antes de usar la categoría espejo.
+
+#### Luna + Mercurio/Venus/Marte/Júpiter
+
+- Luna–Mercurio: sentir frente a conceptualizar; una persona puede necesitar ser sentida donde la otra intenta explicar.
+- Luna–Venus: necesidad emocional frente a estilo de afecto/valor; amar no siempre coincide con cuidar del modo esperado.
+- Luna–Marte: seguridad frente a acción/impulso; puede activar defensa, irritación o capacidad de movilizar emoción.
+- Luna–Júpiter: necesidad frente a expansión; puede existir tensión entre contención y “hacerlo más grande”.
+
+La lectura debe evitar atribuir automáticamente trauma o apego patológico; el aspecto sólo organiza una tensión simbólica.
+
+#### Mercurio + Venus/Marte/Júpiter
+
+- Mercurio–Venus: lenguaje frente a valores/agrado; dificultad o aprendizaje para decir aquello que sostiene armonía real.
+- Mercurio–Marte: palabra frente a impulso; debate, rapidez, confrontación o capacidad de defender ideas.
+- Mercurio–Júpiter: detalle frente a visión; tensión entre precisión y significado global.
+
+Una comunicación intensa no implica telepatía, ni una discusión recurrente implica una función espiritual superior.
+
+#### Venus + Júpiter / Marte + Júpiter
+
+Venus–Júpiter puede confrontar medida de valor, placer y expectativas de expansión. Marte–Júpiter puede tensionar acción con escala, convicción o riesgo.
+
+Estas raíces son útiles para explicar exageración, entusiasmo o diferencias de valores sin recurrir a categorías kármicas.
+
+#### Personales + eje del horizonte
+
+Aspectos duros con ASC/DSC pueden volver la diferencia muy visible en presencia, identidad relacional y expectativas de pareja. El ángulo no es una persona: la narrativa debe explicar cómo la función planetaria entra en la forma de presentarse o relacionarse del otro.
+
+La calidad horaria sigue siendo condición de interpretación.
+
+### Cuatro modos narrativos
+
+Una raíz espejo puede desarrollarse como:
+
+1. **contraste** — dos funciones quieren cosas distintas;
+2. **complementariedad** — la diferencia aporta una función ausente o poco desarrollada;
+3. **proyección** — una cualidad del otro puede cargar con material que la persona no reconoce fácilmente en sí; tratarlo como hipótesis;
+4. **regulación** — la tensión obliga a encontrar una tercera forma de coordinación.
+
+No asumir que todo conflicto alcanza el cuarto modo. La evolución debe demostrarse en la arquitectura y, cuando se habla de realidad, en hechos.
+
+### Aspecto y dirección
+
+La oposición enfatiza polaridad y posibilidad de alternancia; la cuadratura, fricción que exige acción/ajuste; el contraparalelo y contra-antiscio se interpretan dentro de sus técnicas específicas.
+
+La dirección A→B sigue importando. Un planeta de A cuadrando un punto de B no demuestra que ambos experimenten la tensión con igual intensidad ni con el mismo significado. La reciprocidad requiere evidencia inversa, repetición independiente o campo relacional concordante.
+
+### Casas
+
+La casa receptora muestra el escenario donde el contraste se vuelve visible. La misma cuadratura cambia de función si activa pertenencia (4), expresión/deseo (5), pareja (7), intimidad/poder (8), creencias (9) o vocación (10). La casa especifica la experiencia; no transforma el aspecto duro en una doctrina de “espejo”.
+
+### Comparandum metafísico con límite
+
+El discurso de Aristófanes en el `Symposium` y doctrinas modernas de polaridad pueden servir como comparanda de división/complementariedad. Esa semejanza es narrativa y genealógica, no una identidad doctrinal.
+
+Una oposición o cuadratura no demuestra:
+
+- ser primordial escindido;
+- “divino masculino/divino femenino”;
+- origen compartido;
+- llama gemela.
+
+La utilidad del motivo es describir **qué diferencia activa al vínculo y qué integración exige**, incluso cuando la ontología permanezca abierta.
+
+### Preguntas de lectura
+
+- ¿Qué dos funciones quedan enfrentadas?
+- ¿Existe una vía de integración en otras capas?
+- ¿La tensión es bilateral?
+- ¿El contraste produce crecimiento, bloqueo, separación o regulación?
+
+### Comparanda metafísicos
+
+Puede compararse de forma **no discriminante** con:
+
+- el motivo de división/complementariedad del discurso de Aristófanes;
+- modelos comparativos de ser primordial dividido;
+- lenguajes contemporáneos de espejo;
+- polaridad en doctrinas modernas de llamas gemelas.
+
+Las fuentes históricas no son equivalentes entre sí.
+
+### No concluir
+
+- que simetría = alma escindida;
+- que oposición = “divino masculino/divino femenino”;
+- que conflicto confirma llama gemela.
+
+### Fórmula narrativa útil
+
+> La relación funciona como espejo no porque ambos sean iguales, sino porque la diferencia obliga a cada uno a encontrar una función que por sí solo podría mantener fuera de conciencia.
+
+---
+
+## 8. RELATIONAL_COHERENCE
+
+### Base de detección
+
+Se asigna cuando una relación `COHERENT` —conjunción, trígono, sextil, paralelo o antiscio— conecta al menos dos puntos personales **y la raíz no ha sido capturada por un motivo primario anterior**. Por ejemplo, una raíz Venus–Marte coherente sigue siendo `EROTIC_POLARITY`, no `RELATIONAL_COHERENCE`.
+
+### Núcleo interpretativo
+
+Representa la capacidad de **coordinar, resonar o construir una experiencia compartida**.
+
+No significa ausencia de conflicto. Indica que ciertas funciones encuentran una vía relativamente inteligible de integración.
+
+Las fuentes `davison_synastry_1983`, `sakoian_acker_human_relationships_1976` y `arroyo_relationships_life_cycles_1993` permiten traducir esa coherencia a dinámica interpersonal concreta. El motivo no significa “compatibilidad total”: identifica una vía de coordinación entre las funciones presentes en la raíz.
+
+### Formas concretas de coherencia
+
+#### Sol + Luna
+
+Coordina identidad/voluntad con necesidad emocional. Puede facilitar que una persona se sienta reconocida mientras la otra encuentra espacio para expresar cuidado, pertenencia o respuesta emocional.
+
+La pregunta no es sólo si “se llevan bien”, sino:
+
+> ¿La identidad de uno puede existir sin invalidar la necesidad emocional del otro?
+
+Cuando la misma temática aparece en RELCHART, la relación puede disponer de un mecanismo propio de integración entre propósito y clima emocional.
+
+#### Sol + Mercurio
+
+Facilita que identidad y pensamiento/lenguaje se reconozcan. Puede dar sensación de ser entendido, claridad para explicar quién se es o capacidad para convertir una intuición personal en conversación compartida.
+
+No confundir facilidad comunicativa con igualdad de opinión.
+
+#### Sol + Venus
+
+Puede producir reconocimiento afectivo, apreciación y compatibilidad entre identidad y valores. Venus puede confirmar o suavizar la expresión solar; el Sol puede dar visibilidad a aquello que Venus aprecia.
+
+Su valor aumenta cuando existe reciprocidad y otras raíces sostienen intimidad/realidad. Aprecio no equivale a compromiso.
+
+#### Sol + Marte
+
+Coordina identidad con acción e iniciativa. Puede generar impulso compartido, admiración por la capacidad de actuar o facilidad para movilizar proyectos.
+
+La integración no elimina competencia. La lectura debe observar si la energía marciana potencia al Sol o invade su dirección.
+
+#### Sol + Júpiter
+
+Favorece confianza, expansión y visión alrededor de la identidad. Puede ampliar propósito, optimismo, enseñanza o apertura de horizontes.
+
+El riesgo es sobreestimar posibilidades. Coherencia Sol–Júpiter no garantiza que una visión compartida sea realista.
+
+#### Luna + Mercurio
+
+Permite traducir emoción a lenguaje. Puede ayudar a que necesidades afectivas sean nombradas y comprendidas en lugar de actuar sólo por reacción.
+
+La pregunta útil es si la palabra regula la emoción o la racionaliza en exceso.
+
+#### Luna + Venus
+
+Integra necesidad emocional con afecto, gusto y capacidad de recibir/dar placer. Puede ser una de las formas más claras de ternura o cuidado compatible, pero no implica por sí sola profundidad transformativa.
+
+#### Luna + Marte
+
+Puede coordinar sentimiento con respuesta y protección. La persona marciana puede movilizar lo que la Luna siente; la Luna puede dar dirección emocional a la acción.
+
+Incluso con aspecto coherente, observar si la rapidez de Marte respeta el ritmo lunar.
+
+#### Luna + Júpiter
+
+Asocia seguridad con expansión, generosidad y sentido. Puede favorecer apoyo, confianza y una experiencia de “espacio emocional” más amplia.
+
+Evitar convertir optimismo emocional en garantía de estabilidad.
+
+#### Mercurio + Venus / Marte / Júpiter
+
+- Mercurio–Venus: lenguaje y valores encuentran una vía amable o estéticamente afín;
+- Mercurio–Marte: pensamiento y acción pueden coordinarse con rapidez y eficacia;
+- Mercurio–Júpiter: detalle e idea general se complementan, facilitando aprendizaje y visión.
+
+En todos los casos, coherencia funcional no significa ausencia de discrepancia.
+
+#### Venus + Júpiter
+
+Puede ampliar placer, generosidad, valores compartidos, sociabilidad o disfrute. Es una raíz de afinidad expansiva cuando no ha sido capturada por un motivo anterior.
+
+La expansión debe contrastarse con realidad material para evitar promesas o expectativas desproporcionadas.
+
+#### Marte + Júpiter
+
+Coordina iniciativa con confianza y escala. Puede dar entusiasmo para actuar, emprender, viajar, aprender o defender una visión.
+
+El exceso de confianza sigue siendo posible aunque la relación sea fluida.
+
+#### Personales + eje del horizonte
+
+Una relación coherente con ASC/DSC puede hacer que una función planetaria encaje con naturalidad en la forma de presentarse o vincularse de la otra persona. Es especialmente relevante para reconocimiento inmediato y convivencia interpersonal.
+
+La hora natal debe ser suficientemente robusta para sostener el argumento.
+
+### Qué significa cada relación coherente
+
+- **conjunción**: concentra las funciones; integración intensa, no necesariamente fácil;
+- **trígono**: circulación relativamente espontánea;
+- **sextil**: posibilidad cooperativa que suele requerir participación;
+- **paralelo**: refuerzo declinacional interpretado dentro de su técnica;
+- **antiscio**: simetría tradicional que añade resonancia sin equivaler universalmente a conjunción.
+
+El motivo `RELATIONAL_COHERENCE` no aparece si la raíz ya fue clasificada como Venus–Marte, Neptuno, transformación, Quirón o continuidad. La prosa debe respetar ese contenido más específico.
+
+### Dirección, reciprocidad y realidad
+
+La coherencia A→B no demuestra automáticamente que B experimente la relación del mismo modo. Para hablar de integración bilateral, buscar dirección inversa, recurrencia independiente o una carta relacional concordante.
+
+M29 continúa siendo el lugar para reciprocidad y viabilidad factual. Una raíz coherente describe capacidad simbólica de coordinación; no demuestra una relación estable en la realidad.
+
+### Preguntas de lectura
+
+- ¿Qué funciones fluyen o se reconocen?
+- ¿La coherencia es emocional, mental, erótica, vital o práctica?
+- ¿Aparece también en el campo compuesto/Davison?
+- ¿Compensa otras raíces tensas o queda aislada?
+
+### Funciones evolutivas
+
+- cooperación;
+- reconocimiento;
+- sostén;
+- convivencia simbólica;
+- capacidad de integrar aprendizaje;
+- estabilización de procesos transformativos.
+
+### Comparanda metafísicos
+
+Cuando existe bilateridad, especificidad de pareja y recurrencia independiente, puede compararse con:
+
+- `ZIVUG`;
+- `CONJUGIAL_PAIRING`;
+- modelos de alma gemela como arquitectura de afinidad/coherencia.
+
+La coherencia no demuestra una pareja predestinada.
+
+### No concluir
+
+- que facilidad = profundidad;
+- que armonía = exclusividad;
+- que una relación coherente debe ser romántica.
+
+---
+
+## 9. STRUCTURAL_AFFINITY
+
+### Base de detección
+
+Se asigna cuando una raíz core reúne al menos dos puntos del conjunto `AFFINITY`: Sol, Luna, Venus, Marte, Júpiter o eje del horizonte, y no ha sido clasificada por un motivo prioritario anterior.
+
+### Núcleo interpretativo
+
+Es el motivo más general de **afinidad potencial o reconocimiento interpersonal por composición de funciones**. No equivale por definición a compatibilidad ni a facilidad.
+
+### Fallback estructural, no aspecto armónico
+
+`STRUCTURAL_AFFINITY` es la última regla de precedencia. Se activa por reunir al menos dos puntos del conjunto `AFFINITY` cuando ninguna regla anterior ha clasificado la raíz.
+
+Por ello no exige que `relation_ids` pertenezca a `COHERENT`. Si una relación fuera conjunción/trígono/sextil/paralelo/antiscio entre personales, normalmente `RELATIONAL_COHERENCE` tendría precedencia; si fuera oposición/cuadratura/contraparalelo/contra-antiscio entre puntos significativos, `MIRROR_COMPLEMENTARITY` podría capturarla antes. La afinidad estructural suele conservar raíces cuyo **contenido interpersonal es significativo aunque su relación concreta no encaje en esas dos familias**.
+
+Esta precisión evita narrar el motivo como “todo fluye”.
+
+### Tipos de afinidad según puntos
+
+#### Sol + Luna
+
+Aporta un sustrato de reconocimiento entre identidad y necesidad emocional. Si no existe una relación clasificada como coherente o espejo, el interés está en que ambas funciones comparten raíz y merecen leerse juntas, no en suponer armonía.
+
+#### Sol + Venus
+
+Relaciona identidad con valor, gusto y afecto. Puede señalar que una persona activa en la otra una apreciación significativa o una revisión de qué considera deseable/valioso.
+
+#### Sol + Júpiter
+
+Conecta identidad con expansión, sentido y visión. Puede constituir una afinidad vital/ideológica incluso si la relación específica exige ajustes.
+
+#### Luna + Venus
+
+Reúne necesidad emocional y forma de valorar/afectar. Puede ser base de reconocimiento afectivo, pero la calidad de cuidado debe comprobarse en la dinámica completa.
+
+#### Luna + Júpiter
+
+Relaciona pertenencia con expansión y confianza. Puede crear una sensación de amplitud emocional o compartir marcos de significado.
+
+#### Venus + Júpiter
+
+Vincula valores, placer y expansión. Puede sostener afinidad social, cultural, estética o ética.
+
+#### Marte + Júpiter
+
+Relaciona acción con visión/escala. Puede indicar afinidad para movimiento, empresa, aprendizaje o exploración compartida.
+
+#### Luminarias/personales + eje del horizonte
+
+El eje ASC/DSC vuelve interpersonal una función del otro y puede producir fuerte reconocimiento de presencia o rol relacional. Su interpretación depende de hora natal fiable.
+
+Venus–Marte no debe llegar aquí cuando ambos están presentes en la misma raíz, porque `EROTIC_POLARITY` tiene precedencia.
+
+### Afinidad no es uniformidad
+
+Dos personas pueden mostrar afinidad estructural y, simultáneamente:
+
+- discrepar en comunicación;
+- activar heridas;
+- tener diferente nivel de reciprocidad;
+- no ser viables como pareja;
+- atravesar fases de distancia;
+- no compartir una ontología metafísica específica.
+
+El motivo describe **material relacional común o mutuamente significativo**, no un resultado final.
+
+### Su valor crece cuando
+
+- es bilateral;
+- involucra luminarias o ángulos;
+- reaparece en familias independientes;
+- se combina con coherencia relacional;
+- sobrevive a ablaciones;
+- aparece en campo compuesto/Davison como tema de la relación.
+
+### Afinidad y modelos metafísicos
+
+Cuando la afinidad recurrente se combina con coherencia, bilateralidad y especificidad de pareja, puede enriquecer una lectura de alma afín o alma gemela en sentido amplio. Si además aparecen continuidad, transformación, reparación o misión, la síntesis puede comparar modelos más complejos.
+
+Pero `STRUCTURAL_AFFINITY` por sí sola no discrimina:
+
+- origen común;
+- vida pasada;
+- contrato preencarnatorio;
+- twin flame;
+- permanencia material.
+
+La lectura debe poder decir **de qué son afines** antes de decir que existe “afinidad”.
+
+### Preguntas de lectura
+
+- ¿Qué tipo de afinidad existe: emocional, vital, erótica, expansiva, cotidiana?
+- ¿La afinidad es suficiente para sostener las capas más intensas?
+- ¿Hay también transformación, continuidad o misión?
+
+### Comparanda metafísicos
+
+Puede sostener un lenguaje de almas afines o experiencia de alma gemela en sentido amplio, pero la experiencia/etiqueta contemporánea debe mantenerse separada de ontología.
+
+### No concluir
+
+- que afinidad = origen común;
+- que familiaridad = vida pasada;
+- que compatibilidad = permanencia.
+
+---
+
+# Overlays de misión
+
+Los overlays de misión requieren el eje meridiano y uno de los anclajes definidos por la política. No forman parte del PX genérico y no prueban misión compartida.
+
+## MISSION_SOLAR
+
+### Base
+
+`AXIS_MERIDIAN + SUN`.
+
+### Significado
+
+Visibilidad, identidad, propósito central, creación, liderazgo o expresión pública vinculados al campo relacional.
+
+Pregunta:
+
+> ¿La relación hace visible una identidad o vocación que ya existía individualmente?
+
+## MISSION_JOVIAN
+
+### Base
+
+`AXIS_MERIDIAN + JUPITER`.
+
+### Significado
+
+Expansión, enseñanza, transmisión de sentido, visión, fe, conocimiento o apertura social/cultural.
+
+Pregunta:
+
+> ¿La relación amplía un horizonte previo y lo convierte en algo comunicable o compartible?
+
+## MISSION_SATURNIAN
+
+### Base
+
+`AXIS_MERIDIAN + SATURN`.
+
+### Significado
+
+Responsabilidad, construcción, duración, servicio, institucionalización, límite o tarea que exige forma.
+
+Pregunta:
+
+> ¿Qué debe construirse, sostenerse o asumirse para que el potencial de la relación tenga realidad?
+
+## MISSION_NODAL
+
+### Base
+
+`AXIS_MERIDIAN + AXIS_NODES`.
+
+### Significado
+
+Dirección vital, cruce de trayectorias, sentido de etapa o función que parece organizar el encuentro en relación con vocación/manifestación.
+
+Pregunta:
+
+> ¿Qué dirección se vuelve más visible porque estas dos trayectorias se cruzan?
+
+## Comparandum doctrinal de misión
+
+El mapa doctrina→astrología permite comparar redes Sol/Júpiter/Saturno/Nodos + eje meridiano con `MISSION_PREINCARNATIONAL`, cuya fuente doctrinal primaria registrada es `kardec_spirits_book_missions_572_573`.
+
+El techo es:
+
+`MISSION_SERVICE_THEME_COMPATIBLE`.
+
+No autoriza:
+
+- afirmar que toda relación tiene una misión;
+- inferir origen compartido;
+- convertir una misión en prueba de contrato bilateral;
+- convertir misión en destino romántico.
+
+---
+
+# Combinaciones de motivos
+
+La lectura gana valor cuando interpreta **combinaciones**, no cuando enumera motivos.
+
+## KARMIC_CONTINUITY + WOUND_REPAIR
+
+Lectura posible:
+
+**continuidad remedial**.
+
+La relación no sólo reactiva un tema persistente; toca una vulnerabilidad que requiere elaboración.
+
+Preguntas:
+
+- ¿la herida ya estaba presente individualmente?
+- ¿el vínculo la activa de manera específica?
+- ¿existe una vía de reparación o sólo repetición?
+
+Puede ser compatible con una función contractual R2 si la cadena causal contractual se sostiene, pero no la demuestra por sí sola.
+
+## KARMIC_CONTINUITY + RELATIONAL_COHERENCE
+
+Lectura posible:
+
+**continuidad con capacidad de integración**.
+
+La historia simbólica no aparece sólo como peso o deuda; existe también una vía para organizarla y sostenerla.
+
+Puede ser relevante para comparaciones con `ZIVUG` o emparejamiento continuado, siempre que exista bilateridad y especificidad de pareja.
+
+## KARMIC_CONTINUITY + TRANSFORMATION_POWER
+
+Lectura posible:
+
+**continuidad transformativa**.
+
+El encuentro reactiva un patrón persistente y simultáneamente exige una mutación profunda.
+
+No debe resumirse como “karma intenso”. La prosa debe explicar qué se transforma y qué elemento introduce la continuidad.
+
+## WOUND_REPAIR + RELATIONAL_COHERENCE
+
+Lectura posible:
+
+**capacidad reparadora**.
+
+La relación activa una herida pero también contiene recursos de regulación/coherencia.
+
+Esto es interpretativamente distinto de una relación que sólo abre la herida.
+
+## MIRROR_COMPLEMENTARITY + TRANSFORMATION_POWER
+
+Lectura posible:
+
+**espejo catalítico**.
+
+La diferencia o fricción revela material que no puede permanecer igual.
+
+Es una firma compatible con narrativas contemporáneas de espejo, pero carece por sí sola de poder discriminante sobre origen.
+
+## MIRROR_COMPLEMENTARITY + RELATIONAL_COHERENCE
+
+Lectura posible:
+
+**polaridad integrable**.
+
+Existe contraste, pero también mecanismos de conexión que permiten trabajar la diferencia.
+
+Es más informativo que decir simplemente “hay aspectos tensos y armónicos”.
+
+## STRUCTURAL_AFFINITY + RELATIONAL_COHERENCE
+
+Lectura posible:
+
+**base de compañerismo/afinidad sostenida**.
+
+Puede describir una relación que se reconoce y se organiza con naturalidad, una de las arquitecturas más próximas al uso amplio de “alma gemela” cuando otras capas no añaden continuidad, transformación o misión.
+
+## STRUCTURAL_AFFINITY + EROTIC_POLARITY
+
+Lectura posible:
+
+**afinidad encarnada en deseo**.
+
+La atracción encuentra un sustrato de compatibilidad. Debe distinguirse de química intensa sin afinidad.
+
+## EROTIC_POLARITY + MIRROR_COMPLEMENTARITY + TRANSFORMATION_POWER
+
+Lectura posible:
+
+**polaridad erótico-transformativa**.
+
+Puede producir gran intensidad, magnetismo, conflicto y cambio. Es precisamente una combinación que no debe convertirse automáticamente en “llama gemela”, porque múltiples modelos relacionales pueden generarla.
+
+## TRANSPERSONAL_FIELD + RELATIONAL_COHERENCE
+
+Lectura posible:
+
+**espiritualidad compartible**.
+
+La apertura neptuniana encuentra estructuras relacionales capaces de contenerla.
+
+La lectura debe comprobar si existen anclajes saturninos/factuales para diferenciar inspiración de idealización.
+
+## TRANSPERSONAL_FIELD + MIRROR_COMPLEMENTARITY
+
+Lectura posible:
+
+**espejo transpersonal ambiguo**.
+
+Puede sentirse profundamente significativo, pero aumenta la necesidad de separar intuición, proyección y hechos.
+
+## Motivo primario recurrente + overlay de misión
+
+Lectura posible:
+
+**un tema relacional que adquiere función de exteriorización**.
+
+Ejemplos:
+
+- continuidad + misión saturniana: una tarea persistente que exige forma/compromiso;
+- transformación + misión solar: el vínculo transforma identidad y esa transformación busca expresión;
+- coherencia + misión joviana: la relación facilita enseñanza, difusión o expansión;
+- afinidad + misión nodal: el encuentro conecta facilidad relacional con una dirección vital.
+
+Una misión recurrente puede describir función compartida. No identifica origen.
+
+---
+
+# Cómo narrar un motivo recurrente
+
+## Paso 1 · nombrar la evidencia
+
+No empezar por “hay karma” o “hay espejo”.
+
+Empezar por la raíz:
+
+> El eje nodal de A se conecta con la Luna de B y el mismo tema reaparece en la carta relacional...
+
+## Paso 2 · mostrar la recurrencia
+
+> No es un contacto aislado: el motivo sobrevive en otra familia técnica...
+
+## Paso 3 · traducir a dinámica
+
+> La repetición convierte el reconocimiento/dirección en una dinámica central...
+
+## Paso 4 · definir función
+
+> Evolutivamente, esa dinámica parece exigir...
+
+## Paso 5 · abrir el comparandum metafísico
+
+> Dentro del corpus luriano, este tipo de continuidad puede compararse con...
+
+## Paso 6 · marcar el límite una vez
+
+> La comparación permite hablar de continuidad como modelo compatible, pero no identifica una vida pasada concreta ni determina el origen del alma.
+
+Después del límite, volver al significado. No repetir el descargo metodológico en cada párrafo.
+
+---
+
+# Motivos y modelos AF/KA/AG/LG
+
+Los motivos no pertenecen en exclusiva a un modelo.
+
+## AF · almas afines
+
+Suele poder describirse con:
+
+- `STRUCTURAL_AFFINITY`;
+- `RELATIONAL_COHERENCE`;
+- eventualmente `EROTIC_POLARITY`.
+
+Una relación afín puede ser importante sin contener continuidad kármica ni transformación intensa.
+
+## KA · vínculo kármico
+
+Puede recibir especial significado de:
+
+- `KARMIC_CONTINUITY`;
+- `WOUND_REPAIR`;
+- `TRANSFORMATION_POWER`.
+
+“Kármico” no significa necesariamente negativo ni permanente.
+
+## AG · almas gemelas / soulmate
+
+Puede articular:
+
+- afinidad;
+- coherencia;
+- espejo integrable;
+- recurrencia independiente;
+- a veces continuidad o función de reparación.
+
+La etiqueta debe derivar de arquitectura, no de reconocimiento subjetivo.
+
+## LG · llama gemela / twin flame
+
+Puede ser compatible con combinaciones de:
+
+- afinidad;
+- espejo/complementariedad;
+- transformación;
+- recurrencia;
+- continuidad;
+- polaridad;
+- misión.
+
+Pero ninguno de estos motivos ni su combinación constituye actualmente un discriminador ontológico validado de `TWIN_FLAME_ORIGIN`.
+
+Por ello una lectura puede describir con gran precisión una arquitectura “polar, transformativa, recurrente, kármica y orientada a misión” mientras mantiene el origen último como `COMPATIBLE` o `INSUFFICIENT`.
+
+Ésta no es una lectura empobrecida: separa **lo que el vínculo hace** de una afirmación no discriminada sobre **de dónde proceden las almas**.
+
+---
+
+# Relación con las fuentes
+
+Los motivos son una gramática de ALMAS. Las fuentes entran después para interpretar dimensiones concretas.
+
+Comparanda frecuentes:
+
+- continuidad → `GILGUL`;
+- emparejamiento/coherencia bilateral → `ZIVUG` o `CONJUGIAL_PAIRING`;
+- recurrencia de raíz → `SOUL_ROOT` como comparación débil de origen;
+- simetría/complementariedad → `SPLIT_PRIMORDIAL_BEING` como antecedente comparativo;
+- polaridad + recurrencia + especificidad → `TWIN_FLAME_ORIGIN` sólo como modelo compatible mientras no exista discriminador validado;
+- misión → `MISSION_PREINCARNATIONAL`;
+- fenomenología de reconocimiento → `SOULMATE_EXPERIENCE` únicamente como experiencia documentada, no como score estructural.
+
+Las no-equivalencias del registro doctrinal prevalecen sobre cualquier semejanza narrativa.
+
+---
+
+# Criterio de cierre interpretativo
+
+Antes de finalizar una lectura, comprobar:
+
+1. ¿cada motivo importante se ha explicado mediante sus raíces concretas?
+2. ¿se ha descrito qué dinámica produce entre las personas?
+3. ¿se ha identificado una posible función evolutiva?
+4. ¿los motivos se han combinado entre sí, en vez de enumerarse?
+5. ¿las fuentes relevantes aparecen dentro del significado y no sólo en bibliografía?
+6. ¿se ha dicho una vez qué no demuestra la correspondencia?
+7. ¿la conclusión sigue siendo rica aunque la etiqueta ontológica quede abierta?
+
+Si las respuestas son afirmativas, el motivo ha sido transformado de feature técnica a contenido hermenéutico sin modificar su estatus epistemológico.

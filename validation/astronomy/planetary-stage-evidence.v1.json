@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.0.0",
+  "evidence_id": "ALMAS_ASTRONOMY_GOLDEN_PLANETARY_EVIDENCE_V1",
+  "policy_id": "ALMAS_ASTRONOMY_GOLDEN_VALIDATION_V1",
+  "case_set_id": "ALMAS_ASTRONOMY_GOLDEN_CASES_V1",
+  "validation_stage": "PLANETARY_REFERENCE",
+  "status": "PASS",
+  "executed_at": "2026-09-27T09:18:58Z",
+  "execution_commit": "ff9252dce9db6f1654fe52aeb3de3448f5371edc",
+  "github_actions": {
+    "run_id": 36308957538,
+    "artifacts": [
+      {
+        "python": "3.10",
+        "artifact_id": 10927668865,
+        "name": "astronomy-golden-planets-py3.10",
+        "size_in_bytes": 17923
+      },
+      {
+        "python": "3.12",
+        "artifact_id": 10927629039,
+        "name": "astronomy-golden-planets-py3.12",
+        "size_in_bytes": 17928
+      }
+    ]
+  },
+  "kernel": {
+    "filename": "de440s.bsp",
+    "family": "DE440",
+    "size_bytes": 32726016,
+    "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+    "md5": "3917ee56769db332790c751e2168843d"
+  },
+  "implementation": {
+    "software": "moira-astro",
+    "version": "6.8.2",
+    "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1"
+  },
+  "independent_reference": {
+    "software": "skyfield",
+    "version": "1.55",
+    "method_id": "ALMAS_SKYFIELD_DE440_PLANETARY_REFERENCE_V1"
+  },
+  "python_versions": [
+    "3.10",
+    "3.12"
+  ],
+  "measurements_per_environment": 180,
+  "reproducibility": {
+    "identical_summaries_across_python_versions": true,
+    "failure_count": 0,
+    "thresholds_modified_after_observation": false
+  },
+  "cases": [
+    {
+      "case_id": "G01_GREENWICH_1950",
+      "status": "PASS",
+      "max_delta_arcsec": 0.016725401019357378,
+      "max_by_metric": {
+        "planetary_longitude": {
+          "point_id": "JUPITER",
+          "delta_arcsec": 0.016725401019357378,
+          "tolerance_arcsec": 5
+        },
+        "ecliptic_latitude": {
+          "point_id": "PLUTO",
+          "delta_arcsec": 0.0007301996255648646,
+          "tolerance_arcsec": 5
+        },
+        "declination": {
+          "point_id": "JUPITER",
+          "delta_arcsec": 0.0038869866045843082,
+          "tolerance_arcsec": 10
+        }
+      }
+    },
+    {
+      "case_id": "G02_EQUATOR_1975",
+      "status": "PASS",
+      "max_delta_arcsec": 0.14105388897860394,
+      "max_by_metric": {
+        "planetary_longitude": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.14105388897860394,
+          "tolerance_arcsec": 15
+        },
+        "ecliptic_latitude": {
+          "point_id": "MERCURY",
+          "delta_arcsec": 0.0010628143261470768,
+          "tolerance_arcsec": 5
+        },
+        "declination": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.049659383152800274,
+          "tolerance_arcsec": 20
+        }
+      }
+    },
+    {
+      "case_id": "G03_ZARAGOZA_2000",
+      "status": "PASS",
+      "max_delta_arcsec": 0.17769243725069828,
+      "max_by_metric": {
+        "planetary_longitude": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.17769243725069828,
+          "tolerance_arcsec": 15
+        },
+        "ecliptic_latitude": {
+          "point_id": "PLUTO",
+          "delta_arcsec": 0.005371699744216585,
+          "tolerance_arcsec": 5
+        },
+        "declination": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.05468736581661915,
+          "tolerance_arcsec": 20
+        }
+      }
+    },
+    {
+      "case_id": "G04_SYDNEY_2025",
+      "status": "PASS",
+      "max_delta_arcsec": 0.025003318864946777,
+      "max_by_metric": {
+        "planetary_longitude": {
+          "point_id": "NEPTUNE",
+          "delta_arcsec": 0.025003318864946777,
+          "tolerance_arcsec": 5
+        },
+        "ecliptic_latitude": {
+          "point_id": "NEPTUNE",
+          "delta_arcsec": 0.0016202944058463231,
+          "tolerance_arcsec": 5
+        },
+        "declination": {
+          "point_id": "NEPTUNE",
+          "delta_arcsec": 0.011431014796325911,
+          "tolerance_arcsec": 10
+        }
+      }
+    },
+    {
+      "case_id": "G05_REYKJAVIK_2035",
+      "status": "PASS",
+      "max_delta_arcsec": 0.12027167281303264,
+      "max_by_metric": {
+        "planetary_longitude": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.12027167281303264,
+          "tolerance_arcsec": 15
+        },
+        "ecliptic_latitude": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.0013621379864048322,
+          "tolerance_arcsec": 15
+        },
+        "declination": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.01630180432243833,
+          "tolerance_arcsec": 20
+        }
+      }
+    },
+    {
+      "case_id": "G06_CAPE_TOWN_2050",
+      "status": "PASS",
+      "max_delta_arcsec": 0.9257480642418159,
+      "max_by_metric": {
+        "planetary_longitude": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.9257480642418159,
+          "tolerance_arcsec": 15
+        },
+        "ecliptic_latitude": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.02808679789545465,
+          "tolerance_arcsec": 15
+        },
+        "declination": {
+          "point_id": "MOON",
+          "delta_arcsec": 0.17055019846310415,
+          "tolerance_arcsec": 20
+        }
+      }
+    }
+  ],
+  "overall_max": {
+    "case_id": "G06_CAPE_TOWN_2050",
+    "metric": "planetary_longitude",
+    "point_id": "MOON",
+    "delta_arcsec": 0.9257480642418159,
+    "tolerance_arcsec": 15
+  },
+  "remaining_stages": [
+    "TRUE_NODE_REFERENCE",
+    "HOUSE_REFERENCE",
+    "COMPLETE_GATE"
+  ]
+}

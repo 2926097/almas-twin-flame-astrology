@@ -1,0 +1,335 @@
+# Contrato común de ejecución modular ALMAS
+
+## Objeto
+
+Este documento define el contrato operativo común para convertir la arquitectura M00–M31 en módulos ejecutables sin alterar la regla de **una única skill pública modular**.
+
+La existencia de una etapa en el manifiesto no equivale a que exista ya un motor Python completo. El registro `manifests/execution-registry.json` separa explícitamente especificación, lógica reutilizable e implementación ejecutable.
+
+## Entrada común
+
+Todo handler recibe un `ModuleContext` con:
+
+- `module_id`;
+- `module_name`;
+- `mode`;
+- `raw_input`;
+- `canonical_snapshot`;
+- `prior_results`.
+
+El snapshot canónico debe tratarse como inmutable. El módulo devuelve cambios; no modifica el estado compartido directamente.
+
+## Salida común
+
+Todo handler devuelve `ModuleResult` con:
+
+- `module_id`;
+- `status`;
+- `payload`;
+- `canonical_updates`;
+- `evidence_refs`;
+- `limitations`;
+- `diagnostics`.
+
+Los estados de ejecución son:
+
+- `COMPLETED`: el módulo se ejecutó y puede producir actualizaciones canónicas;
+- `SKIPPED`: la etapa fue omitida por una regla explícita de ejecución;
+- `NOT_APPLICABLE`: la etapa no corresponde al caso o modo;
+- `NOT_EVALUABLE`: faltan datos, cálculo o implementación suficiente;
+- `FAILED`: se produjo un error operativo.
+
+Estos estados son **estados de ejecución** y no sustituyen los estados epistemológicos `SUPPORTED`, `COMPATIBLE`, `INSUFFICIENT`, `CONTRADICTED` y `NOT_EVALUABLE` utilizados en ontología y diagnóstico diferencial.
+
+## Propiedad del estado canónico
+
+Cada actualización canónica reclama un namespace de primer nivel. Una vez que un módulo lo ha escrito, otro módulo no puede sobrescribirlo silenciosamente.
+
+Esta regla implementa el invariante:
+
+> un módulo no recalcula ni sustituye de forma silenciosa valores canónicos producidos por otro.
+
+Las transformaciones legítimas deben escribir un nuevo namespace derivado o introducirse mediante una regla explícita futura con genealogía de procedencia.
+
+## Orquestador
+
+`src/almas_tfa/orchestrator.py` valida que el manifiesto FULL contenga exactamente M00–M31 en orden.
+
+El orquestador:
+
+1. recorre la secuencia declarada;
+2. construye un contexto inmutable para cada etapa;
+3. ejecuta únicamente handlers registrados;
+4. marca como `NOT_EVALUABLE` las etapas todavía sin implementación;
+5. acumula resultados y estado canónico;
+6. registra la propiedad de cada namespace;
+7. bloquea sobrescrituras intermodulares;
+8. puede detenerse ante el primer fallo cuando `stop_on_failure=True`.
+
+Por diseño, el primer esqueleto no finge que las 32 etapas están implementadas.
+
+## Relación con canonical_analysis.json
+
+El orquestador es infraestructura de ejecución. No sustituye `schemas/canonical-analysis.schema.json`.
+
+Cuando estén implementados los handlers suficientes, determinados módulos publicarán namespaces canónicos que podrán ensamblarse y validarse contra `canonical-analysis.schema.json`.
+
+Hasta entonces debe distinguirse:
+
+Desde 1.13, una ejecución configurada con backends puede ensamblar `canonical_analysis` automáticamente antes de M30. En 1.14 la completitud se evalúa además contra `ALMAS_ANALYSIS_PROFILES_V1`: un módulo requerido ausente degrada; un módulo opcional o excluido no degrada por sí mismo. `READY` significa completitud del perfil, no demostración metafísica.
+
+## Política de implementación
+
+La secuencia recomendada es:
+
+`contrato común → orquestador → adaptadores de lógica existente → cálculo/evidencia → ontología → contrato → temporalidad → reporting`.
+
+No se modifican en este paso fórmulas, pesos, umbrales, modelos ontológicos ni discriminadores.
+
+## Adaptadores y motores cuantitativos
+
+La capa ejecutable conserva las fórmulas públicas y, desde la evolución 1.13,
+cierra varias entradas que en 1.12 debían llegar precomputadas:
+
+- `M17` deriva fuerza de raíz mediante la política congelada
+  `ALMAS_ROOT_STRENGTH_BASELINE_V1`;
+- `M18` deriva pilares desde raíces canónicas mediante
+  `ALMAS_ROOT_PILLAR_ATTRIBUTION_V1`, conservando adaptadores legacy sólo si
+  no existen raíces evaluables;
+- `M19` reutiliza `score_model` y `supported_gate` sin alterar la fórmula
+  de IEM;
+- `M21` deriva atribuciones Shapley desde `IEM_pre` mediante
+  `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V1` y calcula IDD por Jensen–Shannon;
+- `M25` reutiliza `robustness_index` sobre componentes preregistrados.
+
+Las políticas Q1–Q3 son `E_PROJECT_HYPOTHESIS` o baseline metodológica según
+corresponda. No son doctrina ni validación ontológica.
+
+## Frontera de M02 · carta natal
+
+`src/almas_tfa/astrology_backend.py` define un protocolo `AstrologyBackend` y una solicitud `NatalRequest`. `src/almas_tfa/astrology_handlers.py` aporta `make_m02_natal(backend)`.
+
+Esta frontera permite probar y sustituir el motor astronómico sin acoplar el núcleo ALMAS a una dependencia concreta. Una carta sin hora conserva posiciones que el backend pueda calcular, pero el handler registra explícitamente que casas y ángulos no deben tratarse como fiables.
+
+El registro de ejecución marca M02 como `BACKEND_REQUIRED`: la interfaz y el handler existen, pero todavía no se ha incorporado un backend astronómico de producción.
+
+## M03 y M04 · geometría relacional y contexto natal
+
+`M03` calcula sinastría geométrica únicamente cuando la entrada proporciona una `aspect_policy` con ángulo y orbe de cada aspecto. No existen orbes implícitos en el motor. La salida conserva distancia angular, orbe, límite y exactitud, pero no transforma por sí sola un contacto en evidencia ontológica. Desde 1.17, `ALMAS_DECLARED_ORB_CONTRACT_V1` y `schemas/aspect-policy.schema.json` formalizan esta regla y `match_declared_aspect` valida el contrato antes del cálculo.
+
+`M04` deriva signos, identifica nodos por `point_type=NODE`, conserva ángulos, sitúa puntos en casas utilizando exclusivamente las doce cúspides suministradas por el backend y calcula regencias sólo cuando se declara una `rulership_policy`. De este modo no se impone por defecto una escuela tradicional, moderna o híbrida de regencias.
+
+Los contratos de salida están en `schemas/synastry-output.schema.json` y `schemas/natal-context-output.schema.json`.
+
+## M05 y M06 · declinaciones y simetrías
+
+`M05` calcula paralelos mediante `|dec_A-dec_B|` y contra-paralelos mediante `|dec_A+dec_B|`. Requiere `declination_policy` con los orbes aplicables; no existe orbe implícito.
+
+`M06` calcula el antiscio como `(180°-λ) mod 360°` y el contra-antiscio como el punto opuesto al antiscio. Requiere `antiscia_policy` con los orbes declarados. La salida registra geometría y exactitud; su conversión en evidencia pertenece a M15–M17.
+
+## M07 y M08 · cartas relacionales
+
+`M07` implementa una compuesta de puntos medios sobre los puntos compartidos de ambas cartas. Requiere `composite_policy.midpoint_mode=SHORTEST_ARC`. Una oposición exacta no se resuelve silenciosamente: `opposition_tie_break` puede quedar en `NOT_EVALUABLE` o declarar expresamente una de las dos soluciones.
+
+`M08` dispone de contrato y handler inyectable mediante `DavisonBackend`. Desde 1.18 `MoiraProductionBackend` implementa también este contrato y M08 pasa a `EXECUTABLE_HANDLER`. Para evitar geocodificación implícita exige hora, zona horaria y coordenadas numéricas de ambos sujetos, además de una `davison_policy` registrada. El adaptador fija midpoint temporal UTC y midpoint geográfico esférico; cualquier política incompatible devuelve `NOT_EVALUABLE`.
+
+## M10–M12 · capa dracónica
+
+`M10` exige una `draconic_policy` que identifique el nodo norte mediante `node_id` y declare `transform=NORTH_NODE_TO_ZERO`. La transformación aplicada a cada longitud es `(λ-nodo_norte) mod 360°`. Ángulos y cúspides sólo se transforman cuando la política activa expresamente `include_angles` o `include_houses`.
+
+`M11` calcula los cruces natal A↔dracónica B y natal B↔dracónica A utilizando una `draconic_aspect_policy` declarada. `M12` calcula dracónica↔dracónica y marca la salida `corroborative_only=true`, conforme a la regla de independencia de ALMAS.
+
+## M13 · lotes helenísticos / partes arábigas
+
+`M13` es un evaluador declarativo de fórmulas. Una `lot_policy` explícita conserva prioridad. Si no existe, 1.14 aplica `ALMAS_HELLENISTIC_LOTS_V1`, limitada a Fortuna y Espíritu con inversión diurna/nocturna documentada. El sect se toma de entrada explícita cuando existe y, como fallback operativo, de la posición por casa del Sol respecto del horizonte.
+
+La forma general soportada es `base + Σ(add) - Σ(subtract)`, normalizada a 0–360°. La baseline histórica es técnica documentada, no validación empírica ni discriminador ontológico.
+
+## M14 · capa simbólica secundaria
+
+`M14` sólo procesa `point_ids` expresamente declarados en `secondary_symbolic_policy`. La política debe contener `support_only=true`; cualquier intento de desactivarlo se rechaza. Los contactos se calculan con una política de aspectos propia y quedan etiquetados individualmente como `support_only`.
+
+## M15–M17 · grafo de evidencia y raíces independientes
+
+`M15` normaliza contactos de las capas ejecutables en un grafo de evidencia. No asigna todavía fuerza final: `strength_policy_applied=false`. Cada elemento conserva módulo de origen, familia técnica, familia de dependencia, condición `support_only`, elegibilidad para núcleo, exactitud y `root_key`. Desde 1.17, estos metadatos proceden de `ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1`; M15 publica el `technique_dependency_registry_id` utilizado y ya no contiene una tabla local de taxonomía.
+
+`M16` deduplica dentro de la misma `dependency_family + root_key`, reteniendo de forma determinista la observación de mayor exactitud y conservando las suprimidas con su razón. Los pares ASC/DSC, MC/IC, NN/SN y Vertex/Anti-Vertex se normalizan como ejes para impedir inflar evidencia equivalente; en aspectos angulares, 0°/180° y 60°/120° se reducen por simetría del eje.
+
+`M17` agrupa la evidencia deduplicada en raíces estructurales conservadoras.
+Separa `core_evidence_ids` de `support_evidence_ids`, conserva
+`point_ids`/`relation_ids` normalizados y aplica
+`ALMAS_ROOT_STRENGTH_BASELINE_V1`:
+
+`S = F × technique_reliability × birth_time_factor × aspect_coefficient`.
+
+La baseline Q1 mantiene coeficientes neutros 1.0 hasta que exista calibración
+externa preregistrada. Una raíz con evidencia core adopta el máximo S de sus
+miembros core deduplicados. Las capas `support_only` pueden conservar fuerza
+diagnóstica pero no convierten la raíz en core. La sensibilidad horaria se
+reserva a M23–M25 para evitar doble penalización.
+
+## M18–M21 · pilares, IEM y discriminación
+
+`M18` prioriza `independent_roots` canónicas. La política
+`ALMAS_ROOT_PILLAR_ATTRIBUTION_V2` asigna a cada raíz un único pilar semántico primario entre PK/PT/PE/PR/PA. PX y PS se derivan después mediante `ALMAS_SEMANTIC_MOTIF_V2`: el `root_key` no se reescribe, las raíces se agrupan por motivo semántico y cada familia de dependencia cuenta una sola vez por motivo. RELCHART continúa siendo una sola familia; las capas `support_only` no pueden crear recurrencia core. PU permanece `NOT_EVALUABLE`.
+
+La ausencia sólo se convierte en cero cuando M03, M05, M06, M09 y M11 están
+todos `COMPLETED`. En cobertura incompleta se conserva `None` para impedir
+que missingness funcione como contraevidencia.
+
+`M19` aplica las fórmulas públicas de IEM sin cambios. Cuando ICE no está declarado, puede calcular `IEM_pre` si los pilares esenciales son evaluables, pero `ICE`, `IEM_final` y el gate `SUPPORTED` permanecen no evaluables. Si se declara `ice_by_model`, debe contener exactamente AF/KA/AG/LG; un mapa parcial es inválido y nunca se completa con ceros.
+
+`M21` usa desde 1.22 `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3`. Los únicos jugadores son raíces independientes core. Para cada coalición se recalculan PA/PK/PE/PR/PT y, crucialmente, se vuelve a construir el grafo semántico para derivar PX/PS sólo con las raíces presentes. Así los motivos conservan su valor como interacciones de orden superior pero nunca reciben una segunda identidad como jugador. Hasta 10 raíces se usa Shapley exacto; por encima se usan permutaciones antitéticas deterministas con control de convergencia. ICE, IEM_final, temporalidad y rareza nula quedan fuera de la función de valor. Las distribuciones se comparan por divergencia Jensen–Shannon para obtener IDD.
+
+IDD y la discriminación ontológica de M21 son capas independientes. Un IDD alto
+no autoriza por sí mismo una clasificación ontológica más específica.
+
+## M20 · contraevidencia
+
+`M20` acepta sólo `EXPLICIT_CONTRADICTION` y `STRUCTURAL_INCOMPATIBILITY`. La ausencia de datos no puede entrar como contraevidencia. Las contradicciones se deduplican por `modelo + dependency_family + contradiction_key`.
+
+Desde 1.22, M20 admite una fórmula autónoma explícita sin abandonar el firewall de missingness. Si la entrada contiene `ice_by_model`, exige un mapa completo AF/KA/AG/LG con valores finitos en [0,100] y lo conserva con `ice_state=PRECOMPUTED`. Si no existe mapa precomputado, sólo deriva ICE cuando `counterevidence_complete=true`. En ese estado cada contradicción retenida exige `severity` finita en [0,1]; tras la deduplicación por modelo+familia+clave, una misma `contradiction_key` observada en varias familias conserva la severidad máxima. Las claves distintas se agregan mediante `100 × (1 - Π(1-s_k))`, definido como operador de saturación y no como probabilidad. Con evaluación completa y sin contradicciones, ICE=0 es legítimo; sin declaración de completitud, ICE permanece `NOT_CALCULATED`. La contradicción esencial mantiene un gate categórico separado.
+
+## M22 · ablación estructural
+
+`M22` ejecuta AB0–AB8 sobre la evidencia deduplicada y las raíces independientes. Registra evidencia y raíces supervivientes/perdidas y una fracción de supervivencia por corrida. `AB7_TROPICAL_PLANETARY_CORE` conserva únicamente sinastría tropical entre luminarias/planetas principales; `AB8_INDIVIDUAL_ONLY` conserva sólo evidencia intrapersonal si existiera.
+
+La salida se marca `structural_only=true` y `dependency_classes_assigned=false`. Las clases contractuales CORE_STABLE, DRACONIC_DEPENDENT, RELCHART_SENSITIVE, etc., no se infieren automáticamente a partir de esta matriz hasta disponer de las unidades contractuales correspondientes.
+
+## M23–M25 · sensibilidad, modelos nulos y robustez
+
+`M23` dispone desde Q4 de dos rutas explícitas. Con backend natal y Davison
+inyectados, genera perturbaciones mediante
+`ALMAS_BIRTH_TIME_SENSITIVITY_V2`; sin esos requisitos puede conservar el adaptador legacy `time_sensitivity_summary`.
+
+La ruta automática calcula siempre una curva diagnóstica `R5/R15/R30/R60/R120` cuando existen hora, zona y localización. Si además ambos sujetos tienen `time_reliability` A/B/C/D documentada, ejecuta la parrilla agregada correspondiente y deriva:
+
+`delta90 = P90_nearest_rank(max |Δ IEM_pre|)`
+
+y
+
+`G = media de preservación de raíces core del baseline`.
+
+Aplica después exactamente:
+
+`R_X = exp(-delta90/20) × sqrt(G)`.
+
+La ruta automática falla cerrado si alguna muestra generada no puede recalcularse. Sin fiabilidad documentada, M23 puede quedar `COMPLETED` con curva diagnóstica pero `robustness_component=null`; M25 no inventa `BIRTH_TIME`. No usa ICE, IEM_final, temporalidad, modelos nulos ni IDD. La estabilidad de IDD se reserva a M25.
+
+`M24` admite dos rutas. Si la entrada contiene `null_model_runs`,
+evalúa esas corridas preregistradas como compatibilidad legacy y como vía para
+cohortes externas. Si no existen y se han inyectado backend natal y Davison,
+Q6 activa `ALMAS_NULL_WITHIN_YEAR_V1`.
+
+La ruta Q6 genera un nulo `WITHIN_YEAR` determinista: cada sujeto se perturba
+por separado mediante 32 fechas estratificadas dentro de su propio año,
+manteniendo hora, zona y localización, mientras el otro sujeto permanece fijo.
+Se recalcula la misma arquitectura estructural Q1/Q2 en cada muestra.
+
+Las estadísticas automáticas son `CORE_ROOT_COUNT`, `MAX_IEM_PRE` y
+`PX_PILLAR_SCORE`, reportadas por separado con frecuencia estructural e
+intervalo de Wilson. No existe combinación automática de p-values.
+
+Los tipos admitidos continúan siendo `MATCHED_AGE`, `WITHIN_YEAR`,
+`MATCHED_AGE_CLOCK`, `EPHEMERIS_DATE`, `PAIR_SHUFFLE`,
+`EVENT_DATE_SHIFT` y `TECHNIQUE_SPECIFIC_CYCLE`. Sin embargo, Q6 no
+inventa poblaciones externas: `PAIR_SHUFFLE`, `MATCHED_AGE` y
+`MATCHED_AGE_CLOCK` sólo pueden entrar mediante un pool externo trazable.
+
+Toda frecuencia M24 describe rareza estructural bajo el nulo declarado.
+`metaphysical_probability=false` y M24 permanece excluido de IRC.
+
+Desde la línea 1.15 S2, la ruta automática WITHIN_YEAR puede adjuntar
+`recurrence_calibration`. Esta subcapa compara los motivos semánticos y sus
+diagnósticos S1 contra las mismas muestras nulas: presencia, fuerza, diversidad
+de clases, dependencia dracónica, entropía, dominancia y supervivencia
+leave-one-out. El resultado es estrictamente `DIAGNOSTIC_ONLY`: no cambia
+PX/PS, IEM, IDD, IRC ni estados ontológicos y no autoriza weighting hasta que
+existan controles externos/holdout preregistrados.
+
+S3 añade `synthetic_recurrence_controls`. Esta segunda subcapa no usa
+efemérides nuevas ni RNG: rota de manera determinista las firmas semánticas
+entre las raíces core, o desacopla puntos y relaciones, preservando número de
+raíces, fuerzas y familias técnicas. Su frecuencia es una frecuencia finita
+dentro de la familia de controles declarada, no una probabilidad poblacional
+ni un p-value. S3 permanece fuera de PX/PS, IEM, IDD, IRC y ontología.
+
+`M25` es el único agregador canónico de robustez. Incorpora automáticamente `BIRTH_TIME` desde M23 porque su derivación está definida. Otros componentes deben declarar `id`, `kind`, `value`, `source_module`, `preregistration_ref` y `derivation_ref`.
+
+Tipos admitidos: `BIRTH_TIME`, `ABLATION`, `PARAMETER_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR`.
+
+`VALIDATED_DISCRIMINATOR` tiene un gate adicional: debe declarar `validation_level=L3_VALIDATED`, `source_module=M21` y un `root_key` que figure entre las raíces validadas de un par con `confirmatory_status=SEPARABLE_VALIDATED` en `ontological_discrimination`. L1 y L2 no pueden entrar en IRC, y un par L3 conflictivo tampoco autoriza el componente.
+
+Desde Q5, cuando se inyectan los backends estructurales y está activa
+`ALMAS_ROBUSTNESS_Q5_V1`, M25 deriva automáticamente tres componentes:
+
+- `ABLATION`: reconstruye IEM_pre sobre AB3–AB7 seleccionadas y combina
+  movimiento de IEM con preservación de raíces core;
+- `PARAMETER_PERTURBATION`: escala los orbes declarados por
+  0.90/0.95/1.05/1.10 y recalcula estructura;
+- `IDD_STABILITY`: recalcula Shapley e IDD sobre esas mismas perturbaciones y
+  mide estabilidad numérica y de bandas.
+
+Los componentes automáticos sustituyen al adaptador legacy del mismo `kind`;
+nunca se cuentan dos veces. Sin la política Q5 evaluable, M22 puede seguir
+figurando como `AVAILABLE_NOT_QUANTIFIED` y los componentes legacy
+preregistrados permanecen disponibles.
+
+M24 queda excluido del IRC mediante
+`null_model_rarity_used_as_robustness=false`.
+
+Desde 1.22 la agregación normativa controla dependencia entre componentes. `BIRTH_TIME` forma `TIME_INPUT`; `ABLATION` y `PARAMETER_PERTURBATION` forman `STRUCTURAL_PERTURBATION`; `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR` forman `DIAGNOSTIC_STABILITY`. Para cada grupo `j` se calcula `G_j = min(R_i del grupo)` y sólo esos mínimos entran en `IRC = 100 × geometric_mean(G_j)`. `R_min = min(applicable_R_i)` sigue evaluando todos los componentes individuales. Esta regla impide que varias métricas correlacionadas de una misma perturbación cuenten como réplicas independientes.
+
+La salida canónica está definida por `schemas/robustness-output.schema.json`.
+
+## M26 y M27 · activación temporal y hechos documentales
+
+`M26` exige señales con familia temporal, intensidad y estado de ventana. Sólo una señal que referencia un `root_id` existente puede quedar anclada. Los coeficientes normativos permanecen: 1.00 para repetición directa, 0.90 para activación de raíz relacional, 0.70 para endpoint y 0 para señal no anclada.
+
+Cada señal conserva `structural_family`, `exactitude_orb` y `preregistered_window_rule`. Una señal sólo es `iat_eligible=true` cuando está anclada, preregistrada, posee trazabilidad completa, no es `EXPLORATORY/UNANCHORED` y su fuerza efectiva es mayor que cero.
+
+Dentro de una misma raíz/familia temporal se conserva únicamente la señal de mayor `effective_strength = strength × K`. La recurrencia temporal se registra sólo cuando una misma raíz aparece en dos o más familias temporales independientes; repetir fechas del mismo ciclo no crea familias nuevas.
+
+IAT puede calcularse únicamente si existe `iat_aggregation_policy` con `preregistration_ref`, `window_scope_ref`, pesos por familia, pesos por raíz y `formula=WEIGHTED_MEAN_EFFECTIVE_STRENGTH`. La operacionalización usada es:
+
+`IAT = 100 × Σ(w_i × effective_strength_i) / Σ(w_i)`
+
+con `w_i = family_weight × root_weight`.
+
+Si la política no existe, IAT permanece `NOT_CALCULATED`. Si la política existe pero omite el peso de una señal elegible, la ejecución se rechaza en lugar de ignorarla silenciosamente.
+
+M26 fija `structural_score_modified=false`, `structural_roots_created=false` y `real_world_event_prediction_made=false`. Una ventana futura sólo describe activación potencial de una raíz; no autoriza inferir contacto, mensaje, reconciliación, separación, decisión, consentimiento, reunión o cierre.
+
+`M27` consume `documentary_event_ledger` con `analysis_freeze_ref` y aplica la secuencia `ESTRUCTURA_CONGELADA → EVENTO_DOCUMENTADO → FUNCIÓN_PROBATORIA`. Valida IDs únicos, sujetos, precisión temporal, calidad documental declarada, privacidad, referencias a raíces/cláusulas y correcciones append-only. Una corrección nunca borra el registro anterior: éste queda `SUPERSEDED` y conserva `superseded_by_event_id`.
+
+La coherencia de `date_precision` se audita sin inventar fechas. DQ1 exige al menos una referencia documental y DQ3 al menos dos referencias para sostener la etiqueta declarada; si el respaldo mínimo no existe, la calidad original se conserva pero se registra una incidencia en `documentary_quality_issues`. La independencia de fuentes para DQ3 sólo se marca `DECLARED` cuando la entrada la declara expresamente; de otro modo permanece `NOT_VERIFIED`.
+
+Los roles `ACTIVATION_CORROBORATION`, `FULFILLMENT_EVIDENCE` y `COUNTEREVIDENCE` disponen de trazabilidad de destino. Corroborar activación exige una raíz o cláusula resuelta; cumplimiento exige cláusula resuelta; contraevidencia exige destino resuelto o `counterevidence_effect`. Los demás roles pueden documentar viabilidad, reciprocidad, fenomenología o contexto sin crear estructura.
+
+M27 audita también los `event_refs` procedentes de M26 y separa enlaces resueltos de referencias temporales sin evento documental. Sólo `PUBLIC_VERIFIABLE` y `SYNTHETIC` son exportables públicamente; `PRIVATE_AUTHORIZED` y `PRIVATE_RESTRICTED` permanecen restringidos.
+
+El firewall documental queda fijado en `structural_mutation_allowed=false`, `clause_creation_allowed=false`, `origin_elevation_allowed=false` y `astrology_backfill_allowed=false`. Cada evento replica estos límites. `fact_statement` e `interpretations` permanecen separados.
+
+`analysis_freeze_ref` es obligatorio y se conserva, pero la salida declara `analysis_freeze_reference_verified=false` mientras no exista un registro canónico ejecutable de congelación; M27 no simula esa verificación.
+
+## M09 · consonancia de cartas relacionales
+
+`M09` compara puntos homólogos entre compuesta y Davison únicamente bajo una `relationship_chart_consonance_policy` explícita. Toda observación estructural pertenece a una única familia de dependencia `RELCHART`. El módulo no define una puntuación global de consonancia: `consonance_score=null` y `score_state=NOT_DEFINED` mientras no exista una regla preregistrada.
+
+Para autoría, `field_context` conserva posiciones, signos, ángulos y aspectos internos de cada carta relacional. También puede derivar contactos `posición↔ángulo` usando exclusivamente los `point_ids` y la misma `aspect_policy` ya declarados. Estos contactos permanecen `authoring_only=true`, no se añaden a `contacts`, no llegan a M15 y no crean raíces ni peso estructural.
+
+## M28–M31 · doctrina, realidad factual y publicación
+
+`M28` vive en `src/almas_tfa/doctrine_handlers.py` y aplica el gate doctrinal/hermenéutico. Toda afirmación usa `schema_version=2.0.0`, una clase A–E y un `claim_scope` compatible. `DIRECT_DOCTRINE` sólo puede pertenecer a `C_DOCTRINE` y exige una fuente P1 doctrinal primaria verificada, ancla citada, `source_support_refs` hacia `supports[]` y `does_not_support_checked=true`. `ACADEMIC_DESCRIPTION` exige fuente P2 académica anclada y permanece descripción académica. `D_CONTEMPORARY_USAGE` documenta uso vivo sin promoverlo a ontología. `E_PROJECT_HYPOTHESIS` conserva alternativas y nunca puede presentarse como doctrina directa. Las comparaciones históricas/analógicas no autorizan identidad doctrinal. Cuando se solicita identidad entre conceptos debe declararse `identity_target_concept_id`; una relación genealógica de no equivalencia bloquea esa identidad. M28 fija `doctrine_adds_structural_score=false`, `source_count_used_as_structural_weight=false`, `contemporary_usage_promoted_to_ontology=false`, `project_hypothesis_promoted_to_doctrine=false` y `cross_tradition_identity_inferred=false`. Su salida canónica está definida por `schemas/doctrine-hermeneutics-output.schema.json`.
+
+`M29` vive en `src/almas_tfa/reality_handlers.py` y valida `REAL_VIABILITY` y `RECIPROCITY` exclusivamente desde hechos M27. Toda evaluación declara `assessment_ref`, `as_of_date` y exactamente dos sujetos. Un estado de viabilidad distinto de `UNKNOWN` necesita `viability_basis`; una reciprocidad distinta de `NOT_EVALUABLE` necesita `reciprocity_basis`. Cada base declara `event_id`, `basis_kind`, `observation_type` y `subject_ids`. Sólo son decisivos eventos `ACTIVE`, con rol factual correcto, contratos documental/temporal válidos, separación hecho/interpretación y calidad DQ1/DQ2/DQ3. La base conjunta debe cubrir a ambos sujetos; la ausencia de evidencia de una parte nunca se transforma en asimetría. `DOCUMENTED_SEPARATION` exige un evento `SEPARATION` y `DOCUMENTED_NO_CONTACT` exige `NO_CONTACT`. M29 fija `factual_basis_only=true` y mantiene en `false` el uso de astrología/metafísica como hecho, la inferencia desde PHASE/fenomenología, el uso de ausencia como asimetría y cualquier inferencia de estados mentales, consentimiento, fidelidad o decisiones futuras. Los contratos están en `schemas/viability-reciprocity-assessment.schema.json` y `schemas/viability-reciprocity-output.schema.json`.
+
+`M30` vive en `src/almas_tfa/report_gate_handlers.py` y es el firewall de integridad entre `canonical_analysis` y el informe. En la ejecución configurada 1.13, si no existe un canonical explícito, `ALMAS_CANONICAL_ASSEMBLY_V1` lo ensambla primero desde los namespaces M01–M29 ya calculados. El ensamblador no recalcula astrología, raíces ni pilares y deriva ICC mediante siete dominios de cobertura q=0/0.5/1.
+
+Un `canonical_analysis` suministrado explícitamente conserva prioridad y nunca se sobrescribe. El gate distingue `READY`, `PARTIAL` y `BLOCKED`; bloquea conflicto raw/snapshot, schema o modo inválidos, modelos FULL ausentes, estados/IEM incompatibles, afirmaciones positivas sin evidencia y cualquier módulo previo `FAILED`. Degrada a `PARTIAL` los modos TARGETED/TEMPORAL, ausencia de traza y módulos `NOT_EVALUABLE`/`SKIPPED`. `NOT_APPLICABLE` no degrada por sí mismo. Todo canonical evaluado recibe `canonical_fingerprint` SHA-256 determinista. M30 fija `canonical_values_mutated=false` y el gate no corrige ningún valor.
+
+`M31` vive en `src/almas_tfa/report_model_handlers.py` y cierra el pipeline analítico M00–M31. Sólo se ejecuta cuando M30 es `READY` o `PARTIAL` y exige el `canonical_fingerprint` del gate. Recalcula el SHA-256 del `canonical_analysis`; cualquier cambio posterior a M30 provoca rechazo. El `report_document_model` contiene exactamente once secciones ordenadas, sus rutas obligatorias/opcionales, disponibilidad y clases epistemológicas permitidas. Cuando existe `ontological_discrimination`, S01/S03/S06/S10 conservan su ruta canónica y S08/S11 conservan `ontological_discrimination.promotion_trace`. Los estados de sección son `READY`, `PARTIAL` o `NOT_AVAILABLE`. M31 hereda `degradation_reasons` y exige disclosure cuando el gate es `PARTIAL`. No incrusta valores (`canonical_values_embedded=false`), no genera narrativa (`prose_generated=false`), no modifica el canonical, no selecciona perfil de renderizado y no crea DOCX/PDF ni ejecuta preflight. La publicación material comienza después de M31. Su salida canónica está definida por `schemas/report-document-model.schema.json`.
+
+## Ejecución FULL sintética M00–M31
+
+`configured_handlers(astrology_backend=..., davison_backend=...)` permite inyectar explícitamente los backends de M02 y M08 sobre el registro estándar. La prueba `tests/test_full_pipeline.py` ejecuta las 32 etapas en orden con entradas sintéticas declaradas y exige estado `COMPLETED` para M00–M31, además de verificar que el modelo documental no modifique la verdad canónica.

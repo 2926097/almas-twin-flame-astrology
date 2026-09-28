@@ -1,0 +1,56 @@
+{
+  "registry_version": "1.0.0",
+  "tasks": [
+    "IT_AUTONOMIA",
+    "IT_VINCULO",
+    "IT_CONFIANZA",
+    "IT_VULNERABILIDAD",
+    "IT_LIMITES",
+    "IT_VERDAD",
+    "IT_COMUNICACION",
+    "IT_PODER",
+    "IT_ENTREGA",
+    "IT_RESPONSABILIDAD",
+    "IT_ENCARNACION",
+    "IT_REPARACION",
+    "IT_SERVICIO",
+    "IT_INTEGRACION",
+    "IT_LIBERACION",
+    "IT_MISION_INDIVIDUAL",
+    "IT_INDETERMINADA"
+  ],
+  "discriminators": [
+    {
+      "id": "ITD1_PREEXISTING_VS_PARTNER_INDUCED",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD2_PRIMARY_VS_SECONDARY",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD3_INDIVIDUAL_VS_SHARED",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD4_REPAIR_VS_GROWTH",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD5_SERVICE_VS_RELATIONAL",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD6_STABLE_VS_PHASE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD7_ANGLE_DEPENDENCE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ITD8_UNIQUE_TASK",
+      "status": "NOT_VALIDATED"
+    }
+  ]
+}

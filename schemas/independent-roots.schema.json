@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/independent-roots.schema.json",
+  "title": "ALMAS · Raíces independientes",
+  "type": "object",
+  "required": [
+    "roots",
+    "root_count",
+    "strength_policy_applied",
+    "strength_policy_id"
+  ],
+  "properties": {
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "root_id",
+          "root_key",
+          "evidence_ids",
+          "dependency_families",
+          "independent_family_count",
+          "core_eligible",
+          "core_evidence_ids",
+          "support_evidence_ids",
+          "point_ids",
+          "relation_ids",
+          "concrete_contacts",
+          "max_exactness",
+          "strength",
+          "strength_state",
+          "policy_id",
+          "aggregation"
+        ],
+        "properties": {
+          "root_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "dependency_families": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "independent_family_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "core_eligible": {
+            "type": "boolean"
+          },
+          "core_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "support_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "point_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "relation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "max_exactness": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "strength": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "strength_state": {
+            "enum": [
+              "CALCULATED_CORE",
+              "CALCULATED_SUPPORT_ONLY",
+              "NOT_EVALUABLE"
+            ]
+          },
+          "dominant_evidence_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_strengths": {
+            "type": "array"
+          },
+          "policy_id": {
+            "const": "ALMAS_ROOT_STRENGTH_BASELINE_V1"
+          },
+          "aggregation": {
+            "const": "MAX_CORE_EVIDENCE"
+          },
+          "concrete_contacts": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": [
+                "evidence_id",
+                "source_module",
+                "dependency_family",
+                "directional",
+                "subject_a",
+                "point_a",
+                "subject_b",
+                "point_b",
+                "relation_id",
+                "layer_a",
+                "layer_b",
+                "exactness"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_module": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dependency_family": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "directional": {
+                  "type": "boolean"
+                },
+                "subject_a": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "point_a": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "subject_b": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "point_b": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relation_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "layer_a": {
+                  "type": "string"
+                },
+                "layer_b": {
+                  "type": "string"
+                },
+                "exactness": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "root_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "strength_policy_applied": {
+      "const": true
+    },
+    "strength_policy_id": {
+      "const": "ALMAS_ROOT_STRENGTH_BASELINE_V1"
+    }
+  },
+  "additionalProperties": false
+}

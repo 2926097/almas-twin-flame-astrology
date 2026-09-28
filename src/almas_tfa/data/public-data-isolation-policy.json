@@ -1,0 +1,104 @@
+{
+  "policy_id": "ALMAS_PUBLIC_DATA_ISOLATION_V1",
+  "policy_version": "1.0.0",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "repository_mode": "PUBLIC",
+  "allowed_public_classifications": [
+    "SYNTHETIC",
+    "PUBLIC_VERIFIABLE",
+    "PUBLIC_METADATA_ONLY"
+  ],
+  "forbidden_public_classifications": [
+    "PRIVATE_CASE",
+    "PSEUDONYMIZED_PRIVATE",
+    "PRIVATE_HOLDOUT",
+    "CONFIDENTIAL"
+  ],
+  "governed_scopes": {
+    "examples": {
+      "root": "examples",
+      "manifest": "examples/manifest.json",
+      "allowed_classifications": [
+        "SYNTHETIC"
+      ]
+    },
+    "public_cases": {
+      "root": "public_cases",
+      "manifest": "public_cases/manifest.json",
+      "allowed_classifications": [
+        "PUBLIC_VERIFIABLE"
+      ]
+    },
+    "public_holdouts": {
+      "root": "validation/holdouts",
+      "manifest": "validation/holdouts/manifest.json",
+      "allowed_classifications": [
+        "SYNTHETIC",
+        "PUBLIC_VERIFIABLE",
+        "PUBLIC_METADATA_ONLY"
+      ]
+    }
+  },
+  "forbidden_repository_paths": [
+    "private_cases",
+    "local_cases",
+    ".almas-private",
+    "private_holdouts",
+    "validation/private",
+    "holdouts/private",
+    "data/private"
+  ],
+  "forbidden_public_payload_keys": [
+    "private_case",
+    "private_case_data",
+    "private_message",
+    "private_messages",
+    "private_correspondence",
+    "private_birth_data",
+    "private_event",
+    "private_events",
+    "private_report",
+    "private_notes",
+    "private_source",
+    "confidential_payload",
+    "medical_record"
+  ],
+  "synthetic_requirements": {
+    "contains_real_person_data": false,
+    "contains_nonpublic_material": false,
+    "derived_from_private_case": false,
+    "reversible_from_private_case": false,
+    "public_source_refs": []
+  },
+  "public_verifiable_requirements": {
+    "contains_nonpublic_material": false,
+    "derived_from_private_case": false,
+    "reversible_from_private_case": false,
+    "independently_verifiable": true,
+    "require_public_source_refs": true
+  },
+  "private_holdout_policy": {
+    "may_exist_outside_repository": true,
+    "may_be_committed": false,
+    "public_repository_may_store": [
+      "opaque_external_reference",
+      "aggregate_nonidentifying_metrics",
+      "preregistered_protocol_reference"
+    ],
+    "public_repository_must_not_store": [
+      "raw_private_inputs",
+      "private_birth_data",
+      "private_messages",
+      "private_event_history",
+      "case_level_private_outputs",
+      "reversible_hash_of_raw_personal_data"
+    ]
+  },
+  "principles": [
+    "La pseudonimización no convierte un caso privado en publicable.",
+    "Un fixture sintético no puede ser una perturbación ligera ni una codificación reversible de un caso privado.",
+    "Un caso real sólo puede publicarse si los datos relevantes ya son públicos e independientemente verificables.",
+    "La validación sobre holdouts privados puede ejecutarse fuera del repositorio, pero sus datos de caso no se publican.",
+    "PRIVACY_BREACH invalida el uso público del artefacto afectado."
+  ]
+}

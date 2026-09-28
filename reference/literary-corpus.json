@@ -1,0 +1,150 @@
+{
+  "corpus_version": "1.0.0",
+  "purpose": "Trazar la transmisión literaria y simbólica de motivos de pareja de almas, afinidad espiritual, amor destinado, división/reunión y relación metafísica sin tratar la literatura como doctrina.",
+  "rules": [
+    "La evidencia literaria puede establecer terminología, motivos, recepción y genealogía.",
+    "La evidencia literaria no establece por sí sola doctrina ni ontología metafísica.",
+    "Un motivo literario no puede crear una regla astrológica.",
+    "Se prefiere la evidencia textual directa frente a los resúmenes.",
+    "Cuando autoría o datación sean discutidas, conservar explícitamente la incertidumbre."
+  ],
+  "works": [
+    {
+      "id": "plato_symposium_aristophanes_literary",
+      "author": "Plato",
+      "work": "Symposium",
+      "date_note": "siglo IV a. C.",
+      "source_role": "PHILOSOPHICAL_LITERARY_ANTECEDENT",
+      "locator": "189c-193d",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "motifs": [
+        "división de una totalidad original",
+        "búsqueda de la mitad perdida",
+        "reconocimiento/reunión"
+      ],
+      "relevance": "Antecedente antiguo principal de imágenes posteriores de media alma.",
+      "caution": "El discurso es un mito dramático/filosófico dentro del diálogo de Platón, no una doctrina moderna de llamas gemelas."
+    },
+    {
+      "id": "dante_vita_nuova_1294",
+      "author": "Dante Alighieri",
+      "work": "La Vita Nuova",
+      "date": "c.1294",
+      "source_role": "LITERARY_MYSTICAL_PRIMARY",
+      "url": "https://www.gutenberg.org/ebooks/41085",
+      "motifs": [
+        "reconocimiento",
+        "amada idealizada",
+        "amor como transformación espiritual",
+        "amada como mediadora hacia la realidad divina"
+      ],
+      "relevance": "Ejemplo literario occidental importante del amor humano convertido en vehículo de ascenso y transformación espiritual.",
+      "caution": "No debe reinterpretarse automáticamente a Beatriz como alma gemela, llama gemela o doctrina de contrato prenatal."
+    },
+    {
+      "id": "goethe_elective_affinities_1809",
+      "author": "Johann Wolfgang von Goethe",
+      "work": "Die Wahlverwandtschaften / Elective Affinities",
+      "date": "1809",
+      "source_role": "LITERARY_PRIMARY",
+      "url": "https://www.gutenberg.org/ebooks/10604",
+      "motifs": [
+        "afinidad",
+        "atracción como ley cuasinatural",
+        "conflicto entre forma social y vínculo imperioso"
+      ],
+      "relevance": "Metáfora literaria influyente de la afinidad relacional mediante la analogía de la atracción química.",
+      "caution": "No es una doctrina de reencarnación ni de contrato álmico."
+    },
+    {
+      "id": "coleridge_soul_mate_1822",
+      "author": "Samuel Taylor Coleridge",
+      "work": "Letter to a Young Lady / later collected correspondence",
+      "date": "1822",
+      "source_role": "LEXICAL_LITERARY_HISTORY",
+      "secondary_locator": "https://www.etymonline.com/word/soulmate",
+      "motifs": [
+        "soul-mate",
+        "compatibilidad espiritual en el matrimonio"
+      ],
+      "relevance": "Primera atestiguación inglesa ampliamente citada de 'soul mate' identificada actualmente en historias léxicas estándar.",
+      "verification_status": "PRIMARY_EDITION_LOCATOR_PENDING",
+      "caution": "La acuñación léxica no establece una doctrina de alma escindida ni de reencarnación."
+    },
+    {
+      "id": "corelli_romance_two_worlds_1886_literary",
+      "author": "Marie Corelli",
+      "work": "A Romance of Two Worlds",
+      "date": "1886",
+      "source_role": "LITERARY_ESOTERIC_PRIMARY",
+      "url": "https://www.gutenberg.org/ebooks/4394",
+      "direct_text_markers": [
+        "Twin Flame",
+        "Twin-Flame",
+        "Twin-Flames",
+        "Twin Soul",
+        "half a flame that seeks the other half"
+      ],
+      "motifs": [
+        "alma dual",
+        "media llama",
+        "contraparte espiritual",
+        "reunión post mortem",
+        "afinidad espiritual"
+      ],
+      "relevance": "Fuente victoriana documentada principal para el vocabulario exacto twin-flame y twin-soul anterior a enseñanzas institucionalizadas del siglo XX.",
+      "caution": "Tratarla como transmisión literario-esotérica, no como doctrina institucional; no afirmar prioridad absoluta sin una investigación de corpus más amplia."
+    },
+    {
+      "id": "mackay_twin_soul_1887_literary",
+      "author": "Charles Mackay (atribución tradicional; posible colaboración de Marie Corelli)",
+      "work": "The Twin Soul; or, The Strange Experiences of Mr. Rameses",
+      "date": "1887",
+      "source_role": "LITERARY_PRIMARY",
+      "url": "https://openlibrary.org/works/OL2987304W/The_twin_soul_or_The_strange_experiences_of_Mr._Rameses",
+      "motifs": [
+        "twin soul",
+        "romance ocultista victoriano",
+        "vocabulario de almas emparejadas"
+      ],
+      "relevance": "Demuestra circulación victoriana tardía explícita de 'twin soul' como título y motivo literario.",
+      "authorship_note": "Dobson y Turner (2025) sostienen que Mackay es probablemente el autor principal, aunque encuentran evidencia compatible con colaboración de Corelli.",
+      "caution": "La autoría no está completamente resuelta; el hecho relevante es la circulación literaria."
+    }
+  ],
+  "research_queue": [
+    {
+      "area": "Corpus literario sufí",
+      "targets": [
+        "Rumi / Shams",
+        "imaginería amorosa de Ibn Arabi"
+      ],
+      "requirement": "Usar texto primario y comentario académico; separar el misticismo del Amado divino de una doctrina diádica de almas gemelas."
+    },
+    {
+      "area": "Literatura mística cristiana",
+      "targets": [
+        "Hadewijch",
+        "Mechthild de Magdeburgo",
+        "Juan de la Cruz",
+        "Teresa de Ávila"
+      ],
+      "requirement": "Tratar el matrimonio místico principalmente como relación alma–Dios salvo que un texto sostenga explícitamente otra estructura."
+    },
+    {
+      "area": "Ficción ocultista victoriana",
+      "targets": [
+        "novelas posteriores de Marie Corelli",
+        "ficción teosófica y espiritista"
+      ],
+      "requirement": "Trazar terminología y recepción, no doctrina por asociación."
+    },
+    {
+      "area": "Frontera moderna entre ficción y no ficción metafísica",
+      "targets": [
+        "novelas New Age y literatura canalizada"
+      ],
+      "requirement": "Clasificar claramente como ficción, enseñanza emic o método identificado."
+    }
+  ]
+}

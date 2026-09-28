@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1",
+  "status": "FROZEN_PRODUCTION_CONTRACT",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+  "provider": {
+    "package": "moira-astro",
+    "pinned_version": "6.8.2",
+    "license": "MIT",
+    "import_name": "moira",
+    "optional_dependency_group": "astronomy-moira"
+  },
+  "kernel": {
+    "required": true,
+    "local_file_required": true,
+    "sha256_required": true,
+    "network_download_during_calculation": false,
+    "allowed_families": ["DE430", "DE440", "DE441"],
+    "recommended_family": "DE440",
+    "kernel_choice_is_part_of_result_identity": true
+  },
+  "time": {
+    "timezone_standard": "IANA",
+    "hidden_timezone_lookup": false,
+    "ambiguous_local_time": "FAIL_CLOSED",
+    "nonexistent_local_time": "FAIL_CLOSED",
+    "untimed_natal": "NOT_EVALUABLE_PRODUCTION_BACKEND"
+  },
+  "location": {
+    "numeric_coordinates_required_for_timed_chart": true,
+    "hidden_geocoding": false
+  },
+  "natal": {
+    "zodiac": "TROPICAL",
+    "coordinate_origin": "GEOCENTRIC",
+    "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+    "apparent_reduction": true,
+    "topocentric_positions": false,
+    "required_points": [
+      "SUN", "MOON", "MERCURY", "VENUS", "MARS",
+      "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO",
+      "NORTH_NODE", "SOUTH_NODE"
+    ],
+    "node_mode": "TRUE_NODE",
+    "declination_derivation": "ECLIPTIC_TO_EQUATORIAL_USING_CHART_TRUE_OBLIQUITY",
+    "houses_required_for_timed_chart": true,
+    "house_system_must_be_explicit": true,
+    "polar_house_fallback": "FORBIDDEN"
+  },
+  "davison": {
+    "time_midpoint": "UTC_INSTANT",
+    "geographic_midpoint": "SPHERICAL_GREAT_CIRCLE",
+    "same_natal_reduction_pipeline": true
+  },
+  "capabilities": {
+    "planetary_longitude": true,
+    "ecliptic_latitude": true,
+    "declination": true,
+    "longitudinal_speed": true,
+    "retrograde": true,
+    "true_lunar_node": true,
+    "houses": true,
+    "angles": true,
+    "davison": true,
+    "hidden_network_io": false,
+    "hidden_geocoding": false
+  },
+  "principles": {
+    "backend_version_pinned": true,
+    "kernel_fingerprint_required": true,
+    "calculation_without_verified_kernel_forbidden": true,
+    "silent_house_fallback_forbidden": true,
+    "result_provenance_required": true,
+    "golden_fixture_gate_separate": true,
+    "backend_choice_does_not_change_analytical_weights": true,
+    "backend_choice_does_not_validate_astrology": true
+  }
+}

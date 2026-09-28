@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "overall_state": "COMPATIBLE",
+  "mechanisms": [
+    {
+      "id": "FM_ACTIVACION",
+      "state": "SUPPORTED",
+      "clause_refs": [
+        "CL_LIBERTAD_AUTONOMIA",
+        "CL_COMUNICACION_VERDAD"
+      ],
+      "functional_state": "ACTIVADA",
+      "temporal_refs": [
+        "TPROG_SYN_01",
+        "TDIR_REL_02"
+      ],
+      "fact_refs": [
+        "event_meeting_001"
+      ],
+      "source_ids": [],
+      "coverage": 92,
+      "robustness": 86,
+      "counterevidence": [],
+      "reason_not_higher": null
+    },
+    {
+      "id": "FM_REPETICION",
+      "state": "COMPATIBLE",
+      "clause_refs": [
+        "CL_LIBERTAD_AUTONOMIA"
+      ],
+      "functional_state": "EN_REPETICION",
+      "temporal_refs": [
+        "window_001",
+        "window_002"
+      ],
+      "fact_refs": [
+        "fact_pattern_001",
+        "fact_pattern_002"
+      ],
+      "source_ids": [],
+      "coverage": 86,
+      "robustness": 82,
+      "counterevidence": [],
+      "reason_not_higher": "The fixture shows recurrence but not enough factual change for repair."
+    },
+    {
+      "id": "FM_TIKKUN_REPARACION",
+      "state": "INSUFFICIENT",
+      "clause_refs": [
+        "CL_LIBERTAD_AUTONOMIA"
+      ],
+      "functional_state": "EN_INTEGRACION",
+      "temporal_refs": [
+        "window_002"
+      ],
+      "fact_refs": [],
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "coverage": 80,
+      "robustness": 78,
+      "counterevidence": [
+        "No post-activation fact yet satisfies the preregistered integration signature."
+      ],
+      "reason_not_higher": "Functional repair remains unverified in facts."
+    },
+    {
+      "id": "FM_RUTA_ALTERNATIVA",
+      "state": "COMPATIBLE",
+      "clause_refs": [
+        "CL_INTEGRACION_ENCARNACION"
+      ],
+      "functional_state": "NO_EVALUABLE",
+      "temporal_refs": [],
+      "fact_refs": [],
+      "source_ids": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
+      ],
+      "coverage": null,
+      "robustness": null,
+      "counterevidence": [],
+      "reason_not_higher": "Alternative-route language is method-specific and has no validated astrological discriminator."
+    }
+  ],
+  "clause_status": [
+    {
+      "clause_id": "CL_LIBERTAD_AUTONOMIA",
+      "functional_state": "EN_REPETICION",
+      "fulfillment_signature_met": false,
+      "fact_refs": [
+        "fact_pattern_001",
+        "fact_pattern_002"
+      ]
+    },
+    {
+      "clause_id": "CL_INTEGRACION_ENCARNACION",
+      "functional_state": "EN_INTEGRACION",
+      "fulfillment_signature_met": null,
+      "fact_refs": []
+    },
+    {
+      "clause_id": "CL_COMUNICACION_VERDAD",
+      "functional_state": "ACTIVADA",
+      "fulfillment_signature_met": false,
+      "fact_refs": [
+        "event_meeting_001"
+      ]
+    }
+  ],
+  "evidence_families": [
+    "FMF1_ANCLAJE_CLAUSULA",
+    "FMF2_RECURRENCIA_TEMPORAL",
+    "FMF8_CONTRAEVIDENCIA"
+  ],
+  "discriminators": [
+    {
+      "id": "FMD1_ACTIVATION_VS_FULFILLMENT",
+      "status": "OPERATIONAL",
+      "result": "ACTIVATION_ONLY_FOR_SOME_CLAUSES"
+    },
+    {
+      "id": "FMD2_REPETITION_VS_REPAIR",
+      "status": "OPERATIONAL",
+      "result": "REPETITION_NOT_YET_REPAIR"
+    },
+    {
+      "id": "FMD6_ALTERNATIVE_ROUTE",
+      "status": "NOT_VALIDATED",
+      "result": null
+    },
+    {
+      "id": "FMD8_FUTURE_COMPLETION",
+      "status": "NOT_VALIDATED",
+      "result": null
+    }
+  ],
+  "factual_evidence": [
+    {
+      "id": "fact_pattern_001",
+      "kind": "SYNTHETIC_FACT",
+      "supports": [
+        "FM_REPETICION"
+      ]
+    },
+    {
+      "id": "fact_pattern_002",
+      "kind": "SYNTHETIC_FACT",
+      "supports": [
+        "FM_REPETICION"
+      ]
+    }
+  ],
+  "temporal_evidence": [
+    {
+      "id": "window_001",
+      "anchored": true,
+      "root_ref": "root_AactivatesB_03"
+    },
+    {
+      "id": "window_002",
+      "anchored": true,
+      "root_ref": "root_AactivatesB_03"
+    }
+  ],
+  "competing_explanations": [
+    "RECURRENT_RELATIONAL_PATTERN_WITHOUT_PREBIRTH_CONTRACT"
+  ],
+  "counterevidence": [],
+  "robustness": 81,
+  "why_selected": "The synthetic fixture supports activation and repetition but does not yet document full integration or closure.",
+  "why_not_more_specific": "No documented facts satisfy a preregistered integration/closure signature, and future completion cannot be inferred from astrology."
+}

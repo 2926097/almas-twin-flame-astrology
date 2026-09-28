@@ -1,0 +1,747 @@
+{
+  "schema_version": "AUTHORING_CONTEXT_1",
+  "analysis_mode": "FULL",
+  "models": {
+    "AF": {
+      "iem": 42,
+      "state": "COMPATIBLE"
+    },
+    "KA": {
+      "iem": 63,
+      "state": "SUPPORTED"
+    },
+    "AG": {
+      "iem": 78,
+      "state": "SUPPORTED"
+    },
+    "LG": {
+      "iem": 71,
+      "state": "COMPATIBLE"
+    }
+  },
+  "indices": {
+    "IDD": 72,
+    "IAT": 64,
+    "ICC": 92,
+    "IRC": 86,
+    "ICE": 12
+  },
+  "coverage": {
+    "ICC": 92
+  },
+  "robustness": {
+    "IRC": 86,
+    "R_min": 82
+  },
+  "evidence": [
+    {
+      "evidence_id": "ROOT:R001",
+      "root_id": "R001",
+      "summary": "Raíz Saturno–Nodo repetida entre sinastría y reencuadre dracónico; organiza continuidad, responsabilidad y dirección."
+    },
+    {
+      "evidence_id": "ROOT:R002",
+      "root_id": "R002",
+      "summary": "Raíz Venus–Plutón que reaparece en interacción y campo relacional; concentra magnetismo, profundidad y transformación."
+    },
+    {
+      "evidence_id": "ROOT:R003",
+      "root_id": "R003",
+      "summary": "Raíz Sol–Luna repetida en interacción y cartas relacionales; aporta reconocimiento y capacidad de integración."
+    }
+  ],
+  "semantic_motifs": {
+    "motifs": [
+      {
+        "motif_id": "KARMIC_CONTINUITY",
+        "summary": "Continuidad y dirección estructuradas alrededor de Saturno y el eje nodal."
+      },
+      {
+        "motif_id": "TRANSFORMATION_POWER",
+        "summary": "Transformación vincular sostenida por la recurrencia Venus–Plutón."
+      },
+      {
+        "motif_id": "RELATIONAL_COHERENCE",
+        "summary": "Capacidad de integración sostenida por la recurrencia Sol–Luna."
+      },
+      {
+        "motif_id": "MISSION_SATURNIAN",
+        "summary": "Overlay meridiano saturnino que contextualiza responsabilidad, construcción y externalización."
+      }
+    ]
+  },
+  "counterevidence": [
+    {
+      "id": "CE1",
+      "note": "La intensidad simbólica no basta para distinguir por sí sola entre alma gemela y llama gemela."
+    }
+  ],
+  "temporal": {
+    "activation": {
+      "summary": "La fase temporal reactiva raíces ya presentes; no crea la arquitectura del vínculo."
+    },
+    "events": []
+  },
+  "doctrine": [
+    {
+      "claim_id": "D_TF_ORIGIN",
+      "statement": "En la doctrina moderna de The Summit Lighthouse, las llamas gemelas se describen como dos contrapartes procedentes de un mismo ovoide original.",
+      "epistemic_class": "C_DOCTRINE",
+      "source_ids": [
+        "summit_lighthouse_what_is_twin_flame"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "D_DRACONIC_METHOD",
+      "statement": "La astrología dracónica moderna desplaza el Nodo Norte tropical a 0° Aries y conserva las distancias relativas de la carta.",
+      "epistemic_class": "B_TECHNIQUE",
+      "source_ids": [
+        "blaquier_draconic_astrology_2017_2021"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "D_PREINCARNATIONAL_MISSION",
+      "statement": "La tradición espiritista kardeciana contempla la elección o solicitud de misiones antes de la encarnación.",
+      "epistemic_class": "C_DOCTRINE",
+      "source_ids": [
+        "kardec_spirits_book_missions_572_573"
+      ],
+      "status": "SUPPORTED"
+    }
+  ],
+  "limitations": [
+    "Fixture sintético destinado a demostrar autoría y trazabilidad; no representa una pareja real.",
+    "Las correspondencias metafísicas se interpretan dentro de sus tradiciones y no constituyen validación científica de dichas doctrinas."
+  ],
+  "natal_context": {
+    "subjects": {
+      "A": {
+        "timed": true,
+        "point_signs": {
+          "SUN": {
+            "longitude": 45,
+            "sign": "TAURUS",
+            "sign_index": 1,
+            "degree_in_sign": 15,
+            "element": "EARTH",
+            "modality": "FIXED"
+          },
+          "MOON": {
+            "longitude": 302,
+            "sign": "AQUARIUS",
+            "sign_index": 10,
+            "degree_in_sign": 2,
+            "element": "AIR",
+            "modality": "FIXED"
+          },
+          "VENUS": {
+            "longitude": 78,
+            "sign": "GEMINI",
+            "sign_index": 2,
+            "degree_in_sign": 18,
+            "element": "AIR",
+            "modality": "MUTABLE"
+          },
+          "SATURN": {
+            "longitude": 230,
+            "sign": "SCORPIO",
+            "sign_index": 7,
+            "degree_in_sign": 20,
+            "element": "WATER",
+            "modality": "FIXED"
+          },
+          "NORTH_NODE": {
+            "longitude": 125,
+            "sign": "LEO",
+            "sign_index": 4,
+            "degree_in_sign": 5,
+            "element": "FIRE",
+            "modality": "FIXED"
+          }
+        },
+        "nodes": {
+          "NORTH_NODE": {
+            "longitude": 125,
+            "sign": "LEO",
+            "degree_in_sign": 5
+          },
+          "SOUTH_NODE": {
+            "longitude": 305,
+            "sign": "AQUARIUS",
+            "degree_in_sign": 5
+          }
+        },
+        "angles": {
+          "ASC": {
+            "longitude": 12,
+            "sign": "ARIES"
+          },
+          "MC": {
+            "longitude": 282,
+            "sign": "CAPRICORN"
+          }
+        },
+        "house_cusps": {},
+        "house_placements": {
+          "SUN": {
+            "house": 9,
+            "longitude": 45
+          },
+          "VENUS": {
+            "house": 10,
+            "longitude": 78
+          },
+          "SATURN": {
+            "house": 3,
+            "longitude": 230
+          },
+          "NORTH_NODE": {
+            "house": 12,
+            "longitude": 125
+          }
+        },
+        "rulerships": {}
+      },
+      "B": {
+        "timed": true,
+        "point_signs": {
+          "SUN": {
+            "longitude": 166,
+            "sign": "VIRGO",
+            "sign_index": 5,
+            "degree_in_sign": 16,
+            "element": "EARTH",
+            "modality": "MUTABLE"
+          },
+          "MOON": {
+            "longitude": 285,
+            "sign": "CAPRICORN",
+            "sign_index": 9,
+            "degree_in_sign": 15,
+            "element": "EARTH",
+            "modality": "CARDINAL"
+          },
+          "VENUS": {
+            "longitude": 229,
+            "sign": "SCORPIO",
+            "sign_index": 7,
+            "degree_in_sign": 19,
+            "element": "WATER",
+            "modality": "FIXED"
+          },
+          "PLUTO": {
+            "longitude": 78.5,
+            "sign": "GEMINI",
+            "sign_index": 2,
+            "degree_in_sign": 18.5,
+            "element": "AIR",
+            "modality": "MUTABLE"
+          },
+          "SATURN": {
+            "longitude": 125.5,
+            "sign": "LEO",
+            "sign_index": 4,
+            "degree_in_sign": 5.5,
+            "element": "FIRE",
+            "modality": "FIXED"
+          }
+        },
+        "nodes": {
+          "NORTH_NODE": {
+            "longitude": 5,
+            "sign": "ARIES",
+            "degree_in_sign": 5
+          },
+          "SOUTH_NODE": {
+            "longitude": 185,
+            "sign": "LIBRA",
+            "degree_in_sign": 5
+          }
+        },
+        "angles": {
+          "ASC": {
+            "longitude": 192,
+            "sign": "LIBRA"
+          },
+          "MC": {
+            "longitude": 102,
+            "sign": "CANCER"
+          }
+        },
+        "house_cusps": {},
+        "house_placements": {
+          "MOON": {
+            "house": 5,
+            "longitude": 285
+          },
+          "PLUTO": {
+            "house": 7,
+            "longitude": 78.5
+          },
+          "SATURN": {
+            "house": 11,
+            "longitude": 125.5
+          }
+        },
+        "rulerships": {}
+      }
+    },
+    "cross_house_placements": {
+      "A_IN_B": {
+        "source_subject": "A",
+        "target_subject": "B",
+        "placements": {
+          "VENUS": {
+            "house": 7,
+            "longitude": 78
+          },
+          "NORTH_NODE": {
+            "house": 4,
+            "longitude": 125
+          },
+          "SATURN": {
+            "house": 2,
+            "longitude": 230
+          }
+        }
+      },
+      "B_IN_A": {
+        "source_subject": "B",
+        "target_subject": "A",
+        "placements": {
+          "PLUTO": {
+            "house": 10,
+            "longitude": 78.5
+          },
+          "MOON": {
+            "house": 5,
+            "longitude": 285
+          },
+          "SATURN": {
+            "house": 12,
+            "longitude": 125.5
+          }
+        }
+      }
+    }
+  },
+  "relationship_field": {
+    "authoring_only": true,
+    "structural_evidence_used": false,
+    "creates_independent_roots": false,
+    "aspect_policy_source": "relationship_chart_consonance_policy.aspect_policy",
+    "point_ids": [
+      "SUN",
+      "MOON",
+      "VENUS",
+      "PLUTO",
+      "SATURN",
+      "MC"
+    ],
+    "composite": {
+      "positions": {
+        "SUN": {
+          "longitude": 105,
+          "sign": "CANCER",
+          "sign_index": 3,
+          "degree_in_sign": 15
+        },
+        "MOON": {
+          "longitude": 345,
+          "sign": "PISCES",
+          "sign_index": 11,
+          "degree_in_sign": 15
+        },
+        "VENUS": {
+          "longitude": 228,
+          "sign": "SCORPIO",
+          "sign_index": 7,
+          "degree_in_sign": 18
+        },
+        "PLUTO": {
+          "longitude": 229,
+          "sign": "SCORPIO",
+          "sign_index": 7,
+          "degree_in_sign": 19
+        },
+        "SATURN": {
+          "longitude": 125,
+          "sign": "LEO",
+          "sign_index": 4,
+          "degree_in_sign": 5
+        }
+      },
+      "angles": {
+        "MC": {
+          "longitude": 126,
+          "sign": "LEO",
+          "sign_index": 4,
+          "degree_in_sign": 6
+        }
+      },
+      "internal_contacts": [
+        {
+          "subject_a": "RELCHART_COMPOSITE",
+          "point_a": "SUN",
+          "longitude_a": 105,
+          "subject_b": "RELCHART_COMPOSITE",
+          "point_b": "MOON",
+          "longitude_b": 345,
+          "aspect": "TRINE",
+          "angle": 120,
+          "distance": 120,
+          "orb": 0,
+          "orb_limit": 5,
+          "exactness": 1
+        },
+        {
+          "subject_a": "RELCHART_COMPOSITE",
+          "point_a": "VENUS",
+          "longitude_a": 228,
+          "subject_b": "RELCHART_COMPOSITE",
+          "point_b": "PLUTO",
+          "longitude_b": 229,
+          "aspect": "CONJUNCTION",
+          "angle": 0,
+          "distance": 1,
+          "orb": 1,
+          "orb_limit": 4,
+          "exactness": 0.9375
+        }
+      ],
+      "angle_contacts": [
+        {
+          "subject_a": "RELCHART_COMPOSITE",
+          "point_a": "SATURN",
+          "longitude_a": 125,
+          "subject_b": "RELCHART_COMPOSITE",
+          "point_b": "MC",
+          "longitude_b": 126,
+          "aspect": "CONJUNCTION",
+          "angle": 0,
+          "distance": 1,
+          "orb": 1,
+          "orb_limit": 4,
+          "exactness": 0.9375
+        }
+      ],
+      "houses_calculated": false
+    },
+    "davison": {
+      "positions": {
+        "SUN": {
+          "longitude": 106,
+          "sign": "CANCER",
+          "sign_index": 3,
+          "degree_in_sign": 16
+        },
+        "MOON": {
+          "longitude": 346,
+          "sign": "PISCES",
+          "sign_index": 11,
+          "degree_in_sign": 16
+        },
+        "VENUS": {
+          "longitude": 229,
+          "sign": "SCORPIO",
+          "sign_index": 7,
+          "degree_in_sign": 19
+        },
+        "PLUTO": {
+          "longitude": 228,
+          "sign": "SCORPIO",
+          "sign_index": 7,
+          "degree_in_sign": 18
+        },
+        "SATURN": {
+          "longitude": 126,
+          "sign": "LEO",
+          "sign_index": 4,
+          "degree_in_sign": 6
+        }
+      },
+      "angles": {
+        "MC": {
+          "longitude": 125,
+          "sign": "LEO",
+          "sign_index": 4,
+          "degree_in_sign": 5
+        }
+      },
+      "house_cusps": {},
+      "house_placements": {
+        "SUN": 4,
+        "MOON": 12,
+        "VENUS": 8,
+        "PLUTO": 8,
+        "SATURN": 10
+      },
+      "internal_contacts": [
+        {
+          "subject_a": "RELCHART_DAVISON",
+          "point_a": "SUN",
+          "longitude_a": 106,
+          "subject_b": "RELCHART_DAVISON",
+          "point_b": "MOON",
+          "longitude_b": 346,
+          "aspect": "TRINE",
+          "angle": 120,
+          "distance": 120,
+          "orb": 0,
+          "orb_limit": 5,
+          "exactness": 1
+        },
+        {
+          "subject_a": "RELCHART_DAVISON",
+          "point_a": "VENUS",
+          "longitude_a": 229,
+          "subject_b": "RELCHART_DAVISON",
+          "point_b": "PLUTO",
+          "longitude_b": 228,
+          "aspect": "CONJUNCTION",
+          "angle": 0,
+          "distance": 1,
+          "orb": 1,
+          "orb_limit": 4,
+          "exactness": 0.9375
+        }
+      ],
+      "angle_contacts": [
+        {
+          "subject_a": "RELCHART_DAVISON",
+          "point_a": "SATURN",
+          "longitude_a": 126,
+          "subject_b": "RELCHART_DAVISON",
+          "point_b": "MC",
+          "longitude_b": 125,
+          "aspect": "CONJUNCTION",
+          "angle": 0,
+          "distance": 1,
+          "orb": 1,
+          "orb_limit": 4,
+          "exactness": 0.9375
+        }
+      ]
+    },
+    "cross_consonance_contact_count": 3
+  },
+  "draconic_context": {
+    "authoring_projection_only": true,
+    "creates_additional_evidence": false,
+    "individual": {
+      "policy": {
+        "node_id": "NORTH_NODE",
+        "transform": "NORTH_NODE_TO_ZERO"
+      },
+      "charts": {
+        "A": {
+          "positions": {
+            "SUN": {
+              "longitude": 280,
+              "sign": "CAPRICORN",
+              "sign_index": 9,
+              "degree_in_sign": 10,
+              "source_longitude": 45
+            },
+            "VENUS": {
+              "longitude": 313,
+              "sign": "AQUARIUS",
+              "sign_index": 10,
+              "degree_in_sign": 13,
+              "source_longitude": 78
+            },
+            "SATURN": {
+              "longitude": 105,
+              "sign": "CANCER",
+              "sign_index": 3,
+              "degree_in_sign": 15,
+              "source_longitude": 230
+            }
+          }
+        },
+        "B": {
+          "positions": {
+            "MOON": {
+              "longitude": 280,
+              "sign": "CAPRICORN",
+              "sign_index": 9,
+              "degree_in_sign": 10,
+              "source_longitude": 285
+            },
+            "PLUTO": {
+              "longitude": 73.5,
+              "sign": "GEMINI",
+              "sign_index": 2,
+              "degree_in_sign": 13.5,
+              "source_longitude": 78.5
+            },
+            "SATURN": {
+              "longitude": 120.5,
+              "sign": "LEO",
+              "sign_index": 4,
+              "degree_in_sign": 0.5,
+              "source_longitude": 125.5
+            }
+          }
+        }
+      }
+    },
+    "natal_cross": {
+      "subjects": [
+        "A",
+        "B"
+      ],
+      "policy": {},
+      "contacts": [
+        {
+          "subject_a": "A",
+          "point_a": "VENUS",
+          "subject_b": "B",
+          "point_b": "PLUTO",
+          "layer_a": "NATAL",
+          "layer_b": "DRACONIC",
+          "aspect": "CONJUNCTION",
+          "orb": 4.5,
+          "exactness": 0.72
+        },
+        {
+          "subject_a": "B",
+          "point_a": "MOON",
+          "subject_b": "A",
+          "point_b": "SUN",
+          "layer_a": "NATAL",
+          "layer_b": "DRACONIC",
+          "aspect": "CONJUNCTION",
+          "orb": 5,
+          "exactness": 0.68
+        }
+      ],
+      "contact_count": 2
+    },
+    "draconic_cross": {
+      "subjects": [
+        "A",
+        "B"
+      ],
+      "policy": {},
+      "contacts": [
+        {
+          "subject_a": "A",
+          "point_a": "VENUS",
+          "subject_b": "B",
+          "point_b": "PLUTO",
+          "layer_a": "DRACONIC",
+          "layer_b": "DRACONIC",
+          "aspect": "TRINE",
+          "orb": 0.5,
+          "exactness": 0.96
+        }
+      ],
+      "contact_count": 1,
+      "corroborative_only": true
+    }
+  },
+  "lots_context": {
+    "authoring_projection_only": true,
+    "creates_additional_evidence": false,
+    "historical_technique_context_only": true,
+    "output": {
+      "policy": {
+        "policy_id": "ALMAS_HELLENISTIC_LOTS_V1"
+      },
+      "policy_source": "ALMAS_HELLENISTIC_LOTS_V1",
+      "sect_by_subject": {
+        "A": "DAY",
+        "B": "NIGHT"
+      },
+      "subjects": {
+        "A": {
+          "FORTUNE": {
+            "status": "CALCULATED",
+            "longitude": 42,
+            "sign": "TAURUS",
+            "sign_index": 1,
+            "degree_in_sign": 12,
+            "house": 9,
+            "source_ref": "paulus_alexandrinus_introductory_matters_ch23",
+            "corroborating_source_ref": "vettius_valens_anthology_lots",
+            "formula": {
+              "base": "ASC",
+              "add": [
+                "MOON"
+              ],
+              "subtract": [
+                "SUN"
+              ]
+            },
+            "sect": "DAY"
+          },
+          "SPIRIT": {
+            "status": "CALCULATED",
+            "longitude": 78,
+            "sign": "GEMINI",
+            "sign_index": 2,
+            "degree_in_sign": 18,
+            "house": 10,
+            "source_ref": "paulus_alexandrinus_introductory_matters_ch23",
+            "corroborating_source_ref": "vettius_valens_anthology_lots",
+            "formula": {
+              "base": "ASC",
+              "add": [
+                "SUN"
+              ],
+              "subtract": [
+                "MOON"
+              ]
+            },
+            "sect": "DAY"
+          }
+        },
+        "B": {
+          "FORTUNE": {
+            "status": "CALCULATED",
+            "longitude": 285,
+            "sign": "CAPRICORN",
+            "sign_index": 9,
+            "degree_in_sign": 15,
+            "house": 5,
+            "source_ref": "paulus_alexandrinus_introductory_matters_ch23",
+            "corroborating_source_ref": "vettius_valens_anthology_lots",
+            "formula": {
+              "base": "ASC",
+              "add": [
+                "SUN"
+              ],
+              "subtract": [
+                "MOON"
+              ]
+            },
+            "sect": "NIGHT"
+          },
+          "SPIRIT": {
+            "status": "CALCULATED",
+            "longitude": 125,
+            "sign": "LEO",
+            "sign_index": 4,
+            "degree_in_sign": 5,
+            "house": 11,
+            "source_ref": "paulus_alexandrinus_introductory_matters_ch23",
+            "corroborating_source_ref": "vettius_valens_anthology_lots",
+            "formula": {
+              "base": "ASC",
+              "add": [
+                "MOON"
+              ],
+              "subtract": [
+                "SUN"
+              ]
+            },
+            "sect": "NIGHT"
+          }
+        }
+      }
+    }
+  }
+}

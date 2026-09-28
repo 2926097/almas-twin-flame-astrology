@@ -1,0 +1,98 @@
+{
+  "registry_version": "1.0.0",
+  "roles": [
+    "ACTIVADOR",
+    "CATALIZADOR",
+    "ESPEJO",
+    "MEMORIA",
+    "ESTRUCTURADOR",
+    "LIBERADOR",
+    "CONFRONTADOR",
+    "PORTADOR_DE_VULNERABILIDAD",
+    "INTEGRADOR",
+    "MEDIADOR",
+    "TESTIGO",
+    "COMPANERO_DE_APRENDIZAJE"
+  ],
+  "mechanisms": [
+    {
+      "id": "RS_REQUESTED_MISSION",
+      "source_ids": [
+        "kardec_spirits_book_missions_572_573"
+      ]
+    },
+    {
+      "id": "RS_MUTUAL_AGREEMENT",
+      "source_ids": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
+      ]
+    },
+    {
+      "id": "RS_GROUP_COORDINATION",
+      "source_ids": [
+        "newton_journey_of_souls_1994"
+      ]
+    },
+    {
+      "id": "RS_KARMIC_RETURN_FOR_OTHER",
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ]
+    },
+    {
+      "id": "RS_PROVIDENTIAL_ASSIGNMENT",
+      "source_ids": [
+        "kardec_spirits_book_missions_572_573"
+      ]
+    },
+    {
+      "id": "RS_ARCHETYPAL_PATTERNING",
+      "source_ids": [
+        "myss_sacred_contracts_2001"
+      ]
+    },
+    {
+      "id": "RS_EMERGENT",
+      "source_ids": []
+    },
+    {
+      "id": "RS_INDETERMINATE",
+      "source_ids": []
+    }
+  ],
+  "discriminators": [
+    {
+      "id": "RSD1_ROLE_VS_TRAIT",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "RSD2_DIRECTION",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "RSD3_PRIMARY_VS_SECONDARY",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "RSD4_INDIVIDUAL_VS_COMMON_FIELD",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "RSD5_REQUESTED_VS_MUTUAL",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "RSD6_KARMIC_VS_VOLUNTARY",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "RSD7_FIXED_VS_PHASE_DEPENDENT",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "RSD8_UNIQUE_ROLE",
+      "status": "NOT_VALIDATED"
+    }
+  ]
+}

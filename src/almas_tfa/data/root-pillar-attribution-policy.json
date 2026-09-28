@@ -1,0 +1,143 @@
+{
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "purpose": "Derivar pilares semánticos primarios desde raíces core y delegar PX/PS al grafo de motivos semánticos recurrentes.",
+  "principles": {
+    "case_fitting_forbidden": true,
+    "single_semantic_primary_pillar": true,
+    "semantic_cross_pillar_duplication_forbidden": true,
+    "px_derived_from_semantic_motifs": true,
+    "ps_derived_from_mission_motifs": true,
+    "support_only_can_feed_pillars": false,
+    "pu_automatic_attribution_forbidden": true,
+    "null_rarity_used_as_pillar": false,
+    "temporal_activation_used_as_pillar": false,
+    "missing_data_are_zero": false,
+    "structural_absence_may_be_zero_only_with_complete_required_module_set": true
+  },
+  "required_modules_for_structural_absence": [
+    "M03",
+    "M05",
+    "M06",
+    "M09",
+    "M11"
+  ],
+  "point_sets": {
+    "AFFINITY": [
+      "SUN",
+      "MOON",
+      "VENUS",
+      "MARS",
+      "JUPITER",
+      "AXIS_HORIZON"
+    ],
+    "PERSONAL_RELATIONAL": [
+      "SUN",
+      "MOON",
+      "MERCURY",
+      "VENUS",
+      "MARS",
+      "JUPITER",
+      "AXIS_HORIZON"
+    ],
+    "MEANINGFUL_COUNTERPART": [
+      "SUN",
+      "MOON",
+      "MERCURY",
+      "VENUS",
+      "MARS",
+      "JUPITER",
+      "SATURN",
+      "URANUS",
+      "NEPTUNE",
+      "PLUTO",
+      "CHIRON",
+      "AXIS_HORIZON",
+      "AXIS_MERIDIAN",
+      "AXIS_NODES"
+    ],
+    "KARMIC_ANCHOR": [
+      "AXIS_NODES",
+      "SATURN"
+    ],
+    "TRANSFORMATION_ANCHOR": [
+      "PLUTO",
+      "CHIRON",
+      "URANUS"
+    ]
+  },
+  "relation_sets": {
+    "MIRROR_HARD": [
+      "OPPOSITION",
+      "SQUARE",
+      "CONTRA_PARALLEL",
+      "CONTRA_ANTISCION"
+    ],
+    "COHERENT": [
+      "CONJUNCTION",
+      "TRINE",
+      "SEXTILE",
+      "PARALLEL",
+      "ANTISCION"
+    ]
+  },
+  "primary_rule_order": [
+    "PK_KARMIC_CONTINUITY",
+    "PT_TRANSFORMATION",
+    "PE_MIRROR_COMPLEMENTARITY",
+    "PR_RELATIONAL_COHERENCE",
+    "PA_STRUCTURAL_AFFINITY"
+  ],
+  "rules": {
+    "PK_KARMIC_CONTINUITY": {
+      "pillar": "PK",
+      "requires_any_point_from_set": "KARMIC_ANCHOR",
+      "requires_any_other_point_from_set": "MEANINGFUL_COUNTERPART"
+    },
+    "PT_TRANSFORMATION": {
+      "pillar": "PT",
+      "requires_any_point_from_set": "TRANSFORMATION_ANCHOR",
+      "requires_any_other_point_from_set": "MEANINGFUL_COUNTERPART"
+    },
+    "PE_MIRROR_COMPLEMENTARITY": {
+      "pillar": "PE",
+      "requires_relation_from_set": "MIRROR_HARD",
+      "requires_at_least_two_points_from_set": "MEANINGFUL_COUNTERPART"
+    },
+    "PR_RELATIONAL_COHERENCE": {
+      "pillar": "PR",
+      "requires_relation_from_set": "COHERENT",
+      "requires_pattern_any": [
+        {
+          "contains": "MERCURY",
+          "other_from_set": "PERSONAL_RELATIONAL"
+        },
+        {
+          "contains": "AXIS_HORIZON",
+          "other_from_set": "PERSONAL_RELATIONAL"
+        }
+      ]
+    },
+    "PA_STRUCTURAL_AFFINITY": {
+      "pillar": "PA",
+      "requires_at_least_two_points_from_set": "AFFINITY"
+    }
+  },
+  "derived_pillars": {
+    "PX": {
+      "source_policy": "ALMAS_SEMANTIC_MOTIF_V2",
+      "source_field": "px.score"
+    },
+    "PS": {
+      "source_policy": "ALMAS_SEMANTIC_MOTIF_V2",
+      "source_field": "ps.score"
+    }
+  },
+  "singularity_rule": {
+    "pillar": "PU",
+    "state": "NOT_EVALUABLE",
+    "reason": "La singularidad diádica no se atribuye automáticamente sin discriminador validado y preregistrado."
+  }
+}

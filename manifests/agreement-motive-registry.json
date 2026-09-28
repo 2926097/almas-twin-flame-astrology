@@ -1,0 +1,181 @@
+{
+  "registry_version": "1.0.0",
+  "motives": [
+    {
+      "id": "M_TIKKUN_PROPIO",
+      "family": "REPAIR",
+      "scope": "INDIVIDUAL",
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ]
+    },
+    {
+      "id": "M_TIKKUN_DEL_OTRO",
+      "family": "REPAIR",
+      "scope": "DIRECTIONAL",
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ]
+    },
+    {
+      "id": "M_EQUILIBRIO_KARMICO",
+      "family": "REPAIR",
+      "scope": "BILATERAL"
+    },
+    {
+      "id": "M_COMPLETAR_TAREA_PENDIENTE",
+      "family": "COMPLETION",
+      "scope": "INDIVIDUAL_OR_DYADIC",
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ]
+    },
+    {
+      "id": "M_RECONOCIMIENTO_REENCUENTRO",
+      "family": "CONTINUITY",
+      "scope": "DYADIC",
+      "source_ids": [
+        "vital_shaar_hagilgulim_20_zivug",
+        "zohar_lech_lecha_32_346_350",
+        "newton_journey_of_souls_1994"
+      ]
+    },
+    {
+      "id": "M_APRENDIZAJE_MUTUO",
+      "family": "LEARNING",
+      "scope": "BILATERAL",
+      "source_ids": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
+      ]
+    },
+    {
+      "id": "M_CATALISIS_TRANSFORMACION",
+      "family": "TRANSFORMATION",
+      "scope": "DIRECTIONAL_OR_BILATERAL"
+    },
+    {
+      "id": "M_ENCARNACION_MATERIALIZACION",
+      "family": "EMBODIMENT",
+      "scope": "DYADIC"
+    },
+    {
+      "id": "M_RECIPROCIDAD",
+      "family": "RELATIONAL",
+      "scope": "BILATERAL"
+    },
+    {
+      "id": "M_VERDAD_COMUNICACION",
+      "family": "RELATIONAL",
+      "scope": "DIRECTIONAL_OR_BILATERAL"
+    },
+    {
+      "id": "M_MISION_SERVICIO",
+      "family": "SERVICE",
+      "scope": "TRANSPERSONAL",
+      "source_ids": [
+        "kardec_spirits_book_missions_572_573",
+        "myss_sacred_contracts_2001"
+      ]
+    },
+    {
+      "id": "M_INTEGRACION",
+      "family": "INTEGRATION",
+      "scope": "DYADIC"
+    },
+    {
+      "id": "M_LIBERACION_CIERRE",
+      "family": "CLOSURE",
+      "scope": "INDIVIDUAL_OR_DYADIC"
+    },
+    {
+      "id": "M_INDETERMINADO",
+      "family": "UNRESOLVED",
+      "scope": "UNRESOLVED"
+    }
+  ],
+  "discriminators": [
+    {
+      "id": "AM1_REPAIR_VS_LEARNING",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "AM2_REUNION_VS_CATALYSIS",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "AM3_INDIVIDUAL_VS_COMMON",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "AM4_RELATIONAL_VS_SERVICE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "AM5_TIKKUN_SELF_VS_OTHER",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "AM6_CHOSEN_VS_ASSIGNED",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "AM7_MUTUAL_AGREEMENT",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "AM8_FREE_WILL_ALTERNATIVE",
+      "status": "NOT_VALIDATED"
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "SOLICITADA",
+      "source_ids": [
+        "kardec_spirits_book_missions_572_573"
+      ]
+    },
+    {
+      "id": "ELEGIDA",
+      "source_ids": [
+        "kardec_spirits_book_choice_trials",
+        "myss_sacred_contracts_2001"
+      ]
+    },
+    {
+      "id": "ACORDADA_MUTUAMENTE",
+      "source_ids": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
+      ]
+    },
+    {
+      "id": "COORDINADA_EN_GRUPO",
+      "source_ids": [
+        "newton_journey_of_souls_1994"
+      ]
+    },
+    {
+      "id": "PROVIDENCIALMENTE_ASIGNADA",
+      "source_ids": [
+        "kardec_spirits_book_choice_trials"
+      ]
+    },
+    {
+      "id": "KARMICAMENTE_NECESARIA",
+      "source_ids": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ]
+    },
+    {
+      "id": "EMERGENTE_NO_PREDETERMINADA",
+      "source_ids": [
+        "kardec_spirits_book_choice_trials"
+      ]
+    },
+    {
+      "id": "INDETERMINADA",
+      "source_ids": []
+    }
+  ]
+}

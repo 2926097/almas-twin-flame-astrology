@@ -1,0 +1,56 @@
+{
+  "registry_version": "1.0.0",
+  "conditions": [
+    "EC_VENTANA_TEMPORAL",
+    "EC_CONTEXTO_GEOGRAFICO_SOCIAL",
+    "EC_LINEA_FAMILIAR_ENTORNO",
+    "EC_MADUREZ_EVOLUTIVA",
+    "EC_ESTADO_RELACIONAL_PREVIO",
+    "EC_UMBRAL_CRISIS_CAMBIO",
+    "EC_DISPARADOR_RECONOCIMIENTO",
+    "EC_BLOQUEO_RETRASO",
+    "EC_RUTA_ALTERNATIVA",
+    "EC_INDETERMINADA"
+  ],
+  "discriminators": [
+    {
+      "id": "ECD1_STRUCTURE_VS_COINCIDENCE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ECD2_NARROW_VS_BROAD_WINDOW",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ECD3_RECOGNITION_VS_ATTRACTION",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "ECD5_DELAY_VS_NONOCCURRENCE",
+      "status": "OPERATIONAL_RETROSPECTIVE"
+    },
+    {
+      "id": "ECD6_UNIQUE_EVENT_VS_ALTERNATIVE_PATH",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "ECD7_GEOGRAPHIC_NECESSITY",
+      "status": "NOT_VALIDATED"
+    },
+    {
+      "id": "ECD8_FREE_WILL_BRANCH",
+      "status": "NOT_VALIDATED"
+    }
+  ],
+  "source_ids": [
+    "myss_sacred_contracts_2001",
+    "newton_journey_of_souls_1994",
+    "talmud_sotah_2a_9",
+    "zohar_lech_lecha_32_346_350",
+    "vital_shaar_hagilgulim_20_zivug"
+  ]
+}

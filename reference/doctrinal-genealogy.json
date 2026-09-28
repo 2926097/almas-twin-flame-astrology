@@ -1,0 +1,517 @@
+{
+  "genealogy_version": "1.1.0",
+  "almas_version": "1.11.0",
+  "edges": [
+    {
+      "from": "SPLIT_PRIMORDIAL_BEING",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "COMPARATIVE_ANTECEDENT_ONLY",
+      "status": "COMPATIBLE",
+      "note": "Motivos formalmente parecidos; no se afirma identidad doctrinal ni transmisión histórica directa."
+    },
+    {
+      "from": "SOUL_PAIRING",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Emparejamiento o pares de almas no equivalen al origen white-fire/twin-flame."
+    },
+    {
+      "from": "PRENATAL_PAIRING",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Un emparejamiento previo no implica cláusulas de aprendizaje o acuerdo bilateral."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "SOUL_CONTRACT",
+      "relation": "CONCEPTUAL_PRECONDITION",
+      "status": "COMPATIBLE",
+      "note": "Elegir pruebas antes de nacer hace inteligible un plan previo, pero no demuestra contrato entre dos almas."
+    },
+    {
+      "from": "MONAD",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "No usar Mónada como sinónimo automático de pareja monádica o twin flame."
+    },
+    {
+      "from": "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
+      "to": "SOUL_CONTRACT",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "Aporta un marco alma-personalidad-propósito, no la gramática contractual de ALMAS."
+    },
+    {
+      "from": "DRACONIC_ASTROLOGY",
+      "to": "SOUL_CONTRACT",
+      "relation": "PROJECT_OPERATIONALIZATION",
+      "status": "E_PROJECT_HYPOTHESIS",
+      "note": "La utilización de la dracónica como capa contractual es una operacionalización ALMAS, no doctrina de Crane."
+    },
+    {
+      "from": "SOULMATE_EXPERIENCE",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+      "status": "INSUFFICIENT",
+      "note": "La experiencia reportada no discrimina origen metafísico."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "PREINCARNATIONAL_TRIAL",
+      "relation": "DOCTRINAL_SPECIALIZATION",
+      "status": "SUPPORTED",
+      "note": "Kardec sitúa explícitamente la elección antes de la encarnación en el nivel del tipo de prueba, no de cada detalle."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "MISSION_PREINCARNATIONAL",
+      "relation": "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+      "status": "SUPPORTED",
+      "note": "Kardec trata las pruebas elegidas y las misiones solicitadas en pasajes distintos; ALMAS no debe colapsarlas."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "FREE_WILL_PREINCARNATIONAL",
+      "relation": "DOCTRINAL_CONSTRAINT",
+      "status": "SUPPORTED",
+      "note": "La elección de pruebas generales coexiste con libertad en las acciones y resultados contingentes."
+    },
+    {
+      "from": "PREINCARNATIONAL_TRIAL",
+      "to": "SOUL_CONTRACT",
+      "relation": "INSUFFICIENT_FOR_BILATERAL_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "Un tipo de prueba elegido no establece que otra alma concreta haya pactado proporcionarlo."
+    },
+    {
+      "from": "MISSION_PREINCARNATIONAL",
+      "to": "SOUL_CONTRACT",
+      "relation": "INSUFFICIENT_FOR_BILATERAL_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "Una misión solicitada puede ser individual o colectiva y no establece por sí sola un contrato álmico diádico."
+    },
+    {
+      "from": "LIFE_BETWEEN_LIVES",
+      "to": "SOUL_PLAN",
+      "relation": "METHOD_GENEALOGY",
+      "status": "COMPATIBLE",
+      "note": "La literatura de regresión/intervidas es un vehículo moderno principal para relatos de planificación prenatal."
+    },
+    {
+      "from": "SOUL_PLAN",
+      "to": "SOUL_CONTRACT",
+      "relation": "BROADER_TO_NARROWER",
+      "status": "COMPATIBLE",
+      "note": "Un plan del alma puede incluir relaciones, pero un contrato bilateral es una hipótesis más específica."
+    },
+    {
+      "from": "SACRED_CONTRACT",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "El contrato sagrado de Myss se refiere al propósito personal y a la estructura arquetípica; no equivale automáticamente a un pacto preencarnatorio bilateral."
+    },
+    {
+      "from": "KARMIC_RELATIONSHIP",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_EXPLANATION",
+      "status": "INSUFFICIENT",
+      "note": "La continuidad entre vidas puede explicar significación relacional sin exigir un contrato bilateral conscientemente planificado."
+    },
+    {
+      "from": "SOUL_GROUP",
+      "to": "SOUL_CONTRACT",
+      "relation": "CONTEXT_NOT_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "Pertenecer a un modelo de grupo de almas no establece un contrato específico entre dos miembros."
+    },
+    {
+      "from": "FREE_WILL_PREINCARNATIONAL",
+      "to": "SOUL_CONTRACT",
+      "relation": "OUTCOME_CONSTRAINT",
+      "status": "SUPPORTED",
+      "note": "Incluso bajo una hipótesis contractual, los resultados siguen siendo contingentes; deben separarse función contractual y resultado encarnado."
+    },
+    {
+      "from": "PRENATAL_PAIRING",
+      "to": "ZIVUG",
+      "relation": "HISTORICAL_DOCTRINAL_RELATION",
+      "status": "SUPPORTED",
+      "note": "Sotah 2a aporta un marco rabínico temprano de primer/segundo emparejamiento posteriormente reelaborado en contextos cabalísticos."
+    },
+    {
+      "from": "SOUL_PAIRING",
+      "to": "ZIVUG",
+      "relation": "DOCTRINAL_OVERLAP",
+      "status": "SUPPORTED",
+      "note": "La imaginería zohárica de almas emparejadas aporta un contexto doctrinal fuerte para discusiones posteriores sobre emparejamiento."
+    },
+    {
+      "from": "ZIVUG",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Zivug es una categoría relacional judía/cabalística; no implica la doctrina moderna de llamas gemelas del ovoide de fuego blanco."
+    },
+    {
+      "from": "BAT_ZUG",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Una pareja verdadera/correspondiente en lenguaje luriano no es doctrinalmente idéntica a la llama gemela moderna."
+    },
+    {
+      "from": "GILGUL",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_OR_BROADER_HISTORY",
+      "status": "INSUFFICIENT",
+      "note": "La continuidad reencarnatoria puede explicar recurrencia sin implicar un acuerdo bilateral conscientemente planificado."
+    },
+    {
+      "from": "TIKKUN",
+      "to": "SOUL_CONTRACT",
+      "relation": "FUNCTION_NOT_CONTRACT_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "La rectificación puede describir función o propósito sin establecer que dos almas pactaran previamente la relación."
+    },
+    {
+      "from": "TIKKUN",
+      "to": "MISSION_PREINCARNATIONAL",
+      "relation": "POSSIBLE_FUNCTIONAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Ambos pueden implicar propósito o reparación, pero derivan de sistemas doctrinales distintos y no deben colapsarse."
+    },
+    {
+      "from": "SOUL_ROOT",
+      "to": "MONAD",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Las estructuras lurianas de raíz del alma y la terminología teosófica de la Mónada pertenecen a ontologías distintas."
+    },
+    {
+      "from": "SOUL_ROOT",
+      "to": "SOUL_GROUP",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Ambos pueden describir una vinculación supraindividual, pero sus genealogías y estructuras difieren."
+    },
+    {
+      "from": "SOUL_ROOT",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "INSUFFICIENT_FOR_DYADIC_ORIGIN",
+      "status": "INSUFFICIENT",
+      "note": "Una raíz compartida o relacionada puede implicar redes de almas y no supone una contraparte romántica única."
+    },
+    {
+      "from": "SOUL_NETWORK",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EXCLUSIVE_NETWORK_VS_DYAD",
+      "status": "SUPPORTED",
+      "note": "Las redes lurianas de relaciones por raíz del alma debilitan cualquier inferencia automática desde raíces relacionadas hacia un origen diádico exclusivo."
+    },
+    {
+      "from": "FIRST_SECOND_ZIVUG",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "La terminología de primer/segundo zivug no es un modelo de fases de relaciones de llamas gemelas."
+    },
+    {
+      "from": "BAT_ZUG",
+      "to": "SOUL_CONTRACT",
+      "relation": "PAIRING_NOT_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "Una pareja correspondiente no establece por sí sola cláusulas preencarnatorias negociadas."
+    },
+    {
+      "from": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "TERMINOLOGICAL_ANTECEDENT_NOT_DOCTRINAL_IDENTITY",
+      "status": "SUPPORTED",
+      "note": "La expresión precede a Summit Lighthouse en ficción esotérica victoriana; la codificación doctrinal posterior debe tratarse por separado."
+    },
+    {
+      "from": "DUAL_SOUL_LITERARY_MODEL",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "MOTIF_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "La imaginería de media llama de Corelli se parece a modelos posteriores de contraparte, pero no establece continuidad doctrinal directa."
+    },
+    {
+      "from": "TWIN_SOUL_LITERARY_GENEALOGY",
+      "to": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "relation": "PARALLEL_VICTORIAN_VOCABULARY",
+      "status": "COMPATIBLE",
+      "note": "Twin soul y twin flame circulan en contextos esotérico-literarios victorianos próximos, pero no se presuponen idénticos."
+    },
+    {
+      "from": "HISTORICAL_RECEPTION",
+      "to": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "relation": "DOCUMENTS_CIRCULATION",
+      "status": "SUPPORTED",
+      "note": "La recepción teosófica documenta la circulación del lenguaje twin-flame sin establecer adhesión doctrinal."
+    },
+    {
+      "from": "THEOSOPHICAL_MONAD",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "La Mónada de Blavatsky pertenece a la cosmología teosófica y no es una díada romántica."
+    },
+    {
+      "from": "THEOSOPHICAL_MONAD",
+      "to": "SOUL_ROOT",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "La Mónada teosófica y la raíz del alma luriana son estructuras ontológicas distintas."
+    },
+    {
+      "from": "SPLIT_PRIMORDIAL_BEING",
+      "to": "DUAL_SOUL_LITERARY_MODEL",
+      "relation": "COMPARATIVE_MOTIF_ONLY",
+      "status": "COMPATIBLE",
+      "note": "Los motivos de división/reunión son comparables, pero no establecen transmisión directa ni identidad doctrinal."
+    },
+    {
+      "from": "ESOTERIC_ASTROLOGY",
+      "to": "SOUL_CONTRACT",
+      "relation": "FRAMEWORK_NOT_METHOD",
+      "status": "INSUFFICIENT",
+      "note": "Bailey aporta un marco esotérico de desarrollo del alma, no una técnica de extracción de contratos diádicos."
+    },
+    {
+      "from": "SOUL_ONTOLOGY_BAILEY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Las distinciones mónada-alma-personalidad de Bailey no definen por sí solas una pareja de llamas gemelas."
+    },
+    {
+      "from": "SOUL_PERSONALITY_RELATION",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alma/personalidad es una relación ontológica intrapersonal, no una polaridad de pareja masculino/femenino."
+    },
+    {
+      "from": "EVOLUTIONARY_STAGE_ASTROLOGY",
+      "to": "SOULMATE_EXPERIENCE",
+      "relation": "DIFFERENT_ANALYTICAL_AXIS",
+      "status": "SUPPORTED",
+      "note": "La interpretación de la etapa evolutiva individual es distinta de la fenomenología de una relación."
+    },
+    {
+      "from": "DRACONIC_METHOD_MODERN",
+      "to": "SOUL_CONTRACT",
+      "relation": "PROJECT_OPERATIONALIZATION",
+      "status": "E_PROJECT_HYPOTHESIS",
+      "note": "El uso ALMAS de recurrencia dracónica en el análisis contractual es una operacionalización del proyecto, no doctrina de Crane."
+    },
+    {
+      "from": "DRACONIC_METHOD_MODERN",
+      "to": "GILGUL",
+      "relation": "NO_DIRECT_DOCTRINAL_IDENTITY",
+      "status": "INSUFFICIENT",
+      "note": "Una técnica de transformación nodal no establece reencarnación."
+    },
+    {
+      "from": "RECOGNITION_PHENOMENOLOGY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "PHENOMENOLOGY_NOT_ONTOLOGY",
+      "status": "INSUFFICIENT",
+      "note": "El reconocimiento instantáneo puede aparecer en relaciones que sus participantes llaman almas gemelas/llamas gemelas, pero no establece origen."
+    },
+    {
+      "from": "SYNCHRONICITY_REPORT",
+      "to": "SOUL_CONTRACT",
+      "relation": "PHENOMENOLOGY_NOT_CAUSAL_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "La sincronicidad reportada puede informar significado vivido o cronología, pero no demuestra un acuerdo prenatal."
+    },
+    {
+      "from": "TRANSFORMATION_REPORT",
+      "to": "KARMIC_RELATIONSHIP",
+      "relation": "FUNCTIONAL_OVERLAP_NOT_DIAGNOSIS",
+      "status": "COMPATIBLE",
+      "note": "La transformación es compatible con interpretaciones kármicas/evolutivas, pero no es suficientemente específica para diagnosticarlas."
+    },
+    {
+      "from": "TRANSFORMATION_REPORT",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_DISCRIMINATING_PHENOMENOLOGY",
+      "status": "INSUFFICIENT",
+      "note": "El impacto transformador aparece en múltiples formas relacionales y no puede discriminar un origen de llama gemela."
+    },
+    {
+      "from": "TWIN_FLAME_EMIC_USAGE",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "SELF_LABEL_NOT_DOCTRINAL_VERIFICATION",
+      "status": "INSUFFICIENT",
+      "note": "Una etiqueta de participante o comunidad es D_CONTEMPORARY_USAGE, no C_DOCTRINE ni validación ontológica."
+    },
+    {
+      "from": "NEW_AGE_THEODICY",
+      "to": "PREINCARNATIONAL_CHOICE",
+      "relation": "MODERN_REINTERPRETATION_NOT_IDENTITY",
+      "status": "COMPATIBLE",
+      "note": "La teodicea del contrato álmico comparte temas de planificación prenatal, pero no debe presentarse como doctrina de Kardec."
+    },
+    {
+      "from": "CONTEMPORARY_SOUL_CONTRACT_USAGE",
+      "to": "SOUL_CONTRACT",
+      "relation": "EMIC_USAGE_TO_PROJECT_MODEL",
+      "status": "COMPATIBLE",
+      "note": "ALMAS puede estudiar el vocabulario contemporáneo de contrato álmico, pero su reconstrucción astrológica se define de forma independiente."
+    },
+    {
+      "from": "NEW_AGE_RELIGION",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "HISTORICAL_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "La investigación académica sobre New Age contextualiza la síntesis esotérica moderna, pero no valida una doctrina específica."
+    },
+    {
+      "from": "PLANNED_CHALLENGES",
+      "to": "PREINCARNATIONAL_TRIAL",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "La literatura moderna sobre desafíos planificados se parece a los modelos de pruebas elegidas, pero pertenece a otra genealogía y base de evidencia."
+    },
+    {
+      "from": "PLANNED_RELATIONSHIPS",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Una relación planificada puede formar parte de un plan del alma, pero las cláusulas contractuales bilaterales son una hipótesis más específica."
+    },
+    {
+      "from": "FAMILY_SELECTION",
+      "to": "SOUL_CONTRACT",
+      "relation": "CONTEXT_NOT_PROOF",
+      "status": "INSUFFICIENT",
+      "note": "La selección familiar reportada puede aportar contexto prenatal sin demostrar un contrato diádico con una persona concreta."
+    },
+    {
+      "from": "BODY_SELECTION",
+      "to": "PREINCARNATIONAL_CHOICE",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Los relatos de selección del cuerpo son una forma moderna de elección prenatal, no una doctrina universal de planificación preencarnatoria."
+    },
+    {
+      "from": "INCARNATION_TIMING",
+      "to": "PREINCARNATIONAL_CHOICE",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Las elecciones temporales reportadas pertenecen a literatura moderna intervidas y no deben retroproyectarse sobre tradiciones que no las enseñan."
+    },
+    {
+      "from": "KARMIC_PLANNING",
+      "to": "KARMIC_RELATIONSHIP",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "La planificación kármica puede contextualizar una relación interpretada desde el karma, pero no identifica por sí sola una pareja kármica específica."
+    },
+    {
+      "from": "KARMIC_PLANNING",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_OR_BROADER_HISTORY",
+      "status": "INSUFFICIENT",
+      "note": "La planificación kármica puede explicar recurrencia relacional con propósito sin requerir un contrato álmico bilateral."
+    },
+    {
+      "from": "RETURN_FOR_OTHERS",
+      "to": "SERVICE_MISSION",
+      "relation": "COMPARATIVE_ANALOGUE",
+      "status": "COMPATIBLE",
+      "note": "Regresar por otros y una misión de servicio pueden solaparse funcionalmente, pero proceden de marcos lurianos y espiritistas distintos."
+    },
+    {
+      "from": "RETURN_FOR_OTHERS",
+      "to": "SOUL_CONTRACT",
+      "relation": "INSUFFICIENT_FOR_BILATERAL_CONTRACT",
+      "status": "INSUFFICIENT",
+      "note": "Regresar por el bien de otros no establece contenido contractual diádico negociado."
+    },
+    {
+      "from": "TEACHER_STUDENT_ROOT",
+      "to": "SOUL_ROOT",
+      "relation": "DOCTRINAL_SPECIALIZATION",
+      "status": "SUPPORTED",
+      "note": "La continuidad maestro–alumno es una expresión relacional de estructuras de raíz del alma en el corpus luriano."
+    },
+    {
+      "from": "TEACHER_STUDENT_ROOT",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Una relación persistente maestro–alumno por raíz del alma demuestra que la continuidad de raíz no es intrínsecamente romántica ni diádica."
+    },
+    {
+      "from": "PAIRED_SOULS",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "La imaginería de almas emparejadas del Zohar no implica la doctrina posterior de llamas gemelas del ovoide de fuego blanco."
+    },
+    {
+      "from": "SEPARATION_REUNION",
+      "to": "TWIN_FLAME_PHASE",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Un motivo de separación/reunión en fuentes antiguas no equivale automáticamente al modelo moderno runner/chaser ni a un modelo obligatorio de fases de llamas gemelas."
+    },
+    {
+      "from": "MONAD_SOUL_PERSONALITY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "La jerarquía Mónada–alma–personalidad es intrapersonal/cosmológica y no define una pareja romántica de contrapartes."
+    },
+    {
+      "from": "REINCARNATIONAL_CONTINUITY",
+      "to": "SOUL_CONTRACT",
+      "relation": "COMPETING_OR_BROADER_HISTORY",
+      "status": "INSUFFICIENT",
+      "note": "La continuidad entre vidas puede explicar significación recurrente sin demostrar planificación bilateral previa."
+    },
+    {
+      "from": "RELATIONAL_PURPOSE",
+      "to": "SOUL_CONTRACT",
+      "relation": "PARTIAL_OVERLAP",
+      "status": "COMPATIBLE",
+      "note": "Una relación puede portar propósito sin implicar cláusulas prenatales negociadas entre dos almas."
+    },
+    {
+      "from": "ARCHETYPAL_PURPOSE",
+      "to": "SOUL_CONTRACT",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "COMPATIBLE",
+      "note": "El propósito arquetípico puede contextualizar un modelo de contrato vital, pero no establece por sí mismo un contrato relacional diádico."
+    },
+    {
+      "from": "LURIANIC_KABBALAH",
+      "to": "NEW_AGE_RELIGION",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "La Cábala luriana y la religión New Age son histórica y doctrinalmente distintas, incluso cuando movimientos posteriores toman vocabulario cabalístico."
+    },
+    {
+      "from": "WESTERN_ESOTERICISM_CONTEXT",
+      "to": "NEW_AGE_RELIGION",
+      "relation": "FRAMEWORK_CONTEXT",
+      "status": "SUPPORTED",
+      "note": "La investigación académica del esoterismo occidental contextualiza las formaciones New Age sin identificar ambas categorías."
+    },
+    {
+      "from": "SOUL_IDENTITY",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "DIFFERENT_ANALYTICAL_AXIS",
+      "status": "SUPPORTED",
+      "note": "Las cuestiones de identidad del alma a través de la reencarnación son analíticamente distintas de las afirmaciones sobre un origen diádico único."
+    }
+  ]
+}

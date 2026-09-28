@@ -1,0 +1,12 @@
+{
+  "manifest_version": "1.0.0",
+  "policy_id": "ALMAS_PUBLIC_DATA_ISOLATION_V1",
+  "scope": "public_holdouts",
+  "root": "validation/holdouts",
+  "allowed_classifications": [
+    "SYNTHETIC",
+    "PUBLIC_VERIFIABLE",
+    "PUBLIC_METADATA_ONLY"
+  ],
+  "artifacts": []
+}

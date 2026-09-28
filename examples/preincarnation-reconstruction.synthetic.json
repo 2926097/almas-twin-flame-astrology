@@ -1,0 +1,1540 @@
+{
+  "schema_version": "1.9.0",
+  "origin": {
+    "state": "INSUFFICIENT",
+    "hypotheses": [
+      {
+        "id": "RAICES_RELACIONADAS",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_001",
+          "root_rel_002"
+        ],
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_39_soul_roots"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "ZIVUG_PAREJA_VERDADERA",
+        "state": "INSUFFICIENT",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_001"
+        ],
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_20_zivug"
+        ],
+        "counterevidence": [
+          "No validated discriminator separates related roots from true-pair model in this synthetic fixture."
+        ]
+      }
+    ],
+    "selection": "SHARED_ORIGIN_UNDIFFERENTIATED",
+    "astrology_roots": [
+      "root_syn_001",
+      "root_rel_002"
+    ],
+    "doctrinal_sources": [
+      "vital_shaar_hagilgulim_39_soul_roots"
+    ],
+    "alternatives": [
+      "RELATED_SOUL_ROOTS",
+      "ZIVUG_TRUE_PAIR",
+      "TWIN_FLAME_MODEL"
+    ],
+    "counterevidence": [],
+    "robustness": 82,
+    "hermeneutic_note": "Synthetic summary. Detailed origin resolution is stored in origin_differential."
+  },
+  "agreement_motive": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "APRENDIZAJE_MUTUO",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_003"
+        ],
+        "doctrinal_sources": [
+          "kardec_spirits_book_choice_trials",
+          "myss_sacred_contracts_2001"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "TIKKUN_DEL_OTRO",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B",
+        "astrology_roots": [
+          "root_syn_004"
+        ],
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "M_APRENDIZAJE_MUTUO+M_TIKKUN_DEL_OTRO",
+    "astrology_roots": [
+      "root_syn_003",
+      "root_syn_004"
+    ],
+    "doctrinal_sources": [
+      "kardec_spirits_book_choice_trials",
+      "vital_shaar_hagilgulim_8_reasons_for_return"
+    ],
+    "contemporary_sources": [
+      "myss_sacred_contracts_2001"
+    ],
+    "alternatives": [
+      "CATALISIS_TRANSFORMACION"
+    ],
+    "counterevidence": [],
+    "robustness": 78,
+    "hermeneutic_note": "Synthetic summary. Detailed motive resolution is stored in agreement_motive_differential."
+  },
+  "role_selection": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "A_ACTIVADOR_EN_B",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B",
+        "astrology_roots": [
+          "root_syn_004"
+        ],
+        "doctrinal_sources": [
+          "schwartz_your_souls_plan_2009"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "B_ESTRUCTURADOR_EN_A",
+        "state": "COMPATIBLE",
+        "direction": "B_EN_A",
+        "astrology_roots": [
+          "root_syn_005"
+        ],
+        "doctrinal_sources": [
+          "kardec_spirits_book_missions_572_573"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "A:ACTIVADOR→B+B:ESTRUCTURADOR→A",
+    "astrology_roots": [
+      "root_syn_004",
+      "root_syn_005"
+    ],
+    "doctrinal_sources": [
+      "kardec_spirits_book_missions_572_573"
+    ],
+    "contemporary_sources": [
+      "schwartz_your_souls_plan_2009"
+    ],
+    "alternatives": [
+      "ROLES_EMERGENTES_NO_PRESELECCIONADOS"
+    ],
+    "counterevidence": [],
+    "robustness": 75,
+    "hermeneutic_note": "Synthetic summary. Detailed role resolution is stored in role_selection_differential."
+  },
+  "encounter_conditions": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "VENTANA_TEMPORAL",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_time_001"
+        ],
+        "doctrinal_sources": [
+          "newton_journey_of_souls_1994"
+        ],
+        "counterevidence": []
+      },
+      {
+        "id": "CONDICION_DE_RECONOCIMIENTO",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "astrology_roots": [
+          "root_syn_001"
+        ],
+        "doctrinal_sources": [
+          "zohar_lech_lecha_32_346_350"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "EC_VENTANA_TEMPORAL+EC_DISPARADOR_RECONOCIMIENTO",
+    "astrology_roots": [
+      "root_time_001",
+      "root_syn_001"
+    ],
+    "doctrinal_sources": [
+      "zohar_lech_lecha_32_346_350"
+    ],
+    "contemporary_sources": [
+      "newton_journey_of_souls_1994"
+    ],
+    "alternatives": [
+      "COINCIDENCIA_NO_CONTRACTUAL"
+    ],
+    "counterevidence": [],
+    "robustness": 73,
+    "hermeneutic_note": "Synthetic summary. Detailed encounter-condition resolution is stored in encounter_conditions_differential."
+  },
+  "individual_tasks": {
+    "A": {
+      "state": "COMPATIBLE",
+      "hypotheses": [
+        {
+          "id": "AUTONOMIA_Y_LIMITES",
+          "state": "COMPATIBLE",
+          "direction": "NO_APLICA",
+          "astrology_roots": [
+            "root_natal_A_01"
+          ],
+          "doctrinal_sources": [
+            "kardec_spirits_book_choice_trials"
+          ],
+          "counterevidence": []
+        }
+      ],
+      "selection": "AUTONOMIA_Y_LIMITES",
+      "astrology_roots": [
+        "root_natal_A_01"
+      ],
+      "doctrinal_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "alternatives": [],
+      "counterevidence": [],
+      "robustness": 85
+    },
+    "B": {
+      "state": "COMPATIBLE",
+      "hypotheses": [
+        {
+          "id": "VULNERABILIDAD_Y_VERDAD",
+          "state": "COMPATIBLE",
+          "direction": "NO_APLICA",
+          "astrology_roots": [
+            "root_natal_B_01"
+          ],
+          "doctrinal_sources": [
+            "kardec_spirits_book_choice_trials"
+          ],
+          "counterevidence": []
+        }
+      ],
+      "selection": "VULNERABILIDAD_Y_VERDAD",
+      "astrology_roots": [
+        "root_natal_B_01"
+      ],
+      "doctrinal_sources": [
+        "kardec_spirits_book_choice_trials"
+      ],
+      "alternatives": [],
+      "counterevidence": [],
+      "robustness": 84
+    }
+  },
+  "common_task": {
+    "state": "COMPATIBLE",
+    "hypotheses": [
+      {
+        "id": "INTEGRACION_DE_POLARIDADES",
+        "state": "COMPATIBLE",
+        "direction": "CAMPO_COMUN",
+        "astrology_roots": [
+          "root_rel_002",
+          "root_rel_006"
+        ],
+        "doctrinal_sources": [
+          "vital_pri_etz_chaim"
+        ],
+        "counterevidence": []
+      }
+    ],
+    "selection": "CT_INTEGRACION_POLARIDADES+CT_APRENDIZAJE_RECIPROCO",
+    "astrology_roots": [
+      "root_rel_002",
+      "root_rel_006"
+    ],
+    "doctrinal_sources": [
+      "vital_pri_etz_chaim"
+    ],
+    "alternatives": [
+      "APRENDIZAJE_RECIPROCO"
+    ],
+    "counterevidence": [],
+    "robustness": 80,
+    "hermeneutic_note": "Synthetic summary. Detailed common-task resolution is stored in common_task_differential."
+  },
+  "clauses": [
+    {
+      "id": "CL_LIBERTAD_AUTONOMIA",
+      "state": "SUPPORTED",
+      "direction": "A_EN_B",
+      "astrology_roots": [
+        "root_AactivatesB_03",
+        "root_bilat_04"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed genealogy in clause_assembly."
+    },
+    {
+      "id": "CL_INTEGRACION_ENCARNACION",
+      "state": "COMPATIBLE",
+      "direction": "CAMPO_COMUN",
+      "astrology_roots": [
+        "root_rel_02",
+        "root_bilat_04"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed genealogy in clause_assembly."
+    },
+    {
+      "id": "CL_COMUNICACION_VERDAD",
+      "state": "COMPATIBLE",
+      "direction": "B_EN_A",
+      "astrology_roots": [
+        "root_BstructuresA_05"
+      ],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed genealogy in clause_assembly."
+    }
+  ],
+  "fulfillment_mechanisms": [
+    {
+      "id": "FM_ACTIVACION",
+      "state": "SUPPORTED",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
+    },
+    {
+      "id": "FM_REPETICION",
+      "state": "COMPATIBLE",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
+      "doctrinal_sources": [],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
+    },
+    {
+      "id": "FM_TIKKUN_REPARACION",
+      "state": "INSUFFICIENT",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
+      "doctrinal_sources": [
+        "vital_shaar_hagilgulim_8_reasons_for_return"
+      ],
+      "counterevidence": [
+        "No post-activation fact yet satisfies the preregistered integration signature."
+      ],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
+    },
+    {
+      "id": "FM_RUTA_ALTERNATIVA",
+      "state": "COMPATIBLE",
+      "direction": "NO_APLICA",
+      "astrology_roots": [],
+      "doctrinal_sources": [
+        "myss_sacred_contracts_2001",
+        "schwartz_your_souls_plan_2009"
+      ],
+      "counterevidence": [],
+      "note": "Synthetic summary; detailed mechanism in fulfillment_mechanisms_differential."
+    }
+  ],
+  "global_alternatives": [
+    "NON_CONTRACTUAL_EVOLUTIONARY_RELATIONSHIP"
+  ],
+  "global_counterevidence": [],
+  "limitations": [
+    "Synthetic fixture only.",
+    "No metaphysical probability is inferred."
+  ],
+  "origin_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "INSUFFICIENT",
+    "models": [
+      {
+        "model_id": "RELATED_SOUL_ROOTS",
+        "state": "COMPATIBLE",
+        "doctrinal_signature_match": 86,
+        "astrology_dimensions": {
+          "R_ORIGIN": 84,
+          "R_PAIR": 72,
+          "R_CONTINUITY": 81,
+          "R_POLARITY": 60,
+          "R_SHARED_TASK": 65,
+          "R_SINGULARITY": 70
+        },
+        "independent_roots": [
+          "root_origin_01",
+          "root_cont_02",
+          "root_rel_03"
+        ],
+        "coverage": 91,
+        "robustness": 83,
+        "r_min": 0.71,
+        "discriminators_used": [
+          "D_SHARED_ROOT",
+          "D_REINCARNATION_RETURN"
+        ],
+        "counterevidence": [],
+        "competing_models": [
+          "ZIVUG_TRUE_PAIR",
+          "TWIN_SOUL"
+        ],
+        "reason_not_higher": "No validated astrological discriminator separates related soul roots from a specific true-pair model."
+      },
+      {
+        "model_id": "ZIVUG_TRUE_PAIR",
+        "state": "COMPATIBLE",
+        "doctrinal_signature_match": 80,
+        "astrology_dimensions": {
+          "R_ORIGIN": 84,
+          "R_PAIR": 78,
+          "R_CONTINUITY": 86,
+          "R_POLARITY": 67,
+          "R_SHARED_TASK": 61,
+          "R_SINGULARITY": 70
+        },
+        "independent_roots": [
+          "root_origin_01",
+          "root_pair_04",
+          "root_cont_02"
+        ],
+        "coverage": 88,
+        "robustness": 79,
+        "r_min": 0.66,
+        "discriminators_used": [
+          "D_PREBIRTH_PAIRING",
+          "D_REINCARNATION_RETURN"
+        ],
+        "counterevidence": [],
+        "competing_models": [
+          "RELATED_SOUL_ROOTS",
+          "TWIN_FLAME_MODEL"
+        ],
+        "reason_not_higher": "A_RELATED_ROOT_VS_ZIVUG and A_ZIVUG_VS_TWIN_FLAME are NOT_VALIDATED."
+      },
+      {
+        "model_id": "TWIN_FLAME_MODEL",
+        "state": "INSUFFICIENT",
+        "doctrinal_signature_match": 58,
+        "astrology_dimensions": {
+          "R_ORIGIN": 84,
+          "R_PAIR": 78,
+          "R_CONTINUITY": 70,
+          "R_POLARITY": 74,
+          "R_SHARED_TASK": 69,
+          "R_SINGULARITY": 70
+        },
+        "independent_roots": [
+          "root_origin_01",
+          "root_pair_04"
+        ],
+        "coverage": 88,
+        "robustness": 79,
+        "r_min": 0.66,
+        "discriminators_used": [
+          "D_POLARITY_PAIR",
+          "D_SHARED_MISSION"
+        ],
+        "counterevidence": [
+          "No independent evidence operationalizes the doctrine-specific unique blueprint requirement."
+        ],
+        "competing_models": [
+          "ZIVUG_TRUE_PAIR",
+          "TWIN_SOUL"
+        ],
+        "reason_not_higher": "Doctrine-specific markers such as a unique shared blueprint have no validated astrological discriminator."
+      }
+    ],
+    "undifferentiated_output": {
+      "id": "SHARED_ORIGIN_UNDIFFERENTIATED",
+      "state": "INSUFFICIENT",
+      "compatible_models": [
+        "RELATED_SOUL_ROOTS",
+        "ZIVUG_TRUE_PAIR"
+      ],
+      "missing_discriminators": [
+        "A_RELATED_ROOT_VS_ZIVUG",
+        "A_ZIVUG_VS_TWIN_FLAME"
+      ]
+    },
+    "global_counterevidence": [],
+    "limitations": [
+      "Synthetic fixture only.",
+      "No ontological probability is inferred."
+    ],
+    "resolution_level": "O2_ROOT_FAMILY",
+    "evidence_families": [
+      "F1_CONTINUIDAD",
+      "F2_RAIZ_COMPARTIDA",
+      "F3_SIMETRIA_DYADICA",
+      "F4_SINGULARIDAD"
+    ],
+    "doctrinal_discriminators": [
+      "D_SHARED_ROOT",
+      "D_PREBIRTH_PAIRING",
+      "D_REINCARNATION_RETURN",
+      "D_POLARITY_PAIR",
+      "D_SHARED_MISSION"
+    ],
+    "astrology_discriminators": [
+      "A_CONTINUITY_VS_NEW",
+      "A_RELATED_ROOT_VS_ZIVUG",
+      "A_ZIVUG_VS_TWIN_FLAME",
+      "A_UNIQUE_DYADIC_ORIGIN"
+    ],
+    "why_not_more_specific": "The synthetic fixture reaches O2 because continuity and shared-root architecture are strong, but no validated A_* discriminator establishes a unique dyadic ontology or separates related roots, zivug and twin-flame models."
+  },
+  "agreement_motive_differential": {
+    "schema_version": "1.0.0",
+    "resolution_level": "M2_DIRECTION_SCOPE",
+    "overall_state": "COMPATIBLE",
+    "primary_motives": [
+      "M_APRENDIZAJE_MUTUO",
+      "M_TIKKUN_DEL_OTRO"
+    ],
+    "secondary_motives": [
+      "M_CATALISIS_TRANSFORMACION"
+    ],
+    "motives": [
+      {
+        "id": "M_APRENDIZAJE_MUTUO",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_task_A_01",
+          "root_task_B_01",
+          "root_rel_02"
+        ],
+        "coverage": 90,
+        "robustness": 82,
+        "r_min": 0.71,
+        "doctrinal_sources": [
+          "myss_sacred_contracts_2001",
+          "schwartz_your_souls_plan_2009"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": "The functional motive is well supported, but the prebirth mechanism cannot be uniquely attributed."
+      },
+      {
+        "id": "M_TIKKUN_DEL_OTRO",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_task_B_01",
+          "root_AactivatesB_03"
+        ],
+        "coverage": 86,
+        "robustness": 78,
+        "r_min": 0.65,
+        "doctrinal_sources": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": "AM5_TIKKUN_SELF_VS_OTHER is not validated strongly enough for a unique ontological attribution."
+      },
+      {
+        "id": "M_CATALISIS_TRANSFORMACION",
+        "state": "COMPATIBLE",
+        "direction": "BILATERAL",
+        "priority": "SECONDARY",
+        "independent_roots": [
+          "root_transform_04"
+        ],
+        "coverage": 84,
+        "robustness": 80,
+        "r_min": 0.69,
+        "doctrinal_sources": [],
+        "counterevidence": [],
+        "reason_not_higher": "Catalysis explains activation intensity but not the full contract architecture."
+      }
+    ],
+    "evidence_families": [
+      "MF1_TAREA_PREVIA",
+      "MF2_ADECUACION_DEL_ACTIVADOR",
+      "MF3_RECIPROCIDAD",
+      "MF4_CAMPO_COMUN",
+      "MF5_REPETICION_RECTIFICATORIA"
+    ],
+    "discriminators": [
+      {
+        "id": "AM1_REPAIR_VS_LEARNING",
+        "status": "OPERATIONAL",
+        "result": "BOTH_PRESENT"
+      },
+      {
+        "id": "AM3_INDIVIDUAL_VS_COMMON",
+        "status": "OPERATIONAL",
+        "result": "BOTH_INDIVIDUAL_AND_COMMON"
+      },
+      {
+        "id": "AM5_TIKKUN_SELF_VS_OTHER",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "AM7_MUTUAL_AGREEMENT",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "doctrinal_mechanisms": [
+      {
+        "id": "ELEGIDA",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "myss_sacred_contracts_2001"
+        ]
+      },
+      {
+        "id": "KARMICAMENTE_NECESARIA",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ]
+      },
+      {
+        "id": "ACORDADA_MUTUAMENTE",
+        "state": "INSUFFICIENT",
+        "source_ids": [
+          "schwartz_your_souls_plan_2009"
+        ]
+      }
+    ],
+    "competing_explanations": [
+      "M_CATALISIS_TRANSFORMACION_ONLY",
+      "NON_CONTRACTUAL_EVOLUTIONARY_LEARNING"
+    ],
+    "counterevidence": [],
+    "robustness": 80,
+    "why_primary": "The synthetic architecture contains prior individual tasks, bilateral activation and a recurrent repair/learning field.",
+    "why_not_more_specific": "No validated astrological discriminator establishes whether the prebirth mechanism was mutual agreement, individual choice, karmic necessity or another doctrinally possible mechanism."
+  },
+  "role_selection_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "roles": [
+      {
+        "id": "ACTIVADOR",
+        "state": "SUPPORTED",
+        "direction": "A_EN_B",
+        "intensity": "PRIMARIO",
+        "receiver": "B",
+        "independent_roots": [
+          "root_task_B_01",
+          "root_AactivatesB_03"
+        ],
+        "motive_refs": [
+          "M_TIKKUN_DEL_OTRO",
+          "M_CATALISIS_TRANSFORMACION"
+        ],
+        "clause_refs": [
+          "LIBERTAD_AUTONOMIA"
+        ],
+        "coverage": 91,
+        "robustness": 84,
+        "r_min": 0.73,
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "ESTRUCTURADOR",
+        "state": "COMPATIBLE",
+        "direction": "B_EN_A",
+        "intensity": "PRIMARIO",
+        "receiver": "A",
+        "independent_roots": [
+          "root_task_A_01",
+          "root_BstructuresA_05"
+        ],
+        "motive_refs": [
+          "M_APRENDIZAJE_MUTUO"
+        ],
+        "clause_refs": [
+          "INTEGRACION_ENCARNACION"
+        ],
+        "coverage": 86,
+        "robustness": 79,
+        "r_min": 0.66,
+        "counterevidence": [],
+        "reason_not_higher": "The role is structurally coherent but has less independent recurrence than ACTIVADOR."
+      },
+      {
+        "id": "INTEGRADOR",
+        "state": "COMPATIBLE",
+        "direction": "CAMPO_COMUN",
+        "intensity": "SECUNDARIO",
+        "receiver": "CAMPO_COMUN",
+        "independent_roots": [
+          "root_rel_02"
+        ],
+        "motive_refs": [
+          "M_INTEGRACION"
+        ],
+        "clause_refs": [
+          "INTEGRACION_ENCARNACION"
+        ],
+        "coverage": 84,
+        "robustness": 78,
+        "r_min": 0.65,
+        "counterevidence": [],
+        "reason_not_higher": "The role depends substantially on the RELCHART family."
+      }
+    ],
+    "primary_roles": [
+      "A:ACTIVADOR→B",
+      "B:ESTRUCTURADOR→A"
+    ],
+    "secondary_roles": [
+      "CAMPO_COMUN:INTEGRADOR"
+    ],
+    "mechanisms": [
+      {
+        "id": "RS_KARMIC_RETURN_FOR_OTHER",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ]
+      },
+      {
+        "id": "RS_MUTUAL_AGREEMENT",
+        "state": "INSUFFICIENT",
+        "source_ids": [
+          "myss_sacred_contracts_2001",
+          "schwartz_your_souls_plan_2009"
+        ]
+      },
+      {
+        "id": "RS_REQUESTED_MISSION",
+        "state": "COMPATIBLE",
+        "source_ids": [
+          "kardec_spirits_book_missions_572_573"
+        ]
+      }
+    ],
+    "evidence_families": [
+      "RF1_TAREA_RECEPTORA",
+      "RF2_ESPECIFICIDAD_ACTIVADOR",
+      "RF3_DIRECCIONALIDAD",
+      "RF4_COMPLEMENTARIEDAD_RECIPROCA",
+      "RF5_CAMPO_COMUN",
+      "RF6_RECURRENCIA"
+    ],
+    "discriminators": [
+      {
+        "id": "RSD1_ROLE_VS_TRAIT",
+        "status": "OPERATIONAL",
+        "result": "ROLE"
+      },
+      {
+        "id": "RSD2_DIRECTION",
+        "status": "OPERATIONAL",
+        "result": "ASYMMETRIC_COMPLEMENTARY"
+      },
+      {
+        "id": "RSD5_REQUESTED_VS_MUTUAL",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "RSD6_KARMIC_VS_VOLUNTARY",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "competing_role_models": [
+      "BILATERAL_CATALYST",
+      "MUTUAL_LEARNING_ONLY"
+    ],
+    "counterevidence": [],
+    "robustness": 82,
+    "why_selected": "Synthetic tasks and activator-fit roots support asymmetric but complementary primary roles.",
+    "why_not_more_specific": "The functional roles are distinguishable, but the exact prebirth mechanism—requested mission, mutual agreement or karmic return—cannot be uniquely determined."
+  },
+  "encounter_conditions_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "conditions": [
+      {
+        "id": "EC_VENTANA_TEMPORAL",
+        "state": "SUPPORTED",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_origin_01",
+          "root_pair_04"
+        ],
+        "temporal_refs": [
+          "TPROG_SYN_01",
+          "TDIR_REL_02"
+        ],
+        "documentary_refs": [
+          "event_meeting_001"
+        ],
+        "doctrinal_sources": [
+          "myss_sacred_contracts_2001"
+        ],
+        "coverage": 92,
+        "robustness": 86,
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "EC_DISPARADOR_RECONOCIMIENTO",
+        "state": "COMPATIBLE",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_origin_01",
+          "root_cont_02"
+        ],
+        "temporal_refs": [
+          "TPROG_SYN_01"
+        ],
+        "documentary_refs": [
+          "event_meeting_001"
+        ],
+        "doctrinal_sources": [
+          "zohar_lech_lecha_32_346_350"
+        ],
+        "coverage": 88,
+        "robustness": 83,
+        "counterevidence": [],
+        "reason_not_higher": "Recognition and attraction remain partially overlapping in this synthetic fixture."
+      },
+      {
+        "id": "EC_CONTEXTO_GEOGRAFICO_SOCIAL",
+        "state": "COMPATIBLE",
+        "priority": "SECONDARY",
+        "independent_roots": [],
+        "temporal_refs": [],
+        "documentary_refs": [
+          "context_public_001"
+        ],
+        "doctrinal_sources": [
+          "myss_sacred_contracts_2001"
+        ],
+        "coverage": 80,
+        "robustness": null,
+        "counterevidence": [],
+        "reason_not_higher": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL is NOT_VALIDATED."
+      }
+    ],
+    "primary_conditions": [
+      "EC_VENTANA_TEMPORAL",
+      "EC_DISPARADOR_RECONOCIMIENTO"
+    ],
+    "temporal_windows": [
+      {
+        "id": "window_001",
+        "state": "SUPPORTED",
+        "anchored_roots": [
+          "root_origin_01"
+        ],
+        "families": [
+          "TPROG",
+          "TDIR"
+        ],
+        "event_ref": "event_meeting_001"
+      }
+    ],
+    "contexts": [
+      {
+        "id": "context_public_001",
+        "type": "SOCIAL_GEOGRAPHIC",
+        "state": "COMPATIBLE"
+      }
+    ],
+    "evidence_families": [
+      "ECF1_ANCLAJE_ESTRUCTURAL",
+      "ECF2_TEMPORALIDAD_INDEPENDIENTE",
+      "ECF3_CARTA_EVENTO",
+      "ECF4_CONTEXTO_DOCUMENTAL",
+      "ECF6_RECONOCIMIENTO"
+    ],
+    "discriminators": [
+      {
+        "id": "ECD1_STRUCTURE_VS_COINCIDENCE",
+        "status": "OPERATIONAL",
+        "result": "STRUCTURAL_ACTIVATION"
+      },
+      {
+        "id": "ECD3_RECOGNITION_VS_ATTRACTION",
+        "status": "OPERATIONAL",
+        "result": "PARTIALLY_SEPARATED"
+      },
+      {
+        "id": "ECD4_REQUIRED_CONTEXT_VS_INCIDENTAL",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "ECD6_UNIQUE_EVENT_VS_ALTERNATIVE_PATH",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "doctrinal_support": [
+      "myss_sacred_contracts_2001",
+      "newton_journey_of_souls_1994",
+      "zohar_lech_lecha_32_346_350"
+    ],
+    "competing_explanations": [
+      "TIMING_COINCIDENCE",
+      "ORDINARY_ATTRACTION"
+    ],
+    "counterevidence": [],
+    "robustness": 85,
+    "why_selected": "The synthetic meeting window activates pre-existing roots through independent temporal families and a matching event chart.",
+    "why_not_more_specific": "The engine cannot establish that this exact place/event was the unique preincarnational route or that no alternative encounter path existed."
+  },
+  "individual_tasks_differential": {
+    "schema_version": "1.0.0",
+    "subjects": {
+      "A": {
+        "state": "PREVIA_FUERTE",
+        "primary_tasks": [
+          "IT_AUTONOMIA",
+          "IT_LIMITES"
+        ],
+        "secondary_tasks": [
+          "IT_RESPONSABILIDAD"
+        ],
+        "tasks": [
+          {
+            "id": "IT_AUTONOMIA",
+            "state": "SUPPORTED",
+            "independent_natal_roots": [
+              "A_nat_01",
+              "A_node_02"
+            ],
+            "coverage": 92,
+            "robustness": 87,
+            "r_min": 0.78,
+            "counterevidence": [],
+            "reason_not_higher": null
+          },
+          {
+            "id": "IT_LIMITES",
+            "state": "COMPATIBLE",
+            "independent_natal_roots": [
+              "A_nat_03",
+              "A_disp_04"
+            ],
+            "coverage": 88,
+            "robustness": 84,
+            "r_min": 0.72,
+            "counterevidence": [],
+            "reason_not_higher": "Secondary overlap with autonomy."
+          }
+        ],
+        "evidence_families": [
+          "ITF1_RADIX_DOMINANTE",
+          "ITF2_NODOS_Y_REGENTES",
+          "ITF3_DISPOSITORES",
+          "ITF4_POLARIDAD_REPETIDA",
+          "ITF6_ROBUSTEZ_HORARIA",
+          "ITF8_INDEPENDENCIA_DEL_OTRO"
+        ],
+        "partner_removed_result": "PRESERVED",
+        "ablation_result": "PRIMARY_TASKS_PRESERVED",
+        "counterevidence": [],
+        "robustness": 86,
+        "why_selected": "Synthetic natal architecture preserves autonomy/boundary themes without partner data.",
+        "why_not_more_specific": "The task can be described through overlapping autonomy and boundary formulations."
+      },
+      "B": {
+        "state": "PREVIA_FUERTE",
+        "primary_tasks": [
+          "IT_VULNERABILIDAD",
+          "IT_VERDAD"
+        ],
+        "secondary_tasks": [
+          "IT_COMUNICACION"
+        ],
+        "tasks": [
+          {
+            "id": "IT_VULNERABILIDAD",
+            "state": "SUPPORTED",
+            "independent_natal_roots": [
+              "B_nat_01",
+              "B_node_02"
+            ],
+            "coverage": 91,
+            "robustness": 85,
+            "r_min": 0.76,
+            "counterevidence": [],
+            "reason_not_higher": null
+          },
+          {
+            "id": "IT_VERDAD",
+            "state": "COMPATIBLE",
+            "independent_natal_roots": [
+              "B_nat_03"
+            ],
+            "coverage": 84,
+            "robustness": 81,
+            "r_min": 0.69,
+            "counterevidence": [],
+            "reason_not_higher": "Needs additional independent natal recurrence."
+          }
+        ],
+        "evidence_families": [
+          "ITF1_RADIX_DOMINANTE",
+          "ITF2_NODOS_Y_REGENTES",
+          "ITF4_POLARIDAD_REPETIDA",
+          "ITF6_ROBUSTEZ_HORARIA",
+          "ITF8_INDEPENDENCIA_DEL_OTRO"
+        ],
+        "partner_removed_result": "PRESERVED",
+        "ablation_result": "PRIMARY_TASKS_PRESERVED",
+        "counterevidence": [],
+        "robustness": 84,
+        "why_selected": "Synthetic natal architecture preserves vulnerability/truth themes without partner data.",
+        "why_not_more_specific": "Truth and communication remain partially overlapping task formulations."
+      }
+    },
+    "cross_activation": [
+      {
+        "receiver": "A",
+        "task_id": "IT_AUTONOMIA",
+        "activator": "B",
+        "root_refs": [
+          "root_BstructuresA_05"
+        ],
+        "state": "COMPATIBLE"
+      },
+      {
+        "receiver": "B",
+        "task_id": "IT_VULNERABILIDAD",
+        "activator": "A",
+        "root_refs": [
+          "root_AactivatesB_03"
+        ],
+        "state": "SUPPORTED"
+      }
+    ],
+    "counterevidence": []
+  },
+  "common_task_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "primary_common_tasks": [
+      "CT_INTEGRACION_POLARIDADES",
+      "CT_APRENDIZAJE_RECIPROCO"
+    ],
+    "secondary_common_tasks": [
+      "CT_MISION_SERVICIO"
+    ],
+    "tasks": [
+      {
+        "id": "CT_INTEGRACION_POLARIDADES",
+        "state": "SUPPORTED",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_rel_02",
+          "root_bilat_04"
+        ],
+        "emergence_test": "PASSED",
+        "coverage": 91,
+        "robustness": 85,
+        "r_min": 0.74,
+        "doctrinal_sources": [
+          "vital_pri_etz_chaim"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "CT_APRENDIZAJE_RECIPROCO",
+        "state": "COMPATIBLE",
+        "priority": "PRIMARY",
+        "independent_roots": [
+          "root_bilat_04",
+          "root_task_bridge_05"
+        ],
+        "emergence_test": "PASSED",
+        "coverage": 88,
+        "robustness": 82,
+        "r_min": 0.7,
+        "doctrinal_sources": [
+          "myss_sacred_contracts_2001"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": "Learning and integration partially share the same root family."
+      },
+      {
+        "id": "CT_MISION_SERVICIO",
+        "state": "COMPATIBLE",
+        "priority": "SECONDARY",
+        "independent_roots": [
+          "root_service_06"
+        ],
+        "emergence_test": "PARTIAL",
+        "coverage": 81,
+        "robustness": 78,
+        "r_min": 0.65,
+        "doctrinal_sources": [
+          "kardec_spirits_book_missions_572_573"
+        ],
+        "counterevidence": [],
+        "reason_not_higher": "Externalization is compatible but not yet independently documented."
+      }
+    ],
+    "evidence_families": [
+      "CTF1_RELCHART",
+      "CTF2_RAICES_BILATERALES",
+      "CTF3_RECURRENCIA_SEMANTICA",
+      "CTF6_EMERGENCIA",
+      "CTF7_ROBUSTEZ",
+      "CTF8_CONTROL_DE_DEPENDENCIA"
+    ],
+    "discriminators": [
+      {
+        "id": "CTD1_SUM_VS_EMERGENCE",
+        "status": "OPERATIONAL",
+        "result": "EMERGENT"
+      },
+      {
+        "id": "CTD2_DYADIC_VS_TRANSPERSONAL",
+        "status": "OPERATIONAL",
+        "result": "PRIMARILY_DYADIC"
+      },
+      {
+        "id": "CTD7_RELCHART_DEPENDENCE",
+        "status": "OPERATIONAL",
+        "result": "SURVIVES_PARTIAL_ABLATION"
+      },
+      {
+        "id": "CTD8_UNIQUE_COMMON_TASK",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "relation_chart_refs": [
+      "composite_root_01",
+      "davison_root_01"
+    ],
+    "bilateral_root_refs": [
+      "root_bilat_04"
+    ],
+    "externalization_refs": [],
+    "competing_explanations": [
+      "SUM_OF_INDIVIDUAL_TASKS",
+      "RELATIONAL_LEARNING_WITHOUT_PREBIRTH_COMMON_TASK"
+    ],
+    "counterevidence": [],
+    "robustness": 83,
+    "why_selected": "Synthetic RELCHART and bilateral roots add an integration function not reducible to the two individual task sets.",
+    "why_not_more_specific": "The common field is clear, but integration and reciprocal learning remain partly coextensive and service is not independently externalized."
+  },
+  "clause_assembly": {
+    "schema_version": "1.1.0",
+    "overall_state": "COMPATIBLE",
+    "essential_clauses": [
+      "CL_LIBERTAD_AUTONOMIA",
+      "CL_INTEGRACION_ENCARNACION"
+    ],
+    "primary_clauses": [
+      "CL_COMUNICACION_VERDAD"
+    ],
+    "secondary_clauses": [
+      "CL_ENCUENTRO_RECONOCIMIENTO"
+    ],
+    "clauses": [
+      {
+        "id": "CL_LIBERTAD_AUTONOMIA",
+        "state": "SUPPORTED",
+        "centrality": "ESSENTIAL",
+        "direction": "A_EN_B",
+        "genealogy": {
+          "origin_refs": [
+            "SHARED_ORIGIN_UNDIFFERENTIATED"
+          ],
+          "motive_refs": [
+            "M_TIKKUN_DEL_OTRO",
+            "M_CATALISIS_TRANSFORMACION"
+          ],
+          "role_refs": [
+            "A:ACTIVADOR→B"
+          ],
+          "encounter_condition_refs": [
+            "EC_VENTANA_TEMPORAL"
+          ],
+          "individual_task_refs": [
+            "B:IT_VULNERABILIDAD",
+            "A:IT_AUTONOMIA"
+          ],
+          "common_task_refs": [
+            "CT_INTEGRACION_POLARIDADES"
+          ]
+        },
+        "astrology_root_refs": [
+          "root_AactivatesB_03",
+          "root_bilat_04"
+        ],
+        "function": "hacer visible la tensión cercanía/autonomía",
+        "soul_objective": "integrar vínculo y libertad sin apropiación ni huida",
+        "learning": "sostener proximidad y diferenciación simultáneamente",
+        "shadow": "control o retirada",
+        "integration_requirement": "la autonomía deja de requerir ruptura para existir",
+        "fulfillment_signature": "la misma tensión puede sostenerse sin crisis repetitiva",
+        "temporal_state": "EN_DESARROLLO",
+        "coverage": 92,
+        "robustness": 85,
+        "r_min": 0.74,
+        "counterevidence": [],
+        "reason_not_higher": null,
+        "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "reconstructed_contract_content": "A relationship-specific function confronts the autonomy/closeness polarity without predetermining a romantic outcome.",
+        "activation_mechanism": "A directional activator contacts a preexisting autonomy task and the common field repeats the same polarity.",
+        "contract_test": "Can closeness and autonomy coexist without control or reactive withdrawal?",
+        "claim_refs": [
+          "CLAIM_CONTRACT_R2"
+        ],
+        "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
+      },
+      {
+        "id": "CL_INTEGRACION_ENCARNACION",
+        "state": "COMPATIBLE",
+        "centrality": "ESSENTIAL",
+        "direction": "CAMPO_COMUN",
+        "genealogy": {
+          "origin_refs": [
+            "SHARED_ORIGIN_UNDIFFERENTIATED"
+          ],
+          "motive_refs": [
+            "M_APRENDIZAJE_MUTUO"
+          ],
+          "role_refs": [
+            "CAMPO_COMUN:INTEGRADOR"
+          ],
+          "encounter_condition_refs": [
+            "EC_DISPARADOR_RECONOCIMIENTO"
+          ],
+          "individual_task_refs": [
+            "A:IT_AUTONOMIA",
+            "B:IT_VULNERABILIDAD"
+          ],
+          "common_task_refs": [
+            "CT_INTEGRACION_POLARIDADES"
+          ]
+        },
+        "astrology_root_refs": [
+          "root_rel_02",
+          "root_bilat_04"
+        ],
+        "function": "transformar una polaridad simbólica en forma vivida",
+        "soul_objective": "encarnar integración en decisiones y conducta",
+        "learning": "pasar de significado simbólico a coherencia práctica",
+        "shadow": "idealización sin forma",
+        "integration_requirement": "la integración aparece en hechos observables",
+        "fulfillment_signature": "la función relacional produce una organización encarnada estable",
+        "temporal_state": "EN_DESARROLLO",
+        "coverage": 88,
+        "robustness": 82,
+        "r_min": 0.7,
+        "counterevidence": [],
+        "reason_not_higher": "Current synthetic fixture contains no documented post-activation integration facts.",
+        "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "reconstructed_contract_content": "The relationship-specific function tests whether symbolic meaning can become embodied in coherent choices and conduct.",
+        "activation_mechanism": "Relational structure and role-task alignment connect symbolic integration with Saturnian/embodiment functions.",
+        "contract_test": "Can meaning become observable form without requiring a predetermined romantic result?",
+        "claim_refs": [
+          "CLAIM_CONTRACT_R2"
+        ],
+        "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
+      },
+      {
+        "id": "CL_COMUNICACION_VERDAD",
+        "state": "COMPATIBLE",
+        "centrality": "PRIMARY",
+        "direction": "B_EN_A",
+        "genealogy": {
+          "origin_refs": [],
+          "motive_refs": [
+            "M_APRENDIZAJE_MUTUO"
+          ],
+          "role_refs": [
+            "B:ESTRUCTURADOR→A"
+          ],
+          "encounter_condition_refs": [],
+          "individual_task_refs": [
+            "B:IT_VERDAD"
+          ],
+          "common_task_refs": [
+            "CT_APRENDIZAJE_RECIPROCO"
+          ]
+        },
+        "astrology_root_refs": [
+          "root_BstructuresA_05"
+        ],
+        "function": "convertir ambigüedad en formulación consciente",
+        "soul_objective": "hacer explícita una verdad relacional",
+        "learning": "nombrar sin imponer",
+        "shadow": "silencio o interpretación unilateral",
+        "integration_requirement": "la verdad puede expresarse sin compulsión",
+        "fulfillment_signature": "la comunicación deja de depender de crisis",
+        "temporal_state": "ACTIVADA",
+        "coverage": 85,
+        "robustness": 80,
+        "r_min": 0.68,
+        "counterevidence": [],
+        "reason_not_higher": "Only one strong independent directional root is present.",
+        "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "reconstructed_contract_content": "The relationship-specific function brings ambiguity into explicit communication and truth-testing.",
+        "activation_mechanism": "A directional communication root activates a preexisting truth task and is repeated in the common learning field.",
+        "contract_test": "Can meaning be named without coercion, unilateral interpretation or crisis-dependent communication?",
+        "claim_refs": [
+          "CLAIM_CONTRACT_R2"
+        ],
+        "allowed_conclusion": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+        "inferential_ceiling": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION"
+      }
+    ],
+    "overlap_matrix": [
+      {
+        "a": "CL_LIBERTAD_AUTONOMIA",
+        "b": "CL_INTEGRACION_ENCARNACION",
+        "relation": "DISTINCT_BUT_DEPENDENT"
+      },
+      {
+        "a": "CL_LIBERTAD_AUTONOMIA",
+        "b": "CL_COMUNICACION_VERDAD",
+        "relation": "DISTINCT_INDEPENDENT"
+      }
+    ],
+    "evidence_families": [
+      "CLF1_GENEALOGIA_VERTICAL",
+      "CLF2_RAICES_ESTRUCTURALES",
+      "CLF3_DIRECCIONALIDAD",
+      "CLF4_ALINEACION_ROL_TAREA",
+      "CLF5_ALINEACION_TAREA_COMUN",
+      "CLF6_ANCLAJE_TEMPORAL",
+      "CLF7_CONTRAEVIDENCIA",
+      "CLF8_ROBUSTEZ"
+    ],
+    "discriminators": [
+      {
+        "id": "CLD1_GENEALOGY_COMPLETE",
+        "status": "OPERATIONAL",
+        "result": "PASSED"
+      },
+      {
+        "id": "CLD2_OVERLAP_VS_DISTINCT",
+        "status": "OPERATIONAL",
+        "result": "CONTROLLED"
+      },
+      {
+        "id": "CLD5_INTEGRATION_SIGNATURE",
+        "status": "OPERATIONAL",
+        "result": "PREREGISTERED"
+      },
+      {
+        "id": "CLD8_UNIQUE_CLAUSE",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "counterevidence": [],
+    "robustness": 83,
+    "vertical_coherence": 90,
+    "why_selected": "The synthetic clauses are traceable to upstream motive, role, task and root structures.",
+    "why_not_more_specific": "Some clause boundaries remain dependent because the same structural roots contribute to more than one functional expression."
+  },
+  "fulfillment_mechanisms_differential": {
+    "schema_version": "1.0.0",
+    "overall_state": "COMPATIBLE",
+    "mechanisms": [
+      {
+        "id": "FM_ACTIVACION",
+        "state": "SUPPORTED",
+        "clause_refs": [
+          "CL_LIBERTAD_AUTONOMIA",
+          "CL_COMUNICACION_VERDAD"
+        ],
+        "functional_state": "ACTIVADA",
+        "temporal_refs": [
+          "TPROG_SYN_01",
+          "TDIR_REL_02"
+        ],
+        "fact_refs": [
+          "event_meeting_001"
+        ],
+        "source_ids": [],
+        "coverage": 92,
+        "robustness": 86,
+        "counterevidence": [],
+        "reason_not_higher": null
+      },
+      {
+        "id": "FM_REPETICION",
+        "state": "COMPATIBLE",
+        "clause_refs": [
+          "CL_LIBERTAD_AUTONOMIA"
+        ],
+        "functional_state": "EN_REPETICION",
+        "temporal_refs": [
+          "window_001",
+          "window_002"
+        ],
+        "fact_refs": [
+          "fact_pattern_001",
+          "fact_pattern_002"
+        ],
+        "source_ids": [],
+        "coverage": 86,
+        "robustness": 82,
+        "counterevidence": [],
+        "reason_not_higher": "The fixture shows recurrence but not enough factual change for repair."
+      },
+      {
+        "id": "FM_TIKKUN_REPARACION",
+        "state": "INSUFFICIENT",
+        "clause_refs": [
+          "CL_LIBERTAD_AUTONOMIA"
+        ],
+        "functional_state": "EN_INTEGRACION",
+        "temporal_refs": [
+          "window_002"
+        ],
+        "fact_refs": [],
+        "source_ids": [
+          "vital_shaar_hagilgulim_8_reasons_for_return"
+        ],
+        "coverage": 80,
+        "robustness": 78,
+        "counterevidence": [
+          "No post-activation fact yet satisfies the preregistered integration signature."
+        ],
+        "reason_not_higher": "Functional repair remains unverified in facts."
+      },
+      {
+        "id": "FM_RUTA_ALTERNATIVA",
+        "state": "COMPATIBLE",
+        "clause_refs": [
+          "CL_INTEGRACION_ENCARNACION"
+        ],
+        "functional_state": "NO_EVALUABLE",
+        "temporal_refs": [],
+        "fact_refs": [],
+        "source_ids": [
+          "myss_sacred_contracts_2001",
+          "schwartz_your_souls_plan_2009"
+        ],
+        "coverage": null,
+        "robustness": null,
+        "counterevidence": [],
+        "reason_not_higher": "Alternative-route language is method-specific and has no validated astrological discriminator."
+      }
+    ],
+    "clause_status": [
+      {
+        "clause_id": "CL_LIBERTAD_AUTONOMIA",
+        "functional_state": "EN_REPETICION",
+        "fulfillment_signature_met": false,
+        "fact_refs": [
+          "fact_pattern_001",
+          "fact_pattern_002"
+        ]
+      },
+      {
+        "clause_id": "CL_INTEGRACION_ENCARNACION",
+        "functional_state": "EN_INTEGRACION",
+        "fulfillment_signature_met": null,
+        "fact_refs": []
+      },
+      {
+        "clause_id": "CL_COMUNICACION_VERDAD",
+        "functional_state": "ACTIVADA",
+        "fulfillment_signature_met": false,
+        "fact_refs": [
+          "event_meeting_001"
+        ]
+      }
+    ],
+    "evidence_families": [
+      "FMF1_ANCLAJE_CLAUSULA",
+      "FMF2_RECURRENCIA_TEMPORAL",
+      "FMF8_CONTRAEVIDENCIA"
+    ],
+    "discriminators": [
+      {
+        "id": "FMD1_ACTIVATION_VS_FULFILLMENT",
+        "status": "OPERATIONAL",
+        "result": "ACTIVATION_ONLY_FOR_SOME_CLAUSES"
+      },
+      {
+        "id": "FMD2_REPETITION_VS_REPAIR",
+        "status": "OPERATIONAL",
+        "result": "REPETITION_NOT_YET_REPAIR"
+      },
+      {
+        "id": "FMD6_ALTERNATIVE_ROUTE",
+        "status": "NOT_VALIDATED",
+        "result": null
+      },
+      {
+        "id": "FMD8_FUTURE_COMPLETION",
+        "status": "NOT_VALIDATED",
+        "result": null
+      }
+    ],
+    "factual_evidence": [
+      {
+        "id": "fact_pattern_001",
+        "kind": "SYNTHETIC_FACT",
+        "supports": [
+          "FM_REPETICION"
+        ]
+      },
+      {
+        "id": "fact_pattern_002",
+        "kind": "SYNTHETIC_FACT",
+        "supports": [
+          "FM_REPETICION"
+        ]
+      }
+    ],
+    "temporal_evidence": [
+      {
+        "id": "window_001",
+        "anchored": true,
+        "root_ref": "root_AactivatesB_03"
+      },
+      {
+        "id": "window_002",
+        "anchored": true,
+        "root_ref": "root_AactivatesB_03"
+      }
+    ],
+    "competing_explanations": [
+      "RECURRENT_RELATIONAL_PATTERN_WITHOUT_PREBIRTH_CONTRACT"
+    ],
+    "counterevidence": [],
+    "robustness": 81,
+    "why_selected": "The synthetic fixture supports activation and repetition but does not yet document full integration or closure.",
+    "why_not_more_specific": "No documented facts satisfy a preregistered integration/closure signature, and future completion cannot be inferred from astrology."
+  }
+}

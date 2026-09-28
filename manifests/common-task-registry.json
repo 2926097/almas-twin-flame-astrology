@@ -1,0 +1,57 @@
+{
+  "registry_version": "1.0.0",
+  "tasks": [
+    "CT_TIKKUN_CONJUNTO",
+    "CT_APRENDIZAJE_RECIPROCO",
+    "CT_INTEGRACION_POLARIDADES",
+    "CT_MISION_SERVICIO",
+    "CT_CREACION_MATERIALIZACION",
+    "CT_TRANSMISION_ENSENANZA",
+    "CT_SANACION_RELACIONAL",
+    "CT_TESTIMONIO",
+    "CT_CIERRE_CICLO",
+    "CT_INDETERMINADA"
+  ],
+  "discriminators": [
+    {
+      "id": "CTD1_SUM_VS_EMERGENCE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD2_DYADIC_VS_TRANSPERSONAL",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD3_LEARNING_VS_REPAIR",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD4_CREATION_VS_SERVICE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD5_INTEGRATION_VS_CLOSURE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD6_STABLE_VS_PHASE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD7_RELCHART_DEPENDENCE",
+      "status": "OPERATIONAL"
+    },
+    {
+      "id": "CTD8_UNIQUE_COMMON_TASK",
+      "status": "NOT_VALIDATED"
+    }
+  ],
+  "source_ids": [
+    "vital_pri_etz_chaim",
+    "vital_shaar_hagilgulim_8_reasons_for_return",
+    "kardec_spirits_book_missions_572_573",
+    "myss_sacred_contracts_2001",
+    "newton_journey_of_souls_1994",
+    "summit_lighthouse_soulmates_twin_flames"
+  ]
+}

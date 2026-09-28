@@ -1,0 +1,10 @@
+{
+  "manifest_version": "1.0.0",
+  "policy_id": "ALMAS_PUBLIC_DATA_ISOLATION_V1",
+  "scope": "public_cases",
+  "root": "public_cases",
+  "allowed_classifications": [
+    "PUBLIC_VERIFIABLE"
+  ],
+  "artifacts": []
+}

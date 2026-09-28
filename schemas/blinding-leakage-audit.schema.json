@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/blinding-leakage-audit.schema.json",
+  "title": "ALMAS · Auditoría de cegamiento y leakage",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "audit_refs",
+    "structural_input_refs",
+    "structural_input_sha256",
+    "pre_reveal_output_sha256",
+    "post_reveal_structural_output_sha256",
+    "development_evaluation_disjoint",
+    "labels_hidden",
+    "narrative_hidden",
+    "expected_result_hidden",
+    "holdout_outcome_hidden",
+    "late_reveal_performed",
+    "structural_output_invariant_after_reveal",
+    "forbidden_field_hits",
+    "label_leakage_count",
+    "narrative_leakage_count",
+    "case_fitting_count",
+    "post_holdout_rule_change_count",
+    "identity_visibility",
+    "identity_risk_refs"
+  ],
+  "properties": {
+    "policy_id": {
+      "const": "ALMAS_BLINDING_LEAKAGE_V1"
+    },
+    "audit_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "structural_input_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "structural_input_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "pre_reveal_output_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "post_reveal_structural_output_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "development_evaluation_disjoint": {"const": true},
+    "labels_hidden": {"const": true},
+    "narrative_hidden": {"const": true},
+    "expected_result_hidden": {"const": true},
+    "holdout_outcome_hidden": {"const": true},
+    "late_reveal_performed": {"const": true},
+    "structural_output_invariant_after_reveal": {"const": true},
+    "forbidden_field_hits": {"const": 0},
+    "label_leakage_count": {"const": 0},
+    "narrative_leakage_count": {"const": 0},
+    "case_fitting_count": {"const": 0},
+    "post_holdout_rule_change_count": {"const": 0},
+    "identity_visibility": {
+      "enum": ["HIDDEN", "PSEUDONYMIZED", "UNAVOIDABLE_PUBLIC"]
+    },
+    "identity_risk_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "identity_visibility": {"const": "UNAVOIDABLE_PUBLIC"}
+        },
+        "required": ["identity_visibility"]
+      },
+      "then": {
+        "properties": {
+          "identity_risk_refs": {"minItems": 1}
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

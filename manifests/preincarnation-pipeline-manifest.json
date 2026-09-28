@@ -1,0 +1,290 @@
+{
+  "pipeline_version": "1.0.0",
+  "preincarnation_schema_version": "1.9.0",
+  "execution_mode": "FULL",
+  "principle": "La astrología se utiliza como método metafísico de investigación; cada etapa posterior consume y preserva la trazabilidad de las etapas anteriores.",
+  "stages": [
+    {
+      "order": 1,
+      "id": "ORIGIN",
+      "output_key": "origin_differential",
+      "reference": "reference/origin-differential.md",
+      "schema": "schemas/origin-differential.schema.json",
+      "registry": [
+        "manifests/origin-model-registry.json",
+        "manifests/origin-discriminator-registry.json"
+      ],
+      "invariants": "tests/ORIGIN_DIFFERENTIAL_INVARIANTS.md",
+      "synthetic_example": "examples/origin-differential.synthetic.json",
+      "depends_on": [
+        "astrology_to_soul_contract.json"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "AGREEMENT_MOTIVE",
+      "output_key": "agreement_motive_differential",
+      "reference": "reference/agreement-motive-differential.md",
+      "schema": "schemas/agreement-motive-differential.schema.json",
+      "registry": [
+        "manifests/agreement-motive-registry.json"
+      ],
+      "invariants": "tests/AGREEMENT_MOTIVE_INVARIANTS.md",
+      "synthetic_example": "examples/agreement-motive.synthetic.json",
+      "depends_on": [
+        "ORIGIN",
+        "individual_preconditions_from_astrology"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "ROLE_SELECTION",
+      "output_key": "role_selection_differential",
+      "reference": "reference/role-selection-differential.md",
+      "schema": "schemas/role-selection-differential.schema.json",
+      "registry": [
+        "manifests/role-selection-registry.json"
+      ],
+      "invariants": "tests/ROLE_SELECTION_INVARIANTS.md",
+      "synthetic_example": "examples/role-selection.synthetic.json",
+      "depends_on": [
+        "AGREEMENT_MOTIVE",
+        "individual_preconditions_from_astrology"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "ENCOUNTER_CONDITIONS",
+      "output_key": "encounter_conditions_differential",
+      "reference": "reference/encounter-conditions-differential.md",
+      "schema": "schemas/encounter-conditions-differential.schema.json",
+      "registry": [
+        "manifests/encounter-conditions-registry.json"
+      ],
+      "invariants": "tests/ENCOUNTER_CONDITIONS_INVARIANTS.md",
+      "synthetic_example": "examples/encounter-conditions.synthetic.json",
+      "depends_on": [
+        "ORIGIN",
+        "AGREEMENT_MOTIVE",
+        "structural_roots",
+        "anchored_temporal_activations"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "INDIVIDUAL_TASKS",
+      "output_key": "individual_tasks_differential",
+      "reference": "reference/individual-tasks-differential.md",
+      "schema": "schemas/individual-tasks-differential.schema.json",
+      "registry": [
+        "manifests/individual-tasks-registry.json"
+      ],
+      "invariants": "tests/INDIVIDUAL_TASKS_INVARIANTS.md",
+      "synthetic_example": "examples/individual-tasks.synthetic.json",
+      "depends_on": [
+        "individual_natal_architecture"
+      ],
+      "special_gate": "Las tareas deben sobrevivir a la retirada de la carta de la otra persona para considerarse preexistentes."
+    },
+    {
+      "order": 6,
+      "id": "COMMON_TASK",
+      "output_key": "common_task_differential",
+      "reference": "reference/common-task-differential.md",
+      "schema": "schemas/common-task-differential.schema.json",
+      "registry": [
+        "manifests/common-task-registry.json"
+      ],
+      "invariants": "tests/COMMON_TASK_INVARIANTS.md",
+      "synthetic_example": "examples/common-task.synthetic.json",
+      "depends_on": [
+        "INDIVIDUAL_TASKS",
+        "ROLE_SELECTION",
+        "relationship_chart_roots",
+        "bilateral_roots"
+      ],
+      "special_gate": "La tarea común debe superar una prueba de emergencia y no puede ser una simple suma de tareas individuales."
+    },
+    {
+      "order": 7,
+      "id": "CLAUSES",
+      "output_key": "clause_assembly",
+      "reference": "reference/clause-assembly.md",
+      "schema": "schemas/clause-assembly.schema.json",
+      "registry": [
+        "manifests/clause-registry.json"
+      ],
+      "invariants": "tests/CLAUSE_ASSEMBLY_INVARIANTS.md",
+      "synthetic_example": "examples/clause-assembly.synthetic.json",
+      "depends_on": [
+        "ORIGIN",
+        "AGREEMENT_MOTIVE",
+        "ROLE_SELECTION",
+        "ENCOUNTER_CONDITIONS",
+        "INDIVIDUAL_TASKS",
+        "COMMON_TASK"
+      ],
+      "special_gate": "Las cláusulas SUPPORTED requieren genealogía vertical y una firma de cumplimiento preregistrada."
+    },
+    {
+      "order": 8,
+      "id": "FULFILLMENT_MECHANISMS",
+      "output_key": "fulfillment_mechanisms_differential",
+      "reference": "reference/fulfillment-mechanisms.md",
+      "schema": "schemas/fulfillment-mechanisms.schema.json",
+      "registry": [
+        "manifests/fulfillment-mechanisms-registry.json"
+      ],
+      "invariants": "tests/FULFILLMENT_MECHANISMS_INVARIANTS.md",
+      "synthetic_example": "examples/fulfillment-mechanisms.synthetic.json",
+      "depends_on": [
+        "CLAUSES",
+        "anchored_temporal_activations",
+        "documented_facts"
+      ],
+      "special_gate": "Los estados INTEGRATED, TRANSFORMED y CLOSED requieren hechos documentados posteriores a la activación."
+    }
+  ],
+  "final_output": "canonical_soul_contract.json",
+  "final_schema": "schemas/contrato-almico.schema.json",
+  "narrative_gate": "La síntesis narrativa sólo puede generarse después de que las ocho etapas estén representadas, incluidos estados INSUFFICIENT o NOT_EVALUABLE cuando corresponda.",
+  "almas_version": "1.22.0",
+  "contract_engine_revision": "1.9.0",
+  "contract_causal_chain": {
+    "version": "2.0.0",
+    "reference": "reference/contract-causal-architecture-v2.md",
+    "schema": "schemas/preincarnation-contract-chain.schema.json",
+    "invariants": "tests/CONTRACT_CAUSAL_CHAIN_V2_INVARIANTS.md",
+    "synthetic_example": "examples/preincarnation-contract-chain.synthetic.json",
+    "required_in_full": true,
+    "assembled_from": [
+      "INDIVIDUAL_TASKS",
+      "AGREEMENT_MOTIVE",
+      "ROLE_SELECTION",
+      "ENCOUNTER_CONDITIONS",
+      "COMMON_TASK",
+      "CLAUSES",
+      "FULFILLMENT_MECHANISMS"
+    ],
+    "origin_relation": "ORIGIN es ontología contextual y no forma parte de la cadena causal contractual mínima."
+  },
+  "final_outputs": [
+    "canonical_soul_contract.json",
+    "preincarnation_contract_chain"
+  ],
+  "causality_engine": {
+    "version": "1.0.0",
+    "reference": "reference/preincarnation-causality-engine.md",
+    "registry": "manifests/causal-type-registry.json",
+    "schema": "schemas/preincarnation-causality.schema.json",
+    "invariants": "tests/PREINCARNATION_CAUSALITY_INVARIANTS.md",
+    "consumes": [
+      "INDIVIDUAL_TASKS",
+      "AGREEMENT_MOTIVE",
+      "ROLE_SELECTION",
+      "structural_roots",
+      "COMMON_TASK"
+    ],
+    "feeds": [
+      "contract_causal_chain",
+      "CLAUSES"
+    ],
+    "required_in_full": true
+  },
+  "contract_ablation": {
+    "version": "1.0.0",
+    "reference": "reference/contract-ablation.md",
+    "schema": "schemas/contract-ablation.schema.json",
+    "invariants": "tests/CONTRACT_ABLATION_INVARIANTS.md",
+    "synthetic_example": "examples/contract-ablation.synthetic.json",
+    "required_in_full": true,
+    "applies_to": [
+      "INDIVIDUAL_TASKS",
+      "causality_engine",
+      "ROLE_SELECTION",
+      "COMMON_TASK",
+      "CLAUSES",
+      "origin_differential",
+      "contract_causal_chain"
+    ]
+  },
+  "contract_metrics": {
+    "version": "1.0.0",
+    "reference": "reference/contract-metrics.md",
+    "schema": "schemas/contract-metrics.schema.json",
+    "invariants": "tests/CONTRACT_METRICS_INVARIANTS.md",
+    "consumes": [
+      "INDIVIDUAL_TASKS",
+      "causality_engine",
+      "ROLE_SELECTION",
+      "COMMON_TASK",
+      "CLAUSES",
+      "contract_ablation",
+      "counterevidence",
+      "robustness"
+    ],
+    "produces": [
+      "ITP",
+      "IAA",
+      "IRCo",
+      "ICCo",
+      "IVC",
+      "IRCT",
+      "ICE-C",
+      "ICC-C",
+      "IAP"
+    ],
+    "required_in_full": true
+  },
+  "contract_free_will": {
+    "version": "1.0.0",
+    "reference": "reference/contract-free-will.md",
+    "schema": "schemas/free-will-contract.schema.json",
+    "invariants": "tests/CONTRACT_FREE_WILL_INVARIANTS.md",
+    "required_in_full": true,
+    "applies_to": [
+      "CLAUSES",
+      "FULFILLMENT_MECHANISMS",
+      "contract_causal_chain"
+    ],
+    "produces": [
+      "determination_level",
+      "choice_points",
+      "bilateral_requirements",
+      "alternative_routes"
+    ]
+  },
+  "contract_temporality": {
+    "version": "2.0.0",
+    "reference": "reference/contract-temporality-v2.md",
+    "schema": "schemas/contract-temporality-v2.schema.json",
+    "invariants": "tests/CONTRACT_TEMPORALITY_V2_INVARIANTS.md",
+    "required_in_full": true,
+    "consumes": [
+      "CLAUSES",
+      "anchored_temporal_activations",
+      "documented_facts",
+      "contract_free_will"
+    ],
+    "produces": [
+      "lifecycle_state",
+      "temporal_windows",
+      "factual_match"
+    ]
+  },
+  "documentary_event_layer": {
+    "version": "1.0.0",
+    "reference": "reference/documentary-events.md",
+    "schema": "schemas/documentary-event-ledger.schema.json",
+    "invariants": "tests/DOCUMENTARY_EVENT_INVARIANTS.md",
+    "synthetic_example": "examples/documentary-event-ledger.synthetic.json",
+    "order_rule": "Se ejecuta únicamente después de congelar el análisis estructural.",
+    "feeds": [
+      "contract_temporality",
+      "FULFILLMENT_MECHANISMS",
+      "REAL_VIABILITY",
+      "RECIPROCITY",
+      "counterevidence"
+    ]
+  }
+}

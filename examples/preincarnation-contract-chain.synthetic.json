@@ -1,0 +1,103 @@
+{
+  "schema_version": "2.0.0",
+  "resolution_level": "R2_RELATIONAL_PREINCARNATIONAL_FUNCTION",
+  "party_A": {
+    "preexisting_tasks": [
+      {
+        "id": "TA_AUTONOMY",
+        "state": "SUPPORTED",
+        "summary": "Integrate autonomy with stable attachment."
+      }
+    ],
+    "selection_causes": [
+      {
+        "id": "CA_CATALYSIS",
+        "state": "COMPATIBLE",
+        "summary": "B activates the pre-existing autonomy/attachment polarity."
+      }
+    ],
+    "roles": [
+      {
+        "id": "ROLE_LIBERATOR",
+        "state": "COMPATIBLE",
+        "direction": "B_EN_A"
+      }
+    ]
+  },
+  "party_B": {
+    "preexisting_tasks": [
+      {
+        "id": "TB_RECIPROCITY",
+        "state": "SUPPORTED",
+        "summary": "Differentiate familiarity from reciprocity."
+      }
+    ],
+    "selection_causes": [
+      {
+        "id": "CB_RECOGNITION",
+        "state": "COMPATIBLE",
+        "summary": "A activates a pre-existing familiarity/reciprocity pattern."
+      }
+    ],
+    "roles": [
+      {
+        "id": "ROLE_MEMORY",
+        "state": "COMPATIBLE",
+        "direction": "A_EN_B"
+      }
+    ]
+  },
+  "common_field": {
+    "state": "COMPATIBLE",
+    "summary": "Translate intensity and recognition into explicit reciprocal form."
+  },
+  "clauses": [
+    {
+      "id": "CL_SYNTHETIC_01",
+      "state": "COMPATIBLE",
+      "granularity": "FUNCTION",
+      "activation_clause": "Activate the tension between closeness and autonomy.",
+      "contract_test": "Can closeness exist without control and autonomy without disappearance?",
+      "expected_integration": "Closeness and autonomy become coexistent capacities.",
+      "fulfillment_condition": "Documented behavior shows stable boundaries without repeated rupture.",
+      "closure_forms": [
+        "EMBODIED_TOGETHER",
+        "TRANSFORMED_MODALITY",
+        "LIBERATION",
+        "CLOSURE"
+      ],
+      "trace": {
+        "task_refs": [
+          "TA_AUTONOMY",
+          "TB_RECIPROCITY"
+        ],
+        "selection_cause_refs": [
+          "CA_CATALYSIS",
+          "CB_RECOGNITION"
+        ],
+        "role_refs": [
+          "ROLE_LIBERATOR",
+          "ROLE_MEMORY"
+        ],
+        "root_refs": [
+          "R_SYNTH_01",
+          "R_SYNTH_02"
+        ],
+        "common_task_refs": [
+          "CT_SYNTH_01"
+        ],
+        "source_refs": [
+          "kardec_spirits_book_choice_trials",
+          "kwilecki_soul_contract_theodicy_2014"
+        ]
+      },
+      "counterevidence": [],
+      "reason_not_higher": "No validated discriminator establishes a literal bilateral pre-birth agreement."
+    }
+  ],
+  "literal_content_state": "NOT_EVALUABLE",
+  "global_counterevidence": [],
+  "limitations": [
+    "Synthetic fixture; contains no real persons."
+  ]
+}

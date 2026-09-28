@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/px-v3-promotion-evidence.schema.json",
+  "title": "ALMAS · Evidencia de promoción PX v3",
+  "type": "object",
+  "required": [
+    "candidate",
+    "holdout_evaluations",
+    "external_calibration_refs",
+    "independent_replication_refs",
+    "leakage_audit_refs",
+    "criterion_results",
+    "negative_control_failure_count",
+    "ablation_failure_count",
+    "case_fitting_count",
+    "label_leakage_count",
+    "narrative_leakage_count",
+    "post_holdout_rule_change_count"
+  ],
+  "properties": {
+    "candidate": {"type": "object"},
+    "holdout_evaluations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "object"}
+    },
+    "external_calibration_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "independent_replication_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "leakage_audit_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "criterion_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "criterion_id",
+          "preregistration_ref",
+          "evaluation_ref",
+          "passed"
+        ],
+        "properties": {
+          "criterion_id": {"type": "string", "minLength": 1},
+          "preregistration_ref": {"type": "string", "minLength": 1},
+          "evaluation_ref": {"type": "string", "minLength": 1},
+          "passed": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "negative_control_failure_count": {"type": "integer", "minimum": 0},
+    "ablation_failure_count": {"type": "integer", "minimum": 0},
+    "case_fitting_count": {"type": "integer", "minimum": 0},
+    "label_leakage_count": {"type": "integer", "minimum": 0},
+    "narrative_leakage_count": {"type": "integer", "minimum": 0},
+    "post_holdout_rule_change_count": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": false
+}

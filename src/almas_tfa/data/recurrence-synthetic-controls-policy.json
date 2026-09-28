@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_RECURRENCE_SYNTHETIC_CONTROLS_V1",
+  "status": "FROZEN_EXPERIMENTAL_DIAGNOSTIC",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Medir cuánto PX/PS y cuánta recurrencia semántica puede emerger al romper determinísticamente la asociación entre firma semántica y arquitectura técnica, preservando los marginales principales del caso.",
+  "minimum_core_roots": 8,
+  "max_controls_per_family": 32,
+  "control_families": [
+    {
+      "id": "SEMANTIC_SIGNATURE_ROTATION",
+      "description": "Rota conjuntamente point_ids y relation_ids entre raíces core, preservando familia, fuerza y distribución de firmas semánticas pero rompiendo su asociación."
+    },
+    {
+      "id": "DECOUPLED_POINT_RELATION_ROTATION",
+      "description": "Rota point_ids y relation_ids con desplazamientos distintos, preservando sus distribuciones marginales pero rompiendo también la asociación punto-relación."
+    }
+  ],
+  "observables": [
+    "PX_SCORE",
+    "PS_SCORE",
+    "PRIMARY_RECURRENT_MOTIF_COUNT",
+    "MISSION_RECURRENT_MOTIF_COUNT",
+    "MOTIF_PRESENCE",
+    "MOTIF_STRENGTH",
+    "CROSS_CLASS_RECURRENCE",
+    "NON_DRACONIC_RECURRENCE"
+  ],
+  "principles": {
+    "case_fitting_forbidden": true,
+    "diagnostic_only": true,
+    "deterministic_no_rng": true,
+    "preserve_root_count": true,
+    "preserve_root_strengths": true,
+    "preserve_dependency_families": true,
+    "preserve_semantic_signature_multiset_in_signature_rotation": true,
+    "preserve_point_multiset_in_decoupled_rotation": true,
+    "preserve_relation_multiset_in_decoupled_rotation": true,
+    "root_identity_not_interpreted_as_real_geometry": true,
+    "px_ps_scores_unchanged": true,
+    "iem_unchanged": true,
+    "idd_unchanged": true,
+    "irc_unchanged": true,
+    "ontology_unchanged": true,
+    "metaphysical_probability": false,
+    "population_probability_claim": false,
+    "p_value_claim": false,
+    "external_nulls_required_before_weighting": true,
+    "development_cases_cannot_define_thresholds": true
+  }
+}

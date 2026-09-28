@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/operational-discriminator-candidates.schema.json",
+  "title": "ALMAS · Candidatos operacionales de discriminación ontológica",
+  "type": "object",
+  "required": [
+    "registry_version",
+    "target_almas_version",
+    "status",
+    "principle",
+    "candidates",
+    "mandatory_validation_controls",
+    "promotion_logic",
+    "astrology_independence_policy"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "string"
+    },
+    "target_almas_version": {
+      "type": "string"
+    },
+    "status": {
+      "const": "L2_EXPERIMENTAL_SPECIFICATION"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "statuses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "derived_from",
+          "status",
+          "construct",
+          "epistemic_class",
+          "target_pairs",
+          "uses_astrology",
+          "astrology_role"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^OD[0-9]{2}_[A-Z0-9_]+$"
+          },
+          "derived_from": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "status": {
+            "enum": [
+              "L2_EXPERIMENTAL_READY",
+              "L2_EXPERIMENTAL_LIMITED",
+              "BLOCKED_NONOBSERVABLE",
+              "REJECTED_NONDISCRIMINATING"
+            ]
+          },
+          "construct": {
+            "type": "string"
+          },
+          "epistemic_class": {
+            "type": "string"
+          },
+          "target_pairs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "observable": {
+            "type": "object"
+          },
+          "prediction": {},
+          "decision_direction": {
+            "type": "string"
+          },
+          "falsifier": {
+            "type": "string"
+          },
+          "negative_controls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dependency_controls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "leakage_controls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "validation_design": {
+            "type": "string"
+          },
+          "promotion_rule": {
+            "type": "string"
+          },
+          "ontological_limit": {
+            "type": "string"
+          },
+          "block_reason": {
+            "type": "string"
+          },
+          "reject_reason": {
+            "type": "string"
+          },
+          "allowed_use": {
+            "type": "string"
+          },
+          "prohibited_shortcuts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reconsideration_condition": {
+            "type": "string"
+          },
+          "uses_astrology": {
+            "type": "boolean"
+          },
+          "astrology_role": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "mandatory_validation_controls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "promotion_logic": {
+      "type": "object"
+    },
+    "astrology_independence_policy": {
+      "type": "object",
+      "required": [
+        "principle",
+        "l3_extra_requirements",
+        "single_feature_can_confirm",
+        "null_rarity_is_metaphysical_probability",
+        "temporal_activation_proves_origin"
+      ],
+      "properties": {
+        "principle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "l3_extra_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "single_feature_can_confirm": {
+          "const": false
+        },
+        "null_rarity_is_metaphysical_probability": {
+          "const": false
+        },
+        "temporal_activation_proves_origin": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

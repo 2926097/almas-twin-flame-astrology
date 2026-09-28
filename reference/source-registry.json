@@ -1,0 +1,2887 @@
+{
+  "registry_version": "1.22.0",
+  "entries": [
+    {
+      "id": "plato_symposium_aristophanes",
+      "priority": "P1_PRIMARY",
+      "author": "Plato",
+      "work": "Symposium",
+      "passage": "189c-193d",
+      "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "supports": [
+        "mito de Aristófanes sobre seres humanos originalmente íntegros, divididos y orientados a la reunión",
+        "antecedente histórico de imágenes posteriores de pareja escindida"
+      ],
+      "does_not_support": [
+        "identidad con la doctrina moderna de llamas gemelas",
+        "reglas diagnósticas astrológicas"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Filosofía griega clásica",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Symposium 189c-193d, Aristophanes' speech: myth of primordial humans divided and seeking reunion.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "brihadaranyaka_1_4_3",
+      "priority": "P1_PRIMARY",
+      "author": "Brihadaranyaka Upanishad",
+      "work": "Brihadaranyaka Upanishad",
+      "passage": "1.4.3",
+      "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
+      "url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
+      "supports": [
+        "pasaje cosmogónico en el que un yo primordial se divide en marido y mujer",
+        "análogo comparativo para motivos de división/reunión"
+      ],
+      "does_not_support": [
+        "una taxonomía moderna de llamas gemelas",
+        "una única contraparte romántica para toda persona contemporánea",
+        "verificación astrológica"
+      ],
+      "translation_note": "Max Müller, The Upanishads, Part II, Sacred Books of the East vol. XV, Oxford, Clarendon Press, 1884. Passage 1.4.3 cross-checked against Sanskrit/transliteration in modern text repositories.",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "verification_status": "VERIFIED_PRIMARY",
+      "tradition": "Tradición hindú upanishádica",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "rights_note": "Max Müller's 1884 English translation is public-domain material; verify platform-specific reuse terms for scans/transcriptions.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "verification_anchor": "Brihadaranyaka Upanishad 1.4.3 in Max Müller's 1884 translation: primordial self dividing into husband and wife.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "blavatsky_secret_doctrine_monads",
+      "priority": "P1_PRIMARY",
+      "author": "H. P. Blavatsky",
+      "work": "The Secret Doctrine, Volume I",
+      "passage": "p. 170, 'Additional Facts and Explanations Concerning the Globes and the Monads'",
+      "date": "1888",
+      "url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
+      "supports": [
+        "uso teosófico de la terminología Mónada dentro de una doctrina evolutiva/cosmológica"
+      ],
+      "does_not_support": [
+        "equivalencia automática entre la Mónada teosófica y una pareja romántica de llamas gemelas"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Teosofía",
+      "concepts": [
+        "MONAD",
+        "THEOSOPHICAL_MONAD"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "The Secret Doctrine, vol. I, section 'Additional Facts and Explanations Concerning the Globes and the Monads', around p. 170 in the cited edition.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "bailey_esoteric_psychology_soul",
+      "priority": "P1_PRIMARY",
+      "author": "Alice A. Bailey",
+      "work": "Esoteric Psychology, Volume I",
+      "passage": "Chapter II, Question 1: What is the soul?",
+      "url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
+      "supports": [
+        "exposición esotérica diferenciada de espíritu, alma, personalidad y forma encarnada",
+        "ontología comparativa del alma"
+      ],
+      "does_not_support": [
+        "atribución automática a Bailey de una doctrina romántica canónica de llamas gemelas"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
+      "concepts": [
+        "SOUL_ONTOLOGY_BAILEY",
+        "SOUL_PERSONALITY_RELATION",
+        "MONAD_SOUL_PERSONALITY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Esoteric Psychology, Volume I, Section One, Chapter II, Question 1: 'What is the soul?'",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "summit_lighthouse_soulmates_twin_flames",
+      "priority": "P1_PRIMARY",
+      "author": "The Summit Lighthouse / Elizabeth Clare Prophet tradition",
+      "work": "Soulmates and Twin Flames",
+      "url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "supports": [
+        "distinción moderna explícita entre llamas gemelas, almas gemelas y relaciones kármicas",
+        "doctrina según la cual las llamas gemelas fueron creadas juntas en un único ovoide ígneo y diferenciadas en polaridad masculina/femenina"
+      ],
+      "does_not_support": [
+        "validación científica de la doctrina",
+        "prueba astrológica de que una pareja concreta pertenezca a la categoría"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "passage": "Sections 'Twin Flames', 'Soul Mates', and 'Karmic Relationship'",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Official doctrinal differentiation among twin flames, soul mates and karmic relationships; twin flames are described as created together in a single fiery ovoid.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "summit_lighthouse_glossary_twin_flame",
+      "priority": "P1_PRIMARY",
+      "author": "The Summit Lighthouse",
+      "work": "Glossary",
+      "passage": "Twin flame",
+      "url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
+      "supports": [
+        "definición organizacional de llama gemela como contraparte masculina o femenina concebida del mismo cuerpo de fuego blanco",
+        "referencias bibliográficas a materiales de Summit Lighthouse de 1978, 1985 y posteriores"
+      ],
+      "does_not_support": [
+        "prioridad histórica sobre todos los usos anteriores del lenguaje twin-flame",
+        "criterios diagnósticos astrológicos"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Glossary entry 'Twin flame'.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "granholm_sociology_esotericism",
+      "priority": "P2_ACADEMIC",
+      "author": "Kennet Granholm",
+      "work": "The Sociology of Esotericism, in The Oxford Handbook of the Sociology of Religion",
+      "date": "2009",
+      "pages": "783-800",
+      "url": "https://academic.oup.com/edited-volume/34355/chapter-abstract/291451698",
+      "supports": [
+        "contextualización académica del esoterismo occidental moderno y la espiritualidad New Age"
+      ],
+      "does_not_support": [
+        "una metafísica específica de llamas gemelas",
+        "validación astrológica"
+      ],
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Estudio académico del esoterismo occidental",
+      "concepts": [
+        "NEW_AGE_RELIGION"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "kardec_spirits_book_choice_trials",
+      "priority": "P1_PRIMARY",
+      "author": "Allan Kardec",
+      "work": "The Spirits' Book",
+      "passage": "Book II, ch. VI, questions 258-259",
+      "date": "1857; English ed. 1875",
+      "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/139/book-twothe-spirit-world/chapter-vispirit-life/choice-of-trials",
+      "download_url": "https://www.loc.gov/item/03019928/",
+      "supports": [
+        "doctrina espiritista explícita de que los espíritus eligen el tipo de pruebas antes de la encarnación",
+        "distinción entre el tipo general de prueba y sus detalles contingentes"
+      ],
+      "does_not_support": [
+        "un contrato álmico romántico bilateral",
+        "extracción astrológica de cláusulas contractuales"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Espiritismo",
+      "concepts": [
+        "PREINCARNATIONAL_CHOICE",
+        "PREINCARNATIONAL_TRIAL",
+        "FREE_WILL_PREINCARNATIONAL"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Primary doctrinal locator verified in KardecPedia; reproduce only within the rights of the specific edition/translation.",
+      "verification_note": "Questions 258-259 explicitly distinguish choice of the type of trial from contingent life details.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Book II, ch. VI, questions 258-259: choice of the general kind of trials before corporeal existence and distinction from contingent details.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/139/book-twothe-spirit-world/chapter-vispirit-life/choice-of-trials",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "zohar_lech_lecha_32_346_350",
+      "priority": "P1_PRIMARY",
+      "author": "Zohar",
+      "work": "Zohar, Lech Lecha",
+      "passage": "Lech Lecha 32:346-351",
+      "url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
+      "supports": [
+        "almas emparejadas antes de la encarnación",
+        "imaginería de separación y posterior emparejamiento/reunión"
+      ],
+      "does_not_support": [
+        "identidad con la doctrina moderna de llamas gemelas",
+        "un método astrológico de lectura contractual"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala zohárica",
+      "concepts": [
+        "SOUL_PAIRING",
+        "ZIVUG",
+        "PAIRED_SOULS",
+        "SEPARATION_REUNION"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "English Soncino version in Sefaria explicitly presents souls as paired before descent, separated, and later joined; it also preserves a merit/action qualification.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Zohar, Lech Lecha 32:346-351: paired-soul imagery and separation/reunion motifs within the Zoharic framework.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.sefaria.org/Zohar%2C_Lech_Lecha.32",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "talmud_sotah_2a_9",
+      "priority": "P1_PRIMARY",
+      "author": "Babylonian Talmud",
+      "work": "Sotah",
+      "passage": "Sotah 2a:9",
+      "url": "https://www.sefaria.org/Sotah.2a.9",
+      "supports": [
+        "motivo de emparejamiento celestial prenatal en la literatura rabínica"
+      ],
+      "does_not_support": [
+        "ontología de alma escindida",
+        "astrología moderna de llamas gemelas"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "verification_note": "William Davidson Edition in Sefaria states a pre-formation heavenly proclamation for a first match and distinguishes it from a second match tied to conduct.",
+      "tradition": "Judaísmo rabínico / Talmud de Babilonia",
+      "concepts": [
+        "PRENATAL_PAIRING",
+        "FIRST_SECOND_ZIVUG"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Sotah 2a:9: prenatal proclamation/matching motif and discussion of pairing.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.sefaria.org/Sotah.2a.9",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "kwilecki_soul_contract_theodicy_2014",
+      "priority": "P2_ACADEMIC",
+      "author": "Susan Kwilecki",
+      "work": "The Soul Contract Theodicy: New Age Understandings of the Death of a Child",
+      "date": "2014",
+      "pages": "411-424",
+      "doi": "10.1080/13537903.2014.945724",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/13537903.2014.945724",
+      "supports": [
+        "documentación académica del discurso sobre contrato álmico/plan prenatal en la religión New Age contemporánea",
+        "genealogía a través de literatura de regresión intervidas y temas de reencarnación/evolución"
+      ],
+      "does_not_support": [
+        "prueba empírica de que existan contratos álmicos",
+        "validación astrológica de un contrato"
+      ],
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Estudio académico de la religión New Age",
+      "concepts": [
+        "SOUL_CONTRACT",
+        "SOUL_PLAN",
+        "PREINCARNATIONAL_CHOICE",
+        "NEW_AGE_THEODICY",
+        "CONTEMPORARY_SOUL_CONTRACT_USAGE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Journal metadata and abstract verify the 2014 article, pages 411-424, and its definition of soul-contract theodicy as pre-birth plans for growth.",
+      "date_note": null,
+      "passage": "Abstract and introductory framing, pp. 411-424",
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "The abstract defines soul-contract theodicy as a contemporary New Age explanation in which pre-birth plans/contracts are believed to accelerate soul growth; the article analyzes primary sources rather than asserting ontological truth.",
+      "verification_anchor_type": "ABSTRACT",
+      "verification_anchor_url": "https://www.tandfonline.com/doi/abs/10.1080/13537903.2014.945724",
+      "evidence_scope": "ACADEMIC_DESCRIPTION"
+    },
+    {
+      "id": "stokke_spiritual_love_relations_2021",
+      "priority": "P2_ACADEMIC",
+      "author": "Christian Stokke",
+      "work": "Exploring the transpersonal phenomena of spiritual love relations",
+      "date": "2021",
+      "pages": "130-144",
+      "doi": "10.1080/20440243.2021.1955454",
+      "url": "https://hdl.handle.net/11250/2994583",
+      "license": "CC BY-NC-ND 4.0",
+      "supports": [
+        "documentación empírica de experiencias reportadas en relaciones que los participantes denominan almas gemelas",
+        "motivos reportados que incluyen reconocimiento instantáneo, sincronicidad, transformación e integración arquetípica"
+      ],
+      "does_not_support": [
+        "verificación objetiva de la ontología soulmate",
+        "criterios diagnósticos de llamas gemelas o contrato álmico"
+      ],
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Estudio académico de la espiritualidad contemporánea",
+      "concepts": [
+        "SOULMATE_EXPERIENCE",
+        "RECOGNITION_PHENOMENOLOGY",
+        "SYNCHRONICITY_REPORT",
+        "TRANSFORMATION_REPORT",
+        "TWIN_FLAME_EMIC_USAGE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use according to stated license: CC BY-NC-ND 4.0.",
+      "verification_note": "Peer-reviewed open-access study verified; convenience sample of 140 naturally occurring responses in a New Age Facebook group. It documents reported phenomena and explicitly does not provide population-level prevalence or ontological verification.",
+      "date_note": null,
+      "passage": "Abstract; study of 140 responses, pp. 130-144",
+      "download_url": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Open-access abstract identifies a naturalistic observation study of 140 responses in a New Age Facebook group concerning self-described soulmate experiences.",
+      "verification_anchor_type": "ABSTRACT",
+      "verification_anchor_url": "https://www.tandfonline.com/doi/pdf/10.1080/20440243.2021.1955454",
+      "evidence_scope": "PHENOMENOLOGY"
+    },
+    {
+      "id": "crane_draconic_astrology_1987",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "Pamela A. F. Crane",
+      "work": "Draconic Astrology: An Introduction to the Use of Draconic Charts in Astrological Interpretation",
+      "date": "1987",
+      "publisher": "Aquarian",
+      "isbn": "0850305594",
+      "url": "https://obnb.uk/p8110748-draconic-astrology-an-introduction-to-the-use-of-draconic-charts-in-astrological-interpretation",
+      "supports": [
+        "fuente moderna identificada para la práctica de astrología dracónica"
+      ],
+      "does_not_support": [
+        "origen antiguo del método dracónico moderno",
+        "prueba literal de contratos álmicos"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna",
+      "concepts": [
+        "DRACONIC_ASTROLOGY",
+        "DRACONIC_METHOD_MODERN"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Open British National Bibliography verifies title, author, Aquarian publisher, 1987 date, ISBN 0850305594 and 224-page book; Astrological Association also lists Crane's 1987 conference recording on draconic astrology.",
+      "date_note": null,
+      "passage": "Bibliographic record for the 1987 Aquarian publication",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Bibliographic metadata verifies Crane's book as an identified modern source on using draconic charts in astrological interpretation; detailed chapter-level claims remain unverified from the present corpus.",
+      "verification_anchor_type": "METADATA_ONLY",
+      "verification_anchor_url": "https://obnb.uk/p8110748-draconic-astrology-an-introduction-to-the-use-of-draconic-charts-in-astrological-interpretation",
+      "evidence_scope": "BIBLIOGRAPHIC_ONLY"
+    },
+    {
+      "id": "bailey_esoteric_astrology_1951",
+      "priority": "P1_PRIMARY",
+      "author": "Alice A. Bailey",
+      "work": "Esoteric Astrology",
+      "date": "1951",
+      "url": "https://www.lucistrust.org/online_books/esoteric_astrology_obooks",
+      "supports": [
+        "marco explícito de astrología esotérica que relaciona la astrología con el desarrollo y las energías del alma"
+      ],
+      "does_not_support": [
+        "una carta canónica de contrato álmico",
+        "doctrina automática de llamas gemelas"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
+      "concepts": [
+        "ESOTERIC_ASTROLOGY",
+        "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
+        "SOUL_PERSONALITY_RELATION",
+        "EVOLUTIONARY_STAGE_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Copyright Lucis Trust; use official online access and short analytical quotation only as permitted.",
+      "passage": "Esoteric Astrology, especially Chapters I-II and sections on spiritual unfoldment",
+      "verification_note": "Official Lucis Trust online text verifies the 1951 work and its explicit framing of astrology in relation to spiritual unfoldment, soul, personality and evolutionary stage.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "prophet_twin_flames_qa_part1",
+      "priority": "P1_PRIMARY",
+      "author": "Elizabeth Clare Prophet",
+      "work": "Soul Mates and Twin Flames: Q and A Part 1",
+      "url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
+      "supports": [
+        "doctrina moderna explícita de llamas gemelas originadas en un único ovoide de fuego blanco",
+        "diferenciación explícita entre llamas gemelas, almas gemelas y relaciones kármicas"
+      ],
+      "does_not_support": [
+        "validación científica",
+        "prueba astrológica de una pareja concreta"
+      ],
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Soul Mates and Twin Flames: Q and A Part 1; official sections defining twin flames, soul mates and karmic relationships.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "swedenborg_conjugial_love_1768",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "author": "Emanuel Swedenborg",
+      "work": "Conjugial Love / Delights of Wisdom Pertaining to Conjugial Love",
+      "date": "1768",
+      "passages": [
+        "§158",
+        "§229"
+      ],
+      "urls": [
+        "https://www.e-swedenborg.com/writings/static/d5686/158.htm",
+        "https://www.eswedenborg.com/writings/static/d5686/229.htm"
+      ],
+      "supports": [
+        "doctrina según la cual el verdadero amor conyugal puede unir dos almas y mentes como una",
+        "doctrina de correspondencias o parejas provistas providencialmente, incluida imaginería de reconocimiento"
+      ],
+      "does_not_support": [
+        "contratos álmicos reencarnacionistas",
+        "taxonomía moderna de llamas gemelas",
+        "identificación astrológica de una contraparte única"
+      ],
+      "tradition": "Cristianismo swedenborgiano",
+      "concepts": [
+        "CONJUGIAL_PAIRING"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date_note": null,
+      "passage": "Conjugial Love §229; contextual support §§50, 83",
+      "pages": null,
+      "doi": null,
+      "url": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "§229 states that for those desiring truly conjugial love, the Lord provides similitudes and describes couples meeting and recognizing fitness under Divine Providence.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.e-swedenborg.com/writings/static/d5686/229.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "steiner_karmic_relationships_1924",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "author": "Rudolf Steiner",
+      "work": "Karmic Relationships, Volumes I-II (GA 235-236)",
+      "date": "1924",
+      "url": "https://rsarchive.org/Karma/",
+      "supports": [
+        "doctrina antroposófica explícita de reencarnación y relaciones kármicas a través de vidas terrenales sucesivas",
+        "conexiones kármicas individuales consideradas a través de vidas y del intervalo entre muerte y renacimiento"
+      ],
+      "does_not_support": [
+        "un esquema estandarizado de contrato bilateral prenatal",
+        "taxonomía moderna de llamas gemelas",
+        "reglas de puntuación astrológica de ALMAS"
+      ],
+      "tradition": "Antroposofía",
+      "concepts": [
+        "KARMIC_RELATIONSHIP",
+        "REINCARNATIONAL_CONTINUITY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Rudolf Steiner Archive verifies GA 235-240 as 1924 karmic-relationship lecture cycles.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "wambach_life_before_life_1979",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Helen Wambach",
+      "work": "Life Before Life",
+      "date": "1979",
+      "publisher": "Bantam Books",
+      "url": "https://search.worldcat.org/cs/title/life-before-life/oclc/1035926140",
+      "supports": [
+        "literatura de regresión identificada sobre experiencias prenatales reportadas",
+        "preguntas sobre elección de encarnación, familia/amigos, momento del nacimiento y razones para la vida terrenal"
+      ],
+      "does_not_support": [
+        "verificación empírica independiente de la planificación prenatal",
+        "extracción astrológica de cláusulas específicas de contrato álmico"
+      ],
+      "tradition": "Literatura de regresión e investigación prenatal",
+      "concepts": [
+        "LIFE_BETWEEN_LIVES",
+        "PREINCARNATIONAL_CHOICE",
+        "FAMILY_SELECTION",
+        "INCARNATION_TIMING"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": "Ch. 3 'Choosing to Live Again'; Ch. 4 'Choosing the Twentieth Century and Choosing One's Sex'; Ch. 5 'Why Are We Here on Earth? Have We Known Our Family and Friends in Other Lifetimes?'",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "The published table of contents and bibliographic descriptions show Wambach's group-hypnosis inquiry into pre-birth choice, timing/sex, purpose and prior relational familiarity.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://openlibrary.org/books/OL9473935M/Life_Before_Life",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "whitton_fisher_life_between_life_1986",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Joel L. Whitton and Joe Fisher",
+      "work": "Life Between Life: Scientific Explorations into the Void Separating One Incarnation from the Next",
+      "date": "1986",
+      "publisher": "Doubleday",
+      "url": "https://books.google.com/books/about/Life_Between_Life.html?id=3ATXAAAAMAAJ",
+      "supports": [
+        "literatura de regresión identificada que describe un estado intervidas y elecciones vitales o planificación kármica reportadas",
+        "fuente importante en la genealogía posterior de la literatura de planificación intervidas"
+      ],
+      "does_not_support": [
+        "consenso científico de que los recuerdos intervidas estén verificados",
+        "una ontología romántica única de contrato álmico"
+      ],
+      "tradition": "Literatura de regresión e intervidas",
+      "concepts": [
+        "LIFE_BETWEEN_LIVES",
+        "SOUL_PLAN",
+        "KARMIC_PLANNING"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": "Publisher/Google Books description and contents",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Bibliographic description characterizes the book as reporting individually made life choices in a between-life Bardo and explanations for life's burdens.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Life_Between_Life.html?id=3ATXAAAAMAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "newton_journey_of_souls_1994",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Michael Newton",
+      "work": "Journey of Souls",
+      "date": "1994",
+      "url": "https://www.newtoninstitute.org/publication/journey-of-the-souls/",
+      "supports": [
+        "corpus identificado de regresión Life Between Lives que describe guías, grupos de almas, revisión de vida y planificación vital reportada",
+        "fuente principal para vocabulario posterior New Age/de planificación intervidas"
+      ],
+      "does_not_support": [
+        "prueba empírica independiente de grupos de almas o planes prenatales",
+        "validación astrológica de un contrato"
+      ],
+      "tradition": "Regresión Life Between Lives",
+      "concepts": [
+        "LIFE_BETWEEN_LIVES",
+        "SOUL_GROUP",
+        "SOUL_PLAN",
+        "BODY_SELECTION"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Michael Newton Institute confirms 1994 publication and identifies life selection, choosing a new body, soul groups and rebirth as core contents.",
+      "date_note": null,
+      "passage": "Chapters 12 'Life Selection', 13 'Choosing a New Body', 14 'Preparation for Embarkation'",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Official Michael Newton Institute book page identifies life selection, choosing a new body, soul groups, soulmate recognition and purpose among the book's reported between-life themes.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://www.newtoninstitute.org/publication/journey-of-the-souls/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "myss_sacred_contracts_2001",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Caroline Myss",
+      "work": "Sacred Contracts: Awakening Your Divine Potential",
+      "date": "2001",
+      "publisher": "Harmony Books",
+      "url": "https://books.google.com/books/about/Sacred_Contracts.html?id=HmEHAAAACAAJ",
+      "supports": [
+        "modelo contemporáneo explícito de contrato sagrado acordado por el alma antes del nacimiento",
+        "relaciones y misión vital como componentes de un contrato sagrado global",
+        "método arquetípico para interpretar propósito"
+      ],
+      "does_not_support": [
+        "prueba reencarnacionista de un contrato bilateral entre una pareja concreta",
+        "criterios diagnósticos astrológicos"
+      ],
+      "tradition": "New Age contemporáneo / espiritualidad arquetípica",
+      "concepts": [
+        "SACRED_CONTRACT",
+        "PREINCARNATIONAL_CHOICE",
+        "ARCHETYPAL_PURPOSE",
+        "RELATIONAL_PURPOSE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Google Books metadata describes a sacred contract agreed before birth and an archetypal method for interpreting purpose and significant encounters.",
+      "date_note": null,
+      "passage": "Book chapter 'What Is a Sacred Contract?' (TOC begins p. 11); official author resource 'Sacred Contracts and Your Archetypes'",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Myss explicitly describes a Sacred Contract as made by the soul before birth, including lessons and key relationships, and frames its interpretation through archetypes.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://myss.com/free-resources/sacred-contracts-and-your-archetypes/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "schwartz_your_souls_plan_2009",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "author": "Robert Schwartz",
+      "work": "Your Soul's Plan: Discovering the Real Meaning of the Life You Planned Before You Were Born",
+      "date": "2009",
+      "publisher": "North Atlantic Books",
+      "url": "https://www.penguinrandomhouse.com/books/162921/your-souls-plan-by-robert-schwartz/",
+      "supports": [
+        "modelo contemporáneo explícito de planificación prenatal en el que las almas planifican grandes desafíos y relaciones para crecer",
+        "literatura moderna de plan del alma útil para la genealogía del motor contractual"
+      ],
+      "does_not_support": [
+        "prueba empírica independiente de que un evento concreto fuese planificado antes del nacimiento",
+        "verificación astrológica"
+      ],
+      "tradition": "Literatura contemporánea de planificación prenatal",
+      "concepts": [
+        "SOUL_PLAN",
+        "PREINCARNATIONAL_CHOICE",
+        "PLANNED_CHALLENGES",
+        "PLANNED_RELATIONSHIPS"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Publisher metadata confirms the book's explicit pre-birth planning framework.",
+      "date_note": null,
+      "passage": "Official author summary of the book premise; related author essays on pre-birth planning and free will",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Schwartz presents the book as exploring the premise that major life challenges may be planned before birth and explicitly discusses preserving free will within that model.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://yoursoulsplan.com/do-we-plan-our-life-challenges-before-were-born/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "hanegraaff_new_age_religion_1996",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "author": "Wouter J. Hanegraaff",
+      "work": "New Age Religion and Western Culture: Esotericism in the Mirror of Secular Thought",
+      "date": "1996/1998",
+      "publisher": "Brill / SUNY Press",
+      "url": "https://www.jstor.org/stable/jj.18255037",
+      "supports": [
+        "marco histórico académico para la religión New Age y sus antecedentes esotéricos occidentales",
+        "contexto para reencarnación, canalización, esoterismo y síntesis metafísica moderna"
+      ],
+      "does_not_support": [
+        "una doctrina específica de llamas gemelas como continuidad histórica desde la Antigüedad",
+        "validación astrológica"
+      ],
+      "tradition": "Estudio académico del esoterismo occidental/New Age",
+      "concepts": [
+        "NEW_AGE_RELIGION",
+        "WESTERN_ESOTERICISM_CONTEXT",
+        "REINCARNATION_NEW_AGE"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "corelli_romance_two_worlds_1886",
+      "priority": "P1_PRIMARY",
+      "source_role": "LITERARY_ESOTERIC_PRIMARY",
+      "author": "Marie Corelli",
+      "work": "A Romance of Two Worlds",
+      "date": "1886",
+      "url": "https://www.gutenberg.org/ebooks/4394",
+      "passages": [
+        "Twin Flame / Twin-Flame passages around Gutenberg text lines 285 and 1283-1287",
+        "Twin Soul passages around lines 1819 and 1844"
+      ],
+      "supports": [
+        "uso literario documentado en 1886 de las expresiones exactas Twin Flame, Twin-Flame, Twin-Flames y Twin Soul",
+        "modelo literario de un alma incompleta como media llama que busca una contraparte",
+        "imaginería de afinidad espiritual y reunión post mortem"
+      ],
+      "does_not_support": [
+        "doctrina institucional",
+        "prioridad histórica sobre cualquier uso anterior posible sin ampliar la investigación de corpus",
+        "criterios diagnósticos astrológicos"
+      ],
+      "tradition": "Ficción esotérica victoriana",
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY",
+        "DUAL_SOUL_LITERARY_MODEL"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
+      "verification_note": "Project Gutenberg text verifies explicit 'Twin-Flame' language and a literary half-flame/counterpart model in A Romance of Two Worlds.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "theosophist_occultism_modern_literature_1887",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "source_role": "HISTORICAL_RECEPTION",
+      "author": "The Theosophist",
+      "work": "Occultism in Modern Literature",
+      "date": "1887-02",
+      "url": "https://iapsop.com/archive/materials/theosophist/theosophist_v8_n89_february_1887.pdf",
+      "supports": [
+        "recepción contemporánea de 1887 que señala explícitamente el motivo twin-flame de Corelli",
+        "evidencia de que la expresión circulaba en discurso literario ocultista antes de movimientos twin-flame posteriores del siglo XX"
+      ],
+      "does_not_support": [
+        "adhesión teosófica al modelo twin-flame de Corelli",
+        "prueba de que la Teosofía originara la doctrina"
+      ],
+      "tradition": "Recepción histórica teosófica",
+      "concepts": [
+        "TWIN_FLAME_LITERARY_GENEALOGY",
+        "HISTORICAL_RECEPTION"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "passage": "Occultism in Modern Literature (7), The Theosophist, vol. 8, February 1887, p. 266ff.",
+      "verification_note": "Contemporary Theosophist reception explicitly discusses 'true mates', 'twin-flames' and 'companion-spirits' as themes in occult literature; this is reception evidence, not doctrinal endorsement.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "mackay_twin_soul_1887",
+      "priority": "P1_PRIMARY",
+      "source_role": "LITERARY_PRIMARY",
+      "author": "Charles Mackay (traditional attribution; authorship now debated)",
+      "work": "The Twin Soul; or, The Strange Experiences of Mr. Rameses",
+      "date": "1887",
+      "url": "https://openlibrary.org/works/OL2987304W/The_twin_soul_or_The_strange_experiences_of_Mr._Rameses",
+      "supports": [
+        "circulación literaria victoriana tardía de la expresión explícita 'twin soul'",
+        "genealogía literaria histórica del lenguaje de almas emparejadas"
+      ],
+      "does_not_support": [
+        "autoría única de Mackay definitivamente establecida",
+        "autoridad doctrinal"
+      ],
+      "tradition": "Ficción esotérica victoriana",
+      "concepts": [
+        "TWIN_SOUL_LITERARY_GENEALOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "1887 work and title verified bibliographically; authorship remains historically contested and is handled with the 2025 Dobson-Turner study.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "dobson_turner_twin_souls_2025",
+      "priority": "P2_ACADEMIC",
+      "source_role": "LITERARY_CRITICISM",
+      "author": "Eleanor Dobson and Joanna Turner",
+      "work": "Twin Souls, Twin Pens: Charles Mackay, Marie Corelli, and the Authorship of The Twin Soul (1887)",
+      "date": "2025",
+      "journal": "Victoriographies 15(3):239-263",
+      "doi": "10.3366/vic.2025.0581",
+      "url": "https://research.birmingham.ac.uk/en/publications/twin-souls-twin-pens-charles-mackay-marie-corelli-and-the-authors/",
+      "supports": [
+        "análisis histórico-literario revisado por pares de The Twin Soul (1887)",
+        "evidencia de posible colaboración de Corelli manteniendo a Mackay como autor principal probable",
+        "contexto para la transmisión literaria victoriana de motivos twin-soul"
+      ],
+      "does_not_support": [
+        "verdad metafísica de la doctrina twin-soul",
+        "criterios astrológicos"
+      ],
+      "tradition": "Historia literaria académica",
+      "concepts": [
+        "TWIN_SOUL_LITERARY_GENEALOGY",
+        "AUTHORSHIP_HISTORY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "verification_note": "Peer-reviewed 2025 article verifies the authorship problem and argues for likely Mackay primary authorship with evidence of Corelli collaboration.",
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "vital_shaar_hagilgulim_1_soul_levels",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala luriana",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 1",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.1/",
+      "supports": [
+        "terminología quíntuple del alma: Nefesh, Ruach, Neshamah, Chayah y Yechidah",
+        "antropología luriana que vincula el alma humana con los cuatro mundos"
+      ],
+      "does_not_support": [
+        "terminología moderna de llamas gemelas",
+        "un contrato bilateral prenatal literal para toda relación"
+      ],
+      "concepts": [
+        "SOUL_ROOT",
+        "GILGUL"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "vital_shaar_hagilgulim_8_reasons_for_return",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala luriana",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 8",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.8",
+      "supports": [
+        "múltiples razones para el gilgul, incluida rectificación de transgresiones, cumplimiento de una mitzvá pendiente y retorno por el bien de otros",
+        "afirmación explícita de que un alma puede regresar para tomar a su bat zug cuando antes no lo mereció"
+      ],
+      "does_not_support": [
+        "identidad con la doctrina moderna de llamas gemelas",
+        "prueba astrológica de que una pareja concreta sea bat zug"
+      ],
+      "concepts": [
+        "GILGUL",
+        "TIKKUN",
+        "ZIVUG",
+        "BAT_ZUG",
+        "RETURN_FOR_OTHERS"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Source-language text verified in Sefaria. It distinguishes several causes of gilgul, including rectification, completing a missing commandment, returning for others, and in some cases returning to take one's bat zug.",
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; ALMAS records primary-source status without treating an unofficial translation as canonical.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "verification_anchor": "Sha'ar HaGilgulim, ch. 8: reasons for return/gilgul and functions extending beyond a simplistic one-life account.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.8",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "vital_shaar_hagilgulim_20_zivug",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala luriana",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 20, opening discussion of first and second zivug",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20",
+      "supports": [
+        "distinción entre primer y segundo zivug",
+        "enseñanza de que una verdadera bat zug puede reencarnar de nuevo con la misma alma",
+        "el segundo zivug puede significar la segunda unión de la misma pareja verdadera a través del gilgul y no necesariamente un cónyuge distinto"
+      ],
+      "does_not_support": [
+        "taxonomía moderna de llamas gemelas",
+        "afirmación de que toda relación intensa sea una pareja verdadera reencarnada"
+      ],
+      "concepts": [
+        "GILGUL",
+        "ZIVUG",
+        "BAT_ZUG",
+        "FIRST_SECOND_ZIVUG",
+        "SOUL_ROOT"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Source-language text verified in Sefaria. The opening discussion interprets first/second zivug in reincarnational terms and explicitly treats a repeated union with the same true mate as a possible second zivug.",
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter; interpretive summaries must remain tied to the Hebrew source and academic literature.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "verification_anchor": "Sha'ar HaGilgulim, ch. 20: opening discussion of first and second zivug and relational pairing within the Lurianic framework.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.20",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "vital_shaar_hagilgulim_39_soul_roots",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala luriana",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sha'ar HaGilgulim",
+      "passage": "Chapter 39",
+      "url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.39",
+      "supports": [
+        "discurso explícito sobre raíces del alma compartidas o relacionadas",
+        "ejemplos de conexiones duraderas entre almas a través de roles como padre-hijo y maestro-alumno",
+        "lenguaje de verdadera bat zug en relación con estructuras de raíz del alma"
+      ],
+      "does_not_support": [
+        "ecuación simple uno-a-uno entre raíz del alma y llama gemela romántica",
+        "reglas diagnósticas astrológicas"
+      ],
+      "concepts": [
+        "SOUL_ROOT",
+        "GILGUL",
+        "SOUL_NETWORK",
+        "TEACHER_STUDENT_ROOT"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Source-language text verified in Sefaria; chapter contains extensive discussion of soul-root relations, reincarnational links and connections across relational roles.",
+      "translation_note": "Sefaria exposes the source-language text but no English version for this chapter.",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "verification_anchor": "Sha'ar HaGilgulim, ch. 39: soul roots and relational continuities, including non-romantic forms such as teacher–student relations.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.sefaria.org/Sha%27ar_HaGilgulim.39",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "vital_sefer_etz_chaim",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala luriana",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Sefer Etz Chaim",
+      "url": "https://www.sefaria.org/Sefer_Etz_Chaim",
+      "supports": [
+        "arquitectura cosmológica luriana central",
+        "marco de mundos, partzufim, emanación, ruptura y dinámicas rectificatorias necesario para interpretar tikkun y zivug"
+      ],
+      "does_not_support": [
+        "doctrina romántica moderna de llamas gemelas",
+        "clasificación astrológica directa de relaciones"
+      ],
+      "concepts": [
+        "TIKKUN",
+        "SOUL_ROOT"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "vital_pri_etz_chaim",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Cábala luriana",
+      "author": "Hayyim Vital recording teachings of Isaac Luria",
+      "work": "Pri Etz Chaim",
+      "url": "https://www.sefaria.org/Pri_Etz_Chaim",
+      "supports": [
+        "elaboración ritual y teúrgica luriana de zivug, configuraciones divinas masculino-femeninas y unión rectificatoria",
+        "contexto importante para comprender el lenguaje simbólico de unión dentro del sistema luriano"
+      ],
+      "does_not_support": [
+        "mapeo automático de partzufim divinos sobre una pareja romántica humana",
+        "diagnóstico moderno de llamas gemelas"
+      ],
+      "concepts": [
+        "TIKKUN",
+        "ZIVUG"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "date": null,
+      "date_note": null,
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "magid_life_of_soul_lurianic_gilgul",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "author": "Shaul Magid",
+      "work": "Reincarnation (Gilgul) as Traversing Boundaries of Identity from Lurianic Kabbalah to Joel Teitelbaum of Satmar",
+      "date_note": "in The Life of the Soul: Jewish Perspectives on Reincarnation from the Middle Ages to the Modern Period",
+      "pages": "249-272",
+      "url": "https://www.jstor.org/stable/jj.21761189.14",
+      "supports": [
+        "análisis académico del gilgul en Hayyim Vital y el pensamiento judío posterior",
+        "contexto para la reencarnación luriana como sistema que afecta identidad y relaciones entre almas"
+      ],
+      "does_not_support": [
+        "doctrina moderna de llamas gemelas",
+        "reglas astrológicas ALMAS"
+      ],
+      "tradition": "Estudio académico de la reencarnación judía",
+      "concepts": [
+        "GILGUL",
+        "SOUL_IDENTITY",
+        "LURIANIC_KABBALAH"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date": "2024",
+      "doi": "10.1515/9798855800074-012",
+      "passage": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Academic chapter pp. 249-272 on gilgul and identity boundaries in Lurianic Kabbalah.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.jstor.org/stable/jj.21761189.14",
+      "evidence_scope": "ACADEMIC_DESCRIPTION"
+    },
+    {
+      "id": "kardec_spirits_book_missions_572_573",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Espiritismo",
+      "author": "Allan Kardec",
+      "work": "The Spirits' Book",
+      "passage": "Book II, Chapter X, questions 572-573",
+      "date": "1857",
+      "url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
+      "supports": [
+        "doctrina de que un espíritu puede solicitar una misión antes de la encarnación",
+        "posibilidad de que varios espíritus busquen la misma misión sin que todos sean aceptados",
+        "misiones encarnadas como servicio, instrucción, progreso y contribución a fines providenciales"
+      ],
+      "does_not_support": [
+        "un contrato romántico bilateral fijo para toda relación",
+        "reglas astrológicas ALMAS para asignar roles"
+      ],
+      "concepts": [
+        "MISSION_PREINCARNATIONAL",
+        "PREINCARNATIONAL_CHOICE",
+        "SERVICE_MISSION"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Questions 572-573 explicitly state that a spirit may request a mission and describe missions of incarnate spirits.",
+      "date_note": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Book II, ch. X, questions 572-573: missions of incarnated spirits and their relation to service/advancement.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://kardecpedia.com/en/study-guide/2/the-spirits-book/77/book-two-the-spirit-world/chapter-x-spirit-occupations-and-missions",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "summit_lighthouse_what_is_twin_flame",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "author": "The Summit Lighthouse",
+      "work": "What Is a Twin Flame?",
+      "url": "https://summitlighthouse.org/what-is-a-twin-flame/",
+      "supports": [
+        "doctrina explícita de que las llamas gemelas se originan en el mismo ovoide original de fuego blanco",
+        "doctrina explícita de dos esferas espirituales contraparte y polaridad masculina/femenina",
+        "afirmación explícita de que la pareja comparte un diseño electrónico único",
+        "base doctrinal para un modelo de origen específico de pareja distinto de la afinidad genérica"
+      ],
+      "does_not_support": [
+        "identificación astrológica de una pareja concreta de llamas gemelas",
+        "equivalencia con zivug luriano, Mónada teosófica o uso literario victoriano de twin flame"
+      ],
+      "concepts": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
+      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
+      "date": null,
+      "date_note": null,
+      "passage": "Section 'Your Twin Flame – Your Perfect Love'",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Official Summit Lighthouse explanation that twin flames originate from one original white-fire ovoid divided into two spheres, with positive/masculine and negative/feminine polarity.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://summitlighthouse.org/what-is-a-twin-flame/",
+      "evidence_scope": "DOCTRINAL_CLAIM"
+    },
+    {
+      "id": "fishbane_personal_identity_lurianic_gilgul_2024",
+      "priority": "P2_ACADEMIC",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Estudio académico de la Cábala luriana",
+      "author": "Eitan P. Fishbane",
+      "work": "Personal Identity and the Ontology of the Soul: Aspects of Reincarnation in Ḥayyim Vital’s Shaʿar ha-Gilgulim",
+      "date": "2024",
+      "pages": "203-224",
+      "doi": "10.1515/9798855800074-010",
+      "url": "https://www.degruyter.com/document/doi/10.1515/9798855800074-010/html",
+      "concepts": [
+        "GILGUL",
+        "SOUL_ROOT",
+        "SOUL_IDENTITY",
+        "LURIANIC_KABBALAH"
+      ],
+      "supports": [
+        "análisis académico de identidad personal y reencarnación en Sha'ar ha-Gilgulim de Hayyim Vital",
+        "contexto académico para interpretar la ontología luriana del alma sin importar categorías modernas New Age"
+      ],
+      "does_not_support": [
+        "terminología moderna de llamas gemelas como doctrina luriana",
+        "reglas diagnósticas astrológicas ALMAS"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic/analytical use; do not redistribute full copyrighted text without permission or explicit open license.",
+      "date_note": null,
+      "passage": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null
+    },
+    {
+      "id": "blaquier_draconic_astrology_2017_2021",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología dracónica moderna",
+      "author": "María Blaquier",
+      "work": "Draconic Astrology – Getting in Touch with our Deeper Self",
+      "date": "2017; republished 2021",
+      "date_note": "Originally published in The Astrological Journal students' section in October 2017; republished by Astro.com/Astrodienst in 2021.",
+      "passage": "Introductory definition and section 'How to Calculate the Draconic Chart'",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrology/aa_article210601_e.htm",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Copyright María Blaquier; article republished by Astro.com with permission. Register/link only; do not redistribute full text.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "DRACONIC_ASTROLOGY",
+        "DRACONIC_METHOD_MODERN"
+      ],
+      "supports": [
+        "la técnica dracónica moderna coloca el Nodo Norte tropical en 0 grados de Aries",
+        "se aplica el mismo desplazamiento angular al resto de posiciones de la carta tropical",
+        "Nodo Medio frente a Nodo Verdadero es una elección metodológica con pequeñas diferencias posicionales",
+        "la técnica dracónica depende explícitamente del nodo y deriva de la carta tropical"
+      ],
+      "does_not_support": [
+        "los contactos dracónicos prueban independientemente reencarnación",
+        "los contactos dracónicos prueban independientemente un contrato álmico",
+        "una firma dracónica específica valida la ontología de llamas gemelas"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Published technical section explains calculation by using the tropical North Node as 0° Aries and shifting the chart accordingly.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrology/aa_article210601_e.htm?pa=tr2",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "paulus_alexandrinus_introductory_matters_ch23",
+      "priority": "P1_PRIMARY",
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología helenística tardía",
+      "author": "Paulus Alexandrinus",
+      "work": "Introductory Matters",
+      "date": "378",
+      "date_note": "Texto griego tardoantiguo; la política ALMAS usa como anclaje moderno la traducción de Robert Schmidt, Project Hindsight, 1993.",
+      "passage": "Chapter 23, Concerning the Seven Lots in the Panaretus",
+      "pages": "43-44 in the Schmidt/Project Hindsight translation",
+      "url": "https://www.starmedia.ne.jp/bookcont/",
+      "download_url": null,
+      "license": null,
+      "rights_note": "La traducción moderna está sujeta a copyright; ALMAS registra fórmula, procedencia y referencia sin redistribuir el texto.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "LOT_OF_FORTUNE",
+        "LOT_OF_SPIRIT",
+        "SECT_REVERSAL_LOTS"
+      ],
+      "supports": [
+        "fórmula diurna/nocturna explícita del Lote de Fortuna",
+        "fórmula diurna/nocturna explícita del Lote de Espíritu"
+      ],
+      "does_not_support": [
+        "validación empírica de los lotes",
+        "uso de Fortuna o Espíritu como discriminador ontológico de vínculos"
+      ],
+      "translation_note": "Robert Schmidt, translated; Robert Hand, editor; Project Hindsight Greek Track Vol. I.",
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Table of contents and bibliographic record identify chapter 23 as the seven lots; the Schmidt translation is the declared operational edition.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.starmedia.ne.jp/bookcont/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "vettius_valens_anthology_lots",
+      "priority": "P1_PRIMARY",
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología helenística",
+      "author": "Vettius Valens",
+      "work": "Anthology",
+      "date": null,
+      "date_note": "2nd century CE; ALMAS uses modern English translations only as verification editions.",
+      "passage": "Book II, especially sections on Fortune and Daimon/Spirit; Book IV and Book IX for later uses.",
+      "pages": null,
+      "url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
+      "download_url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
+      "license": null,
+      "rights_note": "Use the linked translation according to its stated rights; ALMAS records method and references, not full copyrighted text.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "LOT_OF_FORTUNE",
+        "LOT_OF_SPIRIT",
+        "DAIMON",
+        "SECT_LOTS"
+      ],
+      "supports": [
+        "uso técnico de Fortuna y Daimon/Spirit en la tradición helenística",
+        "corroboración histórica independiente de la centralidad de ambos lotes",
+        "Fortuna se asocia explícitamente con asuntos del cuerpo y trabajo de las manos",
+        "Daimon/Espíritu y su regente se asocian explícitamente con asuntos espirituales e intelectuales y con actividades de dar y recibir",
+        "Valens indica examinar lugares/signos y sus regentes para cualificar el tipo de actividad, fortuna y calidad de la actividad"
+      ],
+      "does_not_support": [
+        "probabilidad metafísica de tipos de alma",
+        "clasificación moderna de llama gemela"
+      ],
+      "translation_note": "Modern English verification edition; source text is Vettius Valens' Anthology.",
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Anthology, Book II, section on Fortune and Daimon: Fortune concerns bodily matters and handwork; Daimon concerns spiritual/intellectual matters and giving/receiving; signs/places and rulers qualify the activity and fortune.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://hellenisticastrology.com/valens-anthology-2022-ebook.pdf",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "townley_composite_charts_2000",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "John Townley",
+      "work": "Composite Charts: The Astrology of Relationships",
+      "date": "2000",
+      "date_note": "Llewellyn Publications, 2000; expanded treatment of the composite-chart technique introduced by Townley in the 1970s.",
+      "url": "https://books.google.com/books/about/Composite_Charts.html?id=dUulSwQoEC4C",
+      "supports": [
+        "fuente de método identificada para la construcción e interpretación de cartas compuestas de relación",
+        "lectura de la relación como un campo astrológico emergente con dinámica propia",
+        "integración interpretativa de cartas natales, sinastría y carta compuesta"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una carta compuesta demuestre por sí sola origen compartido, contrato álmico o llama gemela",
+        "independencia estadística total entre carta compuesta y otras técnicas derivadas de las mismas cartas natales"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional moderna",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "passage": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Google Books/Llewellyn description identifies the book as a method source for constructing composite charts, interpreting composite factors, and synthesizing natal, synastry and composite charts.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Composite_Charts.html?id=dUulSwQoEC4C",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "davison_synastry_1983",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "Ronald C. Davison",
+      "work": "Synastry: Understanding Human Relations Through Astrology",
+      "date": "1983",
+      "date_note": "Revised edition, Aurora Press, 1983; earlier edition published in 1977.",
+      "url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
+      "supports": [
+        "fuente de método identificada para comparación e interpretación de cartas en sinastría",
+        "descripción del Relationship Horoscope como una carta única destinada a representar la relación entre dos personas",
+        "tratamiento conjunto de aspectos cruzados, intercambios de casas y carta relacional"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "equivalencia metodológica entre carta Davison y carta compuesta por puntos medios planetarios",
+        "que una carta relacional demuestre por sí sola alma gemela, llama gemela, contrato álmico u otra ontología metafísica"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional moderna",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "passage": null,
+      "pages": "333",
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "Google Books/Aurora Press description identifies the book as a systematic source on chart comparison and the Relationship Horoscope, including planetary cross-aspects and house interchanges.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Synastry.html?id=QwySOAAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "boehrer_declination_other_dimension",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "author": "Kt Boehrer",
+      "work": "Declination: The Other Dimension",
+      "date": "2018",
+      "date_note": "American Federation of Astrologers reprint; earlier editions of Boehrer's work circulated before the 2018 edition.",
+      "url": "https://astrologers.com/product/declination-the-other-dimension/",
+      "supports": [
+        "fuente de método identificada dedicada al uso astrológico de la declinación",
+        "tratamiento de paralelos y contraparalelos como información interpretativa adicional a los aspectos por longitud",
+        "contexto técnico para integrar declinaciones en la delineación sinástrica cuando M05 las calcula"
+      ],
+      "does_not_support": [
+        "que todo paralelo equivalga de forma universal y exacta a una conjunción en cualquier escuela",
+        "que todo contraparalelo equivalga de forma universal y exacta a una oposición en cualquier escuela",
+        "que paralelos o contraparalelos demuestren por sí solos una ontología metafísica relacional"
+      ],
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de declinaciones",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "passage": null,
+      "pages": "104",
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null,
+      "translation_note": null,
+      "verification_anchor": "American Federation of Astrologers catalog identifies Boehrer's book as a dedicated declination method source; independent bibliographic descriptions explicitly identify parallels and contraparallels as its core subject.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://astrologers.com/product/declination-the-other-dimension/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "firmicus_mathesis_2_29_antiscia",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "author": "Julius Firmicus Maternus",
+      "work": "Mathesis",
+      "date": "4th century CE",
+      "date_note": "Book II, chapter 29; Latin text in the Kroll-Skutsch Teubner edition is publicly accessible through LacusCurtius.",
+      "url": "https://penelope.uchicago.edu/thayer/l/roman/texts/Firmicus_Maternus/Mathesis/2%2A.html",
+      "supports": [
+        "fuente astrológica antigua explícita para la doctrina técnica de los antiscios",
+        "parejas zodiacales de antiscios y correspondencia recíproca entre grados",
+        "precedente histórico para tratar antiscios como una técnica diferenciada de los aspectos longitudinales ordinarios"
+      ],
+      "does_not_support": [
+        "que el uso moderno de contra-antiscios sea idéntico en todas las escuelas a la exposición de Firmicus",
+        "que los antiscios demuestren por sí solos vínculo kármico, alma gemela, llama gemela u origen compartido",
+        "que una simetría por antiscios constituya evidencia independiente cuando deriva del mismo patrón geométrico ya contado"
+      ],
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología tardoantigua latina",
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "rights_note": "The cited Latin Teubner text is public-domain material; translations may have separate rights.",
+      "passage": "Book II, chapter 29, De antisciis",
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": "Public-domain Latin source text",
+      "local_file": null,
+      "sha256": null,
+      "translation_note": "ALMAS uses the Latin source as the verification anchor and paraphrases the technical rule rather than reproducing a copyrighted modern translation.",
+      "verification_anchor": "Mathesis II.29 explicitly names antiscia, gives the reciprocal sign pairs and explains degree-by-degree correspondence.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://penelope.uchicago.edu/thayer/l/roman/texts/Firmicus_Maternus/Mathesis/2%2A.html",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "sakoian_acker_human_relationships_1976",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional moderna",
+      "author": "Frances Sakoian and Louis S. Acker",
+      "work": "The Astrology of Human Relationships",
+      "date": "1976",
+      "date_note": "Harper & Row edition, 1976; later editions and revisions were published subsequently.",
+      "passage": "Basic concepts in horoscopic comparison; comparative influences of the planets",
+      "pages": "395",
+      "doi": null,
+      "url": "https://books.google.com/books/about/The_Astrology_of_Human_Relationships.html?id=z_BWAAAAYAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada dedicada a la comparación horoscópica entre dos personas",
+        "organización interpretativa de influencias comparativas entre planetas en sinastría",
+        "base metodológica para desarrollar la función relacional de combinaciones planetarias concretas sin reducir la lectura a un listado de aspectos"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una combinación planetaria tenga un significado universal idéntico en todas las escuelas",
+        "que aspectos, nodos o ángulos permitan por sí solos identificar alma gemela, vínculo kármico o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books bibliographic record identifies the work as a systematic treatment of horoscopic comparison and comparative planetary influences.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://books.google.com/books/about/The_Astrology_of_Human_Relationships.html?id=z_BWAAAAYAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "arroyo_relationships_life_cycles_1993",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica relacional",
+      "author": "Stephen Arroyo",
+      "work": "Relationships & Life Cycles: Astrological Patterns of Personal Experience",
+      "date": "1993",
+      "date_note": "Second revised and expanded edition, CRCS Publications, 1993; first edition published in 1979.",
+      "passage": "Sections on relationship compatibility, chart comparison and use of houses in comparison",
+      "pages": "219",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Relationships_Life_Cycles.html?id=Q9UOAAAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada para análisis de compatibilidad y comparación de cartas",
+        "uso explícito de las casas como dimensión interpretativa en la comparación relacional",
+        "enfoque psicológico y experiencial que permite traducir configuraciones de sinastría a dinámica interpersonal sin fatalismo"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una superposición de casas determine por sí sola destino, permanencia o reciprocidad",
+        "que el lenguaje psicológico de compatibilidad constituya evidencia ontológica de origen del alma"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/CRCS description explicitly identifies chart comparison, relationship compatibility and the use of houses in such comparisons as central contributions of the work.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Relationships_Life_Cycles.html?id=Q9UOAAAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "arroyo_astrology_karma_transformation_1992",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica y orientada al crecimiento",
+      "author": "Stephen Arroyo",
+      "work": "Astrology, Karma & Transformation: The Inner Dimensions of the Birth Chart",
+      "date": "1992",
+      "date_note": "Second revised edition, CRCS Publications, 1992; the work originated in earlier editions.",
+      "passage": "Chapters on Uranus, Pluto, Saturn, aspects of transformation, and karma & relationships",
+      "pages": "255",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Astrology_Karma_Transformation.html?id=_YYCAAAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada que interpreta Saturno, Urano, Neptuno y Plutón desde crecimiento psicológico y transformación",
+        "tratamiento explícito de aspectos transformativos y de karma y relaciones dentro de una astrología no fatalista",
+        "base metodológica para distinguir intensidad, transformación y crecimiento de una predicción literal o una ontología relacional"
+      ],
+      "does_not_support": [
+        "validación científica de karma, reencarnación o significados astrológicos",
+        "que Plutón, Urano o Neptuno identifiquen por sí solos una relación kármica, alma gemela o llama gemela",
+        "que crisis, intensidad o cambio garanticen crecimiento espiritual"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books publisher description identifies the work as growth-oriented astrology emphasizing the transformative and karmic significance of Saturn, Uranus, Neptune and Pluto, with chapters on Pluto, aspects and karma & relationships.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Astrology_Karma_Transformation.html?id=_YYCAAAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "greene_relating_1978",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica junguiana",
+      "author": "Liz Greene",
+      "work": "Relating: An Astrological Guide to Living With Others on a Small Planet",
+      "date": "1978",
+      "date_note": "Weiser Books edition, 1978.",
+      "passage": "The Language of the Unconscious; The Planets; The Outer Planets; The Inner Partner; The Sex Life of the Psyche",
+      "pages": "304",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Relating.html?id=6yBi8pjy1XoC",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada que utiliza conceptos astrológicos dentro de un marco junguiano para interpretar relaciones conscientes e inconscientes",
+        "tratamiento relacional de funciones planetarias, planetas exteriores, proyección, sombra y dinámica psíquica",
+        "base metodológica para narrar una configuración intensa como interacción psicológica y simbólica antes de atribuirle una categoría espiritual"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología o de la psicología junguiana aplicada a cartas",
+        "que proyección, sombra o polaridad psíquica prueben una ontología de almas",
+        "que la intensidad inconsciente implique reciprocidad, destino o permanencia"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/Weiser description states that Greene uses astrological concepts symbolically and practically within Jungian psychology to show conscious and unconscious ways people relate; the contents include the outer planets and relational psychological themes.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Relating.html?id=6yBi8pjy1XoC",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "reinhart_chiron_healing_journey_2010",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología psicológica de Quirón",
+      "author": "Melanie Reinhart",
+      "work": "Chiron and the Healing Journey: An Astrological and Psychological Perspective",
+      "date": "2010",
+      "date_note": "Revised Starwalker Press edition, 2010; first edition published in 1989.",
+      "passage": "Wounded Healer archetype; Chiron through signs and houses; Chiron aspecting the planets; transits and healing journey",
+      "pages": "462",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Chiron_and_the_Healing_Journey.html?id=lIZfRwAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "WOUND_REPAIR"
+      ],
+      "supports": [
+        "fuente de método identificada para el simbolismo astrológico de Quirón y el arquetipo del Wounded Healer",
+        "tratamiento de Quirón por signos, casas y aspectos como proceso de vulnerabilidad, conciencia e integración",
+        "base metodológica para distinguir activación de una herida, elaboración y posible reparación sin asumir que el contacto sea automáticamente sanador"
+      ],
+      "does_not_support": [
+        "validación científica de Quirón como indicador psicológico o espiritual",
+        "que todo contacto de Quirón sea sanador, kármico o preencarnatoriamente pactado",
+        "que dolor, herida o sufrimiento obliguen a mantener una relación"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/Starwalker description identifies the work as an astrological and psychological exploration of the Wounded Healer archetype, with Chiron interpreted through signs, houses and aspects.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Chiron_and_the_Healing_Journey.html?id=lIZfRwAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "hand_clow_chiron_rainbow_bridge_1987",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de Quirón",
+      "author": "Barbara Hand Clow",
+      "work": "Chiron: Rainbow Bridge Between the Inner and Outer Planets",
+      "date": "1987",
+      "date_note": "Llewellyn Worldwide edition, 1987.",
+      "passage": "Chiron in houses and signs; Chiron aspects structure; aspects to Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto and Lunar Nodes",
+      "pages": "296",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Chiron.html?id=SLpVngEACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "WOUND_REPAIR"
+      ],
+      "supports": [
+        "fuente de método identificada dedicada a la interpretación astrológica de Quirón",
+        "tratamiento explícito de Quirón en aspecto a planetas personales, exteriores y nodos, además de casas y signos",
+        "base metodológica para diferenciar el contenido de una raíz quirónica según la función planetaria implicada"
+      ],
+      "does_not_support": [
+        "validación científica de las interpretaciones astrológicas de Quirón",
+        "que una configuración quirónica pruebe tikkun, contrato álmico, vida pasada o misión compartida",
+        "que la figura del Wounded Healer convierta automáticamente a una persona en sanadora de la otra"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books/Llewellyn description and contents identify dedicated sections for Chiron in houses/signs and in aspect to personal planets, outer planets and Lunar Nodes.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://books.google.com/books/about/Chiron.html?id=SLpVngEACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_synastry_houses",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología relacional contemporánea",
+      "author": "Astrodienst",
+      "work": "Synastry",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Methods; Guidelines of Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Synastry",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "la sinastría compara dos o más horóscopos y permite observar interaspectos y dónde caen los planetas de una carta en la otra",
+        "varios planetas o un eje de una persona situados en una casa de la otra enfatizan los temas de esa casa para el propietario de la casa",
+        "base metodológica directa para tratar la superposición de casas como localización experiencial dentro de la sinastría"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología relacional",
+        "que una superposición de casa demuestre matrimonio, reciprocidad, destino o permanencia",
+        "que una casa permita identificar por sí sola alma gemela, karma, contrato álmico o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Synastry', secciones Methods y Guidelines of Interpretation: la comparación muestra dónde caen los planetas de una carta en la otra y los planetas/ejes en una casa enfatizan sus temas para el propietario de esa casa.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Synastry",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_intro_houses",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "A Brief Introduction to Astrology: The Houses",
+      "date": null,
+      "date_note": "Página introductoria de Astrodienst; consulta y verificación web 2026-09-27.",
+      "passage": "The Houses; descriptions of houses 1–12",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrologie/in_house2_f.htm?lang=e",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "las casas representan áreas concretas de la vida en las que se expresan las funciones planetarias",
+        "descripción temática de las doce casas utilizable como vocabulario base para localizar una activación relacional",
+        "base metodológica para distinguir función planetaria de campo experiencial de la casa"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de las casas",
+        "equivalencia necesaria entre casa y signo zodiacal como fundamento del modelo ALMAS",
+        "que el significado natal general de una casa determine por sí solo el resultado de una relación"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst, 'A Brief Introduction to Astrology: The Houses': las casas se presentan como áreas de vida donde se expresan los planetas y se describen temáticamente las casas 1–12.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrologie/in_house2_f.htm?lang=e",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_main_axis",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Main Axis",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretive description of the Ascendant/Descendant and MC/IC axes",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Main_Axis",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el eje Ascendente–Descendente diferencia presentación/entrada en el mundo y respuesta o relación con los otros",
+        "el eje IC–MC diferencia raíces/origen/pasado y orientación pública, meta o dirección futura",
+        "base metodológica para no tratar los extremos de un eje como significados intercambiables durante la autoría relacional"
+      ],
+      "does_not_support": [
+        "que un contacto angular demuestre destino, matrimonio o identidad ontológica del vínculo",
+        "que ASC y DSC o MC e IC deban puntuarse como raíces independientes cuando la política estructural los normaliza en un mismo eje",
+        "validación científica de la interpretación astrológica de los ángulos"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Main Axis': el Ascendente describe cómo nos presentamos y el Descendente cómo reaccionamos a los otros; IC se vincula con origen/pasado y MC con futuro/dirección.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Main_Axis",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_moon_nodes",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Moon's Nodes",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation of ascending/north and descending/south lunar nodes",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Ketu",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el Nodo Sur puede interpretarse como experiencia ya adquirida, pasado, herencia o zona de familiaridad",
+        "el Nodo Norte puede interpretarse como dirección de desarrollo, territorio emergente o desafío de crecimiento",
+        "la lectura nodal no exige una creencia literal en karma o reencarnación y puede formularse como continuidad simbólica y desarrollo"
+      ],
+      "does_not_support": [
+        "que un contacto con el Nodo Sur pruebe una vida pasada concreta",
+        "que un contacto con el Nodo Norte pruebe destino conjunto o misión preencarnatoria",
+        "que el eje nodal deba leerse como bueno/malo o futuro/pasado de forma determinista"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Moon's Nodes': Nodo Sur como pasado/familiaridad y Nodo Norte como dirección de desarrollo, con indicación explícita de que no es necesario creer en karma o reencarnación para trabajar con el eje.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Ketu",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_vertex",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Vertex",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Astronomical definition and contemporary interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Vertex",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el Vertex es la intersección occidental de la eclíptica con el primer vertical y se ha comparado en astrología moderna con un segundo Descendente",
+        "la práctica astrológica contemporánea asocia el Vertex con encuentros percibidos como especialmente influyentes o significativos",
+        "base documental para tratar Vertex como punto sensible relacional sin equipararlo a los ángulos principales"
+      ],
+      "does_not_support": [
+        "que un contacto con Vertex demuestre objetivamente destino o predestinación",
+        "que Vertex identifique por sí solo alma gemela, karma o llama gemela",
+        "una interpretación autónoma y equivalente del Anti-Vertex más allá de su condición de polo opuesto"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Vertex': definición astronómica, comparación moderna con un segundo Descendente y asociación interpretativa con encuentros influyentes o percibidos como destinados.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Vertex",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_personal_planet",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Personal Planet",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Personal Planet",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Personal_Planet",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "identificación directa de Sol, Luna, Mercurio, Venus y Marte como planetas personales dentro de la práctica astrológica moderna",
+        "asignación funcional de identidad al Sol, emoción a la Luna, comunicación/aprendizaje a Mercurio, relaciones/valor estético a Venus y afirmación a Marte",
+        "base metodológica para traducir un contacto relacional entre planetas personales a interacción entre funciones concretas antes de resumirlo en un motivo semántico"
+      ],
+      "does_not_support": [
+        "validación científica de los significados astrológicos de los planetas personales",
+        "que una combinación entre planetas personales determine por sí sola permanencia, reciprocidad o destino",
+        "que afinidad, atracción o activación entre planetas personales identifique automáticamente alma gemela, karma o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Personal Planet': enumera Sol, Luna, Mercurio, Venus y Marte y resume respectivamente identidad, emociones, comunicación/aprendizaje, relaciones/valor estético y afirmación.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Personal_Planet",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_jupiter",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Jupiter",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Jupiter",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Júpiter como principio de expansión, amplitud de horizonte, significado y crecimiento",
+        "vinculación de Júpiter con ideales, filosofía, moral, religión y comprensión panorámica",
+        "base metodológica para interpretar un contacto de Júpiter como ampliación o sobredimensión de la función planetaria o angular implicada"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Júpiter",
+        "que Júpiter garantice beneficio, permanencia o crecimiento efectivo de una relación",
+        "que un contacto jupiteriano demuestre misión, contrato álmico o afinidad ontológica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Jupiter', sección Interpretation: Júpiter se describe como principio de expansión, horizonte, significado, ideales y comprensión amplia; sus aspectos enfatizan expansión y significado en el factor tocado.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Jupiter",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_saturn",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Saturn",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Saturn",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Saturno como principio de límite, contracción, concentración, estructura, estabilidad y responsabilidad",
+        "lectura de Saturno como zona de dificultad, inhibición o temor que puede requerir tiempo, disciplina y maduración",
+        "base metodológica para distinguir en sinastría entre contención/estructura y bloqueo/peso sin reducir Saturno a karma literal"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Saturno",
+        "que un contacto saturnino pruebe deuda kármica, vida pasada o contrato preencarnatorio",
+        "que dificultad, duración o responsabilidad impliquen por sí mismas que una relación deba mantenerse"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Saturn', sección Interpretation: Saturno simboliza limitaciones y dificultades, contracción/concentración, estructura/estabilidad, responsabilidad y maduración mediante tiempo y trabajo.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Saturn",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_uranus",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Uranus",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Uranus",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Urano como principio de liberación, originalidad, ruptura de convención y cambio radical",
+        "los aspectos de Urano electrifican o vuelven inesperada/original la expresión del factor tocado",
+        "base metodológica para interpretar raíces uranianas como activación de libertad, discontinuidad, innovación o desestabilización según la geometría y el contexto"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Urano",
+        "que un contacto uraniano prediga ruptura, reunión súbita o destino relacional",
+        "que intensidad eléctrica, sincronicidad o cambio inesperado prueben llama gemela u otra ontología"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Uranus', sección Interpretation: Urano se vincula con cambio radical, liberación, originalidad y con la tendencia a electrificar el planeta o ángulo aspectado.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Uranus",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_neptune",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Neptune",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Neptune",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Neptuno como principio de disolución de fronteras, anhelo de fusión, inspiración, trascendencia e idealización",
+        "reconocimiento simultáneo de expresiones de intuición/misticismo y de ilusión, decepción o confusión",
+        "base metodológica para leer raíces neptunianas como permeabilidad e idealización de la función tocada sin elegir automáticamente entre inspiración y proyección"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Neptuno",
+        "que un contacto neptuniano pruebe unión espiritual, telepatía, destino o identidad del alma",
+        "que idealización, inspiración o sensación de fusión impliquen reciprocidad o exactitud perceptiva"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Neptune', sección Interpretation: Neptuno disuelve fronteras y se asocia tanto a fusión, inspiración y trascendencia como a idealización, ilusión, decepción y confusión.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Neptune",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_pluto",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Pluto",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Pluto",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Plutón como principio de intensidad, poder/pérdida de poder, dependencia, tabú y transformación profunda",
+        "los aspectos de Plutón intensifican y profundizan el factor tocado y pueden implicarlo en procesos de eliminación, crisis y regeneración",
+        "base metodológica para interpretar raíces plutonianas como profundización y transformación de la función implicada sin convertir intensidad en prueba ontológica"
+      ],
+      "does_not_support": [
+        "validación científica de los significados de Plutón",
+        "que intensidad, sexualidad, poder o crisis prueben karma, contrato, alma gemela o llama gemela",
+        "que una dinámica plutoniana sea necesariamente saludable, recíproca o transformadora en sentido positivo"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Pluto', sección Interpretation: Plutón se asocia con poder/pérdida de poder, dependencia, crisis y transformación; sus aspectos intensifican y profundizan el factor tocado.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Pluto",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_aspect",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Aspect",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "General; Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Aspect",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "definición del aspecto como relación angular entre dos factores del horóscopo y listado de los cinco aspectos mayores",
+        "distinción contemporánea entre aspectos facilitadores y aspectos analíticos/desafiantes sin reducirlos a bueno/malo",
+        "regla interpretativa explícita de considerar primero la naturaleza de los planetas implicados y cómo cada función modifica a la otra"
+      ],
+      "does_not_support": [
+        "validación científica de los significados astrológicos de los aspectos",
+        "que una geometría armónica garantice compatibilidad, felicidad o permanencia",
+        "que una geometría desafiante pruebe karma, conflicto inevitable o fracaso relacional"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Aspect', secciones General e Interpretation: define los aspectos mayores, cuestiona la dicotomía bueno/malo y exige interpretar la geometría a partir de la naturaleza de los factores implicados.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Aspect",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_conjunction",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Conjunction",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Conjunct",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "conjunción como vínculo estrecho e interpenetración de las funciones implicadas",
+        "influencia mutua continua entre los dos factores",
+        "dependencia del resultado respecto de la compatibilidad o diferencia funcional entre los planetas"
+      ],
+      "does_not_support": [
+        "que toda conjunción sea armónica, benéfica o compatible",
+        "que una conjunción implique fusión psicológica literal o reciprocidad",
+        "que la potencia de una conjunción identifique una ontología del vínculo"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Conjunction', sección Interpretation: describe una unión estrecha e interpenetración de energías cuya expresión depende de las funciones planetarias implicadas.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Conjunct",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_opposition",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Opposition",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Opposition",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "oposición como geometría de polaridad y confrontación directa entre dos funciones",
+        "posibilidad de alternancia o proyección de uno de los polos",
+        "integración de ambos polos como tarea interpretativa central"
+      ],
+      "does_not_support": [
+        "que toda oposición implique incompatibilidad o separación",
+        "que la polaridad astrológica determine roles de género o polaridad espiritual fija",
+        "que una oposición pruebe relación espejo, llama gemela o destino"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Opposition', sección Interpretation: presenta confrontación, polaridad, posible proyección/alternancia y la tarea de integrar ambos polos.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Opposition",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_square",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Square",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Square",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "cuadratura como aspecto de tensión, fricción y presión entre funciones",
+        "potencial de conflicto o bloqueo que exige actividad y elaboración",
+        "lectura contemporánea de la cuadratura como desafío con potencial de desarrollo en lugar de aspecto simplemente malo"
+      ],
+      "does_not_support": [
+        "que una cuadratura determine fracaso, toxicidad o incompatibilidad",
+        "que tensión equivalga a crecimiento efectivo o sanación",
+        "que una cuadratura fuerte pruebe karma o contrato"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Square', sección Interpretation: describe tensión, presión, posible conflicto y el potencial de trabajo/desarrollo constructivo.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Square",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_trine",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Trine",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Trine",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "trígono como flujo relativamente fácil, apoyo y expresión natural entre funciones",
+        "carácter poco forzado de la cooperación entre los factores implicados",
+        "posibilidad de comodidad o falta de motivación cuando la facilidad no exige desarrollo"
+      ],
+      "does_not_support": [
+        "que un trígono garantice compromiso, crecimiento, reciprocidad o permanencia",
+        "que la facilidad sea siempre más evolutiva que la tensión",
+        "que un trígono pruebe afinidad álmica u origen compartido"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Trine', sección Interpretation: describe apoyo y flujo no impedido, junto con el riesgo de comodidad o falta de motivación.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Trine",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_sextile",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Sextile",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Sextile",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "sextil como geometría armónica de oportunidad, complementariedad y posibilidad de cooperación",
+        "presencia de un componente de activación más marcado que en el trígono",
+        "necesidad de participación para convertir la oportunidad en una dinámica desarrollada"
+      ],
+      "does_not_support": [
+        "que un sextil garantice que la oportunidad se realice",
+        "que la cooperación sea automática o recíproca",
+        "que un sextil constituya por sí solo evidencia de afinidad espiritual"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Sextile', sección Interpretation: describe oportunidad, complementariedad y una invitación a actuar, con menor presión que los aspectos desafiantes.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sextile",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_zodiac_sign",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Zodiac Sign",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Using the Signs in Astrology",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Sign",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "los signos indican cómo o de qué manera opera una función planetaria",
+        "cada punto del horóscopo ocupa un signo y grado concretos, y el signo se clasifica por elemento y cualidad",
+        "el signo aporta forma de expresión al planeta pero no sustituye la síntesis del resto de la carta"
+      ],
+      "does_not_support": [
+        "validación científica de los significados zodiacales",
+        "reducción de una persona a su signo solar",
+        "que un signo aislado determine compatibilidad, destino o tipo de vínculo"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Zodiac Sign', sección Using the Signs in Astrology: cada planeta/punto tiene signo y grado; los signos se clasifican por elemento y cualidad y señalan cómo opera el planeta.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sign",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_element",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Element",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Elements",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Element",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "clasificación zodiacal en cuatro elementos: fuego, tierra, aire y agua",
+        "uso del elemento como capa cualitativa de los signos dentro de la astrología occidental",
+        "base metodológica para describir el tono elemental de la expresión planetaria sin convertirlo en personalidad total"
+      ],
+      "does_not_support": [
+        "validación científica de temperamentos elementales",
+        "que un elemento determine por sí solo conducta, compatibilidad o madurez espiritual",
+        "jerarquía de elementos como superior/inferior"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Element': divide el zodiaco en fuego, tierra, aire y agua y documenta su uso astrológico como clasificación de signos.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Element",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_quality",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Quality",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "Cardinal / Fixed / Mutable",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Mode",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "modalidad cardinal como energía de inicio y activación",
+        "modalidad fija como conservación, estabilización y perseverancia",
+        "modalidad mutable como adaptación, transición y disolución/reorganización",
+        "combinación de modalidad y elemento como matiz estructurado para diferenciar los doce signos"
+      ],
+      "does_not_support": [
+        "validación científica de las modalidades zodiacales",
+        "que cardinal, fijo o mutable determine valor personal o capacidad relacional",
+        "que una modalidad por sí sola defina un destino o una misión"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Quality': define cardinal, fixed y mutable como modos de energía y muestra su combinación con los cuatro elementos.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Mode",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_sign_ruler",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Sign Ruler",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "The traditional planet-sign rulerships; Pluto",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Sign_Ruler",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "relación metodológica entre signo y planeta regente",
+        "distinción entre regencias tradicionales y asignaciones modernas para Acuario, Piscis y Escorpio",
+        "uso del regente/dispositor para descubrir conexiones internas adicionales en una carta"
+      ],
+      "does_not_support": [
+        "obligación de usar una escuela de regencias determinada",
+        "que la regencia añada automáticamente peso estructural o puntuación a ALMAS",
+        "que un dispositor pruebe por sí solo destino, karma o misión"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Sign Ruler': documenta regencias tradicionales y modernas y explica que el regente puede revelar conexiones adicionales en la carta.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Sign_Ruler",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_house_ruler",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "House Ruler",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "House Ruler",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/House_Ruler",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "el regente de una casa es el planeta que rige el signo de su cúspide dentro de la escuela declarada",
+        "regentes y dispositores pueden revelar relaciones internas entre áreas de la carta",
+        "base metodológica para enlazar un campo de casa con la posición y condición de su regente"
+      ],
+      "does_not_support": [
+        "imposición de regencias cuando M04 no recibió rulership_policy",
+        "que la cadena de regencias constituya una raíz relacional independiente",
+        "que una regencia demuestre misión espiritual, contrato o causalidad"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'House Ruler': define el regente de casa desde el signo de la cúspide y señala que regentes/dispositores ayudan a descubrir conexiones internas del horóscopo.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/House_Ruler",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "george_bloch_asteroid_goddesses_2003",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de asteroides / psicología arquetípica",
+      "author": "Demetra George; Douglas Bloch",
+      "work": "Asteroid Goddesses: The Mythology, Psychology, and Astrology of the Re-Emerging Feminine",
+      "date": "2003",
+      "date_note": "Edición revisada de una obra publicada originalmente en 1986; verificación bibliográfica y resumen de autora.",
+      "passage": "The Astrology of Juno; Juno as the Capacity for Meaningful Relationships",
+      "pages": null,
+      "doi": null,
+      "url": "https://books.google.com/books/about/Asteroid_Goddesses.html?id=LGThprOnsR0C",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica protegida por copyright; usar paráfrasis y citas breves dentro de los límites aplicables.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Juno como función astrológica moderna vinculada a relaciones significativas y al arquetipo de consorte/pareja",
+        "lectura de Juno por signo, casa y aspectos dentro de la escuela moderna de asteroides",
+        "uso de Juno como capa complementaria para precisar temas de compromiso, asociación e igualdad relacional"
+      ],
+      "does_not_support": [
+        "que un contacto con Juno demuestre matrimonio, compromiso factual o reciprocidad real",
+        "que Juno identifique por sí sola alma gemela, llama gemela, contrato álmico o destino relacional",
+        "que la presencia de Juno deba pesar como evidencia estructural independiente en ALMAS"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "La ficha bibliográfica identifica capítulos específicos dedicados a la astrología de Juno y a Juno como capacidad para relaciones significativas; la página oficial de Demetra George confirma delineación de los cuatro asteroides mayores por signo, casa y aspectos.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://demetra-george.com/asteroid-goddess-report/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "lang_wescott_eros_basic_resources",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de asteroides",
+      "author": "Martha Lang-Wescott",
+      "work": "Basic Resources / Mechanics of the Future: Asteroids",
+      "date": null,
+      "date_note": "Página oficial © 1995, 2014; referencia al libro Mechanics of the Future: Asteroids (1988).",
+      "passage": "ASTEROIDS — EROS",
+      "pages": null,
+      "doi": null,
+      "url": "https://marthalangwescott.com/basic-resources/",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web de la autora; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "Eros como punto astrológico moderno relacionado con sexualidad, experiencia y repertorio erótico",
+        "Eros como indicador de aquello que excita o enciende y de una dimensión de pasión o vitalidad",
+        "aplicación a Eros de signos, casas y aspectos como a otros puntos adicionales dentro del método de la autora"
+      ],
+      "does_not_support": [
+        "que un contacto de Eros pruebe actividad sexual real, consentimiento o reciprocidad",
+        "que Eros demuestre exclusividad, destino romántico, alma gemela o llama gemela",
+        "que Eros cree por sí solo una raíz core o una conclusión ontológica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Página oficial de Martha Lang-Wescott, sección ASTEROIDS, entrada EROS: delimita su campo a sexualidad, erotismo, aquello que activa el deseo y pasión/vitalidad.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://marthalangwescott.com/basic-resources/",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "astrodienst_transit",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Transit",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; consulta y verificación web 2026-09-27.",
+      "passage": "General; Aspects; Trigger; Interpretation",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Transit",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "definición del tránsito como planeta en movimiento que forma aspecto con un factor del horóscopo natal y lo activa cuando la geometría se hace exacta",
+        "uso preferente de conjunción, sextil, cuadratura, trígono y oposición como aspectos mayores en análisis de tránsitos",
+        "interpretación del tránsito a partir de la función del planeta transitante y del factor natal activado, con especial relevancia de los planetas lentos y de la exactitud"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología de tránsitos",
+        "predicción determinista de acontecimientos concretos a partir de un tránsito",
+        "que un tránsito pruebe reciprocidad, destino, contrato álmico, alma gemela o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Transit', define el tránsito como aspecto de un planeta en movimiento a un factor natal, describe los cinco aspectos mayores y usa el lenguaje de trigger/activación cuando el aspecto se hace exacto.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Transit",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "hand_planets_in_transit_2002",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología humanista y predictiva moderna",
+      "author": "Robert Hand",
+      "work": "Planets in Transit: Life Cycles for Living",
+      "date": "2002",
+      "date_note": "Revised second edition, Schiffer Publishing, 2002; obra originalmente publicada en una edición anterior.",
+      "passage": "Major transits of the Sun, Moon and planets to natal planets, Ascendant and Midheaven",
+      "pages": "544",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Planets_in_Transit.html?id=84elPwAACAAJ",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia bibliográfica y metodológica protegida por copyright; usar paráfrasis y citas breves dentro de los límites aplicables.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente de método identificada dedicada sistemáticamente a tránsitos planetarios y ciclos vitales",
+        "tratamiento de conjunción, sextil, cuadratura, trígono y oposición entre planetas transitantes y planetas natales",
+        "tratamiento de tránsitos a Ascendente y Medio Cielo como factores natales relevantes"
+      ],
+      "does_not_support": [
+        "validación científica de los significados astrológicos de los tránsitos",
+        "que una configuración de tránsito determine un acontecimiento factual único o inevitable",
+        "que los tránsitos identifiquen por sí solos tipo de vínculo, reciprocidad o ontología metafísica"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "El registro bibliográfico de Google Books describe la obra como guía sistemática de los cinco aspectos mayores de planetas transitantes respecto a planetas natales, Ascendente y Medio Cielo.",
+      "verification_anchor_type": "PUBLISHER_SUMMARY",
+      "verification_anchor_url": "https://books.google.com/books/about/Planets_in_Transit.html?id=84elPwAACAAJ",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    }
+  ],
+  "registry_revision": "2026-09-27-wound-repair-sources-1"
+}
