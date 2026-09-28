@@ -179,9 +179,7 @@ que missingness funcione como contraevidencia.
 
 `M19` aplica las fórmulas públicas de IEM sin cambios. Cuando ICE no está declarado, puede calcular `IEM_pre` si los pilares esenciales son evaluables, pero `ICE`, `IEM_final` y el gate `SUPPORTED` permanecen no evaluables. Si se declara `ice_by_model`, debe contener exactamente AF/KA/AG/LG; un mapa parcial es inválido y nunca se completa con ceros.
 
-`M21` usa Shapley sobre `IEM_pre` para atribuir a cada unidad canónica su contribución a AF, KA, AG y LG. Las unidades pueden ser raíces independientes o features de motivo derivadas para PX/PS; estas últimas no se declaran evidencia independiente. Hasta 10 unidades usa cálculo exacto; por encima utiliza permutaciones antitéticas deterministas con control de convergencia. ICE,
-IEM_final, temporalidad y rareza nula quedan fuera de la función de valor.
-Las distribuciones se comparan por divergencia Jensen–Shannon para obtener IDD.
+`M21` usa desde 1.22 `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3`. Los únicos jugadores son raíces independientes core. Para cada coalición se recalculan PA/PK/PE/PR/PT y, crucialmente, se vuelve a construir el grafo semántico para derivar PX/PS sólo con las raíces presentes. Así los motivos conservan su valor como interacciones de orden superior pero nunca reciben una segunda identidad como jugador. Hasta 10 raíces se usa Shapley exacto; por encima se usan permutaciones antitéticas deterministas con control de convergencia. ICE, IEM_final, temporalidad y rareza nula quedan fuera de la función de valor. Las distribuciones se comparan por divergencia Jensen–Shannon para obtener IDD.
 
 IDD y la discriminación ontológica de M21 son capas independientes. Un IDD alto
 no autoriza por sí mismo una clasificación ontológica más específica.
@@ -190,7 +188,7 @@ no autoriza por sí mismo una clasificación ontológica más específica.
 
 `M20` acepta sólo `EXPLICIT_CONTRADICTION` y `STRUCTURAL_INCOMPATIBILITY`. La ausencia de datos no puede entrar como contraevidencia. Las contradicciones se deduplican por `modelo + dependency_family + contradiction_key`.
 
-El módulo no inventa una fórmula de ICE. Si la entrada contiene `ice_by_model`, exige un mapa completo AF/KA/AG/LG con valores finitos en [0,100] y lo conserva con `ice_state=PRECOMPUTED`; un mapa parcial o vacío es inválido. Si no se declara ICE, queda `NOT_CALCULATED` y `ice_by_model=null`. La ausencia de un valor jamás se interpreta como ICE=0. Esto mantiene la fórmula congelada de 1.21.0 y hace explícita la frontera entre contraevidencia normalizada e índice ICE precomputado.
+Desde 1.22, M20 admite una fórmula autónoma explícita sin abandonar el firewall de missingness. Si la entrada contiene `ice_by_model`, exige un mapa completo AF/KA/AG/LG con valores finitos en [0,100] y lo conserva con `ice_state=PRECOMPUTED`. Si no existe mapa precomputado, sólo deriva ICE cuando `counterevidence_complete=true`. En ese estado cada contradicción retenida exige `severity` finita en [0,1]; tras la deduplicación por modelo+familia+clave, una misma `contradiction_key` observada en varias familias conserva la severidad máxima. Las claves distintas se agregan mediante `100 × (1 - Π(1-s_k))`, definido como operador de saturación y no como probabilidad. Con evaluación completa y sin contradicciones, ICE=0 es legítimo; sin declaración de completitud, ICE permanece `NOT_CALCULATED`. La contradicción esencial mantiene un gate categórico separado.
 
 ## M22 · ablación estructural
 
@@ -280,11 +278,7 @@ preregistrados permanecen disponibles.
 M24 queda excluido del IRC mediante
 `null_model_rarity_used_as_robustness=false`.
 
-La agregación normativa permanece:
-
-`IRC = 100 × geometric_mean(applicable_R_i)`
-
-`R_min = min(applicable_R_i)`.
+Desde 1.22 la agregación normativa controla dependencia entre componentes. `BIRTH_TIME` forma `TIME_INPUT`; `ABLATION` y `PARAMETER_PERTURBATION` forman `STRUCTURAL_PERTURBATION`; `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR` forman `DIAGNOSTIC_STABILITY`. Para cada grupo `j` se calcula `G_j = min(R_i del grupo)` y sólo esos mínimos entran en `IRC = 100 × geometric_mean(G_j)`. `R_min = min(applicable_R_i)` sigue evaluando todos los componentes individuales. Esta regla impide que varias métricas correlacionadas de una misma perturbación cuenten como réplicas independientes.
 
 La salida canónica está definida por `schemas/robustness-output.schema.json`.
 
