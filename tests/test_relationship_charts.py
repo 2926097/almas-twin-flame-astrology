@@ -98,7 +98,7 @@ class TestRelationshipCharts(unittest.TestCase):
             {
                 "id": "A",
                 "birth_date": "1977-03-20",
-                "birth_time": "17:37",
+                "birth_time": "17:45",
                 "timezone": "Europe/Madrid",
                 "latitude": 41.65,
                 "longitude": -0.88,
@@ -138,7 +138,7 @@ class TestRelationshipCharts(unittest.TestCase):
             {
                 "id": "A",
                 "birth_date": "1977-03-20",
-                "birth_time": "17:37",
+                "birth_time": "17:45",
                 "timezone": "Europe/Madrid",
                 "place": "Zaragoza",
             },
