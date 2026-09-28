@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.19.0  
+**Versión pública:** 1.20.0  
 **Estado:** pipeline modular M00–M31 ejecutable + recurrencia semántica PX/PS v2 + calibración de especificidad S1–S9 + perfiles de análisis + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
@@ -76,6 +76,8 @@ Desde 1.17.0, ALMAS publica un manifiesto estructural único que enlaza técnica
 Desde 1.18.0, M02 y M08 pueden ejecutarse con el adaptador opcional `MoiraProductionBackend`. La instalación del núcleo sigue sin arrastrar un motor astronómico; el extra `astronomy-moira` fija Moira 6.8.2 y todo cálculo exige un kernel JPL local cuyo SHA-256 forma parte de la procedencia.
 
 Desde 1.19.0, el cierre M31 alimenta `authored_report`: una capa de autoría centrada en astrología y hermenéutica/metafísica basada en fuentes. La cadena materializa después DOCX y PDF B5 con fingerprint, bibliografía y preflight, sin recalcular la astrología ni convertir la infraestructura técnica en el contenido principal del informe.
+
+Desde 1.20.0, la autoría adopta una síntesis **root-first**: parte de raíces y motivos semánticos ya calculados, integra sustrato natal, casas, ángulos/nodos, campo compuesto/Davison, dracónicas, lotes y puntos secundarios cuando aportan contexto, y desarrolla la temporalidad mediante activaciones concretas trazables. `TTRANSIT` puede generarse automáticamente contra endpoints de raíces existentes; el tránsito activa arquitectura previa y no predice por sí mismo acontecimientos ni decisiones de otra persona.
 
 ## Repositorio
 
