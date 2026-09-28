@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_IRC_DEPENDENCY_AGGREGATION_V2",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Evitar doble ponderación de componentes de robustez que comparten la misma fuente de perturbación o dependencia.",
+  "kind_dependency_groups": {
+    "BIRTH_TIME": "TIME_PERTURBATION",
+    "ABLATION": "STRUCTURAL_ABLATION",
+    "PARAMETER_PERTURBATION": "PARAMETER_PERTURBATION",
+    "IDD_STABILITY": "PARAMETER_PERTURBATION"
+  },
+  "validated_discriminator_grouping": "ONE_GROUP_PER_COMPONENT_ID",
+  "within_group_aggregation": "MIN",
+  "across_group_aggregation": "GEOMETRIC_MEAN",
+  "r_min": "MIN_RAW_COMPONENT",
+  "principles": {
+    "case_fitting_forbidden": true,
+    "shared_perturbation_source_counted_once": true,
+    "within_group_min_is_conservative": true,
+    "null_rarity_used": false,
+    "missing_component_is_not_zero": true,
+    "metaphysical_probability": false
+  }
+}
