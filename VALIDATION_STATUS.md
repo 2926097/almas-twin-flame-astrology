@@ -6,6 +6,23 @@
 
 El repositorio publica una especificación generalizada con fixtures sintéticos y un núcleo Python determinista. Los casos privados/no públicos permanecen excluidos.
 
+### Cierre 1.21 · informes personales
+
+ALMAS 1.21 porta el reporting astrológico personal a la arquitectura vigente sin crear una segunda skill ni un segundo backend. La cadena personal queda:
+
+`personal_report_request → backend de producción → personal_canonical_analysis → personal_report_document_model → personal_authored_report → DOCX/PDF B5`.
+
+El canonical personal aplica minimización por lista blanca; los perfiles degradan de forma explícita por calidad horaria y conservan contraevidencia y clases A/B/C/D/E. `ALMAS_PERSONAL_REFERENCE_ROUTER_V1` resuelve dominios contra las **76 fuentes** del registro canónico y expone gaps sin inventar referencias.
+
+Validación funcional previa al cierre SemVer:
+- Núcleo Python 3.12: **574 tests**, PASS, 10 skipped por extras opcionales;
+- Contrato público: PASS;
+- Backend astronómico: PASS;
+- Publicación DOCX: último run aplicable en `main`, PASS;
+- Publicación PDF: último run aplicable en `main`, PASS.
+
+La release no cambia scoring relacional, thresholds, discriminadores, ontología ni la revisión interna del módulo contractual.
+
 ### Cierre 1.20 · síntesis root-first y temporalidad trazable
 
 La capa interpretativa profundiza la arquitectura ya calculada sin introducir una segunda verdad analítica. La autoría parte de raíces y motivos semánticos, recupera sus contactos concretos y añade contexto natal, relacional, dracónico, de lotes y puntos secundarios únicamente cuando está disponible en el canonical.
@@ -94,14 +111,14 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 | Genealogía de discriminadores | OD01–OD07 trazados documentalmente |
 | Aislamiento de casos privados | `ALMAS_PUBLIC_DATA_ISOLATION_V1` + manifests exhaustivos |
 | CLI de pilares precomputados | Publicada y probada unitariamente |
-| Corpus doctrinal/técnico | 44 fuentes / 97 conceptos / 73 relaciones |
+| Corpus doctrinal/técnico | 76 fuentes / 97 conceptos / 73 relaciones |
 | Fixtures sintéticos | Publicados |
 | Casos privados | Excluidos |
 | Casos públicos verificables | Admitidos sólo en `public_cases/` |
 
 ## Pruebas automatizadas
 
-La suite Python contiene **483 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+La suite Python contiene **574 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
 
 El workflow `Núcleo Python` ejecuta:
 
