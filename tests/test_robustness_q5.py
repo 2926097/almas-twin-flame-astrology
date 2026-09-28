@@ -138,6 +138,7 @@ def snapshot(iem):
         "pillar_attribution": {
             "structural_absence_is_zero": True,
             "root_attributions": attrs,
+            "source_roots": shapley_source_roots(),
         },
     }
 
