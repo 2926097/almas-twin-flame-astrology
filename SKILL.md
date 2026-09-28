@@ -24,6 +24,8 @@ La release 1.17.0 formaliza los **manifiestos normativos estructurales**: taxono
 
 La release 1.18.0 incorpora un **backend astronómico de producción por capacidades** mediante `ALMAS_MOIRA_JPL_SPK_V1`. El adaptador exige `moira-astro==6.8.2`, kernel JPL local fingerprintado, timezone IANA, coordenadas numéricas y sistema de casas explícito; prohíbe descarga de efemérides, geocodificación y fallback polar durante el cálculo. M02 y M08 pasan a implementación ejecutable, sin añadir técnicas ni alterar scoring.
 
+La release 1.19.0 materializa autoría y publicación B5 trazables; 1.20.0 añade síntesis root-first y temporalidad `TTRANSIT`. La release 1.21.0 porta los **informes astrológicos personales** a la arquitectura vigente: canonical personal minimizado y fingerprintable, cinco perfiles, autoría trazable, publicación DOCX/PDF B5 compartida, construcción desde solicitud natal mediante el backend de producción y router de referencias contra el corpus canónico. Esta superficie es interna a la única skill ALMAS y no altera el scoring relacional, los discriminadores ni la ontología.
+
 ### Enfoque de investigación metafísica
 
 ALMAS utiliza la astrología como **método metafísico de investigación** de la arquitectura del alma, el origen, historia y función relacional, la continuidad kármica o dhármica, la polaridad, la activación, la integración y otras dimensiones metafísicas definidas. Los controles metodológicos de esta skill son controles de calidad internos al paradigma: evitan inflación por dependencia, ajuste retrospectivo al caso y saltos ontológicos no sustentados; no constituyen una negación de la investigación metafísica.
