@@ -71,14 +71,16 @@ La ventana temporal vuelve más saliente una función estructural. No crea la re
 - mismo `engine_revision=1.9.0` del módulo contractual;
 - ningún discriminador L3 real activado.
 
-## CI funcional previo al cierre
+## CI de la rama de release
 
-El head funcional inmediatamente anterior al bump de release registró:
+La PR de cierre 1.20.0 registró:
 
-- `Núcleo Python` Python 3.10: SUCCESS, 537 tests;
-- `Núcleo Python` Python 3.12: SUCCESS, 537 tests;
+- `Núcleo Python` Python 3.10: SUCCESS, 537 tests, 7 skipped;
+- `Núcleo Python` Python 3.12: SUCCESS, 537 tests, 7 skipped;
 - `Contrato público`: SUCCESS;
-- `Backend astronómico`: SUCCESS.
+- `Backend astronómico`: SUCCESS;
+- `Publicación DOCX`: SUCCESS;
+- `Publicación PDF`: SUCCESS.
 
 El único defecto detectado en el fixture temporal fue una igualdad exacta de coma flotante (`0.5249999999999999` frente a `0.525`). Se corrigió el test para usar `assertAlmostEqual(..., places=12)`; no se redondeó el motor ni se modificó la señal canónica.
 
