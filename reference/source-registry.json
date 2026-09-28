@@ -2881,7 +2881,85 @@
       "verification_anchor_type": "PUBLISHER_SUMMARY",
       "verification_anchor_url": "https://books.google.com/books/about/Planets_in_Transit.html?id=84elPwAACAAJ",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "brady_book_fixed_stars_1998",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea de estrellas fijas",
+      "author": "Bernadette Brady",
+      "work": "Brady's Book of Fixed Stars",
+      "date": "1998",
+      "date_note": "Samuel Weiser, 1998; Google Books also records later Weiser listings/editions.",
+      "passage": "The Four Angles and the Fixed Stars; The Effect of Stars on Natal Planets; How to Work with Parans and Fixed Stars",
+      "pages": "33-43 (chapter starts in the 1998/1999 table of contents)",
+      "doi": null,
+      "url": "https://books.google.com/books/about/Brady_s_Book_of_Fixed_Stars.html?id=9AahcUEgeLIC",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Bibliographic and methodological use; do not reproduce copyrighted text beyond applicable quotation limits.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "FIXED_STAR_ASTROLOGY"
+      ],
+      "supports": [
+        "fuente moderna identificada para integrar estrellas fijas en una carta natal mediante un método explícito",
+        "uso metodológico de parans, fases estelares, ángulos, planetas y orbes en el trabajo con estrellas fijas",
+        "criterios de selección de estrellas y distinción entre posición zodiacal, relación angular/paran y simbolismo estelar"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología de estrellas fijas o de los parans",
+        "que toda estrella del catálogo sea interpretativamente relevante en cualquier carta",
+        "que una estrella fija o un paran demuestre por sí solo karma, contrato álmico, alma gemela, llama gemela u otra ontología",
+        "que ALMAS pueda inventar un orbe no declarado a partir de una referencia bibliográfica general"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Google Books table of contents explicitly lists sections on planets and orbs, the four angles and fixed stars, natal-planet effects, and how to work with parans and fixed stars.",
+      "verification_anchor_type": "TABLE_OF_CONTENTS",
+      "verification_anchor_url": "https://books.google.com/books/about/Brady_s_Book_of_Fixed_Stars.html?id=9AahcUEgeLIC",
+      "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "ptolemy_tetrabiblos_1_9_fixed_stars",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astrología grecorromana",
+      "author": "Claudius Ptolemy",
+      "work": "Tetrabiblos",
+      "date": "2nd century CE",
+      "date_note": "Book I, chapter 9; verification uses the public-domain J. M. Ashmand English translation (1822) hosted by Internet Sacred Text Archive.",
+      "passage": "Book I, Chapter IX, The Influence of the Fixed Stars",
+      "pages": "17-20 in the Ashmand edition scan/transcription",
+      "doi": null,
+      "url": "https://sacred-texts.com/book/ptolemy-s-tetrabiblos/shell/chapter-ix-the-influence-of-the-fixed-stars",
+      "download_url": null,
+      "license": "Public-domain English translation used as verification anchor",
+      "rights_note": "Public-domain translation; ALMAS records the historical rule and paraphrases it.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "FIXED_STAR_ASTROLOGY"
+      ],
+      "supports": [
+        "antecedente histórico técnico explícito para atribuir naturalezas astrológicas a estrellas fijas",
+        "asociación de estrellas y partes de constelaciones con cualidades análogas a planetas",
+        "base histórica para separar la tradición de significación estelar de un método moderno de parans"
+      ],
+      "does_not_support": [
+        "el método moderno de parans de Bernadette Brady",
+        "un canon moderno de estrellas ni los datos astronómicos de Gaia",
+        "orbes modernos de conjunción o de paran",
+        "que una naturaleza estelar histórica constituya prueba ontológica, predictiva infalible o validación científica"
+      ],
+      "translation_note": "J. M. Ashmand translation from the Greek paraphrase of Proclus, London, 1822.",
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Tetrabiblos I.9 explicitly introduces the natures and properties attributed to fixed stars and describes them by analogy with planetary qualities.",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://sacred-texts.com/book/ptolemy-s-tetrabiblos/shell/chapter-ix-the-influence-of-the-fixed-stars",
+      "evidence_scope": "METHOD_DESCRIPTION"
     }
   ],
-  "registry_revision": "2026-09-27-wound-repair-sources-1"
+  "registry_revision": "2026-09-28-fixed-star-paran-sources-1"
 }
