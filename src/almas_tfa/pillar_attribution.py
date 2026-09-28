@@ -253,20 +253,18 @@ def _motif_unit(
     }
 
 
-def derive_pillars_from_roots(
+def _derive_scoring_state(
     roots: Sequence[Mapping[str, Any]],
     *,
     structural_absence_is_zero: bool,
-    policy: Mapping[str, Any] | None = None,
+    policy: Mapping[str, Any],
 ) -> dict[str, Any]:
-    """Deriva pilares Q2/PXv2 desde raíces canónicas.
+    """Deriva el estado de scoring M18 sin diagnósticos secundarios.
 
-    Los pilares PA/PK/PE/PR/PT proceden de raíces individuales. PX y PS se
-    derivan de motivos recurrentes que agregan familias técnicas independientes.
+    Esta función es la única ruta de cálculo de PA/PK/PE/PR/PX/PT/PS. Permite
+    que M21 reconstruya PX/PS dentro de cada coalición Shapley sin convertir
+    motivos derivados en jugadores independientes.
     """
-
-    if policy is None:
-        policy = load_root_pillar_policy()
 
     root_attributions = [
         classify_root(root, policy=policy)
@@ -278,13 +276,6 @@ def derive_pillars_from_roots(
     motif_graph = derive_semantic_motif_graph(
         roots,
         policy=motif_policy,
-    )
-    recurrence_quality_policy = load_recurrence_quality_policy()
-    recurrence_quality = derive_recurrence_quality_diagnostics(
-        roots,
-        motif_graph,
-        semantic_policy=motif_policy,
-        quality_policy=recurrence_quality_policy,
     )
 
     motif_attributions = [
@@ -323,24 +314,92 @@ def derive_pillars_from_roots(
             pillars[pillar] = 0.0 if structural_absence_is_zero else None
 
     return {
+        "root_attributions": root_attributions,
+        "motif_policy": motif_policy,
+        "motif_graph": motif_graph,
+        "motif_attributions": motif_attributions,
+        "attribution_units": attribution_units,
+        "pillar_root_strengths": strengths,
+        "pillar_root_ids": root_ids,
+        "pillars": pillars,
+    }
+
+
+def derive_pillar_scores_from_roots(
+    roots: Sequence[Mapping[str, Any]],
+    *,
+    structural_absence_is_zero: bool,
+    policy: Mapping[str, Any] | None = None,
+) -> dict[str, float | None]:
+    """Recalcula únicamente los pilares de scoring desde raíces independientes."""
+
+    if policy is None:
+        policy = load_root_pillar_policy()
+
+    return _derive_scoring_state(
+        roots,
+        structural_absence_is_zero=structural_absence_is_zero,
+        policy=policy,
+    )["pillars"]
+
+
+def derive_pillars_from_roots(
+    roots: Sequence[Mapping[str, Any]],
+    *,
+    structural_absence_is_zero: bool,
+    policy: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Deriva pilares Q2/PXv2 desde raíces canónicas.
+
+    Los pilares PA/PK/PE/PR/PT proceden de raíces individuales. PX y PS son
+    interacciones derivadas de motivos recurrentes. Desde la revisión
+    cuantitativa 1.22 se conservan además las raíces fuente para que M21 pueda
+    recalcular esas interacciones dentro de cada coalición Shapley.
+    """
+
+    if policy is None:
+        policy = load_root_pillar_policy()
+
+    scoring = _derive_scoring_state(
+        roots,
+        structural_absence_is_zero=structural_absence_is_zero,
+        policy=policy,
+    )
+
+    motif_policy = scoring["motif_policy"]
+    motif_graph = scoring["motif_graph"]
+    recurrence_quality_policy = load_recurrence_quality_policy()
+    recurrence_quality = derive_recurrence_quality_diagnostics(
+        roots,
+        motif_graph,
+        semantic_policy=motif_policy,
+        quality_policy=recurrence_quality_policy,
+    )
+
+    return {
         "policy_id": policy["policy_id"],
         "policy_status": policy["status"],
         "epistemic_class": policy["epistemic_class"],
         "semantic_motif_policy_id": motif_policy["policy_id"],
         "structural_absence_is_zero": bool(structural_absence_is_zero),
-        "pillar_root_strengths": strengths,
-        "pillar_root_ids": root_ids,
-        "root_attributions": root_attributions,
-        "motif_attributions": motif_attributions,
-        "attribution_units": attribution_units,
+        "pillar_root_strengths": scoring["pillar_root_strengths"],
+        "pillar_root_ids": scoring["pillar_root_ids"],
+        "root_attributions": scoring["root_attributions"],
+        "motif_attributions": scoring["motif_attributions"],
+        "attribution_units": scoring["attribution_units"],
         "semantic_motifs": motif_graph,
         "recurrence_quality": recurrence_quality,
         "recurrence_quality_policy_id": recurrence_quality_policy["policy_id"],
         "recurrence_quality_used_in_scores": False,
-        "pillars": pillars,
+        "pillars": scoring["pillars"],
+        "source_roots": [
+            dict(root) for root in roots if isinstance(root, Mapping)
+        ],
         "pu_state": "NOT_EVALUABLE",
         "pu_reason": policy["singularity_rule"]["reason"],
         "semantic_cross_pillar_duplication": False,
         "recurrence_source": "SEMANTIC_MOTIF_GRAPH_V2",
         "motif_units_are_derived_not_independent_roots": True,
+        "motif_units_are_shapley_players": False,
+        "px_ps_interaction_semantics": "DERIVED_INTERACTION_RECOMPUTED_PER_COALITION",
     }
