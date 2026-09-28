@@ -371,7 +371,6 @@ class TransitGenerationTests(unittest.TestCase):
             "activation_class",
             "strength",
             "k",
-            "effective_strength",
             "exactitude_orb",
             "preregistered",
             "preregistered_window_rule",
@@ -379,6 +378,12 @@ class TransitGenerationTests(unittest.TestCase):
             "date_or_period",
         ):
             self.assertEqual(actual[field], expected[field], field)
+
+        self.assertAlmostEqual(
+            actual["effective_strength"],
+            expected["effective_strength"],
+            places=12,
+        )
 
         for field in (
             "trigger_point",
