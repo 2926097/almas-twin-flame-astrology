@@ -213,6 +213,23 @@ def _family_strengths(root: Mapping[str, Any]) -> dict[str, float]:
     }
 
 
+def semantic_root_signature(
+    root: Mapping[str, Any],
+    *,
+    policy: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Precalcula la firma semántica de una raíz para coaliciones Shapley."""
+
+    family_strengths = _family_strengths(root)
+    return {
+        "root_id": str(root.get("root_id") or ""),
+        "primary_motif": classify_primary_motif(root, policy=policy),
+        "mission_motifs": mission_motifs(root, policy=policy),
+        "family_strengths": family_strengths,
+        "exact_multifamily": len(family_strengths) >= 2,
+    }
+
+
 def _motif_record(
     motif_id: str,
     roots: Sequence[Mapping[str, Any]],
