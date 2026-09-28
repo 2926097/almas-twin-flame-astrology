@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
-from .core import robustness_index
+from .robustness_aggregation import (
+    grouped_robustness_index,
+    load_irc_aggregation_policy,
+)
 from .discriminator_promotion_registry import (
     authorize_promoted_discriminator_component,
 )
@@ -376,8 +379,11 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
             "No existen componentes de robustez aplicables y preregistrados.",
         )
 
-    values = [component["value"] for component in components]
-    irc, r_min = robustness_index(values)
+    aggregation_policy = load_irc_aggregation_policy()
+    irc, r_min, dependency_groups = grouped_robustness_index(
+        components,
+        policy=aggregation_policy,
+    )
 
     if ablation_auto:
         ablation_state = "INCLUDED_AUTO_Q5"
@@ -404,7 +410,9 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
         "ablation_state": ablation_state,
         "null_model_state": null_model_state,
         "null_model_rarity_used_as_robustness": False,
-        "formula": "100 * geometric_mean(applicable_R_i)",
+        "aggregation_policy_id": aggregation_policy["policy_id"],
+        "dependency_groups": dependency_groups,
+        "formula": "100 * geometric_mean(min(R_i within dependency_group))",
         "r_min_formula": "min(applicable_R_i)",
     }
 
@@ -418,6 +426,7 @@ def m25_robustness(context: ModuleContext) -> ModuleResult:
             "La rareza/frecuencia de M24 queda excluida de IRC.",
             "Sólo discriminadores L3 validados y trazables desde M21 pueden entrar en IRC.",
             "Los componentes Q5 automáticos sustituyen al adaptador legacy del mismo kind; nunca se cuentan dos veces.",
+            "PARAMETER_PERTURBATION e IDD_STABILITY comparten fuente de perturbación y se agregan una sola vez mediante el mínimo del grupo antes de calcular IRC.",
         ),
     )
 
