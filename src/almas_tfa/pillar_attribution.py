@@ -13,6 +13,7 @@ from .recurrence_quality import (
     derive_recurrence_quality_diagnostics,
     load_recurrence_quality_policy,
 )
+from .quantitative_v122 import derive_pillar_source_roots
 
 
 POLICY_RESOURCE = "root-pillar-attribution-policy.json"
@@ -300,6 +301,7 @@ def derive_pillars_from_roots(
     attribution_units = [
         item for item in root_attributions if item.get("eligible")
     ] + motif_attributions
+    pillar_source_roots = derive_pillar_source_roots(attribution_units)
 
     strengths: dict[str, list[float]] = {pillar: [] for pillar in PILLARS}
     root_ids: dict[str, list[str]] = {pillar: [] for pillar in PILLARS}
@@ -333,6 +335,7 @@ def derive_pillars_from_roots(
         "root_attributions": root_attributions,
         "motif_attributions": motif_attributions,
         "attribution_units": attribution_units,
+        "pillar_source_roots": pillar_source_roots,
         "semantic_motifs": motif_graph,
         "recurrence_quality": recurrence_quality,
         "recurrence_quality_policy_id": recurrence_quality_policy["policy_id"],
