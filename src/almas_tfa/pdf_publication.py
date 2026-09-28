@@ -9,10 +9,14 @@ import subprocess
 from tempfile import TemporaryDirectory
 from typing import Any, Mapping, Sequence
 
-from .docx_publication import build_authored_report_docx
+from .docx_publication import (
+    build_authored_report_docx,
+    build_personal_authored_report_docx,
+)
 
 
 PROFILE_ID = "ALMAS_B5_PDF_V1"
+PERSONAL_PROFILE_ID = "ALMAS_B5_PERSONAL_PDF_V1"
 B5_WIDTH_PT = 176.0 / 25.4 * 72.0
 B5_HEIGHT_PT = 250.0 / 25.4 * 72.0
 PAGE_TOLERANCE_PT = 1.0
@@ -287,17 +291,17 @@ def preflight_pdf(
     )
 
 
-def publish_authored_report_pdf(
+def _publish_report_pdf(
     authored_report: Mapping[str, Any],
     output_pdf: str | Path,
     *,
-    output_docx: str | Path | None = None,
-    title: str = "ALMAS · Informe interpretativo",
-    subtitle: str = "Astrología relacional y hermenéutica metafísica basada en fuentes",
-    soffice_path: str | Path | None = None,
+    build_docx: Any,
+    profile_id: str,
+    output_docx: str | Path | None,
+    title: str,
+    subtitle: str,
+    soffice_path: str | Path | None,
 ) -> PdfPublicationReceipt:
-    """Materializa authored_report como DOCX y PDF B5 con preflight fail-closed."""
-
     output_pdf_path = Path(output_pdf)
     fingerprint = authored_report.get("canonical_fingerprint")
     if not isinstance(fingerprint, str) or len(fingerprint) != 64:
@@ -317,7 +321,7 @@ def publish_authored_report_pdf(
             if output_docx is not None
             else temp_root / "authored-report.docx"
         )
-        build_authored_report_docx(
+        build_docx(
             authored_report,
             docx_path,
             title=title,
@@ -331,17 +335,21 @@ def publish_authored_report_pdf(
             soffice_path=soffice_path,
         )
 
-    result = preflight_pdf(output_pdf_path, required_text=required_text)
+    result = preflight_pdf(
+        output_pdf_path,
+        required_text=required_text,
+    )
     if not result.preflight_passed:
         raise PdfPublicationError(
             "Preflight PDF no superado: "
             f"B5={result.all_pages_b5}; crop={result.all_cropboxes_b5}; "
             f"fonts={result.all_fonts_embedded}; empty={result.empty_pages}; "
-            f"missing={result.required_text_missing}; encrypted={result.encrypted}"
+            f"missing={result.required_text_missing}; "
+            f"encrypted={result.encrypted}"
         )
 
     return PdfPublicationReceipt(
-        profile_id=PROFILE_ID,
+        profile_id=profile_id,
         output_path=str(output_pdf_path),
         canonical_fingerprint=fingerprint,
         source_docx_sha256=source_docx_sha256,
@@ -354,4 +362,89 @@ def publish_authored_report_pdf(
         empty_pages=result.empty_pages,
         text_complete=result.text_complete,
         preflight_passed=result.preflight_passed,
+    )
+
+
+def publish_authored_report_pdf(
+    authored_report: Mapping[str, Any],
+    output_pdf: str | Path,
+    *,
+    output_docx: str | Path | None = None,
+    title: str = "ALMAS · Informe interpretativo",
+    subtitle: str = (
+        "Astrología relacional y hermenéutica metafísica basada en fuentes"
+    ),
+    soffice_path: str | Path | None = None,
+) -> PdfPublicationReceipt:
+    """Publica el authored_report relacional como PDF B5."""
+
+    return _publish_report_pdf(
+        authored_report,
+        output_pdf,
+        build_docx=build_authored_report_docx,
+        profile_id=PROFILE_ID,
+        output_docx=output_docx,
+        title=title,
+        subtitle=subtitle,
+        soffice_path=soffice_path,
+    )
+
+
+def publish_personal_authored_report_pdf(
+    authored_report: Mapping[str, Any],
+    output_pdf: str | Path,
+    *,
+    output_docx: str | Path | None = None,
+    title: str = "ALMAS · Informe astrológico personal",
+    subtitle: str = "Astrología natal y hermenéutica basada en fuentes",
+    soffice_path: str | Path | None = None,
+) -> PdfPublicationReceipt:
+    """Publica el authored_report personal con el mismo preflight B5."""
+
+    return _publish_report_pdf(
+        authored_report,
+        output_pdf,
+        build_docx=build_personal_authored_report_docx,
+        profile_id=PERSONAL_PROFILE_ID,
+        output_docx=output_docx,
+        title=title,
+        subtitle=subtitle,
+        soffice_path=soffice_path,
+    )
+
+
+def publish_report_pdf(
+    authored_report: Mapping[str, Any],
+    output_pdf: str | Path,
+    *,
+    output_docx: str | Path | None = None,
+    title: str | None = None,
+    subtitle: str | None = None,
+    soffice_path: str | Path | None = None,
+) -> PdfPublicationReceipt:
+    """Dispatch de publicación PDF según document_kind."""
+
+    kind = authored_report.get("document_kind")
+    if kind == "ALMAS_AUTHORED_REPORT":
+        return publish_authored_report_pdf(
+            authored_report,
+            output_pdf,
+            output_docx=output_docx,
+            title=title or "ALMAS · Informe interpretativo",
+            subtitle=subtitle
+            or "Astrología relacional y hermenéutica metafísica basada en fuentes",
+            soffice_path=soffice_path,
+        )
+    if kind == "ALMAS_PERSONAL_AUTHORED_REPORT":
+        return publish_personal_authored_report_pdf(
+            authored_report,
+            output_pdf,
+            output_docx=output_docx,
+            title=title or "ALMAS · Informe astrológico personal",
+            subtitle=subtitle
+            or "Astrología natal y hermenéutica basada en fuentes",
+            soffice_path=soffice_path,
+        )
+    raise PdfPublicationError(
+        f"document_kind no publicable: {kind}"
     )

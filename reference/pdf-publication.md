@@ -6,9 +6,15 @@ El PDF se genera únicamente después de cerrar la autoría y el DOCX:
 
 `canonical_analysis → M30 → M31 → authored_report → DOCX → PDF → preflight → render visual`
 
+El perfil personal sigue `personal_canonical_analysis → personal_report_document_model → personal_authored_report → DOCX → PDF → preflight`.
+
 No existe una segunda redacción en PDF. La conversión materializa el DOCX aprobado.
 
-## Perfil ALMAS_B5_PDF_V1
+## Perfiles PDF B5
+
+El perfil relacional conserva `ALMAS_B5_PDF_V1`. El adaptador personal usa `ALMAS_B5_PERSONAL_PDF_V1`; ambos comparten conversión y preflight.
+
+### Requisitos comunes
 
 El primer perfil PDF exige:
 
@@ -18,7 +24,7 @@ El primer perfil PDF exige:
 - ninguna página vacía;
 - texto extraíble;
 - presencia de la huella canónica completa;
-- presencia de los once títulos de sección;
+- presencia de todos los títulos declarados por la superficie de autoría;
 - todas las fuentes utilizadas embebidas;
 - SHA-256 del DOCX fuente y del PDF final.
 
@@ -38,7 +44,7 @@ LibreOffice es una dependencia externa de materialización, no del núcleo anal�
 
 `preflight_pdf()` verifica geometría, fuentes, extracción de texto, páginas vacías y cifrado.
 
-`publish_authored_report_pdf()` opera fail-closed: si el preflight no pasa, no devuelve un receipt de publicación válida.
+`publish_authored_report_pdf()` y `publish_personal_authored_report_pdf()` operan fail-closed. `publish_report_pdf()` selecciona el adaptador por `document_kind`; si el preflight no pasa, no devuelve un receipt de publicación válida.
 
 El receipt contiene:
 

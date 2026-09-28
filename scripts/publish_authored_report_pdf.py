@@ -5,29 +5,26 @@ import argparse
 import json
 from pathlib import Path
 
-from almas_tfa.pdf_publication import publish_authored_report_pdf
+from almas_tfa.pdf_publication import publish_report_pdf
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Publica un authored_report ALMAS como PDF B5 con preflight."
+        description="Publica un authored_report ALMAS como PDF B5 según document_kind."
     )
     parser.add_argument("authored_report", type=Path)
     parser.add_argument("output_pdf", type=Path)
     parser.add_argument("--docx-out", type=Path, default=None)
     parser.add_argument("--receipt", type=Path, default=None)
     parser.add_argument("--soffice", default=None)
-    parser.add_argument("--title", default="ALMAS · Informe interpretativo")
-    parser.add_argument(
-        "--subtitle",
-        default="Astrología relacional y hermenéutica metafísica basada en fuentes",
-    )
+    parser.add_argument("--title", default=None)
+    parser.add_argument("--subtitle", default=None)
     args = parser.parse_args()
 
     with args.authored_report.open("r", encoding="utf-8") as handle:
         authored = json.load(handle)
 
-    receipt = publish_authored_report_pdf(
+    receipt = publish_report_pdf(
         authored,
         args.output_pdf,
         output_docx=args.docx_out,

@@ -5,8 +5,11 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from .personal_reporting import PROFILE_SECTIONS as PERSONAL_PROFILE_SECTIONS
+
 
 PROFILE_ID = "ALMAS_B5_BOOK_V1"
+PERSONAL_PROFILE_ID = "ALMAS_B5_PERSONAL_BOOK_V1"
 SECTION_ORDER = (
     "S01_SYNTHESIS",
     "S02_DATA_METHOD",
@@ -63,34 +66,107 @@ def _require_docx():
     )
 
 
-def _validate_surface(authored_report: Mapping[str, Any]) -> None:
-    if authored_report.get("document_kind") != "ALMAS_AUTHORED_REPORT":
-        raise DocxPublicationError("document_kind no es ALMAS_AUTHORED_REPORT.")
+def _validate_common_surface(authored_report: Mapping[str, Any]) -> None:
     if authored_report.get("language") != "es":
-        raise DocxPublicationError("La primera capa DOCX sólo publica authored_report en español.")
+        raise DocxPublicationError(
+            "La capa DOCX sólo publica informes redactados en español."
+        )
     if authored_report.get("canonical_values_mutated") is not False:
-        raise DocxPublicationError("No se publica un authored_report que mutó el canonical.")
+        raise DocxPublicationError(
+            "No se publica un informe que mutó el canonical."
+        )
     if authored_report.get("new_calculations_performed") is not False:
-        raise DocxPublicationError("La publicación no admite cálculos posteriores a M31.")
+        raise DocxPublicationError(
+            "La publicación no admite cálculos posteriores a la autoría."
+        )
     if authored_report.get("new_scores_created") is not False:
-        raise DocxPublicationError("La publicación no admite scores creados en autoría.")
+        raise DocxPublicationError(
+            "La publicación no admite scores creados en autoría."
+        )
 
     fingerprint = authored_report.get("canonical_fingerprint")
     if not isinstance(fingerprint, str) or len(fingerprint) != 64:
         raise DocxPublicationError("canonical_fingerprint inválido.")
 
     sections = authored_report.get("sections")
-    if not isinstance(sections, Sequence) or isinstance(sections, (str, bytes)):
+    if not isinstance(sections, Sequence) or isinstance(
+        sections, (str, bytes)
+    ):
         raise DocxPublicationError("sections debe ser una secuencia.")
-    ids = tuple(
+
+
+def _section_ids(authored_report: Mapping[str, Any]) -> tuple[Any, ...]:
+    return tuple(
         section.get("section_id")
-        for section in sections
+        for section in authored_report.get("sections", [])
         if isinstance(section, Mapping)
     )
-    if ids != SECTION_ORDER:
-        raise DocxPublicationError("El DOCX debe conservar el orden exacto de las once secciones.")
 
 
+def _validate_relational_surface(
+    authored_report: Mapping[str, Any],
+) -> None:
+    _validate_common_surface(authored_report)
+    if authored_report.get("document_kind") != "ALMAS_AUTHORED_REPORT":
+        raise DocxPublicationError(
+            "document_kind no es ALMAS_AUTHORED_REPORT."
+        )
+    if _section_ids(authored_report) != SECTION_ORDER:
+        raise DocxPublicationError(
+            "El DOCX relacional debe conservar el orden exacto "
+            "de las once secciones."
+        )
+
+
+def _validate_personal_surface(
+    authored_report: Mapping[str, Any],
+) -> None:
+    _validate_common_surface(authored_report)
+    if (
+        authored_report.get("document_kind")
+        != "ALMAS_PERSONAL_AUTHORED_REPORT"
+    ):
+        raise DocxPublicationError(
+            "document_kind no es ALMAS_PERSONAL_AUTHORED_REPORT."
+        )
+    if authored_report.get("personal_data_minimized") is not True:
+        raise DocxPublicationError(
+            "El informe personal debe conservar personal_data_minimized=true."
+        )
+    profile = authored_report.get("report_profile")
+    expected = PERSONAL_PROFILE_SECTIONS.get(str(profile))
+    if expected is None:
+        raise DocxPublicationError(
+            f"Perfil personal desconocido: {profile}"
+        )
+    if _section_ids(authored_report) != expected:
+        raise DocxPublicationError(
+            "El DOCX personal debe conservar el orden exacto "
+            "de su report_profile."
+        )
+
+
+def _surface_profile(
+    authored_report: Mapping[str, Any],
+) -> tuple[str, str, str]:
+    kind = authored_report.get("document_kind")
+    if kind == "ALMAS_AUTHORED_REPORT":
+        _validate_relational_surface(authored_report)
+        return (
+            PROFILE_ID,
+            "ALMAS · Informe interpretativo",
+            "Astrología relacional y hermenéutica metafísica basada en fuentes",
+        )
+    if kind == "ALMAS_PERSONAL_AUTHORED_REPORT":
+        _validate_personal_surface(authored_report)
+        return (
+            PERSONAL_PROFILE_ID,
+            "ALMAS · Informe astrológico personal",
+            "Astrología natal y hermenéutica basada en fuentes",
+        )
+    raise DocxPublicationError(
+        f"document_kind no publicable: {kind}"
+    )
 def _add_page_field(paragraph: Any, OxmlElement: Any, qn: Any) -> None:
     run = paragraph.add_run()
     begin = OxmlElement("w:fldChar")
@@ -213,16 +289,14 @@ def _narrative_paragraphs(narrative: str) -> list[str]:
     return blocks or [narrative]
 
 
-def build_authored_report_docx(
+def _build_b5_docx(
     authored_report: Mapping[str, Any],
     output_path: str | Path,
     *,
-    title: str = "ALMAS · Informe interpretativo",
-    subtitle: str = "Astrología relacional y hermenéutica metafísica basada en fuentes",
+    profile_id: str,
+    title: str,
+    subtitle: str,
 ) -> DocxPublicationReceipt:
-    """Materializa authored_report como DOCX B5 sin alterar la narrativa."""
-
-    _validate_surface(authored_report)
     (
         Document,
         WD_STYLE_TYPE,
@@ -253,10 +327,12 @@ def build_authored_report_docx(
     properties = document.core_properties
     properties.title = title
     properties.subject = subtitle
-    properties.keywords = "ALMAS, astrología relacional, hermenéutica metafísica"
+    properties.keywords = (
+        "ALMAS, astrología, hermenéutica metafísica, informe B5"
+    )
     properties.comments = (
         f"ALMAS authored_report · canonical_fingerprint={fingerprint} · "
-        f"profile={PROFILE_ID}"
+        f"profile={profile_id}"
     )
 
     p = document.add_paragraph(style="Title")
@@ -269,7 +345,9 @@ def build_authored_report_docx(
 
     p = document.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.add_run(f"Estado del informe: {authored_report.get('report_state', 'READY')}")
+    p.add_run(
+        f"Estado del informe: {authored_report.get('report_state', 'READY')}"
+    )
 
     p = document.add_paragraph(style="ALMAS Trace")
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -279,23 +357,35 @@ def build_authored_report_docx(
 
     contents = document.add_paragraph()
     contents.add_run("Contenido").bold = True
-    for index, authored_section in enumerate(authored_report["sections"], start=1):
+    for index, authored_section in enumerate(
+        authored_report["sections"],
+        start=1,
+    ):
         document.add_paragraph(
-            f"{index}. {authored_section.get('title', authored_section.get('section_id'))}"
+            f"{index}. "
+            f"{authored_section.get('title', authored_section.get('section_id'))}"
         )
 
     citations = _citation_index(authored_report)
 
     for authored_section in authored_report["sections"]:
         heading = document.add_paragraph(
-            str(authored_section.get("title") or authored_section["section_id"]),
+            str(
+                authored_section.get("title")
+                or authored_section["section_id"]
+            ),
             style="Heading 1",
         )
         heading.paragraph_format.keep_with_next = True
 
-        if authored_section.get("authoring_state") == "OMITTED_NOT_AVAILABLE":
+        if (
+            authored_section.get("authoring_state")
+            == "OMITTED_NOT_AVAILABLE"
+        ):
             p = document.add_paragraph()
-            p.add_run("Sección no disponible en el análisis canónico.").italic = True
+            p.add_run(
+                "Sección no disponible en el análisis canónico."
+            ).italic = True
             continue
 
         narrative = authored_section.get("narrative")
@@ -308,17 +398,29 @@ def build_authored_report_docx(
 
         limitations = authored_section.get("limitations", [])
         if limitations:
-            document.add_paragraph("Límites de interpretación", style="Heading 2")
+            document.add_paragraph(
+                "Límites de interpretación",
+                style="Heading 2",
+            )
             for item in limitations:
-                document.add_paragraph(str(item), style="List Bullet")
+                document.add_paragraph(
+                    str(item),
+                    style="List Bullet",
+                )
 
         trace = _trace_line(authored_section, citations)
         if trace:
-            document.add_paragraph("Trazabilidad · " + trace, style="ALMAS Trace")
+            document.add_paragraph(
+                "Trazabilidad · " + trace,
+                style="ALMAS Trace",
+            )
 
     bibliography = authored_report.get("bibliography", [])
     if bibliography:
-        document.add_paragraph("Bibliografía utilizada", style="Heading 2")
+        document.add_paragraph(
+            "Bibliografía utilizada",
+            style="Heading 2",
+        )
         for entry in bibliography:
             if isinstance(entry, Mapping):
                 document.add_paragraph(
@@ -334,10 +436,75 @@ def build_authored_report_docx(
     document.save(str(output))
     digest = sha256(output.read_bytes()).hexdigest()
     return DocxPublicationReceipt(
-        profile_id=PROFILE_ID,
+        profile_id=profile_id,
         output_path=str(output),
         canonical_fingerprint=fingerprint,
         section_count=len(authored_report["sections"]),
-        bibliography_count=len(bibliography) if isinstance(bibliography, list) else 0,
+        bibliography_count=(
+            len(bibliography)
+            if isinstance(bibliography, list)
+            else 0
+        ),
         docx_sha256=digest,
+    )
+
+
+def build_authored_report_docx(
+    authored_report: Mapping[str, Any],
+    output_path: str | Path,
+    *,
+    title: str = "ALMAS · Informe interpretativo",
+    subtitle: str = (
+        "Astrología relacional y hermenéutica metafísica basada en fuentes"
+    ),
+) -> DocxPublicationReceipt:
+    """Materializa el authored_report relacional como DOCX B5."""
+
+    _validate_relational_surface(authored_report)
+    return _build_b5_docx(
+        authored_report,
+        output_path,
+        profile_id=PROFILE_ID,
+        title=title,
+        subtitle=subtitle,
+    )
+
+
+def build_personal_authored_report_docx(
+    authored_report: Mapping[str, Any],
+    output_path: str | Path,
+    *,
+    title: str = "ALMAS · Informe astrológico personal",
+    subtitle: str = "Astrología natal y hermenéutica basada en fuentes",
+) -> DocxPublicationReceipt:
+    """Materializa el authored_report personal con el mismo motor B5."""
+
+    _validate_personal_surface(authored_report)
+    return _build_b5_docx(
+        authored_report,
+        output_path,
+        profile_id=PERSONAL_PROFILE_ID,
+        title=title,
+        subtitle=subtitle,
+    )
+
+
+def build_report_docx(
+    authored_report: Mapping[str, Any],
+    output_path: str | Path,
+    *,
+    title: str | None = None,
+    subtitle: str | None = None,
+) -> DocxPublicationReceipt:
+    """Dispatch de publicación DOCX según document_kind."""
+
+    profile_id, default_title, default_subtitle = _surface_profile(
+        authored_report
+    )
+    return _build_b5_docx(
+        authored_report,
+        output_path,
+        profile_id=profile_id,
+        title=title or default_title,
+        subtitle=subtitle or default_subtitle,
     )

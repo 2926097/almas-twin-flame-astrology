@@ -8,8 +8,11 @@ import unittest
 
 from almas_tfa.docx_publication import (
     DocxPublicationError,
+    PERSONAL_PROFILE_ID,
     PROFILE_ID,
     build_authored_report_docx,
+    build_personal_authored_report_docx,
+    build_report_docx,
 )
 
 
@@ -82,6 +85,92 @@ class DocxPublicationTests(unittest.TestCase):
                 authored["canonical_fingerprint"][:12],
                 footer_text,
             )
+
+    def personal_authored(self):
+        section_ids = (
+            "P01_SYNTHESIS",
+            "P02_DATA_METHOD",
+            "P03_NATAL_ARCHITECTURE",
+            "P09_TEMPORAL",
+            "P10_COUNTEREVIDENCE",
+            "P11_SOURCES_ATLAS",
+        )
+        sections = [
+            {
+                "section_id": section_id,
+                "title": f"Sección personal {index}",
+                "authoring_state": "AUTHORED",
+                "narrative": f"Narrativa personal sintética {index}.",
+                "canonical_paths_used": ["natal"],
+                "epistemic_classes_used": ["A_CALCULATED"],
+                "doctrinal_claim_refs": [],
+                "source_refs": [],
+                "limitations": [],
+            }
+            for index, section_id in enumerate(section_ids, start=1)
+        ]
+        return {
+            "schema_version": "1.0.0",
+            "document_kind": "ALMAS_PERSONAL_AUTHORED_REPORT",
+            "language": "es",
+            "report_profile": "EXECUTIVE_PERSONAL_REPORT",
+            "canonical_fingerprint": "c" * 64,
+            "report_state": "READY",
+            "interpretive_center": (
+                "PERSONAL_ASTROLOGY_AND_SOURCE_BASED_HERMENEUTICS"
+            ),
+            "technical_role": (
+                "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL"
+            ),
+            "metaphysical_scientific_validation_claimed": False,
+            "personal_data_minimized": True,
+            "canonical_values_mutated": False,
+            "new_calculations_performed": False,
+            "new_scores_created": False,
+            "sections": sections,
+            "bibliography": [],
+        }
+
+    def test_personal_docx_reuses_b5_renderer(self):
+        from docx import Document
+        from docx.shared import Mm
+
+        authored = self.personal_authored()
+        with TemporaryDirectory() as temp:
+            output = Path(temp) / "personal.docx"
+            receipt = build_personal_authored_report_docx(
+                authored,
+                output,
+            )
+            self.assertEqual(
+                receipt.profile_id,
+                PERSONAL_PROFILE_ID,
+            )
+            self.assertEqual(receipt.section_count, 6)
+
+            document = Document(str(output))
+            section = document.sections[0]
+            self.assertLessEqual(
+                abs(section.page_width - Mm(176)),
+                500,
+            )
+            self.assertLessEqual(
+                abs(section.page_height - Mm(250)),
+                500,
+            )
+            texts = [p.text for p in document.paragraphs]
+            for item in authored["sections"]:
+                self.assertIn(item["title"], texts)
+                self.assertIn(item["narrative"], texts)
+
+    def test_docx_dispatch_selects_personal_profile(self):
+        authored = self.personal_authored()
+        with TemporaryDirectory() as temp:
+            receipt = build_report_docx(
+                authored,
+                Path(temp) / "personal.docx",
+            )
+        self.assertEqual(receipt.profile_id, PERSONAL_PROFILE_ID)
 
     def test_multparagraph_narrative_is_materialized_as_real_paragraphs(self):
         from docx import Document

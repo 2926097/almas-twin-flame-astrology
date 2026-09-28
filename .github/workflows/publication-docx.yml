@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "src/almas_tfa/docx_publication.py"
+      - "src/almas_tfa/personal_reporting.py"
+      - "src/almas_tfa/personal_authored_report.py"
       - "scripts/render_authored_report_docx.py"
       - "tests/test_docx_publication.py"
       - "examples/authored-report.synthetic.json"
@@ -14,6 +16,8 @@ on:
     branches: [main]
     paths:
       - "src/almas_tfa/docx_publication.py"
+      - "src/almas_tfa/personal_reporting.py"
+      - "src/almas_tfa/personal_authored_report.py"
       - "scripts/render_authored_report_docx.py"
       - "tests/test_docx_publication.py"
       - "examples/authored-report.synthetic.json"
