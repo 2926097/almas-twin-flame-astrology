@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.20.0  
+**Versión pública:** 1.21.0  
 **Estado:** pipeline modular M00–M31 ejecutable + recurrencia semántica PX/PS v2 + calibración de especificidad S1–S9 + perfiles de análisis + backends astronómicos inyectables
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
