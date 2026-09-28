@@ -85,6 +85,18 @@ class CanonicalAnalysisSchemaValidationTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             self.validator.validate(payload)
 
+    def test_counterevidence_state_rejects_map_when_ice_not_evaluable(self):
+        payload = valid_canonical_analysis()
+        payload["counterevidence_state"]["ice_evaluable"] = False
+        with self.assertRaises(ValidationError):
+            self.validator.validate(payload)
+
+    def test_model_rejects_numeric_ice_when_state_not_evaluable(self):
+        payload = valid_canonical_analysis()
+        payload["models"]["AF"]["ice_state"] = "NOT_EVALUABLE"
+        with self.assertRaises(ValidationError):
+            self.validator.validate(payload)
+
 
 if __name__ == "__main__":
     unittest.main()
