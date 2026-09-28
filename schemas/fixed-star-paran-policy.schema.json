@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/fixed-star-paran-policy.schema.json",
+  "title": "ALMAS · Política de estrellas fijas y parans",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy_id",
+    "status",
+    "concept_id",
+    "structural_role",
+    "provider",
+    "star_canon",
+    "fixed_stars",
+    "parans",
+    "natal_angular_contacts",
+    "failure_policy",
+    "inferential_firewall"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "policy_id": {
+      "const": "ALMAS_FIXED_STAR_PARAN_POLICY_V1"
+    },
+    "status": {
+      "const": "FROZEN_PREREGISTERED_EXECUTION_CONTRACT"
+    },
+    "epistemic_class": {
+      "const": "E_PROJECT_POLICY"
+    },
+    "concept_id": {
+      "const": "FIXED_STAR_ASTROLOGY"
+    },
+    "structural_role": {
+      "const": "SUPPORT_ONLY"
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "adapter_id",
+        "package",
+        "pinned_version",
+        "reuse_existing_backend"
+      ],
+      "properties": {
+        "adapter_id": {
+          "const": "ALMAS_MOIRA_JPL_SPK_V1"
+        },
+        "package": {
+          "const": "moira-astro"
+        },
+        "pinned_version": {
+          "const": "6.8.2"
+        },
+        "reuse_existing_backend": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "star_canon": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "selection",
+        "available_only",
+        "documented_memberships",
+        "runtime_canon_fingerprint_required"
+      ],
+      "properties": {
+        "provider_surface": {
+          "const": "PARAN_STAR_CANON"
+        },
+        "selection": {
+          "const": "ALL_AVAILABLE_ENGINE_CANON"
+        },
+        "available_only": {
+          "const": true
+        },
+        "documented_memberships": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "ROYAL",
+              "BEHENIAN",
+              "PTOLEMAIC"
+            ]
+          }
+        },
+        "runtime_canon_fingerprint_required": {
+          "const": true
+        },
+        "canon_order_not_semantic": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixed_stars": {
+      "type": "object"
+    },
+    "parans": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "policy_preset",
+        "orb_minutes",
+        "require_birth_time",
+        "require_numeric_coordinates"
+      ],
+      "properties": {
+        "provider_surface": {
+          "const": "Moira.parans"
+        },
+        "policy_preset": {
+          "const": "star_planet_only"
+        },
+        "orb_minutes": {
+          "const": 4
+        },
+        "orb_origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "require_birth_time": {
+          "const": true
+        },
+        "require_numeric_coordinates": {
+          "const": true
+        },
+        "event_scope": {
+          "const": "BIRTH_DAY"
+        },
+        "retained_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "natal_angular_contacts": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "enabled",
+        "orb_minutes",
+        "semantic_boundary"
+      ],
+      "properties": {
+        "provider_surface": {
+          "const": "natal_angular_contacts"
+        },
+        "enabled": {
+          "const": true
+        },
+        "orb_minutes": {
+          "const": 2
+        },
+        "orb_origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "semantic_boundary": {
+          "const": "INDIVIDUAL_CROSSING_NEAR_BIRTH_MOMENT_NOT_TWO_BODY_PARAN"
+        }
+      },
+      "additionalProperties": false
+    },
+    "failure_policy": {
+      "type": "object"
+    },
+    "inferential_firewall": {
+      "type": "object",
+      "required": [
+        "creates_structural_root",
+        "changes_iem",
+        "changes_idd",
+        "changes_irc",
+        "changes_ontology",
+        "discriminating_power"
+      ],
+      "properties": {
+        "creates_structural_root": {
+          "const": false
+        },
+        "changes_iem": {
+          "const": false
+        },
+        "changes_idd": {
+          "const": false
+        },
+        "changes_irc": {
+          "const": false
+        },
+        "changes_ontology": {
+          "const": false
+        },
+        "discriminating_power": {
+          "const": "SUPPORT_ONLY"
+        },
+        "temporal_or_star_presence_does_not_prove_metaphysical_claim": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
