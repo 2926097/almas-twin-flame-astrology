@@ -13,11 +13,22 @@
     "invariants"
   ],
   "properties": {
-    "manifest_version": {"const": "1.0.0"},
-    "manifest_id": {"const": "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1"},
-    "almas_public_version": {"const": "1.21.0"},
-    "status": {"const": "FROZEN_NORMATIVE"},
-    "purpose": {"type": "string", "minLength": 1},
+    "manifest_version": {
+      "const": "1.0.0"
+    },
+    "manifest_id": {
+      "const": "ALMAS_STRUCTURAL_POLICY_MANIFEST_V1"
+    },
+    "almas_public_version": {
+      "const": "1.22.0"
+    },
+    "status": {
+      "const": "FROZEN_NORMATIVE"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
     "contracts": {
       "type": "object",
       "required": [
@@ -29,11 +40,21 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "technique_dependency_registry": {"$ref": "#/$defs/contract"},
-        "declared_orb_contract": {"$ref": "#/$defs/contract"},
-        "structural_loading_contract": {"$ref": "#/$defs/contract"},
-        "root_strength": {"$ref": "#/$defs/contract"},
-        "root_pillar_attribution": {"$ref": "#/$defs/contract"}
+        "technique_dependency_registry": {
+          "$ref": "#/$defs/contract"
+        },
+        "declared_orb_contract": {
+          "$ref": "#/$defs/contract"
+        },
+        "structural_loading_contract": {
+          "$ref": "#/$defs/contract"
+        },
+        "root_strength": {
+          "$ref": "#/$defs/contract"
+        },
+        "root_pillar_attribution": {
+          "$ref": "#/$defs/contract"
+        }
       }
     },
     "invariants": {
@@ -49,29 +70,59 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "no_new_analytical_module": {"const": true},
-        "no_score_change": {"const": true},
-        "no_implicit_orbs": {"const": true},
-        "no_runtime_case_fitting": {"const": true},
-        "support_only_cannot_create_core": {"const": true},
-        "dependency_deduplication_precedes_root_construction": {"const": true},
-        "birth_time_robustness_remains_m23_m25": {"const": true}
+        "no_new_analytical_module": {
+          "const": true
+        },
+        "no_score_change": {
+          "const": true
+        },
+        "no_implicit_orbs": {
+          "const": true
+        },
+        "no_runtime_case_fitting": {
+          "const": true
+        },
+        "support_only_cannot_create_core": {
+          "const": true
+        },
+        "dependency_deduplication_precedes_root_construction": {
+          "const": true
+        },
+        "birth_time_robustness_remains_m23_m25": {
+          "const": true
+        }
       }
     }
   },
   "$defs": {
     "contract": {
       "type": "object",
-      "required": ["policy_id", "path", "consumers"],
+      "required": [
+        "policy_id",
+        "path",
+        "consumers"
+      ],
       "properties": {
-        "policy_id": {"type": "string", "minLength": 1},
-        "path": {"type": "string", "minLength": 1},
-        "input_schema": {"type": "string", "minLength": 1},
+        "policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_schema": {
+          "type": "string",
+          "minLength": 1
+        },
         "consumers": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       },
       "additionalProperties": false
