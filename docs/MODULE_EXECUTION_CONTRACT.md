@@ -177,7 +177,7 @@ La ausencia sólo se convierte en cero cuando M03, M05, M06, M09 y M11 están
 todos `COMPLETED`. En cobertura incompleta se conserva `None` para impedir
 que missingness funcione como contraevidencia.
 
-`M19` aplica las fórmulas públicas de IEM sin cambios.
+`M19` aplica las fórmulas públicas de IEM sin cambios. Cuando ICE no está declarado, puede calcular `IEM_pre` si los pilares esenciales son evaluables, pero `ICE`, `IEM_final` y el gate `SUPPORTED` permanecen no evaluables. Si se declara `ice_by_model`, debe contener exactamente AF/KA/AG/LG; un mapa parcial es inválido y nunca se completa con ceros.
 
 `M21` usa Shapley sobre `IEM_pre` para atribuir a cada unidad canónica su contribución a AF, KA, AG y LG. Las unidades pueden ser raíces independientes o features de motivo derivadas para PX/PS; estas últimas no se declaran evidencia independiente. Hasta 10 unidades usa cálculo exacto; por encima utiliza permutaciones antitéticas deterministas con control de convergencia. ICE,
 IEM_final, temporalidad y rareza nula quedan fuera de la función de valor.
@@ -190,7 +190,7 @@ no autoriza por sí mismo una clasificación ontológica más específica.
 
 `M20` acepta sólo `EXPLICIT_CONTRADICTION` y `STRUCTURAL_INCOMPATIBILITY`. La ausencia de datos no puede entrar como contraevidencia. Las contradicciones se deduplican por `modelo + dependency_family + contradiction_key`.
 
-El módulo no inventa una fórmula de ICE. Si la entrada contiene `ice_by_model`, se conserva con `ice_state=PRECOMPUTED`; en caso contrario queda `NOT_CALCULATED`. Esto mantiene compatibilidad con el núcleo histórico sin ocultar que M19 precede a M20 en el pipeline vigente.
+El módulo no inventa una fórmula de ICE. Si la entrada contiene `ice_by_model`, exige un mapa completo AF/KA/AG/LG con valores finitos en [0,100] y lo conserva con `ice_state=PRECOMPUTED`; un mapa parcial o vacío es inválido. Si no se declara ICE, queda `NOT_CALCULATED` y `ice_by_model=null`. La ausencia de un valor jamás se interpreta como ICE=0. Esto mantiene la fórmula congelada de 1.21.0 y hace explícita la frontera entre contraevidencia normalizada e índice ICE precomputado.
 
 ## M22 · ablación estructural
 
