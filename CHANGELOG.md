@@ -12,6 +12,7 @@
 - Añade `ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2`.
 - No activa PX v3, no declara discriminadores L3 y no convierte índices en probabilidades metafísicas.
 - Mantiene sin cambios la fórmula de `IEM_pre`, la penalización `IEM_final`, los thresholds del gate SUPPORTED y las reglas de temporalidad/doctrina/realidad.
+- Gate de release: **596 tests** PASS en Python 3.10 y 3.12 (10 skipped), Contrato público PASS, Backend astronómico PASS, Publicación DOCX PASS y Publicación PDF PASS.
 
 ## 1.21.0 — 2026-09-28
 

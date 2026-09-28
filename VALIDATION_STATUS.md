@@ -8,7 +8,16 @@
 
 ALMAS 1.22 versiona explícitamente las tres correcciones matemáticas que no se introdujeron silenciosamente en 1.21: Shapley root-only con PX/PS como interacciones recalculadas, IRC agrupado por dependencia e ICE autónomo fail-closed con declaración de completitud.
 
-La validación final de esta release se ejecuta sobre PR #72. Hasta el cierre del gate, los resultados definitivos se registran en `docs/RELEASE_AUDIT_1.22.0.md`.
+La implementación cuantitativa de PR #72 ha superado el gate completo sobre `5c71949a7a476d8285d843d6c4e13ee6047c9936`:
+
+- Python 3.10: **596 tests**, PASS, 10 skipped, 88.677 s;
+- Python 3.12: **596 tests**, PASS, 10 skipped, 86.210 s;
+- Contrato público: PASS;
+- Backend astronómico: PASS;
+- Publicación DOCX: PASS;
+- Publicación PDF: PASS.
+
+La auditoría detallada y los run IDs se registran en `docs/RELEASE_AUDIT_1.22.0.md`.
 
 No se ha ejecutado un holdout externo real; PX v3 y los discriminadores L3 continúan inactivos. La validación automatizada de 1.22 prueba coherencia interna y regresión contractual, no verdad científica ni probabilidad metafísica.
 
@@ -90,12 +99,12 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 | M31 · report_document_model | 11 secciones canónicas; cierre del pipeline analítico |
 | M02 natal / M08 Davison | `ALMAS_MOIRA_JPL_SPK_V1` · ejecutables con kernel JPL local fingerprintado |
 | M13 · lotes | `ALMAS_HELLENISTIC_LOTS_V1` como baseline histórica Fortuna/Espíritu |
-| Núcleo Python IEM/IDD/IRC | Publicado y probado unitariamente |
+| Núcleo Python IEM/IDD/IRC | Publicado; 1.22 añade Shapley V3, IRC agrupado e ICE autónomo |
 | Q1 · fuerza automática M17 | `ALMAS_ROOT_STRENGTH_BASELINE_V1` |
 | Q2 · raíz→pilar M18 | `ALMAS_ROOT_PILLAR_ATTRIBUTION_V2` + `ALMAS_SEMANTIC_MOTIF_V2` |
-| Q3 · Shapley/IDD M21 | `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2` |
+| Q3 · Shapley/IDD M21 | `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3` · raíces como únicos jugadores; PX/PS como interacciones |
 | Q4 · sensibilidad horaria M23 | `ALMAS_BIRTH_TIME_SENSITIVITY_V2` + curva R5/R15/R30/R60/R120 |
-| Q5 · robustez automática M25 | `ALMAS_ROBUSTNESS_Q5_V1` |
+| Q5 · robustez automática M25 | `ALMAS_ROBUSTNESS_Q5_V1` + agrupación de dependencia IRC |
 | Q6 · universo nulo M24 | `ALMAS_NULL_WITHIN_YEAR_V1` |
 | Q7 · ensamblaje canonical/M30 | `ALMAS_CANONICAL_ASSEMBLY_V2` + `ALMAS_ANALYSIS_PROFILES_V1` |
 | S1 · calidad de recurrencia | `ALMAS_RECURRENCE_QUALITY_DIAGNOSTICS_V1` · diagnóstico, no scoring |
