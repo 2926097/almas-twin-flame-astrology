@@ -71,6 +71,11 @@ class PersonalReferenceRouterTests(unittest.TestCase):
                 set(),
                 f"{domain}: fuentes inexistentes",
             )
+            for internal_ref in config["internal_refs"]:
+                self.assertTrue(
+                    (ROOT / internal_ref).is_file(),
+                    f"{domain}: internal_ref inexistente: {internal_ref}",
+                )
 
     def test_base_route_resolves_foundational_corpus(self):
         result = route_personal_reference_sources(
