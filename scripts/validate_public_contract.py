@@ -101,6 +101,7 @@ REQUIRED_FILES = [
     "schemas/blinding-leakage-audit.schema.json",
     "schemas/operational-discriminator-candidates.schema.json",
     "schemas/natal-chart.schema.json",
+    "schemas/personal-report-request.schema.json",
     "schemas/personal-canonical-analysis.schema.json",
     "schemas/personal-authored-report.schema.json",
     "schemas/personal-report-document-model.schema.json",

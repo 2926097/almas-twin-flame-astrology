@@ -4,15 +4,23 @@
 
 El perfil personal es una superficie interna de la única skill ALMAS. No añade una segunda versión pública ni modifica M00–M31.
 
-Las dos primeras fases 1.21 cubren:
+La cadena personal 1.21 cubre:
 
-`natal normalizado → personal_canonical_analysis → validación/fingerprint → personal_report_document_model → personal_authored_report`.
+`personal_report_request → backend astronómico vigente → personal_canonical_analysis → validación/fingerprint → personal_report_document_model → personal_authored_report → DOCX/PDF B5`.
 
-La tercera fase 1.21 adapta la infraestructura DOCX/PDF B5 existente al informe personal sin duplicar renderer ni preflight.
+La cuarta fase añade la construcción autónoma del canonical desde una solicitud natal, sin duplicar backend ni permitir opciones de cálculo que contradigan la configuración de producción.
+
+## Solicitud y cálculo
+
+`personal-report-request.schema.json` contiene los datos brutos necesarios para el cálculo y el `report_profile`. El backend se inyecta desde la infraestructura vigente; la solicitud no selecciona kernel, versión del provider, sistema de referencia ni política astronómica.
+
+`build_personal_canonical_from_request()` usa `natal_request_from_subject()` y `AstrologyBackend.calculate_natal()`. La ruta pública exige la procedencia congelada de producción `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1 / ALMAS_MOIRA_JPL_SPK_V1`.
+
+Una imposibilidad de cálculo del backend permanece fail-closed y no se sustituye por datos inferidos.
 
 ## Minimización de datos
 
-`personal_canonical_analysis` no requiere fecha, hora, lugar ni coordenadas brutas. Conserva un `subject_id`, la calidad de hora y la carta natal normalizada. La geometría procede de `natal-chart.schema.json`.
+`personal_canonical_analysis` no persiste fecha, hora, lugar ni coordenadas brutas. Conserva un `subject_id`, la calidad de hora y una carta natal creada por lista blanca. El builder descarta `metadata` del backend —incluidos instante UTC, JD y coordenadas— porque podría permitir reconstruir los datos natales. La geometría procede de `natal-chart.schema.json`.
 
 La procedencia astronómica se toma de `natal.backend_provenance`, conforme a `astronomy-backend-provenance.schema.json`. No existe un segundo contrato de backend para informes personales.
 
