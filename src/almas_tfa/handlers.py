@@ -27,6 +27,7 @@ from .lot_handlers import m13_lots
 from .secondary_handlers import m14_secondary_symbolic
 from .evidence_handlers import m15_evidence_extraction, m16_dependency_deduplication, m17_independent_roots
 from .counterevidence_handlers import m20_counterevidence
+from .counterevidence_index import resolve_counterevidence
 from .m21_ontology_adapter import evaluate_m21_ontological_sublayer
 from .ablation_handlers import m22_ablation
 from .time_sensitivity_handlers import m23_time_sensitivity, make_m23_time_sensitivity
@@ -244,7 +245,7 @@ def m18_pillars(context: ModuleContext) -> ModuleResult:
 
 
 def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
-    """M19: aplica sin cambios las fórmulas públicas de IEM e ICE."""
+    """M19: aplica IEM y resuelve ICE mediante el contrato cuantitativo vigente."""
 
     pillars = context.canonical_snapshot.get("pillars")
     if not isinstance(pillars, Mapping):
@@ -252,14 +253,18 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
     if not isinstance(pillars, Mapping):
         return not_evaluable_result("M19", "No existen pilares evaluables.")
 
-    ice_by_model = validate_ice_by_model(
-        context.raw_input.get("ice_by_model")
-    )
+    counterevidence = resolve_counterevidence(context.raw_input)
+    ice_by_model = counterevidence["ice_by_model"]
     ice_evaluable = ice_by_model is not None
 
     contradictions = context.raw_input.get("essential_contradictions") or {}
     if not isinstance(contradictions, Mapping):
         raise ValueError("essential_contradictions debe ser un objeto.")
+    contradictions = {
+        model: bool(contradictions.get(model, False))
+        or bool(counterevidence["models"][model]["essential_contradiction"])
+        for model in MODELS
+    }
 
     icc = context.raw_input.get("icc")
     irc = context.raw_input.get("irc")
