@@ -2261,7 +2261,7 @@ def main() -> int:
     if "pillar_attribution" not in recurrence_snapshot_schema.get("required", []):
         fail("S4 recurrence snapshot must require pillar_attribution")
 
-    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if model_attribution_policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         fail("model attribution policy id changed")
     if model_attribution_policy.get("status") != "FROZEN_EXPERIMENTAL_BASELINE":
         fail("model attribution policy must remain frozen")
@@ -2269,6 +2269,14 @@ def main() -> int:
         fail("model attribution policy must remain E_PROJECT_HYPOTHESIS")
     if model_attribution_policy.get("value_function") != "IEM_PRE":
         fail("M21 automatic attribution must use IEM_PRE")
+    if model_attribution_policy.get("player_unit") != "INDEPENDENT_ROOT":
+        fail("M21 Shapley must use independent roots as the only player unit")
+    if model_attribution_policy.get("derived_motif_units_are_independent_evidence") is not False:
+        fail("derived motif units must not be declared independent evidence")
+    if model_attribution_policy.get("derived_motif_units_are_shapley_players") is not False:
+        fail("derived motif units must never be Shapley players")
+    if model_attribution_policy.get("motifs_recomputed_inside_each_coalition") is not True:
+        fail("PX/PS motifs must be recomputed inside each Shapley coalition")
     attribution_principles = model_attribution_policy.get("principles", {})
     if attribution_principles.get("case_fitting_forbidden") is not True:
         fail("model attribution policy must forbid case fitting")
@@ -2276,10 +2284,8 @@ def main() -> int:
         fail("IDD must remain separated from ontological discrimination")
     if attribution_principles.get("ice_not_used_for_attribution") is not True:
         fail("ICE must remain outside Shapley attribution value function")
-    if model_attribution_policy.get("attribution_unit") != "CANONICAL_EVIDENCE_UNIT":
-        fail("1.14 Shapley must operate on canonical evidence units")
-    if model_attribution_policy.get("derived_motif_units_are_independent_evidence") is not False:
-        fail("derived motif units must not be declared independent evidence")
+    if attribution_principles.get("root_motif_double_counting_as_players_forbidden") is not True:
+        fail("root-motif double counting must be explicitly forbidden")
 
     if birth_time_perturbation_policy.get("policy_id") != "ALMAS_BIRTH_TIME_SENSITIVITY_V2":
         fail("birth-time perturbation policy id changed")
@@ -3382,6 +3388,13 @@ def main() -> int:
 
     if counterevidence_output_schema.get("properties", {}).get("missing_data_penalized", {}).get("const") is not False:
         fail("counterevidence schema must forbid missing-data penalty")
+    counter_props = counterevidence_output_schema.get("properties", {})
+    if "AUTONOMOUS" not in set(counter_props.get("ice_state", {}).get("enum", [])):
+        fail("counterevidence schema must expose autonomous ICE")
+    if counter_props.get("counterevidence_complete", {}).get("type") != "boolean":
+        fail("autonomous ICE must expose an explicit completeness declaration")
+    if "ice_derivation" not in set(counterevidence_output_schema.get("required", [])):
+        fail("counterevidence output must expose ICE derivation trace")
 
     if structural_ablation_schema.get("properties", {}).get("structural_only", {}).get("const") is not True:
         fail("structural ablation must declare structural_only=true")
@@ -3411,6 +3424,12 @@ def main() -> int:
         fail("M25 must forbid null-model rarity as robustness")
     if robustness_props.get("components", {}).get("minItems") != 1:
         fail("M25 robustness schema must require at least one component")
+    if robustness_props.get("group_count", {}).get("minimum") != 1:
+        fail("M25 robustness schema must expose dependency group count")
+    if robustness_props.get("dependency_groups", {}).get("minProperties") != 1:
+        fail("M25 robustness schema must expose dependency groups")
+    if robustness_props.get("formula", {}).get("const") != "100 * geometric_mean(min(R_i within dependency_group))":
+        fail("M25 robustness formula must aggregate group minima")
     allowed_m25_kinds = set(
         robustness_props.get("components", {})
         .get("items", {})
