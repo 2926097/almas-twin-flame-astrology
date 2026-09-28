@@ -8,7 +8,7 @@ Las dos primeras fases 1.21 cubren:
 
 `natal normalizado → personal_canonical_analysis → validación/fingerprint → personal_report_document_model → personal_authored_report`.
 
-La adaptación DOCX/PDF y el preflight se incorporarán en el bloque posterior.
+La tercera fase 1.21 adapta la infraestructura DOCX/PDF B5 existente al informe personal sin duplicar renderer ni preflight.
 
 ## Minimización de datos
 
@@ -42,9 +42,9 @@ El router selecciona corpus; no produce conclusiones.
 
 ## Publicación
 
-El modelo documental declara `reuse_existing_publication_infrastructure=true` y `adapter_status=PENDING_ADAPTER`.
+El modelo documental declara `reuse_existing_publication_infrastructure=true` y `adapter_status=READY`.
 
-Esto es deliberado: 1.21 no duplica el renderer B5 de 1.20. La siguiente fase deberá adaptar la infraestructura existente a secciones P01–P11 sin romper el perfil relacional S01–S11.
+El perfil personal utiliza `ALMAS_B5_PERSONAL_BOOK_V1` y `ALMAS_B5_PERSONAL_PDF_V1` sobre el mismo núcleo de estilos, geometría, conversión y preflight de 1.20. El perfil relacional S01–S11 conserva sus APIs y perfiles originales.
 
 ## Invariantes
 
