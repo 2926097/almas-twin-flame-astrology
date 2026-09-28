@@ -8,13 +8,15 @@ from itertools import combinations
 from typing import Any, Mapping, Sequence
 
 from .core import (
-    diagnostic_discrimination,
     idd_band,
     pillar_score,
     robustness_component,
-    score_model,
 )
 from .model_attribution import derive_model_attributions
+from .quantitative_v122 import (
+    diagnostic_discrimination_signed,
+    score_model_dependency_aware,
+)
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .time_perturbation import structural_recalculation_snapshot
 
@@ -105,10 +107,18 @@ def _pillars_from_root_attributions(
     return pillars
 
 
-def _iem_from_pillars(pillars: Mapping[str, float | None]) -> dict[str, float]:
+def _iem_from_pillars(
+    pillars: Mapping[str, float | None],
+    pillar_sources: Mapping[str, Sequence[str]],
+) -> dict[str, float]:
     output = {}
     for model in MODELS:
-        score = score_model(model, pillars, ice=0.0)
+        score = score_model_dependency_aware(
+            model,
+            pillars,
+            pillar_sources,
+            ice=0.0,
+        )
         if not score.essential_evaluable:
             raise ValueError(f"{model}: IEM_pre no evaluable.")
         output[model] = float(score.iem_pre)
@@ -193,7 +203,13 @@ def derive_ablation_component(
             policy=load_root_pillar_policy(),
         )
         pillars = derived["pillars"]
-        iem = _iem_from_pillars(pillars)
+        pillar_sources = derived.get("pillar_source_roots")
+        if not isinstance(pillar_sources, Mapping):
+            return {
+                "state": "NOT_EVALUABLE",
+                "reason": f"{run_id}: falta linaje raíz→pilar en ablación.",
+            }
+        iem = _iem_from_pillars(pillars, pillar_sources)
         delta_by_model = {
             model: abs(iem[model] - baseline_iem[model])
             for model in MODELS
@@ -322,7 +338,7 @@ def _pairwise_idd(
         bv = maps.get(b)
         if not isinstance(av, Mapping) or not isinstance(bv, Mapping):
             continue
-        value = diagnostic_discrimination(av, bv)
+        value = diagnostic_discrimination_signed(av, bv)
         if value is None:
             continue
         output[f"{a}_vs_{b}"] = {
