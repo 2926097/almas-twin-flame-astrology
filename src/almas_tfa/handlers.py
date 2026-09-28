@@ -16,6 +16,7 @@ from .core import (
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .quantitative_contracts import MODELS, validate_ice_by_model
+from .quantitative_v122 import score_model_dependency_aware
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
@@ -265,17 +266,36 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
     irc = context.raw_input.get("irc")
     r_min = context.raw_input.get("r_min")
 
+    pillar_attribution = context.canonical_snapshot.get(
+        "pillar_attribution"
+    )
+    pillar_sources = (
+        pillar_attribution.get("pillar_source_roots")
+        if isinstance(pillar_attribution, Mapping)
+        else None
+    )
+    dependency_aware = isinstance(pillar_sources, Mapping)
+
     output: dict[str, Any] = {}
     for model in MODELS:
         ice_value = ice_by_model[model] if ice_evaluable else 0.0
-        score = score_model(
-            model,
-            pillars,
-            ice=ice_value,
-        )
+        if dependency_aware:
+            score = score_model_dependency_aware(
+                model,
+                pillars,
+                pillar_sources,
+                ice=ice_value,
+            )
+        else:
+            score = score_model(
+                model,
+                pillars,
+                ice=ice_value,
+            )
         gate = None
         if (
-            ice_evaluable
+            dependency_aware
+            and ice_evaluable
             and icc is not None
             and irc is not None
             and r_min is not None
@@ -306,6 +326,7 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
         canonical_updates={"structural_model_indices": output},
         limitations=(
             "Los IEM son índices de compatibilidad estructural, no probabilidades metafísicas.",
+            "ALMAS 1.22 usa agregación dependency-aware cuando existe linaje raíz→pilar; el adaptador legacy sin linaje no puede abrir el gate SUPPORTED.",
         ),
     )
 
