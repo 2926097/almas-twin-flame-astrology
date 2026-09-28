@@ -416,7 +416,9 @@
         "components",
         "null_model_rarity_used_as_robustness",
         "timed_architecture_present",
-        "birth_time_component_present"
+        "birth_time_component_present",
+        "dependency_family_count",
+        "dependency_families"
       ],
       "properties": {
         "IRC": {
@@ -448,6 +450,16 @@
         },
         "birth_time_component_present": {
           "type": "boolean"
+        },
+        "dependency_family_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dependency_families": {
+          "type": "array",
+          "items": {
+            "$ref": "robustness-output.schema.json#/properties/dependency_families/items"
+          }
         }
       },
       "additionalProperties": false
@@ -525,7 +537,9 @@
       "required": [
         "ice_evaluable",
         "ice_by_model",
-        "essential_contradictions"
+        "essential_contradictions",
+        "ice_source_state",
+        "ice_formula_id"
       ],
       "properties": {
         "ice_evaluable": {
@@ -593,6 +607,23 @@
             }
           },
           "additionalProperties": false
+        },
+        "ice_source_state": {
+          "enum": [
+            "PRECOMPUTED",
+            "AUTONOMOUS",
+            "NOT_CALCULATED"
+          ]
+        },
+        "ice_formula_id": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "const": "ALMAS_ICE_AUTONOMOUS_V1"
+            }
+          ]
         }
       },
       "additionalProperties": false,
@@ -637,6 +668,37 @@
             "properties": {
               "ice_by_model": {
                 "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ice_source_state": {
+                "const": "AUTONOMOUS"
+              }
+            },
+            "required": [
+              "ice_source_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice_evaluable": {
+                "const": true
+              },
+              "ice_formula_id": {
+                "const": "ALMAS_ICE_AUTONOMOUS_V1"
+              },
+              "ice_by_model": {
+                "type": "object",
+                "required": [
+                  "AF",
+                  "KA",
+                  "AG",
+                  "LG"
+                ]
               }
             }
           }
