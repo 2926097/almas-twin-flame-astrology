@@ -5,6 +5,7 @@ from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .quantitative_contracts import MODELS, validate_ice_by_model
+from .quantitative_v122 import derive_autonomous_ice
 
 
 ALLOWED_KINDS = {"EXPLICIT_CONTRADICTION", "STRUCTURAL_INCOMPATIBILITY"}
@@ -17,13 +18,25 @@ def m20_counterevidence(context: ModuleContext) -> ModuleResult:
     precomputed_ice = validate_ice_by_model(
         context.raw_input.get("ice_by_model")
     )
+    assessment_complete = context.raw_input.get(
+        "counterevidence_assessment_complete",
+        False,
+    )
+    if not isinstance(assessment_complete, bool):
+        raise ValueError(
+            "counterevidence_assessment_complete debe ser booleano."
+        )
+    if assessment_complete and precomputed_ice is not None:
+        raise ValueError(
+            "No se puede mezclar ICE autónomo con ice_by_model precomputado."
+        )
 
     if raw_items is None:
         raw_items = []
     if not isinstance(raw_items, list):
         raise ValueError("counterevidence_items debe ser una lista.")
 
-    if not raw_items and precomputed_ice is None:
+    if not raw_items and precomputed_ice is None and not assessment_complete:
         return not_evaluable_result(
             "M20",
             "No se declararon contradicciones explícitas ni ICE precomputado.",
@@ -118,11 +131,32 @@ def m20_counterevidence(context: ModuleContext) -> ModuleResult:
             ),
         }
 
+    if assessment_complete:
+        autonomous_ice, ice_family_diagnostics = derive_autonomous_ice(
+            retained_by_model
+        )
+        ice_state = "AUTONOMOUS"
+        ice_by_model = autonomous_ice
+        ice_formula_id = "ALMAS_ICE_AUTONOMOUS_V1"
+    elif precomputed_ice is not None:
+        ice_state = "PRECOMPUTED"
+        ice_by_model = precomputed_ice
+        ice_family_diagnostics = {model: [] for model in MODELS}
+        ice_formula_id = None
+    else:
+        ice_state = "NOT_CALCULATED"
+        ice_by_model = None
+        ice_family_diagnostics = {model: [] for model in MODELS}
+        ice_formula_id = None
+
     output = {
         "models": models_output,
         "suppressed": suppressed,
-        "ice_state": "PRECOMPUTED" if precomputed_ice is not None else "NOT_CALCULATED",
-        "ice_by_model": precomputed_ice,
+        "assessment_complete": assessment_complete,
+        "ice_state": ice_state,
+        "ice_formula_id": ice_formula_id,
+        "ice_by_model": ice_by_model,
+        "ice_family_diagnostics": ice_family_diagnostics,
         "missing_data_penalized": False,
     }
 
@@ -132,6 +166,8 @@ def m20_counterevidence(context: ModuleContext) -> ModuleResult:
         payload=output,
         canonical_updates={"counterevidence": output},
         limitations=(
-            "M20 no deriva un valor ICE nuevo: sólo conserva ICE precomputado o deja ICE como NOT_CALCULATED.",
+            "ICE autónomo sólo se deriva cuando counterevidence_assessment_complete=true.",
+            "La agregación de severidad no representa una probabilidad metafísica.",
+            "La ausencia de datos no se penaliza como contraevidencia.",
         ),
     )
