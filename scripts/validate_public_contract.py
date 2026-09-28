@@ -69,6 +69,7 @@ REQUIRED_FILES = [
     "docs/RELEASE_AUDIT_1.19.0.md",
     "docs/RELEASE_AUDIT_1.20.0.md",
     "docs/RELEASE_AUDIT_1.21.0.md",
+    "docs/RELEASE_AUDIT_1.22.0.md",
     "docs/EVOLUTION_1.15.0.md",
     "docs/EVOLUTION_1.16.0.md",
     "docs/EVOLUTION_1.17.0.md",
@@ -76,6 +77,7 @@ REQUIRED_FILES = [
     "docs/EVOLUTION_1.19.0.md",
     "docs/EVOLUTION_1.20.0.md",
     "docs/EVOLUTION_1.21.0.md",
+    "docs/EVOLUTION_1.22.0.md",
     "docs/SOURCE_ANCHOR_POLICY.md",
     "examples/README.md",
     "examples/manifest.json",
@@ -91,6 +93,7 @@ REQUIRED_FILES = [
     "schemas/raw-input.schema.json",
     "schemas/aspect-policy.schema.json",
     "schemas/structural-policy-manifest.schema.json",
+    "schemas/quantitative-policy-manifest.schema.json",
     "schemas/canonical-analysis.schema.json",
     "schemas/semantic-motif-graph.schema.json",
     "schemas/ontological-discriminator-output.schema.json",
@@ -181,6 +184,7 @@ REQUIRED_FILES = [
     "manifests/execution-registry.json",
     "manifests/almas-module-manifest.json",
     "manifests/structural-policy-manifest.json",
+    "manifests/quantitative-policy-manifest.json",
     "manifests/causal-type-registry.json",
     "manifests/cross-model-discriminator-registry.json",
     "manifests/differential-discriminator-registry.json",
@@ -600,6 +604,7 @@ def main() -> int:
     )
     aspect_policy_schema = load_json("schemas/aspect-policy.schema.json")
     structural_policy_manifest_schema = load_json("schemas/structural-policy-manifest.schema.json")
+    quantitative_policy_manifest_schema = load_json("schemas/quantitative-policy-manifest.schema.json")
     canonical_schema = load_json("schemas/canonical-analysis.schema.json")
     ontological_discriminator_output_schema = load_json(
         "schemas/ontological-discriminator-output.schema.json"
@@ -841,6 +846,7 @@ def main() -> int:
     cross_discriminators = load_json("manifests/cross-model-discriminator-registry.json")
     almas_module_manifest = load_json("manifests/almas-module-manifest.json")
     structural_policy_manifest = load_json("manifests/structural-policy-manifest.json")
+    quantitative_policy_manifest = load_json("manifests/quantitative-policy-manifest.json")
     example_input = load_json("examples/precomputed-pillars.json")
     example_result = load_json("examples/precomputed-result.json")
     preincarnation_source_map = load_json("reference/preincarnation-source-map.json")
@@ -1211,6 +1217,33 @@ def main() -> int:
         fail("structural policy manifest schema id changed")
     if structural_policy_manifest_schema.get("properties", {}).get("almas_public_version", {}).get("const") != version:
         fail("structural policy manifest schema version diverges from VERSION")
+
+    if quantitative_policy_manifest.get("manifest_id") != "ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2":
+        fail("quantitative policy manifest id changed")
+    if quantitative_policy_manifest.get("almas_public_version") != version:
+        fail("quantitative policy manifest version diverges from VERSION")
+    if quantitative_policy_manifest.get("baseline_release") != "1.21.0":
+        fail("quantitative policy baseline must remain 1.21.0")
+    qmanifest_props = quantitative_policy_manifest_schema.get("properties", {})
+    if qmanifest_props.get("manifest_id", {}).get("const") != "ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2":
+        fail("quantitative policy manifest schema id changed")
+    if qmanifest_props.get("almas_public_version", {}).get("const") != version:
+        fail("quantitative policy schema version diverges from VERSION")
+    qinv = quantitative_policy_manifest.get("invariants", {})
+    for key in (
+        "root_motif_double_counting_as_players_forbidden",
+        "motifs_recomputed_inside_shapley_coalitions",
+        "correlated_robustness_components_grouped_before_geometric_mean",
+        "autonomous_ice_requires_explicit_counterevidence_completeness",
+        "same_contradiction_key_cannot_multiply_across_dependency_families",
+        "essential_contradiction_gate_remains_separate",
+        "missingness_never_becomes_zero_without_explicit_complete_assessment",
+        "px_v3_activation_requires_external_validation",
+        "metaphysical_probability_forbidden",
+        "case_fitting_forbidden",
+    ):
+        if qinv.get(key) is not True:
+            fail(f"quantitative policy manifest invariant failed: {key}")
 
     if technique_dependency_registry.get("registry_id") != "ALMAS_TECHNIQUE_DEPENDENCY_REGISTRY_V1":
         fail("technique/dependency registry id changed")
