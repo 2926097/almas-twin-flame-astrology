@@ -173,6 +173,61 @@ class PersonalReferenceRouterTests(unittest.TestCase):
         self.assertIn("astrodienst_zodiac_sign", ids)
         self.assertNotIn("source_trace", data)
 
+    def test_enrichment_merges_domains_for_existing_source(self):
+        data = canonical()
+        data["source_trace"] = [
+            {
+                "source_id": "astrodienst_zodiac_sign",
+                "route_domains": ["legacy_domain"],
+                "custom_note": "preservar",
+            }
+        ]
+
+        enriched = enrich_personal_canonical_sources(
+            data,
+            source_registry(),
+        )
+        item = next(
+            entry
+            for entry in enriched["source_trace"]
+            if entry.get("source_id") == "astrodienst_zodiac_sign"
+        )
+
+        self.assertEqual(
+            item["route_domains"],
+            ["foundations", "legacy_domain"],
+        )
+        self.assertEqual(item["custom_note"], "preservar")
+
+    def test_enrichment_fails_on_malformed_existing_trace(self):
+        data = canonical()
+        data["source_trace"] = ["INVALID"]
+
+        with self.assertRaisesRegex(
+            PersonalReferenceRouterError,
+            "elemento no objeto",
+        ):
+            enrich_personal_canonical_sources(
+                data,
+                source_registry(),
+            )
+
+    def test_enrichment_fails_on_duplicate_existing_source_id(self):
+        data = canonical()
+        data["source_trace"] = [
+            {"source_id": "astrodienst_zodiac_sign"},
+            {"source_id": "astrodienst_zodiac_sign"},
+        ]
+
+        with self.assertRaisesRegex(
+            PersonalReferenceRouterError,
+            "source_id duplicado",
+        ):
+            enrich_personal_canonical_sources(
+                data,
+                source_registry(),
+            )
+
     def test_router_fails_if_manifest_references_unknown_source(self):
         router = load_personal_reference_router()
         broken = deepcopy(router)
