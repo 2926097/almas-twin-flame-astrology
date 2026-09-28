@@ -8,6 +8,8 @@
     "r_min",
     "components",
     "component_count",
+    "dependency_families",
+    "dependency_family_count",
     "time_sensitivity_state",
     "ablation_state",
     "null_model_state",
@@ -80,6 +82,10 @@
           },
           "auto_derived": {
             "type": "boolean"
+          },
+          "dependency_family": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -113,10 +119,51 @@
       "const": false
     },
     "formula": {
-      "const": "100 * geometric_mean(applicable_R_i)"
+      "const": "100 * geometric_mean(dependency_family_scores)"
     },
     "r_min_formula": {
       "const": "min(applicable_R_i)"
+    },
+    "dependency_families": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "dependency_family",
+          "member_ids",
+          "member_count",
+          "family_score"
+        ],
+        "properties": {
+          "dependency_family": {
+            "type": "string",
+            "minLength": 1
+          },
+          "member_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "member_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "family_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dependency_family_count": {
+      "type": "integer",
+      "minimum": 1
     }
   },
   "additionalProperties": false
