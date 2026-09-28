@@ -159,11 +159,14 @@ def enrich_personal_canonical_sources(
     if existing is None:
         trace: list[dict[str, Any]] = []
     elif isinstance(existing, list):
-        trace = [
-            deepcopy(dict(item))
-            for item in existing
-            if isinstance(item, Mapping)
-        ]
+        trace = []
+        for index, item in enumerate(existing):
+            if not isinstance(item, Mapping):
+                raise PersonalReferenceRouterError(
+                    "canonical.source_trace contiene un elemento no objeto "
+                    f"en índice {index}."
+                )
+            trace.append(deepcopy(dict(item)))
     else:
         raise PersonalReferenceRouterError(
             "canonical.source_trace debe ser una lista."
@@ -177,38 +180,57 @@ def enrich_personal_canonical_sources(
                 set(),
             ).add(domain["domain"])
 
-    existing_ids = {
-        item.get("source_id")
-        for item in trace
-        if isinstance(item.get("source_id"), str)
-    }
+    trace_by_source_id: dict[str, dict[str, Any]] = {}
+    for item in trace:
+        source_id = item.get("source_id")
+        if not isinstance(source_id, str) or not source_id:
+            continue
+        if source_id in trace_by_source_id:
+            raise PersonalReferenceRouterError(
+                f"source_id duplicado en canonical.source_trace: {source_id}"
+            )
+        trace_by_source_id[source_id] = item
 
     for source_id in routing["source_ids"]:
-        if source_id in existing_ids:
-            continue
-        source = sources[source_id]
-        trace.append(
-            {
-                "source_id": source_id,
-                "route_domains": sorted(
-                    route_domains_by_source.get(
-                        source_id,
-                        set(),
-                    )
-                ),
-                "priority": source.get("priority"),
-                "source_role": source.get("source_role"),
-                "tradition": source.get("tradition"),
-                "author": source.get("author"),
-                "work": source.get("work"),
-                "verification_status": source.get(
-                    "verification_status"
-                ),
-                "evidence_scope": source.get(
-                    "evidence_scope"
-                ),
-            }
+        routed_domains = route_domains_by_source.get(
+            source_id,
+            set(),
         )
+        existing_item = trace_by_source_id.get(source_id)
+        if existing_item is not None:
+            current_domains = existing_item.get("route_domains", [])
+            if current_domains is None:
+                current_domains = []
+            if not isinstance(current_domains, list) or any(
+                not isinstance(domain, str) or not domain
+                for domain in current_domains
+            ):
+                raise PersonalReferenceRouterError(
+                    f"{source_id}.route_domains debe ser una lista de strings."
+                )
+            existing_item["route_domains"] = sorted(
+                set(current_domains) | routed_domains
+            )
+            continue
+
+        source = sources[source_id]
+        item = {
+            "source_id": source_id,
+            "route_domains": sorted(routed_domains),
+            "priority": source.get("priority"),
+            "source_role": source.get("source_role"),
+            "tradition": source.get("tradition"),
+            "author": source.get("author"),
+            "work": source.get("work"),
+            "verification_status": source.get(
+                "verification_status"
+            ),
+            "evidence_scope": source.get(
+                "evidence_scope"
+            ),
+        }
+        trace.append(item)
+        trace_by_source_id[source_id] = item
 
     output["source_trace"] = trace
     return output
