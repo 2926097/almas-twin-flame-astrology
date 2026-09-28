@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import unittest
+import unicodedata
 
 from almas_tfa.personal_reference_router import load_personal_reference_router
 
@@ -68,7 +69,12 @@ class FixedStarSourcePreregistrationTests(unittest.TestCase):
             entry = entries[source_id]
             self.assertEqual(entry["evidence_scope"], "METHOD_DESCRIPTION")
             joined = " ".join(entry["does_not_support"]).lower()
-            self.assertIn("ontolog", joined)
+            normalized = "".join(
+                char
+                for char in unicodedata.normalize("NFKD", joined)
+                if not unicodedata.combining(char)
+            )
+            self.assertIn("ontolog", normalized)
 
 
 if __name__ == "__main__":
