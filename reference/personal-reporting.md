@@ -42,11 +42,13 @@ Se conservan cinco perfiles internos:
 
 El perfil selecciona secciones P01–P11; nunca modifica el canonical.
 
-## Dominios de referencia
+## Dominios y fuentes de referencia
 
-El router parte de `foundations`, `traditional`, `modern_psychological` y `publication`, y añade sólo los dominios activados por el canonical: evolutionary, karmic, draconic, esoteric, kabbalah, lots, symmetry, fixed_stars, asteroids y timing.
+La primera etapa del router parte de `foundations`, `traditional`, `modern_psychological` y `publication`, y añade sólo los dominios activados por el canonical: evolutionary, karmic, draconic, esoteric, kabbalah, lots, symmetry, fixed_stars, asteroids y timing.
 
-El router selecciona corpus; no produce conclusiones.
+La segunda etapa, `ALMAS_PERSONAL_REFERENCE_ROUTER_V1`, resuelve esos dominios contra `reference/source-registry.json`. Cada ruta queda `SUPPORTED`, `PARTIAL` o `SOURCE_GAP`; un gap no puede rellenarse con una fuente no registrada.
+
+`enrich_personal_canonical_sources()` puede añadir las fuentes resueltas a `source_trace` mediante copia del canonical. El router selecciona corpus y trazabilidad; no produce conclusiones ni añade peso.
 
 ## Publicación
 
