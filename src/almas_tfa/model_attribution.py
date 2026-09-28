@@ -7,7 +7,7 @@ from importlib import resources
 import random
 from typing import Any, Mapping, Sequence
 
-from .core import MODEL_PILLARS, pillar_score, score_model
+from .core import pillar_score, score_model
 
 
 POLICY_RESOURCE = "model-attribution-policy.json"
@@ -23,7 +23,7 @@ def load_model_attribution_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         raise ValueError("Política de atribución de modelos desconocida.")
     return policy
 
@@ -73,11 +73,23 @@ def _eligible_units(
                 clean[pillar] = value
 
         if clean:
+            source_root_ids = item.get("source_root_ids", [])
+            if not isinstance(source_root_ids, list):
+                raise ValueError(
+                    f"{unit_id}: source_root_ids debe ser una lista."
+                )
             units.append(
                 {
                     "unit_id": unit_id,
                     "unit_type": str(item.get("unit_type") or "ROOT"),
                     "contributions": clean,
+                    "source_root_ids": sorted(
+                        {
+                            str(value)
+                            for value in source_root_ids
+                            if str(value)
+                        }
+                    ),
                 }
             )
 
@@ -85,16 +97,66 @@ def _eligible_units(
     return units
 
 
+def _dependency_coalitions(
+    units: Sequence[Mapping[str, Any]],
+) -> dict[str, tuple[str, ...]]:
+    """Agrupa raíces y motivos derivados que no son evidencia independiente."""
+
+    unit_ids = [str(item["unit_id"]) for item in units]
+    parent = {unit_id: unit_id for unit_id in unit_ids}
+
+    def find(value: str) -> str:
+        while parent[value] != value:
+            parent[value] = parent[parent[value]]
+            value = parent[value]
+        return value
+
+    def union(left: str, right: str) -> None:
+        root_left = find(left)
+        root_right = find(right)
+        if root_left == root_right:
+            return
+        if root_left < root_right:
+            parent[root_right] = root_left
+        else:
+            parent[root_left] = root_right
+
+    unit_set = set(unit_ids)
+    for item in units:
+        if item.get("unit_type") != "SEMANTIC_MOTIF":
+            continue
+        motif_id = str(item["unit_id"])
+        for source_root_id in item.get("source_root_ids", []):
+            source_root_id = str(source_root_id)
+            if source_root_id in unit_set:
+                union(motif_id, source_root_id)
+
+    members_by_root: dict[str, list[str]] = {}
+    for unit_id in unit_ids:
+        members_by_root.setdefault(find(unit_id), []).append(unit_id)
+
+    coalitions: dict[str, tuple[str, ...]] = {}
+    for members in members_by_root.values():
+        members = sorted(members)
+        coalition_id = (
+            members[0]
+            if len(members) == 1
+            else "DEPENDENCY:" + "+".join(members)
+        )
+        coalitions[coalition_id] = tuple(members)
+    return {key: coalitions[key] for key in sorted(coalitions)}
+
+
 def _coalition_pillars(
-    roots_by_id: Mapping[str, Mapping[str, float]],
-    selected: set[str],
+    units_by_id: Mapping[str, Mapping[str, float]],
+    selected_unit_ids: set[str],
 ) -> dict[str, float | None]:
     strengths: dict[str, list[float]] = {
         pillar: [] for pillar in PILLARS if pillar != "PU"
     }
 
-    for root_id in selected:
-        contributions = roots_by_id[root_id]
+    for unit_id in selected_unit_ids:
+        contributions = units_by_id[unit_id]
         for pillar, value in contributions.items():
             if pillar != "PU":
                 strengths[pillar].append(float(value))
@@ -109,53 +171,80 @@ def _coalition_pillars(
     return pillars
 
 
+def _selected_units(
+    dependency_coalitions: Mapping[str, Sequence[str]],
+    selected_coalitions: set[str],
+) -> set[str]:
+    output: set[str] = set()
+    for coalition_id in selected_coalitions:
+        output.update(dependency_coalitions[coalition_id])
+    return output
+
+
 def _value(
     model: str,
-    roots_by_id: Mapping[str, Mapping[str, float]],
-    selected: set[str],
+    units_by_id: Mapping[str, Mapping[str, float]],
+    dependency_coalitions: Mapping[str, Sequence[str]],
+    selected_coalitions: set[str],
 ) -> float:
-    pillars = _coalition_pillars(roots_by_id, selected)
+    selected_units = _selected_units(
+        dependency_coalitions,
+        selected_coalitions,
+    )
+    pillars = _coalition_pillars(units_by_id, selected_units)
     return score_model(model, pillars, ice=0.0).iem_pre
 
 
 def _exact_shapley(
     model: str,
-    root_ids: Sequence[str],
-    roots_by_id: Mapping[str, Mapping[str, float]],
+    player_ids: Sequence[str],
+    units_by_id: Mapping[str, Mapping[str, float]],
+    dependency_coalitions: Mapping[str, Sequence[str]],
 ) -> dict[str, float]:
-    n = len(root_ids)
-    output = {root_id: 0.0 for root_id in root_ids}
+    n = len(player_ids)
+    output = {player_id: 0.0 for player_id in player_ids}
     if n == 0:
         return output
 
-    for root_id in root_ids:
-        others = [item for item in root_ids if item != root_id]
+    for player_id in player_ids:
+        others = [item for item in player_ids if item != player_id]
         for size in range(n):
             weight = 1.0 / n / comb(n - 1, size)
             for subset in combinations(others, size):
                 base = set(subset)
-                before = _value(model, roots_by_id, base)
-                after = _value(model, roots_by_id, base | {root_id})
+                before = _value(
+                    model,
+                    units_by_id,
+                    dependency_coalitions,
+                    base,
+                )
+                after = _value(
+                    model,
+                    units_by_id,
+                    dependency_coalitions,
+                    base | {player_id},
+                )
                 marginal = after - before
                 if marginal < -1e-9:
                     raise ValueError(
-                        f"{model}:{root_id}: marginal Shapley negativo {marginal}."
+                        f"{model}:{player_id}: marginal Shapley negativo "
+                        f"{marginal}."
                     )
-                output[root_id] += weight * max(0.0, marginal)
+                output[player_id] += weight * max(0.0, marginal)
 
     return output
 
 
 def _permutation_batch(
     rng: random.Random,
-    root_ids: Sequence[str],
+    player_ids: Sequence[str],
     count: int,
     *,
     antithetic: bool,
 ) -> list[tuple[str, ...]]:
     permutations: list[tuple[str, ...]] = []
     while len(permutations) < count:
-        values = list(root_ids)
+        values = list(player_ids)
         rng.shuffle(values)
         permutation = tuple(values)
         permutations.append(permutation)
@@ -165,8 +254,9 @@ def _permutation_batch(
 
 
 def _approximate_all_models(
-    root_ids: Sequence[str],
-    roots_by_id: Mapping[str, Mapping[str, float]],
+    player_ids: Sequence[str],
+    units_by_id: Mapping[str, Mapping[str, float]],
+    dependency_coalitions: Mapping[str, Sequence[str]],
     policy: Mapping[str, Any],
 ) -> tuple[dict[str, dict[str, float]], dict[str, Any]]:
     spec = policy["approximation_method"]
@@ -183,7 +273,7 @@ def _approximate_all_models(
 
     rng = random.Random(seed)
     sums = {
-        model: {root_id: 0.0 for root_id in root_ids}
+        model: {player_id: 0.0 for player_id in player_ids}
         for model in MODELS
     }
     previous: dict[str, dict[str, float]] | None = None
@@ -195,7 +285,7 @@ def _approximate_all_models(
         count = min(batch_size, maximum - used)
         permutations = _permutation_batch(
             rng,
-            root_ids,
+            player_ids,
             count,
             antithetic=antithetic,
         )
@@ -203,23 +293,34 @@ def _approximate_all_models(
         for permutation in permutations:
             for model in MODELS:
                 selected: set[str] = set()
-                before = _value(model, roots_by_id, selected)
-                for root_id in permutation:
-                    selected.add(root_id)
-                    after = _value(model, roots_by_id, selected)
+                before = _value(
+                    model,
+                    units_by_id,
+                    dependency_coalitions,
+                    selected,
+                )
+                for player_id in permutation:
+                    selected.add(player_id)
+                    after = _value(
+                        model,
+                        units_by_id,
+                        dependency_coalitions,
+                        selected,
+                    )
                     marginal = after - before
                     if marginal < -1e-9:
                         raise ValueError(
-                            f"{model}:{root_id}: marginal negativo en permutación."
+                            f"{model}:{player_id}: marginal negativo en "
+                            "permutación."
                         )
-                    sums[model][root_id] += max(0.0, marginal)
+                    sums[model][player_id] += max(0.0, marginal)
                     before = after
 
         used += len(permutations)
         current = {
             model: {
-                root_id: sums[model][root_id] / used
-                for root_id in root_ids
+                player_id: sums[model][player_id] / used
+                for player_id in player_ids
             }
             for model in MODELS
         }
@@ -227,11 +328,11 @@ def _approximate_all_models(
         if used >= minimum and previous is not None:
             deltas = [
                 abs(
-                    current[model][root_id]
-                    - previous[model][root_id]
+                    current[model][player_id]
+                    - previous[model][player_id]
                 )
                 for model in MODELS
-                for root_id in root_ids
+                for player_id in player_ids
             ]
             max_delta = max(deltas) if deltas else 0.0
             if max_delta <= tolerance:
@@ -252,8 +353,8 @@ def _approximate_all_models(
 
     final = {
         model: {
-            root_id: sums[model][root_id] / used
-            for root_id in root_ids
+            player_id: sums[model][player_id] / used
+            for player_id in player_ids
         }
         for model in MODELS
     }
@@ -272,11 +373,11 @@ def derive_model_attributions(
     *,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Deriva atribuciones Shapley por unidad canónica para AF/KA/AG/LG.
+    """Deriva Shapley/IDD usando coaliciones de dependencia como jugadores.
 
-    Las unidades pueden ser raíces independientes o motivos semánticos
-    derivados que materializan PX/PS. Estos motivos no se interpretan como
-    raíces independientes adicionales. La función de valor es IEM_pre.
+    Una feature PX/PS derivada y sus raíces fuente no pueden actuar como
+    jugadores estadísticamente independientes. La agrupación cambia la
+    atribución/IDD, pero conserva exactamente el IEM_pre del conjunto completo.
     """
 
     if policy is None:
@@ -292,8 +393,8 @@ def derive_model_attributions(
                 "method": None,
             }
 
-    roots = _eligible_units(pillar_attribution)
-    if not roots:
+    units = _eligible_units(pillar_attribution)
+    if not units:
         return {
             "policy_id": policy["policy_id"],
             "state": "NOT_EVALUABLE",
@@ -302,41 +403,59 @@ def derive_model_attributions(
             "method": None,
         }
 
-    root_ids = [item["unit_id"] for item in roots]
-    roots_by_id = {
+    unit_ids = [item["unit_id"] for item in units]
+    units_by_id = {
         item["unit_id"]: dict(item["contributions"])
-        for item in roots
+        for item in units
     }
+    dependency_coalitions = _dependency_coalitions(units)
+    player_ids = list(dependency_coalitions)
 
-    exact_max = int(policy["exact_method"].get("max_units", policy["exact_method"].get("max_roots", 10)))
-    if len(root_ids) <= exact_max:
+    exact_max = int(
+        policy["exact_method"].get(
+            "max_dependency_coalitions",
+            policy["exact_method"].get("max_units", 10),
+        )
+    )
+    if len(player_ids) <= exact_max:
         attributions = {
-            model: _exact_shapley(model, root_ids, roots_by_id)
+            model: _exact_shapley(
+                model,
+                player_ids,
+                units_by_id,
+                dependency_coalitions,
+            )
             for model in MODELS
         }
         method = {
             "method": policy["exact_method"]["name"],
-            "unit_count": len(root_ids),
+            "dependency_coalition_count": len(player_ids),
             "convergence_state": "EXACT",
             "permutations_used": None,
         }
     else:
         attributions, method = _approximate_all_models(
-            root_ids,
-            roots_by_id,
+            player_ids,
+            units_by_id,
+            dependency_coalitions,
             policy,
         )
-        method["unit_count"] = len(root_ids)
+        method["dependency_coalition_count"] = len(player_ids)
 
     totals = {
         model: sum(values.values())
         for model, values in attributions.items()
     }
+    all_players = set(player_ids)
     grand_values = {
-        model: _value(model, roots_by_id, set(root_ids))
+        model: _value(
+            model,
+            units_by_id,
+            dependency_coalitions,
+            all_players,
+        )
         for model in MODELS
     }
-
     efficiency_error = {
         model: abs(totals[model] - grand_values[model])
         for model in MODELS
@@ -344,12 +463,37 @@ def derive_model_attributions(
 
     positive = {
         model: {
-            root_id: value
-            for root_id, value in values.items()
+            player_id: value
+            for player_id, value in values.items()
             if value > 1e-12
         }
         for model, values in attributions.items()
     }
+
+    unit_types = {
+        str(item["unit_id"]): str(item["unit_type"])
+        for item in units
+    }
+    coalition_records = []
+    for coalition_id, members in dependency_coalitions.items():
+        coalition_records.append(
+            {
+                "coalition_id": coalition_id,
+                "unit_ids": list(members),
+                "root_unit_ids": [
+                    member for member in members
+                    if unit_types.get(member) == "ROOT"
+                ],
+                "motif_unit_ids": [
+                    member for member in members
+                    if unit_types.get(member) == "SEMANTIC_MOTIF"
+                ],
+                "contains_derived_motif": any(
+                    unit_types.get(member) == "SEMANTIC_MOTIF"
+                    for member in members
+                ),
+            }
+        )
 
     return {
         "policy_id": policy["policy_id"],
@@ -357,13 +501,25 @@ def derive_model_attributions(
         "epistemic_class": policy["epistemic_class"],
         "state": "EVALUABLE",
         "value_function": policy["value_function"],
-        "unit_count": len(root_ids),
-        "unit_ids": root_ids,
-        "root_count": sum(1 for item in roots if item["unit_type"] == "ROOT"),
-        "motif_unit_count": sum(1 for item in roots if item["unit_type"] == "SEMANTIC_MOTIF"),
+        "unit_count": len(unit_ids),
+        "unit_ids": unit_ids,
+        "dependency_coalition_count": len(player_ids),
+        "dependency_coalitions": coalition_records,
+        "dependency_adjustment_applied": any(
+            len(members) > 1
+            for members in dependency_coalitions.values()
+        ),
+        "root_count": sum(
+            1 for item in units if item["unit_type"] == "ROOT"
+        ),
+        "motif_unit_count": sum(
+            1 for item in units
+            if item["unit_type"] == "SEMANTIC_MOTIF"
+        ),
         "attributions": positive,
         "model_iem_pre_from_roots": grand_values,
         "shapley_efficiency_error": efficiency_error,
         "method": method,
         "idd_is_ontological_discriminator": False,
+        "motif_units_are_independent_players": False,
     }
