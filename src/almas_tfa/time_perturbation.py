@@ -8,7 +8,7 @@ from math import ceil
 from typing import Any, Mapping, Sequence
 
 from .astrology_handlers import make_m02_natal
-from .core import score_model
+from .quantitative_v122 import score_model_dependency_aware
 from .draconic_handlers import m10_individual_draconics, m11_natal_draconic_cross
 from .evidence_handlers import (
     m15_evidence_extraction,
@@ -208,9 +208,22 @@ def _structural_snapshot(
     )
     pillars = pillar_data["pillars"]
 
+    pillar_sources = pillar_data.get("pillar_source_roots")
+    if not isinstance(pillar_sources, Mapping):
+        return {
+            "state": "NOT_EVALUABLE",
+            "failed_module": "M18",
+            "reason": "M18 no produjo linaje raíz→pilar.",
+        }
+
     indices: dict[str, float] = {}
     for model in MODELS:
-        score = score_model(model, pillars, ice=0.0)
+        score = score_model_dependency_aware(
+            model,
+            pillars,
+            pillar_sources,
+            ice=0.0,
+        )
         if not score.essential_evaluable:
             return {
                 "state": "NOT_EVALUABLE",
