@@ -8,6 +8,8 @@
     "suppressed",
     "ice_state",
     "ice_by_model",
+    "counterevidence_complete",
+    "ice_derivation",
     "missing_data_penalized"
   ],
   "properties": {
@@ -23,6 +25,7 @@
     "ice_state": {
       "enum": [
         "PRECOMPUTED",
+        "AUTONOMOUS",
         "NOT_CALCULATED"
       ]
     },
@@ -35,6 +38,12 @@
           "$ref": "#/$defs/iceByModel"
         }
       ]
+    },
+    "counterevidence_complete": {
+      "type": "boolean"
+    },
+    "ice_derivation": {
+      "$ref": "#/$defs/iceDerivation"
     },
     "missing_data_penalized": {
       "const": false
@@ -73,6 +82,40 @@
         }
       },
       "additionalProperties": false
+    },
+    "iceDerivation": {
+      "type": "object",
+      "required": [
+        "method",
+        "formula",
+        "dependency_control",
+        "by_model"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "PRECOMPUTED",
+            "AUTONOMOUS_SEMANTIC_SATURATION_V1",
+            "NOT_CALCULATED"
+          ]
+        },
+        "formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dependency_control": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "by_model": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "allOf": [
@@ -80,7 +123,10 @@
       "if": {
         "properties": {
           "ice_state": {
-            "const": "PRECOMPUTED"
+            "enum": [
+              "PRECOMPUTED",
+              "AUTONOMOUS"
+            ]
           }
         },
         "required": [
@@ -91,6 +137,32 @@
         "properties": {
           "ice_by_model": {
             "$ref": "#/$defs/iceByModel"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ice_state": {
+            "const": "AUTONOMOUS"
+          }
+        },
+        "required": [
+          "ice_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "counterevidence_complete": {
+            "const": true
+          },
+          "ice_derivation": {
+            "properties": {
+              "method": {
+                "const": "AUTONOMOUS_SEMANTIC_SATURATION_V1"
+              }
+            }
           }
         }
       }
