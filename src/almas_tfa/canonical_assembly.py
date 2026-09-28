@@ -691,6 +691,28 @@ def assemble_canonical_analysis(
         },
     }
 
+    dependency_groups = robustness.get("dependency_groups")
+    group_count = robustness.get("group_count")
+    if isinstance(dependency_groups, Mapping) and isinstance(group_count, int):
+        assembled["robustness"]["group_count"] = group_count
+        assembled["robustness"]["dependency_groups"] = {
+            str(group_id): dict(group_data)
+            for group_id, group_data in dependency_groups.items()
+            if isinstance(group_data, Mapping)
+        }
+
+    counter_source = canonical.get("counterevidence")
+    if isinstance(counter_source, Mapping):
+        source_state = counter_source.get("ice_state")
+        if source_state in {"PRECOMPUTED", "AUTONOMOUS", "NOT_CALCULATED"}:
+            assembled["counterevidence_state"]["ice_source_state"] = source_state
+        derivation = counter_source.get("ice_derivation")
+        if isinstance(derivation, Mapping):
+            assembled["counterevidence_state"]["ice_derivation"] = dict(derivation)
+        completeness = counter_source.get("counterevidence_complete")
+        if isinstance(completeness, bool):
+            assembled["counterevidence_state"]["counterevidence_complete"] = completeness
+
     natal_context = canonical.get("natal_context")
     if isinstance(natal_context, Mapping):
         assembled["natal_context"] = dict(natal_context)
