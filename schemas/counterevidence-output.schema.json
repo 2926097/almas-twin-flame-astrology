@@ -8,7 +8,10 @@
     "suppressed",
     "ice_state",
     "ice_by_model",
-    "missing_data_penalized"
+    "missing_data_penalized",
+    "assessment_complete",
+    "ice_formula_id",
+    "ice_family_diagnostics"
   ],
   "properties": {
     "models": {
@@ -23,6 +26,7 @@
     "ice_state": {
       "enum": [
         "PRECOMPUTED",
+        "AUTONOMOUS",
         "NOT_CALCULATED"
       ]
     },
@@ -38,6 +42,119 @@
     },
     "missing_data_penalized": {
       "const": false
+    },
+    "assessment_complete": {
+      "type": "boolean"
+    },
+    "ice_formula_id": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "const": "ALMAS_ICE_AUTONOMOUS_V1"
+        }
+      ]
+    },
+    "ice_family_diagnostics": {
+      "type": "object",
+      "required": [
+        "AF",
+        "KA",
+        "AG",
+        "LG"
+      ],
+      "properties": {
+        "AF": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "dependency_family",
+              "severity"
+            ],
+            "properties": {
+              "dependency_family": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "KA": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "dependency_family",
+              "severity"
+            ],
+            "properties": {
+              "dependency_family": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "AG": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "dependency_family",
+              "severity"
+            ],
+            "properties": {
+              "dependency_family": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "LG": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "dependency_family",
+              "severity"
+            ],
+            "properties": {
+              "dependency_family": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,
@@ -110,6 +227,31 @@
         "properties": {
           "ice_by_model": {
             "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ice_state": {
+            "const": "AUTONOMOUS"
+          }
+        },
+        "required": [
+          "ice_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "assessment_complete": {
+            "const": true
+          },
+          "ice_formula_id": {
+            "const": "ALMAS_ICE_AUTONOMOUS_V1"
+          },
+          "ice_by_model": {
+            "$ref": "#/$defs/iceByModel"
           }
         }
       }
