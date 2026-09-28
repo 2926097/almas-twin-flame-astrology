@@ -32,7 +32,7 @@ class TestAnalyzePrecomputed(unittest.TestCase):
                 },
             }
         )
-        self.assertEqual(result["public_version"], "1.11.0")
+        self.assertEqual(result["public_version"], "1.21.0")
         self.assertEqual(set(result["models"]), {"AF", "KA", "AG", "LG"})
         self.assertIn("AG_vs_LG", result["pairwise_idd"])
         self.assertIsInstance(result["models"]["AG"]["iem_final"], float)
@@ -46,6 +46,75 @@ class TestAnalyzePrecomputed(unittest.TestCase):
     def test_missing_pillars_yield_not_evaluable_models(self):
         result = analyze_precomputed({"pillars": {"PA": 90}})
         self.assertFalse(result["models"]["AF"]["essential_evaluable"])
+
+    def test_missing_ice_never_becomes_zero_or_opens_supported_gate(self):
+        result = analyze_precomputed(
+            {
+                "pillars": {
+                    "PA": 90,
+                    "PK": 90,
+                    "PE": 90,
+                    "PR": 90,
+                    "PX": 90,
+                    "PT": 90,
+                    "PS": 90,
+                    "PU": 90,
+                },
+                "icc": 100,
+                "irc": 100,
+                "r_min": 1.0,
+            }
+        )
+        for model in ("AF", "KA", "AG", "LG"):
+            self.assertEqual(result["models"][model]["ice_state"], "NOT_EVALUABLE")
+            self.assertIsNone(result["models"][model]["ice"])
+            self.assertIsNone(result["models"][model]["iem_final"])
+            self.assertIsNone(result["models"][model]["supported_gate"])
+
+    def test_partial_ice_map_is_rejected(self):
+        with self.assertRaises(ValueError):
+            analyze_precomputed(
+                {
+                    "pillars": {"PA": 90, "PR": 90},
+                    "ice_by_model": {"AF": 0, "KA": 0, "AG": 0},
+                }
+            )
+
+    def test_ice_boundaries_zero_and_hundred_are_valid(self):
+        result = analyze_precomputed(
+            {
+                "pillars": {
+                    "PA": 90,
+                    "PK": 90,
+                    "PE": 90,
+                    "PR": 90,
+                    "PX": 90,
+                    "PT": 90,
+                    "PS": 90,
+                    "PU": 90,
+                },
+                "ice_by_model": {"AF": 0, "KA": 100, "AG": 0, "LG": 100},
+            }
+        )
+        self.assertEqual(result["models"]["AF"]["ice"], 0.0)
+        self.assertEqual(result["models"]["KA"]["ice"], 100.0)
+        self.assertEqual(result["models"]["LG"]["ice"], 100.0)
+
+    def test_ice_outside_boundaries_is_rejected(self):
+        for invalid in (-0.0001, 100.0001):
+            with self.subTest(invalid=invalid):
+                with self.assertRaises(ValueError):
+                    analyze_precomputed(
+                        {
+                            "pillars": {"PA": 90, "PR": 90},
+                            "ice_by_model": {
+                                "AF": invalid,
+                                "KA": 0,
+                                "AG": 0,
+                                "LG": 0,
+                            },
+                        }
+                    )
 
 
 if __name__ == "__main__":

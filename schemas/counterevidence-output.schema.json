@@ -27,19 +27,92 @@
       ]
     },
     "ice_by_model": {
-      "type": [
-        "object",
-        "null"
-      ],
-      "additionalProperties": {
-        "type": "number",
-        "minimum": 0,
-        "maximum": 100
-      }
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/iceByModel"
+        }
+      ]
     },
     "missing_data_penalized": {
       "const": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$defs": {
+    "iceByModel": {
+      "type": "object",
+      "required": [
+        "AF",
+        "KA",
+        "AG",
+        "LG"
+      ],
+      "properties": {
+        "AF": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "KA": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "AG": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "LG": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ice_state": {
+            "const": "PRECOMPUTED"
+          }
+        },
+        "required": [
+          "ice_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "ice_by_model": {
+            "$ref": "#/$defs/iceByModel"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ice_state": {
+            "const": "NOT_CALCULATED"
+          }
+        },
+        "required": [
+          "ice_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "ice_by_model": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
 }

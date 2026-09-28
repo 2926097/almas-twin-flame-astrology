@@ -15,6 +15,7 @@ from .core import (
     supported_gate,
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .quantitative_contracts import MODELS, validate_ice_by_model
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
 from .model_attribution import derive_model_attributions, load_model_attribution_policy
 from .relational_handlers import m03_synastry, m04_nodes_angles_houses_regencies
@@ -42,7 +43,6 @@ from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
 from .report_model_handlers import m31_report
 
 
-MODELS = ("AF", "KA", "AG", "LG")
 PILLARS = ("PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU")
 
 
@@ -252,9 +252,10 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
     if not isinstance(pillars, Mapping):
         return not_evaluable_result("M19", "No existen pilares evaluables.")
 
-    ice_by_model = context.raw_input.get("ice_by_model") or {}
-    if not isinstance(ice_by_model, Mapping):
-        raise ValueError("ice_by_model debe ser un objeto.")
+    ice_by_model = validate_ice_by_model(
+        context.raw_input.get("ice_by_model")
+    )
+    ice_evaluable = ice_by_model is not None
 
     contradictions = context.raw_input.get("essential_contradictions") or {}
     if not isinstance(contradictions, Mapping):
@@ -266,13 +267,19 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
 
     output: dict[str, Any] = {}
     for model in MODELS:
+        ice_value = ice_by_model[model] if ice_evaluable else 0.0
         score = score_model(
             model,
             pillars,
-            ice=float(ice_by_model.get(model, 0.0)),
+            ice=ice_value,
         )
         gate = None
-        if icc is not None and irc is not None and r_min is not None:
+        if (
+            ice_evaluable
+            and icc is not None
+            and irc is not None
+            and r_min is not None
+        ):
             gate = supported_gate(
                 score,
                 icc=float(icc),
@@ -285,8 +292,9 @@ def m19_structural_model_indices(context: ModuleContext) -> ModuleResult:
             "core": score.core,
             "support": score.support,
             "iem_pre": score.iem_pre,
-            "ice": score.ice,
-            "iem_final": score.iem_final,
+            "ice": score.ice if ice_evaluable else None,
+            "iem_final": score.iem_final if ice_evaluable else None,
+            "ice_state": "EVALUABLE" if ice_evaluable else "NOT_EVALUABLE",
             "essential_evaluable": score.essential_evaluable,
             "supported_gate": gate,
         }

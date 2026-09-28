@@ -87,6 +87,7 @@
         "iem_pre",
         "ice",
         "iem_final",
+        "ice_state",
         "essential_evaluable",
         "supported_gate"
       ],
@@ -110,12 +111,18 @@
           "maximum": 100
         },
         "ice": {
-          "type": "number",
+          "type": [
+            "number",
+            "null"
+          ],
           "minimum": 0,
           "maximum": 100
         },
         "iem_final": {
-          "type": "number",
+          "type": [
+            "number",
+            "null"
+          ],
           "minimum": 0,
           "maximum": 100
         },
@@ -127,9 +134,64 @@
             "boolean",
             "null"
           ]
+        },
+        "ice_state": {
+          "enum": [
+            "EVALUABLE",
+            "NOT_EVALUABLE"
+          ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "ice_state": {
+                "const": "EVALUABLE"
+              }
+            },
+            "required": [
+              "ice_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice": {
+                "type": "number"
+              },
+              "iem_final": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ice_state": {
+                "const": "NOT_EVALUABLE"
+              }
+            },
+            "required": [
+              "ice_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice": {
+                "type": "null"
+              },
+              "iem_final": {
+                "type": "null"
+              },
+              "supported_gate": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "additionalProperties": false

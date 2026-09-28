@@ -4,34 +4,17 @@ from collections import defaultdict
 from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .quantitative_contracts import MODELS, validate_ice_by_model
 
 
-MODELS = ("AF", "KA", "AG", "LG")
 ALLOWED_KINDS = {"EXPLICIT_CONTRADICTION", "STRUCTURAL_INCOMPATIBILITY"}
-
-
-def _validated_ice_by_model(value: Any) -> dict[str, float] | None:
-    if value is None:
-        return None
-    if not isinstance(value, Mapping):
-        raise ValueError("ice_by_model debe ser un objeto.")
-
-    output: dict[str, float] = {}
-    for model, raw in value.items():
-        if model not in MODELS:
-            raise ValueError(f"Modelo desconocido en ice_by_model: {model}")
-        score = float(raw)
-        if not 0.0 <= score <= 100.0:
-            raise ValueError(f"ICE {model} debe estar en [0,100].")
-        output[model] = score
-    return output
 
 
 def m20_counterevidence(context: ModuleContext) -> ModuleResult:
     """M20: normaliza contraevidencia explícita y elimina duplicación dependiente."""
 
     raw_items = context.raw_input.get("counterevidence_items")
-    precomputed_ice = _validated_ice_by_model(
+    precomputed_ice = validate_ice_by_model(
         context.raw_input.get("ice_by_model")
     )
 

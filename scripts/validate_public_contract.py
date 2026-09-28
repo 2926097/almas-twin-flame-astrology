@@ -244,6 +244,7 @@ REQUIRED_FILES = [
     "skills/almas-soul-contract/CHANGELOG.md",
     "src/almas_tfa/core.py",
     "src/almas_tfa/analysis.py",
+    "src/almas_tfa/quantitative_contracts.py",
     "src/almas_tfa/discriminator_promotion_registry.py",
     "src/almas_tfa/discriminant_validation.py",
     "src/almas_tfa/blinding_leakage.py",
@@ -5136,6 +5137,39 @@ def main() -> int:
     pillar_props = precomputed_schema.get("properties", {}).get("pillars", {}).get("properties", {})
     if set(pillar_props) != {"PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU"}:
         fail("precomputed pillar schema must expose PA/PK/PE/PR/PX/PT/PS/PU")
+
+    expected_ice_models = {"AF", "KA", "AG", "LG"}
+    precomputed_ice_schema = precomputed_schema.get("properties", {}).get("ice_by_model", {})
+    if set(precomputed_ice_schema.get("required", [])) != expected_ice_models:
+        fail("precomputed ice_by_model must require AF/KA/AG/LG when declared")
+    if precomputed_ice_schema.get("additionalProperties") is not False:
+        fail("precomputed ice_by_model must reject unknown models")
+
+    counter_ice_def = counterevidence_output_schema.get("$defs", {}).get("iceByModel", {})
+    if set(counter_ice_def.get("required", [])) != expected_ice_models:
+        fail("counterevidence ICE must require AF/KA/AG/LG when PRECOMPUTED")
+    if counter_ice_def.get("additionalProperties") is not False:
+        fail("counterevidence ICE must reject unknown models")
+
+    result_model_schema = result_schema.get("$defs", {}).get("modelResult", {})
+    if "ice_state" not in set(result_model_schema.get("required", [])):
+        fail("precomputed result must expose ice_state")
+    if set(result_model_schema.get("properties", {}).get("ice_state", {}).get("enum", [])) != {
+        "EVALUABLE",
+        "NOT_EVALUABLE",
+    }:
+        fail("precomputed result ice_state contract changed")
+
+    forbidden_ice_default = re.compile(r"\.get\(\s*model\s*,\s*0(?:\.0)?\s*\)")
+    for rel in (
+        "src/almas_tfa/analysis.py",
+        "src/almas_tfa/handlers.py",
+        "src/almas_tfa/counterevidence_handlers.py",
+        "src/almas_tfa/canonical_assembly.py",
+    ):
+        source = (ROOT / rel).read_text(encoding="utf-8")
+        if forbidden_ice_default.search(source):
+            fail(f"ICE missingness must not default model values to zero: {rel}")
 
     if set(example_input.get("pillars", {})) != {"PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU"}:
         fail("example precomputed input does not cover all public pillars")

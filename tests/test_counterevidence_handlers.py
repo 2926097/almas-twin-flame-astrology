@@ -70,6 +70,40 @@ class TestCounterevidence(unittest.TestCase):
         self.assertEqual(output["ice_by_model"]["LG"], 20.0)
         self.assertFalse(output["missing_data_penalized"])
 
+    def test_partial_precomputed_ice_is_rejected(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(
+                context({"ice_by_model": {"AF": 0, "KA": 5, "AG": 10}})
+            )
+
+    def test_empty_precomputed_ice_map_is_rejected(self):
+        with self.assertRaises(ValueError):
+            m20_counterevidence(context({"ice_by_model": {}}))
+
+    def test_precomputed_ice_accepts_closed_interval_boundaries(self):
+        result = m20_counterevidence(
+            context({"ice_by_model": {"AF": 0, "KA": 100, "AG": 0, "LG": 100}})
+        )
+        ice = result.canonical_updates["counterevidence"]["ice_by_model"]
+        self.assertEqual(ice, {"AF": 0.0, "KA": 100.0, "AG": 0.0, "LG": 100.0})
+
+    def test_non_numeric_and_boolean_ice_are_rejected(self):
+        for invalid in ("0", True):
+            with self.subTest(invalid=invalid):
+                with self.assertRaises(ValueError):
+                    m20_counterevidence(
+                        context(
+                            {
+                                "ice_by_model": {
+                                    "AF": invalid,
+                                    "KA": 0,
+                                    "AG": 0,
+                                    "LG": 0,
+                                }
+                            }
+                        )
+                    )
+
 
 if __name__ == "__main__":
     unittest.main()

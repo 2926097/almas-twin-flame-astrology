@@ -1,6 +1,6 @@
 import unittest
 
-from almas_tfa.handlers import default_handlers
+from almas_tfa.handlers import default_handlers, m19_structural_model_indices
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
 from almas_tfa.orchestrator import Orchestrator
 
@@ -140,6 +140,55 @@ class TestDeterministicHandlers(unittest.TestCase):
         self.assertEqual(result.status, ExecutionStatus.COMPLETED)
         self.assertAlmostEqual(result.canonical_updates["pillars"]["PA"], 100.0)
         self.assertIsNone(result.canonical_updates["pillars"]["PE"])
+
+
+    def test_m19_missing_ice_is_fail_closed(self):
+        result = m19_structural_model_indices(
+            ModuleContext(
+                module_id="M19",
+                module_name="structural_model_indices",
+                mode="FULL",
+                raw_input={
+                    "pillars": {
+                        "PA": 90,
+                        "PK": 90,
+                        "PE": 90,
+                        "PR": 90,
+                        "PX": 90,
+                        "PT": 90,
+                        "PS": 90,
+                        "PU": 90,
+                    },
+                    "icc": 100,
+                    "irc": 100,
+                    "r_min": 1.0,
+                },
+                canonical_snapshot={},
+                prior_results={},
+            )
+        )
+        for model in ("AF", "KA", "AG", "LG"):
+            model_result = result.payload[model]
+            self.assertEqual(model_result["ice_state"], "NOT_EVALUABLE")
+            self.assertIsNone(model_result["ice"])
+            self.assertIsNone(model_result["iem_final"])
+            self.assertIsNone(model_result["supported_gate"])
+
+    def test_m19_rejects_partial_ice_map(self):
+        with self.assertRaises(ValueError):
+            m19_structural_model_indices(
+                ModuleContext(
+                    module_id="M19",
+                    module_name="structural_model_indices",
+                    mode="FULL",
+                    raw_input={
+                        "pillars": {"PA": 90, "PR": 90},
+                        "ice_by_model": {"AF": 0, "KA": 0, "AG": 0},
+                    },
+                    canonical_snapshot={},
+                    prior_results={},
+                )
+            )
 
 
 if __name__ == "__main__":
