@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "almas_public_version": "1.21.0",
+  "almas_public_version": "1.22.0",
   "purpose": "Registrar el grado de implementación ejecutable de cada etapa M00-M31 sin confundir especificación normativa con código disponible.",
   "status_legend": {
     "ORCHESTRATOR_NATIVE": "Resuelto por infraestructura del orquestador.",
@@ -108,12 +108,12 @@
     {
       "id": "M19",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/core.py:score_model"
+      "implementation": "src/almas_tfa/handlers.py:m19_structural_model_indices + src/almas_tfa/quantitative_v122.py:score_model_dependency_aware"
     },
     {
       "id": "M20",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/counterevidence_handlers.py:m20_counterevidence"
+      "implementation": "src/almas_tfa/counterevidence_handlers.py:m20_counterevidence + src/almas_tfa/quantitative_v122.py:derive_autonomous_ice"
     },
     {
       "id": "M21",
@@ -138,7 +138,7 @@
     {
       "id": "M25",
       "status": "EXECUTABLE_HANDLER",
-      "implementation": "src/almas_tfa/robustness_index_handlers.py:make_m25_robustness + src/almas_tfa/robustness_quantification.py"
+      "implementation": "src/almas_tfa/robustness_index_handlers.py:make_m25_robustness + src/almas_tfa/quantitative_v122.py:grouped_robustness_index"
     },
     {
       "id": "M26",
