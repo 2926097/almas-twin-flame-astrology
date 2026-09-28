@@ -1,7 +1,7 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.21.0  
-**Estado:** pipeline M00–M31 + reporting relacional/personal B5 + recurrencia semántica PX/PS v2 + calibración S1–S9 + backend astronómico reproducible
+**Versión pública:** 1.22.0  
+**Estado:** pipeline M00–M31 + scoring dependency-aware + ICE autónomo + IRC por familias + reporting relacional/personal B5 + calibración S1–S9 + backend astronómico reproducible
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
 
@@ -80,6 +80,8 @@ Desde 1.19.0, el cierre M31 alimenta `authored_report`: una capa de autoría cen
 Desde 1.20.0, la autoría adopta una síntesis **root-first**: parte de raíces y motivos semánticos ya calculados, integra sustrato natal, casas, ángulos/nodos, campo compuesto/Davison, dracónicas, lotes y puntos secundarios cuando aportan contexto, y desarrolla la temporalidad mediante activaciones concretas trazables. `TTRANSIT` puede generarse automáticamente contra endpoints de raíces existentes; el tránsito activa arquitectura previa y no predice por sí mismo acontecimientos ni decisiones de otra persona.
 
 Desde 1.21.0, ALMAS incorpora un **perfil de informes astrológicos personales** dentro de la misma skill: `personal_report_request → backend astronómico de producción → personal_canonical_analysis → personal_report_document_model → personal_authored_report → DOCX/PDF B5`. Conserva minimización de datos, cinco perfiles de informe, degradación explícita por calidad horaria, contraevidencia A/B/C/D/E y un router de fuentes que expone `SUPPORTED`, `PARTIAL` y `SOURCE_GAP` sin inventar bibliografía. No modifica scoring relacional, discriminadores ni ontología.
+
+Desde 1.22.0, el núcleo cuantitativo corrige la reutilización de raíces en PX/PS mediante procedencia explícita, preserva Shapley firmado para IDD, agrupa IRC por familias de dependencia y permite a M20 derivar ICE autónomo únicamente cuando la evaluación de contraevidencia se declara completa. La referencia 1.21.0 permanece congelada en `core.py` para regresión.
 
 ## Repositorio
 
