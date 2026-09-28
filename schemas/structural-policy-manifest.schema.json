@@ -61,19 +61,16 @@
       "type": "object",
       "required": [
         "no_new_analytical_module",
-        "no_score_change",
         "no_implicit_orbs",
         "no_runtime_case_fitting",
         "support_only_cannot_create_core",
         "dependency_deduplication_precedes_root_construction",
-        "birth_time_robustness_remains_m23_m25"
+        "birth_time_robustness_remains_m23_m25",
+        "score_change_is_versioned"
       ],
       "additionalProperties": false,
       "properties": {
         "no_new_analytical_module": {
-          "const": true
-        },
-        "no_score_change": {
           "const": true
         },
         "no_implicit_orbs": {
@@ -89,6 +86,9 @@
           "const": true
         },
         "birth_time_robustness_remains_m23_m25": {
+          "const": true
+        },
+        "score_change_is_versioned": {
           "const": true
         }
       }
