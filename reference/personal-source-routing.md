@@ -46,4 +46,6 @@ El manifiesto vive en `src/almas_tfa/data/personal-report-reference-router.json`
 - presencia de una fuente no incrementa scores;
 - doctrina y técnica no se fusionan;
 - el enriquecimiento no muta el canonical de entrada;
+- si una fuente ya existe en `source_trace`, sus `route_domains` se fusionan sin sobrescribir metadata previa;
+- trazas malformadas o `source_id` duplicados fallan de forma explícita, no se descartan silenciosamente;
 - las referencias internas de publicación no se presentan como fuentes doctrinales.
