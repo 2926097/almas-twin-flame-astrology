@@ -7,6 +7,8 @@
 **Versión pública:** `1.10.1`  
 **Objeto de esta fase:** inventariar la arquitectura real, distinguir especificación de implementación, detectar redundancias y fijar la secuencia de modularización sin alterar fórmulas, pesos, umbrales, ontología ni discriminadores.
 
+> **Nota de vigencia — 28 de septiembre de 2026 / ALMAS 1.21.0.** Este documento conserva deliberadamente la fotografía histórica de 1.10.1 y sus actualizaciones intermedias. Dos afirmaciones de la actualización 1.11.0 ya no describen el estado vigente: el cierre funcional de 1.21.0 registra **574 tests** en Python 3.12 (10 omitidos por extras opcionales), y desde 1.18.0 existe un backend astronómico de producción por capacidades, `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1 / ALMAS_MOIRA_JPL_SPK_V1`. Para el estado operativo actual prevalecen `VALIDATION_STATUS.md` y la auditoría de release 1.21.0.
+
 ## 1. Conclusión ejecutiva
 
 El repositorio ya dispone de una arquitectura modular formal y coherente a nivel normativo. La decisión vigente es **una única skill pública con módulos internos especializados**, no un conjunto de skills públicas versionadas de manera independiente.
@@ -253,9 +255,9 @@ Estado posterior a la implementación:
 - temporalidad anclada y eventos documentales: **EJECUTABLES**;
 - doctrina/hermenéutica, viabilidad/reciprocidad y gate/modelo de reporting: **EJECUTABLES**;
 - prueba sintética FULL M00–M31: **SUCCESS**;
-- suite Python: **75 tests deterministas, SUCCESS**;
+- suite Python en aquella fotografía 1.11.0: **75 tests deterministas, SUCCESS**; el cierre 1.21.0 la amplía a **574 tests** en Python 3.12, con 10 omitidos por extras opcionales;
 - contrato público CI: **SUCCESS**.
 
-Persisten deliberadamente límites metodológicos: no existe todavía backend astronómico de producción seleccionado; la fuerza final de raíces no se calcula sin una política preregistrada para fiabilidad/factor horario/coeficiente/cargas; M20 no inventa una fórmula de agregación ICE; M26 no inventa pesos de agregación IAT; y la validación externa holdout continúa pendiente. Estas ausencias se representan como `NOT_CALCULATED`, `NOT_EVALUABLE` o fronteras explícitas, nunca mediante valores simulados.
+En aquella fotografía 1.11.0 todavía no existía un backend astronómico de producción seleccionado. Esa limitación quedó superada desde 1.18.0 mediante `ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1 / ALMAS_MOIRA_JPL_SPK_V1`. Permanecen como límites metodológicos independientes la derivación de determinadas fuerzas cuando falta política preregistrada aplicable, la ausencia de una fórmula autónoma de agregación ICE en M20, la exigencia de política explícita para agregar IAT y la validación externa holdout aún pendiente. Estas ausencias se representan como `NOT_CALCULATED`, `NOT_EVALUABLE` o fronteras explícitas, nunca mediante valores simulados.
 
 El objetivo de la fase siguiente deja de ser “hacer ejecutable M00–M31” y pasa a ser **cerrar las políticas cuantitativas aún no preregistradas, seleccionar/validar backend astronómico de producción, normalizar el idioma vivo del repositorio y ejecutar validación externa congelada**.
