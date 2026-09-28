@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_FIXED_STAR_PARAN_POLICY_V1",
+  "status": "FROZEN_PREREGISTERED_EXECUTION_CONTRACT",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "concept_id": "FIXED_STAR_ASTROLOGY",
+  "structural_role": "SUPPORT_ONLY",
+  "provider": {
+    "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+    "package": "moira-astro",
+    "pinned_version": "6.8.2",
+    "reuse_existing_backend": true
+  },
+  "star_canon": {
+    "provider_surface": "PARAN_STAR_CANON",
+    "selection": "ALL_AVAILABLE_ENGINE_CANON",
+    "available_only": true,
+    "documented_memberships": [
+      "ROYAL",
+      "BEHENIAN",
+      "PTOLEMAIC"
+    ],
+    "runtime_canon_fingerprint_required": true,
+    "canon_order_not_semantic": true
+  },
+  "fixed_stars": {
+    "provider_surface": "Moira.fixed_star",
+    "require_explicit_star_name": true,
+    "retained_fields": [
+      "name",
+      "nomenclature",
+      "longitude",
+      "latitude",
+      "magnitude",
+      "source",
+      "is_topocentric",
+      "computation_truth"
+    ],
+    "catalog_enrichment_is_context_only": true
+  },
+  "parans": {
+    "provider_surface": "Moira.parans",
+    "policy_preset": "star_planet_only",
+    "orb_minutes": 4,
+    "orb_origin": "MOIRA_6_8_2_DOCUMENTED_DEFAULT_PREREGISTERED_EXPLICITLY",
+    "require_birth_time": true,
+    "require_numeric_coordinates": true,
+    "event_scope": "BIRTH_DAY",
+    "retained_fields": [
+      "body1",
+      "body2",
+      "circle1",
+      "circle2",
+      "jd1",
+      "jd2",
+      "orb_min",
+      "signature"
+    ]
+  },
+  "natal_angular_contacts": {
+    "provider_surface": "natal_angular_contacts",
+    "enabled": true,
+    "orb_minutes": 2,
+    "orb_origin": "MOIRA_6_8_2_DOCUMENTED_DEFAULT_PREREGISTERED_EXPLICITLY",
+    "semantic_boundary": "INDIVIDUAL_CROSSING_NEAR_BIRTH_MOMENT_NOT_TWO_BODY_PARAN"
+  },
+  "failure_policy": {
+    "untimed_birth": "NOT_EVALUABLE_PARANS_AND_ANGULAR_CONTACTS",
+    "missing_coordinates": "NOT_EVALUABLE_PARANS_AND_ANGULAR_CONTACTS",
+    "provider_surface_missing": "NOT_EVALUABLE",
+    "empty_or_unavailable_canon": "NOT_EVALUABLE",
+    "implicit_orb_fallback": "FORBIDDEN",
+    "hidden_geocoding": "FORBIDDEN",
+    "hidden_network_io": "FORBIDDEN"
+  },
+  "inferential_firewall": {
+    "creates_structural_root": false,
+    "changes_iem": false,
+    "changes_idd": false,
+    "changes_irc": false,
+    "changes_ontology": false,
+    "discriminating_power": "SUPPORT_ONLY",
+    "temporal_or_star_presence_does_not_prove_metaphysical_claim": true
+  }
+}
