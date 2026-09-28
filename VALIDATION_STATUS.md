@@ -1,8 +1,16 @@
 # Estado de validación
 
-**Versión pública:** 1.21.0
+**Versión pública:** 1.22.0
 
 ## Release pública
+
+### Cierre 1.22 · evolución matemática cuantitativa
+
+ALMAS 1.22 versiona explícitamente las tres correcciones matemáticas que no se introdujeron silenciosamente en 1.21: Shapley root-only con PX/PS como interacciones recalculadas, IRC agrupado por dependencia e ICE autónomo fail-closed con declaración de completitud.
+
+La validación final de esta release se ejecuta sobre PR #72. Hasta el cierre del gate, los resultados definitivos se registran en `docs/RELEASE_AUDIT_1.22.0.md`.
+
+No se ha ejecutado un holdout externo real; PX v3 y los discriminadores L3 continúan inactivos. La validación automatizada de 1.22 prueba coherencia interna y regresión contractual, no verdad científica ni probabilidad metafísica.
 
 El repositorio publica una especificación generalizada con fixtures sintéticos y un núcleo Python determinista. Los casos privados/no públicos permanecen excluidos.
 
