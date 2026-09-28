@@ -113,6 +113,29 @@ def _backend_provenance(
         raise PersonalRequestError(
             "El pipeline personal exige backend_provenance explícita."
         )
+
+    frozen = {
+        "policy_id": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1",
+        "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+        "backend_id": "MOIRA_JPL_SPK",
+        "backend_version": "6.8.2",
+        "provider_package": "moira-astro",
+        "provider_version": "6.8.2",
+        "node_mode": "TRUE_NODE",
+        "zodiac": "TROPICAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+        "apparent_reduction": True,
+        "topocentric_positions": False,
+        "network_io_used": False,
+        "geocoding_used": False,
+    }
+    for field, expected in frozen.items():
+        if selected.get(field) != expected:
+            raise PersonalRequestError(
+                f"backend_provenance incompatible: {field}"
+            )
+
     return deepcopy(dict(selected))
 
 
