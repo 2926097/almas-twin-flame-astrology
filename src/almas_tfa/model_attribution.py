@@ -7,7 +7,8 @@ from importlib import resources
 import random
 from typing import Any, Mapping, Sequence
 
-from .core import MODEL_PILLARS, pillar_score, score_model
+from .core import pillar_score
+from .quantitative_v122 import score_model_dependency_aware
 
 
 POLICY_RESOURCE = "model-attribution-policy.json"
@@ -23,7 +24,7 @@ def load_model_attribution_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         raise ValueError("Política de atribución de modelos desconocida.")
     return policy
 
@@ -73,11 +74,30 @@ def _eligible_units(
                 clean[pillar] = value
 
         if clean:
+            unit_type = str(item.get("unit_type") or "ROOT")
+            if unit_type == "SEMANTIC_MOTIF":
+                raw_sources = item.get("source_root_ids")
+                if not isinstance(raw_sources, list) or not raw_sources:
+                    raise ValueError(
+                        f"{unit_id}: motivo derivado sin source_root_ids."
+                    )
+                source_root_ids = sorted(
+                    {str(value) for value in raw_sources if str(value)}
+                )
+                if not source_root_ids:
+                    raise ValueError(
+                        f"{unit_id}: motivo derivado sin procedencia raíz válida."
+                    )
+            else:
+                root_id = str(item.get("root_id") or unit_id)
+                source_root_ids = [root_id]
+
             units.append(
                 {
                     "unit_id": unit_id,
-                    "unit_type": str(item.get("unit_type") or "ROOT"),
+                    "unit_type": unit_type,
                     "contributions": clean,
+                    "source_root_ids": source_root_ids,
                 }
             )
 
@@ -112,16 +132,35 @@ def _coalition_pillars(
 def _value(
     model: str,
     roots_by_id: Mapping[str, Mapping[str, float]],
+    source_roots_by_id: Mapping[str, Sequence[str]],
     selected: set[str],
 ) -> float:
     pillars = _coalition_pillars(roots_by_id, selected)
-    return score_model(model, pillars, ice=0.0).iem_pre
+    pillar_sources: dict[str, set[str]] = {
+        pillar: set() for pillar in PILLARS
+    }
+    for unit_id in selected:
+        for pillar, value in roots_by_id[unit_id].items():
+            if pillar == "PU" or float(value) <= 0.0:
+                continue
+            pillar_sources[pillar].update(source_roots_by_id[unit_id])
+
+    return score_model_dependency_aware(
+        model,
+        pillars,
+        {
+            pillar: sorted(values)
+            for pillar, values in pillar_sources.items()
+        },
+        ice=0.0,
+    ).iem_pre
 
 
 def _exact_shapley(
     model: str,
     root_ids: Sequence[str],
     roots_by_id: Mapping[str, Mapping[str, float]],
+    source_roots_by_id: Mapping[str, Sequence[str]],
 ) -> dict[str, float]:
     n = len(root_ids)
     output = {root_id: 0.0 for root_id in root_ids}
@@ -134,8 +173,8 @@ def _exact_shapley(
             weight = 1.0 / n / comb(n - 1, size)
             for subset in combinations(others, size):
                 base = set(subset)
-                before = _value(model, roots_by_id, base)
-                after = _value(model, roots_by_id, base | {root_id})
+                before = _value(model, roots_by_id, source_roots_by_id, base)
+                after = _value(model, roots_by_id, source_roots_by_id, base | {root_id})
                 marginal = after - before
                 if marginal < -1e-9:
                     raise ValueError(
@@ -167,6 +206,7 @@ def _permutation_batch(
 def _approximate_all_models(
     root_ids: Sequence[str],
     roots_by_id: Mapping[str, Mapping[str, float]],
+    source_roots_by_id: Mapping[str, Sequence[str]],
     policy: Mapping[str, Any],
 ) -> tuple[dict[str, dict[str, float]], dict[str, Any]]:
     spec = policy["approximation_method"]
@@ -203,10 +243,10 @@ def _approximate_all_models(
         for permutation in permutations:
             for model in MODELS:
                 selected: set[str] = set()
-                before = _value(model, roots_by_id, selected)
+                before = _value(model, roots_by_id, source_roots_by_id, selected)
                 for root_id in permutation:
                     selected.add(root_id)
-                    after = _value(model, roots_by_id, selected)
+                    after = _value(model, roots_by_id, source_roots_by_id, selected)
                     marginal = after - before
                     if marginal < -1e-9:
                         raise ValueError(
@@ -307,11 +347,20 @@ def derive_model_attributions(
         item["unit_id"]: dict(item["contributions"])
         for item in roots
     }
+    source_roots_by_id = {
+        item["unit_id"]: list(item["source_root_ids"])
+        for item in roots
+    }
 
     exact_max = int(policy["exact_method"].get("max_units", policy["exact_method"].get("max_roots", 10)))
     if len(root_ids) <= exact_max:
         attributions = {
-            model: _exact_shapley(model, root_ids, roots_by_id)
+            model: _exact_shapley(
+                model,
+                root_ids,
+                roots_by_id,
+                source_roots_by_id,
+            )
             for model in MODELS
         }
         method = {
@@ -324,6 +373,7 @@ def derive_model_attributions(
         attributions, method = _approximate_all_models(
             root_ids,
             roots_by_id,
+            source_roots_by_id,
             policy,
         )
         method["unit_count"] = len(root_ids)
@@ -333,7 +383,12 @@ def derive_model_attributions(
         for model, values in attributions.items()
     }
     grand_values = {
-        model: _value(model, roots_by_id, set(root_ids))
+        model: _value(
+            model,
+            roots_by_id,
+            source_roots_by_id,
+            set(root_ids),
+        )
         for model in MODELS
     }
 
