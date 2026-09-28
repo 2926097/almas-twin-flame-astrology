@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/personal-report-reference-router.schema.json",
+  "title": "ALMAS · Router de referencias para informes personales",
+  "type": "object",
+  "required": [
+    "router_version",
+    "router_id",
+    "source_registry_contract",
+    "principles",
+    "domains"
+  ],
+  "properties": {
+    "router_version": {"const": "1.0.0"},
+    "router_id": {"const": "ALMAS_PERSONAL_REFERENCE_ROUTER_V1"},
+    "source_registry_contract": {"const": "reference/source-registry.json"},
+    "principles": {
+      "type": "object",
+      "required": [
+        "source_presence_is_not_weight",
+        "source_gap_must_remain_explicit",
+        "doctrine_and_method_must_remain_distinguishable"
+      ],
+      "properties": {
+        "source_presence_is_not_weight": {"const": true},
+        "source_gap_must_remain_explicit": {"const": true},
+        "doctrine_and_method_must_remain_distinguishable": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "domains": {
+      "type": "object",
+      "required": [
+        "foundations",
+        "traditional",
+        "modern_psychological",
+        "evolutionary",
+        "karmic",
+        "draconic",
+        "esoteric",
+        "kabbalah",
+        "lots",
+        "symmetry",
+        "fixed_stars",
+        "asteroids",
+        "timing",
+        "publication"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "foundations": {"$ref": "#/$defs/domain"},
+        "traditional": {"$ref": "#/$defs/domain"},
+        "modern_psychological": {"$ref": "#/$defs/domain"},
+        "evolutionary": {"$ref": "#/$defs/domain"},
+        "karmic": {"$ref": "#/$defs/domain"},
+        "draconic": {"$ref": "#/$defs/domain"},
+        "esoteric": {"$ref": "#/$defs/domain"},
+        "kabbalah": {"$ref": "#/$defs/domain"},
+        "lots": {"$ref": "#/$defs/domain"},
+        "symmetry": {"$ref": "#/$defs/domain"},
+        "fixed_stars": {"$ref": "#/$defs/domain"},
+        "asteroids": {"$ref": "#/$defs/domain"},
+        "timing": {"$ref": "#/$defs/domain"},
+        "publication": {"$ref": "#/$defs/domain"}
+      }
+    }
+  },
+  "$defs": {
+    "domain": {
+      "type": "object",
+      "required": [
+        "status",
+        "epistemic_scope",
+        "source_ids",
+        "internal_refs",
+        "gap_reason"
+      ],
+      "properties": {
+        "status": {"enum": ["SUPPORTED", "PARTIAL", "SOURCE_GAP"]},
+        "epistemic_scope": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "A_CALCULATED",
+              "B_TECHNIQUE",
+              "C_DOCTRINE",
+              "D_CONTEMPORARY_USAGE",
+              "E_PROJECT_HYPOTHESIS"
+            ]
+          }
+        },
+        "source_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "internal_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "gap_reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
