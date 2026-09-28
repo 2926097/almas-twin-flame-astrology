@@ -109,6 +109,24 @@ class ModelAttributionV3Tests(unittest.TestCase):
             result["attributions"]["AG"],
         )
 
+    def test_signed_shapley_preserves_efficiency(self):
+        units = [
+            attributed("R1", "PA", 0.95),
+            attributed("R2", "PR", 0.90),
+            attributed(
+                "MOTIF:LOW",
+                "PX",
+                0.20,
+                unit_type="SEMANTIC_MOTIF",
+                source_root_ids=["R1"],
+            ),
+        ]
+        result = derive_model_attributions(pillar_attribution(units))
+        self.assertEqual(result["state"], "EVALUABLE")
+        self.assertTrue(result["signed_attributions"])
+        for model, error in result["shapley_efficiency_error"].items():
+            self.assertLess(error, 1e-8, model)
+
     def test_temporal_or_null_inputs_are_not_part_of_contract(self):
         policy = load_model_attribution_policy()
         self.assertTrue(
