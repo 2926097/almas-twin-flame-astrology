@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from contextlib import nullcontext
 from hashlib import sha256
+import json
 from pathlib import Path
 from types import SimpleNamespace
 from tempfile import TemporaryDirectory
@@ -43,7 +44,7 @@ class FakeStarParanFacade:
         return SimpleNamespace(
             name=name,
             nomenclature=f"{name}-NOM",
-            longitude=123.0 if name == "Regulus" else 45.0,
+            longitude=123.0 if name == "Synthetic Star A" else 45.0,
             latitude=0.5,
             magnitude=1.2,
             source="SYNTHETIC",
@@ -61,10 +62,12 @@ class FakeParanApi:
         *,
         reverse_canon=False,
         invalid_family=False,
+        invalid_body=False,
+        invalid_orb=False,
     ):
         entries = [
             SimpleNamespace(
-                name="Regulus",
+                name="Synthetic Star A",
                 tiers=(
                     SimpleNamespace(value="working_canon"),
                     SimpleNamespace(value="royal"),
@@ -73,7 +76,7 @@ class FakeParanApi:
                 default_enabled=True,
             ),
             SimpleNamespace(
-                name="Spica",
+                name="Synthetic Star B",
                 tiers=(
                     SimpleNamespace(value="working_canon"),
                     SimpleNamespace(value="behenian"),
@@ -84,6 +87,8 @@ class FakeParanApi:
         ]
         self.entries = list(reversed(entries)) if reverse_canon else entries
         self.invalid_family = invalid_family
+        self.invalid_body = invalid_body
+        self.invalid_orb = invalid_orb
         self.preset_requested = None
         self.find_call = None
         self.contact_call = None
@@ -126,12 +131,12 @@ class FakeParanApi:
         return [
             SimpleNamespace(
                 body1="Sun",
-                body2="Regulus",
+                body2="Outside Canon" if self.invalid_body else "Synthetic Star A",
                 circle1="Culminating",
                 circle2="Rising",
                 jd1=2451544.7,
                 jd2=2451544.701,
-                orb_min=1.44,
+                orb_min=float("nan") if self.invalid_orb else 1.44,
                 signature=SimpleNamespace(
                     event_family="mc-rise",
                     axis_family="horizon-meridian",
@@ -162,7 +167,7 @@ class FakeParanApi:
         }
         return [
             SimpleNamespace(
-                body="Spica",
+                body="Synthetic Star B",
                 body_family="star",
                 circle="Rising",
                 crossing_jd=natal_jd + 1.0 / 1440.0,
@@ -212,6 +217,15 @@ class FixedStarParanBackendTests(unittest.TestCase):
         backend, api = self.backend()
         result = backend.calculate_fixed_star_parans(request())
 
+        schema = json.loads(
+            (
+                Path(__file__).resolve().parents[1]
+                / "schemas/fixed-star-paran-result.schema.json"
+            ).read_text(encoding="utf-8")
+        )
+        from jsonschema import Draft202012Validator
+        Draft202012Validator(schema).validate(result)
+
         self.assertEqual(result["structural_role"], "SUPPORT_ONLY")
         self.assertEqual(
             result["policy_id"],
@@ -225,10 +239,10 @@ class FixedStarParanBackendTests(unittest.TestCase):
             {"tiers": None, "available_only": True},
         )
         self.assertIn("Sun", api.find_call["bodies"])
-        self.assertIn("Regulus", api.find_call["bodies"])
+        self.assertIn("Synthetic Star A", api.find_call["bodies"])
         self.assertEqual(
             api.contact_call["bodies"],
-            ["Regulus", "Spica"],
+            ["Synthetic Star A", "Synthetic Star B"],
         )
         self.assertEqual(len(result["fixed_stars"]), 2)
         self.assertEqual(len(result["parans"]), 1)
@@ -239,28 +253,31 @@ class FixedStarParanBackendTests(unittest.TestCase):
         )
         self.assertFalse(result["metadata"]["network_io_used"])
         self.assertFalse(result["metadata"]["geocoding_used"])
+        self.assertEqual(result["metadata"]["paran_day_basis"], "UT_CALENDAR_DAY")
+        self.assertEqual(len(result["policy_fingerprint_sha256"]), 64)
+        self.assertTrue(backend.capabilities["fixed_star_parans"])
 
     def test_canon_fingerprint_is_order_independent(self):
         first = [
             {
-                "name": "Regulus",
+                "name": "Synthetic Star A",
                 "tiers": ["royal", "working_canon"],
                 "default_enabled": True,
             },
             {
-                "name": "Spica",
+                "name": "Synthetic Star B",
                 "tiers": ["behenian", "working_canon"],
                 "default_enabled": True,
             },
         ]
         second = [
             {
-                "name": "Spica",
+                "name": "Synthetic Star B",
                 "tiers": ["working_canon", "behenian"],
                 "default_enabled": True,
             },
             {
-                "name": "Regulus",
+                "name": "Synthetic Star A",
                 "tiers": ["working_canon", "royal"],
                 "default_enabled": True,
             },
@@ -278,6 +295,16 @@ class FixedStarParanBackendTests(unittest.TestCase):
         ):
             backend.calculate_fixed_star_parans(request())
 
+    def test_out_of_canon_body_and_nonfinite_orb_fail_closed(self):
+        for api in (
+            FakeParanApi(invalid_body=True),
+            FakeParanApi(invalid_orb=True),
+        ):
+            backend, _ = self.backend(api)
+            with self.subTest(api=api):
+                with self.assertRaises(AstronomyBackendNotEvaluableError):
+                    backend.calculate_fixed_star_parans(request())
+
     def test_missing_time_or_coordinates_fail_closed(self):
         backend, _ = self.backend()
         with self.assertRaises(AstronomyBackendNotEvaluableError):
@@ -290,6 +317,10 @@ class FixedStarParanBackendTests(unittest.TestCase):
         ):
             backend.calculate_fixed_star_parans(
                 request(latitude=None, longitude=None)
+            )
+        with self.assertRaises(AstronomyBackendNotEvaluableError):
+            backend.calculate_fixed_star_parans(
+                request(latitude=float("nan"), longitude=-0.88)
             )
 
     def test_missing_provider_surface_fails_closed(self):
@@ -309,6 +340,7 @@ class FixedStarParanBackendTests(unittest.TestCase):
             "Superficie Moira",
         ):
             backend.calculate_fixed_star_parans(request())
+        self.assertFalse(backend.capabilities["fixed_star_parans"])
 
 
 if __name__ == "__main__":

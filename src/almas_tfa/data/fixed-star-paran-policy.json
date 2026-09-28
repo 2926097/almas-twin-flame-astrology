@@ -5,6 +5,10 @@
   "epistemic_class": "E_PROJECT_POLICY",
   "concept_id": "FIXED_STAR_ASTROLOGY",
   "structural_role": "SUPPORT_ONLY",
+  "method_source_ids": [
+    "brady_book_fixed_stars_1998",
+    "ptolemy_tetrabiblos_1_9_fixed_stars"
+  ],
   "provider": {
     "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
     "package": "moira-astro",
@@ -39,13 +43,14 @@
     "catalog_enrichment_is_context_only": true
   },
   "parans": {
-    "provider_surface": "Moira.parans",
+    "provider_surface": "moira.facade.find_parans",
     "policy_preset": "star_planet_only",
     "orb_minutes": 4,
     "orb_origin": "MOIRA_6_8_2_DOCUMENTED_DEFAULT_PREREGISTERED_EXPLICITLY",
     "require_birth_time": true,
     "require_numeric_coordinates": true,
     "event_scope": "BIRTH_DAY",
+    "day_basis": "UT_CALENDAR_DAY",
     "retained_fields": [
       "body1",
       "body2",
@@ -64,6 +69,12 @@
     "orb_origin": "MOIRA_6_8_2_DOCUMENTED_DEFAULT_PREREGISTERED_EXPLICITLY",
     "semantic_boundary": "INDIVIDUAL_CROSSING_NEAR_BIRTH_MOMENT_NOT_TWO_BODY_PARAN"
   },
+  "result_contract": {
+    "schema_path": "schemas/fixed-star-paran-result.schema.json",
+    "schema_version": "1.0.0",
+    "policy_fingerprint_algorithm": "SHA256_CANONICAL_JSON",
+    "partial_success": "FORBIDDEN"
+  },
   "failure_policy": {
     "untimed_birth": "NOT_EVALUABLE_PARANS_AND_ANGULAR_CONTACTS",
     "missing_coordinates": "NOT_EVALUABLE_PARANS_AND_ANGULAR_CONTACTS",
@@ -74,10 +85,15 @@
     "hidden_network_io": "FORBIDDEN"
   },
   "inferential_firewall": {
+    "changes_scoring": false,
     "creates_structural_root": false,
+    "creates_discriminator": false,
     "changes_iem": false,
     "changes_idd": false,
     "changes_irc": false,
+    "changes_iat": false,
+    "changes_icc": false,
+    "changes_ice": false,
     "changes_ontology": false,
     "discriminating_power": "SUPPORT_ONLY",
     "temporal_or_star_presence_does_not_prove_metaphysical_claim": true

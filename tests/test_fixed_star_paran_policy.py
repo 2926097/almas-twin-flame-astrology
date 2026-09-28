@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import unittest
+from jsonschema import Draft202012Validator
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,16 @@ class FixedStarParanPolicyTests(unittest.TestCase):
                 ROOT
                 / "src/almas_tfa/data/fixed-star-paran-policy.json"
             ).read_text(encoding="utf-8")
+        )
+        self.policy_schema = json.loads(
+            (ROOT / "schemas/fixed-star-paran-policy.schema.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.result_schema = json.loads(
+            (ROOT / "schemas/fixed-star-paran-result.schema.json").read_text(
+                encoding="utf-8"
+            )
         )
 
     def test_provider_and_canon_are_frozen(self):
@@ -62,16 +73,77 @@ class FixedStarParanPolicyTests(unittest.TestCase):
     def test_inferential_firewall_is_support_only(self):
         firewall = self.policy["inferential_firewall"]
         for field in (
+            "changes_scoring",
             "creates_structural_root",
+            "creates_discriminator",
             "changes_iem",
             "changes_idd",
             "changes_irc",
+            "changes_iat",
+            "changes_icc",
+            "changes_ice",
             "changes_ontology",
         ):
             self.assertFalse(firewall[field])
         self.assertEqual(
             firewall["discriminating_power"],
             "SUPPORT_ONLY",
+        )
+
+    def test_frozen_policy_validates_against_closed_schema(self):
+        errors = list(
+            Draft202012Validator(self.policy_schema).iter_errors(self.policy)
+        )
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            self.policy["parans"]["day_basis"],
+            "UT_CALENDAR_DAY",
+        )
+        self.assertEqual(
+            self.policy["result_contract"]["partial_success"],
+            "FORBIDDEN",
+        )
+
+    def test_synthetic_result_fixture_validates_and_firewall_is_closed(self):
+        fixture = json.loads(
+            (
+                ROOT
+                / "tests/fixtures/fixed_star_paran/synthetic-result.json"
+            ).read_text(encoding="utf-8")
+        )
+        errors = list(
+            Draft202012Validator(self.result_schema).iter_errors(fixture)
+        )
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            fixture["structural_role"],
+            "SUPPORT_ONLY",
+        )
+        self.assertEqual(
+            fixture["canon"]["returned_count"],
+            len(fixture["canon"]["entries"]),
+        )
+
+        invalid = dict(fixture)
+        invalid["structural_role"] = "STRUCTURAL"
+        self.assertTrue(
+            list(Draft202012Validator(self.result_schema).iter_errors(invalid))
+        )
+
+    def test_manifest_keeps_router_gap_and_names_registered_sources(self):
+        manifest = json.loads(
+            (ROOT / "reference/fixed-star-paran-manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(manifest["router_domain_status"], "SOURCE_GAP")
+        self.assertEqual(manifest["structural_role"], "SUPPORT_ONLY")
+        self.assertEqual(
+            set(manifest["source_ids"]),
+            {
+                "brady_book_fixed_stars_1998",
+                "ptolemy_tetrabiblos_1_9_fixed_stars",
+            },
         )
 
 

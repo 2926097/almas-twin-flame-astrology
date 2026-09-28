@@ -7,7 +7,7 @@ from enum import Enum
 from hashlib import sha256
 from importlib import metadata, resources
 import json
-from math import asin, atan2, cos, degrees, floor, radians, sin, sqrt
+from math import asin, atan2, cos, degrees, floor, isfinite, radians, sin, sqrt
 from pathlib import Path
 from typing import Any, Mapping
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -61,7 +61,15 @@ def _provider_jsonable(value: Any) -> Any:
             str(key): _provider_jsonable(item)
             for key, item in value.items()
         }
-    if isinstance(value, (list, tuple, set, frozenset)):
+    if isinstance(value, (set, frozenset)):
+        converted = [_provider_jsonable(item) for item in value]
+        return sorted(
+            converted,
+            key=lambda item: json.dumps(
+                item, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+            ),
+        )
+    if isinstance(value, (list, tuple)):
         return [_provider_jsonable(item) for item in value]
     if is_dataclass(value):
         return {
@@ -89,17 +97,31 @@ def _canon_entry_payload(entry: Any) -> dict[str, Any]:
         raise AstronomyBackendNotEvaluableError(
             f"Canon de estrellas: {name} sin memberships."
         )
+    if not isinstance(default_enabled, bool):
+        raise AstronomyBackendNotEvaluableError(
+            f"Canon de estrellas: {name} tiene default_enabled inválido."
+        )
+    normalized_tiers = sorted(
+        str(_value(tier, "value", tier)).strip().lower()
+        for tier in tiers
+    )
+    if any(not tier for tier in normalized_tiers):
+        raise AstronomyBackendNotEvaluableError(
+            f"Canon de estrellas: {name} tiene membership vacío."
+        )
     return {
         "name": name.strip(),
-        "tiers": sorted(
-            str(_value(tier, "value", tier))
-            for tier in tiers
-        ),
-        "default_enabled": bool(default_enabled),
+        "tiers": normalized_tiers,
+        "default_enabled": default_enabled,
     }
 
 
 def _canon_fingerprint(entries: list[dict[str, Any]]) -> str:
+    names = [item["name"].strip().casefold() for item in entries]
+    if len(names) != len(set(names)):
+        raise AstronomyBackendNotEvaluableError(
+            "Canon de estrellas: nombres duplicados tras normalización."
+        )
     normalized = sorted(
         (
             {
@@ -113,6 +135,16 @@ def _canon_fingerprint(entries: list[dict[str, Any]]) -> str:
     )
     encoded = json.dumps(
         normalized,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return sha256(encoded).hexdigest()
+
+
+def _canonical_json_fingerprint(payload: Mapping[str, Any]) -> str:
+    encoded = json.dumps(
+        payload,
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
@@ -379,7 +411,19 @@ class MoiraProductionBackend:
 
     @property
     def capabilities(self) -> Mapping[str, bool]:
-        return dict(self.policy["capabilities"])
+        capabilities = dict(self.policy["capabilities"])
+        required = {
+            "find_parans",
+            "jd_from_datetime",
+            "list_paran_stars",
+            "natal_angular_contacts",
+            "paran_policy_preset",
+            "utc_to_ut1",
+        }
+        capabilities["fixed_star_parans"] = all(
+            callable(self._paran_api.get(name)) for name in required
+        )
+        return capabilities
 
     def _chart_and_houses(
         self,
@@ -713,13 +757,24 @@ class MoiraProductionBackend:
     ) -> Mapping[str, Any]:
         """Capa secundaria support_only de estrellas fijas y parans."""
 
-        if request.latitude is None or request.longitude is None:
+        if (
+            isinstance(request.latitude, bool)
+            or not isinstance(request.latitude, (int, float))
+            or isinstance(request.longitude, bool)
+            or not isinstance(request.longitude, (int, float))
+            or not isfinite(float(request.latitude))
+            or not isfinite(float(request.longitude))
+            or not -90.0 <= float(request.latitude) <= 90.0
+            or not -180.0 <= float(request.longitude) <= 180.0
+        ):
             raise AstronomyBackendNotEvaluableError(
                 f"{request.subject_id}: estrellas/parans requieren "
-                "coordenadas numéricas."
+                "coordenadas numéricas válidas (latitud −90..90, "
+                "longitud −180..180)."
             )
         instant = _strict_utc(request)
         layer_policy = load_fixed_star_paran_policy()
+        policy_fingerprint = _canonical_json_fingerprint(layer_policy)
         api = self._require_paran_api()
 
         try:
@@ -766,23 +821,52 @@ class MoiraProductionBackend:
                 raise AstronomyBackendNotEvaluableError(
                     f"Estrella fija {name}: posición/magnitud inválida."
                 )
+            if not all(
+                isfinite(float(value))
+                for value in (longitude, latitude, magnitude)
+            ):
+                raise AstronomyBackendNotEvaluableError(
+                    f"Estrella fija {name}: posición/magnitud no finita."
+                )
+            if not -90.0 <= float(latitude) <= 90.0:
+                raise AstronomyBackendNotEvaluableError(
+                    f"Estrella fija {name}: latitud eclíptica fuera de rango."
+                )
+            returned_name = str(_value(star, "name", name)).strip()
+            if returned_name.casefold() != name.casefold():
+                raise AstronomyBackendNotEvaluableError(
+                    f"Estrella fija {name}: nombre devuelto no coincide."
+                )
+            source = _value(star, "source")
+            is_topocentric = _value(star, "is_topocentric")
+            computation_truth = _provider_jsonable(
+                _value(star, "computation_truth")
+            )
+            nomenclature = _provider_jsonable(
+                _value(star, "nomenclature")
+            )
+            if (
+                not isinstance(source, str)
+                or not source.strip()
+                or not isinstance(is_topocentric, bool)
+                or not isinstance(computation_truth, Mapping)
+                or not computation_truth
+                or nomenclature is None
+            ):
+                raise AstronomyBackendNotEvaluableError(
+                    f"Estrella fija {name}: provenance incompleta."
+                )
 
             fixed_stars.append(
                 {
-                    "name": str(_value(star, "name", name)),
-                    "nomenclature": _provider_jsonable(
-                        _value(star, "nomenclature")
-                    ),
+                    "name": returned_name,
+                    "nomenclature": nomenclature,
                     "longitude": float(longitude) % 360.0,
                     "latitude": float(latitude),
                     "magnitude": float(magnitude),
-                    "source": str(_value(star, "source", "")),
-                    "is_topocentric": bool(
-                        _value(star, "is_topocentric", False)
-                    ),
-                    "computation_truth": _provider_jsonable(
-                        _value(star, "computation_truth")
-                    ),
+                    "source": source.strip(),
+                    "is_topocentric": is_topocentric,
+                    "computation_truth": computation_truth,
                 }
             )
 
@@ -829,7 +913,18 @@ class MoiraProductionBackend:
                 "Moira no pudo calcular parans/contactos angulares."
             ) from exc
 
+        if not isinstance(raw_parans, (list, tuple)) or not isinstance(
+            raw_contacts, (list, tuple)
+        ):
+            raise AstronomyBackendNotEvaluableError(
+                "Moira devolvió colecciones de parans/contactos inválidas."
+            )
+
         parans: list[dict[str, Any]] = []
+        allowed_bodies = set(PARAN_PLANET_BODIES) | set(canon_names)
+        circles = {
+            "Rising", "Setting", "Culminating", "AntiCulminating"
+        }
         for item in raw_parans:
             signature = _value(item, "signature")
             body_family = str(
@@ -840,15 +935,43 @@ class MoiraProductionBackend:
                     "El preset star_planet_only devolvió un paran "
                     f"fuera de contrato: {body_family or 'UNKNOWN'}."
                 )
+            body1 = str(_value(item, "body1", ""))
+            body2 = str(_value(item, "body2", ""))
+            circle1 = str(_value(item, "circle1", ""))
+            circle2 = str(_value(item, "circle2", ""))
+            jd1 = _value(item, "jd1")
+            jd2 = _value(item, "jd2")
+            orb_min = _value(item, "orb_min")
+            if (
+                body1 not in allowed_bodies
+                or body2 not in allowed_bodies
+                or body1 == body2
+                or not ({body1, body2} & set(canon_names))
+                or not ({body1, body2} & set(PARAN_PLANET_BODIES))
+                or circle1 not in circles
+                or circle2 not in circles
+                or any(
+                    isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not isfinite(float(value))
+                    for value in (jd1, jd2, orb_min)
+                )
+                or float(orb_min) < 0.0
+                or float(orb_min)
+                > float(layer_policy["parans"]["orb_minutes"])
+            ):
+                raise AstronomyBackendNotEvaluableError(
+                    "Moira devolvió un paran con campos fuera del contrato."
+                )
             parans.append(
                 {
-                    "body1": str(_value(item, "body1", "")),
-                    "body2": str(_value(item, "body2", "")),
-                    "circle1": str(_value(item, "circle1", "")),
-                    "circle2": str(_value(item, "circle2", "")),
-                    "jd1": float(_value(item, "jd1")),
-                    "jd2": float(_value(item, "jd2")),
-                    "orb_min": float(_value(item, "orb_min")),
+                    "body1": body1,
+                    "body2": body2,
+                    "circle1": circle1,
+                    "circle2": circle2,
+                    "jd1": float(jd1),
+                    "jd2": float(jd2),
+                    "orb_min": float(orb_min),
                     "signature": _provider_jsonable(signature),
                 }
             )
@@ -856,33 +979,57 @@ class MoiraProductionBackend:
         contacts: list[dict[str, Any]] = []
         for item in raw_contacts:
             body = str(_value(item, "body", ""))
-            if body not in set(canon_names):
+            body_family = str(_value(item, "body_family", ""))
+            circle = str(_value(item, "circle", ""))
+            crossing_jd = _value(item, "crossing_jd")
+            contact_jd = _value(item, "natal_jd")
+            delta_minutes = _value(item, "delta_minutes")
+            absolute_delta = _value(item, "absolute_delta_minutes")
+            if (
+                body not in set(canon_names)
+                or body_family != "star"
+                or circle not in circles
+                or any(
+                    isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not isfinite(float(value))
+                    for value in (
+                        crossing_jd,
+                        contact_jd,
+                        delta_minutes,
+                        absolute_delta,
+                    )
+                )
+                or abs(
+                    abs(float(delta_minutes)) - float(absolute_delta)
+                ) > 1e-6
+                or float(absolute_delta)
+                > float(layer_policy["natal_angular_contacts"]["orb_minutes"])
+            ):
                 raise AstronomyBackendNotEvaluableError(
-                    "Contacto angular devolvió un cuerpo fuera del canon."
+                    "Moira devolvió un contacto angular fuera de contrato."
                 )
             contacts.append(
                 {
                     "body": body,
-                    "body_family": str(
-                        _value(item, "body_family", "")
-                    ),
-                    "circle": str(_value(item, "circle", "")),
-                    "crossing_jd": float(_value(item, "crossing_jd")),
-                    "natal_jd": float(_value(item, "natal_jd")),
-                    "delta_minutes": float(
-                        _value(item, "delta_minutes")
-                    ),
-                    "absolute_delta_minutes": float(
-                        _value(item, "absolute_delta_minutes")
-                    ),
+                    "body_family": body_family,
+                    "circle": circle,
+                    "crossing_jd": float(crossing_jd),
+                    "natal_jd": float(contact_jd),
+                    "delta_minutes": float(delta_minutes),
+                    "absolute_delta_minutes": float(absolute_delta),
                 }
             )
 
         return {
             "subject_id": request.subject_id,
             "layer_id": "FIXED_STARS_PARANS",
+            "schema_version": "1.0.0",
+            "status": "CALCULATED",
             "structural_role": "SUPPORT_ONLY",
             "policy_id": layer_policy["policy_id"],
+            "policy_fingerprint_sha256": policy_fingerprint,
+            "method_source_ids": list(layer_policy["method_source_ids"]),
             "backend_id": self.backend_id,
             "backend_version": self.backend_version,
             "backend_provenance": self.provenance,
@@ -915,6 +1062,7 @@ class MoiraProductionBackend:
                 ),
                 "network_io_used": False,
                 "geocoding_used": False,
+                "paran_day_basis": "UT_CALENDAR_DAY",
             },
         }
 

@@ -16,6 +16,7 @@ def main() -> int:
     from moira import HouseSystem, Moira
     from moira.facade import (
         PARAN_POLICY_PRESETS,
+        find_parans,
         list_paran_stars,
         natal_angular_contacts,
         natal_parans,
@@ -61,6 +62,13 @@ def main() -> int:
                 f"natal_parans no expone parámetro requerido: {name}"
             )
 
+    find_paran_params = inspect.signature(find_parans).parameters
+    for name in ("bodies", "jd_day", "lat", "lon", "orb_minutes", "policy"):
+        if name not in find_paran_params:
+            raise AssertionError(
+                f"find_parans no expone parámetro requerido: {name}"
+            )
+
     angular_params = inspect.signature(natal_angular_contacts).parameters
     for name in ("bodies", "natal_jd", "lat", "lon", "orb_minutes"):
         if name not in angular_params:
@@ -97,6 +105,7 @@ def main() -> int:
     print("ALMAS astronomy backend runtime contract: PASS")
     print(f"moira-astro: {installed}")
     print("Kernel binding: explicit Moira(kernel_path=...)")
+    print("Birth-day paran surface: moira.facade.find_parans")
     print(
         "Paran preset container: "
         + type(PARAN_POLICY_PRESETS).__name__

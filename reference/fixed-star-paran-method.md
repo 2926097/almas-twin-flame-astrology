@@ -2,7 +2,7 @@
 
 ## Estado
 
-Este documento preregistra la capa antes de su implementación ejecutable. La existencia de fuentes no cambia todavía `fixed_stars` de `SOURCE_GAP`.
+F1 registró las fuentes y F2 congeló una capacidad de cálculo opcional sobre `MoiraProductionBackend`. La presencia de fuentes o de resultados calculables no cambia por sí sola `fixed_stars` de `SOURCE_GAP`; la capa de informes y el router siguen pendientes de F3/F4.
 
 ## Separación de capas
 
@@ -16,25 +16,26 @@ Ningún nivel convierte una estrella o paran en evidencia ontológica por sí so
 
 ## Fuentes de método
 
-`brady_book_fixed_stars_1998` se preregistra como método moderno identificado. Sustenta el uso natal de estrellas fijas y la consideración diferenciada de planetas/orbes, ángulos y parans. No autoriza a ALMAS a inventar un orbe: la política numérica deberá congelarse en F2 antes de ejecutar casos.
+`brady_book_fixed_stars_1998` se preregistra como método moderno identificado. Sustenta el uso natal de estrellas fijas y la consideración diferenciada de planetas/orbes, ángulos y parans. No autoriza a ALMAS a atribuirle los umbrales operativos del adaptador.
 
 `ptolemy_tetrabiblos_1_9_fixed_stars` se registra como antecedente histórico técnico de naturalezas estelares análogas a cualidades planetarias. No es fuente del método moderno de parans.
 
 ## Política de ejecución
 
-`ALMAS_FIXED_STAR_PARAN_POLICY_V1` congela antes de implementar el cálculo el canon lógico, las superficies del proveedor, los orbes y el firewall inferencial. El canon operativo es el canon disponible del proveedor 6.8.2, con membresías documentadas Royal, Behenian y Ptolemaic y fingerprint de ejecución obligatorio. Los 4 minutos de paran y 2 minutos de contacto angular se registran como baseline explícita del proveedor, no como una regla atribuida a Brady.
+`ALMAS_FIXED_STAR_PARAN_POLICY_V1` congela las superficies públicas de `moira-astro==6.8.2`, el canon disponible, su fingerprint, los orbes, la delimitación del día y el firewall inferencial. Los parans se buscan en la ventana del día UT según `find_parans`; los contactos angulares se mantienen como eventos separados cercanos al instante natal. Los 4 minutos para parans y 2 minutos para contactos son valores explícitos de la política ALMAS basados en los defaults documentados del proveedor, no reglas atribuidas a Brady o Ptolomeo.
 
 ## Backend
 
-La implementación debe reutilizar `moira-astro==6.8.2` a través del backend de producción ya existente. La API del proveedor dispone de superficies de estrellas fijas y parans; ALMAS no añadirá un segundo motor astronómico para esta capa.
+La capacidad opcional `FixedStarParanBackend` se implementa en `MoiraProductionBackend`. Usa `Moira.fixed_star`, `moira.facade.list_paran_stars`, `moira.facade.find_parans` y `moira.facade.natal_angular_contacts`. No añade otro backend ni hace llamadas de red o geocodificación.
 
-## Invariantes previos a F2
+## Invariantes de F2
 
 - `support_only=true`;
 - sin modificación de IEM, IDD, IRC, IAT, raíces o discriminadores;
-- canon de estrellas versionado;
-- orbes explícitos y versionados;
-- procedencia del backend y de los datos estelares conservada;
-- parans dependientes de hora/lugar degradan o fallan cerrado cuando faltan datos;
-- fixtures exclusivamente sintéticos;
-- el router personal permanece `SOURCE_GAP` hasta que cálculo, schema y tests estén completos.
+- canon normalizado y fingerprint obligatorio por ejecución;
+- esquema cerrado para política y resultado, con provenance del motor/kernel y de cada estrella;
+- ausencia de hora, zona horaria o coordenadas válidas produce un error no evaluable, sin fallback;
+- cualquier respuesta parcial o evento fuera de contrato falla cerrada;
+- fixtures sintéticos sin datos personales;
+- `SUPPORT_ONLY`: sin scoring, raíces, discriminadores ni inferencia ontológica;
+- el router personal permanece `SOURCE_GAP` hasta completar las fases posteriores.
