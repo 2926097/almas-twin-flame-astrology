@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.21.0 — 2026-09-28
+
+### Informes astrológicos personales sobre la arquitectura 1.20
+- Añade `personal_canonical_analysis` minimizado y fingerprintable, separado del canonical relacional.
+- Publica cinco perfiles: `EXECUTIVE_PERSONAL_REPORT`, `STANDARD_PERSONAL_REPORT`, `FULL_CRITICAL_REPORT`, `TECHNICAL_ATLAS` y `ESOTERIC_KABBALISTIC_REPORT`.
+- Incorpora `ALMAS_PERSONAL_AUTHORED_REPORT` con orden gobernado por modelo, trazabilidad de claims y fuentes y preservación de estados no disponibles.
+- Reutiliza la infraestructura B5 existente mediante `ALMAS_B5_PERSONAL_BOOK_V1` y `ALMAS_B5_PERSONAL_PDF_V1`, sin duplicar renderer ni preflight.
+- Añade el pipeline autónomo `personal_report_request → backend de producción → personal_canonical_analysis → personal_report_document_model`, con lista blanca de datos y sin conservar metadata natal reconstruible.
+- Añade `ALMAS_PERSONAL_REFERENCE_ROUTER_V1`, que resuelve dominios contra las 76 fuentes del corpus canónico y distingue `SUPPORTED`, `PARTIAL` y `SOURCE_GAP`.
+- Mantiene `evolutionary` y `kabbalah` como `PARTIAL` cuando faltan fuentes metodológicas específicas y `fixed_stars` como `SOURCE_GAP`; no inventa bibliografía.
+- La validación del último bloque funcional ejecuta **574 tests** en Python 3.12 con `OK (skipped=10)`; Contrato público y Backend astronómico terminan en PASS. Los workflows DOCX/PDF permanecen verdes y los bloques que no tocan rutas de publicación no los disparan.
+- No modifica scoring relacional, pesos, thresholds, discriminadores, ontología ni `engine_revision` contractual.
+
 ## 1.20.0 — 2026-09-28
 
 ### Síntesis root-first y temporalidad TTRANSIT
