@@ -15,10 +15,10 @@ def provenance():
     return {
         "policy_id": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1",
         "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
-        "backend_id": "FAKE_PERSONAL",
-        "backend_version": "1",
-        "provider_package": "synthetic-test-backend",
-        "provider_version": "1",
+        "backend_id": "MOIRA_JPL_SPK",
+        "backend_version": "6.8.2",
+        "provider_package": "moira-astro",
+        "provider_version": "6.8.2",
         "kernel_filename": "synthetic.bsp",
         "kernel_family": "DE440",
         "kernel_sha256": "e" * 64,
@@ -35,8 +35,8 @@ def provenance():
 
 
 class FakePersonalBackend:
-    backend_id = "FAKE_PERSONAL"
-    backend_version = "1"
+    backend_id = "MOIRA_JPL_SPK"
+    backend_version = "6.8.2"
 
     @property
     def provenance(self):
