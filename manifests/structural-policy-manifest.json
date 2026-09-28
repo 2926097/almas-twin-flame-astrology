@@ -48,11 +48,11 @@
   },
   "invariants": {
     "no_new_analytical_module": true,
-    "no_score_change": false,
     "no_implicit_orbs": true,
     "no_runtime_case_fitting": true,
     "support_only_cannot_create_core": true,
     "dependency_deduplication_precedes_root_construction": true,
-    "birth_time_robustness_remains_m23_m25": true
+    "birth_time_robustness_remains_m23_m25": true,
+    "score_change_is_versioned": true
   }
 }
