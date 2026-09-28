@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.22.0 — 2026-09-28
+
+### Evolución matemática dependency-aware
+- Preserva `core.py` como baseline reproducible de 1.21.0 y versiona las nuevas fórmulas en `quantitative_v122.py`.
+- Añade trazabilidad `pillar_source_roots` y corrige la reutilización raíz↔motivo en PX/PS mediante pesos derivados exclusivamente del solapamiento de procedencia.
+- Actualiza M21 a Shapley firmado sobre `IEM_PRE_DEPENDENCY_AWARE`; las contribuciones negativas ya no se truncan y el IDD automático usa canales POS/NEG por magnitud antes de Jensen–Shannon.
+- Agrupa IRC por familias de dependencia. `PARAMETER_PERTURBATION` e `IDD_STABILITY` comparten `PARAMETER_ENSEMBLE` por derivar del mismo ensemble Q5; `R_min` permanece sobre componentes individuales.
+- Añade `ALMAS_ICE_AUTONOMOUS_V1`: M20 deriva ICE sólo cuando `counterevidence_assessment_complete=true`, usa máximo de severidad dentro de familia y agregación saturante entre familias independientes.
+- Mantiene fail-closed: sin linaje raíz→pilar no se abre `SUPPORTED`; una contradicción autónoma sin severidad bloquea ICE; ICE precomputado y autónomo son mutuamente excluyentes.
+- Mantiene separados rareza nula, temporalidad, contraevidencia esencial y ontología. IEM, IDD, IRC e ICE continúan siendo índices del modelo, no probabilidades metafísicas.
+- Añade invariantes y pruebas de dependencia, missingness, frontera 0/100, eficiencia Shapley, deduplicación y saturación. El cierre de CI se documenta en `docs/RELEASE_AUDIT_1.22.0.md`.
+
 ## 1.21.0 — 2026-09-28
 
 ### Informes astrológicos personales sobre la arquitectura 1.20
