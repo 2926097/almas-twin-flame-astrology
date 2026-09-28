@@ -595,7 +595,53 @@
           "additionalProperties": false
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "ice_evaluable": {
+                "const": true
+              }
+            },
+            "required": [
+              "ice_evaluable"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice_by_model": {
+                "type": "object",
+                "required": [
+                  "AF",
+                  "KA",
+                  "AG",
+                  "LG"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ice_evaluable": {
+                "const": false
+              }
+            },
+            "required": [
+              "ice_evaluable"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice_by_model": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
     },
     "assembly": {
       "type": "object",
@@ -956,7 +1002,56 @@
           "type": "boolean"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "ice_state": {
+                "const": "EVALUABLE"
+              }
+            },
+            "required": [
+              "ice_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice": {
+                "type": "number"
+              },
+              "iem_final": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ice_state": {
+                "const": "NOT_EVALUABLE"
+              }
+            },
+            "required": [
+              "ice_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ice": {
+                "type": "null"
+              },
+              "iem_final": {
+                "type": "null"
+              },
+              "supported_gate": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
     },
     "counterevidence_item": {
       "type": "object",
