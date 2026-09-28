@@ -9,8 +9,7 @@ from .core import (
     score_model,
     supported_gate,
 )
-
-MODELS = ("AF", "KA", "AG", "LG")
+from .quantitative_contracts import MODELS, validate_ice_by_model
 
 
 def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
@@ -23,11 +22,11 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(pillars, Mapping):
         raise ValueError("payload.pillars debe ser un objeto")
 
-    ice_by_model = payload.get("ice_by_model", {})
-    if ice_by_model is None:
-        ice_by_model = {}
-    if not isinstance(ice_by_model, Mapping):
-        raise ValueError("payload.ice_by_model debe ser un objeto")
+    ice_by_model = validate_ice_by_model(
+        payload.get("ice_by_model"),
+        field_name="payload.ice_by_model",
+    )
+    ice_evaluable = ice_by_model is not None
 
     contradictions = payload.get("essential_contradictions", {})
     if contradictions is None:
@@ -40,7 +39,7 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
     r_min = payload.get("r_min")
 
     results: dict[str, Any] = {
-        "public_version": "1.11.0",
+        "public_version": "1.21.0",
         "input_mode": "PRECOMPUTED_PILLARS",
         "models": {},
         "pairwise_idd": {},
@@ -50,23 +49,35 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
         ],
     }
 
+    if not ice_evaluable:
+        results["limitations"].append(
+            "ICE no fue declarado: IEM_final y el gate SUPPORTED permanecen no evaluables."
+        )
+
     for model in MODELS:
+        ice_value = ice_by_model[model] if ice_evaluable else 0.0
         score = score_model(
             model,
             pillars,
-            ice=float(ice_by_model.get(model, 0.0)),
+            ice=ice_value,
         )
         model_result: dict[str, Any] = {
             "core": score.core,
             "support": score.support,
             "iem_pre": score.iem_pre,
-            "ice": score.ice,
-            "iem_final": score.iem_final,
+            "ice": score.ice if ice_evaluable else None,
+            "iem_final": score.iem_final if ice_evaluable else None,
+            "ice_state": "EVALUABLE" if ice_evaluable else "NOT_EVALUABLE",
             "essential_evaluable": score.essential_evaluable,
             "supported_gate": None,
         }
 
-        if icc is not None and irc is not None and r_min is not None:
+        if (
+            ice_evaluable
+            and icc is not None
+            and irc is not None
+            and r_min is not None
+        ):
             model_result["supported_gate"] = supported_gate(
                 score,
                 icc=float(icc),
