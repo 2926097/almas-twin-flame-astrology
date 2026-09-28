@@ -10,6 +10,7 @@ from .core import (
     supported_gate,
 )
 from .quantitative_contracts import MODELS, validate_ice_by_model
+from .quantitative_v122 import score_model_dependency_aware
 
 
 def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
@@ -37,6 +38,8 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
     icc = payload.get("icc")
     irc = payload.get("irc")
     r_min = payload.get("r_min")
+    pillar_sources = payload.get("pillar_source_roots")
+    dependency_aware = isinstance(pillar_sources, Mapping)
 
     results: dict[str, Any] = {
         "public_version": "1.22.0",
@@ -53,13 +56,26 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
         results["limitations"].append(
             "ICE no fue declarado: IEM_final y el gate SUPPORTED permanecen no evaluables."
         )
+    if not dependency_aware:
+        results["limitations"].append(
+            "ALMAS 1.22: falta pillar_source_roots; se conserva IEM descriptivo legacy y el gate SUPPORTED permanece no evaluable."
+        )
 
     for model in MODELS:
         ice_value = ice_by_model[model] if ice_evaluable else 0.0
-        score = score_model(
-            model,
-            pillars,
-            ice=ice_value,
+        score = (
+            score_model_dependency_aware(
+                model,
+                pillars,
+                pillar_sources,
+                ice=ice_value,
+            )
+            if dependency_aware
+            else score_model(
+                model,
+                pillars,
+                ice=ice_value,
+            )
         )
         model_result: dict[str, Any] = {
             "core": score.core,
@@ -73,7 +89,8 @@ def analyze_precomputed(payload: Mapping[str, Any]) -> dict[str, Any]:
         }
 
         if (
-            ice_evaluable
+            dependency_aware
+            and ice_evaluable
             and icc is not None
             and irc is not None
             and r_min is not None
