@@ -8,9 +8,11 @@ from tempfile import TemporaryDirectory
 import unittest
 
 from almas_tfa.pdf_publication import (
+    PERSONAL_PROFILE_ID,
     PROFILE_ID,
     preflight_pdf,
     publish_authored_report_pdf,
+    publish_report_pdf,
 )
 
 
@@ -64,6 +66,81 @@ class PdfPublicationTests(unittest.TestCase):
             self.assertIn(authored["canonical_fingerprint"], text)
             for section in authored["sections"]:
                 self.assertIn(section["title"], text)
+
+    def personal_authored(self):
+        section_ids = (
+            "P01_SYNTHESIS",
+            "P02_DATA_METHOD",
+            "P03_NATAL_ARCHITECTURE",
+            "P09_TEMPORAL",
+            "P10_COUNTEREVIDENCE",
+            "P11_SOURCES_ATLAS",
+        )
+        return {
+            "schema_version": "1.0.0",
+            "document_kind": "ALMAS_PERSONAL_AUTHORED_REPORT",
+            "language": "es",
+            "report_profile": "EXECUTIVE_PERSONAL_REPORT",
+            "canonical_fingerprint": "d" * 64,
+            "report_state": "READY",
+            "interpretive_center": (
+                "PERSONAL_ASTROLOGY_AND_SOURCE_BASED_HERMENEUTICS"
+            ),
+            "technical_role": (
+                "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL"
+            ),
+            "metaphysical_scientific_validation_claimed": False,
+            "personal_data_minimized": True,
+            "canonical_values_mutated": False,
+            "new_calculations_performed": False,
+            "new_scores_created": False,
+            "sections": [
+                {
+                    "section_id": section_id,
+                    "title": f"Sección personal {index}",
+                    "authoring_state": "AUTHORED",
+                    "narrative": (
+                        f"Narrativa personal sintética {index}."
+                    ),
+                    "canonical_paths_used": ["natal"],
+                    "epistemic_classes_used": ["A_CALCULATED"],
+                    "doctrinal_claim_refs": [],
+                    "source_refs": [],
+                    "limitations": [],
+                }
+                for index, section_id in enumerate(
+                    section_ids,
+                    start=1,
+                )
+            ],
+            "bibliography": [],
+        }
+
+    def test_personal_pdf_dispatch_passes_b5_preflight(self):
+        authored = self.personal_authored()
+        with TemporaryDirectory() as temp:
+            root = Path(temp)
+            pdf = root / "personal.pdf"
+            docx = root / "personal.docx"
+            receipt = publish_report_pdf(
+                authored,
+                pdf,
+                output_docx=docx,
+            )
+
+            self.assertTrue(pdf.is_file())
+            self.assertTrue(docx.is_file())
+            self.assertEqual(
+                receipt.profile_id,
+                PERSONAL_PROFILE_ID,
+            )
+            self.assertGreaterEqual(receipt.page_count, 8)
+            self.assertTrue(receipt.all_pages_b5)
+            self.assertTrue(receipt.all_cropboxes_b5)
+            self.assertTrue(receipt.all_fonts_embedded)
+            self.assertEqual(receipt.empty_pages, ())
+            self.assertTrue(receipt.text_complete)
+            self.assertTrue(receipt.preflight_passed)
 
     def test_pdf_publication_does_not_mutate_authored_report(self):
         authored = self.authored()
