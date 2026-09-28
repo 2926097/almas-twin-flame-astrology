@@ -7,13 +7,16 @@ from importlib import resources
 import random
 from typing import Any, Mapping, Sequence
 
-from .core import MODEL_PILLARS, pillar_score, score_model
+from .core import score_model
+from .pillar_attribution import (
+    derive_pillar_scores_from_roots,
+    load_root_pillar_policy,
+)
 
 
 POLICY_RESOURCE = "model-attribution-policy.json"
 POLICY_PACKAGE = "almas_tfa"
 MODELS = ("AF", "KA", "AG", "LG")
-PILLARS = ("PA", "PK", "PE", "PR", "PX", "PT", "PS", "PU")
 
 
 def load_model_attribution_policy() -> dict[str, Any]:
@@ -23,108 +26,98 @@ def load_model_attribution_policy() -> dict[str, Any]:
     with resource.open("r", encoding="utf-8") as handle:
         policy = json.load(handle)
 
-    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2":
+    if policy.get("policy_id") != "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3":
         raise ValueError("Política de atribución de modelos desconocida.")
     return policy
 
 
-def _eligible_units(
+def _eligible_root_players(
     pillar_attribution: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    raw = pillar_attribution.get("attribution_units")
-    if not isinstance(raw, list):
-        raw = pillar_attribution.get("root_attributions")
-    if not isinstance(raw, list):
-        raise ValueError(
-            "pillar_attribution requiere attribution_units o root_attributions."
-        )
+    """Devuelve exclusivamente raíces independientes como jugadores Shapley.
 
-    units: list[dict[str, Any]] = []
+    Los motivos PX/PS son funciones derivadas de coaliciones de raíces. No
+    pueden entrar como jugadores separados porque eso contaría la misma
+    arquitectura una segunda vez.
+    """
+
+    raw = pillar_attribution.get("source_roots")
+    if not isinstance(raw, list):
+        return []
+
+    roots: list[dict[str, Any]] = []
     seen: set[str] = set()
     for item in raw:
-        if not isinstance(item, Mapping) or not item.get("eligible"):
+        if not isinstance(item, Mapping):
             continue
-        unit_id = str(item.get("unit_id") or item.get("root_id") or "")
-        if not unit_id:
-            raise ValueError("Toda atribución elegible requiere unit_id.")
-        if unit_id in seen:
-            raise ValueError(f"unit_id duplicado en atribución: {unit_id}.")
-        seen.add(unit_id)
-
-        contributions = item.get("contributions")
-        if not isinstance(contributions, Mapping) or not contributions:
+        if not bool(item.get("core_eligible")):
+            continue
+        if item.get("strength_state") != "CALCULATED_CORE":
             continue
 
-        clean: dict[str, float] = {}
-        for pillar, value in contributions.items():
-            pillar = str(pillar)
-            if pillar not in PILLARS or pillar == "PU":
-                continue
-            if isinstance(value, bool) or not isinstance(value, (int, float)):
-                raise ValueError(
-                    f"{unit_id}:{pillar}: contribution debe ser numérica."
-                )
-            value = float(value)
-            if not 0.0 <= value <= 1.0:
-                raise ValueError(
-                    f"{unit_id}:{pillar}: contribution debe estar en [0,1]."
-                )
-            if value > 0:
-                clean[pillar] = value
+        root_id = str(item.get("root_id") or "")
+        if not root_id:
+            raise ValueError("Toda raíz Shapley elegible requiere root_id.")
+        if root_id in seen:
+            raise ValueError(f"root_id duplicado en raíces fuente: {root_id}.")
 
-        if clean:
-            units.append(
-                {
-                    "unit_id": unit_id,
-                    "unit_type": str(item.get("unit_type") or "ROOT"),
-                    "contributions": clean,
-                }
-            )
+        strength = item.get("strength")
+        if (
+            isinstance(strength, bool)
+            or not isinstance(strength, (int, float))
+        ):
+            raise ValueError(f"{root_id}: strength debe ser numérico.")
+        strength = float(strength)
+        if not 0.0 <= strength <= 1.0:
+            raise ValueError(f"{root_id}: strength debe estar en [0,1].")
 
-    units.sort(key=lambda item: item["unit_id"])
-    return units
+        seen.add(root_id)
+        roots.append(dict(item))
+
+    roots.sort(key=lambda item: str(item["root_id"]))
+    return roots
 
 
-def _coalition_pillars(
-    roots_by_id: Mapping[str, Mapping[str, float]],
-    selected: set[str],
-) -> dict[str, float | None]:
-    strengths: dict[str, list[float]] = {
-        pillar: [] for pillar in PILLARS if pillar != "PU"
-    }
+class _CoalitionValueEngine:
+    """Función de valor IEM_pre con PX/PS recalculados por coalición."""
 
-    for root_id in selected:
-        contributions = roots_by_id[root_id]
-        for pillar, value in contributions.items():
-            if pillar != "PU":
-                strengths[pillar].append(float(value))
+    def __init__(self, roots: Sequence[Mapping[str, Any]]) -> None:
+        self._roots_by_id = {
+            str(root["root_id"]): dict(root)
+            for root in roots
+        }
+        self._pillar_policy = load_root_pillar_policy()
+        self._cache: dict[tuple[str, ...], dict[str, float]] = {}
 
-    pillars: dict[str, float | None] = {}
-    for pillar in PILLARS:
-        if pillar == "PU":
-            pillars[pillar] = None
-        else:
-            values = strengths[pillar]
-            pillars[pillar] = pillar_score(values) if values else 0.0
-    return pillars
+    def values(self, selected: set[str]) -> dict[str, float]:
+        key = tuple(sorted(selected))
+        cached = self._cache.get(key)
+        if cached is not None:
+            return cached
 
-
-def _value(
-    model: str,
-    roots_by_id: Mapping[str, Mapping[str, float]],
-    selected: set[str],
-) -> float:
-    pillars = _coalition_pillars(roots_by_id, selected)
-    return score_model(model, pillars, ice=0.0).iem_pre
+        roots = [self._roots_by_id[root_id] for root_id in key]
+        pillars = derive_pillar_scores_from_roots(
+            roots,
+            structural_absence_is_zero=True,
+            policy=self._pillar_policy,
+        )
+        values = {
+            model: float(score_model(model, pillars, ice=0.0).iem_pre)
+            for model in MODELS
+        }
+        self._cache[key] = values
+        return values
 
 
 def _exact_shapley(
-    model: str,
     root_ids: Sequence[str],
-    roots_by_id: Mapping[str, Mapping[str, float]],
-) -> dict[str, float]:
+    engine: _CoalitionValueEngine,
+) -> dict[str, dict[str, float]]:
     n = len(root_ids)
-    output = {root_id: 0.0 for root_id in root_ids}
+    output = {
+        model: {root_id: 0.0 for root_id in root_ids}
+        for model in MODELS
+    }
     if n == 0:
         return output
 
@@ -134,14 +127,16 @@ def _exact_shapley(
             weight = 1.0 / n / comb(n - 1, size)
             for subset in combinations(others, size):
                 base = set(subset)
-                before = _value(model, roots_by_id, base)
-                after = _value(model, roots_by_id, base | {root_id})
-                marginal = after - before
-                if marginal < -1e-9:
-                    raise ValueError(
-                        f"{model}:{root_id}: marginal Shapley negativo {marginal}."
-                    )
-                output[root_id] += weight * max(0.0, marginal)
+                before = engine.values(base)
+                after = engine.values(base | {root_id})
+                for model in MODELS:
+                    marginal = after[model] - before[model]
+                    if marginal < -1e-9:
+                        raise ValueError(
+                            f"{model}:{root_id}: marginal Shapley negativo "
+                            f"{marginal}."
+                        )
+                    output[model][root_id] += weight * max(0.0, marginal)
 
     return output
 
@@ -166,7 +161,7 @@ def _permutation_batch(
 
 def _approximate_all_models(
     root_ids: Sequence[str],
-    roots_by_id: Mapping[str, Mapping[str, float]],
+    engine: _CoalitionValueEngine,
     policy: Mapping[str, Any],
 ) -> tuple[dict[str, dict[str, float]], dict[str, Any]]:
     spec = policy["approximation_method"]
@@ -201,19 +196,20 @@ def _approximate_all_models(
         )
 
         for permutation in permutations:
-            for model in MODELS:
-                selected: set[str] = set()
-                before = _value(model, roots_by_id, selected)
-                for root_id in permutation:
-                    selected.add(root_id)
-                    after = _value(model, roots_by_id, selected)
-                    marginal = after - before
+            selected: set[str] = set()
+            before = engine.values(selected)
+            for root_id in permutation:
+                selected.add(root_id)
+                after = engine.values(selected)
+                for model in MODELS:
+                    marginal = after[model] - before[model]
                     if marginal < -1e-9:
                         raise ValueError(
-                            f"{model}:{root_id}: marginal negativo en permutación."
+                            f"{model}:{root_id}: marginal negativo "
+                            "en permutación."
                         )
                     sums[model][root_id] += max(0.0, marginal)
-                    before = after
+                before = after
 
         used += len(permutations)
         current = {
@@ -272,11 +268,11 @@ def derive_model_attributions(
     *,
     policy: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Deriva atribuciones Shapley por unidad canónica para AF/KA/AG/LG.
+    """Atribuye IEM_pre a raíces independientes con Shapley de interacciones.
 
-    Las unidades pueden ser raíces independientes o motivos semánticos
-    derivados que materializan PX/PS. Estos motivos no se interpretan como
-    raíces independientes adicionales. La función de valor es IEM_pre.
+    PX y PS se recalculan dentro de cada coalición de raíces. Por tanto, los
+    motivos semánticos conservan su efecto sobre IEM pero nunca se convierten
+    en jugadores independientes ni reciben una segunda cuota de evidencia.
     """
 
     if policy is None:
@@ -292,53 +288,52 @@ def derive_model_attributions(
                 "method": None,
             }
 
-    roots = _eligible_units(pillar_attribution)
+    roots = _eligible_root_players(pillar_attribution)
     if not roots:
         return {
             "policy_id": policy["policy_id"],
             "state": "NOT_EVALUABLE",
-            "reason": "NO_ELIGIBLE_ROOTS",
+            "reason": "SOURCE_ROOTS_REQUIRED_FOR_DEPENDENCY_SAFE_SHAPLEY",
             "attributions": {},
             "method": None,
         }
 
-    root_ids = [item["unit_id"] for item in roots]
-    roots_by_id = {
-        item["unit_id"]: dict(item["contributions"])
-        for item in roots
-    }
+    root_ids = [str(item["root_id"]) for item in roots]
+    engine = _CoalitionValueEngine(roots)
 
-    exact_max = int(policy["exact_method"].get("max_units", policy["exact_method"].get("max_roots", 10)))
+    exact_max = int(
+        policy["exact_method"].get(
+            "max_roots",
+            policy["exact_method"].get("max_units", 10),
+        )
+    )
     if len(root_ids) <= exact_max:
-        attributions = {
-            model: _exact_shapley(model, root_ids, roots_by_id)
-            for model in MODELS
-        }
+        attributions = _exact_shapley(root_ids, engine)
         method = {
             "method": policy["exact_method"]["name"],
-            "unit_count": len(root_ids),
+            "root_count": len(root_ids),
             "convergence_state": "EXACT",
             "permutations_used": None,
         }
     else:
         attributions, method = _approximate_all_models(
             root_ids,
-            roots_by_id,
+            engine,
             policy,
         )
-        method["unit_count"] = len(root_ids)
+        method["root_count"] = len(root_ids)
 
     totals = {
         model: sum(values.values())
         for model, values in attributions.items()
     }
-    grand_values = {
-        model: _value(model, roots_by_id, set(root_ids))
-        for model in MODELS
-    }
+    grand_values = engine.values(set(root_ids))
+    empty_values = engine.values(set())
 
     efficiency_error = {
-        model: abs(totals[model] - grand_values[model])
+        model: abs(
+            totals[model] - (grand_values[model] - empty_values[model])
+        )
         for model in MODELS
     }
 
@@ -351,18 +346,26 @@ def derive_model_attributions(
         for model, values in attributions.items()
     }
 
+    motif_records = pillar_attribution.get("motif_attributions")
+    motif_count = len(motif_records) if isinstance(motif_records, list) else 0
+
     return {
         "policy_id": policy["policy_id"],
         "policy_status": policy["status"],
         "epistemic_class": policy["epistemic_class"],
         "state": "EVALUABLE",
         "value_function": policy["value_function"],
+        "player_unit": "INDEPENDENT_ROOT",
         "unit_count": len(root_ids),
         "unit_ids": root_ids,
-        "root_count": sum(1 for item in roots if item["unit_type"] == "ROOT"),
-        "motif_unit_count": sum(1 for item in roots if item["unit_type"] == "SEMANTIC_MOTIF"),
+        "root_count": len(root_ids),
+        "motif_unit_count": motif_count,
+        "motif_player_count": 0,
+        "motifs_recomputed_inside_coalitions": True,
+        "interaction_allocation": "SHAPLEY_TO_SOURCE_ROOTS",
         "attributions": positive,
         "model_iem_pre_from_roots": grand_values,
+        "empty_coalition_iem_pre": empty_values,
         "shapley_efficiency_error": efficiency_error,
         "method": method,
         "idd_is_ontological_discriminator": False,
