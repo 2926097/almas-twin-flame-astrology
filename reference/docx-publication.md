@@ -6,9 +6,17 @@ La publicación DOCX comienza después de que el contenido interpretativo esté 
 
 `canonical_analysis → M30 → M31 → authored_report → DOCX → PDF/preflight`
 
-El DOCX no es una nueva capa analítica ni hermenéutica. Materializa el texto ya aprobado en `authored_report`.
+Para el perfil personal:
 
-## Perfil ALMAS_B5_BOOK_V1
+`personal_canonical_analysis → personal_report_document_model → personal_authored_report → DOCX → PDF/preflight`.
+
+El DOCX no es una nueva capa analítica ni hermenéutica. Materializa el texto ya aprobado en la superficie de autoría correspondiente.
+
+## Perfiles B5
+
+La infraestructura es compartida. El perfil relacional conserva `ALMAS_B5_BOOK_V1`; el adaptador personal usa `ALMAS_B5_PERSONAL_BOOK_V1` con la misma geometría y estilos base.
+
+### Geometría común
 
 El primer perfil editorial se orienta a informes largos y lectura tipo libro:
 
@@ -26,7 +34,7 @@ No se embeben fuentes tipográficas. El generador declara familias de uso común
 
 ## Fidelidad del contenido
 
-`build_authored_report_docx()` no resume, reescribe ni recalcula.
+`build_authored_report_docx()` y `build_personal_authored_report_docx()` no resumen, reescriben ni recalculan. `build_report_docx()` selecciona el adaptador por `document_kind`.
 
 Para cada sección `AUTHORED`:
 
@@ -60,7 +68,7 @@ El workflow `Publicación DOCX` está limitado por rutas y ejecuta:
 - generación en Python 3.10 y 3.12;
 - apertura posterior del DOCX;
 - comprobación de B5;
-- presencia literal de las once narrativas;
+- presencia literal de todas las narrativas exigidas por la superficie; el perfil relacional conserva once secciones y el personal respeta el orden de su `report_profile`;
 - bibliografía;
 - fingerprint;
 - inmutabilidad del `authored_report`.
