@@ -130,25 +130,46 @@ class TestCounterevidence(unittest.TestCase):
                 )
             )
 
-    def test_autonomous_ice_requires_severity_on_retained_items(self):
-        with self.assertRaises(ValueError):
-            m20_counterevidence(
-                context(
-                    {
-                        "counterevidence_assessment_complete": True,
-                        "counterevidence_items": [
+    def test_autonomous_ice_requires_strict_severity_on_retained_items(self):
+        invalid_items = [
+            {
+                "id": "CE1",
+                "kind": "EXPLICIT_CONTRADICTION",
+                "models": ["AF"],
+                "contradiction_key": "NO_SEVERITY",
+                "dependency_family": "FACTS",
+                "essential": False,
+            },
+            {
+                "id": "CE2",
+                "kind": "EXPLICIT_CONTRADICTION",
+                "models": ["AF"],
+                "contradiction_key": "BOOL_SEVERITY",
+                "dependency_family": "FACTS",
+                "essential": False,
+                "severity": True,
+            },
+            {
+                "id": "CE3",
+                "kind": "EXPLICIT_CONTRADICTION",
+                "models": ["AF"],
+                "contradiction_key": "STRING_SEVERITY",
+                "dependency_family": "FACTS",
+                "essential": False,
+                "severity": "0.5",
+            },
+        ]
+        for item in invalid_items:
+            with self.subTest(item=item["id"]):
+                with self.assertRaises(ValueError):
+                    m20_counterevidence(
+                        context(
                             {
-                                "id": "CE1",
-                                "kind": "EXPLICIT_CONTRADICTION",
-                                "models": ["AF"],
-                                "contradiction_key": "NO_SEVERITY",
-                                "dependency_family": "FACTS",
-                                "essential": False,
+                                "counterevidence_assessment_complete": True,
+                                "counterevidence_items": [item],
                             }
-                        ],
-                    }
-                )
-            )
+                        )
+                    )
 
     def test_partial_precomputed_ice_is_rejected(self):
         with self.assertRaises(ValueError):
