@@ -165,7 +165,7 @@ class PersonalReportingTests(unittest.TestCase):
         )
         self.assertEqual(
             model["publication_contract"]["adapter_status"],
-            "PENDING_ADAPTER",
+            "READY",
         )
 
     def test_model_rejects_blocked_canonical(self):
