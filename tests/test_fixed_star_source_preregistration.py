@@ -37,6 +37,20 @@ class FixedStarSourcePreregistrationTests(unittest.TestCase):
             concept["historical_sources"],
         )
 
+        doctrine_map = json.loads(
+            (ROOT / "reference/doctrine-to-astrology-map.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        coverage = {
+            item["concept_id"]: item
+            for item in doctrine_map["coverage"]
+        }
+        self.assertEqual(
+            coverage["FIXED_STAR_ASTROLOGY"]["coverage_state"],
+            "TECHNIQUE_CONTEXT_ONLY",
+        )
+
         router = load_personal_reference_router()
         fixed = router["domains"]["fixed_stars"]
         self.assertEqual(fixed["status"], "SOURCE_GAP")
