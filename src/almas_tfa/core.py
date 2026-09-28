@@ -253,7 +253,7 @@ def robustness_index(components: Sequence[float]) -> tuple[float, float]:
     if not values:
         raise ValueError("robustness_index requires at least one component")
     for value in values:
-        _validate_unit_interval(value, name="robustness component")
+        _check_unit(value, "robustness component")
     return 100.0 * geometric_mean(values), min(values)
 
 
