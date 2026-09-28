@@ -176,11 +176,7 @@ def _exact_shapley(
                 before = _value(model, roots_by_id, source_roots_by_id, base)
                 after = _value(model, roots_by_id, source_roots_by_id, base | {root_id})
                 marginal = after - before
-                if marginal < -1e-9:
-                    raise ValueError(
-                        f"{model}:{root_id}: marginal Shapley negativo {marginal}."
-                    )
-                output[root_id] += weight * max(0.0, marginal)
+                output[root_id] += weight * marginal
 
     return output
 
@@ -248,11 +244,7 @@ def _approximate_all_models(
                     selected.add(root_id)
                     after = _value(model, roots_by_id, source_roots_by_id, selected)
                     marginal = after - before
-                    if marginal < -1e-9:
-                        raise ValueError(
-                            f"{model}:{root_id}: marginal negativo en permutación."
-                        )
-                    sums[model][root_id] += max(0.0, marginal)
+                    sums[model][root_id] += marginal
                     before = after
 
         used += len(permutations)
@@ -397,11 +389,11 @@ def derive_model_attributions(
         for model in MODELS
     }
 
-    positive = {
+    material = {
         model: {
             root_id: value
             for root_id, value in values.items()
-            if value > 1e-12
+            if abs(value) > 1e-12
         }
         for model, values in attributions.items()
     }
@@ -416,9 +408,10 @@ def derive_model_attributions(
         "unit_ids": root_ids,
         "root_count": sum(1 for item in roots if item["unit_type"] == "ROOT"),
         "motif_unit_count": sum(1 for item in roots if item["unit_type"] == "SEMANTIC_MOTIF"),
-        "attributions": positive,
+        "attributions": material,
         "model_iem_pre_from_roots": grand_values,
         "shapley_efficiency_error": efficiency_error,
         "method": method,
+        "signed_attributions": True,
         "idd_is_ontological_discriminator": False,
     }
