@@ -20,6 +20,10 @@ Ningún nivel convierte una estrella o paran en evidencia ontológica por sí so
 
 `ptolemy_tetrabiblos_1_9_fixed_stars` se registra como antecedente histórico técnico de naturalezas estelares análogas a cualidades planetarias. No es fuente del método moderno de parans.
 
+## Política de ejecución
+
+`ALMAS_FIXED_STAR_PARAN_POLICY_V1` congela antes de implementar el cálculo el canon lógico, las superficies del proveedor, los orbes y el firewall inferencial. El canon operativo es el canon disponible del proveedor 6.8.2, con membresías documentadas Royal, Behenian y Ptolemaic y fingerprint de ejecución obligatorio. Los 4 minutos de paran y 2 minutos de contacto angular se registran como baseline explícita del proveedor, no como una regla atribuida a Brady.
+
 ## Backend
 
 La implementación debe reutilizar `moira-astro==6.8.2` a través del backend de producción ya existente. La API del proveedor dispone de superficies de estrellas fijas y parans; ALMAS no añadirá un segundo motor astronómico para esta capa.
