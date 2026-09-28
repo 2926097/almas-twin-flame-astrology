@@ -80,7 +80,7 @@ class TestRobustnessIndex(unittest.TestCase):
         )
         self.assertEqual(output["component_count"], 1)
 
-    def test_multiple_components_use_geometric_mean_and_rmin(self):
+    def test_correlated_components_are_grouped_before_geometric_mean(self):
         canonical = {
             "time_sensitivity": {
                 "preregistration_ref": "TS-003",
@@ -111,9 +111,61 @@ class TestRobustnessIndex(unittest.TestCase):
         result = m25_robustness(context(raw, canonical))
         output = result.canonical_updates["robustness_index"]
 
-        expected = 100.0 * (0.8 * 0.9 * 0.72) ** (1 / 3)
+        expected = 100.0 * (0.8 * 0.72) ** 0.5
         self.assertAlmostEqual(output["irc"], expected)
         self.assertAlmostEqual(output["r_min"], 0.72)
+        self.assertEqual(output["group_count"], 2)
+        self.assertAlmostEqual(
+            output["dependency_groups"]["STRUCTURAL_PERTURBATION"]["group_value"],
+            0.72,
+        )
+        self.assertEqual(
+            set(
+                output["dependency_groups"]["STRUCTURAL_PERTURBATION"][
+                    "component_ids"
+                ]
+            ),
+            {"ABLATION_CORE", "PARAMETERS"},
+        )
+        self.assertEqual(
+            output["formula"],
+            "100 * geometric_mean(min(R_i within dependency_group))",
+        )
+
+    def test_extra_correlated_component_does_not_receive_extra_vote(self):
+        canonical = {
+            "time_sensitivity": {
+                "preregistration_ref": "TS-GROUP",
+                "robustness_component": 0.8,
+            },
+            "ablation": {"runs": []},
+        }
+        raw = {
+            "robustness_component_summaries": [
+                {
+                    "id": "ABLATION_A",
+                    "kind": "ABLATION",
+                    "value": 0.9,
+                    "source_module": "M22",
+                    "preregistration_ref": "ROB-GROUP",
+                    "derivation_ref": "A",
+                },
+                {
+                    "id": "PARAM_A",
+                    "kind": "PARAMETER_PERTURBATION",
+                    "value": 0.9,
+                    "source_module": "EXTERNAL",
+                    "preregistration_ref": "ROB-GROUP",
+                    "derivation_ref": "P",
+                },
+            ]
+        }
+        result = m25_robustness(context(raw, canonical))
+        output = result.canonical_updates["robustness_index"]
+
+        self.assertEqual(output["component_count"], 3)
+        self.assertEqual(output["group_count"], 2)
+        self.assertAlmostEqual(output["irc"], 100.0 * (0.8 * 0.9) ** 0.5)
 
     def test_null_model_rarity_is_always_excluded(self):
         canonical = {
