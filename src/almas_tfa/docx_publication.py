@@ -5,6 +5,8 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from .personal_reporting import PROFILE_SECTIONS as PERSONAL_PROFILE_SECTIONS
+
 
 PROFILE_ID = "ALMAS_B5_BOOK_V1"
 PERSONAL_PROFILE_ID = "ALMAS_B5_PERSONAL_BOOK_V1"
