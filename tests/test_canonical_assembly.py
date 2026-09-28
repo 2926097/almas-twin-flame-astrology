@@ -599,6 +599,42 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         self.assertEqual(assembled["models"]["KA"]["ice"], 100.0)
         self.assertEqual(assembled["indices"]["ICE"], 100.0)
 
+    def test_canonical_projects_quantitative_provenance(self):
+        canonical = canonical_base(with_ice=True)
+        canonical["robustness_index"]["group_count"] = 1
+        canonical["robustness_index"]["dependency_groups"] = {
+            "TIME_INPUT": {
+                "component_ids": ["BIRTH_TIME"],
+                "component_kinds": ["BIRTH_TIME"],
+                "group_value": 0.9,
+                "aggregation": "MIN_WITHIN_DEPENDENCY_GROUP",
+            }
+        }
+        canonical["counterevidence"]["counterevidence_complete"] = True
+        canonical["counterevidence"]["ice_state"] = "AUTONOMOUS"
+        canonical["counterevidence"]["ice_derivation"] = {
+            "method": "AUTONOMOUS_SEMANTIC_SATURATION_V1",
+            "formula": "100 * (1 - product(1 - severity_k for distinct contradiction_key k))",
+            "dependency_control": "TEST",
+            "by_model": {},
+        }
+
+        result = assemble_canonical_analysis(canonical, prior_all())
+        assembled = result["canonical_analysis"]
+
+        self.assertEqual(assembled["robustness"]["group_count"], 1)
+        self.assertIn(
+            "TIME_INPUT",
+            assembled["robustness"]["dependency_groups"],
+        )
+        state = assembled["counterevidence_state"]
+        self.assertEqual(state["ice_source_state"], "AUTONOMOUS")
+        self.assertTrue(state["counterevidence_complete"])
+        self.assertEqual(
+            state["ice_derivation"]["method"],
+            "AUTONOMOUS_SEMANTIC_SATURATION_V1",
+        )
+
     def test_supported_requires_evaluable_ice(self):
         result = assemble_canonical_analysis(
             canonical_base(with_ice=False),
