@@ -1,10 +1,26 @@
 # Estado de validación
 
-**Versión pública:** 1.19.0
+**Versión pública:** 1.20.0
 
 ## Release pública
 
 El repositorio publica una especificación generalizada con fixtures sintéticos y un núcleo Python determinista. Los casos privados/no públicos permanecen excluidos.
+
+### Cierre 1.20 · síntesis root-first y temporalidad trazable
+
+La capa interpretativa profundiza la arquitectura ya calculada sin introducir una segunda verdad analítica. La autoría parte de raíces y motivos semánticos, recupera sus contactos concretos y añade contexto natal, relacional, dracónico, de lotes y puntos secundarios únicamente cuando está disponible en el canonical.
+
+La temporalidad M26 conserva `trigger_context` para autoría y el generador `TTRANSIT` deriva contactos planeta en tránsito → aspecto mayor declarado → endpoint natal de una raíz existente. La lectura sintética de referencia sigue la secuencia `raíz → función transitante → función objetivo → geometría → integración → función evolutiva → límite factual`.
+
+En el último head funcional previo al bump de release:
+
+- Núcleo Python 3.10/3.12: 537 tests, PASS;
+- Contrato público: PASS;
+- Backend astronómico: PASS;
+- fixture temporal enlazado al señal M26 generada: PASS;
+- perfiles DOCX/PDF B5: sin modificación analítica respecto de 1.19.
+
+1.20 no añade scores, pesos, thresholds ni discriminadores activados. La interpretación temporal describe activación simbólica y no constituye predicción factual.
 
 ### Cierre 1.19 · autoría y publicación
 
