@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0.0",
+  "manifest_id": "ALMAS_QUANTITATIVE_POLICY_MANIFEST_V2",
+  "almas_public_version": "1.22.0",
+  "baseline_release": "1.21.0",
+  "status": "FROZEN_NORMATIVE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Gobernar la evolución matemática posterior al cierre cuantitativo de 1.21.0 sin convertir índices internos en probabilidades metafísicas.",
+  "contracts": {
+    "root_motif_attribution": {
+      "policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3",
+      "path": "src/almas_tfa/data/model-attribution-policy.json",
+      "consumers": ["M21"]
+    },
+    "robustness_dependency_grouping": {
+      "policy_id": "ALMAS_IRC_DEPENDENCY_GROUPING_V1",
+      "implementation": "src/almas_tfa/robustness_index_handlers.py",
+      "consumers": ["M25", "M30"]
+    },
+    "autonomous_counterevidence": {
+      "policy_id": "ALMAS_AUTONOMOUS_ICE_V1",
+      "implementation": "src/almas_tfa/counterevidence_handlers.py",
+      "consumers": ["M20", "M30"]
+    }
+  },
+  "invariants": {
+    "root_motif_double_counting_as_players_forbidden": true,
+    "motifs_recomputed_inside_shapley_coalitions": true,
+    "correlated_robustness_components_grouped_before_geometric_mean": true,
+    "autonomous_ice_requires_explicit_counterevidence_completeness": true,
+    "same_contradiction_key_cannot_multiply_across_dependency_families": true,
+    "essential_contradiction_gate_remains_separate": true,
+    "missingness_never_becomes_zero_without_explicit_complete_assessment": true,
+    "px_v3_activation_requires_external_validation": true,
+    "metaphysical_probability_forbidden": true,
+    "case_fitting_forbidden": true
+  }
+}
