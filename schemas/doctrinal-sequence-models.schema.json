@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/doctrinal-sequence-models.schema.json",
+  "title": "ALMAS · registro de modelos de secuencia doctrinal",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "registry_id", "epistemic_class", "status", "policy", "models"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "registry_id": {"const": "ALMAS_DOCTRINAL_SEQUENCE_MODELS_V1"},
+    "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"}, "status": {"const": "FROZEN_BEFORE_CASE_APPLICATION"},
+    "policy": {"type": "object", "required": ["purpose", "sequence_evidence_must_be_documentary", "model_definitions_frozen_before_case", "causality_from_sequence", "ontology_inference_permitted"], "properties": {"causality_from_sequence": {"const": "UNESTABLISHED"}, "ontology_inference_permitted": {"const": false}}},
+    "models": {"type": "array", "minItems": 7, "items": {"$ref": "#/$defs/model"}}
+  },
+  "$defs": {
+    "model": {"type": "object", "additionalProperties": false, "required": ["model_id", "label_es", "provenance", "expected_sequence", "sequence_status", "required_evidence", "incompatible_evidence", "alternatives", "cannot_prove", "mapping_status"], "properties": {
+      "model_id": {"enum": ["TF_PROPHET", "TF_RUNNER_CHASER", "TF_DF_DM_SURRENDER", "KARMIC_CATALYTIC", "JUNGIAN_INDIVIDUATION_ANALOGY", "MYSTICAL_UNION_ANALOGY", "ORDINARY_RELATIONAL_CRISIS"]},
+      "label_es": {"type": "string", "minLength": 1},
+      "provenance": {"type": "object", "additionalProperties": false, "required": ["epistemic_class", "source_id", "author", "work", "date", "url", "priority", "scope", "access_status"], "properties": {"epistemic_class": {"type": "string"}, "source_id": {"type": "string"}, "author": {"type": "string"}, "work": {"type": "string"}, "date": {"type": ["string", "null"]}, "url": {"type": "string", "format": "uri"}, "priority": {"type": "string"}, "scope": {"type": "string"}, "access_status": {"type": "string"}}},
+      "expected_sequence": {"type": "array", "items": {"type": "string", "minLength": 1}}, "sequence_status": {"type": "string"},
+      "required_evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "incompatible_evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+      "alternatives": {"type": "array", "items": {"type": "string"}}, "cannot_prove": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "mapping_status": {"type": "string"}
+    }}
+  }
+}
