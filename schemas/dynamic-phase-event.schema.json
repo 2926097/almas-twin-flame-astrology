@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/dynamic-phase-event.schema.json",
+  "title": "ALMAS · Evento documental para motor de fases",
+  "type": "object",
+  "required": ["schema_version", "event_id", "occurred_at", "actor", "behavior_code", "context", "evidence", "counterevidence"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "event_id": {"type": "string", "minLength": 1},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "actor": {"enum": ["A", "B", "BOTH"]},
+    "behavior_code": {"enum": ["EXPLICIT_RECOGNITION", "EXPLICIT_BOUNDARY", "MUTUAL_PAUSE", "MUTUAL_RESUMPTION", "EXPLICIT_TERMINATION", "UNCLASSIFIED"]},
+    "context": {"type": "string", "minLength": 1},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+    "counterevidence": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+    "phase_before": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/state"}]}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "fact": {
+      "type": "object",
+      "required": ["fact_id", "kind", "actor", "description", "source_ref", "occurred_at"],
+      "properties": {
+        "fact_id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["DOCUMENTARY", "BEHAVIORAL", "SELF_REPORT", "SECONDARY_REPORT"]},
+        "actor": {"enum": ["A", "B"]},
+        "description": {"type": "string", "minLength": 1},
+        "source_ref": {"type": ["string", "null"]},
+        "occurred_at": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "object",
+      "required": ["phase_id", "status", "evidence_refs"],
+      "properties": {
+        "phase_id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}
