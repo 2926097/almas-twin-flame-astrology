@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "SYNTH-PHASE-OBS-001",
+  "scope": "ACTOR_A",
+  "event_ref": "SYNTH-EVENT-BOUNDARY-001",
+  "observed_facts": [
+    {
+      "fact_id": "FACT-001",
+      "kind": "DOCUMENTARY",
+      "description": "En un mensaje fechado, la persona comunica que no desea reanudar el contacto durante el periodo indicado.",
+      "source_ref": "SYNTHETIC-MESSAGE-001",
+      "observed_at": "2026-01-12T10:00:00Z"
+    }
+  ],
+  "observed_state": {
+    "phase_id": "boundary_assertion",
+    "status": "COMPATIBLE",
+    "evidence_refs": ["FACT-001"]
+  },
+  "doctrinal_mapping": {
+    "mapping_id": "TF_DF_DM_SURRENDER_ANALOGY",
+    "interpretation": "Un autor contemporáneo podría interpretar la afirmación de límite dentro de un relato DF surrender; esta lectura no altera el hecho observado ni demuestra surrender estabilizado.",
+    "provenance_class": "D_CONTEMPORARY_USE",
+    "source_refs": ["TFC_STAGES_2026"]
+  },
+  "doctrinal_status": "COMPATIBLE"
+}
