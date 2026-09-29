@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/awakening-assessment-result.schema.json",
+  "title": "ALMAS · resultado de evaluación biográfica de awakening",
+  "type": "object", "additionalProperties": false,
+  "required": ["actor", "policy_id", "status", "criteria", "counterevidence", "astrology_established_awakening", "metaphysical_claim"],
+  "properties": {
+    "actor": {"enum": ["A", "B"]}, "policy_id": {"const": "ALMAS_AWAKENING_OPERATIONAL_POLICY_V1"},
+    "status": {"enum": ["SUPPORTED", "CONTRADICTED", "INSUFFICIENT"]},
+    "criteria": {"type": "object", "additionalProperties": false, "required": ["explicit_reframing", "recognition_of_previous_pattern", "sustained_behavioral_change", "voluntary_reengagement", "increased_congruence_between_words_and_actions"], "properties": {
+      "explicit_reframing": {"$ref": "#/$defs/criterion"}, "recognition_of_previous_pattern": {"$ref": "#/$defs/criterion"}, "sustained_behavioral_change": {"$ref": "#/$defs/criterion"}, "voluntary_reengagement": {"$ref": "#/$defs/criterion"}, "increased_congruence_between_words_and_actions": {"$ref": "#/$defs/criterion"}
+    }},
+    "counterevidence": {"type": "array"}, "astrology_established_awakening": {"const": false}, "metaphysical_claim": {"const": false}
+  },
+  "$defs": {"criterion": {"type": "object", "additionalProperties": false, "required": ["state", "evidence_refs"], "properties": {"state": {"enum": ["SUPPORTED", "CONTRADICTED", "NOT_EVALUABLE"]}, "evidence_refs": {"type": "array", "items": {"type": "string"}}}}}
+}
