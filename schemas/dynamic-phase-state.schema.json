@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/dynamic-phase-state.schema.json",
+  "title": "ALMAS · Estado dinámico de relación y actores (Paso 2)",
+  "type": "object",
+  "required": ["model_id", "relational_phase", "actor_a_phase", "actor_b_phase"],
+  "properties": {
+    "model_id": {"const": "ALMAS_DYNAMIC_PHASE_STATE_V1"},
+    "relational_phase": {"$ref": "#/$defs/unassessed_phase"},
+    "actor_a_phase": {"$ref": "#/$defs/unassessed_phase"},
+    "actor_b_phase": {"$ref": "#/$defs/unassessed_phase"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "unassessed_phase": {
+      "type": "object",
+      "required": ["phase", "status"],
+      "properties": {
+        "phase": {"type": "null"},
+        "status": {"const": "NOT_EVALUABLE"}
+      },
+      "additionalProperties": false
+    }
+  }
+}
