@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/dynamic-phase-observation.schema.json",
+  "title": "ALMAS · Hechos y mapeo doctrinal de una fase",
+  "description": "Conserva los hechos observados, el estado descriptivo y su lectura doctrinal en campos separados. El mapeo doctrinal no sustituye los hechos.",
+  "type": "object",
+  "required": ["schema_version", "record_id", "scope", "event_ref", "observed_facts", "observed_state", "doctrinal_mapping", "doctrinal_status"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_id": {"type": "string", "minLength": 1},
+    "scope": {"enum": ["RELATION", "ACTOR_A", "ACTOR_B"]},
+    "event_ref": {"type": "string", "minLength": 1},
+    "observed_facts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["fact_id", "kind", "description", "source_ref", "observed_at"],
+        "properties": {
+          "fact_id": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["DOCUMENTARY", "BEHAVIORAL", "SELF_REPORT"]},
+          "description": {"type": "string", "minLength": 1},
+          "source_ref": {"type": "string", "minLength": 1},
+          "observed_at": {"type": "string", "format": "date-time"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "observed_state": {
+      "type": "object",
+      "required": ["phase_id", "status", "evidence_refs"],
+      "properties": {
+        "phase_id": {"enum": ["recognition", "activation", "polarization", "crisis_mirror", "pursuit_withdrawal", "boundary_assertion", "separation_or_suspension", "surrender_candidate", "surrender_stabilized", "individual_restructuring", "awakening_candidate", "integration_candidate", "bilateral_reengagement", "reunion", "service", "closure", "indeterminate"]},
+        "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
+        "evidence_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "doctrinal_mapping": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["mapping_id", "interpretation", "provenance_class", "source_refs"],
+          "properties": {
+            "mapping_id": {"type": "string", "minLength": 1},
+            "interpretation": {"type": "string", "minLength": 1},
+            "provenance_class": {"enum": ["C_EXPLICIT_DOCTRINE", "D_CONTEMPORARY_USE", "E_PROJECT_HYPOTHESIS"]},
+            "source_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "doctrinal_status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"doctrinal_mapping": {"type": "null"}}, "required": ["doctrinal_mapping"]},
+      "then": {"properties": {"doctrinal_status": {"const": "NOT_EVALUABLE"}}}
+    }
+  ],
+  "additionalProperties": false
+}
