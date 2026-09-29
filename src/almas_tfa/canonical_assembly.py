@@ -6,6 +6,7 @@ from typing import Any, Mapping
 
 from .analysis_profiles import resolve_analysis_profile
 from .core import score_model, supported_gate
+from .dynamic_phase_state import empty_dynamic_phase_state
 from .module_contract import ExecutionStatus, ModuleResult
 from .quantitative_contracts import MODELS, validate_ice_by_model
 
@@ -678,6 +679,7 @@ def assemble_canonical_analysis(
         "ontology": {},
         "doctrine": _doctrine_claims(canonical),
         "temporal": temporal,
+        "dynamic_phases": empty_dynamic_phase_state(),
         "limitations": _limitations(prior_results),
         "assembly": {
             "policy_id": policy["policy_id"],
