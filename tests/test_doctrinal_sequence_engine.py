@@ -18,19 +18,22 @@ def obs(phase, day, ref):
 
 class DoctrinalSequenceEngineTests(unittest.TestCase):
     def test_temporal_precedence_and_sequence_match_never_establish_causality(self):
-        events = [obs("recognition", 1, "F1"), obs("crisis_mirror", 2, "F2"), obs("pursuit_withdrawal", 3, "F3"), obs("surrender_stabilized", 4, "F4"), obs("awakening_candidate", 5, "F5"), obs("reunion", 6, "F6")]
-        value = {"model_id": "TF_RUNNER_CHASER", "observations": events}
+        events = [obs("boundary_assertion", 1, "F1"), obs("surrender_candidate", 2, "F2"), obs("surrender_stabilized", 3, "F3"), obs("awakening_candidate", 4, "F4"), obs("bilateral_reengagement", 5, "F5")]
+        value = {"model_id": "TF_DF_DM_SURRENDER", "observations": events}
         IN_VALIDATOR.validate(value)
         result = evaluate_doctrinal_sequence(**value)
         OUT_VALIDATOR.validate(result)
         self.assertEqual(result["temporal_precedence"]["status"], "BEFORE")
         self.assertEqual(result["sequence_match"], "MATCH")
+        self.assertEqual(result["sequence_status"], "SEQUENCE_SUPPORTED")
+        self.assertEqual(result["ontology_status"], "INSUFFICIENT")
+        self.assertFalse(result["twin_flame_demonstrated"])
         self.assertEqual(result["doctrinal_compatibility"], "COMPATIBLE")
         self.assertEqual(result["causal_status"], "UNESTABLISHED")
         self.assertNotIn("caused_by", result)
 
     def test_reverse_order_is_temporal_fact_not_causal_explanation(self):
-        result = evaluate_doctrinal_sequence("TF_DF_DM_SURRENDER", [obs("awakening_candidate", 3, "A1"), obs("surrender_stabilized", 4, "S1")])
+        result = evaluate_doctrinal_sequence("TF_DF_DM_SURRENDER", [obs("boundary_assertion", 1, "B1"), obs("surrender_candidate", 2, "SC1"), obs("awakening_candidate", 3, "A1"), obs("surrender_stabilized", 4, "S1"), obs("bilateral_reengagement", 5, "R1")])
         self.assertEqual(result["temporal_precedence"]["status"], "AFTER")
         self.assertEqual(result["causal_status"], "UNESTABLISHED")
 
@@ -38,16 +41,26 @@ class DoctrinalSequenceEngineTests(unittest.TestCase):
         wrong = [obs("crisis_mirror", 1, "F1"), obs("recognition", 2, "F2"), obs("pursuit_withdrawal", 3, "F3"), obs("surrender_stabilized", 4, "F4"), obs("reunion", 5, "F5")]
         result = evaluate_doctrinal_sequence("TF_RUNNER_CHASER", wrong)
         self.assertEqual(result["sequence_match"], "MISMATCH")
+        self.assertEqual(result["sequence_status"], "CONTRADICTED")
         self.assertEqual(result["doctrinal_compatibility"], "INCOMPATIBLE")
         result = evaluate_doctrinal_sequence("TF_RUNNER_CHASER", [obs("recognition", 1, "F1")])
         self.assertEqual(result["sequence_match"], "INCOMPLETE")
+        self.assertEqual(result["sequence_status"], "INSUFFICIENT")
         self.assertEqual(result["doctrinal_compatibility"], "INSUFFICIENT")
 
     def test_no_source_defined_sequence_is_not_evaluable(self):
         result = evaluate_doctrinal_sequence("TF_PROPHET", [obs("recognition", 1, "F1")])
         self.assertEqual(result["sequence_match"], "NOT_EVALUABLE")
+        self.assertEqual(result["sequence_status"], "NOT_EVALUABLE")
         self.assertEqual(result["doctrinal_compatibility"], "NOT_EVALUABLE")
         self.assertEqual(result["causal_status"], "UNESTABLISHED")
+
+    def test_extra_observed_phase_breaks_exact_frozen_sequence_match(self):
+        events = [obs("boundary_assertion", 1, "B1"), obs("surrender_candidate", 2, "SC1"), obs("activation", 3, "X1"), obs("surrender_stabilized", 4, "S1"), obs("awakening_candidate", 5, "A1"), obs("bilateral_reengagement", 6, "R1")]
+        result = evaluate_doctrinal_sequence("TF_DF_DM_SURRENDER", events)
+        self.assertEqual(result["sequence_match"], "MISMATCH")
+        self.assertNotEqual(result["sequence_status"], "SEQUENCE_SUPPORTED")
+        self.assertEqual(result["ontology_status"], "INSUFFICIENT")
 
     def test_missing_refs_unknown_model_and_unregistered_astrology_field_rejected(self):
         with self.assertRaises(ValidationError):

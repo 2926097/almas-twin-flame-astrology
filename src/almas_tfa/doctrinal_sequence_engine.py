@@ -57,19 +57,15 @@ def evaluate_doctrinal_sequence(model_id: str, observations: list[Mapping[str, A
         match = "NOT_EVALUABLE"
         compatibility = "NOT_EVALUABLE"
     else:
-        cursor = 0
-        for phase_id in observed_sequence:
-            if cursor < len(expected) and phase_id == expected[cursor]:
-                cursor += 1
-        if cursor == len(expected):
+        if observed_sequence == expected:
             match = "MATCH"
             compatibility = "COMPATIBLE"
-        elif all(phase in observed_sequence for phase in expected):
-            match = "MISMATCH"
-            compatibility = "INCOMPATIBLE"
-        else:
+        elif all(phase in expected for phase in observed_sequence) and [expected.index(phase) for phase in observed_sequence] == sorted(set(expected.index(phase) for phase in observed_sequence)):
             match = "INCOMPLETE"
             compatibility = "INSUFFICIENT"
+        else:
+            match = "MISMATCH"
+            compatibility = "INCOMPATIBLE"
 
     surrender_dates = [row["occurred_at"] for row in rows if row["phase_id"] == "surrender_stabilized"]
     awakening_dates = [row["occurred_at"] for row in rows if row["phase_id"] == "awakening_candidate"]
@@ -80,6 +76,9 @@ def evaluate_doctrinal_sequence(model_id: str, observations: list[Mapping[str, A
         awakening_time = min(_temporal_key(value) for value in awakening_dates)
         precedence = "BEFORE" if surrender_time < awakening_time else "AFTER" if surrender_time > awakening_time else "SAME_TIME"
 
+    sequence_status = "SEQUENCE_SUPPORTED" if match == "MATCH" else (
+        "NOT_EVALUABLE" if match == "NOT_EVALUABLE" else "INSUFFICIENT" if match == "INCOMPLETE" else "CONTRADICTED"
+    )
     return {
         "model_id": model_id,
         "model_sequence_status": model["sequence_status"],
@@ -91,5 +90,8 @@ def evaluate_doctrinal_sequence(model_id: str, observations: list[Mapping[str, A
         },
         "doctrinal_compatibility": compatibility,
         "sequence_match": match,
+        "sequence_status": sequence_status,
+        "ontology_status": "INSUFFICIENT",
+        "twin_flame_demonstrated": False,
         "causal_status": "UNESTABLISHED",
     }
