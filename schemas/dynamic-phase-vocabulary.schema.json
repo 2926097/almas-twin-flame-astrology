@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/dynamic-phase-vocabulary.schema.json",
+  "title": "ALMAS · Vocabulario de fases dinámicas",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "epistemic_class", "status", "purpose", "contemporary_usage", "global_rules", "phases", "sequence_policy"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "registry_id": {"const": "ALMAS_DYNAMIC_PHASE_VOCABULARY_V1"},
+    "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"},
+    "status": {"const": "OPERATIONAL_DRAFT_FROZEN"},
+    "purpose": {"type": "string", "minLength": 1},
+    "contemporary_usage": {"type": "object", "required": ["status", "summary", "sources"], "properties": {"status": {"const": "HETEROGENEOUS_EMIC_USAGE"}, "summary": {"type": "string", "minLength": 1}, "sources": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["priority", "source_id", "author", "work", "date", "url", "use", "limit"], "properties": {"priority": {"enum": ["P4", "P5"]}, "source_id": {"type": "string", "minLength": 1}, "author": {"type": "string", "minLength": 1}, "work": {"type": "string", "minLength": 1}, "date": {"type": "string", "minLength": 1}, "url": {"type": "string", "format": "uri"}, "use": {"type": "string", "minLength": 1}, "limit": {"type": "string", "minLength": 1}}, "additionalProperties": false}}, "additionalProperties": false}},
+    "global_rules": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "phases": {"type": "array", "minItems": 17, "items": {"$ref": "#/$defs/phase"}},
+    "sequence_policy": {"type": "object", "required": ["mandatory_order", "missing_phases_may_be_inferred", "state_transition_is_automatic", "temporal_astrology_assigns_phase", "causal_interpretation_from_order", "development_case_may_change_definitions"], "properties": {"mandatory_order": {"const": false}, "missing_phases_may_be_inferred": {"const": false}, "state_transition_is_automatic": {"const": false}, "temporal_astrology_assigns_phase": {"const": false}, "causal_interpretation_from_order": {"const": "UNESTABLISHED"}, "development_case_may_change_definitions": {"const": false}}, "additionalProperties": false}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "phase": {
+      "type": "object",
+      "required": ["id", "label_es", "scope", "definition", "entry_criteria", "exclusions", "required_evidence", "counterevidence", "possible_relations"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "label_es": {"type": "string", "minLength": 1},
+        "scope": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["RELATION", "ACTOR"]}},
+        "definition": {"type": "string", "minLength": 1},
+        "entry_criteria": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "exclusions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "required_evidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "counterevidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "possible_relations": {
+          "type": "object",
+          "required": ["may_precede", "may_follow", "non_implications"],
+          "properties": {
+            "may_precede": {"type": "array", "items": {"type": "string"}},
+            "may_follow": {"type": "array", "items": {"type": "string"}},
+            "non_implications": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
