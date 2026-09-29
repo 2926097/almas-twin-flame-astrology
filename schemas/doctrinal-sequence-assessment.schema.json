@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/doctrinal-sequence-assessment.schema.json",
+  "title": "ALMAS · entrada de comparación de secuencia doctrinal",
+  "type": "object", "additionalProperties": false, "required": ["model_id", "observations"],
+  "properties": {
+    "model_id": {"enum": ["TF_PROPHET", "TF_RUNNER_CHASER", "TF_DF_DM_SURRENDER", "KARMIC_CATALYTIC", "JUNGIAN_INDIVIDUATION_ANALOGY", "MYSTICAL_UNION_ANALOGY", "ORDINARY_RELATIONAL_CRISIS"]},
+    "observations": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["phase_id", "occurred_at", "evidence_refs"], "properties": {"phase_id": {"type": "string", "minLength": 1}, "occurred_at": {"type": "string", "format": "date-time"}, "evidence_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}}}}
+  }
+}

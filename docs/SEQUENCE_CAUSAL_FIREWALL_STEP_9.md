@@ -1,0 +1,5 @@
+# ALMAS · Paso 9: cortafuegos causal en secuencias
+
+`evaluate_doctrinal_sequence` compara observaciones fechadas con el orden registrado para el modelo seleccionado. Cada fase observada debe traer referencias de evidencia. Una secuencia completa en el orden definido puede dar `sequence_match: MATCH` y `doctrinal_compatibility: COMPATIBLE`; el resultado se limita al ajuste con esa regla versionada. Un orden contradictorio da `MISMATCH`/`INCOMPATIBLE`; fases que faltan producen `INCOMPLETE`/`INSUFFICIENT`. Los modelos sin secuencia de fuente definida devuelven `NOT_EVALUABLE`.
+
+La precedencia entre `surrender_stabilized` y `awakening_candidate` se informa aparte como `BEFORE`, `AFTER`, `SAME_TIME` o `NOT_EVALUABLE`. Es una relación temporal documental. En todos los casos `causal_status` permanece `UNESTABLISHED`; el resultado no admite campos de causa ni interpreta surrender como causa de awakening. Las pruebas cubren ambos órdenes, desajuste, evidencia incompleta, secuencias no definidas y fechas con zona horaria.
