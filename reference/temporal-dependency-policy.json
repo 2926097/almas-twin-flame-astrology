@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_TEMPORAL_DEPENDENCY_POLICY_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "status": "FROZEN",
+  "family_clusters": {
+    "TATACIR": "SLOW_SYMBOLIC_DIRECTIONS",
+    "TDIR": "SLOW_SYMBOLIC_DIRECTIONS"
+  },
+  "cluster_semantics": {
+    "techniques_remain_distinct": true,
+    "same_root_and_cluster_count_as_independent_units": 1,
+    "score_or_weight_created": false,
+    "legacy_iat_modified": false
+  },
+  "limits": [
+    "C360 y arco solar conservan técnicas y señales separadas.",
+    "Compartir cluster de dependencia impide tratarlas como dos unidades independientes al resumir recurrencia.",
+    "Este registro no cambia los pesos ni el IAT legado; cualquier agregación cuantitativa requiere el paso de cuantificación y regla preregistrada."
+  ]
+}

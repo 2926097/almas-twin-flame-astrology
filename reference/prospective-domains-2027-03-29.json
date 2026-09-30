@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "preregistration_id": "ALMAS_PROSPECTIVE_DOMAINS_2027_03_29_V1",
+  "registered_at": "2026-09-30",
+  "observation_date": "2027-03-29",
+  "actor_alias": "SUBJECT_01",
+  "identity_linked_in_public_record": false,
+  "preregistration_policy_id": "ALMAS_1_22_PHASE_RULES_2026_09_30",
+  "status": "FROZEN_BEFORE_OBSERVATION",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "domains_to_observe": ["identity_restructuring", "reality_vs_ideal", "affective_revision", "individuation"],
+  "phase_mappings": [
+    {"phase_id": "awakening_candidate", "status": "NOT_EVALUABLE", "required_evidence_policy": "reference/awakening-operational-policy.json"},
+    {"phase_id": "surrender_candidate", "status": "NOT_EVALUABLE", "required_evidence_policy": "reference/surrender-operational-policy.json"}
+  ],
+  "evidence_predeclared": [],
+  "meeting_or_reunion_predeclared": false,
+  "future_decisions_predicted": false,
+  "causal_status": "UNESTABLISHED",
+  "ontology_status": "INSUFFICIENT"
+}

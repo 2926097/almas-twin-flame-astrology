@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_PHASE_PREREGISTRATION_V1",
+  "preregistration_id": "ALMAS_1_22_PHASE_RULES_2026_09_30",
+  "registered_at": "2026-09-30",
+  "status": "FROZEN_BEFORE_CASE_APPLICATION",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "frozen_artifacts": [
+    {
+      "path": "reference/awakening-operational-policy.json",
+      "sha256": "b92c28acfd257e77eb28e9def1a8885be84adf02c90f04415c5082224cf12228"
+    },
+    {
+      "path": "reference/doctrinal-sequence-models.json",
+      "sha256": "a916adc1e8b0b8fbf0f2c31b8ea4f69192d952b5a81fd1d48aa6abd3ddaf52bd"
+    },
+    {
+      "path": "reference/dynamic-phase-vocabulary.json",
+      "sha256": "9d7c1c9823fb73d84f240120e591073b56f0126f67b3b2405d72ec3bd6191f53"
+    },
+    {
+      "path": "reference/surrender-operational-policy.json",
+      "sha256": "4fd5b16ade252ddbec4a99a09922d7b7ef23b0a9528fe651dd0289d4f5556e4b"
+    }
+  ],
+  "transitions_source": "reference/dynamic-phase-vocabulary.json",
+  "thresholds": {
+    "surrender_min_observation_days": 30,
+    "awakening_min_behavior_change_days": 30,
+    "awakening_min_distinct_observations": 2
+  },
+  "sequence_rules": {
+    "exact_order_match_required": true,
+    "missing_phases_inferred": false,
+    "additional_phases_allowed": false,
+    "causal_status": "UNESTABLISHED",
+    "ontology_status_after_sequence_match": "INSUFFICIENT"
+  },
+  "falsifiers": [
+    "continued_pursuit",
+    "strategic_silence_to_provoke_response_with_actor_self_report",
+    "repeated_reopening_of_conflict",
+    "outcome_bargaining",
+    "control_attempts",
+    "phase_sequence_mismatch",
+    "missing_required_evidence"
+  ],
+  "case_data_included": false,
+  "case_specific_tuning": false
+}

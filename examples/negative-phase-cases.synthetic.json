@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_id": "ALMAS_NEGATIVE_PHASE_CASES_V1",
+  "classification": "SYNTHETIC",
+  "cases": [
+    {
+      "case_id": "NEG_ORDINARY_BREAKUP",
+      "scenario": "Ruptura ordinaria con conflicto documentado y cierre explícito.",
+      "alternative_explanation": "ORDINARY_RELATIONAL_CRISIS",
+      "observations": [
+        {"phase_id": "crisis_mirror", "occurred_at": "2026-01-01T10:00:00Z", "evidence_refs": ["SYN-NEG-01-A"]},
+        {"phase_id": "closure", "occurred_at": "2026-01-10T10:00:00Z", "evidence_refs": ["SYN-NEG-01-B"]}
+      ],
+      "twin_flame_evidence_present": false
+    },
+    {
+      "case_id": "NEG_GHOSTING",
+      "scenario": "Interrupción unilateral del contacto sin una declaración bilateral.",
+      "alternative_explanation": "UNRESOLVED_CONTACT_INTERRUPTION",
+      "observations": [],
+      "twin_flame_evidence_present": false
+    },
+    {
+      "case_id": "NEG_DEFINITIVE_SEPARATION",
+      "scenario": "Una persona comunica el fin definitivo del contacto.",
+      "alternative_explanation": "DOCUMENTED_CLOSURE",
+      "observations": [
+        {"phase_id": "closure", "occurred_at": "2026-02-01T10:00:00Z", "evidence_refs": ["SYN-NEG-03-A"]}
+      ],
+      "twin_flame_evidence_present": false
+    },
+    {
+      "case_id": "NEG_ORDINARY_RECONCILIATION",
+      "scenario": "Dos personas reanudan voluntariamente el contacto tras una pausa.",
+      "alternative_explanation": "BILATERAL_REENGAGEMENT_WITHOUT_ONTOLOGY",
+      "observations": [
+        {"phase_id": "bilateral_reengagement", "occurred_at": "2026-03-01T10:00:00Z", "evidence_refs": ["SYN-NEG-04-A", "SYN-NEG-04-B"]}
+      ],
+      "twin_flame_evidence_present": false
+    },
+    {
+      "case_id": "NEG_CRISIS_WITHOUT_CHANGE",
+      "scenario": "Crisis documentada sin evidencia posterior de cambio conductual.",
+      "alternative_explanation": "UNRESOLVED_RELATIONAL_CRISIS",
+      "observations": [
+        {"phase_id": "crisis_mirror", "occurred_at": "2026-04-01T10:00:00Z", "evidence_refs": ["SYN-NEG-05-A"]}
+      ],
+      "twin_flame_evidence_present": false
+    },
+    {
+      "case_id": "NEG_RETURN_WITHOUT_TRANSFORMATION",
+      "scenario": "Se reanuda el contacto, sin evidencia de reestructuración o transformación sostenida.",
+      "alternative_explanation": "REENGAGEMENT_WITHOUT_DOCUMENTED_TRANSFORMATION",
+      "observations": [
+        {"phase_id": "bilateral_reengagement", "occurred_at": "2026-05-01T10:00:00Z", "evidence_refs": ["SYN-NEG-06-A", "SYN-NEG-06-B"]}
+      ],
+      "twin_flame_evidence_present": false
+    }
+  ]
+}

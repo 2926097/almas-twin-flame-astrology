@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/temporal-dependency-result.schema.json",
+  "title": "ALMAS · resumen de dependencia temporal",
+  "type": "object", "additionalProperties": false,
+  "required": ["policy_id", "signals", "dependency_units", "score_created", "legacy_iat_modified"],
+  "properties": {
+    "policy_id": {"const": "ALMAS_TEMPORAL_DEPENDENCY_POLICY_V1"},
+    "signals": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["signal_id", "root_id", "temporal_family", "technique", "dependency_cluster"], "properties": {"signal_id": {"type": "string"}, "root_id": {"type": ["string", "null"]}, "temporal_family": {"type": "string"}, "technique": {"type": "string"}, "dependency_cluster": {"type": "string"}}}},
+    "dependency_units": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["root_id", "dependency_cluster", "member_signal_ids", "techniques", "temporal_families", "independent_unit_count"], "properties": {"root_id": {"type": ["string", "null"]}, "dependency_cluster": {"type": "string"}, "member_signal_ids": {"type": "array", "items": {"type": "string"}}, "techniques": {"type": "array", "items": {"type": "string"}}, "temporal_families": {"type": "array", "items": {"type": "string"}}, "independent_unit_count": {"const": 1}}}},
+    "score_created": {"const": false}, "legacy_iat_modified": {"const": false}
+  }
+}

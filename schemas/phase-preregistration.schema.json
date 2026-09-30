@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/phase-preregistration.schema.json",
+  "title": "ALMAS · prerregistro verificable de fases",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "policy_id", "preregistration_id", "registered_at", "status", "epistemic_class", "frozen_artifacts", "transitions_source", "thresholds", "sequence_rules", "falsifiers", "case_data_included", "case_specific_tuning"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "policy_id": {"const": "ALMAS_PHASE_PREREGISTRATION_V1"},
+    "preregistration_id": {"type": "string", "minLength": 1}, "registered_at": {"type": "string", "format": "date"},
+    "status": {"const": "FROZEN_BEFORE_CASE_APPLICATION"}, "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"},
+    "frozen_artifacts": {"type": "array", "minItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}},
+    "transitions_source": {"const": "reference/dynamic-phase-vocabulary.json"},
+    "thresholds": {"type": "object", "additionalProperties": false, "required": ["surrender_min_observation_days", "awakening_min_behavior_change_days", "awakening_min_distinct_observations"], "properties": {"surrender_min_observation_days": {"type": "integer", "minimum": 1}, "awakening_min_behavior_change_days": {"type": "integer", "minimum": 1}, "awakening_min_distinct_observations": {"type": "integer", "minimum": 2}}},
+    "sequence_rules": {"type": "object", "additionalProperties": false, "required": ["exact_order_match_required", "missing_phases_inferred", "additional_phases_allowed", "causal_status", "ontology_status_after_sequence_match"], "properties": {"exact_order_match_required": {"const": true}, "missing_phases_inferred": {"const": false}, "additional_phases_allowed": {"const": false}, "causal_status": {"const": "UNESTABLISHED"}, "ontology_status_after_sequence_match": {"const": "INSUFFICIENT"}}},
+    "falsifiers": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "case_data_included": {"const": false}, "case_specific_tuning": {"const": false}
+  }
+}

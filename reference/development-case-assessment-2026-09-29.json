@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "assessment_id": "ALMAS_DEV_CASE_2026_09_29",
+  "case_scope": "ANONYMIZED_DEVELOPMENT_ONLY",
+  "assessment_date": "2026-09-29",
+  "preregistration_id": "ALMAS_1_22_PHASE_RULES_2026_09_30",
+  "preregistration_status": "FROZEN_BEFORE_CASE_APPLICATION",
+  "source_artifacts_in_repository": false,
+  "case_specific_tuning": false,
+  "observed_facts": [],
+  "phase_checks": [
+    {"phase_id": "crisis_mirror", "status": "NOT_EVALUABLE", "evidence_refs": [], "reason": "No case source artifact is included in this public development record."},
+    {"phase_id": "boundary_assertion", "status": "NOT_EVALUABLE", "evidence_refs": [], "reason": "No case source artifact is included in this public development record."},
+    {"phase_id": "separation_or_suspension", "status": "NOT_EVALUABLE", "evidence_refs": [], "reason": "No bilateral documentary evidence is included in this public development record."},
+    {"phase_id": "surrender_candidate", "status": "NOT_EVALUABLE", "evidence_refs": [], "reason": "No preregistered case evidence is included in this public development record."}
+  ],
+  "doctrinal_sequence": {"status": "NOT_EVALUABLE", "causal_status": "UNESTABLISHED", "ontology_status": "INSUFFICIENT"}
+}

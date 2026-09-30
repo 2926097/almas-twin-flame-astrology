@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "window_id": "ALMAS_OCTOBER_2026_PROSPECTIVE",
+  "window_start": "2026-10-01",
+  "window_end": "2026-10-31",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "preregistration_id": "ALMAS_1_22_PHASE_RULES_2026_09_30",
+  "evaluation_status": "NOT_EVALUABLE",
+  "source_data_status": "REQUIRED_CHART_AND_EPHEMERIS_ARTIFACTS_NOT_IN_REPOSITORY",
+  "requested_layers": [
+    {"layer_id": "SOLAR_ARC_SUN_PLUTO", "category": "ASTROLOGICAL_TEMPORAL", "execution_status": "NOT_RUN", "required_inputs": ["verified natal longitudes", "birth-time robustness artifacts", "declared solar-arc rule"]},
+    {"layer_id": "SOLAR_ARC_PLUTO_SUN", "category": "ASTROLOGICAL_TEMPORAL", "execution_status": "NOT_RUN", "required_inputs": ["verified natal longitudes", "birth-time robustness artifacts", "declared solar-arc rule"]},
+    {"layer_id": "PROGRESSED_COMPOSITE", "category": "ASTROLOGICAL_TEMPORAL", "execution_status": "NOT_RUN", "required_inputs": ["verified natal chart inputs for both actors", "composite construction policy", "progression rule"]},
+    {"layer_id": "TRANSITS_TO_COMPOSITE", "category": "ASTROLOGICAL_TEMPORAL", "execution_status": "NOT_RUN", "required_inputs": ["verified composite chart", "ephemeris artifact", "predeclared transit window and orb"]},
+    {"layer_id": "ACTIVATED_ROOTS_AND_DEPENDENCIES", "category": "STRUCTURAL_AND_TEMPORAL", "execution_status": "NOT_RUN", "required_inputs": ["frozen root catalog", "traceable signal-to-root mappings", "dependency clusters"]},
+    {"layer_id": "ANGULAR_ROBUSTNESS", "category": "TECHNICAL_ROBUSTNESS", "execution_status": "NOT_RUN", "required_inputs": ["verified birth times", "±2/5/10/15 minute perturbation outputs"]}
+  ],
+  "observed_events": [],
+  "predicted_outcome": null,
+  "meeting_or_reunion_predeclared": false,
+  "phase_assignment_from_astrology": false,
+  "causal_status": "UNESTABLISHED",
+  "ontology_status": "INSUFFICIENT"
+}

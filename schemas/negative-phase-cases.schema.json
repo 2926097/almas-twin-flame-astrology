@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/negative-phase-cases.schema.json",
+  "title": "ALMAS · casos negativos sintéticos de fases",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "fixture_id", "classification", "cases"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "fixture_id": {"const": "ALMAS_NEGATIVE_PHASE_CASES_V1"}, "classification": {"const": "SYNTHETIC"},
+    "cases": {"type": "array", "minItems": 6, "items": {"type": "object", "additionalProperties": false, "required": ["case_id", "scenario", "alternative_explanation", "observations", "twin_flame_evidence_present"], "properties": {
+      "case_id": {"type": "string", "minLength": 1}, "scenario": {"type": "string", "minLength": 1}, "alternative_explanation": {"type": "string", "minLength": 1},
+      "observations": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["phase_id", "occurred_at", "evidence_refs"], "properties": {"phase_id": {"type": "string", "minLength": 1}, "occurred_at": {"type": "string", "format": "date-time"}, "evidence_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}}}},
+      "twin_flame_evidence_present": {"const": false}
+    }}}
+  }
+}
