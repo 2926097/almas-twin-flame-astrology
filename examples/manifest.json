@@ -107,6 +107,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/dynamic-phase-observation.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_PHASE_OBSERVATION_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/encounter-conditions.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_FIXTURE",

@@ -37,6 +37,10 @@ El ejemplo parte de una raíz Venus–Plutón y desarrolla una activación Satur
 
 No representa una pareja real, no añade puntuación y no convierte el tránsito en predicción de un acontecimiento.
 
+## Hecho observado y lectura doctrinal
+
+`dynamic-phase-observation.synthetic.json` demuestra que un hecho documental, una fase descriptiva y un posible mapeo doctrinal se conservan en campos separados. Su lectura contemporánea ejemplificativa no cambia el hecho ni demuestra por sí misma la fase espiritual sugerida.
+
 ## Manifiesto obligatorio
 
 Todos los JSON de este directorio, salvo el propio manifiesto, deben aparecer exactamente una vez en `examples/manifest.json`.
