@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/chiron-process-output.schema.json",
+  "title": "ALMAS · Proceso personal Venus–Nodo–Quirón",
+  "type": "object",
+  "required": ["policy_id", "complex_id", "complex_type", "natal_architecture", "nodal_variants", "temporal_signals", "dependency_groups", "exact_hits", "temporal_convergence", "technique_search_audit", "process_state", "temporal_process_vector", "integration_signature", "counterevidence", "documentary_evidence", "status", "epistemic_class", "structural_scoring_modified", "ontological_category_created"],
+  "properties": {
+    "policy_id": {"const": "ALMAS_CHIRON_PROCESS_V1"},
+    "complex_id": {"type": "string", "minLength": 1},
+    "complex_type": {"type": "string", "minLength": 1},
+    "natal_architecture": {"type": "object"},
+    "nodal_variants": {"type": "object", "required": ["node_variant_policy", "independent_axis_count"], "properties": {"node_variant_policy": {"const": "TRUE_AND_MEAN_SHARE_ONE_AXIS"}, "independent_axis_count": {"const": 1}}, "additionalProperties": true},
+    "temporal_signals": {"type": "array", "items": {"type": "object"}},
+    "dependency_groups": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "exact_hits": {"type": "array", "items": {"type": "object"}},
+    "temporal_convergence": {"type": "object", "required": ["independent_dependency_group_count", "dated_signal_count", "exactness_values_recorded", "preregistered_signal_count", "exploratory_signal_count", "multiple_testing_context", "score_created", "metaphysical_probability_created", "epistemic_class"], "properties": {"independent_dependency_group_count": {"type": "integer", "minimum": 0}, "dated_signal_count": {"type": "integer", "minimum": 0}, "exactness_values_recorded": {"type": "integer", "minimum": 0}, "preregistered_signal_count": {"type": "integer", "minimum": 0}, "exploratory_signal_count": {"type": "integer", "minimum": 0}, "multiple_testing_context": {"type": "string"}, "score_created": {"const": false}, "metaphysical_probability_created": {"const": false}, "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"}}, "additionalProperties": false},
+    "technique_search_audit": {"type": "object", "required": ["techniques_tested", "techniques_matched", "preregistered_techniques", "exploratory_techniques", "multiple_testing_context", "selection_after_observation", "universe_complete"], "properties": {"techniques_tested": {"type": "array", "items": {"type": "string"}}, "techniques_matched": {"type": "array", "items": {"type": "string"}}, "preregistered_techniques": {"type": "array", "items": {"type": "string"}}, "exploratory_techniques": {"type": "array", "items": {"type": "string"}}, "multiple_testing_context": {"type": "string"}, "selection_after_observation": {"type": ["boolean", "null"]}, "universe_complete": {"type": "boolean"}}, "additionalProperties": false},
+    "process_state": {"enum": ["LATENT_ARCHITECTURE", "REACTIVATION", "RECAPITULATION", "CONFRONTATION", "REORGANIZATION", "INTEGRATION_WINDOW", "INTEGRATION_DOCUMENTED", "CLOSURE_NOT_ESTABLISHED", "INDETERMINATE"]},
+    "temporal_process_vector": {"enum": ["ESCALATING", "RECURRING", "OSCILLATING", "REORGANIZING", "DEACTIVATING", "INDETERMINATE"]},
+    "integration_signature": {"enum": ["TENSION_DOMINANT", "MIXED", "INTEGRATIVE_GEOMETRY_DOMINANT", "TRANSITIONAL", "NOT_EVALUABLE"]},
+    "counterevidence": {"type": "array", "items": {"type": "object"}},
+    "documentary_evidence": {"type": "array", "items": {"type": "object"}},
+    "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
+    "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"},
+    "structural_scoring_modified": {"const": false},
+    "ontological_category_created": {"const": false}
+  },
+  "additionalProperties": false
+}

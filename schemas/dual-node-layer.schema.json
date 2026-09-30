@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/dual-node-layer.schema.json",
+  "title": "ALMAS · Capa nodal True/Mean",
+  "type": "object",
+  "required": ["nodal_axis_id", "variants", "variant_separation_degrees", "independent_axis_count", "north_south_double_counting", "true_mean_double_counting", "epistemic_class", "nodal_variant_concordance", "interpretive_hypothesis"],
+  "properties": {
+    "nodal_axis_id": {"type": "string", "minLength": 1},
+    "variants": {
+      "type": "object", "required": ["TRUE", "MEAN"],
+      "properties": {
+        "TRUE": {"$ref": "#/$defs/variant"},
+        "MEAN": {"$ref": "#/$defs/variant"}
+      },
+      "additionalProperties": false
+    },
+    "variant_separation_degrees": {"type": "number", "minimum": 0, "maximum": 180},
+    "independent_axis_count": {"const": 1},
+    "north_south_double_counting": {"const": false},
+    "true_mean_double_counting": {"const": false},
+    "epistemic_class": {"const": "A_CALCULATED"},
+    "nodal_variant_concordance": {"type": "object", "required": ["status", "epistemic_class"], "properties": {"status": {"enum": ["DUAL_CONVERGENCE", "TRUE_DOMINANT", "MEAN_DOMINANT", "DIVERGENT_TIMING", "NOT_EVALUABLE"]}, "epistemic_class": {"const": "B_TECHNIQUE"}}, "additionalProperties": true},
+    "interpretive_hypothesis": {"type": "object", "required": ["statement", "epistemic_class", "validation_status"], "properties": {"statement": {"type": "string"}, "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"}, "validation_status": {"const": "UNVALIDATED"}}, "additionalProperties": false}
+  },
+  "$defs": {
+    "variant": {
+      "type": "object", "required": ["node_variant", "nodal_axis_id", "north_node", "south_node", "source_point", "calculation_method"],
+      "properties": {
+        "node_variant": {"enum": ["TRUE", "MEAN"]},
+        "nodal_axis_id": {"type": "string"},
+        "north_node": {"type": "object", "required": ["longitude", "point_id"], "properties": {"longitude": {"type": "number", "minimum": 0, "exclusiveMaximum": 360}, "point_id": {"const": "NORTH_NODE"}}, "additionalProperties": true},
+        "south_node": {"type": "object", "required": ["longitude", "point_id"], "properties": {"longitude": {"type": "number", "minimum": 0, "exclusiveMaximum": 360}, "point_id": {"const": "SOUTH_NODE"}}, "additionalProperties": true},
+        "source_point": {"type": "string"},
+        "calculation_method": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

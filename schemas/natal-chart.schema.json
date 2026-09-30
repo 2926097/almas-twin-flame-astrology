@@ -80,7 +80,12 @@
               "OTHER",
               null
             ]
-          }
+          },
+          "node_variant": {"enum": ["TRUE", "MEAN", null]},
+          "nodal_axis_id": {"type": ["string", "null"]},
+          "calculation_method": {"type": ["string", "null"]},
+          "time_scale": {"type": ["string", "null"]},
+          "epistemic_class": {"enum": ["A_CALCULATED", null]}
         },
         "additionalProperties": true
       }
@@ -162,6 +167,7 @@
     "backend_provenance": {
       "$ref": "astronomy-backend-provenance.schema.json"
     },
+    "nodal_variant_layer": {"$ref": "dual-node-layer.schema.json"},
     "metadata": {
       "type": "object"
     }

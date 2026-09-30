@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import date, datetime
+from math import isfinite
 import re
 from typing import Any, Mapping
 
@@ -37,6 +38,16 @@ WINDOW_STATUSES = {
 
 IAT_SCOPES = ("IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS")
 EVIDENCE_TARGETS = ("RELATION", "ACTOR_A", "ACTOR_B", "CROSS", "UNSPECIFIED")
+TECHNIQUE_VARIANTS = {
+    "TPROG": {"SECONDARY_DIRECT", "SECONDARY_CONVERSE", "TERTIARY_I_DIRECT", "TERTIARY_I_CONVERSE", "TERTIARY_II_DIRECT", "TERTIARY_II_CONVERSE"},
+    "TDIR": {"SOLAR_ARC_DIRECT", "SOLAR_ARC_CONVERSE"},
+    "TATACIR": {"C360", "C144", "C72", "C25", "C12", "C6", "C5"},
+}
+DEFAULT_DEPENDENCY_GROUPS = {
+    "TTRANSIT": "TRANSIT_EPHEMERIS",
+    "TECLIPSE": "ECLIPSE_FAMILY",
+    "TREL": "RELATIONAL_CLOCK",
+}
 
 
 def _nonnegative_weight(value: Any, label: str) -> float:
@@ -68,6 +79,81 @@ def _signal_traceability(raw: Mapping[str, Any], signal_id: str) -> tuple[bool, 
         missing.append("preregistered_window_rule")
 
     return not missing, missing
+
+
+def _kinematic_metadata(raw: Mapping[str, Any], signal_id: str, family: str) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    variant = raw.get("technique_variant")
+    if variant is not None:
+        if not isinstance(variant, str) or not variant.strip():
+            raise ValueError(f"{signal_id}: technique_variant debe ser texto no vacío.")
+        allowed = TECHNIQUE_VARIANTS.get(family)
+        if allowed is not None and variant not in allowed:
+            source_ref = raw.get("technique_variant_source_ref")
+            if family != "TATACIR" or not isinstance(source_ref, str) or not source_ref.strip():
+                raise ValueError(f"{signal_id}: technique_variant incompatible con {family} o carece de fuente registrada.")
+            result["technique_variant_source_ref"] = source_ref.strip()
+        result["technique_variant"] = variant
+    dependency_group = raw.get("dependency_group")
+    if dependency_group is None:
+        dependency_group = DEFAULT_DEPENDENCY_GROUPS.get(family)
+        if dependency_group is None and family == "TPROG":
+            dependency_group = "SEC_PROGRESSION" if str(variant or "").startswith("SECONDARY_") else ("TERTIARY_LUNAR" if variant else "PROGRESSION_UNSPECIFIED")
+        if dependency_group is None and family == "TDIR":
+            dependency_group = "UNIFORM_YEAR_DIRECTION"
+        if dependency_group is None and family == "TATACIR":
+            dependency_group = "ATACIR_FAMILY"
+        if dependency_group is None:
+            dependency_group = f"TEMPORAL_FAMILY:{family}"
+    if not isinstance(dependency_group, str) or not dependency_group.strip():
+        raise ValueError(f"{signal_id}: dependency_group debe ser texto no vacío.")
+    result["dependency_group"] = dependency_group
+    exact_datetime = raw.get("exact_datetime")
+    if exact_datetime is not None:
+        if not isinstance(exact_datetime, str):
+            raise ValueError(f"{signal_id}: exact_datetime debe ser ISO-8601.")
+        try:
+            parsed = datetime.fromisoformat(exact_datetime.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError(f"{signal_id}: exact_datetime inválido.") from exc
+        if parsed.tzinfo is None:
+            raise ValueError(f"{signal_id}: exact_datetime debe incluir zona horaria.")
+        result["exact_datetime"] = parsed.isoformat().replace("+00:00", "Z")
+    orb = raw.get("orb")
+    if orb is not None:
+        if isinstance(orb, bool) or not isinstance(orb, (int, float)) or not isfinite(float(orb)) or float(orb) < 0:
+            raise ValueError(f"{signal_id}: orb debe ser finito y no negativo.")
+        result["orb"] = float(orb)
+    pass_number = raw.get("pass_number")
+    if pass_number is not None:
+        if isinstance(pass_number, bool) or not isinstance(pass_number, int) or pass_number < 1:
+            raise ValueError(f"{signal_id}: pass_number debe ser entero positivo.")
+        result["pass_number"] = pass_number
+    enums = {
+        "applying_or_separating": {"APPLYING", "SEPARATING", "EXACT_PERFECTION", "UNKNOWN"},
+        "motion_state": {"DIRECT", "RETROGRADE", "STATIONARY", "OSCILLATING", "UNKNOWN"},
+        "node_variant": {"TRUE", "MEAN"},
+    }
+    for field, allowed in enums.items():
+        value = raw.get(field)
+        if value is not None:
+            if value not in allowed:
+                raise ValueError(f"{signal_id}: {field} no reconocido.")
+            result[field] = value
+    for field in ("station_context", "source_point", "target_point", "relation", "nodal_axis_id"):
+        value = raw.get(field)
+        if value is not None:
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"{signal_id}: {field} debe ser texto no vacío.")
+            result[field] = value.strip()
+    if variant == "RETURN_CYCLE" and family == "TTRANSIT":
+        def body(point: str | None) -> str:
+            return (point or "").upper().replace("_TRANSIT", "").replace("_NATAL", "")
+        if not result.get("source_point") or not result.get("target_point") or body(result["source_point"]) != body(result["target_point"]):
+            raise ValueError(f"{signal_id}: RETURN_CYCLE requiere el mismo cuerpo transitante y natal.")
+    if result.get("node_variant") and not result.get("nodal_axis_id"):
+        result["nodal_axis_id"] = "LUNAR_NODE_AXIS"
+    return result
 
 
 def _normalize_trigger_context(
@@ -361,6 +447,7 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
             raw.get("trigger_context"),
             signal_id,
         )
+        kinematic_metadata = _kinematic_metadata(raw, signal_id, family)
 
         k = ACTIVATION_COEFFICIENTS[activation_class]
         effective_strength = strength * k
@@ -404,6 +491,7 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
                 "iat_eligible": iat_eligible,
                 "creates_structural_root": False,
                 "predicts_real_world_event": False,
+                **kinematic_metadata,
             }
         )
 

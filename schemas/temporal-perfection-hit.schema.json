@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/temporal-perfection-hit.schema.json",
+  "title": "ALMAS · Perfeccionamiento temporal exacto",
+  "type": "object",
+  "required": ["exact_datetime", "orb", "applying_or_separating", "pass_number", "station_context", "motion_state", "source_point", "target_point", "relation", "technique", "technique_variant", "dependency_group", "window_status", "date_or_period"],
+  "properties": {
+    "exact_datetime": {"type": "string", "format": "date-time"},
+    "orb": {"type": "number", "minimum": 0},
+    "applying_or_separating": {"enum": ["APPLYING", "SEPARATING", "EXACT_PERFECTION", "UNKNOWN"]},
+    "pass_number": {"type": "integer", "minimum": 1},
+    "station_context": {"type": "string"},
+    "motion_state": {"type": "string"},
+    "source_point": {"type": "string", "minLength": 1},
+    "target_point": {"type": "string", "minLength": 1},
+    "relation": {"type": "string", "minLength": 1},
+    "oriented_aspect": {"type": "number", "minimum": 0, "exclusiveMaximum": 360},
+    "technique": {"enum": ["TPROG", "TDIR", "TTRANSIT", "TECLIPSE", "TREL", "TATACIR"]},
+    "technique_variant": {"type": "string", "minLength": 1},
+    "dependency_group": {"type": "string", "minLength": 1},
+    "node_variant": {"enum": ["TRUE", "MEAN", null]},
+    "nodal_axis_id": {"type": ["string", "null"]},
+    "window_status": {"enum": ["RETROSPECTIVE_CONFIRMED", "RETROSPECTIVE_UNCONFIRMED", "CURRENT_ACTIVE", "PROSPECTIVE_ACTIVATION", "EXPLORATORY", "UNANCHORED"]},
+    "date_or_period": {"type": "string", "format": "date"}
+  },
+  "additionalProperties": false
+}

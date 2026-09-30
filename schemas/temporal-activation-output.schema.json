@@ -57,11 +57,37 @@
             "type": "string",
             "minLength": 1
           },
-          "layer": {"const": "TEMPORAL"},
-          "target": {"enum": ["RELATION", "ACTOR_A", "ACTOR_B", "CROSS", "UNSPECIFIED"]},
-          "iat_scope": {"enum": ["IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS", null]},
-          "technique": {"type": ["string", "null"]},
-          "dependency_cluster": {"type": "string", "minLength": 1},
+          "layer": {
+            "const": "TEMPORAL"
+          },
+          "target": {
+            "enum": [
+              "RELATION",
+              "ACTOR_A",
+              "ACTOR_B",
+              "CROSS",
+              "UNSPECIFIED"
+            ]
+          },
+          "iat_scope": {
+            "enum": [
+              "IAT_REL",
+              "IAT_A",
+              "IAT_B",
+              "IAT_CROSS",
+              null
+            ]
+          },
+          "technique": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "dependency_cluster": {
+            "type": "string",
+            "minLength": 1
+          },
           "root_id": {
             "type": [
               "string",
@@ -236,6 +262,99 @@
                 "additionalProperties": true
               }
             ]
+          },
+          "technique_variant": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "technique_variant_source_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "dependency_group": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exact_datetime": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "orb": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "applying_or_separating": {
+            "enum": [
+              "APPLYING",
+              "SEPARATING",
+              "EXACT_PERFECTION",
+              "UNKNOWN",
+              null
+            ]
+          },
+          "pass_number": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "station_context": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "motion_state": {
+            "enum": [
+              "DIRECT",
+              "RETROGRADE",
+              "STATIONARY",
+              "OSCILLATING",
+              "UNKNOWN",
+              null
+            ]
+          },
+          "source_point": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "target_point": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "node_variant": {
+            "enum": [
+              "TRUE",
+              "MEAN",
+              null
+            ]
+          },
+          "nodal_axis_id": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         },
         "additionalProperties": true
@@ -316,12 +435,25 @@
     },
     "iat_components": {
       "type": "object",
-      "required": ["IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS"],
+      "required": [
+        "IAT_REL",
+        "IAT_A",
+        "IAT_B",
+        "IAT_CROSS"
+      ],
       "properties": {
-        "IAT_REL": {"$ref": "#/$defs/unscored_iat_component"},
-        "IAT_A": {"$ref": "#/$defs/unscored_iat_component"},
-        "IAT_B": {"$ref": "#/$defs/unscored_iat_component"},
-        "IAT_CROSS": {"$ref": "#/$defs/unscored_iat_component"}
+        "IAT_REL": {
+          "$ref": "#/$defs/unscored_iat_component"
+        },
+        "IAT_A": {
+          "$ref": "#/$defs/unscored_iat_component"
+        },
+        "IAT_B": {
+          "$ref": "#/$defs/unscored_iat_component"
+        },
+        "IAT_CROSS": {
+          "$ref": "#/$defs/unscored_iat_component"
+        }
       },
       "additionalProperties": false
     },
@@ -416,12 +548,30 @@
   "$defs": {
     "unscored_iat_component": {
       "type": "object",
-      "required": ["status", "value", "signal_ids", "reason"],
+      "required": [
+        "status",
+        "value",
+        "signal_ids",
+        "reason"
+      ],
       "properties": {
-        "status": {"const": "NOT_EVALUABLE"},
-        "value": {"type": "null"},
-        "signal_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
-        "reason": {"type": "string", "minLength": 1}
+        "status": {
+          "const": "NOT_EVALUABLE"
+        },
+        "value": {
+          "type": "null"
+        },
+        "signal_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     }

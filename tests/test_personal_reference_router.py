@@ -46,6 +46,7 @@ def canonical():
                 "kernel_sha256": "f" * 64,
                 "house_system": "PLACIDUS",
                 "node_mode": "TRUE_NODE",
+            "node_variants": ["TRUE", "MEAN"],
                 "zodiac": "TROPICAL",
                 "network_io_used": False,
                 "geocoding_used": False,

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/personal-temporal-complex.schema.json",
+  "title": "ALMAS · Complejo temporal personal",
+  "type": "object",
+  "required": ["complex_id", "complex_type", "natal_architecture", "nodal_variants", "temporal_signals", "dependency_groups", "exact_hits", "process_state", "temporal_process_vector", "integration_signature", "counterevidence", "documentary_evidence", "status"],
+  "properties": {
+    "complex_id": {"type": "string", "minLength": 1},
+    "complex_type": {"type": "string", "minLength": 1},
+    "natal_architecture": {"type": "object"},
+    "nodal_variants": {"type": "object"},
+    "temporal_signals": {"type": "array", "items": {"type": "object"}},
+    "dependency_groups": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "exact_hits": {"type": "array", "items": {"type": "object"}},
+    "process_state": {"enum": ["LATENT_ARCHITECTURE", "REACTIVATION", "RECAPITULATION", "CONFRONTATION", "REORGANIZATION", "INTEGRATION_WINDOW", "INTEGRATION_DOCUMENTED", "CLOSURE_NOT_ESTABLISHED", "INDETERMINATE"]},
+    "temporal_process_vector": {"enum": ["ESCALATING", "RECURRING", "OSCILLATING", "REORGANIZING", "DEACTIVATING", "INDETERMINATE"]},
+    "integration_signature": {"enum": ["TENSION_DOMINANT", "MIXED", "INTEGRATIVE_GEOMETRY_DOMINANT", "TRANSITIONAL", "NOT_EVALUABLE"]},
+    "counterevidence": {"type": "array", "items": {"type": "object"}},
+    "documentary_evidence": {"type": "array", "items": {"type": "object"}},
+    "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]}
+  },
+  "additionalProperties": true
+}

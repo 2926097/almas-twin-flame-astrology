@@ -1,6 +1,10 @@
 # Estado de validación
 
-**Versión pública:** 1.22.0
+**Versión pública:** 1.23.0
+
+## Release 1.23 · Chiron–Nodal Integration Engine
+
+Se implementa la extensión personal optativa Venus–Nodo–Quirón con dual-node True/Mean, solver temporal de múltiples perfeccionamientos, grupos de dependencia, auditoría de técnica exploratoria, secuencia de proceso y gate M27 para integración documentada. Los canonical personales anteriores siguen válidos. Verificación local cerrada: **728 tests PASS** y contrato público **PASS** (32 módulos, 77 fuentes). Gates locales DOCX (6 tests + fixture) y PDF (4 tests + fixture B5 de 13 páginas) también pasan. No se han lanzado workflows remotos ni matrices Python 3.10/3.12; detalles en `docs/RELEASE_AUDIT_1.23.0.md`.
 
 ## Release pública
 
@@ -128,7 +132,7 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 | Genealogía de discriminadores | OD01–OD07 trazados documentalmente |
 | Aislamiento de casos privados | `ALMAS_PUBLIC_DATA_ISOLATION_V1` + manifests exhaustivos |
 | CLI de pilares precomputados | Publicada y probada unitariamente |
-| Corpus doctrinal/técnico | 76 fuentes / 97 conceptos / 73 relaciones |
+| Corpus doctrinal/técnico | 77 fuentes / 98 conceptos / 73 relaciones |
 | Fixtures sintéticos | Publicados |
 | Casos privados | Excluidos |
 | Casos públicos verificables | Admitidos sólo en `public_cases/` |

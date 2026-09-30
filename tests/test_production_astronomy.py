@@ -168,6 +168,10 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         self.assertEqual(set(chart["angles"]), {"ASC", "DSC", "MC", "IC"})
         self.assertIn("NORTH_NODE", chart["positions"])
         self.assertIn("SOUTH_NODE", chart["positions"])
+        self.assertIn("MEAN_NORTH_NODE", chart["positions"])
+        self.assertIn("MEAN_SOUTH_NODE", chart["positions"])
+        self.assertEqual(chart["positions"]["MEAN_NORTH_NODE"]["node_variant"], "MEAN")
+        self.assertEqual(chart["positions"]["NORTH_NODE"]["node_variant"], "TRUE")
         self.assertAlmostEqual(
             (
                 chart["positions"]["SOUTH_NODE"]["longitude"]
@@ -210,6 +214,7 @@ class ProductionAstronomyBackendTests(unittest.TestCase):
         self.assertEqual(set(result["positions"]), {
             "SUN", "MOON", "MERCURY", "VENUS", "MARS",
             "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO",
+            "NORTH_NODE", "SOUTH_NODE", "MEAN_NORTH_NODE", "MEAN_SOUTH_NODE",
         })
         self.assertEqual(
             result["instant_utc"],

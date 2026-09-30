@@ -52,6 +52,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/chiron-process.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_CHIRON_PROCESS_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/clause-assembly.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_FIXTURE",

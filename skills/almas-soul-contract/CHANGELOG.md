@@ -1,3 +1,7 @@
+## ALMAS 1.23.0 — 2026-09-30
+
+- Hereda la release pública ALMAS 1.23.0; mantiene separado el proceso personal CHIRON_PROCESS del motor contractual relacional.
+
 # Módulo ALMAS · Contrato Preencarnatorio · historial técnico
 
 > Las entradas 1.0.0–1.9.0 que siguen representan **revisiones históricas internas del motor contractual**. Desde ALMAS 1.4.0 el módulo no tiene SemVer público independiente y hereda `VERSION` de la raíz. Las releases públicas posteriores se documentan principalmente en el changelog raíz.

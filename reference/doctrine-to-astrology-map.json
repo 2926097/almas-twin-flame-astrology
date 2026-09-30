@@ -1,6 +1,6 @@
 {
-  "map_version": "1.3.0",
-  "almas_version": "1.15.0",
+  "map_version": "1.4.0",
+  "almas_version": "1.23.0",
   "principles": [
     "La doctrina define conceptos y límites; su mera existencia no aporta puntuación estructural.",
     "Los mapeos astrológicos creados por ALMAS son E_PROJECT_HYPOTHESIS salvo que la fuente citada proporcione explícitamente la técnica.",
@@ -603,6 +603,43 @@
         "soul_contract_proof",
         "independent_recurrence_from_nodal_anchors"
       ]
+    },
+    {
+      "concept_id": "MEAN_LUNAR_NODE",
+      "metaphysical_variable": "DECLARED_MEAN_NODE_TECHNICAL_VARIANT",
+      "source_basis": [
+        "meeus_astronomical_algorithms_mean_node_1998"
+      ],
+      "operationalization_class": "TECHNICAL_METHOD_ONLY",
+      "admissible_astrology": [
+        "mean_lunar_node_longitude_and_speed_as_declared_calculation_variant"
+      ],
+      "inadmissible_inferences": [
+        "mean_node_difference_proves_metaphysical_structure",
+        "mean_node_is_doctrinally_equivalent_to_true_node",
+        "nodal_variant_difference_classifies_relationship_origin"
+      ],
+      "source_alignment": "TECHNICAL_METHOD_ONLY",
+      "validation_state": "FORMULA_IMPLEMENTATION_REPRODUCIBILITY_ONLY",
+      "inferential_ceiling": "CALCULATED_MEAN_NODE_VARIANT_ONLY",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "declared_ephemeris_time_scale",
+        "meeus_mean_node_polynomial"
+      ],
+      "required_gates": [
+        "declare_nodal_variant",
+        "retain_true_node_as_separate_variant",
+        "no_ontological_inference_from_variant_difference"
+      ],
+      "discriminating_power": "NONE_ONTOLOGICAL",
+      "forbidden_upgrade": [
+        "metaphysical_node_variant",
+        "relationship_origin_discriminator",
+        "doctrinal_node_equivalence"
+      ],
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "El nodo medio lunar se calcula mediante la fórmula astronómica declarada para reproducir una variante nodal; su disponibilidad técnica no añade puntuación doctrinal ni evidencia ontológica."
     }
   ],
   "coverage": [
@@ -1090,6 +1127,11 @@
       "concept_id": "DAIMON",
       "coverage_state": "CONTEXT_ONLY",
       "reason": "Término histórico vinculado a Spirit/Daimon; ALMAS evita equipararlo automáticamente con alma, Mónada, Yo Superior o contrato preencarnatorio."
+    },
+    {
+      "concept_id": "MEAN_LUNAR_NODE",
+      "coverage_state": "MAPPED",
+      "reason": "Mapeo técnico acotado a la fórmula de cálculo de la variante Mean Node; no operacionaliza afirmaciones doctrinales ni ontológicas."
     }
   ],
   "audit_summary": {
@@ -1098,7 +1140,8 @@
     "academic_or_method_context_sources": 5,
     "ontological_discriminators_validated": 0,
     "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory.",
-    "coverage_total": 97,
-    "note_1_14": "Fortuna/Espíritu y reglas de secta se registran como técnica/contexto histórico, no como validación ontológica."
+    "coverage_total": 98,
+    "note_1_14": "Fortuna/Espíritu y reglas de secta se registran como técnica/contexto histórico, no como validación ontológica.",
+    "note_1_23": "El nodo lunar medio se añade como variable técnica de cálculo y comparación; no valida inferencias metafísicas."
   }
 }

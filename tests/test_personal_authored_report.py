@@ -22,6 +22,7 @@ def production_provenance():
         "kernel_sha256": "b" * 64,
         "house_system": "PLACIDUS",
         "node_mode": "TRUE_NODE",
+            "node_variants": ["TRUE", "MEAN"],
         "zodiac": "TROPICAL",
         "coordinate_origin": "GEOCENTRIC",
         "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",

@@ -28,6 +28,14 @@ REQUIRED_FILES = [
     "reference/personal-reporting.md",
     "reference/personal-authored-report.md",
     "reference/personal-source-routing.md",
+    "reference/chiron-nodal-integration-hermeneutics.md",
+    "reference/dual-node-method.md",
+    "reference/chiron-process-contract.md",
+    "reference/temporal-dependency-policy-v2.json",
+    "src/almas_tfa/data/chiron-process-policy.json",
+    "examples/chiron-process.synthetic.json",
+    "docs/CHIRON_NODAL_ENGINE_1_23.md",
+    "docs/RELEASE_AUDIT_1.23.0.md",
     ".github/workflows/astronomy-backend.yml",
     ".github/workflows/publication-docx.yml",
     ".github/workflows/publication-pdf.yml",
@@ -110,6 +118,10 @@ REQUIRED_FILES = [
     "schemas/personal-report-request.schema.json",
     "schemas/personal-report-reference-router.schema.json",
     "schemas/personal-canonical-analysis.schema.json",
+    "schemas/chiron-process-output.schema.json",
+    "schemas/personal-temporal-complex.schema.json",
+    "schemas/dual-node-layer.schema.json",
+    "schemas/temporal-perfection-hit.schema.json",
     "schemas/personal-authored-report.schema.json",
     "schemas/personal-report-document-model.schema.json",
     "src/almas_tfa/data/personal-report-reference-router.json",
@@ -143,6 +155,7 @@ REQUIRED_FILES = [
     "schemas/validation-release-audit-package.schema.json",
     "schemas/robustness-output.schema.json",
     "schemas/temporal-activation-output.schema.json",
+    "schemas/temporal-perfection-hit.schema.json",
     "schemas/documentary-event-output.schema.json",
     "schemas/doctrine-hermeneutics-output.schema.json",
     "schemas/viability-reciprocity-assessment.schema.json",
@@ -901,6 +914,13 @@ def main() -> int:
     natal_policy = production_astronomy_backend_policy.get("natal", {})
     if natal_policy.get("node_mode") != "TRUE_NODE":
         fail("production astronomy node mode changed")
+    mean_node_extension = natal_policy.get("mean_node_extension", {})
+    if mean_node_extension != {
+        "calculation_method": "MEEUS_MEAN_ASCENDING_NODE_1998_47_7",
+        "time_scale": "TT",
+        "south_node_rule": "NORTH_PLUS_180_DEGREES",
+    }:
+        fail("production astronomy Mean Node method or time scale changed")
     if natal_policy.get("house_system_must_be_explicit") is not True:
         fail("production astronomy house system must be explicit")
     if natal_policy.get("polar_house_fallback") != "FORBIDDEN":
@@ -913,6 +933,7 @@ def main() -> int:
         "longitudinal_speed",
         "retrograde",
         "true_lunar_node",
+        "mean_lunar_node",
         "houses",
         "angles",
         "davison",
@@ -930,6 +951,8 @@ def main() -> int:
         fail("astronomy backend provenance schema provider version changed")
     if "kernel_family" not in astronomy_backend_provenance_schema.get("required", []):
         fail("astronomy backend provenance must require kernel_family")
+    if astronomy_backend_provenance_schema.get("properties", {}).get("node_variants", {}).get("items", {}).get("enum") != ["TRUE", "MEAN"]:
+        fail("astronomy backend provenance must permit explicit True/Mean variants")
     for field in ("network_io_used", "geocoding_used"):
         if provenance_props.get(field, {}).get("const") is not False:
             fail(f"astronomy backend provenance must lock {field}=false")

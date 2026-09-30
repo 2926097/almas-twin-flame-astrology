@@ -57,6 +57,12 @@
     "node_mode": {
       "const": "TRUE_NODE"
     },
+    "node_variants": {
+      "type": "array",
+      "items": {"enum": ["TRUE", "MEAN"]},
+      "uniqueItems": true,
+      "minItems": 1
+    },
     "zodiac": {
       "const": "TROPICAL"
     },

@@ -43,6 +43,11 @@
       "NORTH_NODE", "SOUTH_NODE"
     ],
     "node_mode": "TRUE_NODE",
+    "mean_node_extension": {
+      "calculation_method": "MEEUS_MEAN_ASCENDING_NODE_1998_47_7",
+      "time_scale": "TT",
+      "south_node_rule": "NORTH_PLUS_180_DEGREES"
+    },
     "declination_derivation": "ECLIPTIC_TO_EQUATORIAL_USING_CHART_TRUE_OBLIQUITY",
     "houses_required_for_timed_chart": true,
     "house_system_must_be_explicit": true,
@@ -60,6 +65,7 @@
     "longitudinal_speed": true,
     "retrograde": true,
     "true_lunar_node": true,
+    "mean_lunar_node": true,
     "houses": true,
     "angles": true,
     "davison": true,
