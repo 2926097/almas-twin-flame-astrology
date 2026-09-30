@@ -487,6 +487,9 @@
       },
       "additionalProperties": false
     },
+    "dynamic_phases": {
+      "$ref": "dynamic-phase-state.schema.json"
+    },
     "semantic_motifs": {
       "$ref": "semantic-motif-graph.schema.json"
     },

@@ -4787,6 +4787,7 @@ def main() -> int:
         "doctrine",
         "temporal",
         "semantic_motifs",
+        "dynamic_phases",
         "time_sensitivity",
         "limitations",
         "ontological_discrimination",
@@ -4795,6 +4796,10 @@ def main() -> int:
     }
     if set(canonical_props) != expected_canonical_root_props:
         fail("canonical schema root surface diverges from M30 output contract")
+    if canonical_props.get("dynamic_phases", {}).get("$ref") != "dynamic-phase-state.schema.json":
+        fail("canonical dynamic phases must use the unassessed state contract")
+    if "dynamic_phases" in set(canonical_schema.get("required", [])):
+        fail("legacy canonical analyses must remain valid without dynamic phases")
     if canonical_schema.get("additionalProperties") is not False:
         fail("canonical schema root must reject undeclared namespaces")
 
