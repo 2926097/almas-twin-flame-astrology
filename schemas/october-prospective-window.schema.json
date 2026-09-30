@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/october-prospective-window.schema.json",
+  "title": "ALMAS · ventana prospectiva de octubre de 2026",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "window_id", "window_start", "window_end", "epistemic_class", "preregistration_id", "evaluation_status", "source_data_status", "requested_layers", "observed_events", "predicted_outcome", "meeting_or_reunion_predeclared", "phase_assignment_from_astrology", "causal_status", "ontology_status"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "window_id": {"const": "ALMAS_OCTOBER_2026_PROSPECTIVE"},
+    "window_start": {"const": "2026-10-01"}, "window_end": {"const": "2026-10-31"}, "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"},
+    "preregistration_id": {"type": "string", "minLength": 1}, "evaluation_status": {"const": "NOT_EVALUABLE"}, "source_data_status": {"type": "string"},
+    "requested_layers": {"type": "array", "minItems": 6, "items": {"type": "object", "additionalProperties": false, "required": ["layer_id", "category", "execution_status", "required_inputs"], "properties": {"layer_id": {"type": "string"}, "category": {"enum": ["ASTROLOGICAL_TEMPORAL", "STRUCTURAL_AND_TEMPORAL", "TECHNICAL_ROBUSTNESS"]}, "execution_status": {"const": "NOT_RUN"}, "required_inputs": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}},
+    "observed_events": {"maxItems": 0, "type": "array"}, "predicted_outcome": {"type": "null"}, "meeting_or_reunion_predeclared": {"const": false}, "phase_assignment_from_astrology": {"const": false}, "causal_status": {"const": "UNESTABLISHED"}, "ontology_status": {"const": "INSUFFICIENT"}
+  }
+}
