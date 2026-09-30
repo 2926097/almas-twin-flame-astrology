@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/surrender-assessment.schema.json",
+  "title": "ALMAS · entrada de evaluación operacional de surrender",
+  "type": "object", "additionalProperties": false,
+  "required": ["assessment_start", "assessment_end"],
+  "properties": {
+    "assessment_start": {"type": "string", "format": "date"},
+    "assessment_end": {"type": "string", "format": "date"},
+    "preregistration_ref": {"type": "string", "minLength": 1},
+    "pursuit_ledger": {"type": "object", "additionalProperties": false, "properties": {
+      "prior_pursuit_attempt_refs": {"$ref": "#/$defs/refs"}, "post_window_pursuit_refs": {"$ref": "#/$defs/refs"},
+      "contact_opportunity_refs": {"$ref": "#/$defs/refs"}, "contact_log_complete": {"type": "boolean"}
+    }},
+    "boundary_assertion_refs": {"$ref": "#/$defs/refs"},
+    "decentering_activities": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+      "required": ["fact_id", "actor", "domain", "occurred_on", "independent_of_other_actor_response"],
+      "properties": {"fact_id": {"type": "string", "minLength": 1}, "actor": {"enum": ["A", "B"]},
+        "domain": {"enum": ["WORK", "HEALTH", "FAMILY", "FRIENDSHIP", "LEARNING", "CREATIVE", "COMMUNITY"]},
+        "occurred_on": {"type": "string", "format": "date"}, "independent_of_other_actor_response": {"type": "boolean"}}
+    }},
+    "counterevidence": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+      "required": ["kind", "evidence_refs"], "properties": {
+        "kind": {"enum": ["CONTINUED_PURSUIT", "EXPLICIT_STRATEGIC_SILENCE_TO_PROVOKE_RESPONSE", "REPEATED_CONFLICT_REOPENING", "OUTCOME_BARGAINING", "CONTROL_ATTEMPT"]},
+        "evidence_refs": {"$ref": "#/$defs/refs"}, "actor_self_reported_intent": {"type": "boolean"}
+      }, "allOf": [{"if": {"properties": {"kind": {"const": "EXPLICIT_STRATEGIC_SILENCE_TO_PROVOKE_RESPONSE"}}, "required": ["kind"]},
+        "then": {"properties": {"actor_self_reported_intent": {"const": true}}, "required": ["actor_self_reported_intent"]}}]
+    }}
+  },
+  "$defs": {"refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}}
+}

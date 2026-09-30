@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/dynamic-phase-event-result.schema.json",
+  "title": "ALMAS · Resultado de evaluación de evento dinámico",
+  "type": "object",
+  "required": ["event_id", "phase_before", "phase_candidate", "phase_after", "evidence_strength", "counterevidence", "status", "rule_id", "automatic_text_interpretation"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "phase_before": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/state"}]},
+    "phase_candidate": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/candidate"}]},
+    "phase_after": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/state"}]},
+    "evidence_strength": {"enum": ["DIRECT_DOCUMENTARY", "DIRECT_MULTI_ACTOR", "DIRECT_PARTIAL", "SELF_REPORT_ONLY", "NO_DIRECT_EVIDENCE"]},
+    "counterevidence": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
+    "rule_id": {"type": ["string", "null"]},
+    "automatic_text_interpretation": {"const": false}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "state": {
+      "type": "object",
+      "required": ["phase_id", "status", "evidence_refs"],
+      "properties": {
+        "phase_id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "candidate": {
+      "type": "object",
+      "required": ["phase_id", "scope", "status", "evidence_refs", "rule_id", "interpretation"],
+      "properties": {
+        "phase_id": {"type": "string", "minLength": 1},
+        "scope": {"enum": ["A", "B", "RELATION"]},
+        "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}},
+        "rule_id": {"type": "string", "minLength": 1},
+        "interpretation": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  }
+}

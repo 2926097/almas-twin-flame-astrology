@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_AWAKENING_OPERATIONAL_POLICY_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "status": "FROZEN_BEFORE_CASE_APPLICATION",
+  "required_criteria": [
+    "explicit_reframing",
+    "recognition_of_previous_pattern",
+    "sustained_behavioral_change",
+    "voluntary_reengagement",
+    "increased_congruence_between_words_and_actions"
+  ],
+  "sustained_behavioral_change": {
+    "minimum_observation_days": 30,
+    "requires_distinct_observations": 2
+  },
+  "evidence_policy": {
+    "direct_biographical_evidence_required": true,
+    "all_criteria_required_for_supported": true,
+    "contrary_evidence_blocks_supported": true,
+    "astrology_can_establish_awakening": false
+  },
+  "limits": [
+    "SUPPORTED indica el ajuste a esta definición operacional biográfica del proyecto y no prueba despertar espiritual ni categoría twin-flame.",
+    "Ningún tránsito, carta, sinastría o interpretación astrológica puede establecer awakening.",
+    "La congruencia se registra como comparación documental de palabras y actos observados, no como diagnóstico de sinceridad o estado interno."
+  ]
+}

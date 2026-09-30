@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/surrender-assessment-result.schema.json",
+  "title": "ALMAS · resultado de evaluación operacional de surrender",
+  "type": "object", "additionalProperties": false,
+  "required": ["actor", "policy_id", "assessment_window_days", "components", "candidate", "stabilized", "counterevidence", "metaphysical_claim", "private_intent_inferred"],
+  "properties": {
+    "actor": {"enum": ["A", "B"]}, "policy_id": {"const": "ALMAS_SURRENDER_OPERATIONAL_POLICY_V1"},
+    "assessment_window_days": {"type": "integer", "minimum": 0},
+    "components": {"type": "object", "additionalProperties": false, "required": ["cessation_of_pursuit", "boundary_assertion", "behavioral_decentering"], "properties": {
+      "cessation_of_pursuit": {"$ref": "#/$defs/component"}, "boundary_assertion": {"$ref": "#/$defs/component"}, "behavioral_decentering": {"$ref": "#/$defs/component"}
+    }},
+    "candidate": {"$ref": "#/$defs/phase"}, "stabilized": {"$ref": "#/$defs/stabilized"}, "counterevidence": {"type": "array"},
+    "metaphysical_claim": {"const": false}, "private_intent_inferred": {"const": false}
+  },
+  "$defs": {
+    "component": {"type": "object", "additionalProperties": false, "required": ["state", "evidence_refs", "reason"], "properties": {
+      "state": {"enum": ["PRESENT", "ABSENT", "NOT_EVALUABLE"]}, "evidence_refs": {"type": "array", "items": {"type": "string"}}, "reason": {"type": "string"}
+    }},
+    "phase": {"type": "object", "additionalProperties": false, "required": ["phase_id", "status", "component_refs"], "properties": {
+      "phase_id": {"const": "surrender_candidate"}, "status": {"enum": ["COMPATIBLE", "CONTRADICTED", "NOT_EVALUABLE", "INSUFFICIENT"]}, "component_refs": {"type": "array", "items": {"enum": ["cessation_of_pursuit", "boundary_assertion", "behavioral_decentering"]}}
+    }},
+    "stabilized": {"type": "object", "additionalProperties": false, "required": ["phase_id", "status", "preregistration_ref"], "properties": {
+      "phase_id": {"const": "surrender_stabilized"}, "status": {"enum": ["SUPPORTED", "CONTRADICTED", "INSUFFICIENT"]}, "preregistration_ref": {"type": ["string", "null"]}
+    }}
+  }
+}

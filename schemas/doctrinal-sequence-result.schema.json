@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/doctrinal-sequence-result.schema.json",
+  "title": "ALMAS · resultado de comparación de secuencia doctrinal",
+  "type": "object", "additionalProperties": false,
+  "required": ["model_id", "model_sequence_status", "observed_sequence", "temporal_precedence", "doctrinal_compatibility", "sequence_match", "sequence_status", "ontology_status", "twin_flame_demonstrated", "causal_status"],
+  "properties": {
+    "model_id": {"enum": ["TF_PROPHET", "TF_RUNNER_CHASER", "TF_DF_DM_SURRENDER", "KARMIC_CATALYTIC", "JUNGIAN_INDIVIDUATION_ANALOGY", "MYSTICAL_UNION_ANALOGY", "ORDINARY_RELATIONAL_CRISIS"]},
+    "model_sequence_status": {"type": "string"}, "observed_sequence": {"type": "array", "items": {"type": "string"}},
+    "temporal_precedence": {"type": "object", "additionalProperties": false, "required": ["earlier_phase", "later_phase", "status"], "properties": {"earlier_phase": {"const": "surrender_stabilized"}, "later_phase": {"const": "awakening_candidate"}, "status": {"enum": ["BEFORE", "AFTER", "SAME_TIME", "NOT_EVALUABLE"]}}},
+    "doctrinal_compatibility": {"enum": ["COMPATIBLE", "INCOMPATIBLE", "INSUFFICIENT", "NOT_EVALUABLE"]},
+    "sequence_match": {"enum": ["MATCH", "MISMATCH", "INCOMPLETE", "NOT_EVALUABLE"]},
+    "sequence_status": {"enum": ["SEQUENCE_SUPPORTED", "CONTRADICTED", "INSUFFICIENT", "NOT_EVALUABLE"]},
+    "ontology_status": {"const": "INSUFFICIENT"}, "twin_flame_demonstrated": {"const": false},
+    "causal_status": {"const": "UNESTABLISHED"}
+  }
+}
