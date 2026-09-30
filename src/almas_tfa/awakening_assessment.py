@@ -64,7 +64,14 @@ def assess_awakening(actor: str, assessment: Mapping[str, Any]) -> dict[str, Any
             raise ValueError("counterevidence requires a kind and evidence_refs.")
     supported = [key for key, item in normalized.items() if item["state"] == "SUPPORTED"]
     has_contradicted = any(item["state"] == "CONTRADICTED" for item in normalized.values()) or bool(contrary)
-    status = "CONTRADICTED" if has_contradicted else ("SUPPORTED" if len(supported) == len(CRITERIA) else "INSUFFICIENT")
+    if has_contradicted:
+        status = "CONTRADICTED"
+    elif len(supported) == len(CRITERIA):
+        status = "SUPPORTED"
+    elif all(item["state"] == "NOT_EVALUABLE" for item in normalized.values()):
+        status = "NOT_EVALUABLE"
+    else:
+        status = "INSUFFICIENT"
     return {
         "actor": actor,
         "policy_id": "ALMAS_AWAKENING_OPERATIONAL_POLICY_V1",
