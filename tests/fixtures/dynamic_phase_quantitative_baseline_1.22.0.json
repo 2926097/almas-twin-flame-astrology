@@ -1,0 +1,250 @@
+{
+  "baseline_commit": "3899add29d20e09574e9eb7c2336d2d923063d7b",
+  "baseline_version": "1.22.0",
+  "case_type": "SYNTHETIC",
+  "expected_output": {
+    "counterevidence": {
+      "ice_by_model": {
+        "AF": 0.0,
+        "AG": 0.0,
+        "KA": 0.0,
+        "LG": 90.0
+      },
+      "lg_contradictions": 2,
+      "state": "AUTONOMOUS"
+    },
+    "coverage": {
+      "ICC": 85.71428571428571,
+      "domains": {
+        "ANGLES_HOUSES": {
+          "q": 0.0
+        },
+        "BASE_NATAL": {
+          "q": 1.0
+        },
+        "DRACONIC": {
+          "q": 1.0
+        },
+        "LOTS_SECONDARY": {
+          "q": 1.0
+        },
+        "RELATIONSHIP_CHARTS": {
+          "q": 1.0
+        },
+        "SYMMETRIES": {
+          "q": 1.0
+        },
+        "SYNASTRY_NODES": {
+          "q": 1.0
+        }
+      },
+      "formula": "100*sum(q_domain)/7",
+      "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V2"
+    },
+    "missing_essential": {
+      "essential_evaluable": false,
+      "iem_final": 0.0,
+      "supported_gate": false
+    },
+    "model_scores": {
+      "AF": {
+        "core": 0.5721815581938919,
+        "essential_evaluable": true,
+        "ice": 0.0,
+        "iem_final": 54.06973861736033,
+        "iem_pre": 54.06973861736033,
+        "support": 0.4497520661157025,
+        "supported_gate": false
+      },
+      "AG": {
+        "core": 0.5069161912489079,
+        "essential_evaluable": true,
+        "ice": 10.0,
+        "iem_final": 45.59480723833359,
+        "iem_pre": 47.00495591580782,
+        "support": 0.27272727272727276,
+        "supported_gate": false
+      },
+      "KA": {
+        "core": 0.4090545438382402,
+        "essential_evaluable": true,
+        "ice": 5.0,
+        "iem_final": 38.086142287976806,
+        "iem_pre": 38.66613430251452,
+        "support": 0.4525619834710744,
+        "supported_gate": false
+      },
+      "LG": {
+        "core": 0.4843362640237339,
+        "essential_evaluable": true,
+        "ice": 20.0,
+        "iem_final": 41.91851110100394,
+        "iem_pre": 44.59416074574888,
+        "support": 0.20727272727272728,
+        "supported_gate": false
+      }
+    },
+    "policy": {
+      "model_pillars": {
+        "AF": {
+          "core": [
+            "PA",
+            "PR"
+          ],
+          "support": [
+            "PE",
+            "PX"
+          ]
+        },
+        "AG": {
+          "core": [
+            "PA",
+            "PE",
+            "PR",
+            "PX"
+          ],
+          "support": [
+            "PK",
+            "PT",
+            "PS"
+          ]
+        },
+        "KA": {
+          "core": [
+            "PK",
+            "PT"
+          ],
+          "support": [
+            "PX",
+            "PR",
+            "PE"
+          ]
+        },
+        "LG": {
+          "core": [
+            "PA",
+            "PE",
+            "PR",
+            "PX",
+            "PT"
+          ],
+          "support": [
+            "PK",
+            "PS",
+            "PU"
+          ]
+        }
+      },
+      "pillar_policy_id": "ALMAS_ROOT_PILLAR_ATTRIBUTION_V2",
+      "shapley_policy_id": "ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V3",
+      "supported_thresholds": {
+        "core": 0.65,
+        "icc": 80.0,
+        "iem_final": 75.0,
+        "irc": 70.0,
+        "r_min": 0.5
+      }
+    },
+    "robustness": {
+      "groups": {
+        "STRUCTURAL_PERTURBATION": 0.72,
+        "TIME_INPUT": 0.8
+      },
+      "irc": 75.8946638440411,
+      "r_min": 0.72
+    },
+    "synthetic_roots": {
+      "idd_ag_lg": 38.39583604564608,
+      "idd_band_ag_lg": "MATERIAL",
+      "motif_count": 1,
+      "pillar_root_ids": {
+        "PA": [
+          "R1",
+          "R2"
+        ],
+        "PE": [
+          "R4"
+        ],
+        "PK": [
+          "R5"
+        ],
+        "PR": [
+          "R3"
+        ],
+        "PS": [],
+        "PT": [
+          "R6"
+        ],
+        "PU": [],
+        "PX": [
+          "MOTIF:RELATIONAL_COHERENCE"
+        ]
+      },
+      "pillars": {
+        "PA": 71.45454545454545,
+        "PE": 42.54545454545455,
+        "PK": 41.45454545454545,
+        "PR": 45.81818181818182,
+        "PS": 0.0,
+        "PT": 40.36363636363637,
+        "PU": null,
+        "PX": 47.404958677685954
+      },
+      "recurrence_source": "SEMANTIC_MOTIF_GRAPH_V2",
+      "shapley_attributions": {
+        "AF": {
+          "R1": 11.172870751647054,
+          "R2": 10.14223261151702,
+          "R3": 32.286014387247945,
+          "R4": 0.46862086694830773
+        },
+        "AG": {
+          "R1": 5.265079051563682,
+          "R2": 4.77574734161343,
+          "R3": 18.284861786132325,
+          "R4": 18.284861786132325,
+          "R5": 0.19983234818546763,
+          "R6": 0.19457360218058783
+        },
+        "KA": {
+          "R1": 0.08120239787598796,
+          "R2": 0.07410310413995316,
+          "R3": 0.2833632385497631,
+          "R4": 0.19337123890535085,
+          "R5": 19.01704716152173,
+          "R6": 19.01704716152173
+        },
+        "LG": {
+          "R1": 3.1551076861466276,
+          "R2": 2.8667272143220375,
+          "R3": 12.78202894919376,
+          "R4": 12.78202894919376,
+          "R5": 0.22623899769893352,
+          "R6": 12.78202894919376
+        }
+      },
+      "shapley_iem_pre": {
+        "AF": 54.06973861736033,
+        "AG": 47.00495591580782,
+        "KA": 38.66613430251452,
+        "LG": 44.59416074574888
+      },
+      "shapley_method": "EXACT_ROOT_INTERACTION_SHAPLEY",
+      "shapley_motif_players": 0,
+      "shapley_players": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    "temporal": {
+      "iat": 85.00000000000001,
+      "selected_count": 2,
+      "state": "CALCULATED",
+      "structural_roots_created": false
+    }
+  }
+}
