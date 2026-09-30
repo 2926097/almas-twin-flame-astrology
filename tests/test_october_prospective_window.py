@@ -13,6 +13,7 @@ class OctoberProspectiveWindowTests(unittest.TestCase):
     def test_window_layers_are_explicitly_not_run_without_source_artifacts(self):
         Draft202012Validator(SCHEMA, format_checker=Draft202012Validator.FORMAT_CHECKER).validate(RECORD)
         self.assertEqual(RECORD["evaluation_status"], "NOT_EVALUABLE")
+        self.assertEqual(RECORD["evaluation_not_before"], "2026-11-01")
         self.assertTrue(all(layer["execution_status"] == "NOT_RUN" for layer in RECORD["requested_layers"]))
         self.assertEqual(len(RECORD["requested_layers"]), 6)
 

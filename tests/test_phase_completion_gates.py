@@ -47,6 +47,8 @@ class PhaseCompletionGateTests(unittest.TestCase):
         self.assertEqual(readiness["status"], "CANDIDATE_BLOCKED_PENDING_PROSPECTIVE_EVALUATION")
         self.assertEqual([gate["step"] for gate in readiness["blocking_gates"]], [23, 25])
         self.assertEqual(audit["release_candidate"], "BLOCKED_PENDING_STEPS_23_AND_25")
+        for evidence_path in readiness["evidence"]:
+            self.assertTrue((root / evidence_path).is_file(), evidence_path)
         self.assertFalse(readiness["release_published"])
 
 
