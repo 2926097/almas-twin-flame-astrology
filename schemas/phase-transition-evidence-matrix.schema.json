@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/phase-transition-evidence-matrix.schema.json",
+  "title": "ALMAS · matriz de evidencia de transición de fase",
+  "type": "object", "additionalProperties": false,
+  "required": ["transition_id", "source_phase", "target_phase", "why_proposed", "documentary", "behavioral", "astrological_structural", "astrological_temporal", "doctrinal", "contemporary_use", "counterevidence", "unresolved", "final_status", "astrology_or_doctrine_promoted_factual_transition"],
+  "properties": {
+    "transition_id": {"type": "string", "minLength": 1}, "source_phase": {"type": "string", "minLength": 1}, "target_phase": {"type": "string", "minLength": 1}, "why_proposed": {"type": "string", "minLength": 1},
+    "documentary": {"$ref": "#/$defs/layer"}, "behavioral": {"$ref": "#/$defs/layer"}, "astrological_structural": {"$ref": "#/$defs/layer"}, "astrological_temporal": {"$ref": "#/$defs/layer"}, "doctrinal": {"$ref": "#/$defs/layer"}, "contemporary_use": {"$ref": "#/$defs/layer"}, "counterevidence": {"$ref": "#/$defs/layer"},
+    "unresolved": {"type": "array", "items": {"type": "string"}}, "final_status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]}, "astrology_or_doctrine_promoted_factual_transition": {"const": false}
+  },
+  "$defs": {"layer": {"type": "object", "additionalProperties": false, "required": ["status", "evidence_refs", "rationale"], "properties": {"status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]}, "evidence_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}, "rationale": {"type": "string", "minLength": 1}}}}
+}
