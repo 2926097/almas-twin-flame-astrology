@@ -11,6 +11,7 @@
     "iat_eligible_signal_ids",
     "iat",
     "iat_state",
+    "iat_components",
     "iat_policy",
     "aggregation_weights_applied",
     "structural_score_modified",
@@ -24,6 +25,11 @@
         "type": "object",
         "required": [
           "signal_id",
+          "layer",
+          "target",
+          "iat_scope",
+          "technique",
+          "dependency_cluster",
           "root_id",
           "anchored",
           "clause_id",
@@ -51,6 +57,11 @@
             "type": "string",
             "minLength": 1
           },
+          "layer": {"const": "TEMPORAL"},
+          "target": {"enum": ["RELATION", "ACTOR_A", "ACTOR_B", "CROSS", "UNSPECIFIED"]},
+          "iat_scope": {"enum": ["IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS", null]},
+          "technique": {"type": ["string", "null"]},
+          "dependency_cluster": {"type": "string", "minLength": 1},
           "root_id": {
             "type": [
               "string",
@@ -303,6 +314,17 @@
         "NOT_CALCULATED"
       ]
     },
+    "iat_components": {
+      "type": "object",
+      "required": ["IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS"],
+      "properties": {
+        "IAT_REL": {"$ref": "#/$defs/unscored_iat_component"},
+        "IAT_A": {"$ref": "#/$defs/unscored_iat_component"},
+        "IAT_B": {"$ref": "#/$defs/unscored_iat_component"},
+        "IAT_CROSS": {"$ref": "#/$defs/unscored_iat_component"}
+      },
+      "additionalProperties": false
+    },
     "iat_policy": {
       "type": [
         "object",
@@ -391,5 +413,18 @@
       }
     }
   ],
+  "$defs": {
+    "unscored_iat_component": {
+      "type": "object",
+      "required": ["status", "value", "signal_ids", "reason"],
+      "properties": {
+        "status": {"const": "NOT_EVALUABLE"},
+        "value": {"type": "null"},
+        "signal_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "reason": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
   "additionalProperties": false
 }

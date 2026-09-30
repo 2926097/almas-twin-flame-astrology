@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "matrix_id": "ALMAS_DYNAMIC_PHASE_REGRESSION_MATRIX_1_22_0",
+  "suite_command": ".venv/bin/python -m unittest discover -s tests",
+  "suite_result": {"status": "PASS", "tests_run": 700, "skipped": 10, "failed": 0, "errors": 0, "verified_at": "2026-09-30"},
+  "public_contract_result": {"status": "PASS", "script": "scripts/validate_public_contract.py"},
+  "coverage": [
+    {"area": "ontology_regression", "test_files": ["tests/test_dynamic_phase_baseline_regression.py", "tests/test_phase_transition_matrix.py"]},
+    {"area": "score_regression", "test_files": ["tests/test_dynamic_phase_baseline_regression.py", "tests/fixtures/dynamic_phase_quantitative_baseline_1.22.0.json"]},
+    {"area": "phase_regression", "test_files": ["tests/test_dynamic_phase_engine.py", "tests/test_dynamic_phase_state.py", "tests/test_synthetic_phase_scenarios_step_19.py"]},
+    {"area": "dependency_regression", "test_files": ["tests/test_temporal_dependency.py", "tests/test_temporal_handlers.py"]},
+    {"area": "causality_firewall", "test_files": ["tests/test_doctrinal_sequence_engine.py", "tests/test_phase_transition_matrix.py"]},
+    {"area": "angular_robustness", "test_files": ["tests/test_angular_robustness.py", "tests/test_time_perturbation.py"]},
+    {"area": "sequence_falsification", "test_files": ["tests/test_synthetic_phase_scenarios_step_19.py", "tests/test_negative_case_phase_firewall_step_20.py"]},
+    {"area": "missing_data_behavior", "test_files": ["tests/test_dynamic_phase_observation.py", "tests/test_time_sensitivity_handlers.py", "tests/test_temporal_sequence_graph.py"]}
+  ],
+  "legacy_indices_modified": false,
+  "score_or_ipt_added": false
+}

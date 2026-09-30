@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/angular-robustness-output.schema.json",
+  "title": "ALMAS · Robustez de contactos angulares",
+  "type": "object",
+  "required": ["status", "angular_robustness", "baseline_angular_root_count", "sample_count", "minimum_preserved_fraction", "samples", "threshold_policy_id", "score_created"],
+  "properties": {
+    "status": {"enum": ["CALCULATED", "NOT_EVALUABLE"]},
+    "angular_robustness": {"enum": ["HIGH", "MEDIUM", "LOW", "NOT_EVALUABLE"]},
+    "baseline_angular_root_count": {"type": "integer", "minimum": 0},
+    "sample_count": {"type": "integer", "minimum": 0},
+    "minimum_preserved_fraction": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "samples": {"type": "array", "items": {"type": "object", "required": ["subject", "offset_minutes", "preserved_fraction", "preserved_root_ids"], "properties": {"subject": {"enum": ["A", "B"]}, "offset_minutes": {"enum": [-15, -10, -5, -2, 2, 5, 10, 15]}, "preserved_fraction": {"type": "number", "minimum": 0, "maximum": 1}, "preserved_root_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}}, "additionalProperties": false}},
+    "missing_samples": {"type": "array", "items": {"type": "string"}},
+    "threshold_policy_id": {"const": "ALMAS_ANGULAR_ROBUSTNESS_V1"},
+    "score_created": {"const": false}
+  },
+  "additionalProperties": false
+}

@@ -422,10 +422,10 @@ class TestFullPipelineSynthetic(unittest.TestCase):
             report_model["canonical_fingerprint"],
             run.canonical["report_gate"]["canonical_fingerprint"],
         )
-        self.assertEqual(len(report_model["sections"]), 11)
+        self.assertEqual(len(report_model["sections"]), 12)
         self.assertEqual(
             sum(report_model["section_counts"].values()),
-            11,
+            12,
         )
         self.assertFalse(report_model["canonical_values_embedded"])
         self.assertFalse(report_model["canonical_values_mutated"])
@@ -478,6 +478,8 @@ class TestFullPipelineSynthetic(unittest.TestCase):
             by_section["S11_SOURCES_APPENDICES"]["methodological_reporting_paths"],
             ["promotion_reporting"],
         )
+        self.assertIn("phase_transitions", by_section["S12_PHASE_DYNAMICS"]["available_paths"])
+        self.assertIn("preregistered_predictions", by_section["S12_PHASE_DYNAMICS"]["optional_paths"])
 
 
 if __name__ == "__main__":

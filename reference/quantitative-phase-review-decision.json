@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "decision_id": "ALMAS_PHASE_QUANT_REVIEW_1_22_0",
+  "status": "DEFERRED_QUALITATIVE_VALIDATION_PENDING",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "scope": ["phase evidence", "sequence evidence", "behavioral evidence", "temporal evidence", "counterevidence"],
+  "required_gate": {
+    "synthetic_suite_stable": true,
+    "prospective_evaluation_completed": true,
+    "independent_cohort_available": true,
+    "calibration_and_thresholds_preregistered": true,
+    "incremental_value_over_qualitative_states_shown": true
+  },
+  "scores_added": [],
+  "weights_changed": false,
+  "thresholds_changed": false,
+  "existing_indices_modified": false,
+  "decision_reason": "El modelo cualitativo y su validación prospectiva aún no están cerrados; no se justifica cuantificar fases ni secuencias."
+}

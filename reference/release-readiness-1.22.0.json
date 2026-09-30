@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "release_id": "ALMAS_1_22_0_DYNAMIC_PHASE_CANDIDATE",
+  "status": "CANDIDATE_BLOCKED_PENDING_PROSPECTIVE_EVALUATION",
+  "version": "1.22.0",
+  "evidence": ["reference/dynamic-phase-regression-matrix-1.22.0.json", "reference/phase-final-audit-1.22.0.json"],
+  "blocking_gates": [
+    {"step": 25, "reason": "La observación preregistrada de 2027-03-29 todavía no ha ocurrido; la comparación prospectiva no puede ejecutarse antes del 2027-03-30."}
+  ],
+  "deferred_scope": ["phase-specific quantitative weights", "IPT score"],
+  "existing_indices_changed": false,
+  "tag_created": false,
+  "release_published": false
+}

@@ -220,6 +220,13 @@ class TestCanonicalAssemblyQ7(unittest.TestCase):
         self.assertEqual(result["state"], "EVALUABLE")
         canonical = result["canonical_analysis"]
         self.assertAlmostEqual(canonical["indices"]["IDD"], 12.0)
+        self.assertEqual(canonical["temporal_layers"]["IAT_REL"]["status"], "NOT_EVALUABLE")
+        self.assertEqual(canonical["temporal_layers"]["IAT_CROSS"]["signal_ids"], [])
+        self.assertEqual(canonical["causal_firewall"]["causal_status"], "UNESTABLISHED")
+        self.assertEqual(canonical["phase_transitions"], [])
+        self.assertEqual(canonical["temporal_sequence_graph"]["status"], "NOT_EVALUABLE")
+        self.assertEqual(canonical["angular_robustness"]["angular_robustness"], "NOT_EVALUABLE")
+        self.assertEqual(canonical["preregistered_predictions"], [])
         self.assertEqual(
             canonical["assembly"]["policy_id"],
             "ALMAS_CANONICAL_ASSEMBLY_V2",

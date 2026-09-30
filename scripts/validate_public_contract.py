@@ -3756,8 +3756,8 @@ def main() -> int:
         fail("authored report must require publication bibliography")
 
     section_schema = report_model_props.get("sections", {})
-    if section_schema.get("minItems") != 11 or section_schema.get("maxItems") != 11:
-        fail("M31 must expose exactly eleven report sections")
+    if section_schema.get("minItems") != 12 or section_schema.get("maxItems") != 12:
+        fail("M31 must expose exactly twelve report sections")
     section_props = section_schema.get("items", {}).get("properties", {})
     if section_props.get("canonical_values_embedded", {}).get("const") is not False:
         fail("M31 sections must reference paths without embedding canonical values")
@@ -4788,6 +4788,15 @@ def main() -> int:
         "temporal",
         "semantic_motifs",
         "dynamic_phases",
+        "actor_states",
+        "phase_transitions",
+        "doctrinal_sequences",
+        "temporal_sequence_graph",
+        "temporal_layers",
+        "root_recurrence",
+        "causal_firewall",
+        "preregistered_predictions",
+        "angular_robustness",
         "time_sensitivity",
         "limitations",
         "ontological_discrimination",

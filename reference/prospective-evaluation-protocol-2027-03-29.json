@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "ALMAS_PROSPECTIVE_EVALUATION_2027_03_29_V1",
+  "preregistration_ref": "reference/prospective-domains-2027-03-29.json",
+  "observation_date": "2027-03-29",
+  "status": "WAITING_FOR_OBSERVATION",
+  "evaluation_not_before": "2027-03-30",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "domains": [
+    "identity_restructuring",
+    "reality_vs_ideal",
+    "affective_revision",
+    "individuation"
+  ],
+  "required_evidence": [
+    "dated source artifact or contemporaneous record",
+    "source provenance and privacy authorization",
+    "explicit observation-to-domain mapping",
+    "negative and ambiguous evidence",
+    "at least one competing non-twin-flame explanation"
+  ],
+  "comparison_rules": {
+    "evaluate_each_domain_separately": true,
+    "missing_evidence_status": "NOT_EVALUABLE",
+    "absence_of_change_is_reportable": true,
+    "retrospective_domain_addition_allowed": false,
+    "retrospective_threshold_change_allowed": false,
+    "relationship_outcome_inferred": false,
+    "causal_status_default": "UNESTABLISHED",
+    "ontology_status_default": "INSUFFICIENT"
+  },
+  "required_output_fields": [
+    "domain_id",
+    "observed_evidence_refs",
+    "status",
+    "counterevidence_refs",
+    "alternative_explanations",
+    "deviations_from_preregistration",
+    "causal_status",
+    "ontology_status"
+  ],
+  "case_data_included": false,
+  "case_specific_tuning": false
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/prospective-evaluation-protocol.schema.json",
+  "title": "ALMAS · Protocolo de evaluación prospectiva",
+  "type": "object",
+  "required": ["schema_version", "protocol_id", "preregistration_ref", "observation_date", "status", "evaluation_not_before", "epistemic_class", "domains", "required_evidence", "comparison_rules", "required_output_fields", "case_data_included", "case_specific_tuning"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "protocol_id": {"const": "ALMAS_PROSPECTIVE_EVALUATION_2027_03_29_V1"},
+    "preregistration_ref": {"const": "reference/prospective-domains-2027-03-29.json"},
+    "observation_date": {"const": "2027-03-29"},
+    "status": {"const": "WAITING_FOR_OBSERVATION"},
+    "evaluation_not_before": {"const": "2027-03-30"},
+    "epistemic_class": {"const": "E_PROJECT_HYPOTHESIS"},
+    "domains": {"const": ["identity_restructuring", "reality_vs_ideal", "affective_revision", "individuation"]},
+    "required_evidence": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string"}},
+    "comparison_rules": {
+      "type": "object",
+      "required": ["evaluate_each_domain_separately", "missing_evidence_status", "absence_of_change_is_reportable", "retrospective_domain_addition_allowed", "retrospective_threshold_change_allowed", "relationship_outcome_inferred", "causal_status_default", "ontology_status_default"],
+      "properties": {
+        "evaluate_each_domain_separately": {"const": true},
+        "missing_evidence_status": {"const": "NOT_EVALUABLE"},
+        "absence_of_change_is_reportable": {"const": true},
+        "retrospective_domain_addition_allowed": {"const": false},
+        "retrospective_threshold_change_allowed": {"const": false},
+        "relationship_outcome_inferred": {"const": false},
+        "causal_status_default": {"const": "UNESTABLISHED"},
+        "ontology_status_default": {"const": "INSUFFICIENT"}
+      },
+      "additionalProperties": false
+    },
+    "required_output_fields": {"type": "array", "minItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+    "case_data_included": {"const": false},
+    "case_specific_tuning": {"const": false}
+  },
+  "additionalProperties": false
+}

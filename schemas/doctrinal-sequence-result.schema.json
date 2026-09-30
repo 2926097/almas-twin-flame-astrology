@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://almas.example/schemas/doctrinal-sequence-result.schema.json",
+  "$id": "https://example.invalid/almas/doctrinal-sequence-result.schema.json",
   "title": "ALMAS · resultado de comparación de secuencia doctrinal",
   "type": "object", "additionalProperties": false,
   "required": ["model_id", "model_sequence_status", "observed_sequence", "temporal_precedence", "doctrinal_compatibility", "sequence_match", "sequence_status", "ontology_status", "twin_flame_demonstrated", "causal_status"],

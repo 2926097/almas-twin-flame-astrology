@@ -727,6 +727,17 @@ class TestReportingFirewall(unittest.TestCase):
             "ontology": {},
             "doctrine": [],
             "temporal": {},
+            "dynamic_phases": {
+                "model_id": "ALMAS_DYNAMIC_PHASE_STATE_V1",
+                "relational_phase": {"phase": None, "status": "NOT_EVALUABLE"},
+                "actor_a_phase": {"phase": None, "status": "NOT_EVALUABLE"},
+                "actor_b_phase": {"phase": None, "status": "NOT_EVALUABLE"},
+            },
+            "phase_transitions": [],
+            "causal_firewall": {
+                "causal_status": "UNESTABLISHED",
+                "astrology_causes_behavior": False,
+            },
             "limitations": [],
         }
         data.update(overrides)
@@ -960,11 +971,17 @@ class TestReportingFirewall(unittest.TestCase):
         model = result.canonical_updates["report_document_model"]
 
         self.assertEqual(model["report_state"], "READY")
-        self.assertEqual(len(model["sections"]), 11)
+        self.assertEqual(len(model["sections"]), 12)
         self.assertEqual(
             sum(model["section_counts"].values()),
-            11,
+            12,
         )
+        phase_section = next(
+            section for section in model["sections"]
+            if section["section_id"] == "S12_PHASE_DYNAMICS"
+        )
+        self.assertEqual(phase_section["section_state"], "READY")
+        self.assertIn("causal_firewall", phase_section["available_paths"])
         self.assertTrue(model["canonical_fingerprint_verified"])
         self.assertEqual(
             model["canonical_fingerprint"],

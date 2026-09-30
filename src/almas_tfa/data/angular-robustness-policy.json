@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_ANGULAR_ROBUSTNESS_V1",
+  "status": "FROZEN_EXPERIMENTAL_DIAGNOSTIC",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "subjects": ["A", "B"],
+  "tested_offsets_minutes": [-15, -10, -5, -2, 2, 5, 10, 15],
+  "required_sample_count": 16,
+  "retention_metric": "MINIMUM_FRACTION_OF_BASELINE_ANGULAR_ROOT_IDS_PRESERVED_ACROSS_ALL_SUBJECT_OFFSET_SAMPLES",
+  "classification": {"HIGH_MIN": 0.8, "MEDIUM_MIN": 0.5, "LOW_MAX_EXCLUSIVE": 0.5},
+  "minimum_sample_coverage_required": 1.0,
+  "same_chart_and_aspect_policy_required": true,
+  "modifies_indices": false,
+  "creates_score": false,
+  "creates_phase_evidence": false
+}

@@ -54,6 +54,7 @@ SECTION_SPECS = (
         "required_paths": ("models",),
         "optional_paths": (
             "indices",
+            "angular_robustness",
             "ontology",
             "ontological_discrimination",
         ),
@@ -185,6 +186,30 @@ SECTION_SPECS = (
             "E_PROJECT_HYPOTHESIS",
         ),
         "methodological_reporting_paths": ("promotion_reporting",),
+    },
+    {
+        "section_id": "S12_PHASE_DYNAMICS",
+        "title": "Dinámica temporal y evolución de fases",
+        "purpose": "Describir transiciones de fase sólo desde hechos y conducta documentados, mostrar la evidencia y contraevidencia, separar la lectura doctrinal de la observación y conservar los límites causales y ontológicos.",
+        "required_paths": ("dynamic_phases", "phase_transitions", "causal_firewall"),
+        "optional_paths": (
+            "actor_states",
+            "doctrinal_sequences",
+            "temporal_sequence_graph",
+            "temporal_layers",
+            "root_recurrence",
+            "preregistered_predictions",
+            "counterevidence",
+            "temporal",
+            "limitations",
+        ),
+        "epistemic_classes_allowed": (
+            "A_CALCULATED",
+            "B_TECHNIQUE",
+            "C_DOCTRINE",
+            "D_CONTEMPORARY_USAGE",
+            "E_PROJECT_HYPOTHESIS",
+        ),
     },
 )
 
