@@ -162,6 +162,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/negative-phase-cases.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "NEGATIVE_PHASE_CASE_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/origin-differential.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_FIXTURE",

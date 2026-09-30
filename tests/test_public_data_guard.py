@@ -146,7 +146,7 @@ class TestPublicDataGuard(unittest.TestCase):
         )
         self.assertEqual(
             result["scopes"]["examples"]["artifact_count"],
-            23,
+            24,
         )
         self.assertEqual(
             result["scopes"]["public_cases"]["artifact_count"],
