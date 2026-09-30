@@ -8,7 +8,7 @@
 - Añade grafo temporal sustentado por evidencia y diagnóstico de robustez angular bajo perturbaciones ±2/5/10/15 minutos.
 - Extiende el canonical y el modelo de informe con rutas para fases, secuencias, recurrencia y causalidad, conservando el canonical legado 1.21.x.
 - Mantiene sin cambios las fórmulas, pesos, gates e índices existentes; no implementa IPT.
-- Regresión local: **700 tests PASS** (10 omitidos), Contrato público PASS.
+- Regresión local: **701 tests PASS** (10 omitidos), Contrato público PASS.
 - La publicación de release queda pendiente de los pasos 23 y 25: evaluación de la ventana de octubre de 2026 una vez concluida y evaluación prospectiva tras la observación preregistrada del 29/03/2027.
 
 ### Cierre de evolución matemática del núcleo cuantitativo

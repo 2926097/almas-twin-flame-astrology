@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/october-phase-evaluation.schema.json",
+  "title": "ALMAS · evaluación posterior de la ventana de octubre de 2026",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "evaluation_id", "preregistration_ref", "evaluation_not_before",
+    "evaluation_status", "evaluated_at", "source_artifacts", "observed_events",
+    "technical_layers", "alternative_explanations", "causal_status", "ontology_status",
+    "meeting_or_reunion_inferred", "phase_assigned_from_astrology", "retrospective_changes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "evaluation_id": {"const": "ALMAS_OCTOBER_2026_EVALUATION_V1"},
+    "preregistration_ref": {"const": "reference/october-2026-prospective-window.json"},
+    "evaluation_not_before": {"const": "2026-11-01", "format": "date"},
+    "evaluation_status": {"enum": ["NOT_EVALUABLE", "COMPLETE_WITH_LIMITATIONS"]},
+    "evaluated_at": {"type": ["string", "null"], "format": "date"},
+    "source_artifacts": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "observed_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["event_id", "observed_date", "description", "evidence_refs"],
+        "properties": {
+          "event_id": {"type": "string", "minLength": 1},
+          "observed_date": {"type": "string", "format": "date"},
+          "description": {"type": "string", "minLength": 1},
+          "evidence_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "technical_layers": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["layer_id", "status", "output_ref", "missing_inputs"],
+        "properties": {
+          "layer_id": {"enum": ["SOLAR_ARC_SUN_PLUTO", "SOLAR_ARC_PLUTO_SUN", "PROGRESSED_COMPOSITE", "TRANSITS_TO_COMPOSITE", "ACTIVATED_ROOTS_AND_DEPENDENCIES", "ANGULAR_ROBUSTNESS"]},
+          "status": {"enum": ["NOT_RUN", "CALCULATED", "NOT_EVALUABLE"]},
+          "output_ref": {"type": ["string", "null"]},
+          "missing_inputs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "alternative_explanations": {"type": "array", "items": {"type": "string"}},
+    "causal_status": {"const": "UNESTABLISHED"},
+    "ontology_status": {"enum": ["INSUFFICIENT", "NOT_EVALUABLE"]},
+    "meeting_or_reunion_inferred": {"const": false},
+    "phase_assigned_from_astrology": {"const": false},
+    "retrospective_changes": {"type": "array", "maxItems": 0}
+  }
+}

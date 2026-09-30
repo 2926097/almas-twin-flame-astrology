@@ -3,7 +3,7 @@
   "release_id": "ALMAS_1_22_0_DYNAMIC_PHASE_CANDIDATE",
   "status": "CANDIDATE_BLOCKED_PENDING_PROSPECTIVE_EVALUATION",
   "version": "1.22.0",
-  "evidence": ["reference/dynamic-phase-regression-matrix-1.22.0.json", "reference/phase-final-audit-1.22.0.json", "reference/october-2026-prospective-window.json"],
+  "evidence": ["reference/dynamic-phase-regression-matrix-1.22.0.json", "reference/phase-final-audit-1.22.0.json", "reference/october-2026-prospective-window.json", "reference/october-2026-evaluation-template.json", "schemas/october-phase-evaluation.schema.json"],
   "blocking_gates": [
     {"step": 23, "reason": "La ventana de octubre de 2026 aún no ha concluido; integrar y evaluar los hechos observados solo podrá cerrarse después del 2026-10-31."},
     {"step": 25, "reason": "La observación preregistrada de 2027-03-29 todavía no ha ocurrido; la comparación prospectiva no puede ejecutarse antes del 2027-03-30."}

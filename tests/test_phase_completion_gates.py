@@ -39,7 +39,7 @@ class PhaseCompletionGateTests(unittest.TestCase):
         audit = json.loads((root / "reference/phase-final-audit-1.22.0.json").read_text())
         readiness = json.loads((root / "reference/release-readiness-1.22.0.json").read_text())
         self.assertEqual(matrix["suite_result"]["status"], "PASS")
-        self.assertEqual(matrix["suite_result"]["tests_run"], 700)
+        self.assertEqual(matrix["suite_result"]["tests_run"], 701)
         for area in matrix["coverage"]:
             for test_file in area["test_files"]:
                 self.assertTrue((root / test_file).is_file(), test_file)

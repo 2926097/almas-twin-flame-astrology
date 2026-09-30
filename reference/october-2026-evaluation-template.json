@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "evaluation_id": "ALMAS_OCTOBER_2026_EVALUATION_V1",
+  "preregistration_ref": "reference/october-2026-prospective-window.json",
+  "evaluation_not_before": "2026-11-01",
+  "evaluation_status": "NOT_EVALUABLE",
+  "evaluated_at": null,
+  "source_artifacts": [],
+  "observed_events": [],
+  "technical_layers": [
+    {"layer_id": "SOLAR_ARC_SUN_PLUTO", "status": "NOT_RUN", "output_ref": null, "missing_inputs": ["verified natal longitudes", "birth-time robustness artifacts", "declared solar-arc rule"]},
+    {"layer_id": "SOLAR_ARC_PLUTO_SUN", "status": "NOT_RUN", "output_ref": null, "missing_inputs": ["verified natal longitudes", "birth-time robustness artifacts", "declared solar-arc rule"]},
+    {"layer_id": "PROGRESSED_COMPOSITE", "status": "NOT_RUN", "output_ref": null, "missing_inputs": ["verified natal chart inputs for both actors", "composite construction policy", "progression rule"]},
+    {"layer_id": "TRANSITS_TO_COMPOSITE", "status": "NOT_RUN", "output_ref": null, "missing_inputs": ["verified composite chart", "ephemeris artifact", "predeclared transit window and orb"]},
+    {"layer_id": "ACTIVATED_ROOTS_AND_DEPENDENCIES", "status": "NOT_RUN", "output_ref": null, "missing_inputs": ["frozen root catalog", "traceable signal-to-root mappings", "dependency clusters"]},
+    {"layer_id": "ANGULAR_ROBUSTNESS", "status": "NOT_RUN", "output_ref": null, "missing_inputs": ["verified birth times", "±2/5/10/15 minute perturbation outputs"]}
+  ],
+  "alternative_explanations": [],
+  "causal_status": "UNESTABLISHED",
+  "ontology_status": "INSUFFICIENT",
+  "meeting_or_reunion_inferred": false,
+  "phase_assigned_from_astrology": false,
+  "retrospective_changes": []
+}
