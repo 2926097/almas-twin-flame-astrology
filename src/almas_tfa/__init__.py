@@ -62,6 +62,8 @@ from .validation_closure import build_documentary_reveal_record, close_validatio
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
+from .temporal_sequence_graph import build_temporal_sequence_graph
+from .angular_robustness import evaluate_angular_robustness
 from .doctrine_handlers import m28_doctrine_hermeneutics
 from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
@@ -184,6 +186,8 @@ __all__ = [
     "derive_q5_robustness_components",
     "m26_temporal_activation",
     "m27_dated_events",
+    "build_temporal_sequence_graph",
+    "evaluate_angular_robustness",
     "m28_doctrine_hermeneutics",
     "m29_viability_reciprocity",
     "m30_report_gate",

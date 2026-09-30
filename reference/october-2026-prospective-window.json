@@ -3,6 +3,7 @@
   "window_id": "ALMAS_OCTOBER_2026_PROSPECTIVE",
   "window_start": "2026-10-01",
   "window_end": "2026-10-31",
+  "evaluation_not_before": "2026-11-01",
   "epistemic_class": "E_PROJECT_HYPOTHESIS",
   "preregistration_id": "ALMAS_1_22_PHASE_RULES_2026_09_30",
   "evaluation_status": "NOT_EVALUABLE",

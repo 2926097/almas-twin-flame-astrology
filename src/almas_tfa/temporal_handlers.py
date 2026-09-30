@@ -7,6 +7,7 @@ from typing import Any, Mapping
 
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .transit_generation import generate_ttransit_signals
+from .temporal_dependency import FAMILY_CLUSTERS
 
 
 TEMPORAL_FAMILIES = {
@@ -33,6 +34,9 @@ WINDOW_STATUSES = {
     "EXPLORATORY",
     "UNANCHORED",
 }
+
+IAT_SCOPES = ("IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS")
+EVIDENCE_TARGETS = ("RELATION", "ACTOR_A", "ACTOR_B", "CROSS", "UNSPECIFIED")
 
 
 def _nonnegative_weight(value: Any, label: str) -> float:
@@ -372,6 +376,11 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
         normalized.append(
             {
                 "signal_id": signal_id,
+                "layer": "TEMPORAL",
+                "target": raw.get("target") if raw.get("target") in EVIDENCE_TARGETS else "UNSPECIFIED",
+                "iat_scope": raw.get("iat_scope") if raw.get("iat_scope") in IAT_SCOPES else None,
+                "technique": raw.get("technique") if isinstance(raw.get("technique"), str) and raw.get("technique").strip() else None,
+                "dependency_cluster": FAMILY_CLUSTERS.get(family, f"TEMPORAL_FAMILY:{family}"),
                 "root_id": root_id,
                 "anchored": anchored,
                 "clause_id": raw.get("clause_id"),
@@ -452,6 +461,20 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
         aggregation_policy,
     )
 
+    iat_components = {
+        scope: {
+            "status": "NOT_EVALUABLE",
+            "value": None,
+            "signal_ids": sorted(
+                item["signal_id"]
+                for item in selected
+                if item["iat_scope"] == scope
+            ),
+            "reason": "No component-specific preregistered weighting policy is defined.",
+        }
+        for scope in IAT_SCOPES
+    }
+
     output = {
         "signals": normalized,
         "selected_independent_signals": selected,
@@ -460,6 +483,7 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
         "iat_eligible_signal_ids": eligible_ids,
         "iat": iat,
         "iat_state": iat_state,
+        "iat_components": iat_components,
         "iat_policy": policy_output,
         "aggregation_weights_applied": weights_applied,
         "structural_score_modified": False,
@@ -984,4 +1008,3 @@ def m27_dated_events(context: ModuleContext) -> ModuleResult:
         canonical_updates={"documentary_events": output},
         limitations=tuple(limitations),
     )
-

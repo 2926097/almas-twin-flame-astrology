@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "candidate_id": "IPT",
+  "candidate_name": "Índice de Transición de Fase",
+  "status": "NOT_IMPLEMENTED_VALIDATION_NOT_DEMONSTRATED",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "required_demonstrations": [
+    "transition constructs have stable operational definitions",
+    "prospective and independent validation data exist",
+    "calibration is preregistered and reproducible",
+    "incremental information beyond categorical states is demonstrated",
+    "counterevidence and missing-data behavior are validated"
+  ],
+  "components_defined": false,
+  "formula_defined": false,
+  "thresholds_defined": false,
+  "score_created": false,
+  "existing_indices_modified": false,
+  "review_after": "2027-03-30"
+}

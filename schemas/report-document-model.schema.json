@@ -74,8 +74,8 @@
     },
     "sections": {
       "type": "array",
-      "minItems": 11,
-      "maxItems": 11,
+      "minItems": 12,
+      "maxItems": 12,
       "items": {
         "type": "object",
         "required": [
@@ -107,13 +107,14 @@
               "S08_ROBUSTNESS",
               "S09_DOCTRINE",
               "S10_FINAL_SYNTHESIS",
-              "S11_SOURCES_APPENDICES"
+              "S11_SOURCES_APPENDICES",
+              "S12_PHASE_DYNAMICS"
             ]
           },
           "order": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 11
+            "maximum": 12
           },
           "title": {
             "type": "string",
@@ -207,17 +208,17 @@
         "READY": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 11
+          "maximum": 12
         },
         "PARTIAL": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 11
+          "maximum": 12
         },
         "NOT_AVAILABLE": {
           "type": "integer",
           "minimum": 0,
-          "maximum": 11
+          "maximum": 12
         }
       },
       "additionalProperties": false

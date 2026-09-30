@@ -2,6 +2,15 @@
 
 ## 1.22.0 — 2026-09-28
 
+### Candidato de motor de fases dinámicas — 2026-09-30
+- Añade evaluación documental de fases, reglas de surrender/awakening, secuencias doctrinales con firewall causal y matriz de contraevidencia.
+- Separa señales temporales por `IAT_REL`, `IAT_A`, `IAT_B` e `IAT_CROSS`; los componentes quedan sin score hasta disponer de políticas específicas preregistradas.
+- Añade grafo temporal sustentado por evidencia y diagnóstico de robustez angular bajo perturbaciones ±2/5/10/15 minutos.
+- Extiende el canonical y el modelo de informe con rutas para fases, secuencias, recurrencia y causalidad, conservando el canonical legado 1.21.x.
+- Mantiene sin cambios las fórmulas, pesos, gates e índices existentes; no implementa IPT.
+- Regresión local: **701 tests PASS** (10 omitidos), Contrato público PASS.
+- La publicación de release queda pendiente de los pasos 23 y 25: evaluación de la ventana de octubre de 2026 una vez concluida y evaluación prospectiva tras la observación preregistrada del 29/03/2027.
+
 ### Cierre de evolución matemática del núcleo cuantitativo
 - Sustituye `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2` por `V3`: sólo las raíces independientes son jugadores; PX/PS se recalculan dentro de cada coalición como interacciones derivadas.
 - Elimina la posibilidad de que un motivo semántico reciba una segunda cuota Shapley como si fuese evidencia independiente.

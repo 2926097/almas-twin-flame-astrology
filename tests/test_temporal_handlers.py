@@ -96,6 +96,30 @@ class TestTemporalActivation(unittest.TestCase):
         self.assertEqual(output["iat_state"], "NOT_CALCULATED")
         self.assertFalse(output["aggregation_weights_applied"])
 
+    def test_iat_layers_keep_scopes_separate_without_creating_scores(self):
+        scoped = []
+        for index, (scope, target, family) in enumerate((
+            ("IAT_REL", "RELATION", "TPROG"),
+            ("IAT_A", "ACTOR_A", "TTRANSIT"),
+            ("IAT_B", "ACTOR_B", "TREL"),
+            ("IAT_CROSS", "CROSS", "TDIR"),
+        ), start=1):
+            item = self.signal(f"S{index}", family=family)
+            item.update({"iat_scope": scope, "target": target, "technique": f"TECH_{index}"})
+            scoped.append(item)
+
+        output = m26_temporal_activation(
+            context("M26", {"temporal_signals": scoped}, self.canonical)
+        ).canonical_updates["temporal_activation"]
+
+        self.assertEqual(output["iat"], None)
+        for scope in ("IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS"):
+            self.assertEqual(output["iat_components"][scope]["signal_ids"], [f"S{('IAT_REL','IAT_A','IAT_B','IAT_CROSS').index(scope)+1}"])
+            self.assertEqual(output["iat_components"][scope]["status"], "NOT_EVALUABLE")
+            self.assertIsNone(output["iat_components"][scope]["value"])
+        self.assertTrue(all(signal["layer"] == "TEMPORAL" for signal in output["signals"]))
+        self.assertEqual(output["signals"][0]["target"], "RELATION")
+
     def test_unregistered_atacir_is_exploratory_and_not_iat_eligible(self):
         signal = self.signal(
             "A1",

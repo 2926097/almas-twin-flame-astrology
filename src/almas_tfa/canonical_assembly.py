@@ -680,6 +680,44 @@ def assemble_canonical_analysis(
         "doctrine": _doctrine_claims(canonical),
         "temporal": temporal,
         "dynamic_phases": empty_dynamic_phase_state(),
+        "actor_states": {
+            "actor_a": {"phase": None, "status": "NOT_EVALUABLE"},
+            "actor_b": {"phase": None, "status": "NOT_EVALUABLE"},
+        },
+        "phase_transitions": [],
+        "doctrinal_sequences": [],
+        "temporal_sequence_graph": {
+            "status": "NOT_EVALUABLE",
+            "nodes": [],
+            "edges": [],
+            "unresolved": ["No evidence-backed graph nodes were supplied."],
+            "missing_phases_inferred": False,
+            "causal_status": "UNESTABLISHED",
+        },
+        "temporal_layers": {
+            key: {"status": "NOT_EVALUABLE", "signal_ids": []}
+            for key in ("IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS")
+        },
+        "root_recurrence": {
+            "status": "NOT_EVALUABLE",
+            "units": [],
+            "score_created": False,
+        },
+        "causal_firewall": {
+            "causal_status": "UNESTABLISHED",
+            "astrology_causes_behavior": False,
+        },
+        "preregistered_predictions": [],
+        "angular_robustness": {
+            "status": "NOT_EVALUABLE",
+            "angular_robustness": "NOT_EVALUABLE",
+            "baseline_angular_root_count": 0,
+            "sample_count": 0,
+            "minimum_preserved_fraction": None,
+            "samples": [],
+            "threshold_policy_id": "ALMAS_ANGULAR_ROBUSTNESS_V1",
+            "score_created": False,
+        },
         "limitations": _limitations(prior_results),
         "assembly": {
             "policy_id": policy["policy_id"],
