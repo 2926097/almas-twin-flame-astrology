@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.example/schemas/development-case-assessment.schema.json",
+  "title": "ALMAS · evaluación anonimizante de caso de desarrollo",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "assessment_id", "case_scope", "assessment_date", "preregistration_id", "preregistration_status", "source_artifacts_in_repository", "case_specific_tuning", "observed_facts", "phase_checks", "doctrinal_sequence"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "assessment_id": {"const": "ALMAS_DEV_CASE_2026_09_29"}, "case_scope": {"const": "ANONYMIZED_DEVELOPMENT_ONLY"},
+    "assessment_date": {"const": "2026-09-29"}, "preregistration_id": {"type": "string", "minLength": 1}, "preregistration_status": {"const": "FROZEN_BEFORE_CASE_APPLICATION"},
+    "source_artifacts_in_repository": {"const": false}, "case_specific_tuning": {"const": false}, "observed_facts": {"maxItems": 0, "type": "array"},
+    "phase_checks": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["phase_id", "status", "evidence_refs", "reason"], "properties": {"phase_id": {"enum": ["crisis_mirror", "boundary_assertion", "separation_or_suspension", "surrender_candidate"]}, "status": {"const": "NOT_EVALUABLE"}, "evidence_refs": {"maxItems": 0, "type": "array"}, "reason": {"type": "string", "minLength": 1}}}},
+    "doctrinal_sequence": {"type": "object", "additionalProperties": false, "required": ["status", "causal_status", "ontology_status"], "properties": {"status": {"const": "NOT_EVALUABLE"}, "causal_status": {"const": "UNESTABLISHED"}, "ontology_status": {"const": "INSUFFICIENT"}}}
+  }
+}
