@@ -15,5 +15,5 @@
   "prospective_validation": {"status": "PENDING_FUTURE_OBSERVATION", "not_before": "2027-03-30", "reference": "reference/prospective-evaluation-protocol-2027-03-29.json"},
   "quantification": {"status": "DEFERRED", "reference": "reference/quantitative-phase-review-decision.json"},
   "ipt": {"status": "NOT_IMPLEMENTED", "reference": "reference/ipt-validation-gate.json"},
-  "release_candidate": "BLOCKED_PENDING_STEP_25"
+  "release_candidate": "BLOCKED_PENDING_STEPS_23_AND_25"
 }

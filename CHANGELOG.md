@@ -9,7 +9,7 @@
 - Extiende el canonical y el modelo de informe con rutas para fases, secuencias, recurrencia y causalidad, conservando el canonical legado 1.21.x.
 - Mantiene sin cambios las fórmulas, pesos, gates e índices existentes; no implementa IPT.
 - Regresión local: **700 tests PASS** (10 omitidos), Contrato público PASS.
-- La publicación de release queda pendiente del paso 25: observación prospectiva preregistrada para el 29/03/2027 y evaluación posterior.
+- La publicación de release queda pendiente de los pasos 23 y 25: evaluación de la ventana de octubre de 2026 una vez concluida y evaluación prospectiva tras la observación preregistrada del 29/03/2027.
 
 ### Cierre de evolución matemática del núcleo cuantitativo
 - Sustituye `ALMAS_MODEL_ATTRIBUTION_SHAPLEY_V2` por `V3`: sólo las raíces independientes son jugadores; PX/PS se recalculan dentro de cada coalición como interacciones derivadas.
