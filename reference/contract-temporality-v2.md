@@ -171,3 +171,10 @@ Por cláusula:
 - factual_match;
 - counterevidence;
 - why_not_more_advanced.
+# Extensión 1.23 · temporalidad personal Venus–Nodo–Quirón
+
+La extensión personal conserva M26/M27 como productores canónicos y añade un solver de perfeccionamientos que devuelve todos los contactos detectables en la ventana con `exact_datetime`, orbe, número de pasada, paso de muestreo y tolerancias. Cada técnica temporal suministra su propio evaluador y transformación temporal; una fecha progresada no se presenta como tránsito físico. Las estaciones, la retrogradación y la oscilación nodal se registran solo cuando el evaluador las aporta.
+
+Las señales se agrupan por `dependency_group`, raíz y, si corresponde, `nodal_axis_id`. Nodo Norte/Sur y True/Mean no son cuatro raíces ni dos ejes independientes. La deduplicación describe dependencia y no modifica el IAT de M26. C360 y arco solar pueden conservarse como señales distintas bajo una unidad de dependencia compartida cuando la política congelada así lo establezca.
+
+La ventana de integración exige arquitectura natal y secuencia temporal trazable. La integración documentada exige además eventos M27 que cumplan sus contratos de fuente, precisión, calidad y separación hecho/interpretación. Ningún estado futuro establece eventos, consentimiento, decisión o cierre.

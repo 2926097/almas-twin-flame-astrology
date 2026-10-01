@@ -96,6 +96,37 @@ class TestTemporalActivation(unittest.TestCase):
         self.assertEqual(output["iat_state"], "NOT_CALCULATED")
         self.assertFalse(output["aggregation_weights_applied"])
 
+    def test_kinematic_metadata_is_preserved_without_changing_iAT_contract(self):
+        raw = self.signal("Q-RETURN", family="TTRANSIT")
+        raw.update({
+            "technique": "CHIRON_RETURN",
+            "technique_variant": "RETURN_CYCLE",
+            "exact_datetime": "2026-09-30T12:00:00Z",
+            "orb": 0.0,
+            "pass_number": 2,
+            "applying_or_separating": "EXACT_PERFECTION",
+            "station_context": "AFTER_STATION",
+            "motion_state": "DIRECT",
+            "source_point": "CHIRON_TRANSIT",
+            "target_point": "CHIRON_NATAL",
+            "relation": "CONJUNCTION",
+            "node_variant": "MEAN",
+            "dependency_group": "TRANSIT_EPHEMERIS",
+        })
+        output = m26_temporal_activation(context("M26", {"temporal_signals": [raw]}, self.canonical)).payload
+        signal = output["signals"][0]
+        self.assertEqual(signal["pass_number"], 2)
+        self.assertEqual(signal["node_variant"], "MEAN")
+        self.assertEqual(signal["dependency_group"], "TRANSIT_EPHEMERIS")
+        self.assertFalse(output["structural_score_modified"])
+        self.assertIsNone(output["iat"])
+
+    def test_kinematic_metadata_rejects_timezone_naive_exact_time(self):
+        raw = self.signal("BAD-TIME")
+        raw["exact_datetime"] = "2026-09-30T12:00:00"
+        with self.assertRaises(ValueError):
+            m26_temporal_activation(context("M26", {"temporal_signals": [raw]}, self.canonical))
+
     def test_iat_layers_keep_scopes_separate_without_creating_scores(self):
         scoped = []
         for index, (scope, target, family) in enumerate((

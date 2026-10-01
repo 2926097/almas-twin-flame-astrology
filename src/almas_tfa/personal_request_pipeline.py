@@ -13,6 +13,8 @@ from .personal_reporting import (
     build_personal_report_document_model,
     validate_personal_canonical,
 )
+from .chiron_process import assess_chiron_process, derive_natal_contacts
+from .dual_nodes import build_dual_node_layer, classify_nodal_variant_concordance
 
 
 class PersonalRequestError(ValueError):
@@ -29,6 +31,7 @@ _ALLOWED_NATAL_KEYS = (
     "angles",
     "houses",
     "backend_provenance",
+    "nodal_variant_layer",
 )
 
 
@@ -122,6 +125,7 @@ def _backend_provenance(
         "provider_package": "moira-astro",
         "provider_version": "6.8.2",
         "node_mode": "TRUE_NODE",
+        "node_variants": ["TRUE", "MEAN"],
         "zodiac": "TROPICAL",
         "coordinate_origin": "GEOCENTRIC",
         "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
@@ -213,6 +217,22 @@ def _normalized_chart(
     chart["backend_id"] = backend.backend_id
     chart["backend_version"] = backend.backend_version
     chart["backend_provenance"] = _backend_provenance(chart, backend)
+    if chart["backend_provenance"].get("node_variants") == ["TRUE", "MEAN"]:
+        required_nodes = {"NORTH_NODE", "SOUTH_NODE", "MEAN_NORTH_NODE", "MEAN_SOUTH_NODE"}
+        if not required_nodes.issubset(positions):
+            raise PersonalRequestError(
+                "El backend declara nodos TRUE+MEAN pero no devolvió los cuatro extremos."
+            )
+        dual = build_dual_node_layer(
+            positions["NORTH_NODE"], positions["MEAN_NORTH_NODE"],
+        )
+        dual["nodal_variant_concordance"] = classify_nodal_variant_concordance(dual)
+        dual["interpretive_hypothesis"] = {
+            "statement": "Mean Node = vector estructural; True Node = modulación fenoménica/oscilatoria",
+            "epistemic_class": "E_PROJECT_HYPOTHESIS",
+            "validation_status": "UNVALIDATED",
+        }
+        chart["nodal_variant_layer"] = dual
 
     # Lista blanca deliberada. En particular, no se persiste metadata del
     # backend porque puede contener instante UTC, JD o coordenadas capaces de
@@ -297,6 +317,33 @@ def build_personal_canonical_from_request(
         "counterevidence": [],
         "limitations": limitations,
     }
+
+    chiron_request = request.get("chiron_process")
+    if chiron_request is not None:
+        if not isinstance(chiron_request, Mapping):
+            raise PersonalRequestError("chiron_process debe ser un objeto.")
+        aspect_policy = chiron_request.get("aspect_policy")
+        aspect_policy_ref = chiron_request.get("aspect_policy_ref")
+        if not isinstance(aspect_policy, Mapping) or not isinstance(aspect_policy_ref, str):
+            raise PersonalRequestError(
+                "chiron_process requiere aspect_policy y aspect_policy_ref explícitos."
+            )
+        derived = derive_natal_contacts(
+            chart.get("positions", {}), aspect_policy,
+            aspect_policy_ref=aspect_policy_ref,
+        )
+        complex_result = assess_chiron_process(
+            natal_contacts=derived["contacts"],
+            temporal_signals=chiron_request.get("temporal_signals", []),
+            temporal_sequence=chiron_request.get("temporal_sequence"),
+            documentary_evidence=chiron_request.get("documentary_evidence", []),
+            technique_search=chiron_request.get("technique_search"),
+            counterevidence=chiron_request.get("counterevidence", []),
+            complex_id=str(chiron_request.get("complex_id") or "PTC-001"),
+        )
+        complex_result["natal_architecture"]["counterevidence"] = derived["counterevidence"]
+        canonical["personal_temporal_complexes"] = [complex_result]
+        canonical["counterevidence"].extend(derived["counterevidence"])
 
     gate = validate_personal_canonical(canonical)
     if not gate["reportable"]:

@@ -24,6 +24,7 @@ def provenance():
         "kernel_sha256": "e" * 64,
         "house_system": "PLACIDUS",
         "node_mode": "TRUE_NODE",
+            "node_variants": ["TRUE", "MEAN"],
         "zodiac": "TROPICAL",
         "coordinate_origin": "GEOCENTRIC",
         "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
@@ -54,6 +55,12 @@ class FakePersonalBackend:
             "positions": {
                 "SUN": {"longitude": 120.0},
                 "MOON": {"longitude": 42.0},
+                "VENUS": {"longitude": 10.0},
+                "CHIRON": {"longitude": 10.2},
+                "NORTH_NODE": {"longitude": 11.0, "node_variant": "TRUE", "nodal_axis_id": "LUNAR_NODE_AXIS"},
+                "SOUTH_NODE": {"longitude": 191.0, "node_variant": "TRUE", "nodal_axis_id": "LUNAR_NODE_AXIS"},
+                "MEAN_NORTH_NODE": {"longitude": 11.2, "node_variant": "MEAN", "nodal_axis_id": "LUNAR_NODE_AXIS"},
+                "MEAN_SOUTH_NODE": {"longitude": 191.2, "node_variant": "MEAN", "nodal_axis_id": "LUNAR_NODE_AXIS"},
             },
             "angles": {"ASC": 11.0, "MC": 101.0},
             "houses": {"1": 11.0, "10": 101.0},
@@ -122,6 +129,19 @@ class PersonalRequestPipelineTests(unittest.TestCase):
         self.assertNotIn("place", canonical["subject"])
         self.assertNotIn("metadata", canonical["natal"])
         self.assertIn("backend_provenance", canonical["natal"])
+
+    def test_opt_in_chiron_complex_is_computed_and_enters_report_model(self):
+        payload = request()
+        payload["chiron_process"] = {
+            "aspect_policy": {"CONJUNCTION": {"angle": 0, "orb": 1}},
+            "aspect_policy_ref": "ASPECT_POLICY_SYNTHETIC_V1",
+        }
+        context = build_personal_report_context_from_request(payload, FakePersonalBackend())
+        canonical = context["personal_canonical_analysis"]
+        self.assertEqual(canonical["personal_temporal_complexes"][0]["complex_type"], "VENUS_NODAL_CHIRON")
+        self.assertEqual(canonical["personal_temporal_complexes"][0]["process_state"], "LATENT_ARCHITECTURE")
+        self.assertEqual(canonical["personal_temporal_complexes"][0]["nodal_variants"]["independent_axis_count"], 1)
+        self.assertIn("P12_CHIRON_PROCESS", [item["section_id"] for item in context["personal_report_document_model"]["sections"]])
 
     def test_backend_metadata_cannot_leak_coordinates_or_jd(self):
         canonical = build_personal_canonical_from_request(

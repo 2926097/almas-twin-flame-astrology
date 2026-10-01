@@ -351,3 +351,14 @@ Plantilla conceptual:
 ## Regla final
 
 La temporalidad responde **cuándo se vuelve saliente una arquitectura ya demostrada**, no **qué debe ocurrir en la realidad**.
+# Extensión 1.23 · procesos personales y exactitudes
+
+El motor personal `CHIRON_PROCESS` consume señales M26/M27 y datos `personal_temporal_complexes[]` sin alterar la semántica relacional de M18 ni crear raíces o puntuaciones estructurales. Cada señal puede conservar `exact_datetime`, `orb`, `applying_or_separating`, `pass_number`, `station_context`, `motion_state`, puntos origen/destino, relación, variante técnica, variante nodal y grupo de dependencia.
+
+`temporal_perfection_solver` resuelve todas las raíces detectables en la ventana muestreada mediante bisección de intervalos y busca mínimos estacionarios. El cálculo registra paso de muestreo, tolerancia temporal, tolerancia angular, ventana, evaluador y técnica. Un resultado del solver no demuestra que no existan soluciones si el evaluador usa un paso demasiado grueso; la resolución declarada forma parte de la trazabilidad. Las técnicas progresadas, conversas, terciarias, de arco solar y atacires requieren evaluadores con su transformación temporal propia.
+
+Las señales True/Mean y Norte/Sur conservan `nodal_axis_id`; su presencia puede enriquecer el historial de timing, pero nunca crea dos ejes independientes. `dependency_group` y `technique_variant` describen la dependencia matemática declarada; los grupos solo pueden tratarse como independientes si una política preregistrada justifica esa independencia. La extensión no cambia IAT.
+
+El registro de búsqueda debe enumerar `techniques_tested`, `techniques_matched`, `preregistered_techniques`, `exploratory_techniques`, `multiple_testing_context` y `selection_after_observation`. Una técnica post hoc permanece exploratoria; su mayor exactitud aparente no la promueve frente a técnicas preregistradas.
+
+`INTEGRATION_WINDOW` es una hipótesis de secuencia y requiere arquitectura previa más grupos de dependencia independientes. `INTEGRATION_DOCUMENTED` exige referencias M27 activas, fuente identificada, calidad y precisión contractual y separación entre hecho e interpretación. Ningún tránsito, progresión, atacir o configuración armónica predice por sí sola un evento externo ni acredita curación, reciprocidad o consentimiento.

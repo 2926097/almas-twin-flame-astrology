@@ -67,6 +67,11 @@
     "source_trace": {
       "type": "array",
       "items": {"type": "object"}
+    },
+    "personal_temporal_complexes": {
+      "type": "array",
+      "description": "Extensión opcional y aditiva; ausente en canonical personales 1.22.0.",
+      "items": {"$ref": "chiron-process-output.schema.json"}
     }
   },
   "additionalProperties": false

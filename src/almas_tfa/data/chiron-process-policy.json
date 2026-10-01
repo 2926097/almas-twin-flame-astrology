@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_CHIRON_PROCESS_V1",
+  "status": "EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "scope": "PERSONAL_TEMPORAL_HERMENEUTIC",
+  "complex_points": ["VENUS", "AXIS_NODES", "CHIRON"],
+  "node_variants": ["TRUE", "MEAN"],
+  "shared_nodal_axis_id": "LUNAR_NODE_AXIS",
+  "aspect_policy_required": true,
+  "natal_architecture_required_for_vulnerability": true,
+  "independent_dependency_groups_required_for_integration_window": 2,
+  "m27_evidence_required_for_documented_integration": true,
+  "clinical_diagnosis_inferred": false,
+  "structural_scoring_modified": false,
+  "ontological_category_created": false,
+  "forbidden_inferences": [
+    "CHIRON_EQUALS_CLINICAL_WOUND",
+    "TRINE_EQUALS_CURE",
+    "CHIRON_RETURN_EQUALS_INTEGRATION",
+    "SOUTH_NODE_PROVES_PAST_LIFE",
+    "ATACIR_PROVES_DESTINY",
+    "ASTROLOGY_PREDICTS_EXTERNAL_EVENT"
+  ]
+}

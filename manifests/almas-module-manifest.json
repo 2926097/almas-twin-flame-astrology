@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_public_version": "1.22.0",
+  "almas_public_version": "1.23.0",
   "architecture": "single_skill_modular",
   "root_skill": {
     "id": "almas-twin-flame-astrology",
@@ -16,10 +16,21 @@
       "astronomy_backend_policy": "src/almas_tfa/data/production-astronomy-backend-policy.json"
     },
     {
-      "id": "M_ONTOLOGY",
-      "name": "Ontología relacional comparada",
-      "status": "CORE",
-      "entrypoint": "docs/ONTOLOGY.md"
+      "id": "M_CAUSALITY",
+      "name": "Causa contractual",
+      "status": "SUBMODULE",
+      "entrypoint": "reference/causa-contractual.md"
+    },
+    {
+      "id": "M_CHIRON_PROCESS",
+      "name": "Proceso personal Venus–Nodo–Quirón",
+      "status": "ADDITIVE_EXTENSION",
+      "entrypoint": "src/almas_tfa/chiron_process.py",
+      "policy": "src/almas_tfa/data/chiron-process-policy.json",
+      "canonical_schema": "schemas/chiron-process-output.schema.json",
+      "scope": "PERSONAL_TEMPORAL_HERMENEUTIC",
+      "structural_scoring_modified": false,
+      "ontological_category_created": false
     },
     {
       "id": "M_DOCTRINE",
@@ -28,11 +39,16 @@
       "entrypoint": "reference/source-registry.json"
     },
     {
-      "id": "M_SOUL_CONTRACT",
-      "name": "Contrato álmico preencarnatorio",
+      "id": "M_ONTOLOGY",
+      "name": "Ontología relacional comparada",
       "status": "CORE",
-      "entrypoint": "skills/almas-soul-contract/SKILL.md",
-      "note": "Punto de entrada especializado; no es una skill pública independiente."
+      "entrypoint": "docs/ONTOLOGY.md"
+    },
+    {
+      "id": "M_REPORTING",
+      "name": "Informe canónico y hermenéutica",
+      "status": "CORE",
+      "entrypoint": "docs/REPORTING.md"
     },
     {
       "id": "M_ROLES",
@@ -41,10 +57,11 @@
       "entrypoint": "reference/roles-preencarnatorios.md"
     },
     {
-      "id": "M_CAUSALITY",
-      "name": "Causa contractual",
-      "status": "SUBMODULE",
-      "entrypoint": "reference/causa-contractual.md"
+      "id": "M_SOUL_CONTRACT",
+      "name": "Contrato álmico preencarnatorio",
+      "status": "CORE",
+      "entrypoint": "skills/almas-soul-contract/SKILL.md",
+      "note": "Punto de entrada especializado; no es una skill pública independiente."
     },
     {
       "id": "M_TEMPORAL",
@@ -60,12 +77,6 @@
       "external_validation": "docs/EXTERNAL_VALIDATION_PROTOCOL.md",
       "validation_endpoints": "manifests/validation-endpoint-registry.json",
       "validation_cohorts": "manifests/validation-cohort-manifest.json"
-    },
-    {
-      "id": "M_REPORTING",
-      "name": "Informe canónico y hermenéutica",
-      "status": "CORE",
-      "entrypoint": "docs/REPORTING.md"
     }
   ],
   "canonical_flow": [

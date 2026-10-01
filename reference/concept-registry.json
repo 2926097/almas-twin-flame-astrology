@@ -284,6 +284,21 @@
       "status": "DEFINED"
     },
     {
+      "id": "MEAN_LUNAR_NODE",
+      "label_es": "nodo lunar medio",
+      "definition": "Longitud del nodo ascendente lunar definida por una serie o modelo medio explícito, distinto de la intersección instantánea del plano lunar osculador.",
+      "concept_class": "TECHNICAL_METHOD",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "meeus_astronomical_algorithms_mean_node_1998"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [],
+      "almas_use": "Término técnico para registrar la variante media del eje nodal junto a True Node. El proyecto conserva ambas posiciones como variantes de un mismo eje y no atribuye significado ontológico a su diferencia."
+    },
+    {
       "id": "MISSION_PREINCARNATIONAL",
       "label_es": "misión preencarnatoria",
       "definition": "Modelo en el que un espíritu puede solicitar o asumir una misión antes de encarnar.",

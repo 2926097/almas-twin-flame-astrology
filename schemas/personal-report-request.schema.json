@@ -63,6 +63,34 @@
         "TECHNICAL_ATLAS",
         "ESOTERIC_KABBALISTIC_REPORT"
       ]
+    },
+    "chiron_process": {
+      "type": "object",
+      "required": ["aspect_policy", "aspect_policy_ref"],
+      "properties": {
+        "complex_id": {"type": "string", "minLength": 1},
+        "aspect_policy": {"$ref": "aspect-policy.schema.json"},
+        "aspect_policy_ref": {"type": "string", "minLength": 1},
+        "temporal_signals": {"type": "array", "items": {"type": "object"}},
+        "temporal_sequence": {"type": ["object", "null"]},
+        "documentary_evidence": {"type": "array", "items": {"type": "object"}},
+        "counterevidence": {"type": "array", "items": {"type": "object"}},
+        "technique_search": {
+          "type": "object",
+          "required": ["techniques_tested", "techniques_matched", "preregistered_techniques", "exploratory_techniques", "multiple_testing_context"],
+          "properties": {
+            "techniques_tested": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "techniques_matched": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "preregistered_techniques": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "exploratory_techniques": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+            "multiple_testing_context": {"type": "string", "minLength": 1},
+            "selection_after_observation": {"type": ["boolean", "null"]},
+            "universe_complete": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

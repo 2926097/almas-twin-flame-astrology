@@ -1,0 +1,306 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "CHIRON_PROCESS_SYNTHETIC_01",
+  "privacy": "NO_REAL_PERSON_DATA",
+  "input": {
+    "natal_contacts": [
+      {
+        "point_a": "VENUS",
+        "point_b": "CHIRON",
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect": "CONJUNCTION",
+        "aspect_policy_ref": "SYNTHETIC_ASPECTS_V1",
+        "node_variant": null
+      },
+      {
+        "point_a": "VENUS",
+        "point_b": "AXIS_NODES",
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect": "CONJUNCTION",
+        "aspect_policy_ref": "SYNTHETIC_ASPECTS_V1",
+        "node_variant": "TRUE"
+      },
+      {
+        "point_a": "CHIRON",
+        "point_b": "AXIS_NODES",
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect": "CONJUNCTION",
+        "aspect_policy_ref": "SYNTHETIC_ASPECTS_V1",
+        "node_variant": "TRUE"
+      }
+    ],
+    "temporal_signals": [
+      {
+        "signal_id": "SYN-T1",
+        "technique": "TTRANSIT",
+        "technique_variant": "TRANSIT",
+        "exact_datetime": "2026-01-10T00:00:00Z",
+        "source_point": "CHIRON_TRANSIT",
+        "target_point": "VENUS",
+        "relation": "SQUARE",
+        "dependency_group": "TRANSIT_EPHEMERIS",
+        "node_variant": null,
+        "pass_number": 1,
+        "preregistered": true,
+        "window_status": "RETROSPECTIVE_CONFIRMED",
+        "process_marker": "TENSION",
+        "geometry_class": "HARD",
+        "strength": 0.8,
+        "orb": 0.0,
+        "evidence_refs": [
+          "SYN-E1"
+        ]
+      },
+      {
+        "signal_id": "SYN-T2",
+        "technique": "TPROG",
+        "technique_variant": "SECONDARY_DIRECT",
+        "exact_datetime": "2026-04-10T00:00:00Z",
+        "source_point": "VENUS_PROGRESSIVE",
+        "target_point": "NORTH_NODE",
+        "relation": "TRINE",
+        "dependency_group": "SEC_PROGRESSION",
+        "node_variant": "TRUE",
+        "nodal_axis_id": "LUNAR_NODE_AXIS",
+        "pass_number": 1,
+        "preregistered": true,
+        "window_status": "RETROSPECTIVE_CONFIRMED",
+        "process_marker": "INTEGRATIVE",
+        "geometry_class": "HARMONIC",
+        "strength": 0.3,
+        "orb": 0.0,
+        "evidence_refs": [
+          "SYN-E2"
+        ]
+      }
+    ],
+    "temporal_sequence": {
+      "process_vector": "REORGANIZING",
+      "integration_signature": "MIXED",
+      "sequence_evidence_refs": [
+        "SYN-E1",
+        "SYN-E2"
+      ]
+    },
+    "technique_search": {
+      "techniques_tested": [
+        "TRANSIT",
+        "SECONDARY_DIRECT"
+      ],
+      "techniques_matched": [
+        "TRANSIT",
+        "SECONDARY_DIRECT"
+      ],
+      "preregistered_techniques": [
+        "TRANSIT",
+        "SECONDARY_DIRECT"
+      ],
+      "exploratory_techniques": [],
+      "multiple_testing_context": "Dos familias técnicas preregistradas para el caso sintético.",
+      "selection_after_observation": false,
+      "universe_complete": true
+    }
+  },
+  "expected": {
+    "complex_type": "VENUS_NODAL_CHIRON",
+    "process_state": "INTEGRATION_WINDOW",
+    "structural_scoring_modified": false,
+    "ontological_category_created": false
+  },
+  "output": {
+    "policy_id": "ALMAS_CHIRON_PROCESS_V1",
+    "complex_id": "PTC-001",
+    "complex_type": "VENUS_NODAL_CHIRON",
+    "natal_architecture": {
+      "contacts": [
+        {
+          "point_a": "VENUS",
+          "point_b": "CHIRON",
+          "orb": 0.2,
+          "declared_orb": 1.0,
+          "aspect": "CONJUNCTION",
+          "aspect_policy_ref": "SYNTHETIC_ASPECTS_V1",
+          "node_variant": null
+        },
+        {
+          "point_a": "VENUS",
+          "point_b": "AXIS_NODES",
+          "orb": 0.2,
+          "declared_orb": 1.0,
+          "aspect": "CONJUNCTION",
+          "aspect_policy_ref": "SYNTHETIC_ASPECTS_V1",
+          "node_variant": "TRUE"
+        },
+        {
+          "point_a": "CHIRON",
+          "point_b": "AXIS_NODES",
+          "orb": 0.2,
+          "declared_orb": 1.0,
+          "aspect": "CONJUNCTION",
+          "aspect_policy_ref": "SYNTHETIC_ASPECTS_V1",
+          "node_variant": "TRUE"
+        }
+      ],
+      "contact_edges": [
+        [
+          "AXIS_NODES",
+          "CHIRON"
+        ],
+        [
+          "AXIS_NODES",
+          "VENUS"
+        ],
+        [
+          "CHIRON",
+          "VENUS"
+        ]
+      ],
+      "status": "SUPPORTED",
+      "temporal_bridge_present": false,
+      "vulnerability_clinical_inference": false
+    },
+    "nodal_variants": {
+      "node_variant_policy": "TRUE_AND_MEAN_SHARE_ONE_AXIS",
+      "independent_axis_count": 1
+    },
+    "temporal_signals": [
+      {
+        "signal_id": "SYN-T1",
+        "technique": "TTRANSIT",
+        "technique_variant": "TRANSIT",
+        "exact_datetime": "2026-01-10T00:00:00Z",
+        "source_point": "CHIRON_TRANSIT",
+        "target_point": "VENUS",
+        "relation": "SQUARE",
+        "dependency_group": "TRANSIT_EPHEMERIS",
+        "node_variant": null,
+        "pass_number": 1,
+        "preregistered": true,
+        "window_status": "RETROSPECTIVE_CONFIRMED",
+        "process_marker": "TENSION",
+        "geometry_class": "HARD",
+        "strength": 0.8,
+        "orb": 0.0,
+        "evidence_refs": [
+          "SYN-E1"
+        ],
+        "epistemic_class": "B_TECHNIQUE"
+      },
+      {
+        "signal_id": "SYN-T2",
+        "technique": "TPROG",
+        "technique_variant": "SECONDARY_DIRECT",
+        "exact_datetime": "2026-04-10T00:00:00Z",
+        "source_point": "VENUS_PROGRESSIVE",
+        "target_point": "NORTH_NODE",
+        "relation": "TRINE",
+        "dependency_group": "SEC_PROGRESSION",
+        "node_variant": "TRUE",
+        "nodal_axis_id": "LUNAR_NODE_AXIS",
+        "pass_number": 1,
+        "preregistered": true,
+        "window_status": "RETROSPECTIVE_CONFIRMED",
+        "process_marker": "INTEGRATIVE",
+        "geometry_class": "HARMONIC",
+        "strength": 0.3,
+        "orb": 0.0,
+        "evidence_refs": [
+          "SYN-E2"
+        ],
+        "epistemic_class": "B_TECHNIQUE"
+      }
+    ],
+    "dependency_groups": [
+      "SEC_PROGRESSION",
+      "TRANSIT_EPHEMERIS"
+    ],
+    "exact_hits": [
+      {
+        "signal_id": "SYN-T1",
+        "technique": "TTRANSIT",
+        "technique_variant": "TRANSIT",
+        "exact_datetime": "2026-01-10T00:00:00Z",
+        "source_point": "CHIRON_TRANSIT",
+        "target_point": "VENUS",
+        "relation": "SQUARE",
+        "dependency_group": "TRANSIT_EPHEMERIS",
+        "node_variant": null,
+        "pass_number": 1,
+        "preregistered": true,
+        "window_status": "RETROSPECTIVE_CONFIRMED",
+        "process_marker": "TENSION",
+        "geometry_class": "HARD",
+        "strength": 0.8,
+        "orb": 0.0,
+        "evidence_refs": [
+          "SYN-E1"
+        ],
+        "epistemic_class": "B_TECHNIQUE"
+      },
+      {
+        "signal_id": "SYN-T2",
+        "technique": "TPROG",
+        "technique_variant": "SECONDARY_DIRECT",
+        "exact_datetime": "2026-04-10T00:00:00Z",
+        "source_point": "VENUS_PROGRESSIVE",
+        "target_point": "NORTH_NODE",
+        "relation": "TRINE",
+        "dependency_group": "SEC_PROGRESSION",
+        "node_variant": "TRUE",
+        "nodal_axis_id": "LUNAR_NODE_AXIS",
+        "pass_number": 1,
+        "preregistered": true,
+        "window_status": "RETROSPECTIVE_CONFIRMED",
+        "process_marker": "INTEGRATIVE",
+        "geometry_class": "HARMONIC",
+        "strength": 0.3,
+        "orb": 0.0,
+        "evidence_refs": [
+          "SYN-E2"
+        ],
+        "epistemic_class": "B_TECHNIQUE"
+      }
+    ],
+    "process_state": "INTEGRATION_WINDOW",
+    "temporal_process_vector": "REORGANIZING",
+    "integration_signature": "MIXED",
+    "temporal_convergence": {
+      "independent_dependency_group_count": 2,
+      "dated_signal_count": 2,
+      "exactness_values_recorded": 2,
+      "preregistered_signal_count": 2,
+      "exploratory_signal_count": 0,
+      "multiple_testing_context": "Dos familias técnicas preregistradas para el caso sintético.",
+      "score_created": false,
+      "metaphysical_probability_created": false,
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "technique_search_audit": {
+      "techniques_tested": [
+        "SECONDARY_DIRECT",
+        "TRANSIT"
+      ],
+      "techniques_matched": [
+        "SECONDARY_DIRECT",
+        "TRANSIT"
+      ],
+      "preregistered_techniques": [
+        "SECONDARY_DIRECT",
+        "TRANSIT"
+      ],
+      "exploratory_techniques": [],
+      "multiple_testing_context": "Dos familias técnicas preregistradas para el caso sintético.",
+      "selection_after_observation": false,
+      "universe_complete": true
+    },
+    "counterevidence": [],
+    "documentary_evidence": [],
+    "status": "SUPPORTED",
+    "epistemic_class": "E_PROJECT_HYPOTHESIS",
+    "structural_scoring_modified": false,
+    "ontological_category_created": false
+  }
+}

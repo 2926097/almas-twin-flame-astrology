@@ -14,6 +14,7 @@ from .astrology_backend import (
     AstronomyBackendNotEvaluableError,
     NatalRequest,
 )
+from .dual_nodes import mean_node_positions
 from .relationship_chart_handlers import DavisonRequest
 
 
@@ -259,6 +260,7 @@ class MoiraProductionBackend:
             "kernel_sha256": self.kernel_sha256,
             "house_system": self.config.house_system.upper(),
             "node_mode": self.policy["natal"]["node_mode"],
+            "node_variants": ["TRUE", "MEAN"],
             "zodiac": self.policy["natal"]["zodiac"],
             "coordinate_origin": self.policy["natal"]["coordinate_origin"],
             "reference_frame": self.policy["natal"]["reference_frame"],
@@ -428,6 +430,8 @@ class MoiraProductionBackend:
                 else None
             ),
             "point_type": "NODE",
+            "node_variant": "TRUE",
+            "nodal_axis_id": "LUNAR_NODE_AXIS",
         }
         output["SOUTH_NODE"] = {
             "longitude": south_lon,
@@ -446,6 +450,8 @@ class MoiraProductionBackend:
                 else None
             ),
             "point_type": "NODE",
+            "node_variant": "TRUE",
+            "nodal_axis_id": "LUNAR_NODE_AXIS",
         }
         return output
 
@@ -503,13 +509,20 @@ class MoiraProductionBackend:
         jd_ut = float(jd_ut)
         delta_t = float(delta_t)
         jd_tt = jd_ut + delta_t / 86400.0
+        positions = self._positions(chart)
+        positions.update(mean_node_positions(jd_tt=jd_tt))
+        obliquity = float(_value(chart, "obliquity"))
+        for point_id in ("MEAN_NORTH_NODE", "MEAN_SOUTH_NODE"):
+            positions[point_id]["declination"] = _declination(
+                positions[point_id]["longitude"], 0.0, obliquity
+            )
         return {
             "subject_id": subject_id,
             "timed": True,
             "backend_id": self.backend_id,
             "backend_version": self.backend_version,
             "zodiac": "TROPICAL",
-            "positions": self._positions(chart),
+            "positions": positions,
             "angles": angles,
             "houses": houses,
             "backend_provenance": self.provenance,
@@ -555,6 +568,27 @@ class MoiraProductionBackend:
             include_nodes=True,
         )
         positions = self._positions(chart)
+        jd_ut = _value(chart, "jd_ut")
+        delta_t = _value(chart, "delta_t")
+        if (
+            isinstance(jd_ut, bool)
+            or not isinstance(jd_ut, (int, float))
+            or isinstance(delta_t, bool)
+            or not isinstance(delta_t, (int, float))
+        ):
+            raise AstronomyBackendNotEvaluableError(
+                "Moira no devolvió jd_ut/delta_t para Mean Node de tránsito."
+            )
+        positions.update(mean_node_positions(jd_tt=float(jd_ut) + float(delta_t) / 86400.0))
+        obliquity = _value(chart, "obliquity")
+        if isinstance(obliquity, bool) or not isinstance(obliquity, (int, float)):
+            raise AstronomyBackendNotEvaluableError(
+                "Moira no devolvió oblicuidad para Mean Node de tránsito."
+            )
+        for point_id in ("MEAN_NORTH_NODE", "MEAN_SOUTH_NODE"):
+            positions[point_id]["declination"] = _declination(
+                positions[point_id]["longitude"], 0.0, float(obliquity)
+            )
         planet_ids = {
             "SUN", "MOON", "MERCURY", "VENUS", "MARS",
             "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO",
@@ -564,7 +598,9 @@ class MoiraProductionBackend:
             "positions": {
                 point_id: dict(data)
                 for point_id, data in positions.items()
-                if point_id in planet_ids
+            if point_id in planet_ids | {
+                "NORTH_NODE", "SOUTH_NODE", "MEAN_NORTH_NODE", "MEAN_SOUTH_NODE"
+            }
             },
             "backend_id": self.backend_id,
             "backend_version": self.backend_version,

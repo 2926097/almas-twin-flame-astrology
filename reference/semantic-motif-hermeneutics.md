@@ -1571,3 +1571,6 @@ Antes de finalizar una lectura, comprobar:
 7. ¿la conclusión sigue siendo rica aunque la etiqueta ontológica quede abierta?
 
 Si las respuestas son afirmativas, el motivo ha sido transformado de feature técnica a contenido hermenéutico sin modificar su estatus epistemológico.
+# Nota de compatibilidad ALMAS 1.23.0
+
+El proceso personal `CHIRON_PROCESS` y el motivo relacional M18 `WOUND_REPAIR` son superficies distintas. El primero describe arquitectura natal personal, activación y evidencia documental del proceso; el segundo continúa dependiendo de raíces relacionales y de la política semántica congelada. La extensión personal no cambia precedencia, asignación de motivo, PX, PS ni sus cuotas Shapley. Quirón no equivale a herida clínica, y las palabras “reparación” o “integración” permanecen hermenéuticas salvo que la evidencia biográfica M27 satisfaga el contrato correspondiente.

@@ -1,7 +1,7 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.22.0  
-**Estado:** pipeline M00–M31 + reporting relacional/personal B5 + recurrencia semántica PX/PS v2 + calibración S1–S9 + backend astronómico reproducible
+**Versión pública:** 1.23.0
+**Estado:** ALMAS 1.22.0 + integración personal Venus–Nodo–Quirón, nodos duales y solver de perfeccionamientos temporales
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
 
@@ -82,6 +82,8 @@ Desde 1.20.0, la autoría adopta una síntesis **root-first**: parte de raíces 
 Desde 1.21.0, ALMAS incorpora un **perfil de informes astrológicos personales** dentro de la misma skill: `personal_report_request → backend astronómico de producción → personal_canonical_analysis → personal_report_document_model → personal_authored_report → DOCX/PDF B5`. Conserva minimización de datos, cinco perfiles de informe, degradación explícita por calidad horaria, contraevidencia A/B/C/D/E y un router de fuentes que expone `SUPPORTED`, `PARTIAL` y `SOURCE_GAP` sin inventar bibliografía. No modifica scoring relacional, discriminadores ni ontología.
 
 Desde 1.22.0, ALMAS introduce una revisión matemática explícita y versionada del núcleo cuantitativo: Shapley V3 atribuye las interacciones PX/PS exclusivamente a raíces independientes, IRC agrega mínimos por grupos de dependencia antes de la media geométrica e ICE puede derivarse de forma autónoma sólo tras declarar completa la evaluación de contraevidencia. Estas reglas permanecen en clase E de política/hipótesis del proyecto; no son probabilidades metafísicas y no activan PX v3 ni discriminadores L3 sin validación externa real.
+
+Desde 1.23.0, el módulo personal `CHIRON_PROCESS` conserva True y Mean Node con un único `nodal_axis_id`, calcula complejos natales a partir de orbes explícitos y organiza activaciones por técnica, pasada, cinemática y grupo de dependencia. El solver busca varias perfecciones dentro de una ventana e identifica contactos estacionarios. Las secuencias no alteran scoring; `INTEGRATION_DOCUMENTED` requiere evidencia M27 que cumpla calidad, precisión, fuente y separación hecho/interpretación. La extensión no cambia el motivo M18 `WOUND_REPAIR`, el IAT heredado ni la ontología.
 
 ## Repositorio
 

@@ -1,5 +1,18 @@
 # Changelog
 
+# Changelog
+
+## 1.23.0 — 2026-09-30
+
+### Chiron–Nodal Integration Engine
+
+- Añade cálculo Mean Node por fórmula Meeus declarada y conserva True/Mean Node bajo `LUNAR_NODE_AXIS`, con provenance, capa canónica, comparación de timing y deduplicación.
+- Añade complejos personales Venus–Quirón–Nodo mediante política de aspectos declarada y `personal_temporal_complexes[]` optativo, compatible con canonical personales 1.22.0.
+- Añade metadatos cinemáticos y `technique_variant` a M26 sin cambiar scoring/IAT; crea solver multi-pasada con bisección y búsqueda de tangencias.
+- Añade política de dependencia temporal V2, auditoría de technique fishing, vector de proceso, convergencia temporal no escalar y gate M27 para integración documentada.
+- Añade capítulo P12 solo cuando el complejo personal está presente, hermenéutica, contratos, fuentes y fixtures exclusivamente sintéticos.
+- No modifica IEM, IDD, IRC, ICC, ICE, PX, PS, M18 `WOUND_REPAIR`, discriminadores, ontology ni consentimiento/viabilidad relacionales.
+
 ## 1.22.0 — 2026-09-28
 
 ### Candidato de motor de fases dinámicas — 2026-09-30

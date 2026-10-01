@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.22.0",
+  "registry_version": "1.23.0",
   "entries": [
     {
       "id": "plato_symposium_aristophanes",
@@ -2881,7 +2881,41 @@
       "verification_anchor_type": "PUBLISHER_SUMMARY",
       "verification_anchor_url": "https://books.google.com/books/about/Planets_in_Transit.html?id=84elPwAACAAJ",
       "evidence_scope": "METHOD_DESCRIPTION"
+    },
+    {
+      "id": "meeus_astronomical_algorithms_mean_node_1998",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "source_role": "HISTORICAL_TECHNICAL",
+      "tradition": "Astronomía matemática",
+      "author": "Jean Meeus",
+      "work": "Astronomical Algorithms",
+      "date": "1998",
+      "date_note": "Segunda edición, Willmann-Bell, 1998.",
+      "passage": "§47, ecuación 47.7",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.willbell.com/math/mc1.htm",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia técnica bibliográfica; no reproducir tablas o texto extenso protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": ["MEAN_LUNAR_NODE"],
+      "supports": [
+        "implementación del polinomio secular de longitud del nodo ascendente medio lunar declarado por ALMAS"
+      ],
+      "does_not_support": [
+        "equivalencia doctrinal entre Mean Node y True Node",
+        "hipótesis metafísica sobre función estructural o fenoménica del eje nodal",
+        "interpretación astrológica ni clasificación de vínculos"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Meeus, Astronomical Algorithms, 2nd ed., §47, equation 47.7; implementación limitada al polinomio nodal y su derivada.",
+      "verification_anchor_type": "TECHNICAL_EQUATION",
+      "verification_anchor_url": "https://www.willbell.com/math/mc1.htm",
+      "evidence_scope": "TECHNICAL_METHOD"
     }
   ],
-  "registry_revision": "2026-09-27-wound-repair-sources-1"
+  "registry_revision": "2026-09-30-dual-node-chiron-process-1"
 }

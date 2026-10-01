@@ -136,6 +136,12 @@ SECTION_SPECS: dict[str, dict[str, Any]] = {
             "E_PROJECT_HYPOTHESIS",
         ),
     },
+    "P12_CHIRON_PROCESS": {
+        "title": "Complejos de vulnerabilidad, recapitulación e integración",
+        "required": ("personal_temporal_complexes",),
+        "optional": ("counterevidence", "source_trace"),
+        "classes": ("A_CALCULATED", "B_TECHNIQUE", "C_DOCTRINE", "D_CONTEMPORARY_USAGE", "E_PROJECT_HYPOTHESIS"),
+    },
 }
 
 
@@ -260,6 +266,31 @@ def validate_personal_canonical(canonical: Mapping[str, Any]) -> dict[str, Any]:
         blocking.append("COUNTEREVIDENCE_MUST_BE_ARRAY")
     if not isinstance(canonical.get("limitations"), list):
         blocking.append("LIMITATIONS_MUST_BE_ARRAY")
+
+    personal_complexes = canonical.get("personal_temporal_complexes")
+    if personal_complexes is not None:
+        if not isinstance(personal_complexes, list):
+            blocking.append("PERSONAL_TEMPORAL_COMPLEXES_MUST_BE_ARRAY")
+        else:
+            allowed_process_states = {
+                "LATENT_ARCHITECTURE", "REACTIVATION", "RECAPITULATION",
+                "CONFRONTATION", "REORGANIZATION", "INTEGRATION_WINDOW",
+                "INTEGRATION_DOCUMENTED", "CLOSURE_NOT_ESTABLISHED", "INDETERMINATE",
+            }
+            for index, complex_item in enumerate(personal_complexes):
+                if not isinstance(complex_item, Mapping):
+                    blocking.append(f"PERSONAL_COMPLEX_{index}:MUST_BE_OBJECT")
+                    continue
+                if complex_item.get("process_state") not in allowed_process_states:
+                    blocking.append(f"PERSONAL_COMPLEX_{index}:INVALID_PROCESS_STATE")
+                if complex_item.get("structural_scoring_modified") is not False:
+                    blocking.append(f"PERSONAL_COMPLEX_{index}:STRUCTURAL_SCORING_MUST_REMAIN_FROZEN")
+                if complex_item.get("ontological_category_created") is not False:
+                    blocking.append(f"PERSONAL_COMPLEX_{index}:MUST_NOT_CREATE_ONTOLOGY")
+                if complex_item.get("process_state") == "INTEGRATION_DOCUMENTED" and not complex_item.get("documentary_evidence"):
+                    blocking.append(f"PERSONAL_COMPLEX_{index}:DOCUMENTED_INTEGRATION_REQUIRES_M27_EVIDENCE")
+                if complex_item.get("process_state") == "INTEGRATION_WINDOW" and len(set(complex_item.get("dependency_groups", []))) < 2:
+                    blocking.append(f"PERSONAL_COMPLEX_{index}:INTEGRATION_WINDOW_REQUIRES_INDEPENDENT_GROUPS")
 
     temporal = canonical.get("temporal")
     if isinstance(temporal, Mapping):
@@ -415,6 +446,17 @@ def build_personal_report_document_model(
         _section_model(section_id, canonical, order)
         for order, section_id in enumerate(PROFILE_SECTIONS[profile], start=1)
     ]
+    if canonical.get("personal_temporal_complexes"):
+        insert_at = next(
+            (index for index, item in enumerate(sections) if item["section_id"] == "P09_TEMPORAL"),
+            len(sections),
+        )
+        sections.insert(
+            insert_at,
+            _section_model("P12_CHIRON_PROCESS", canonical, insert_at + 1),
+        )
+        for order, section in enumerate(sections, start=1):
+            section["order"] = order
 
     return {
         "model_version": "1.0.0",

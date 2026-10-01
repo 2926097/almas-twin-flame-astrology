@@ -1,0 +1,31 @@
+{
+  "schema_version": "2.0.0",
+  "policy_id": "ALMAS_TEMPORAL_DEPENDENCY_POLICY_V2",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "status": "EXPERIMENTAL",
+  "independence_key": ["root_id", "dependency_group", "nodal_axis_id"],
+  "default_dependency_groups": {
+    "SECONDARY_PROGRESSION": "SEC_PROGRESSION",
+    "TERTIARY_PROGRESSION": "TERTIARY_LUNAR",
+    "SOLAR_ARC": "UNIFORM_YEAR_DIRECTION",
+    "TATACIR": "ATACIR_FAMILY",
+    "TTRANSIT": "TRANSIT_EPHEMERIS",
+    "TECLIPSE": "ECLIPSE_FAMILY",
+    "TREL": "RELATIONAL_CLOCK"
+  },
+  "rules": {
+    "north_south_share_one_axis": true,
+    "true_mean_share_one_axis": true,
+    "same_root_and_dependency_group_count_as_one_unit": true,
+    "unanchored_signals_do_not_create_shared_recurrence": true,
+    "c360_and_solar_arc_are_dependent_when_the_declared_group_is_shared": true,
+    "technique_variant_preserved_without_adding_independence": true,
+    "score_created": false,
+    "legacy_iat_modified": false
+  },
+  "limits": [
+    "Una coincidencia temporal no establece integración ni ontología.",
+    "El nombre de una técnica no basta para probar independencia; debe declararse dependency_group conforme al registro preregistrado.",
+    "Este resumen no corrige por multiplicidad; conserva el universo de búsqueda para revisión posterior."
+  ]
+}
