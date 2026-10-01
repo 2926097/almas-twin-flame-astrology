@@ -1,0 +1,405 @@
+{
+  "synthetic": true,
+  "scope": "DEVELOPMENT_FIXTURE_ONLY",
+  "request": {
+    "enabled": true,
+    "core_roots": [
+      {
+        "root_id": "R1",
+        "core_eligible": true,
+        "core_evidence_ids": [
+          "CORE1"
+        ],
+        "point_ids": [
+          "SUN"
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "id": "A1",
+        "point_id": "EROS",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "evidence_key": "CONTACT:A1",
+        "geometry": {
+          "longitude": 10,
+          "target_longitude": 11,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 10,
+              "target_longitude": 11
+            }
+          ]
+        }
+      },
+      {
+        "id": "A2",
+        "point_id": "PSYCHE",
+        "subject_id": "B",
+        "technique": "SYNASTRY",
+        "evidence_key": "CONTACT:A2",
+        "geometry": {
+          "longitude": 10.5,
+          "target_longitude": 11.5,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 10.5,
+              "target_longitude": 11.5
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 10.5,
+              "target_longitude": 11.5
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 10.5,
+              "target_longitude": 11.5
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 10.5,
+              "target_longitude": 11.5
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 10.5,
+              "target_longitude": 11.5
+            }
+          ]
+        }
+      },
+      {
+        "id": "A3",
+        "point_id": "EROS",
+        "subject_id": "B",
+        "technique": "SYNASTRY",
+        "evidence_key": "CONTACT:A3",
+        "geometry": {
+          "longitude": 100,
+          "target_longitude": 101,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 100,
+              "target_longitude": 101
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 100,
+              "target_longitude": 101
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 100,
+              "target_longitude": 101
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 100,
+              "target_longitude": 101
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 100,
+              "target_longitude": 101
+            }
+          ]
+        }
+      },
+      {
+        "id": "A4",
+        "point_id": "PSYCHE",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "evidence_key": "CONTACT:A4",
+        "geometry": {
+          "longitude": 100.5,
+          "target_longitude": 101.5,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 100.5,
+              "target_longitude": 101.5
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 100.5,
+              "target_longitude": 101.5
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 100.5,
+              "target_longitude": 101.5
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 100.5,
+              "target_longitude": 101.5
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 100.5,
+              "target_longitude": 101.5
+            }
+          ]
+        }
+      },
+      {
+        "id": "A5",
+        "point_id": "EROS",
+        "subject_id": "RELATIONSHIP",
+        "technique": "COMPOSITE",
+        "evidence_key": "CONTACT:A5",
+        "geometry": {
+          "longitude": 220,
+          "target_longitude": 221,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 220,
+              "target_longitude": 221
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 220,
+              "target_longitude": 221
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 220,
+              "target_longitude": 221
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 220,
+              "target_longitude": 221
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 220,
+              "target_longitude": 221
+            }
+          ]
+        }
+      }
+    ],
+    "edges": [],
+    "cross_contacts": [
+      {
+        "id": "C1",
+        "point_a": "EROS",
+        "subject_a": "A",
+        "point_b": "PSYCHE",
+        "subject_b": "B",
+        "geometry": {
+          "longitude": 10,
+          "target_longitude": 10.5,
+          "target_id": "PSYCHE",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 10,
+              "target_longitude": 10.5
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 10,
+              "target_longitude": 10.5
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 10,
+              "target_longitude": 10.5
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 10,
+              "target_longitude": 10.5
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 10,
+              "target_longitude": 10.5
+            }
+          ]
+        },
+        "endpoint_appearance_refs": [
+          "A1",
+          "A2"
+        ]
+      },
+      {
+        "id": "C2",
+        "point_a": "EROS",
+        "subject_a": "B",
+        "point_b": "PSYCHE",
+        "subject_b": "A",
+        "geometry": {
+          "longitude": 100,
+          "target_longitude": 100.5,
+          "target_id": "PSYCHE",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 100,
+              "target_longitude": 100.5
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 100,
+              "target_longitude": 100.5
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 100,
+              "target_longitude": 100.5
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 100,
+              "target_longitude": 100.5
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 100,
+              "target_longitude": 100.5
+            }
+          ]
+        },
+        "endpoint_appearance_refs": [
+          "A3",
+          "A4"
+        ]
+      }
+    ],
+    "dyads": [
+      {
+        "id": "EROS_PSYCHE_COMPLEX",
+        "appearance_refs": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5"
+        ],
+        "cross_contact_refs": [
+          "C1",
+          "C2"
+        ],
+        "search_complete": true
+      }
+    ]
+  }
+}

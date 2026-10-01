@@ -261,6 +261,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/ssar-families.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_FAMILIES_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/surrender-vestal.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_SURRENDER_VESTAL_CONTROL",

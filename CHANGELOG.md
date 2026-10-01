@@ -1,5 +1,11 @@
 # Changelog
 
+## Desarrollo 1.25.0 · SSAR fase 4 — 2026-10-01
+
+Añade familia erótica Eros/Amor/Cupido, overlay de Afrodita a Venus y API optativa de díadas con contactos cruzados, anclajes core, perturbaciones, dos grupos efectivos y deduplicación. Eros–Psyche y Deméter–Perséfone tienen reglas ejecutables; Isis–Osiris conserva ambigüedad nominal NP4 y Shiva–Shakti conserva identidad/alias/variante doctrinal sin resolver. Se separan cuatro alcances sin estado global o score. La fuerza numérica queda null hasta definir y congelar una magnitud común.
+
+Incluye contratos estrictos, auditoría de denominaciones en catálogo técnico P3, antecedentes narrativos primarios delimitados, fixture sintético y 30 pruebas. No cambia S1, scoring, índices, ontología, discriminadores o versión pública 1.24.1. Integración canonical, temporalidad, M27, controles y congelación siguen pendientes. La verificación de esta fase se ejecuta en GitHub Actions por desconexión del entorno local.
+
 ## Desarrollo 1.25.0 · SSAR fase 3 — 2026-10-01
 
 Añade un subperfil S1 optativo con Ceres, Pallas, Juno, Vesta, Quirón, Psyche y Eros, fuentes por alcance, límites y anclajes explícitos. Las siete funciones conservan clase E. Ceres, Vesta, Psyche y Eros tienen denominación verificada; Pallas, Juno y Quirón conservan procedencia nominal pendiente y métodos declarados independientes del nombre. La política genérica de fase 2 mantiene su catálogo vacío.

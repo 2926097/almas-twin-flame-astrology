@@ -1,0 +1,69 @@
+{
+  "phase": 4,
+  "test_module": "tests/test_ssar_families.py",
+  "test_count": 30,
+  "scope": "SYNTHETIC_DEVELOPMENT",
+  "groups": [
+    {
+      "id": "EXECUTABLE_COMPLEXES_AND_BLOCKERS",
+      "tests": [
+        "test_positive_fixture_two_groups_four_scopes_and_no_global_score",
+        "test_demeter_persephone_has_actual_executable_positive_rule",
+        "test_shiva_shakti_blockers_cannot_be_overridden_by_geometry",
+        "test_isis_geometry_is_evaluable_without_promoting_ambiguous_name"
+      ]
+    },
+    {
+      "id": "CROSS_GEOMETRY_COVERAGE_AND_ANCHORS",
+      "tests": [
+        "test_single_direction_never_qualifies_and_missingness_is_not_counterevidence",
+        "test_search_incomplete_never_supported",
+        "test_complete_direction_without_contact_is_geometry_contradicted",
+        "test_cross_orb_inclusive_wraparound_and_opposition",
+        "test_cross_robustness_missing_grid_unknown_precision_and_low_preservation",
+        "test_cross_missing_geometry_remains_not_evaluable",
+        "test_endpoint_subject_position_sample_and_technique_mismatch_rejected",
+        "test_two_directions_without_core_anchored_endpoints_cannot_form_complex",
+        "test_missing_core_and_qualified_significator_do_not_get_exception_override"
+      ]
+    },
+    {
+      "id": "DEPENDENCY_AND_EQUIVALENCE",
+      "tests": [
+        "test_one_effective_group_only_compatible_not_qualified_complex",
+        "test_composite_and_davison_share_one_group",
+        "test_dependency_types_are_distinct_but_unknown_technical_statistical_collapse",
+        "test_semantic_overlap_does_not_claim_equivalence_or_independence",
+        "test_equivalence_key_collapses_cross_technique_duplicate",
+        "test_unknown_dependency_transitive_with_relationship_family"
+      ]
+    },
+    {
+      "id": "FAMILY_OVERLAY_AND_REUSE",
+      "tests": [
+        "test_family_partial_missing_components_not_zero_and_no_numeric_maximum",
+        "test_family_all_members_same_technique_remain_one_effective_group",
+        "test_equal_contacts_all_retained_without_undefined_strength_tiebreak",
+        "test_aphrodite_only_venus_overlay_no_independent_group",
+        "test_shared_eros_family_and_dyad_do_not_create_units_or_roots"
+      ]
+    },
+    {
+      "id": "CONTRACT_REPRODUCTION_AND_ISOLATION",
+      "tests": [
+        "test_duplicate_appearance_contact_selection_and_wrong_order_rejected",
+        "test_catalog_sources_cannot_be_removed_or_promoted_to_doctrine",
+        "test_nonfinite_unknown_object_bad_subject_and_broken_dependency_rejected",
+        "test_result_tampering_in_each_scope_groups_sources_strength_and_effect_rejected",
+        "test_opt_in_no_input_mutation_and_default_s1_catalogs_unchanged",
+        "test_disabled_without_schema_extra_and_empty_enabled_not_absence"
+      ]
+    }
+  ],
+  "unvalidated": [
+    "COMMON_FROZEN_STRENGTH_MAGNITUDE",
+    "NUMERIC_MAXIMUM_AND_TIEBREAK",
+    "EXTERNAL_VALIDATION",
+    "DOCUMENTARY_TEMPORAL_EVIDENCE"
+  ]
+}
