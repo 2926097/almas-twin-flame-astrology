@@ -1,5 +1,11 @@
 # Changelog
 
+## Desarrollo 1.25.0 · SSAR fase 3 — 2026-10-01
+
+Añade un subperfil S1 optativo con Ceres, Pallas, Juno, Vesta, Quirón, Psyche y Eros, fuentes por alcance, límites y anclajes explícitos. Las siete funciones conservan clase E. Ceres, Vesta, Psyche y Eros tienen denominación verificada; Pallas, Juno y Quirón conservan procedencia nominal pendiente y métodos declarados independientes del nombre. La política genérica de fase 2 mantiene su catálogo vacío.
+
+Reutiliza contactos suministrados de CHIRON_PROCESS, WOUND_REPAIR y SURRENDER_VESTAL mediante referencias sin crear evidencias adicionales. Añade schemas de entrada/salida S1, huella de catálogo y reproducción semántica, así como escenarios sintéticos positivos, negativos y ambiguos de las siete funciones. No calcula nuevas efemérides, no evalúa M27 ni cambia scoring, índices, ontología o discriminadores. Complejos, familias, temporalidad, congelación y validación externa siguen pendientes. La versión pública permanece 1.24.1.
+
 ## 1.24.1 — 2026-10-01
 
 Amplía el corpus con 25 fuentes, 37 conceptos y 13 relaciones conceptuales. Conserva nueve incorporaciones como metadatos con texto íntegro pendiente. Formaliza techos inferenciales, promociones prohibidas y dependencia conservadora, separando transmisión documentada de agrupación de escuela. Kardec 298–303 aporta contra-doctrina a mitades literales en su propio marco.

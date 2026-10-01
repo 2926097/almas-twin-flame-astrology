@@ -5,6 +5,8 @@
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
 
+El desarrollo optativo de SSAR para 1.25.0 incorpora las fases 1–3: [contratos](reference/ssar-contract-development.md), [siete funciones S1](reference/ssar-s1-functions.md) y [auditoría de fase 3](docs/SSAR_PHASE3_AUDIT.md). La versión pública permanece 1.24.1; las funciones son exploratorias y no modifican el núcleo ni habilitan complejos o validación externa.
+
 ## Principios
 
 - Separar siempre dato calculado/documental, técnica, doctrina, uso contemporáneo e hipótesis del proyecto.

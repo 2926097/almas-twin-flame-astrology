@@ -1,0 +1,78 @@
+{
+  "matrix_id": "SSAR_PHASE3_TEST_MATRIX_V1",
+  "scope": "DEVELOPMENT_ONLY",
+  "fixture_kind": "SYNTHETIC_GEOMETRY_PUBLIC_SOURCE_CATALOG",
+  "requirements": [
+    {
+      "requirement": "F3_SEVEN_FUNCTIONS",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_seven_functions_are_opt_in_and_default_policy_remains_empty",
+        "tests/test_ssar_s1.py::test_all_seven_positive_functions_have_limits_and_no_documentary_promotion"
+      ]
+    },
+    {
+      "requirement": "F3_GEOMETRY",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_all_seven_negative_geometry_suppresses_interpretation",
+        "tests/test_ssar_s1.py::test_inclusive_orb_boundary_and_wraparound"
+      ]
+    },
+    {
+      "requirement": "F3_MISSING_ESSENTIAL_DATA",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_all_seven_missing_essential_geometry_and_robustness_block",
+        "tests/test_ssar_s1.py::test_all_seven_incomplete_core_search_block"
+      ]
+    },
+    {
+      "requirement": "F3_ANCHORS",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_all_seven_without_core_anchor_are_only_exploratory_support",
+        "tests/test_ssar_s1.py::test_outer_planet_or_secondary_cannot_be_used_as_s1_target",
+        "tests/test_ssar_s1.py::test_every_published_anchor_is_usable_and_missing_root_is_error"
+      ]
+    },
+    {
+      "requirement": "F3_ROBUSTNESS",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_all_seven_weak_robustness_is_secondary_and_unknown_precision_blocks"
+      ]
+    },
+    {
+      "requirement": "F3_SOURCES_AND_EPISTEMIC_CLASSES",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_all_seven_pending_identity_or_semantic_source_blocks",
+        "tests/test_ssar_s1.py::test_cannot_label_project_rule_as_doctrine_or_remove_catalog_sources"
+      ]
+    },
+    {
+      "requirement": "F3_NOMINAL_AND_INDEPENDENT_METHOD",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_four_verified_names_block_if_nominal_verification_is_lost",
+        "tests/test_ssar_s1.py::test_three_pending_names_only_allow_declared_independent_method"
+      ]
+    },
+    {
+      "requirement": "F3_REUSE_AND_DEPENDENCIES",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_reused_chiron_and_vesta_contacts_add_no_units_or_roots",
+        "tests/test_ssar_s1.py::test_invalid_reuse_scope_geometry_root_or_reference_rejected",
+        "tests/test_ssar_s1.py::test_duplicate_reuse_or_duplicate_observation_rejected"
+      ]
+    },
+    {
+      "requirement": "F3_COVERAGE_AND_DISABLED",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_empty_search_is_not_absence_and_disabled_discards_history_without_extras"
+      ]
+    },
+    {
+      "requirement": "F3_INVARIANTS_AND_REPRODUCTION",
+      "test_refs": [
+        "tests/test_ssar_s1.py::test_unknown_object_or_prohibited_result_effect_rejected",
+        "tests/test_ssar_s1.py::test_modified_notes_links_hash_or_refs_cannot_be_validated",
+        "tests/test_ssar_s1.py::test_request_and_catalog_are_not_mutated"
+      ]
+    }
+  ]
+}

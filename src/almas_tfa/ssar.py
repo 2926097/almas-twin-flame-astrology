@@ -171,6 +171,21 @@ def _appearance(appearance: dict, sources: Mapping, policy: Mapping) -> dict:
         reasons.append("POINT_NOT_ENABLED_BY_POLICY")
     elif point_rule["kind"] != appearance["kind"]:
         raise ValueError("Tipo de aparición incompatible con la política del punto.")
+    if point_rule:
+        allowed = point_rule.get("allowed_target_ids")
+        if allowed and appearance["geometry"] and appearance["geometry"]["target_id"] not in allowed:
+            reasons.append("TARGET_NOT_AUTHORIZED_BY_POINT_POLICY")
+        allowed_bases = point_rule.get("allowed_provenance_bases")
+        if allowed_bases and appearance["provenance"] and appearance["provenance"]["basis"] not in allowed_bases:
+            reasons.append("PROVENANCE_BASIS_NOT_AUTHORIZED")
+        for field, required in point_rule.get("required_source_refs", {}).items():
+            if not set(required) <= set((appearance[field] or {}).get("source_refs", [])):
+                reasons.append(field.upper() + "_CATALOG_SOURCES_MISSING")
+        expected_class = point_rule.get("required_epistemic_class")
+        if expected_class:
+            for field in ("semantic_basis", "method"):
+                if appearance[field] and appearance[field]["epistemic_class"] != expected_class:
+                    reasons.append(field.upper() + "_CATALOG_CLASS_MISMATCH")
     prov = appearance["provenance"]
     if prov is None or prov["identity_status"] != "VERIFIED":
         reasons.append("IDENTITY_NOT_VERIFIED")

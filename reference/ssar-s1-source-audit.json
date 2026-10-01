@@ -1,0 +1,276 @@
+{
+  "audit_id": "SSAR_S1_SOURCE_AUDIT_V1",
+  "date": "2026-10-01",
+  "external_validation_status": "NOT_PERFORMED",
+  "sources": [
+    {
+      "id": "S1_GEORGE",
+      "author": "Demetra George",
+      "work": "Asteroid Goddess Report",
+      "date": null,
+      "locator": "Descripción del sistema simbólico y delineación por signo, casa, planetas, ángulos y nodos",
+      "priority": "P4",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "ASTROLOGICAL_METHOD"
+      ],
+      "url": "https://demetra-george.com/asteroid-goddess-report/",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "La autora utiliza Ceres, Pallas, Juno y Vesta en un sistema simbólico y describe contactos con planetas, ángulos y nodos.",
+      "inferential_limit": "Descripción pública; no se consultó el libro íntegro. No atribuye las siete funciones, orbes o gates SSAR a George."
+    },
+    {
+      "id": "S1_REINHART",
+      "author": "Melanie Reinhart",
+      "work": "Chiron Astrology: Books",
+      "date": null,
+      "locator": "Chiron and the Healing Journey; Saturn, Chiron and the Centaurs",
+      "priority": "P4",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "ASTROLOGICAL_METHOD",
+        "SEMANTIC_BASIS"
+      ],
+      "url": "https://www.melaniereinhart.com/melanie/chironastrologybooks.php",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Presentación de Quirón como sanador herido y del potencial interpretativo de sufrimiento, aprendizaje e integración.",
+      "inferential_limit": "Descripción de la autora, no lectura íntegra ni validación de los criterios ALMAS."
+    },
+    {
+      "id": "S1_APULEIUS",
+      "author": "Apuleyo; traducción A. S. Kline",
+      "work": "Metamorfosis, libro VI",
+      "date": "2013",
+      "locator": "VI.1–4, 9–21 y 23–24; traducción 2013",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "SEMANTIC_BASIS"
+      ],
+      "url": "https://www.poetryintranslation.com/PITBR/Latin/TheGoldenAssVI.php",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "El relato presenta labores, descenso y transformación de Psyche, y deseo de Cupid. Incluye ayudas, rechazo y peligros, no una doctrina de mitades de alma.",
+      "inferential_limit": "Texto narrativo antiguo; su lectura como función astrológica pertenece a E. No equivale a una doctrina twin-flame."
+    },
+    {
+      "id": "S1_PROJECT",
+      "author": "Proyecto ALMAS",
+      "work": "SSAR S1: reglas de desarrollo",
+      "date": "2026-10-01",
+      "locator": "reference/ssar-s1-functions.md; siete funciones y método S1 V1",
+      "priority": "P4",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "SEMANTIC_BASIS",
+        "ASTROLOGICAL_METHOD"
+      ],
+      "url": "reference/ssar-s1-functions.md",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Regla operativa previa a casos: funciones simbólicas, contactos tropicales suministrados y anclajes core; no inferencia nominal en Pallas, Juno o Quirón.",
+      "inferential_limit": "Hipótesis E sin calibración externa; no doctrina de los autores citados."
+    },
+    {
+      "id": "S1_ID_CERES",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 1 Ceres",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Ceres&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 1 Ceres, número 1, SPKID 20000001.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_NAME_CERES",
+      "author": "NASA Science",
+      "work": "Ceres",
+      "date": null,
+      "locator": "Namesake",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "url": "https://science.nasa.gov/dwarf-planets/ceres/facts/",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Denominación por la diosa romana de las cosechas.",
+      "inferential_limit": "Verifica la denominación, no eficacia astrológica ni función relacional."
+    },
+    {
+      "id": "S1_ID_PALLAS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 2 Pallas",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Pallas&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 2 Pallas, número 2, SPKID 20000002.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_ID_JUNO",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 3 Juno",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Juno&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 3 Juno, número 3, SPKID 20000003.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_ID_VESTA",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 4 Vesta",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Vesta&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 4 Vesta, número 4, SPKID 20000004.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_NAME_VESTA",
+      "author": "NASA Science",
+      "work": "Vesta",
+      "date": null,
+      "locator": "How Vesta Got Its Name",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "url": "https://science.nasa.gov/solar-system/asteroids/4-vesta/",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Gauss denominó el asteroide por la diosa romana del hogar.",
+      "inferential_limit": "Verifica la denominación, no eficacia astrológica ni función relacional."
+    },
+    {
+      "id": "S1_ID_CHIRON",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 2060 Chiron",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Chiron&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 2060 Chiron, número 2060, SPKID 20002060.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_ID_PSYCHE",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 16 Psyche",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Psyche&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 16 Psyche, número 16, SPKID 20000016.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_NAME_PSYCHE",
+      "author": "NASA Science",
+      "work": "Psyche",
+      "date": null,
+      "locator": "How Psyche Got its Name",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "url": "https://science.nasa.gov/solar-system/asteroids/16-psyche/",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "El descubridor denominó el asteroide por Psyche.",
+      "inferential_limit": "Verifica la denominación, no eficacia astrológica ni función relacional."
+    },
+    {
+      "id": "S1_ID_EROS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 433 Eros",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=433&discovery=true",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Identidad 433 Eros, número 433, SPKID 20000433.",
+      "inferential_limit": "Consulta conservada en fase 1; no calcula posiciones ni verifica procedencia nominal."
+    },
+    {
+      "id": "S1_NAME_EROS",
+      "author": "NASA Science",
+      "work": "Eros",
+      "date": null,
+      "locator": "How Eros Got Its Name",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "url": "https://science.nasa.gov/solar-system/asteroids/433-eros/",
+      "retrieved_on": "2026-10-01",
+      "paraphrase": "Denominación por Eros, figura mitológica del amor.",
+      "inferential_limit": "Verifica la denominación, no eficacia astrológica ni función relacional."
+    }
+  ],
+  "nominal_pending": [
+    "PALLAS",
+    "JUNO",
+    "CHIRON"
+  ],
+  "nominal_verified": [
+    "CERES",
+    "VESTA",
+    "PSYCHE",
+    "EROS"
+  ],
+  "primary_texts_read_in_full": false
+}

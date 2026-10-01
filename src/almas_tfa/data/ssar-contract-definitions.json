@@ -607,6 +607,68 @@
         "rule_id": {
           "type": "string",
           "minLength": 1
+        },
+        "allowed_target_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowed_provenance_bases": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "NAME",
+              "INDEPENDENT_OF_NAME",
+              "TECHNICAL"
+            ]
+          }
+        },
+        "required_epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "required_source_refs": {
+          "type": "object",
+          "properties": {
+            "provenance": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "semantic_basis": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "method": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "provenance",
+            "semantic_basis",
+            "method"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -1409,6 +1471,333 @@
           }
         }
       ]
+    },
+    "S1Observation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "point_id": {
+          "enum": [
+            "CERES",
+            "PALLAS",
+            "JUNO",
+            "VESTA",
+            "CHIRON",
+            "PSYCHE",
+            "EROS"
+          ]
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Geometry"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_anchor_search_complete": {
+          "type": "boolean"
+        },
+        "robustness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Robustness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "point_id",
+        "geometry",
+        "core_root_refs",
+        "core_anchor_search_complete",
+        "robustness"
+      ],
+      "additionalProperties": false
+    },
+    "S1InheritedContact": {
+      "type": "object",
+      "properties": {
+        "layer": {
+          "enum": [
+            "CHIRON_PROCESS",
+            "WOUND_REPAIR",
+            "SURRENDER_VESTAL"
+          ]
+        },
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "point_id": {
+          "enum": [
+            "CERES",
+            "PALLAS",
+            "JUNO",
+            "VESTA",
+            "CHIRON",
+            "PSYCHE",
+            "EROS"
+          ]
+        },
+        "geometry": {
+          "$ref": "#/$defs/Geometry"
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "layer",
+        "evidence_id",
+        "artifact_ref",
+        "appearance_ref",
+        "point_id",
+        "geometry",
+        "core_root_refs"
+      ],
+      "additionalProperties": false
+    },
+    "S1Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/S1Observation"
+          }
+        },
+        "core_roots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Root"
+          }
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Unit"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "existing_contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/S1InheritedContact"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "S1FunctionalNote": {
+      "type": "object",
+      "properties": {
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "function_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "interpretation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inferential_limit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "documentary_status": {
+          "const": "NOT_EVALUABLE"
+        },
+        "reason": {
+          "const": "M27_NOT_EVALUATED_IN_S1"
+        }
+      },
+      "required": [
+        "appearance_ref",
+        "function_id",
+        "epistemic_class",
+        "interpretation",
+        "inferential_limit",
+        "source_refs",
+        "documentary_status",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "S1ReusedContact": {
+      "type": "object",
+      "properties": {
+        "layer": {
+          "enum": [
+            "CHIRON_PROCESS",
+            "WOUND_REPAIR",
+            "SURRENDER_VESTAL"
+          ]
+        },
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "point_id": {
+          "enum": [
+            "CERES",
+            "PALLAS",
+            "JUNO",
+            "VESTA",
+            "CHIRON",
+            "PSYCHE",
+            "EROS"
+          ]
+        },
+        "geometry": {
+          "$ref": "#/$defs/Geometry"
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "qualification": {
+          "enum": [
+            "QUALIFIED_SIGNIFICATOR",
+            "SECONDARY_SUPPORT",
+            "BLOCKED",
+            "NO_CONTACT"
+          ]
+        },
+        "contributes_new_evidence": {
+          "const": false
+        }
+      },
+      "required": [
+        "layer",
+        "evidence_id",
+        "artifact_ref",
+        "appearance_ref",
+        "point_id",
+        "geometry",
+        "core_root_refs",
+        "qualification",
+        "contributes_new_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "S1Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-s1-1.0-development"
+        },
+        "catalog_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "catalog_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ssar": {
+          "$ref": "#/$defs/Result"
+        },
+        "functional_notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/S1FunctionalNote"
+          }
+        },
+        "reused_contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/S1ReusedContact"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "catalog_id",
+        "catalog_hash",
+        "ssar",
+        "functional_notes",
+        "reused_contacts"
+      ],
+      "additionalProperties": false
     }
   }
 }
