@@ -37,7 +37,7 @@ def validate_families_schema(value: Mapping, definition: str) -> None:
         from jsonschema import Draft202012Validator
     except ImportError as exc:
         raise RuntimeError("Familias SSAR requiere el extra schema-validation.") from exc
-    schema = _load("ssar-families-contract-definitions.json")
+    schema = _load("ssar-contract-definitions.json")
     if definition not in schema["$defs"]:
         raise ValueError("Definición de familias SSAR desconocida.")
     schema["$ref"] = "#/$defs/" + definition
