@@ -1,0 +1,1414 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ALMAS · Definiciones de contratos experimentales SSAR",
+  "$defs": {
+    "Source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "work": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "priority": {
+          "enum": [
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5",
+            "P6"
+          ]
+        },
+        "epistemic_class": {
+          "enum": [
+            "A_DOCUMENTARY",
+            "B_TECHNIQUE",
+            "C_DOCTRINE",
+            "D_CONTEMPORARY_USAGE",
+            "E_PROJECT_HYPOTHESIS"
+          ]
+        },
+        "verification_status": {
+          "enum": [
+            "VERIFIED",
+            "PENDING",
+            "DISPUTED",
+            "UNRESOLVED"
+          ]
+        },
+        "claim_scopes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "IDENTITY",
+              "NAME_ORIGIN",
+              "TECHNICAL_DEFINITION",
+              "SEMANTIC_BASIS",
+              "ASTROLOGICAL_METHOD"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "author",
+        "work",
+        "date",
+        "locator",
+        "priority",
+        "epistemic_class",
+        "verification_status",
+        "claim_scopes"
+      ],
+      "additionalProperties": false
+    },
+    "Provenance": {
+      "type": "object",
+      "properties": {
+        "identity_status": {
+          "enum": [
+            "VERIFIED",
+            "PENDING",
+            "DISPUTED",
+            "UNRESOLVED"
+          ]
+        },
+        "basis": {
+          "enum": [
+            "NAME",
+            "INDEPENDENT_OF_NAME",
+            "TECHNICAL"
+          ]
+        },
+        "verification_status": {
+          "enum": [
+            "VERIFIED",
+            "PENDING",
+            "DISPUTED",
+            "UNRESOLVED"
+          ]
+        },
+        "name_class": {
+          "enum": [
+            null,
+            "NP1_MYTHIC_DIRECT",
+            "NP2_CONCEPT_DIRECT",
+            "NP3_PERSON_OR_PLACE",
+            "NP4_AMBIGUOUS"
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "algorithm": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conventions": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sect": {
+          "enum": [
+            null,
+            "DAY",
+            "NIGHT"
+          ]
+        }
+      },
+      "required": [
+        "identity_status",
+        "basis",
+        "verification_status",
+        "name_class",
+        "source_refs",
+        "algorithm",
+        "conventions",
+        "inputs",
+        "variant",
+        "sect"
+      ],
+      "additionalProperties": false
+    },
+    "SemanticBasis": {
+      "type": "object",
+      "properties": {
+        "epistemic_class": {
+          "enum": [
+            "C_DOCTRINE",
+            "D_CONTEMPORARY_USAGE",
+            "E_PROJECT_HYPOTHESIS"
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "justification": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "epistemic_class",
+        "source_refs",
+        "justification",
+        "policy_ref"
+      ],
+      "additionalProperties": false
+    },
+    "Method": {
+      "type": "object",
+      "properties": {
+        "epistemic_class": {
+          "enum": [
+            "B_TECHNIQUE",
+            "E_PROJECT_HYPOTHESIS"
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "justification": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "epistemic_class",
+        "source_refs",
+        "justification",
+        "policy_ref"
+      ],
+      "additionalProperties": false
+    },
+    "Geometry": {
+      "type": "object",
+      "properties": {
+        "longitude": {
+          "type": "number"
+        },
+        "target_longitude": {
+          "type": "number"
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frame": {
+          "const": "TROPICAL_ECLIPTIC"
+        }
+      },
+      "required": [
+        "longitude",
+        "target_longitude",
+        "target_id",
+        "frame"
+      ],
+      "additionalProperties": false
+    },
+    "Sample": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "offset_minutes": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "target_longitude": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "offset_minutes",
+        "longitude",
+        "target_longitude"
+      ],
+      "additionalProperties": false
+    },
+    "Robustness": {
+      "type": "object",
+      "properties": {
+        "input_precision_sufficient": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Sample"
+          }
+        }
+      },
+      "required": [
+        "input_precision_sufficient",
+        "samples"
+      ],
+      "additionalProperties": false
+    },
+    "Appearance": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "point_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "NAMED_SMALL_BODY",
+            "CALCULATED_POINT",
+            "HELLENISTIC_LOT"
+          ]
+        },
+        "provenance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Provenance"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "semantic_basis": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SemanticBasis"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "method": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Method"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Geometry"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_anchor_search_complete": {
+          "type": "boolean"
+        },
+        "robustness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Robustness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "point_id",
+        "kind",
+        "provenance",
+        "semantic_basis",
+        "method",
+        "geometry",
+        "core_root_refs",
+        "core_anchor_search_complete",
+        "robustness"
+      ],
+      "additionalProperties": false
+    },
+    "Root": {
+      "type": "object",
+      "properties": {
+        "root_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "core_eligible": {
+          "type": "boolean"
+        },
+        "core_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "point_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "root_id",
+        "core_eligible",
+        "core_evidence_ids",
+        "point_ids"
+      ],
+      "additionalProperties": false
+    },
+    "Unit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technique": {
+          "type": "string",
+          "minLength": 1
+        },
+        "equivalence_key": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "appearance_ref",
+        "technique",
+        "equivalence_key"
+      ],
+      "additionalProperties": false
+    },
+    "Edge": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "string",
+          "minLength": 1
+        },
+        "b": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relation": {
+          "enum": [
+            "EQUIVALENT",
+            "TECHNICAL_DEPENDENCY",
+            "STATISTICAL_DEPENDENCY",
+            "SEMANTIC_OVERLAP",
+            "UNKNOWN"
+          ]
+        },
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "relation",
+        "rule_id"
+      ],
+      "additionalProperties": false
+    },
+    "Aspect": {
+      "type": "object",
+      "properties": {
+        "angle": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 180
+        },
+        "orb": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 2
+        }
+      },
+      "required": [
+        "angle",
+        "orb"
+      ],
+      "additionalProperties": false
+    },
+    "TypeRule": {
+      "type": "object",
+      "properties": {
+        "aspect_policy": {
+          "anyOf": [
+            {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/Aspect"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minimum_samples": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sample_offsets_minutes": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "minimum_preserved_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "boundary": {
+          "const": "INCLUSIVE"
+        },
+        "robustness_rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requires_sect": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "aspect_policy",
+        "minimum_samples",
+        "sample_offsets_minutes",
+        "minimum_preserved_fraction",
+        "boundary",
+        "robustness_rule_id",
+        "requires_sect"
+      ],
+      "additionalProperties": false
+    },
+    "PointRule": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "NAMED_SMALL_BODY",
+            "CALCULATED_POINT",
+            "HELLENISTIC_LOT"
+          ]
+        },
+        "function_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allow_project_method": {
+          "type": "boolean"
+        },
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "kind",
+        "function_id",
+        "allow_project_method",
+        "rule_id"
+      ],
+      "additionalProperties": false
+    },
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-policy-1.0-development"
+        },
+        "policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_status": {
+          "const": "DEVELOPMENT"
+        },
+        "epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        },
+        "qualified_source_priorities": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "P1",
+              "P2",
+              "P3",
+              "P4",
+              "P5",
+              "P6"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "type_rules": {
+          "type": "object",
+          "properties": {
+            "NAMED_SMALL_BODY": {
+              "$ref": "#/$defs/TypeRule"
+            },
+            "CALCULATED_POINT": {
+              "$ref": "#/$defs/TypeRule"
+            },
+            "HELLENISTIC_LOT": {
+              "$ref": "#/$defs/TypeRule"
+            }
+          },
+          "required": [
+            "NAMED_SMALL_BODY",
+            "CALCULATED_POINT",
+            "HELLENISTIC_LOT"
+          ],
+          "additionalProperties": false
+        },
+        "point_rules": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/PointRule"
+          }
+        },
+        "technique_groups": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "dependency_rules": {
+          "type": "object",
+          "properties": {
+            "EQUIVALENT": {
+              "type": "string",
+              "minLength": 1
+            },
+            "TECHNICAL_DEPENDENCY": {
+              "type": "string",
+              "minLength": 1
+            },
+            "STATISTICAL_DEPENDENCY": {
+              "type": "string",
+              "minLength": 1
+            },
+            "SEMANTIC_OVERLAP": {
+              "type": "string",
+              "minLength": 1
+            },
+            "UNKNOWN": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "EQUIVALENT",
+            "TECHNICAL_DEPENDENCY",
+            "STATISTICAL_DEPENDENCY",
+            "SEMANTIC_OVERLAP",
+            "UNKNOWN"
+          ],
+          "additionalProperties": false
+        },
+        "unimplemented_layers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schema_version",
+        "policy_id",
+        "policy_status",
+        "epistemic_class",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect",
+        "qualified_source_priorities",
+        "type_rules",
+        "point_rules",
+        "technique_groups",
+        "dependency_rules",
+        "unimplemented_layers"
+      ],
+      "additionalProperties": false
+    },
+    "Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Source"
+          }
+        },
+        "core_roots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Root"
+          }
+        },
+        "appearances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Appearance"
+          }
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Unit"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "Assessment": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "SUPPORTED",
+            "COMPATIBLE",
+            "INSUFFICIENT",
+            "CONTRADICTED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "counterevidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "coverage_sufficient": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "scope",
+        "status",
+        "policy_ref",
+        "rule_ref",
+        "evidence_refs",
+        "counterevidence_refs",
+        "coverage_sufficient",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "MatchedAspect": {
+      "type": "object",
+      "properties": {
+        "aspect": {
+          "type": "string",
+          "minLength": 1
+        },
+        "angle": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 180
+        },
+        "distance": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 180
+        },
+        "orb": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 180
+        },
+        "orb_limit": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 2
+        },
+        "exactness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "aspect",
+        "angle",
+        "distance",
+        "orb",
+        "orb_limit",
+        "exactness"
+      ],
+      "additionalProperties": false
+    },
+    "RobustnessResult": {
+      "type": "object",
+      "properties": {
+        "rule_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sample_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "preserved_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "preserved_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "required_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "rule_ref",
+        "sample_count",
+        "preserved_count",
+        "preserved_fraction",
+        "required_fraction"
+      ],
+      "additionalProperties": false
+    },
+    "AppearanceResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "point_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "NAMED_SMALL_BODY",
+            "CALCULATED_POINT",
+            "HELLENISTIC_LOT"
+          ]
+        },
+        "epistemic_class": {
+          "enum": [
+            null,
+            "C_DOCTRINE",
+            "D_CONTEMPORARY_USAGE",
+            "E_PROJECT_HYPOTHESIS"
+          ]
+        },
+        "function_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "qualification": {
+          "enum": [
+            "QUALIFIED_SIGNIFICATOR",
+            "SECONDARY_SUPPORT",
+            "BLOCKED",
+            "NO_CONTACT"
+          ]
+        },
+        "assessment": {
+          "$ref": "#/$defs/Assessment"
+        },
+        "gate_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "matched_aspect": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MatchedAspect"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "robustness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RobustnessResult"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "project_method": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "point_id",
+        "kind",
+        "epistemic_class",
+        "function_id",
+        "qualification",
+        "assessment",
+        "gate_reasons",
+        "core_root_refs",
+        "source_refs",
+        "matched_aspect",
+        "robustness",
+        "project_method"
+      ],
+      "additionalProperties": false
+    },
+    "Coverage": {
+      "type": "object",
+      "properties": {
+        "layer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "executed",
+            "not_run",
+            "blocked",
+            "not_applicable"
+          ]
+        },
+        "completion": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "NONE"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessed_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "layer",
+        "status",
+        "completion",
+        "reason",
+        "assessed_refs"
+      ],
+      "additionalProperties": false
+    },
+    "Group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "unit_refs"
+      ],
+      "additionalProperties": false
+    },
+    "Graph": {
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Unit"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "equivalence_classes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Group"
+          }
+        },
+        "effective_groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Group"
+          }
+        },
+        "excluded_unit_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "grouping_rule_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statistical_independence_established": {
+          "const": false
+        }
+      },
+      "required": [
+        "units",
+        "edges",
+        "equivalence_classes",
+        "effective_groups",
+        "excluded_unit_refs",
+        "grouping_rule_ref",
+        "statistical_independence_established"
+      ],
+      "additionalProperties": false
+    },
+    "Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-contract-1.0-development"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "policy_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policy_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "policy_status": {
+          "enum": [
+            "DEVELOPMENT",
+            "UNFROZEN"
+          ]
+        },
+        "analysis_scope": {
+          "const": "EXPLORATORY"
+        },
+        "execution_status": {
+          "enum": [
+            "executed",
+            "not_run",
+            "blocked"
+          ]
+        },
+        "completion": {
+          "enum": [
+            "PARTIAL",
+            "NONE"
+          ]
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Coverage"
+          }
+        },
+        "appearances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AppearanceResult"
+          }
+        },
+        "qualified_significators": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "secondary_support": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "complexes": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "mythic_dyads": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "calculated_points": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "hellenistic_lots": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "temporal_activation": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "documentary_correspondence": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "dependency_graph": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Graph"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        }
+      },
+      "required": [
+        "schema_version",
+        "enabled",
+        "policy_id",
+        "policy_hash",
+        "policy_status",
+        "analysis_scope",
+        "execution_status",
+        "completion",
+        "coverage",
+        "appearances",
+        "qualified_significators",
+        "secondary_support",
+        "complexes",
+        "mythic_dyads",
+        "calculated_points",
+        "hellenistic_lots",
+        "temporal_activation",
+        "documentary_correspondence",
+        "dependency_graph",
+        "external_validation_status",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "enabled": {
+                "const": false
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "execution_status": {
+                "const": "not_run"
+              },
+              "completion": {
+                "const": "NONE"
+              },
+              "policy_id": {
+                "type": "null"
+              },
+              "policy_hash": {
+                "type": "null"
+              },
+              "policy_status": {
+                "const": "UNFROZEN"
+              },
+              "appearances": {
+                "maxItems": 0
+              },
+              "qualified_significators": {
+                "maxItems": 0
+              },
+              "secondary_support": {
+                "maxItems": 0
+              },
+              "dependency_graph": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "execution_status": {
+                "const": "executed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "policy_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "policy_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "completion": {
+                "enum": [
+                  "COMPLETE",
+                  "PARTIAL"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "execution_status": {
+                "enum": [
+                  "not_run",
+                  "blocked"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "completion": {
+                "const": "NONE"
+              },
+              "appearances": {
+                "maxItems": 0
+              },
+              "qualified_significators": {
+                "maxItems": 0
+              },
+              "secondary_support": {
+                "maxItems": 0
+              },
+              "dependency_graph": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "ssar-policy-1.0-development",
+  "policy_id": "ALMAS_SSAR_DEVELOPMENT_V1",
+  "policy_status": "DEVELOPMENT",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "qualified_source_priorities": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "type_rules": {
+    "NAMED_SMALL_BODY": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "CALCULATED_POINT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "HELLENISTIC_LOT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": true
+    }
+  },
+  "point_rules": {},
+  "technique_groups": {
+    "SYNASTRY": "TROPICAL_PAIR",
+    "ANTISCIA": "TROPICAL_PAIR",
+    "COMPOSITE": "RELCHART",
+    "DAVISON": "RELCHART",
+    "NATAL_DRACONIC": "DRACONIC",
+    "DRACONIC_DRACONIC": "DRACONIC",
+    "VERTEX": "VERTEX_AXIS",
+    "ANTI_VERTEX": "VERTEX_AXIS",
+    "BLACK_MOON_MEAN": "BLACK_MOON_VARIANTS",
+    "BLACK_MOON_OSCULATING": "BLACK_MOON_VARIANTS"
+  },
+  "dependency_rules": {
+    "EQUIVALENT": "SSAR_DECLARED_EQUIVALENT_V1",
+    "TECHNICAL_DEPENDENCY": "SSAR_DECLARED_TECHNICAL_DEPENDENCY_V1",
+    "STATISTICAL_DEPENDENCY": "SSAR_DECLARED_STATISTICAL_DEPENDENCY_V1",
+    "SEMANTIC_OVERLAP": "SSAR_DECLARED_SEMANTIC_OVERLAP_V1",
+    "UNKNOWN": "SSAR_DECLARED_UNKNOWN_V1"
+  },
+  "unimplemented_layers": [
+    "STRUCTURAL_COMPLEXES",
+    "MYTHIC_DYADS",
+    "CALCULATED_POINTS",
+    "HELLENISTIC_LOTS",
+    "TEMPORAL_ACTIVATION",
+    "DOCUMENTARY_CORRESPONDENCE",
+    "NULL_CONTROLS"
+  ]
+}
