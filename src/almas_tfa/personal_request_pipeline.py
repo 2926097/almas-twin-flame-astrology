@@ -14,6 +14,7 @@ from .personal_reporting import (
     validate_personal_canonical,
 )
 from .chiron_process import assess_chiron_process, derive_natal_contacts
+from .surrender_vestal import evaluate_surrender_requests
 from .dual_nodes import build_dual_node_layer, classify_nodal_variant_concordance
 
 
@@ -344,6 +345,12 @@ def build_personal_canonical_from_request(
         complex_result["natal_architecture"]["counterevidence"] = derived["counterevidence"]
         canonical["personal_temporal_complexes"] = [complex_result]
         canonical["counterevidence"].extend(derived["counterevidence"])
+
+    vestal_request = request.get("surrender_vestal")
+    if vestal_request is not None:
+        if not isinstance(vestal_request, Mapping) or vestal_request.get("subject_id") != canonical["subject"]["subject_id"]:
+            raise PersonalRequestError("surrender_vestal debe identificar al sujeto de la solicitud personal.")
+        canonical["surrender_vestal"] = evaluate_surrender_requests([vestal_request])
 
     gate = validate_personal_canonical(canonical)
     if not gate["reportable"]:

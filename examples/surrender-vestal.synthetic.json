@@ -1,0 +1,305 @@
+{
+  "synthetic": true,
+  "case_scope": "CONTROL_ONLY",
+  "request": {
+    "subject_id": "SYNTHETIC-A",
+    "window_start": "2030-01-01",
+    "window_end": "2030-01-31",
+    "observations": [
+      {
+        "observation_id": "PURSUIT_CEASED",
+        "subject_id": "SYNTHETIC-A",
+        "code": "PURSUIT_CEASED",
+        "value": true,
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-SELF-REPORT"
+        ],
+        "documentary_quality": "DQ2_DIRECT_SELF_REPORT",
+        "fact_interpretation_separated": true
+      },
+      {
+        "observation_id": "OWN_ACTIVITIES_RECOVERED",
+        "subject_id": "SYNTHETIC-A",
+        "code": "OWN_ACTIVITIES_RECOVERED",
+        "value": true,
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-SELF-REPORT"
+        ],
+        "documentary_quality": "DQ2_DIRECT_SELF_REPORT",
+        "fact_interpretation_separated": true
+      },
+      {
+        "observation_id": "AUTONOMY_RECOVERED",
+        "subject_id": "SYNTHETIC-A",
+        "code": "AUTONOMY_RECOVERED",
+        "value": true,
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-SELF-REPORT"
+        ],
+        "documentary_quality": "DQ2_DIRECT_SELF_REPORT",
+        "fact_interpretation_separated": true
+      }
+    ],
+    "structural_roots": [
+      {
+        "root_id": "R1",
+        "subject_id": "SYNTHETIC-A",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "verified": true
+      },
+      {
+        "root_id": "R2",
+        "subject_id": "SYNTHETIC-A",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "verified": true
+      }
+    ],
+    "temporal_activations": [
+      {
+        "signal_id": "T1",
+        "root_id": "R1",
+        "subject_id": "SYNTHETIC-A",
+        "technique": "TRANSIT",
+        "symbolic_family": "VESTA",
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "dependency_keys": [
+          "R1"
+        ],
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect_policy_ref": "SYNTHETIC-ORB-V1",
+        "verified": true,
+        "temporal_correspondence_documented": true
+      },
+      {
+        "signal_id": "T2",
+        "root_id": "R2",
+        "subject_id": "SYNTHETIC-A",
+        "technique": "DIRECTION",
+        "symbolic_family": "SATURN",
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "dependency_keys": [
+          "R2"
+        ],
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect_policy_ref": "SYNTHETIC-ORB-V1",
+        "verified": true,
+        "temporal_correspondence_documented": true
+      }
+    ]
+  },
+  "expected": {
+    "policy_id": "ALMAS_SURRENDER_VESTAL_V1",
+    "subject_id": "SYNTHETIC-A",
+    "window_start": "2030-01-01",
+    "window_end": "2030-01-31",
+    "surrender": {
+      "behavioral": {
+        "state": "EMERGING",
+        "status": "COMPATIBLE",
+        "evidence_refs": [
+          "PURSUIT_CEASED"
+        ]
+      },
+      "emotional": {
+        "state": "EMERGING",
+        "status": "COMPATIBLE",
+        "evidence_refs": [
+          "AUTONOMY_RECOVERED"
+        ]
+      },
+      "erotic": {
+        "state": "NOT_EVALUABLE",
+        "status": "NOT_EVALUABLE",
+        "evidence_refs": []
+      },
+      "ontological": {
+        "state": "NOT_EVALUABLE",
+        "status": "NOT_EVALUABLE",
+        "evidence_refs": []
+      }
+    },
+    "vestal_withdrawal": {
+      "state": "ACTIVE",
+      "status": "SUPPORTED",
+      "evidence_refs": [
+        "AUTONOMY_RECOVERED",
+        "OWN_ACTIVITIES_RECOVERED",
+        "PURSUIT_CEASED"
+      ]
+    },
+    "sexual_observations": {
+      "abstinence": {
+        "value": null,
+        "status": "NOT_EVALUABLE",
+        "evidence_refs": [],
+        "scope": "DOCUMENTED_DECLARATION"
+      },
+      "celibacy": {
+        "value": null,
+        "status": "NOT_EVALUABLE",
+        "evidence_refs": [],
+        "scope": "DOCUMENTED_DECLARATION"
+      }
+    },
+    "phenotypes": [
+      "VESTAL_WITHDRAWAL"
+    ],
+    "documented_behaviors": [
+      {
+        "observation_id": "AUTONOMY_RECOVERED",
+        "subject_id": "SYNTHETIC-A",
+        "code": "AUTONOMY_RECOVERED",
+        "value": true,
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-SELF-REPORT"
+        ],
+        "documentary_quality": "DQ2_DIRECT_SELF_REPORT",
+        "fact_interpretation_separated": true,
+        "epistemic_class": "A_CALCULATED"
+      },
+      {
+        "observation_id": "OWN_ACTIVITIES_RECOVERED",
+        "subject_id": "SYNTHETIC-A",
+        "code": "OWN_ACTIVITIES_RECOVERED",
+        "value": true,
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-SELF-REPORT"
+        ],
+        "documentary_quality": "DQ2_DIRECT_SELF_REPORT",
+        "fact_interpretation_separated": true,
+        "epistemic_class": "A_CALCULATED"
+      },
+      {
+        "observation_id": "PURSUIT_CEASED",
+        "subject_id": "SYNTHETIC-A",
+        "code": "PURSUIT_CEASED",
+        "value": true,
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-SELF-REPORT"
+        ],
+        "documentary_quality": "DQ2_DIRECT_SELF_REPORT",
+        "fact_interpretation_separated": true,
+        "epistemic_class": "A_CALCULATED"
+      }
+    ],
+    "rejected_observations": [],
+    "counterevidence": [],
+    "structural_roots": [
+      {
+        "root_id": "R1",
+        "subject_id": "SYNTHETIC-A",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "verified": true
+      },
+      {
+        "root_id": "R2",
+        "subject_id": "SYNTHETIC-A",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "verified": true
+      }
+    ],
+    "temporal_activations": [
+      {
+        "signal_id": "T1",
+        "subject_id": "SYNTHETIC-A",
+        "root_id": "R1",
+        "technique": "TRANSIT",
+        "technique_group": "TRANSIT",
+        "symbolic_family": "VESTA",
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "dependency_keys": [
+          "R1"
+        ],
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect_policy_ref": "SYNTHETIC-ORB-V1",
+        "epistemic_class": "B_TECHNIQUE"
+      },
+      {
+        "signal_id": "T2",
+        "subject_id": "SYNTHETIC-A",
+        "root_id": "R2",
+        "technique": "DIRECTION",
+        "technique_group": "DIRECTED_CLOCK",
+        "symbolic_family": "SATURN",
+        "date": "2030-01-10",
+        "source_refs": [
+          "SYNTHETIC-GEOMETRY"
+        ],
+        "dependency_keys": [
+          "R2"
+        ],
+        "orb": 0.2,
+        "declared_orb": 1.0,
+        "aspect_policy_ref": "SYNTHETIC-ORB-V1",
+        "epistemic_class": "B_TECHNIQUE"
+      }
+    ],
+    "rejected_activations": [],
+    "dependencies": [
+      [
+        "T1"
+      ],
+      [
+        "T2"
+      ]
+    ],
+    "astrological_correspondence": {
+      "status": "SUPPORTED",
+      "independent_component_count": 2,
+      "technique_groups": [
+        "DIRECTED_CLOCK",
+        "TRANSIT"
+      ],
+      "symbolic_families": [
+        "SATURN",
+        "VESTA"
+      ],
+      "scope": "PERSONAL_SYMBOLIC_PHASE_ACTIVATION"
+    },
+    "relational_activation": {
+      "status": "NOT_EVALUABLE",
+      "reason": "La evaluación personal no establece activación bilateral."
+    },
+    "outcome": {
+      "status": "NOT_EVALUABLE",
+      "value": null
+    },
+    "ontology_effect": "NONE",
+    "structural_scoring_modified": false,
+    "iat_modified": false,
+    "score_created": false,
+    "epistemic_class": "E_PROJECT_HYPOTHESIS",
+    "policy_status": "EXPLORATORY",
+    "limitations": [
+      "Los estados describen ajuste a una política experimental; no certifican una ontología ni validación empírica externa.",
+      "La abstinencia y el celibato sólo se registran por declaración documentada; no se infieren desde geometrías.",
+      "La integración no implica reunión ni permite inferir sexualidad, fidelidad, sentimientos o decisiones ajenos."
+    ]
+  }
+}

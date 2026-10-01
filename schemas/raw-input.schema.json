@@ -92,6 +92,12 @@
         "SOUL_CONTRACT",
         null
       ]
+    },
+    "surrender_vestal_requests": {
+      "type": "array",
+      "items": {
+        "$ref": "surrender-vestal-request.schema.json"
+      }
     }
   },
   "additionalProperties": true

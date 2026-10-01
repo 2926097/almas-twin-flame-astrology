@@ -96,3 +96,7 @@ La reciprocidad astrológica no sustituye la reciprocidad interpersonal presente
 La salida canónica usa `schemas/ontology-output.schema.json` y debe registrar por eje: estado, categorías, evidencia, fuentes, contraevidencia y razonamiento.
 
 Registro normativo: `reference/ontology-registry.json`.
+
+## Extensión de fase 1.24
+
+`VESTAL_WITHDRAWAL` se registra como `PROJECT_MODEL/PROVISIONAL` y no como origen. Sus estados ABSENT, EMERGING, ACTIVE, INTEGRATED y NOT_EVALUABLE son independientes del respaldo SUPPORTED, COMPATIBLE, INSUFFICIENT, CONTRADICTED y NOT_EVALUABLE. Los cuatro dominios de surrender son personales y no confieren reciprocidad. La secuencia ampliada de retiro y redefinición permanece exploratoria y no obliga a recorrer todas las fases ni a terminar en reunión. Contrato: `reference/surrender-vestal-contract.md`.

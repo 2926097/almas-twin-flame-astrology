@@ -753,6 +753,17 @@ def assemble_canonical_analysis(
         if isinstance(completeness, bool):
             assembled["counterevidence_state"]["counterevidence_complete"] = completeness
 
+    vestal = canonical.get("surrender_vestal")
+    if vestal is not None:
+        from .surrender_vestal import validate_surrender_vestal_result
+        if not isinstance(vestal, Mapping):
+            raise ValueError("surrender_vestal debe ser un objeto por sujeto.")
+        for subject_id, result in vestal.items():
+            validate_surrender_vestal_result(result)
+            if result["subject_id"] != subject_id:
+                raise ValueError("Atribución de sujeto incompatible en surrender_vestal.")
+        assembled["surrender_vestal"] = dict(vestal)
+
     natal_context = canonical.get("natal_context")
     if isinstance(natal_context, Mapping):
         assembled["natal_context"] = dict(natal_context)

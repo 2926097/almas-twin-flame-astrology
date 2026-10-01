@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "almas_public_version": "1.23.0",
+  "almas_public_version": "1.24.0",
   "architecture": "single_skill_modular",
   "root_skill": {
     "id": "almas-twin-flame-astrology",
@@ -77,6 +77,17 @@
       "external_validation": "docs/EXTERNAL_VALIDATION_PROTOCOL.md",
       "validation_endpoints": "manifests/validation-endpoint-registry.json",
       "validation_cohorts": "manifests/validation-cohort-manifest.json"
+    },
+    {
+      "id": "M_SURRENDER_VESTAL",
+      "name": "Surrender, retirada vestal y celibato relacional",
+      "status": "ADDITIVE_EXTENSION",
+      "entrypoint": "src/almas_tfa/surrender_vestal.py",
+      "policy": "src/almas_tfa/data/surrender-vestal-policy.json",
+      "canonical_schema": "schemas/surrender-vestal-output.schema.json",
+      "scope": "PERSONAL_TEMPORAL_HERMENEUTIC",
+      "structural_scoring_modified": false,
+      "ontological_category_created": false
     }
   ],
   "canonical_flow": [

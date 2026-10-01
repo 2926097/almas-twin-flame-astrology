@@ -187,6 +187,7 @@
               "AUTHOR_SUMMARY",
               "PUBLISHER_SUMMARY",
               "METADATA_ONLY",
+              "TECHNICAL_EQUATION",
               null
             ]
           },
@@ -204,12 +205,16 @@
               "HISTORICAL_CONTEXT",
               "PHENOMENOLOGY",
               "BIBLIOGRAPHIC_ONLY",
+              "TECHNICAL_METHOD",
               null
             ]
           }
         },
         "additionalProperties": true
       }
+    },
+    "registry_revision": {
+      "type": "string"
     }
   },
   "additionalProperties": false

@@ -136,6 +136,12 @@ SECTION_SPECS: dict[str, dict[str, Any]] = {
             "E_PROJECT_HYPOTHESIS",
         ),
     },
+    "P13_SURRENDER_VESTAL": {
+        "title": "Surrender, retirada vestal e integración erótica",
+        "required": ("surrender_vestal",),
+        "optional": ("counterevidence", "source_trace", "doctrine"),
+        "classes": ("A_CALCULATED", "B_TECHNIQUE", "C_DOCTRINE", "D_CONTEMPORARY_USAGE", "E_PROJECT_HYPOTHESIS"),
+    },
     "P12_CHIRON_PROCESS": {
         "title": "Complejos de vulnerabilidad, recapitulación e integración",
         "required": ("personal_temporal_complexes",),
@@ -266,6 +272,20 @@ def validate_personal_canonical(canonical: Mapping[str, Any]) -> dict[str, Any]:
         blocking.append("COUNTEREVIDENCE_MUST_BE_ARRAY")
     if not isinstance(canonical.get("limitations"), list):
         blocking.append("LIMITATIONS_MUST_BE_ARRAY")
+
+    from .surrender_vestal import validate_surrender_vestal_result
+    vestal = canonical.get("surrender_vestal")
+    if vestal is not None:
+        if not isinstance(vestal, Mapping):
+            blocking.append("SURRENDER_VESTAL_MUST_BE_OBJECT")
+        else:
+            for key, result in vestal.items():
+                try:
+                    validate_surrender_vestal_result(result)
+                    if key != subject_id or key != result["subject_id"]:
+                        raise ValueError("Atribución de sujeto incompatible.")
+                except (ValueError, TypeError, KeyError) as exc:
+                    blocking.append("INVALID_SURRENDER_VESTAL:" + str(exc))
 
     personal_complexes = canonical.get("personal_temporal_complexes")
     if personal_complexes is not None:
@@ -457,6 +477,9 @@ def build_personal_report_document_model(
         )
         for order, section in enumerate(sections, start=1):
             section["order"] = order
+
+    if canonical.get("surrender_vestal"):
+        sections.append(_section_model("P13_SURRENDER_VESTAL", canonical, len(sections) + 1))
 
     return {
         "model_version": "1.0.0",

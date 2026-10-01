@@ -9,6 +9,14 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
+    "reference/surrender-vestal-contract.md",
+    "reference/surrender-vestal-corpus.md",
+    "src/almas_tfa/surrender_vestal.py",
+    "src/almas_tfa/data/surrender-vestal-policy.json",
+    "schemas/surrender-vestal-request.schema.json",
+    "schemas/surrender-vestal-output.schema.json",
+    "examples/surrender-vestal.synthetic.json",
+    "docs/RELEASE_AUDIT_1.24.0.md",
     "README.md",
     "SKILL.md",
     "CHANGELOG.md",
@@ -4789,6 +4797,7 @@ def main() -> int:
 
     canonical_props = canonical_schema.get("properties", {})
     expected_canonical_root_props = {
+        "surrender_vestal",
         "schema_version",
         "analysis_mode",
         "analysis_profile",
@@ -5297,6 +5306,20 @@ def main() -> int:
             fail(f"el schema {schema_path.name} debe declarar un título humano español con prefijo 'ALMAS ·'")
         if any(fragment in title for fragment in forbidden_schema_title_fragments):
             fail(f"el schema {schema_path.name} conserva un título humano en inglés: {title}")
+
+    vestal_policy = load_json("src/almas_tfa/data/surrender-vestal-policy.json")
+    if vestal_policy.get("ontology_effect") != "NONE" or any(vestal_policy.get(key) is not False for key in ("iem_modified", "iat_modified", "score_created")):
+        fail("surrender vestal policy must preserve scoring and ontology")
+    if vestal_policy.get("policy_status") != "EXPLORATORY":
+        fail("surrender vestal must remain exploratory without external validation")
+    # El workflow contractual funciona sin instalar el paquete ni extras.
+    sys.path.insert(0, str(ROOT / "src"))
+    from almas_tfa.surrender_vestal import assess_surrender_vestal, validate_surrender_vestal_result
+    vestal_fixture = load_json("examples/surrender-vestal.synthetic.json")
+    vestal_result = assess_surrender_vestal(vestal_fixture["request"])
+    validate_surrender_vestal_result(vestal_result)
+    if vestal_fixture.get("synthetic") is not True or vestal_result != vestal_fixture.get("expected"):
+        fail("surrender vestal synthetic fixture is not reproducible")
 
     print("ALMAS public contract validation: PASS")
     print(f"Astrology package: {version}")

@@ -1,6 +1,6 @@
 {
   "map_version": "1.4.0",
-  "almas_version": "1.23.0",
+  "almas_version": "1.24.0",
   "principles": [
     "La doctrina define conceptos y límites; su mera existencia no aporta puntuación estructural.",
     "Los mapeos astrológicos creados por ALMAS son E_PROJECT_HYPOTHESIS salvo que la fuente citada proporcione explícitamente la técnica.",
@@ -1132,6 +1132,46 @@
       "concept_id": "MEAN_LUNAR_NODE",
       "coverage_state": "MAPPED",
       "reason": "Mapeo técnico acotado a la fórmula de cálculo de la variante Mean Node; no operacionaliza afirmaciones doctrinales ni ontológicas."
+    },
+    {
+      "concept_id": "HESTIA_VIRGINITY",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "ROMAN_VESTAL_CHASTITY",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "CHRISTIAN_CHASTITY",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "BRAHMACHARYA",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "LIBIDINAL_SUBLIMATION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "VESTA_ASTROLOGICAL_SYMBOLISM",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "TWIN_FLAME_CELIBACY_USAGE",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "VESTAL_WITHDRAWAL",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
     }
   ],
   "audit_summary": {

@@ -492,48 +492,113 @@
     },
     "actor_states": {
       "type": "object",
-      "required": ["actor_a", "actor_b"],
+      "required": [
+        "actor_a",
+        "actor_b"
+      ],
       "properties": {
-        "actor_a": {"$ref": "dynamic-phase-state.schema.json#/$defs/unassessed_phase"},
-        "actor_b": {"$ref": "dynamic-phase-state.schema.json#/$defs/unassessed_phase"}
+        "actor_a": {
+          "$ref": "dynamic-phase-state.schema.json#/$defs/unassessed_phase"
+        },
+        "actor_b": {
+          "$ref": "dynamic-phase-state.schema.json#/$defs/unassessed_phase"
+        }
       },
       "additionalProperties": false
     },
-    "phase_transitions": {"type": "array", "items": {"$ref": "phase-transition-evidence-matrix.schema.json"}},
-    "doctrinal_sequences": {"type": "array", "items": {"$ref": "doctrinal-sequence-result.schema.json"}},
-    "temporal_sequence_graph": {"$ref": "temporal-sequence-graph.schema.json"},
+    "phase_transitions": {
+      "type": "array",
+      "items": {
+        "$ref": "phase-transition-evidence-matrix.schema.json"
+      }
+    },
+    "doctrinal_sequences": {
+      "type": "array",
+      "items": {
+        "$ref": "doctrinal-sequence-result.schema.json"
+      }
+    },
+    "temporal_sequence_graph": {
+      "$ref": "temporal-sequence-graph.schema.json"
+    },
     "temporal_layers": {
       "type": "object",
-      "required": ["IAT_REL", "IAT_A", "IAT_B", "IAT_CROSS"],
+      "required": [
+        "IAT_REL",
+        "IAT_A",
+        "IAT_B",
+        "IAT_CROSS"
+      ],
       "properties": {
-        "IAT_REL": {"$ref": "#/$defs/temporal_layer"},
-        "IAT_A": {"$ref": "#/$defs/temporal_layer"},
-        "IAT_B": {"$ref": "#/$defs/temporal_layer"},
-        "IAT_CROSS": {"$ref": "#/$defs/temporal_layer"}
+        "IAT_REL": {
+          "$ref": "#/$defs/temporal_layer"
+        },
+        "IAT_A": {
+          "$ref": "#/$defs/temporal_layer"
+        },
+        "IAT_B": {
+          "$ref": "#/$defs/temporal_layer"
+        },
+        "IAT_CROSS": {
+          "$ref": "#/$defs/temporal_layer"
+        }
       },
       "additionalProperties": false
     },
     "root_recurrence": {
       "type": "object",
-      "required": ["status", "units", "score_created"],
+      "required": [
+        "status",
+        "units",
+        "score_created"
+      ],
       "properties": {
-        "status": {"enum": ["SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"]},
-        "units": {"type": "array", "items": {"type": "object"}},
-        "score_created": {"const": false}
+        "status": {
+          "enum": [
+            "SUPPORTED",
+            "COMPATIBLE",
+            "INSUFFICIENT",
+            "CONTRADICTED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "score_created": {
+          "const": false
+        }
       },
       "additionalProperties": false
     },
     "causal_firewall": {
       "type": "object",
-      "required": ["causal_status", "astrology_causes_behavior"],
+      "required": [
+        "causal_status",
+        "astrology_causes_behavior"
+      ],
       "properties": {
-        "causal_status": {"const": "UNESTABLISHED"},
-        "astrology_causes_behavior": {"const": false}
+        "causal_status": {
+          "const": "UNESTABLISHED"
+        },
+        "astrology_causes_behavior": {
+          "const": false
+        }
       },
       "additionalProperties": false
     },
-    "preregistered_predictions": {"type": "array", "items": {"type": "object"}},
-    "angular_robustness": {"$ref": "angular-robustness-output.schema.json"},
+    "preregistered_predictions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "angular_robustness": {
+      "$ref": "angular-robustness-output.schema.json"
+    },
     "semantic_motifs": {
       "$ref": "semantic-motif-graph.schema.json"
     },
@@ -981,16 +1046,36 @@
         }
       },
       "additionalProperties": false
+    },
+    "surrender_vestal": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "surrender-vestal-output.schema.json"
+      }
     }
   },
   "additionalProperties": false,
   "$defs": {
     "temporal_layer": {
       "type": "object",
-      "required": ["status", "signal_ids"],
+      "required": [
+        "status",
+        "signal_ids"
+      ],
       "properties": {
-        "status": {"enum": ["CALCULATED", "NOT_EVALUABLE"]},
-        "signal_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+        "status": {
+          "enum": [
+            "CALCULATED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "signal_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },

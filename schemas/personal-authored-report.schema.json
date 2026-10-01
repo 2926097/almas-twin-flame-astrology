@@ -21,9 +21,15 @@
     "bibliography"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
-    "document_kind": {"const": "ALMAS_PERSONAL_AUTHORED_REPORT"},
-    "language": {"const": "es"},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "document_kind": {
+      "const": "ALMAS_PERSONAL_AUTHORED_REPORT"
+    },
+    "language": {
+      "const": "es"
+    },
     "report_profile": {
       "enum": [
         "EXECUTIVE_PERSONAL_REPORT",
@@ -37,22 +43,37 @@
       "type": "string",
       "pattern": "^[0-9a-f]{64}$"
     },
-    "report_state": {"enum": ["READY", "PARTIAL"]},
+    "report_state": {
+      "enum": [
+        "READY",
+        "PARTIAL"
+      ]
+    },
     "interpretive_center": {
       "const": "PERSONAL_ASTROLOGY_AND_SOURCE_BASED_HERMENEUTICS"
     },
     "technical_role": {
       "const": "CALCULATION_TRACEABILITY_AND_QUALITY_CONTROL"
     },
-    "metaphysical_scientific_validation_claimed": {"const": false},
-    "personal_data_minimized": {"const": true},
-    "canonical_values_mutated": {"const": false},
-    "new_calculations_performed": {"const": false},
-    "new_scores_created": {"const": false},
+    "metaphysical_scientific_validation_claimed": {
+      "const": false
+    },
+    "personal_data_minimized": {
+      "const": true
+    },
+    "canonical_values_mutated": {
+      "const": false
+    },
+    "new_calculations_performed": {
+      "const": false
+    },
+    "new_scores_created": {
+      "const": false
+    },
     "sections": {
       "type": "array",
       "minItems": 6,
-      "maxItems": 11,
+      "maxItems": 13,
       "items": {
         "type": "object",
         "required": [
@@ -79,18 +100,31 @@
               "P08_COMPLEMENTARY_LAYERS",
               "P09_TEMPORAL",
               "P10_COUNTEREVIDENCE",
-              "P11_SOURCES_ATLAS"
+              "P11_SOURCES_ATLAS",
+              "P12_CHIRON_PROCESS",
+              "P13_SURRENDER_VESTAL"
             ]
           },
-          "title": {"type": "string", "minLength": 1},
-          "authoring_state": {
-            "enum": ["AUTHORED", "OMITTED_NOT_AVAILABLE"]
+          "title": {
+            "type": "string",
+            "minLength": 1
           },
-          "narrative": {"type": "string"},
+          "authoring_state": {
+            "enum": [
+              "AUTHORED",
+              "OMITTED_NOT_AVAILABLE"
+            ]
+          },
+          "narrative": {
+            "type": "string"
+          },
           "canonical_paths_used": {
             "type": "array",
             "uniqueItems": true,
-            "items": {"type": "string", "minLength": 1}
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
           },
           "epistemic_classes_used": {
             "type": "array",
@@ -108,17 +142,25 @@
           "doctrinal_claim_refs": {
             "type": "array",
             "uniqueItems": true,
-            "items": {"type": "string", "minLength": 1}
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
           },
           "source_refs": {
             "type": "array",
             "uniqueItems": true,
-            "items": {"type": "string", "minLength": 1}
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
           },
           "limitations": {
             "type": "array",
             "uniqueItems": true,
-            "items": {"type": "string"}
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": false
@@ -128,10 +170,20 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["source_id", "citation_label", "source_scope"],
+        "required": [
+          "source_id",
+          "citation_label",
+          "source_scope"
+        ],
         "properties": {
-          "source_id": {"type": "string", "minLength": 1},
-          "citation_label": {"type": "string", "minLength": 1},
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "citation_label": {
+            "type": "string",
+            "minLength": 1
+          },
           "source_scope": {
             "enum": [
               "DOCTRINE",
@@ -141,12 +193,42 @@
               "OTHER_VERIFIED"
             ]
           },
-          "author": {"type": ["string", "null"]},
-          "work": {"type": ["string", "null"]},
-          "tradition": {"type": ["string", "null"]},
-          "locator": {"type": ["string", "null"]},
-          "url": {"type": ["string", "null"]},
-          "verification_anchor": {"type": ["string", "null"]}
+          "author": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "work": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tradition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_anchor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         },
         "additionalProperties": false
       }

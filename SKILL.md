@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.23.0
+version: 1.24.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.23.0
+# ALMAS · Astrología Metafísica Relacional v1.24.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.23.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.24.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
@@ -29,6 +29,8 @@ La release 1.19.0 materializa autoría y publicación B5 trazables; 1.20.0 añad
 La release 1.22.0 cierra la evolución matemática abierta tras la auditoría 1.21: M21 usa **Shapley V3 root-only** y recalcula PX/PS dentro de cada coalición; M25 agrupa componentes correlacionados antes de calcular IRC; M20 puede derivar ICE autónomo sólo con una evaluación de contraevidencia declarada completa. Estas reglas son políticas E del proyecto, no probabilidades metafísicas. PX v3 permanece inactivo mientras no exista holdout externo real conforme al protocolo de validación.
 
 La release 1.23.0 añade el `Chiron–Nodal Integration Engine` como extensión personal, temporal y hermenéutica. Calcula y conserva True/Mean Node en un eje común; registra variantes, subtipos de técnica, grupos de dependencia y perfeccionamientos múltiples; permite construir complejos personales Venus–Nodo–Quirón desde una política de orbes declarada; y exige secuencia trazable y evidencia M27 calificada para hablar de integración potencial o documentada. No modifica M18 `WOUND_REPAIR`, el scoring relacional, IAT, los discriminadores ni la ontología.
+
+La release 1.24.0 añade surrender, retirada vestal y celibato relacional como extensión descriptiva exploratoria. Consultar [contrato](reference/surrender-vestal-contract.md) y [corpus comparado](reference/surrender-vestal-corpus.md) antes de usarla. Evaluar por sujeto y ventana; separar estado del proceso y respaldo, conducta documentada y corroboración simbólica. No importar clasificaciones preliminares de casos, no exigir astrología para evaluar conducta y no usar celibato o Vesta para elevar origen. Conservar IEM e IAT sin cambios; no inferir fase bilateral, sexualidad ajena ni reunión.
 
 ### Enfoque de investigación metafísica
 
