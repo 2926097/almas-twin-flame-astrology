@@ -9,6 +9,7 @@ from typing import Any, Mapping
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .transit_generation import generate_ttransit_signals
 from .temporal_dependency import FAMILY_CLUSTERS
+from .surrender_vestal import evaluate_surrender_requests
 
 
 TEMPORAL_FAMILIES = {
@@ -1093,6 +1094,11 @@ def m27_dated_events(context: ModuleContext) -> ModuleResult:
         module_id="M27",
         status=ExecutionStatus.COMPLETED,
         payload=output,
-        canonical_updates={"documentary_events": output},
+        canonical_updates={
+            "documentary_events": output,
+            **({"surrender_vestal": evaluate_surrender_requests(
+                context.raw_input["surrender_vestal_requests"], documentary_events=output,
+            )} if "surrender_vestal_requests" in context.raw_input else {}),
+        },
         limitations=tuple(limitations),
     )

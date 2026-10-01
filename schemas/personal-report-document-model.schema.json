@@ -24,10 +24,18 @@
     "pdf_preflight_performed"
   ],
   "properties": {
-    "model_version": {"const": "1.0.0"},
-    "document_kind": {"const": "ALMAS_PERSONAL_REPORT_MODEL"},
-    "language": {"const": "es"},
-    "analysis_type": {"const": "PERSONAL_NATAL"},
+    "model_version": {
+      "const": "1.0.0"
+    },
+    "document_kind": {
+      "const": "ALMAS_PERSONAL_REPORT_MODEL"
+    },
+    "language": {
+      "const": "es"
+    },
+    "analysis_type": {
+      "const": "PERSONAL_NATAL"
+    },
     "report_profile": {
       "enum": [
         "EXECUTIVE_PERSONAL_REPORT",
@@ -37,27 +45,40 @@
         "ESOTERIC_KABBALISTIC_REPORT"
       ]
     },
-    "report_state": {"enum": ["READY", "PARTIAL"]},
+    "report_state": {
+      "enum": [
+        "READY",
+        "PARTIAL"
+      ]
+    },
     "degradation_reasons": {
       "type": "array",
-      "items": {"type": "string"},
+      "items": {
+        "type": "string"
+      },
       "uniqueItems": true
     },
-    "canonical_source": {"const": "personal_canonical_analysis"},
+    "canonical_source": {
+      "const": "personal_canonical_analysis"
+    },
     "canonical_fingerprint": {
       "type": "string",
       "pattern": "^[0-9a-f]{64}$"
     },
-    "canonical_fingerprint_verified": {"const": true},
+    "canonical_fingerprint_verified": {
+      "const": true
+    },
     "reference_domains": {
       "type": "array",
-      "items": {"type": "string"},
+      "items": {
+        "type": "string"
+      },
       "uniqueItems": true
     },
     "sections": {
       "type": "array",
       "minItems": 6,
-    "maxItems": 12,
+      "maxItems": 13,
       "items": {
         "type": "object",
         "required": [
@@ -87,18 +108,56 @@
               "P08_COMPLEMENTARY_LAYERS",
               "P09_TEMPORAL",
               "P10_COUNTEREVIDENCE",
-              "P11_SOURCES_ATLAS"
-              ,"P12_CHIRON_PROCESS"
+              "P11_SOURCES_ATLAS",
+              "P12_CHIRON_PROCESS",
+              "P13_SURRENDER_VESTAL"
             ]
           },
-          "order": {"type": "integer", "minimum": 1},
-          "title": {"type": "string", "minLength": 1},
-          "section_state": {"enum": ["READY", "PARTIAL", "NOT_AVAILABLE"]},
-          "required_paths": {"type": "array", "items": {"type": "string"}},
-          "optional_paths": {"type": "array", "items": {"type": "string"}},
-          "available_paths": {"type": "array", "items": {"type": "string"}},
-          "missing_required_paths": {"type": "array", "items": {"type": "string"}},
-          "missing_optional_paths": {"type": "array", "items": {"type": "string"}},
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "section_state": {
+            "enum": [
+              "READY",
+              "PARTIAL",
+              "NOT_AVAILABLE"
+            ]
+          },
+          "required_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "optional_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "available_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missing_required_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missing_optional_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "epistemic_classes_allowed": {
             "type": "array",
             "items": {
@@ -111,8 +170,12 @@
               ]
             }
           },
-          "canonical_values_embedded": {"const": false},
-          "narrative_generated": {"const": false}
+          "canonical_values_embedded": {
+            "const": false
+          },
+          "narrative_generated": {
+            "const": false
+          }
         },
         "additionalProperties": false
       }
@@ -125,18 +188,39 @@
         "adapter_status"
       ],
       "properties": {
-        "profile_family": {"const": "ALMAS_B5"},
-        "reuse_existing_publication_infrastructure": {"const": true},
-        "adapter_status": {"enum": ["PENDING_ADAPTER", "READY"]}
+        "profile_family": {
+          "const": "ALMAS_B5"
+        },
+        "reuse_existing_publication_infrastructure": {
+          "const": true
+        },
+        "adapter_status": {
+          "enum": [
+            "PENDING_ADAPTER",
+            "READY"
+          ]
+        }
       },
       "additionalProperties": false
     },
-    "canonical_values_embedded": {"const": false},
-    "canonical_values_mutated": {"const": false},
-    "prose_generated": {"const": false},
-    "docx_created": {"const": false},
-    "pdf_created": {"const": false},
-    "pdf_preflight_performed": {"const": false}
+    "canonical_values_embedded": {
+      "const": false
+    },
+    "canonical_values_mutated": {
+      "const": false
+    },
+    "prose_generated": {
+      "const": false
+    },
+    "docx_created": {
+      "const": false
+    },
+    "pdf_created": {
+      "const": false
+    },
+    "pdf_preflight_performed": {
+      "const": false
+    }
   },
   "additionalProperties": false
 }

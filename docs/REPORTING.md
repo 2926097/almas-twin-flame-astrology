@@ -158,3 +158,7 @@ M31 cierra el pipeline analítico M00–M31. La autoría narrativa, selección d
 La secuencia de publicación debe respetar:
 
 `canonical_analysis → report_document_model → authored_report → DOCX → PDF/preflight → render completo → inspección → corrección → verificación final`.
+
+## Surrender, retirada vestal e integración erótica
+
+Cuando existe `surrender_vestal`, incluir la subsección con ese título dentro de S12 en informes relacionales y la sección P13 en informes personales. Distinguir hechos fechados, técnica, doctrina histórica atribuida, uso contemporáneo e hipótesis ALMAS; explicar estado de proceso y respaldo, alternativas, contraevidencia, dependencias, alcance personal/bilateral y estructura/temporalidad. Utilizar la salida ya verificada y `surrender_vestal_report_paragraphs` como base de autoría. No derivar celibato, pensamientos ni reunión de una geometría. Consultar `reference/surrender-vestal-corpus.md` por tradición y declarar sus gaps.

@@ -1,6 +1,6 @@
 {
   "genealogy_version": "1.1.0",
-  "almas_version": "1.11.0",
+  "almas_version": "1.24.0",
   "edges": [
     {
       "from": "SPLIT_PRIMORDIAL_BEING",
@@ -512,6 +512,55 @@
       "relation": "DIFFERENT_ANALYTICAL_AXIS",
       "status": "SUPPORTED",
       "note": "Las cuestiones de identidad del alma a través de la reencarnación son analíticamente distintas de las afirmaciones sobre un origen diádico único."
+    },
+    {
+      "from": "HESTIA_VIRGINITY",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "ROMAN_VESTAL_CHASTITY",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "CHRISTIAN_CHASTITY",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "BRAHMACHARYA",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "LIBIDINAL_SUBLIMATION",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "VESTA_ASTROLOGICAL_SYMBOLISM",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "TWIN_FLAME_CELIBACY_USAGE",
+      "to": "VESTAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "INSUFFICIENT",
+      "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "registry_version": "1.3.0",
-  "almas_version": "1.11.0",
+  "almas_version": "1.24.0",
   "concepts": [
     {
       "id": "PREINCARNATIONAL_CHOICE",
@@ -1726,6 +1726,154 @@
         "SECT_REVERSAL_LOTS"
       ],
       "almas_use": "Etiqueta técnica de genealogía/metodología; no actúa como discriminador ontológico."
+    },
+    {
+      "id": "HESTIA_VIRGINITY",
+      "label_es": "Virginidad de Hestia",
+      "definition": "Hestia rehúsa matrimonio y recibe una posición de honor doméstico y cultual.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "homeric_hymn_hestia_5_21_32"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "ROMAN_VESTAL_CHASTITY",
+      "label_es": "Castidad ritual vestal romana",
+      "definition": "Describe cuidado del fuego, castidad ritual por treinta años y posibilidad posterior de matrimonio.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "plutarch_numa_vestals_9_10"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "CHRISTIAN_CHASTITY",
+      "label_es": "Castidad cristiana",
+      "definition": "Distingue integración de la sexualidad, castidad conyugal y celibato consagrado.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "catechism_chastity_2337_2349"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "BRAHMACHARYA",
+      "label_es": "Brahmacharya en Yoga",
+      "definition": "La traducción consultada incluye brahmacharya entre las observancias y asocia su establecimiento a vigor espiritual.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "patanjali_brahmacharya_2_30_38"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "LIBIDINAL_SUBLIMATION",
+      "label_es": "Sublimación pulsional",
+      "definition": "Distingue sublimación de objetivos pulsionales y privación cultural; no equipara abstención y elaboración.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "freud_sublimation_civilization_1930"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "VESTA_ASTROLOGICAL_SYMBOLISM",
+      "label_es": "Simbolismo astrológico de Vesta",
+      "definition": "La descripción relaciona Vesta y Juno con la complejidad de sexualidad, relaciones y valores.",
+      "concept_class": "TECHNICAL_METHOD",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "demetra_george_vesta_relationship_1995"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "TWIN_FLAME_CELIBACY_USAGE",
+      "label_es": "Celibato en discurso twin-flame",
+      "definition": "El artículo presenta períodos de celibato y elaboración emocional dentro de un modelo propio de ascensión.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "twin_flames_universe_sex_celibacy"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "VESTAL_WITHDRAWAL",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+    },
+    {
+      "id": "VESTAL_WITHDRAWAL",
+      "label_es": "Retirada vestal",
+      "definition": "Reducción documentada de persecución relacional con recuperación de actividades propias y autonomía; el celibato no es condición necesaria ni suficiente.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "HESTIA_VIRGINITY",
+        "ROMAN_VESTAL_CHASTITY",
+        "CHRISTIAN_CHASTITY",
+        "BRAHMACHARYA",
+        "LIBIDINAL_SUBLIMATION",
+        "VESTA_ASTROLOGICAL_SYMBOLISM",
+        "TWIN_FLAME_CELIBACY_USAGE",
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Variable descriptiva de fase bajo ALMAS_SURRENDER_VESTAL_V1, E_PROJECT_HYPOTHESIS. No define pureza ni origen."
     }
   ]
 }

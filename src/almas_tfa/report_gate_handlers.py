@@ -462,6 +462,20 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
     blocking_issues: list[str] = []
     degradation_reasons: list[str] = []
 
+    vestal = canonical_copy.get("surrender_vestal")
+    if vestal is not None:
+        from .surrender_vestal import validate_surrender_vestal_result
+        if not isinstance(vestal, Mapping):
+            blocking_issues.append("INVALID_SURRENDER_VESTAL")
+        else:
+            for subject_id, result in vestal.items():
+                try:
+                    validate_surrender_vestal_result(result)
+                    if result["subject_id"] != subject_id:
+                        raise ValueError("Atribución de sujeto incompatible.")
+                except (ValueError, TypeError, KeyError):
+                    blocking_issues.append("INVALID_SURRENDER_VESTAL")
+
     if missing:
         blocking_issues.append("CANONICAL_REQUIRED_FIELDS_MISSING")
     else:

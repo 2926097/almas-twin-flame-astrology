@@ -1,6 +1,10 @@
 # Estado de validación
 
-**Versión pública:** 1.23.0
+**Versión pública:** 1.24.0
+
+## Release 1.24 · Surrender y retirada vestal
+
+Se incorpora una extensión exploratoria por sujeto y ventana para abstinencia, celibato elegido, retirada vestal y cuatro dimensiones de surrender. Se verifican contratos, deduplicación transitiva, contraevidencia, aislamiento de sujeto, conservación de índices e integración M27/M30/M31 y personal. El corpus añade siete fuentes y ocho conceptos con no equivalencias explícitas. La revisión independiente detectó y corrigió casos de borde; no existe validación empírica externa del constructo ni cálculo nuevo de cartas privadas. Cierre local: **769 tests PASS**, incluidos **41 controles específicos**, y contrato público **PASS** sin dependencias opcionales. El corpus y sus schemas también pasan. La verificación remota se consulta por el SHA de la PR. Detalle en `docs/RELEASE_AUDIT_1.24.0.md`.
 
 ## Release 1.23 · Chiron–Nodal Integration Engine
 

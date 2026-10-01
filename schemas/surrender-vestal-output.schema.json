@@ -1,0 +1,756 @@
+{
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "const": "ALMAS_SURRENDER_VESTAL_V1"
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "window_start": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "window_end": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "surrender": {
+      "type": "object",
+      "properties": {
+        "behavioral": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "enum": [
+                "ABSENT",
+                "EMERGING",
+                "ACTIVE",
+                "INTEGRATED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "state",
+            "status",
+            "evidence_refs"
+          ],
+          "additionalProperties": false
+        },
+        "emotional": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "enum": [
+                "ABSENT",
+                "EMERGING",
+                "ACTIVE",
+                "INTEGRATED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "state",
+            "status",
+            "evidence_refs"
+          ],
+          "additionalProperties": false
+        },
+        "erotic": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "enum": [
+                "ABSENT",
+                "EMERGING",
+                "ACTIVE",
+                "INTEGRATED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "state",
+            "status",
+            "evidence_refs"
+          ],
+          "additionalProperties": false
+        },
+        "ontological": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "enum": [
+                "ABSENT",
+                "EMERGING",
+                "ACTIVE",
+                "INTEGRATED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "state",
+            "status",
+            "evidence_refs"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "behavioral",
+        "emotional",
+        "erotic",
+        "ontological"
+      ],
+      "additionalProperties": false
+    },
+    "vestal_withdrawal": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "ABSENT",
+            "EMERGING",
+            "ACTIVE",
+            "INTEGRATED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "status": {
+          "enum": [
+            "SUPPORTED",
+            "COMPATIBLE",
+            "INSUFFICIENT",
+            "CONTRADICTED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "state",
+        "status",
+        "evidence_refs"
+      ],
+      "additionalProperties": false
+    },
+    "sexual_observations": {
+      "type": "object",
+      "properties": {
+        "abstinence": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "scope": {
+              "const": "DOCUMENTED_DECLARATION"
+            }
+          },
+          "required": [
+            "value",
+            "status",
+            "evidence_refs",
+            "scope"
+          ],
+          "additionalProperties": false
+        },
+        "celibacy": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "SUPPORTED",
+                "COMPATIBLE",
+                "INSUFFICIENT",
+                "CONTRADICTED",
+                "NOT_EVALUABLE"
+              ]
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "scope": {
+              "const": "DOCUMENTED_DECLARATION"
+            }
+          },
+          "required": [
+            "value",
+            "status",
+            "evidence_refs",
+            "scope"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "abstinence",
+        "celibacy"
+      ],
+      "additionalProperties": false
+    },
+    "phenotypes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "REACTIVE_ABSTINENCE",
+          "WAITING_CELIBACY",
+          "VESTAL_WITHDRAWAL",
+          "EROTIC_INTEGRATION"
+        ]
+      }
+    },
+    "documented_behaviors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "observation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "code": {
+            "enum": [
+              "ABSTINENCE_DECLARED",
+              "AUTONOMY_RECOVERED",
+              "CELIBACY_CHOSEN",
+              "CHECKING_REDUCED",
+              "EROTIC_DECENTERING",
+              "IDEALIZATION_PERSISTENT",
+              "INTERNAL_COMPULSION",
+              "LABEL_COMPULSION",
+              "LABEL_NEED_REDUCED",
+              "OUTCOMES_ACCEPTED",
+              "OWN_ACTIVITIES_RECOVERED",
+              "PURSUIT_CEASED",
+              "PURSUIT_PERSISTENT",
+              "REACTIVE_ABSTINENCE",
+              "SEXUALITY_TO_FORCE_UNION",
+              "SUBSTITUTION_REDUCED",
+              "SURVEILLANCE",
+              "UNCERTAINTY_ACCEPTED",
+              "WAITING_FOR_UNION",
+              "WITHDRAWAL_ABSENT"
+            ]
+          },
+          "value": {
+            "type": "boolean"
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "documentary_quality": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fact_interpretation_separated": {
+            "type": "boolean"
+          },
+          "epistemic_class": {
+            "const": "A_CALCULATED"
+          }
+        },
+        "required": [
+          "observation_id",
+          "subject_id",
+          "code",
+          "value",
+          "date",
+          "source_refs",
+          "documentary_quality",
+          "fact_interpretation_separated",
+          "epistemic_class"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rejected_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reasons": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "reasons"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "strength": {
+            "enum": [
+              "STRONG",
+              "UNRESOLVED"
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "evidence_refs",
+          "strength"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "structural_roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "root_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "root_id",
+          "subject_id",
+          "source_refs",
+          "verified"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "temporal_activations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "signal_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "technique": {
+            "enum": [
+              "TRANSIT",
+              "SECONDARY_PROGRESSION",
+              "SOLAR_ARC",
+              "DIRECTION",
+              "ATACIR",
+              "DRACONIC",
+              "ANTISCIA",
+              "DECLINATION"
+            ]
+          },
+          "symbolic_family": {
+            "enum": [
+              "VESTA",
+              "SATURN",
+              "VENUS_MARS",
+              "NODAL",
+              "CHIRON",
+              "URANUS_PLUTO",
+              "NEPTUNE"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "dependency_keys": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "orb": {
+            "type": "number",
+            "minimum": 0
+          },
+          "declared_orb": {
+            "type": "number",
+            "minimum": 0
+          },
+          "aspect_policy_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "technique_group": {
+            "enum": [
+              "CORROBORATIVE",
+              "DIRECTED_CLOCK",
+              "PROGRESSED_CLOCK",
+              "TRANSIT"
+            ]
+          },
+          "epistemic_class": {
+            "const": "B_TECHNIQUE"
+          }
+        },
+        "required": [
+          "signal_id",
+          "subject_id",
+          "root_id",
+          "technique",
+          "symbolic_family",
+          "date",
+          "source_refs",
+          "dependency_keys",
+          "orb",
+          "declared_orb",
+          "aspect_policy_ref",
+          "technique_group",
+          "epistemic_class"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rejected_activations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reasons": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "reasons"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "astrological_correspondence": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "SUPPORTED",
+            "COMPATIBLE",
+            "INSUFFICIENT",
+            "CONTRADICTED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "independent_component_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "technique_groups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "symbolic_families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scope": {
+          "const": "PERSONAL_SYMBOLIC_PHASE_ACTIVATION"
+        }
+      },
+      "required": [
+        "status",
+        "independent_component_count",
+        "technique_groups",
+        "symbolic_families",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "relational_activation": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "NOT_EVALUABLE"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "NOT_EVALUABLE"
+        },
+        "value": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "status",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ontology_effect": {
+      "const": "NONE"
+    },
+    "structural_scoring_modified": {
+      "const": false
+    },
+    "iat_modified": {
+      "const": false
+    },
+    "score_created": {
+      "const": false
+    },
+    "epistemic_class": {
+      "const": "E_PROJECT_HYPOTHESIS"
+    },
+    "policy_status": {
+      "const": "EXPLORATORY"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "policy_id",
+    "subject_id",
+    "window_start",
+    "window_end",
+    "surrender",
+    "vestal_withdrawal",
+    "sexual_observations",
+    "phenotypes",
+    "documented_behaviors",
+    "rejected_observations",
+    "counterevidence",
+    "structural_roots",
+    "temporal_activations",
+    "rejected_activations",
+    "dependencies",
+    "astrological_correspondence",
+    "relational_activation",
+    "outcome",
+    "ontology_effect",
+    "structural_scoring_modified",
+    "iat_modified",
+    "score_created",
+    "epistemic_class",
+    "policy_status",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/surrender-vestal-output.schema.json",
+  "title": "ALMAS · Surrender, retirada vestal e integración erótica"
+}

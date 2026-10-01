@@ -76,3 +76,7 @@ Un caso privado puede revelar un problema metodológico, pero sus datos no se pu
 ## Backend astronómico
 
 La frontera de cálculo natal usa un backend inyectable. La decisión y los criterios de selección están en `docs/ASTRONOMY_BACKEND_DECISION.md`. Ninguna dependencia astronómica externa es obligatoria todavía.
+
+## Extensión surrender y retirada vestal
+
+`M_SURRENDER_VESTAL` es una extensión interna de la única skill ALMAS. La ruta personal consume una solicitud por sujeto; M27 resuelve observaciones contra el ledger y proyecta un mapa por sujeto; M30 verifica reproducibilidad y preserva el canonical; M31 expone la extensión en la sección de fases. No se añade una etapa al pipeline M00–M31 ni se recalculan puntuaciones. La capa documental funciona sin efemérides y la capa simbólica consume geometría ya calculada.

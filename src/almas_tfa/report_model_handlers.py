@@ -193,6 +193,7 @@ SECTION_SPECS = (
         "purpose": "Describir transiciones de fase sólo desde hechos y conducta documentados, mostrar la evidencia y contraevidencia, separar la lectura doctrinal de la observación y conservar los límites causales y ontológicos.",
         "required_paths": ("dynamic_phases", "phase_transitions", "causal_firewall"),
         "optional_paths": (
+            "surrender_vestal",
             "actor_states",
             "doctrinal_sequences",
             "temporal_sequence_graph",

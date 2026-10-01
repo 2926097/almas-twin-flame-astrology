@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.23.0",
+  "registry_version": "1.24.0",
   "entries": [
     {
       "id": "plato_symposium_aristophanes",
@@ -2900,7 +2900,9 @@
       "rights_note": "Referencia técnica bibliográfica; no reproducir tablas o texto extenso protegido.",
       "local_file": null,
       "sha256": null,
-      "concepts": ["MEAN_LUNAR_NODE"],
+      "concepts": [
+        "MEAN_LUNAR_NODE"
+      ],
       "supports": [
         "implementación del polinomio secular de longitud del nodo ascendente medio lunar declarado por ALMAS"
       ],
@@ -2915,7 +2917,252 @@
       "verification_anchor_type": "TECHNICAL_EQUATION",
       "verification_anchor_url": "https://www.willbell.com/math/mc1.htm",
       "evidence_scope": "TECHNICAL_METHOD"
+    },
+    {
+      "id": "homeric_hymn_hestia_5_21_32",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Tradición griega arcaica",
+      "author": "Autor anónimo; traducción publicada por Center for Hellenic Studies",
+      "work": "Himno homérico a Afrodita",
+      "passage": "21–32",
+      "date_note": "Datación antigua discutida; edición digital consultada 2026-10-01",
+      "url": "https://www-current.chs.harvard.edu/primary-source/homeric-hymn-to-aphrodite-sb/",
+      "supports": [
+        "Hestia rehúsa matrimonio y recibe una posición de honor doméstico y cultual."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "HESTIA_VIRGINITY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "21–32; Hestia rehúsa matrimonio y recibe una posición de honor doméstico y cultual.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www-current.chs.harvard.edu/primary-source/homeric-hymn-to-aphrodite-sb/",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
+    },
+    {
+      "id": "plutarch_numa_vestals_9_10",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Historiografía griega sobre religión romana",
+      "author": "Plutarco; traducción Bernadotte Perrin, 1914",
+      "work": "Vida de Numa",
+      "passage": "9.5–10.2",
+      "date_note": "Obra antigua de comienzos del siglo II d. C.; traducción 1914",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Numa*.html",
+      "supports": [
+        "Describe cuidado del fuego, castidad ritual por treinta años y posibilidad posterior de matrimonio."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "ROMAN_VESTAL_CHASTITY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "9.5–10.2; Describe cuidado del fuego, castidad ritual por treinta años y posibilidad posterior de matrimonio.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Numa*.html",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
+    },
+    {
+      "id": "catechism_chastity_2337_2349",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Catolicismo",
+      "author": "Iglesia Católica",
+      "work": "Catecismo de la Iglesia Católica",
+      "passage": "2337–2349; contraste con 1618–1620",
+      "date_note": "1992; página oficial consultada 2026-10-01",
+      "url": "https://www.vatican.va/content/catechism/en/part_three/section_two/chapter_two/article_6/ii_the_vocation_to_chastity.index.html",
+      "supports": [
+        "Distingue integración de la sexualidad, castidad conyugal y celibato consagrado."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "CHRISTIAN_CHASTITY"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "2337–2349; contraste con 1618–1620; Distingue integración de la sexualidad, castidad conyugal y celibato consagrado.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.vatican.va/content/catechism/en/part_three/section_two/chapter_two/article_6/ii_the_vocation_to_chastity.index.html",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
+    },
+    {
+      "id": "patanjali_brahmacharya_2_30_38",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Yoga clásico",
+      "author": "Patañjali; traducción BonGiovanni",
+      "work": "Yoga-sūtra",
+      "passage": "II.30 y II.38",
+      "date_note": "Texto antiguo de datación discutida; fecha de traducción no verificada",
+      "url": "https://sacred-texts.com/hin/yogasutr.htm",
+      "supports": [
+        "La traducción consultada incluye brahmacharya entre las observancias y asocia su establecimiento a vigor espiritual."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "BRAHMACHARYA"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "II.30 y II.38; La traducción consultada incluye brahmacharya entre las observancias y asocia su establecimiento a vigor espiritual.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://sacred-texts.com/hin/yogasutr.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
+    },
+    {
+      "id": "freud_sublimation_civilization_1930",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Psicoanálisis histórico",
+      "author": "Sigmund Freud; traducción Joan Riviere",
+      "work": "Civilization and Its Discontents",
+      "passage": "Capítulos II–III; edición inglesa, pp. 63–64",
+      "date_note": "1930; edición digital Project Gutenberg",
+      "url": "https://www.gutenberg.org/files/78221/78221-h/78221-h.htm",
+      "supports": [
+        "Distingue sublimación de objetivos pulsionales y privación cultural; no equipara abstención y elaboración."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "LIBIDINAL_SUBLIMATION"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Capítulos II–III; edición inglesa, pp. 63–64; Distingue sublimación de objetivos pulsionales y privación cultural; no equipara abstención y elaboración.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.gutenberg.org/files/78221/78221-h/78221-h.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
+    },
+    {
+      "id": "demetra_george_vesta_relationship_1995",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología moderna de asteroides",
+      "author": "Demetra George",
+      "work": "Venus, Vesta & Juno: The Erotic, Spiritual and Creative Dimensions of Relationship",
+      "passage": "Descripción pública de la conferencia UAC 1995; audio no consultado",
+      "date_note": "1995; descripción web consultada 2026-10-01",
+      "url": "https://demetra-george.com/product/venus-vesta-juno/",
+      "supports": [
+        "La descripción relaciona Vesta y Juno con la complejidad de sexualidad, relaciones y valores."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "VESTA_ASTROLOGICAL_SYMBOLISM"
+      ],
+      "verification_status": "VERIFIED_METADATA",
+      "verification_anchor": "Descripción pública de la conferencia UAC 1995; audio no consultado; La descripción relaciona Vesta y Juno con la complejidad de sexualidad, relaciones y valores.",
+      "verification_anchor_type": "AUTHOR_SUMMARY",
+      "verification_anchor_url": "https://demetra-george.com/product/venus-vesta-juno/",
+      "evidence_scope": "METHOD_DESCRIPTION",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
+    },
+    {
+      "id": "twin_flames_universe_sex_celibacy",
+      "priority": "P5_EMIC",
+      "source_role": "EMIC_USAGE",
+      "tradition": "Discurso contemporáneo twin-flame",
+      "author": "Twin Flames Universe; autor individual no identificado",
+      "work": "Twin Flame Sex: An Ascension Tool",
+      "passage": "Sección Sexual Healing and Celibacy",
+      "date_note": "Fecha editorial no verificada; consultado 2026-10-01",
+      "url": "https://twinflamesuniverse.com/twin-flame-sex-an-ascension-tool/",
+      "supports": [
+        "El artículo presenta períodos de celibato y elaboración emocional dentro de un modelo propio de ascensión."
+      ],
+      "does_not_support": [
+        "Diagnóstico de retirada vestal mediante tránsitos ni validación de los umbrales ALMAS.",
+        "Identidad metafísica de una pareja, sexualidad ajena o predicción de reunión."
+      ],
+      "concepts": [
+        "TWIN_FLAME_CELIBACY_USAGE"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Sección Sexual Healing and Celibacy; El artículo presenta períodos de celibato y elaboración emocional dentro de un modelo propio de ascensión.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://twinflamesuniverse.com/twin-flame-sex-an-ascension-tool/",
+      "evidence_scope": "PHENOMENOLOGY",
+      "rights_note": "Paráfrasis limitada; verificar derechos de cada edición antes de reproducir extensamente.",
+      "translation_note": "Paráfrasis española propia de la edición enlazada; no sustituye la comparación de traducciones.",
+      "date": null,
+      "pages": null,
+      "doi": null,
+      "download_url": null,
+      "license": null,
+      "local_file": null,
+      "sha256": null
     }
   ],
-  "registry_revision": "2026-09-30-dual-node-chiron-process-1"
+  "registry_revision": "2026-10-01-surrender-vestal-1"
 }

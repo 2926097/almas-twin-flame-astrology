@@ -1,0 +1,151 @@
+{
+  "policy_id": "ALMAS_SURRENDER_VESTAL_V1",
+  "policy_status": "EXPLORATORY",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "process_states": [
+    "ABSENT",
+    "EMERGING",
+    "ACTIVE",
+    "INTEGRATED",
+    "NOT_EVALUABLE"
+  ],
+  "accepted_documentary_qualities": [
+    "DQ1_PRIMARY_DOCUMENT",
+    "DQ2_DIRECT_SELF_REPORT"
+  ],
+  "domain_active_distinct_codes": 2,
+  "domains": {
+    "behavioral": {
+      "support": [
+        "PURSUIT_CEASED",
+        "CHECKING_REDUCED"
+      ],
+      "counter": [
+        "PURSUIT_PERSISTENT",
+        "SURVEILLANCE"
+      ]
+    },
+    "emotional": {
+      "support": [
+        "AUTONOMY_RECOVERED",
+        "OUTCOMES_ACCEPTED"
+      ],
+      "counter": [
+        "WAITING_FOR_UNION",
+        "IDEALIZATION_PERSISTENT"
+      ]
+    },
+    "erotic": {
+      "support": [
+        "EROTIC_DECENTERING",
+        "SUBSTITUTION_REDUCED"
+      ],
+      "counter": [
+        "SEXUALITY_TO_FORCE_UNION",
+        "INTERNAL_COMPULSION"
+      ]
+    },
+    "ontological": {
+      "support": [
+        "LABEL_NEED_REDUCED",
+        "UNCERTAINTY_ACCEPTED"
+      ],
+      "counter": [
+        "LABEL_COMPULSION"
+      ]
+    }
+  },
+  "observation_codes": [
+    "ABSTINENCE_DECLARED",
+    "AUTONOMY_RECOVERED",
+    "CELIBACY_CHOSEN",
+    "CHECKING_REDUCED",
+    "EROTIC_DECENTERING",
+    "IDEALIZATION_PERSISTENT",
+    "INTERNAL_COMPULSION",
+    "LABEL_COMPULSION",
+    "LABEL_NEED_REDUCED",
+    "OUTCOMES_ACCEPTED",
+    "OWN_ACTIVITIES_RECOVERED",
+    "PURSUIT_CEASED",
+    "PURSUIT_PERSISTENT",
+    "REACTIVE_ABSTINENCE",
+    "SEXUALITY_TO_FORCE_UNION",
+    "SUBSTITUTION_REDUCED",
+    "SURVEILLANCE",
+    "UNCERTAINTY_ACCEPTED",
+    "WAITING_FOR_UNION",
+    "WITHDRAWAL_ABSENT"
+  ],
+  "withdrawal_required_codes": [
+    "PURSUIT_CEASED",
+    "OWN_ACTIVITIES_RECOVERED",
+    "AUTONOMY_RECOVERED"
+  ],
+  "integration_required_codes": [
+    "EROTIC_DECENTERING",
+    "OUTCOMES_ACCEPTED",
+    "UNCERTAINTY_ACCEPTED",
+    "AUTONOMY_RECOVERED"
+  ],
+  "integration_minimum_dates": 2,
+  "strong_counterevidence_codes": [
+    "IDEALIZATION_PERSISTENT",
+    "INTERNAL_COMPULSION",
+    "LABEL_COMPULSION",
+    "PURSUIT_PERSISTENT",
+    "REACTIVE_ABSTINENCE",
+    "SEXUALITY_TO_FORCE_UNION",
+    "SURVEILLANCE",
+    "WAITING_FOR_UNION"
+  ],
+  "symbolic_families": [
+    "VESTA",
+    "SATURN",
+    "VENUS_MARS",
+    "NODAL",
+    "CHIRON",
+    "URANUS_PLUTO",
+    "NEPTUNE"
+  ],
+  "technique_groups": {
+    "TRANSIT": "TRANSIT",
+    "SECONDARY_PROGRESSION": "PROGRESSED_CLOCK",
+    "SOLAR_ARC": "PROGRESSED_CLOCK",
+    "DIRECTION": "DIRECTED_CLOCK",
+    "ATACIR": "DIRECTED_CLOCK",
+    "DRACONIC": "CORROBORATIVE",
+    "ANTISCIA": "CORROBORATIVE",
+    "DECLINATION": "CORROBORATIVE"
+  },
+  "phase_sequence": {
+    "epistemic_class": "E_PROJECT_HYPOTHESIS",
+    "status": "EXPLORATORY_NON_MANDATORY",
+    "phases": [
+      "RECOGNITION",
+      "ACTIVATION",
+      "CRISIS_MIRROR",
+      "SATURATION",
+      "PURSUIT_WITHDRAWAL",
+      "VESTAL_WITHDRAWAL",
+      "ENERGY_RECOVERY",
+      "INTEGRATION",
+      "RELATIONAL_REDEFINITION"
+    ],
+    "possible_outcomes": [
+      "REUNION",
+      "REDEFINED_RELATIONSHIP",
+      "NON_ROMANTIC",
+      "TRANSPERSONAL_CONTINUITY",
+      "SERVICE",
+      "CLOSURE",
+      "INDETERMINATE"
+    ],
+    "missing_phases_inferred": false,
+    "reunion_automatic": false
+  },
+  "ontology_effect": "NONE",
+  "iem_modified": false,
+  "iat_modified": false,
+  "score_created": false
+}

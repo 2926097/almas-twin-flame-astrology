@@ -1,7 +1,7 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.23.0
-**Estado:** ALMAS 1.22.0 + integración personal Venus–Nodo–Quirón, nodos duales y solver de perfeccionamientos temporales
+**Versión pública:** 1.24.0
+**Estado:** ALMAS 1.23.0 + surrender, retirada vestal y celibato relacional con evaluación documental y corroboración simbólica separadas
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
 
@@ -84,6 +84,8 @@ Desde 1.21.0, ALMAS incorpora un **perfil de informes astrológicos personales**
 Desde 1.22.0, ALMAS introduce una revisión matemática explícita y versionada del núcleo cuantitativo: Shapley V3 atribuye las interacciones PX/PS exclusivamente a raíces independientes, IRC agrega mínimos por grupos de dependencia antes de la media geométrica e ICE puede derivarse de forma autónoma sólo tras declarar completa la evaluación de contraevidencia. Estas reglas permanecen en clase E de política/hipótesis del proyecto; no son probabilidades metafísicas y no activan PX v3 ni discriminadores L3 sin validación externa real.
 
 Desde 1.23.0, el módulo personal `CHIRON_PROCESS` conserva True y Mean Node con un único `nodal_axis_id`, calcula complejos natales a partir de orbes explícitos y organiza activaciones por técnica, pasada, cinemática y grupo de dependencia. El solver busca varias perfecciones dentro de una ventana e identifica contactos estacionarios. Las secuencias no alteran scoring; `INTEGRATION_DOCUMENTED` requiere evidencia M27 que cumpla calidad, precisión, fuente y separación hecho/interpretación. La extensión no cambia el motivo M18 `WOUND_REPAIR`, el IAT heredado ni la ontología.
+
+Desde 1.24.0, `SURRENDER_VESTAL` distingue abstinencia declarada, retirada vestal y cuatro dimensiones de surrender. La conducta se evalúa sin exigir efemérides; la correspondencia simbólica exige raíces y convergencia temporal trazables, sin contar técnicas dependientes como confirmaciones. M27, canonical, gates e informes incorporan la extensión por sujeto. La política permanece exploratoria y no altera IEM, IAT ni origen. Contrato y fuentes: `reference/surrender-vestal-contract.md` y `reference/surrender-vestal-corpus.md`.
 
 ## Repositorio
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.24.0 — 2026-10-01
+
+Incorpora surrender conductual, emocional, erótico y ontológico, retirada vestal y declaraciones sexuales separadas. El módulo documental funciona sin datos astronómicos; la correspondencia simbólica exige convergencia multitécnica independiente y estructura previa. Añade contratos estrictos, gates semánticos reproducibles, adapter M27, cadena personal y sección de informes. No modifica fórmulas, pesos, IEM, IAT ni ontología de origen.
+
+Integra siete fuentes contrastadas, ocho conceptos y relaciones explícitas de no equivalencia. La descripción de Demetra George sigue como metadatos y el texto comunitario como evidencia emic; judaísmo, Tantra y validación académica específica conservan sus gaps. Añade controles sintéticos y pruebas de regresión.
+
 # Changelog
 
 ## 1.23.0 — 2026-09-30
