@@ -1,6 +1,23 @@
 {
-  "registry_version": "1.24.1",
-  "entries": [
+  "policy_id": "ALMAS_CORPUS_DOCTRINE_V1",
+  "target_almas_version": "1.24.1",
+  "source_registry_ref": "reference/source-registry.json",
+  "concept_registry_ref": "reference/concept-registry.json",
+  "dependency_families": [
+    "LURIANIC_ZIVUG_GILGUL",
+    "CLASSICAL_HESTIA_VESTA",
+    "ROMAN_VESTAL_INSTITUTION",
+    "CHRISTIAN_ASCETIC_RENUNCIATION",
+    "VEDANTIC_SARANAGATI",
+    "CHIRON_CLASSICAL_MYTH",
+    "CHIRON_MODERN_ASTROLOGY",
+    "MODERN_NODAL_KARMIC_ASTROLOGY",
+    "JUNGIAN_CONIUNCTIO",
+    "KARDECIAN_SPIRIT_AFFINITY",
+    "PLATONIC_PREINCARNATIONAL_CHOICE",
+    "RABBINIC_PROVIDENTIAL_PAIRING"
+  ],
+  "source_snapshots": [
     {
       "id": "plato_symposium_aristophanes",
       "priority": "P1_PRIMARY",
@@ -5523,5 +5540,427 @@
       "sha256": null
     }
   ],
-  "registry_revision": "2026-10-01-corpus-doctrine-1"
+  "concept_ceilings": {
+    "PREINCARNATIONAL_CHOICE": "PREINCARNATIONAL_CHOICE_ONLY",
+    "SOUL_CONTRACT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PRENATAL_PAIRING": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_PAIRING": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SPLIT_PRIMORDIAL_BEING": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "MONAD": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_ORIGIN": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOULMATE_EXPERIENCE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DRACONIC_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "GILGUL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "ZIVUG": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_ROOT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TIKKUN": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "MEAN_LUNAR_NODE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "MISSION_PREINCARNATIONAL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "KARMIC_RELATIONSHIP": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "CONJUGIAL_PAIRING": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "LIFE_BETWEEN_LIVES": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SACRED_CONTRACT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_PLAN": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_GROUP": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_LITERARY_GENEALOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "NEW_AGE_RELIGION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PREINCARNATIONAL_TRIAL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "FREE_WILL_PREINCARNATIONAL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "BAT_ZUG": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "FIRST_SECOND_ZIVUG": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_NETWORK": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_SOUL_LITERARY_GENEALOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DUAL_SOUL_LITERARY_MODEL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "THEOSOPHICAL_MONAD": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "HISTORICAL_RECEPTION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "ESOTERIC_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_ONTOLOGY_BAILEY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_PERSONALITY_RELATION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "EVOLUTIONARY_STAGE_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DRACONIC_METHOD_MODERN": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RECOGNITION_PHENOMENOLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SYNCHRONICITY_REPORT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TRANSFORMATION_REPORT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_EMIC_USAGE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "NEW_AGE_THEODICY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "CONTEMPORARY_SOUL_CONTRACT_USAGE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "KARMIC_CONTINUITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SPLIT_SOUL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "MONADIC_PAIR": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOULMATE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "OBJECTIVE_ONTOLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PAST_LIFE_PROOF": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_CONTRACT_PROOF": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "WOUND_REPAIR": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "MISSION_SERVICE_RELATIONAL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "WESTERN_ESOTERICISM_ALL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DETAILED_LIFE_SCRIPT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "FATALISM": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "FIRST_SECOND_SPOUSE_SIMPLE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_PHASE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DYADIC_SOUL_CONTRACT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DOCTRINAL_ENDORSEMENT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RELATIONSHIP_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_CONTRACT_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_ASTROLOGY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DIVINE_MASCULINE_FEMININE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RELATIONAL_POLARITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RELATIONSHIP_PHASE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "ANCIENT_DRACONIC_TRADITION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "CAUSAL_PROOF": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "OBJECTIVE_METAPHYSICAL_STATUS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_ASTROLOGICAL_MODEL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SPIRITIST_TRIAL_DOCTRINE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "KARDEC_PREINCARNATIONAL_CHOICE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "LURIANIC_ZIVUG": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "ARCHETYPAL_PURPOSE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "AUTHORSHIP_HISTORY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "BODY_SELECTION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "FAMILY_SELECTION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "INCARNATION_TIMING": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "KARMIC_PLANNING": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "LURIANIC_KABBALAH": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "MONAD_SOUL_PERSONALITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PAIRED_SOULS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PLANNED_CHALLENGES": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PLANNED_RELATIONSHIPS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "REINCARNATIONAL_CONTINUITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "REINCARNATION_NEW_AGE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RELATIONAL_PURPOSE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RETURN_FOR_OTHERS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SEPARATION_REUNION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SERVICE_MISSION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SOUL_IDENTITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TEACHER_STUDENT_ROOT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "WESTERN_ESOTERICISM_CONTEXT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "LOT_OF_FORTUNE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "LOT_OF_SPIRIT": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SECT_REVERSAL_LOTS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "DAIMON": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SECT_LOTS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "HESTIA_VIRGINITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "ROMAN_VESTAL_CHASTITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "CHRISTIAN_CHASTITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "BRAHMACHARYA": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "LIBIDINAL_SUBLIMATION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "VESTA_ASTROLOGICAL_SYMBOLISM": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TWIN_FLAME_CELIBACY_USAGE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "VESTAL_WITHDRAWAL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "HESTIA_CENTER": "HISTORICAL_ANALOGY_ONLY",
+    "SACRED_CENTER": "HISTORICAL_ANALOGY_ONLY",
+    "RITUAL_STABILITY": "HISTORICAL_ANALOGY_ONLY",
+    "ASCETIC_RENUNCIATION": "DOCTRINAL_MODEL_ONLY",
+    "SEXUAL_CONTINENCE": "DOCTRINAL_MODEL_ONLY",
+    "CELIBACY_CHOSEN": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "RELATIONAL_WITHDRAWAL": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "SURRENDER_TRANSPERSONAL": "DOCTRINAL_MODEL_ONLY",
+    "SURRENDER_TO_TRANSCENDENT": "DOCTRINAL_MODEL_ONLY",
+    "RELINQUISH_CONTROL": "DOCTRINAL_MODEL_ONLY",
+    "RELINQUISH_FRUIT_ATTACHMENT": "DOCTRINAL_MODEL_ONLY",
+    "RELINQUISH_POSSESSIVENESS": "DOCTRINAL_MODEL_ONLY",
+    "CONTINUE_RIGHT_ACTION": "DOCTRINAL_MODEL_ONLY",
+    "CHIRON_MYTH_HEALER": "HISTORICAL_ANALOGY_ONLY",
+    "CHIRON_MYTH_UNHEALABLE_WOUND": "HISTORICAL_ANALOGY_ONLY",
+    "CHIRON_ASTROLOGICAL_WOUNDED_HEALER": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+    "CHIRON_INTEGRATION_PROCESS": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+    "MODERN_NODAL_REINCARNATION": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+    "MODERN_NODAL_CAPACITY_DEVELOPMENT": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+    "PROVIDENTIAL_PAIRING": "DOCTRINAL_MODEL_ONLY",
+    "SPIRIT_AFFINITY": "DOCTRINAL_MODEL_ONLY",
+    "SOULMATE_AFFINITY": "DOCTRINAL_MODEL_ONLY",
+    "LITERAL_HALF_SOUL_REJECTION": "DOCTRINAL_MODEL_ONLY",
+    "PSYCHOLOGICAL_MIRROR": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "PROJECTION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "TRANSFERENCE": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "CONIUNCTIO": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "INTEGRATION_OF_OPPOSITES": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "INTERNAL_HIEROS_GAMOS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "INTERNAL_OR_TRANSPERSONAL_UNION": "DOCTRINAL_MODEL_ONLY",
+    "EXTERNAL_DYADIC_UNION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "CHIRON_NODAL_INTEGRATION": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+    "HISTORY_CONTINUITY": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "HIEROS_GAMOS": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "INTERNAL_INTEGRATION": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+    "INTEGRATION_SYMBOLISM": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+    "EXTERNAL_ROMANTIC_REUNION": "NOT_ONTOLOGICAL_DISCRIMINATOR"
+  },
+  "assertions": [
+    {
+      "concept_id": "HESTIA_CENTER",
+      "source_id": "homeric_hymn_hestia_24",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "SACRED_CENTER",
+      "source_id": "homeric_hymn_hestia_24",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "HESTIA_CENTER",
+      "source_id": "homeric_hymn_hestia_29",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "RITUAL_STABILITY",
+      "source_id": "homeric_hymn_hestia_29",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "ROMAN_VESTAL_CHASTITY",
+      "source_id": "gellius_attic_nights_1_12",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "ROMAN_VESTAL_CHASTITY",
+      "source_id": "beard_vestal_sexual_status_1980",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "A_CALCULATED"
+    },
+    {
+      "concept_id": "ROMAN_VESTAL_CHASTITY",
+      "source_id": "wildfang_vestal_virgins_2007",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "A_CALCULATED"
+    },
+    {
+      "concept_id": "ROMAN_VESTAL_CHASTITY",
+      "source_id": "staples_vestal_virgins_1998",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "A_CALCULATED"
+    },
+    {
+      "concept_id": "SURRENDER_TO_TRANSCENDENT",
+      "source_id": "bhagavad_gita_18_66",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "RELINQUISH_CONTROL",
+      "source_id": "ramanuja_gita_18_66",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "RELINQUISH_FRUIT_ATTACHMENT",
+      "source_id": "ramanuja_gita_18_66",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "RELINQUISH_POSSESSIVENESS",
+      "source_id": "ramanuja_gita_18_66",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "CONTINUE_RIGHT_ACTION",
+      "source_id": "ramanuja_gita_18_66",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "SURRENDER_TO_TRANSCENDENT",
+      "source_id": "ramanuja_gita_18_66",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "SURRENDER_TO_TRANSCENDENT",
+      "source_id": "ramanuja_saranagati_gadyam",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "ASCETIC_RENUNCIATION",
+      "source_id": "john_cross_ascent_detachment",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "INTERNAL_OR_TRANSPERSONAL_UNION",
+      "source_id": "john_cross_ascent_detachment",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "ASCETIC_RENUNCIATION",
+      "source_id": "john_cross_dark_night",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "INTERNAL_OR_TRANSPERSONAL_UNION",
+      "source_id": "john_cross_dark_night",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "INTERNAL_OR_TRANSPERSONAL_UNION",
+      "source_id": "teresa_interior_castle_seventh",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "ASCETIC_RENUNCIATION",
+      "source_id": "brown_body_society_1988",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "A_CALCULATED"
+    },
+    {
+      "concept_id": "SEXUAL_CONTINENCE",
+      "source_id": "brown_body_society_1988",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "A_CALCULATED"
+    },
+    {
+      "concept_id": "CELIBACY_CHOSEN",
+      "source_id": "brown_body_society_1988",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "ASCETIC_RENUNCIATION",
+      "source_id": "elm_virgins_god_1994",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "A_CALCULATED"
+    },
+    {
+      "concept_id": "CHIRON_MYTH_HEALER",
+      "source_id": "pindar_pythian_3_chiron",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "CHIRON_MYTH_UNHEALABLE_WOUND",
+      "source_id": "apollodorus_library_chiron_wound",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "CHIRON_INTEGRATION_PROCESS",
+      "source_id": "stein_essence_application_chiron",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "MODERN_NODAL_REINCARNATION",
+      "source_id": "schulman_nodes_reincarnation_1975",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "MODERN_NODAL_CAPACITY_DEVELOPMENT",
+      "source_id": "spiller_astrology_soul_1997",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "PROVIDENTIAL_PAIRING",
+      "source_id": "bereshit_rabbah_68_4",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "ZIVUG",
+      "source_id": "petach_einayim_sotah_2a_2",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "GILGUL",
+      "source_id": "petach_einayim_sotah_2a_2",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "FIRST_SECOND_ZIVUG",
+      "source_id": "petach_einayim_sotah_2a_2",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "PREINCARNATIONAL_CHOICE",
+      "source_id": "plato_republic_er_choice",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "SPIRIT_AFFINITY",
+      "source_id": "kardec_spirits_affinity_298_303",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "SOULMATE_AFFINITY",
+      "source_id": "kardec_spirits_affinity_298_303",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "LITERAL_HALF_SOUL_REJECTION",
+      "source_id": "kardec_spirits_affinity_298_303",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "TRANSFERENCE",
+      "source_id": "jung_psychology_transference",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "PROJECTION",
+      "source_id": "jung_psychology_transference",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "PSYCHOLOGICAL_MIRROR",
+      "source_id": "jung_psychology_transference",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    {
+      "concept_id": "CONIUNCTIO",
+      "source_id": "jung_mysterium_coniunctionis",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "INTEGRATION_OF_OPPOSITES",
+      "source_id": "jung_mysterium_coniunctionis",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "B_TECHNIQUE"
+    },
+    {
+      "concept_id": "PREINCARNATIONAL_CHOICE",
+      "source_id": "kardec_spirits_book_choice_trials",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "SPLIT_SOUL",
+      "source_id": "kardec_spirits_affinity_298_303",
+      "polarity": "CONTRADICTS",
+      "epistemic_class": "C_DOCTRINE"
+    }
+  ],
+  "forbidden_upgrades": [
+    "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+    "DO_NOT_INFER_BILATERAL_CONTRACT",
+    "DO_NOT_INFER_RECIPROCITY",
+    "DO_NOT_INFER_REUNION",
+    "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+  ],
+  "source_count_adds_weight": false,
+  "ontology_effect": "NONE",
+  "iem_modified": false,
+  "pu_created": false,
+  "l3_substituted": false
 }

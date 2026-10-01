@@ -1,20 +1,20 @@
 {
   "audit_version": "1.1.0",
-  "almas_version": "1.24.0",
+  "almas_version": "1.24.1",
   "date": "2026-10-01",
-  "sources_total": 84,
-  "concepts_total": 106,
-  "genealogy_edges_total": 80,
+  "sources_total": 109,
+  "concepts_total": 143,
+  "genealogy_edges_total": 93,
   "by_priority": {
-    "P1_PRIMARY": 30,
-    "P2_ACADEMIC": 7,
-    "P4_IDENTIFIED_METHOD": 43,
+    "P1_PRIMARY": 45,
+    "P2_ACADEMIC": 12,
+    "P4_IDENTIFIED_METHOD": 48,
     "P3_HISTORICAL_TECHNICAL": 3,
     "P5_EMIC": 1
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 53,
-    "VERIFIED_METADATA": 31
+    "VERIFIED_PRIMARY": 69,
+    "VERIFIED_METADATA": 40
   },
   "integrity": {
     "unknown_concepts_from_sources": 0,
@@ -42,6 +42,7 @@
     "ALMAS 1.20 incorpora Demetra George/Douglas Bloch para Juno y Martha Lang-Wescott para Eros como fuentes de método de la capa secundaria M14; ambos puntos permanecen support-only y no añaden peso ontológico.",
     "ALMAS 1.20 incorpora Astrodienst y Robert Hand como fuentes de método para TTRANSIT: planeta transitante → aspecto → factor natal. Estas fuentes sustentan cálculo e interpretación temporal, sin convertir activación en predicción factual ni evidencia ontológica.",
     "ALMAS 1.23 registra a Jean Meeus, Astronomical Algorithms §47.7, como referencia técnica del cálculo Mean Node; no añade scoring ni significado ontológico.",
-    "ALMAS 1.24 incorpora siete fuentes comparadas y ocho conceptos. La descripción comercial de Demetra George permanece VERIFIED_METADATA; el artículo contemporáneo P5 se limita a evidencia emic. No se afirma validación externa de retirada vestal."
+    "ALMAS 1.24 incorpora siete fuentes comparadas y ocho conceptos. La descripción comercial de Demetra George permanece VERIFIED_METADATA; el artículo contemporáneo P5 se limita a evidencia emic. No se afirma validación externa de retirada vestal.",
+    "1.24.1: nuevas fuentes con consulta explícita; metadatos no equivalen a texto. dependency_root agrupa conservadoramente, sin probar independencia ni añadir pesos."
   ]
 }

@@ -313,3 +313,7 @@ La integración está documentada en:
 ## Próximo paso
 
 El Paso 13 formalizó la independencia de la astrología como posible fuente de observables discriminantes. Ninguna firma astrológica podrá adquirir función ontológica confirmatoria sin validación discriminante independiente, controles negativos, deduplicación de raíces y prueba fuera de muestra.
+
+## Límite de la ampliación doctrinal 1.24.1
+
+`corpus_doctrine.assess_corpus_claim` atribuye pasajes y conserva límites, pero no suministra observaciones L3 ni elimina modelos del motor. SUPPORTED y CONTRADICTED en DOCTRINAL_ATTRIBUTION pertenecen a la afirmación dentro de una fuente. La acumulación de citas, incluso de familias diferentes, no crea PU, no modifica IEM/IDD y no valida el origen de una díada.

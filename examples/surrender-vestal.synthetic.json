@@ -294,6 +294,31 @@
     "structural_scoring_modified": false,
     "iat_modified": false,
     "score_created": false,
+    "traceability": {
+      "documentary_behavior": {
+        "observation_refs": [
+          "AUTONOMY_RECOVERED",
+          "OWN_ACTIVITIES_RECOVERED",
+          "PURSUIT_CEASED"
+        ],
+        "scope": "DOCUMENTED_BEHAVIOR"
+      },
+      "doctrinal_correspondence": {
+        "source_refs": [],
+        "dependency_groups": [],
+        "unresolved_dependency_refs": [],
+        "independence_validated": false,
+        "source_count_adds_weight": false,
+        "scope": "COMPARATIVE_CONTEXT_ONLY"
+      },
+      "symbolic_astrological_activation": {
+        "signal_refs": [
+          "T1",
+          "T2"
+        ],
+        "scope": "PERSONAL_SYMBOLIC_PHASE_ACTIVATION"
+      }
+    },
     "epistemic_class": "E_PROJECT_HYPOTHESIS",
     "policy_status": "EXPLORATORY",
     "limitations": [

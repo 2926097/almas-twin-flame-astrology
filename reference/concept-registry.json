@@ -1,13 +1,14 @@
 {
-  "registry_version": "1.3.0",
-  "almas_version": "1.24.0",
+  "registry_version": "1.4.0",
+  "almas_version": "1.24.1",
   "concepts": [
     {
       "id": "PREINCARNATIONAL_CHOICE",
       "label_es": "elección preencarnatoria",
       "definition": "Doctrina o modelo en el que una entidad/alma/espíritu participa antes del nacimiento en la elección de pruebas, circunstancias generales o propósitos.",
       "primary_sources": [
-        "kardec_spirits_book_choice_trials"
+        "kardec_spirits_book_choice_trials",
+        "plato_republic_er_choice"
       ],
       "academic_sources": [
         "kwilecki_soul_contract_theodicy_2014"
@@ -15,13 +16,22 @@
       "not_equivalent_to": [
         "SOUL_CONTRACT",
         "PRENATAL_PAIRING",
-        "TWIN_FLAME_ORIGIN"
+        "TWIN_FLAME_ORIGIN",
+        "DYADIC_SOUL_CONTRACT"
       ],
       "almas_use": "Puede fundamentar doctrinalmente la posibilidad de propósito previo; no define por sí sola un contrato bilateral.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "PREINCARNATIONAL_CHOICE_ONLY",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_CONTRACT",
@@ -40,7 +50,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "PRENATAL_PAIRING",
@@ -59,7 +77,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_PAIRING",
@@ -78,7 +104,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SPLIT_PRIMORDIAL_BEING",
@@ -98,7 +132,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "MONAD",
@@ -117,7 +159,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_EVOLUTION_ESOTERIC_ASTROLOGY",
@@ -136,7 +186,15 @@
       "concept_class": "TECHNICAL_METHOD",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_ORIGIN",
@@ -159,7 +217,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOULMATE_EXPERIENCE",
@@ -177,7 +243,15 @@
       "concept_class": "PHENOMENOLOGY",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DRACONIC_ASTROLOGY",
@@ -196,7 +270,15 @@
       "almas_use": "Capa técnica de recurrencia nodal; por defecto corroborativa y su dependencia matemática debe controlarse.",
       "concept_class": "TECHNICAL_METHOD",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "GILGUL",
@@ -205,10 +287,13 @@
       "primary_sources": [
         "vital_shaar_hagilgulim_8_reasons_for_return",
         "vital_shaar_hagilgulim_20_zivug",
-        "vital_shaar_hagilgulim_39_soul_roots"
+        "vital_shaar_hagilgulim_39_soul_roots",
+        "vital_shaar_hagilgulim_1_soul_levels",
+        "petach_einayim_sotah_2a_2"
       ],
       "academic_sources": [
-        "magid_life_of_soul_lurianic_gilgul"
+        "magid_life_of_soul_lurianic_gilgul",
+        "fishbane_personal_identity_lurianic_gilgul_2024"
       ],
       "not_equivalent_to": [
         "SOUL_CONTRACT",
@@ -218,7 +303,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "ZIVUG",
@@ -227,7 +320,10 @@
       "primary_sources": [
         "talmud_sotah_2a_9",
         "zohar_lech_lecha_32_346_350",
-        "vital_shaar_hagilgulim_20_zivug"
+        "vital_shaar_hagilgulim_20_zivug",
+        "vital_shaar_hagilgulim_8_reasons_for_return",
+        "vital_pri_etz_chaim",
+        "petach_einayim_sotah_2a_2"
       ],
       "academic_sources": [],
       "not_equivalent_to": [
@@ -238,7 +334,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_ROOT",
@@ -259,7 +363,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TIKKUN",
@@ -281,7 +393,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "MEAN_LUNAR_NODE",
@@ -296,7 +416,15 @@
       ],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Término técnico para registrar la variante media del eje nodal junto a True Node. El proyecto conserva ambas posiciones como variantes de un mismo eje y no atribuye significado ontológico a su diferencia."
+      "almas_use": "Término técnico para registrar la variante media del eje nodal junto a True Node. El proyecto conserva ambas posiciones como variantes de un mismo eje y no atribuye significado ontológico a su diferencia.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "MISSION_PREINCARNATIONAL",
@@ -314,7 +442,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "KARMIC_RELATIONSHIP",
@@ -332,7 +468,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "CONJUGIAL_PAIRING",
@@ -351,7 +495,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "LIFE_BETWEEN_LIVES",
@@ -373,7 +525,15 @@
       "almas_use": "Genealogía moderna del plan prenatal; su evidencia es de método identificado/emic, no doctrina universal.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SACRED_CONTRACT",
@@ -391,7 +551,15 @@
       "almas_use": "Fuente moderna identificada para propósito/compromiso previo; no fuente de técnica astrológica ALMAS.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_PLAN",
@@ -411,7 +579,15 @@
       "almas_use": "Contextualiza planificación prenatal moderna.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_GROUP",
@@ -430,7 +606,15 @@
       "almas_use": "Modelo contemporáneo; no se equipara a raíz luriana ni Mónada.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_LITERARY_GENEALOGY",
@@ -452,7 +636,15 @@
       "almas_use": "Documenta historia del vocabulario, no continuidad doctrinal automática.",
       "concept_class": "HISTORICAL_GENEALOGY",
       "method_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "NEW_AGE_RELIGION",
@@ -471,7 +663,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "PREINCARNATIONAL_TRIAL",
@@ -490,7 +690,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "FREE_WILL_PREINCARNATIONAL",
@@ -508,7 +716,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "BAT_ZUG",
@@ -528,7 +744,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "FIRST_SECOND_ZIVUG",
@@ -536,7 +760,8 @@
       "definition": "Distinción rabínica y cabalística entre primer y segundo emparejamiento, con interpretaciones diferentes según el corpus.",
       "primary_sources": [
         "talmud_sotah_2a_9",
-        "vital_shaar_hagilgulim_20_zivug"
+        "vital_shaar_hagilgulim_20_zivug",
+        "petach_einayim_sotah_2a_2"
       ],
       "academic_sources": [],
       "not_equivalent_to": [
@@ -547,7 +772,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_NETWORK",
@@ -567,7 +800,15 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "method_sources": [],
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_SOUL_LITERARY_GENEALOGY",
@@ -588,7 +829,15 @@
       "almas_use": "Antecedente terminológico e imaginativo; no se convierte automáticamente en ontología ALMAS.",
       "concept_class": "HISTORICAL_GENEALOGY",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DUAL_SOUL_LITERARY_MODEL",
@@ -607,7 +856,15 @@
       "almas_use": "Se conserva como motivo literario específico, separado de Platón, Upanishads y doctrinas institucionales posteriores.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "THEOSOPHICAL_MONAD",
@@ -626,7 +883,15 @@
       "almas_use": "Toda inferencia de pareja monádica requiere una fuente adicional; la Mónada de Blavatsky no equivale por sí sola a una díada romántica.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "HISTORICAL_RECEPTION",
@@ -643,7 +908,15 @@
       "almas_use": "Sirve para genealogía histórica y circulación conceptual, no para atribuir doctrina al medio receptor.",
       "concept_class": "HISTORICAL_GENEALOGY",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "ESOTERIC_ASTROLOGY",
@@ -662,7 +935,15 @@
       "almas_use": "Aporta marco de alma/desarrollo; las técnicas relacionales ALMAS requieren fuentes y reglas propias.",
       "concept_class": "TECHNICAL_METHOD",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_ONTOLOGY_BAILEY",
@@ -682,7 +963,15 @@
       "almas_use": "Marco comparativo para niveles del ser; no se traduce automáticamente en parejas o contratos.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_PERSONALITY_RELATION",
@@ -701,7 +990,15 @@
       "almas_use": "Puede informar lecturas individuales evolutivas; no es una polaridad de pareja.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "EVOLUTIONARY_STAGE_ASTROLOGY",
@@ -719,7 +1016,15 @@
       "almas_use": "Puede modular hermenéutica individual, pero no debe utilizarse para jerarquizar personas sin criterios explícitos.",
       "concept_class": "TECHNICAL_METHOD",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DRACONIC_METHOD_MODERN",
@@ -739,7 +1044,15 @@
       "almas_use": "ALMAS la usa como transformación nodal dependiente y capa corroborativa, nunca como evidencia independiente automática.",
       "concept_class": "TECHNICAL_METHOD",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "RECOGNITION_PHENOMENOLOGY",
@@ -758,7 +1071,15 @@
       "almas_use": "Se registra como experiencia/uso contemporáneo; puede compararse con arquitectura astrológica pero no define ontología.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SYNCHRONICITY_REPORT",
@@ -777,7 +1098,15 @@
       "almas_use": "Puede formar parte de la cronología emic, pero no añade raíz estructural ni categoría.",
       "concept_class": "PHENOMENOLOGY",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TRANSFORMATION_REPORT",
@@ -796,7 +1125,15 @@
       "almas_use": "Informa función vivida/documentada y puede contrastarse con PT; no discrimina origen.",
       "concept_class": "PHENOMENOLOGY",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_EMIC_USAGE",
@@ -814,7 +1151,15 @@
       "almas_use": "Se conserva como D_USO_CONTEMPORANEO y nunca como confirmación de LG.",
       "concept_class": "PHENOMENOLOGY",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "NEW_AGE_THEODICY",
@@ -833,7 +1178,15 @@
       "almas_use": "Contextualiza el uso moderno del contrato álmico y ayuda a distinguirlo de doctrinas históricas anteriores.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "CONTEMPORARY_SOUL_CONTRACT_USAGE",
@@ -853,7 +1206,15 @@
       "almas_use": "Pertenece a D_USO_CONTEMPORANEO salvo cuando una fuente primaria específica formula su propia doctrina.",
       "concept_class": "DOCTRINAL_ANALYTIC",
       "historical_sources": [],
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "KARMIC_CONTINUITY",
@@ -866,7 +1227,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SPLIT_SOUL",
@@ -879,7 +1248,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "MONADIC_PAIR",
@@ -892,7 +1269,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOULMATE",
@@ -905,7 +1290,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "OBJECTIVE_ONTOLOGY",
@@ -918,7 +1311,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "PAST_LIFE_PROOF",
@@ -931,7 +1332,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_CONTRACT_PROOF",
@@ -944,7 +1353,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "WOUND_REPAIR",
@@ -960,7 +1377,15 @@
       ],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Categoría funcional para interpretar exposición, activación, conciencia e integración de vulnerabilidad mediante raíces quirónicas. Las fuentes de método ayudan a diferenciar el contenido según planeta/casa/aspecto; no convierten dolor en evidencia ontológica ni equivalen a tikkun."
+      "almas_use": "Categoría funcional para interpretar exposición, activación, conciencia e integración de vulnerabilidad mediante raíces quirónicas. Las fuentes de método ayudan a diferenciar el contenido según planeta/casa/aspecto; no convierten dolor en evidencia ontológica ni equivalen a tikkun.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "MISSION_SERVICE_RELATIONAL",
@@ -973,7 +1398,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "WESTERN_ESOTERICISM_ALL",
@@ -986,7 +1419,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DETAILED_LIFE_SCRIPT",
@@ -999,7 +1440,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "FATALISM",
@@ -1012,7 +1461,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "FIRST_SECOND_SPOUSE_SIMPLE",
@@ -1025,7 +1482,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_PHASE",
@@ -1038,7 +1503,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DYADIC_SOUL_CONTRACT",
@@ -1051,7 +1524,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DOCTRINAL_ENDORSEMENT",
@@ -1064,7 +1545,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "RELATIONSHIP_ASTROLOGY",
@@ -1096,7 +1585,15 @@
         "firmicus_mathesis_2_29_antiscia"
       ],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera y técnico para documentar sinastría, combinaciones planetarias, superposiciones de casas, dinámica psicológica/proyectiva, procesos transformativos, cartas relacionales, declinaciones, simetrías y activación por tránsitos. Las fuentes técnicas/históricas fundamentan método e interpretación, pero la existencia de la técnica no añade evidencia ontológica por sí misma."
+      "almas_use": "Concepto frontera y técnico para documentar sinastría, combinaciones planetarias, superposiciones de casas, dinámica psicológica/proyectiva, procesos transformativos, cartas relacionales, declinaciones, simetrías y activación por tránsitos. Las fuentes técnicas/históricas fundamentan método e interpretación, pero la existencia de la técnica no añade evidencia ontológica por sí misma.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_CONTRACT_ASTROLOGY",
@@ -1109,7 +1606,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_ASTROLOGY",
@@ -1122,7 +1627,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DIVINE_MASCULINE_FEMININE",
@@ -1135,7 +1648,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "RELATIONAL_POLARITY",
@@ -1148,7 +1669,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "RELATIONSHIP_PHASE",
@@ -1161,7 +1690,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "ANCIENT_DRACONIC_TRADITION",
@@ -1174,7 +1711,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "CAUSAL_PROOF",
@@ -1187,7 +1732,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "OBJECTIVE_METAPHYSICAL_STATUS",
@@ -1200,7 +1753,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_ASTROLOGICAL_MODEL",
@@ -1213,7 +1774,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SPIRITIST_TRIAL_DOCTRINE",
@@ -1226,7 +1795,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "KARDEC_PREINCARNATIONAL_CHOICE",
@@ -1239,7 +1816,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "LURIANIC_ZIVUG",
@@ -1252,7 +1837,15 @@
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo."
+      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "ARCHETYPAL_PURPOSE",
@@ -1270,7 +1863,15 @@
       ],
       "almas_use": "Contextualiza propósito y rol; no autoriza a derivar un arquetipo concreto sólo desde un aspecto astrológico.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "AUTHORSHIP_HISTORY",
@@ -1289,7 +1890,15 @@
       ],
       "almas_use": "Sirve para controlar la genealogía textual de twin soul/twin flame sin convertir problemas de autoría en doctrina metafísica.",
       "concept_class": "HISTORICAL_GENEALOGY",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "BODY_SELECTION",
@@ -1307,7 +1916,15 @@
       ],
       "almas_use": "Se registra como motivo contemporáneo de planificación; no se presume ni se operacionaliza astrológicamente sin regla específica.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "FAMILY_SELECTION",
@@ -1325,7 +1942,15 @@
       ],
       "almas_use": "Puede informar modelos de contexto preencarnatorio; no prueba que una relación concreta haya sido pactada.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "INCARNATION_TIMING",
@@ -1343,7 +1968,15 @@
       ],
       "almas_use": "No se convierte en regla astrológica causal; permanece como motivo doctrinal/contemporáneo.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "KARMIC_PLANNING",
@@ -1361,7 +1994,15 @@
       ],
       "almas_use": "Contextualiza una posible planificación kármica; no identifica por sí sola el tipo de relación.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "LURIANIC_KABBALAH",
@@ -1387,7 +2028,15 @@
       ],
       "almas_use": "Marco doctrinal propio; sus conceptos no se traducen automáticamente a categorías New Age.",
       "concept_class": "DOCTRINAL_FRAMEWORK",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "MONAD_SOUL_PERSONALITY",
@@ -1405,7 +2054,15 @@
       ],
       "almas_use": "Sirve para distinguir niveles ontológicos; no implica una pareja monádica.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "PAIRED_SOULS",
@@ -1423,7 +2080,15 @@
       ],
       "almas_use": "Se conserva como categoría descriptiva del texto fuente; no se equipara a llama gemela.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "PLANNED_CHALLENGES",
@@ -1443,7 +2108,15 @@
       ],
       "almas_use": "Puede compararse con la elección de pruebas sin declarar equivalencia doctrinal.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "PLANNED_RELATIONSHIPS",
@@ -1464,7 +2137,15 @@
       ],
       "almas_use": "Antecedente contemporáneo para contrato relacional; la especificidad bilateral requiere evidencia adicional.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "REINCARNATIONAL_CONTINUITY",
@@ -1482,7 +2163,15 @@
       ],
       "almas_use": "Informa historia/continuidad; no determina por sí sola origen compartido ni contrato.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "REINCARNATION_NEW_AGE",
@@ -1500,7 +2189,15 @@
       ],
       "almas_use": "Contexto histórico-académico para distinguir síntesis modernas de doctrinas tradicionales.",
       "concept_class": "ACADEMIC_CONTEXT",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "RELATIONAL_PURPOSE",
@@ -1518,7 +2215,15 @@
       ],
       "almas_use": "Permite modelar función relacional sin asumir contrato bilateral literal.",
       "concept_class": "CONTEMPORARY_MODEL",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "RETURN_FOR_OTHERS",
@@ -1536,7 +2241,15 @@
       ],
       "almas_use": "Antecedente doctrinal para función inter-almas; no implica acuerdo romántico.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SEPARATION_REUNION",
@@ -1554,7 +2267,15 @@
       ],
       "almas_use": "No se convierte automáticamente en fase obligatoria de separación/reunión de llamas gemelas.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SERVICE_MISSION",
@@ -1572,7 +2293,15 @@
       ],
       "almas_use": "Permite distinguir misión individual de misión compartida de pareja.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SOUL_IDENTITY",
@@ -1593,7 +2322,15 @@
       ],
       "almas_use": "Ayuda a evitar que raíz del alma, identidad individual y pareja metafísica se confundan.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TEACHER_STUDENT_ROOT",
@@ -1613,7 +2350,15 @@
       ],
       "almas_use": "Refuerza que compartir raíz o continuidad no determina modalidad romántica.",
       "concept_class": "DOCTRINAL_ANALYTIC",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "WESTERN_ESOTERICISM_CONTEXT",
@@ -1632,7 +2377,15 @@
       ],
       "almas_use": "Contextualiza genealogías sin afirmar continuidad doctrinal donde sólo existe semejanza.",
       "concept_class": "ACADEMIC_CONTEXT",
-      "status": "DEFINED"
+      "status": "DEFINED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "LOT_OF_FORTUNE",
@@ -1652,7 +2405,15 @@
         "SOUL_CONTRACT_PROOF",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "M13 lo preserva como contexto histórico de cuerpo, condiciones corporales y trabajo/actividad manual según Valens; signo y casa cualifican el campo, sin convertirlo en destino ni evidencia ontológica relacional."
+      "almas_use": "M13 lo preserva como contexto histórico de cuerpo, condiciones corporales y trabajo/actividad manual según Valens; signo y casa cualifican el campo, sin convertirlo en destino ni evidencia ontológica relacional.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "LOT_OF_SPIRIT",
@@ -1672,7 +2433,15 @@
         "SOUL_CONTRACT_PROOF",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "M13 lo preserva como contexto histórico de asuntos intelectuales/espirituales y actividades de dar/recibir según Valens; signo y casa cualifican el campo, sin equipararlo automáticamente con alma superior, misión, contrato o tipo de vínculo."
+      "almas_use": "M13 lo preserva como contexto histórico de asuntos intelectuales/espirituales y actividades de dar/recibir según Valens; signo y casa cualifican el campo, sin equipararlo automáticamente con alma superior, misión, contrato o tipo de vínculo.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SECT_REVERSAL_LOTS",
@@ -1689,7 +2458,15 @@
       "not_equivalent_to": [
         "SECT_LOTS"
       ],
-      "almas_use": "Regla de cálculo declarativa; no añade interpretación metafísica por sí misma."
+      "almas_use": "Regla de cálculo declarativa; no añade interpretación metafísica por sí misma.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "DAIMON",
@@ -1708,7 +2485,15 @@
         "HIGHER_SELF",
         "SOUL_CONTRACT"
       ],
-      "almas_use": "Conserva el término histórico y evita equipararlo automáticamente con alma, Mónada o Yo Superior."
+      "almas_use": "Conserva el término histórico y evita equipararlo automáticamente con alma, Mónada o Yo Superior.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "SECT_LOTS",
@@ -1725,7 +2510,15 @@
       "not_equivalent_to": [
         "SECT_REVERSAL_LOTS"
       ],
-      "almas_use": "Etiqueta técnica de genealogía/metodología; no actúa como discriminador ontológico."
+      "almas_use": "Etiqueta técnica de genealogía/metodología; no actúa como discriminador ontológico.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "HESTIA_VIRGINITY",
@@ -1743,7 +2536,15 @@
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "ROMAN_VESTAL_CHASTITY",
@@ -1752,16 +2553,29 @@
       "concept_class": "DOCTRINAL_ANALYTIC",
       "status": "DEFINED",
       "primary_sources": [
-        "plutarch_numa_vestals_9_10"
+        "plutarch_numa_vestals_9_10",
+        "gellius_attic_nights_1_12"
       ],
-      "academic_sources": [],
+      "academic_sources": [
+        "beard_vestal_sexual_status_1980",
+        "wildfang_vestal_virgins_2007",
+        "staples_vestal_virgins_1998"
+      ],
       "method_sources": [],
       "historical_sources": [],
       "not_equivalent_to": [
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "CHRISTIAN_CHASTITY",
@@ -1779,7 +2593,15 @@
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "BRAHMACHARYA",
@@ -1797,7 +2619,15 @@
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "LIBIDINAL_SUBLIMATION",
@@ -1815,7 +2645,15 @@
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "VESTA_ASTROLOGICAL_SYMBOLISM",
@@ -1833,7 +2671,15 @@
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "TWIN_FLAME_CELIBACY_USAGE",
@@ -1851,7 +2697,15 @@
         "VESTAL_WITHDRAWAL",
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS."
+      "almas_use": "Comparación atribuida a su tradición, sin traslado automático a la política experimental ALMAS.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     },
     {
       "id": "VESTAL_WITHDRAWAL",
@@ -1871,9 +2725,977 @@
         "LIBIDINAL_SUBLIMATION",
         "VESTA_ASTROLOGICAL_SYMBOLISM",
         "TWIN_FLAME_CELIBACY_USAGE",
+        "TWIN_FLAME_ORIGIN",
+        "ASCETIC_RENUNCIATION",
+        "CELIBACY_CHOSEN"
+      ],
+      "almas_use": "Variable descriptiva de fase bajo ALMAS_SURRENDER_VESTAL_V1, E_PROJECT_HYPOTHESIS. No define pureza ni origen.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "HESTIA_CENTER",
+      "label_es": "centro hestiano",
+      "definition": "Presencia doméstica y ritual de Hestia; recentrado personal como analogía E.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "status": "DEFINED",
+      "primary_sources": [
+        "homeric_hymn_hestia_24",
+        "homeric_hymn_hestia_29"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
         "TWIN_FLAME_ORIGIN"
       ],
-      "almas_use": "Variable descriptiva de fase bajo ALMAS_SURRENDER_VESTAL_V1, E_PROJECT_HYPOTHESIS. No define pureza ni origen."
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "HISTORICAL_ANALOGY_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "SACRED_CENTER",
+      "label_es": "centro sagrado",
+      "definition": "Lugar de honor o presencia cultual en un contexto textual concreto.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "homeric_hymn_hestia_24"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "HISTORICAL_ANALOGY_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "RITUAL_STABILITY",
+      "label_es": "estabilidad ritual",
+      "definition": "Continuidad cultual y libación inicial/final; no fase relacional.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "homeric_hymn_hestia_29"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "HISTORICAL_ANALOGY_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "ASCETIC_RENUNCIATION",
+      "label_es": "renuncia ascética",
+      "definition": "Disciplina religiosa de desprendimiento; requiere tradición y finalidad propias.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "john_cross_ascent_detachment",
+        "john_cross_dark_night"
+      ],
+      "academic_sources": [
+        "brown_body_society_1988",
+        "elm_virgins_god_1994"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "SEXUAL_CONTINENCE",
+      "label_es": "continencia sexual",
+      "definition": "Abstención o regulación de actos sexuales; no equivale al estado civil o al retiro afectivo.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "catechism_chastity_2337_2349"
+      ],
+      "academic_sources": [
+        "brown_body_society_1988"
+      ],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CELIBACY_CHOSEN",
+      "label_es": "celibato elegido",
+      "definition": "Elección declarada de celibato; su semántica religiosa y contemporánea debe explicitarse.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SEXUAL_CONTINENCE",
+        "RELATIONAL_WITHDRAWAL"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "RELATIONAL_WITHDRAWAL",
+      "label_es": "retirada relacional",
+      "definition": "Cambio documentado de participación o persecución relacional, sin presumir motivo espiritual. ",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "SURRENDER_TRANSPERSONAL",
+      "label_es": "entrega transpersonal",
+      "definition": "Familia comparativa E para entrega o desapego en tradiciones distintas; no equivalencia universal.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "SURRENDER_TO_TRANSCENDENT",
+      "label_es": "refugio o entrega a lo trascendente",
+      "definition": "Entrega a una instancia divina identificada por la tradición.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "bhagavad_gita_18_66",
+        "ramanuja_saranagati_gadyam",
+        "ramanuja_gita_18_66"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "RELINQUISH_CONTROL",
+      "label_es": "renuncia al control apropiativo",
+      "definition": "Correspondencia analítica de ALMAS con la renuncia al sentido de agencia; no traducción literal.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [
+        "ramanuja_gita_18_66"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "RELINQUISH_FRUIT_ATTACHMENT",
+      "label_es": "desapego respecto de los frutos",
+      "definition": "Renuncia al apego a resultados en el comentario atribuido.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "ramanuja_gita_18_66"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "RELINQUISH_POSSESSIVENESS",
+      "label_es": "renuncia a la posesividad",
+      "definition": "Desprendimiento del sentido de posesión en interpretación de Rāmānuja.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "ramanuja_gita_18_66"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CONTINUE_RIGHT_ACTION",
+      "label_es": "continuidad de la acción adecuada",
+      "definition": "Conservar práctica indicada mientras se abandonan agencia apropiativa y frutos; no pasividad cotidiana.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "ramanuja_gita_18_66"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CHIRON_MYTH_HEALER",
+      "label_es": "Quirón maestro de medicina",
+      "definition": "Quirón como educador de Asclepio en el pasaje clásico.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "status": "DEFINED",
+      "primary_sources": [
+        "pindar_pythian_3_chiron"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "CHIRON_ASTROLOGICAL_WOUNDED_HEALER"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "HISTORICAL_ANALOGY_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CHIRON_MYTH_UNHEALABLE_WOUND",
+      "label_es": "herida mítica incurable de Quirón",
+      "definition": "Herida e inmortalidad en Biblioteca 2.5.4.",
+      "concept_class": "HISTORICAL_GENEALOGY",
+      "status": "DEFINED",
+      "primary_sources": [
+        "apollodorus_library_chiron_wound"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "CHIRON_ASTROLOGICAL_WOUNDED_HEALER"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "HISTORICAL_ANALOGY_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CHIRON_ASTROLOGICAL_WOUNDED_HEALER",
+      "label_es": "sanador herido astrológico",
+      "definition": "Interpretación moderna; no doctrina griega unitaria.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "reinhart_chiron_healing_journey_2010"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "epistemic_class": "B_TECHNIQUE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CHIRON_INTEGRATION_PROCESS",
+      "label_es": "proceso simbólico de integración de Quirón",
+      "definition": "Interpretación moderna de elaboración y ciclos; no diagnóstico clínico.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "stein_essence_application_chiron",
+        "reinhart_chiron_healing_journey_2010"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "epistemic_class": "B_TECHNIQUE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "MODERN_NODAL_REINCARNATION",
+      "label_es": "modelo nodal reencarnacionista moderno",
+      "definition": "Lectura de nodos atribuida a la escuela de Schulman; pasaje técnico pendiente.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "schulman_nodes_reincarnation_1975"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "epistemic_class": "B_TECHNIQUE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "MODERN_NODAL_CAPACITY_DEVELOPMENT",
+      "label_es": "desarrollo de capacidades en lectura nodal",
+      "definition": "Método de Spiller en marco espiritual/reencarnacionista moderno; no prueba de vida pasada.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "spiller_astrology_soul_1997"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "epistemic_class": "B_TECHNIQUE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "PROVIDENTIAL_PAIRING",
+      "label_es": "emparejamiento providencial",
+      "definition": "Agencia divina en emparejamientos según Bereshit Rabbah, sin origen metafísico compartido necesario.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "bereshit_rabbah_68_4"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "SPIRIT_AFFINITY",
+      "label_es": "afinidad de espíritus",
+      "definition": "Simpatía y afinidad en Kardec; los espíritus no son medias entidades incompletas.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "kardec_spirits_affinity_298_303"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "SOULMATE_AFFINITY",
+      "label_es": "afinidad álmica comparativa",
+      "definition": "Lectura comparativa E de afinidad; no atribuir término moderno literal a Kardec.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [
+        "kardec_spirits_affinity_298_303"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "LITERAL_HALF_SOUL_REJECTION",
+      "label_es": "rechazo de medias almas literales",
+      "definition": "Negación doctrinal de mitades predestinadas en Kardec 298–303.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "kardec_spirits_affinity_298_303"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "PSYCHOLOGICAL_MIRROR",
+      "label_es": "espejo psicológico",
+      "definition": "Analogía E basada en proyección y transferencia; no diagnóstico de persona ausente.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "jung_psychology_transference"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "PROJECTION",
+      "label_es": "proyección",
+      "definition": "Concepto psicológico atribuible a una teoría y a un pasaje; no prueba de espejo metafísico.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "jung_psychology_transference"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "TRANSFERENCE",
+      "label_es": "transferencia",
+      "definition": "Dinámica descrita en contexto analista-paciente; no identidad automática con vínculo romántico.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "jung_psychology_transference"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CONIUNCTIO",
+      "label_es": "coniunctio",
+      "definition": "Unión de opuestos en la lectura alquímica de Jung; recepción textual pendiente de pasaje íntegro.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "jung_mysterium_coniunctionis"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "INTEGRATION_OF_OPPOSITES",
+      "label_es": "integración de opuestos",
+      "definition": "Modelo de integración psíquica; no encuentro obligado de dos personas.",
+      "concept_class": "CONTEMPORARY_MODEL",
+      "status": "DEFINED",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [
+        "jung_mysterium_coniunctionis"
+      ],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "C_DOCTRINE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "INTERNAL_HIEROS_GAMOS",
+      "label_es": "hieros gamos interior",
+      "definition": "Construcción E que compara integración simbólica, sin atribuir identidad histórica entre tradiciones.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "EXTERNAL_DYADIC_UNION"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "INTERNAL_OR_TRANSPERSONAL_UNION",
+      "label_es": "unión interior o transpersonal",
+      "definition": "Familia comparativa: identificar sujetos y marco de unión; Dios–alma en Teresa no equivale a integración jungiana.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "teresa_interior_castle_seventh",
+        "john_cross_dark_night"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN",
+        "EXTERNAL_DYADIC_UNION"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "DOCTRINAL_MODEL_ONLY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "EXTERNAL_DYADIC_UNION",
+      "label_es": "unión diádica externa",
+      "definition": "Relación manifestada entre dos personas, evaluable por hechos y reconocimiento bilateral.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "CHIRON_NODAL_INTEGRATION",
+      "label_es": "integración Quirón–Nodos",
+      "definition": "Arquitectura simbólica E del módulo de 1.23; no deuda factual ni contrato.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "HISTORY_CONTINUITY",
+      "label_es": "continuidad de historia",
+      "definition": "Eje interpretativo de continuidad temática; no identificación literal de vidas pasadas.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "HIEROS_GAMOS",
+      "label_es": "hieros gamos comparativo",
+      "definition": "Distinguir rito histórico, unión divina y síntesis psicológica; no universalizar el término.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "INTERNAL_INTEGRATION",
+      "label_es": "integración interior",
+      "definition": "Proceso personal documentado, independiente de desenlace romántico.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "INTEGRATION_SYMBOLISM",
+      "label_es": "simbolismo de integración",
+      "definition": "Correspondencia E de geometrías con integración; no demuestra conducta.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "EXTERNAL_ROMANTIC_REUNION",
+      "label_es": "reunión romántica externa",
+      "definition": "Desenlace factual de dos personas; requiere hechos bilaterales.",
+      "concept_class": "PROJECT_MODEL",
+      "status": "PROVISIONAL",
+      "primary_sources": [],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "TWIN_FLAME_ORIGIN"
+      ],
+      "almas_use": "Interpretación atribuida y limitada; no crea evidencia ontológica ni puntos.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
     }
   ]
 }

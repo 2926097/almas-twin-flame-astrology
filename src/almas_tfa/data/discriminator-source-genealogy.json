@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "target_almas_version": "1.24.0",
+  "target_almas_version": "1.24.1",
   "authority": "ALMAS_CANONICAL_DISCRIMINATOR_SOURCE_GENEALOGY",
   "status": "ACTIVE_EXPERIMENTAL_GENEALOGY_LAYER",
   "source_policy_ref": "docs/SOURCE_POLICY.md",
@@ -35,6 +35,16 @@
       "evidence_scope": "DOCTRINAL_CLAIM",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -55,6 +65,16 @@
       "evidence_scope": "DOCTRINAL_CLAIM",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -76,6 +96,16 @@
       "concepts": [
         "MONAD",
         "THEOSOPHICAL_MONAD"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -98,6 +128,16 @@
         "SOUL_ONTOLOGY_BAILEY",
         "SOUL_PERSONALITY_RELATION",
         "MONAD_SOUL_PERSONALITY"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -118,6 +158,16 @@
       "evidence_scope": "DOCTRINAL_CLAIM",
       "concepts": [
         "TWIN_FLAME_ORIGIN"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -138,6 +188,16 @@
       "evidence_scope": "DOCTRINAL_CLAIM",
       "concepts": [
         "TWIN_FLAME_ORIGIN"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -158,6 +218,16 @@
       "evidence_scope": "DOCTRINAL_CLAIM",
       "concepts": [
         "TWIN_FLAME_ORIGIN"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -179,6 +249,16 @@
       "concepts": [
         "TWIN_FLAME_LITERARY_GENEALOGY",
         "DUAL_SOUL_LITERARY_MODEL"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     },
     {
@@ -203,6 +283,16 @@
         "SYNCHRONICITY_REPORT",
         "TRANSFORMATION_REPORT",
         "TWIN_FLAME_EMIC_USAGE"
+      ],
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
     }
   ],

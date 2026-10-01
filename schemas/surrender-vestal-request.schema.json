@@ -230,6 +230,14 @@
         ],
         "additionalProperties": false
       }
+    },
+    "doctrinal_source_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     }
   },
   "required": [

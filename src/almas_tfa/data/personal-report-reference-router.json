@@ -43,15 +43,21 @@
     "modern_psychological": {
       "status": "SUPPORTED",
       "epistemic_scope": [
-        "B_TECHNIQUE"
+        "B_TECHNIQUE",
+        "C_DOCTRINE"
       ],
       "source_ids": [
         "arroyo_relationships_life_cycles_1993",
         "arroyo_astrology_karma_transformation_1992",
         "greene_relating_1978",
-        "reinhart_chiron_healing_journey_2010"
+        "reinhart_chiron_healing_journey_2010",
+        "stein_essence_application_chiron",
+        "jung_psychology_transference",
+        "jung_mysterium_coniunctionis"
       ],
-      "internal_refs": [],
+      "internal_refs": [
+        "reference/corpus-doctrine-expansion.md"
+      ],
       "gap_reason": null
     },
     "evolutionary": {
@@ -73,9 +79,15 @@
       ],
       "source_ids": [
         "arroyo_astrology_karma_transformation_1992",
-        "steiner_karmic_relationships_1924"
+        "steiner_karmic_relationships_1924",
+        "schulman_nodes_reincarnation_1975",
+        "spiller_astrology_soul_1997",
+        "kardec_spirits_affinity_298_303",
+        "plato_republic_er_choice"
       ],
-      "internal_refs": [],
+      "internal_refs": [
+        "reference/corpus-doctrine-expansion.md"
+      ],
       "gap_reason": "La capa combina un método astrológico identificado con doctrina reencarnacionista; ambas clases deben permanecer separadas en autoría."
     },
     "draconic": {
@@ -117,9 +129,13 @@
         "vital_sefer_etz_chaim",
         "vital_pri_etz_chaim",
         "magid_life_of_soul_lurianic_gilgul",
-        "fishbane_personal_identity_lurianic_gilgul_2024"
+        "fishbane_personal_identity_lurianic_gilgul_2024",
+        "bereshit_rabbah_68_4",
+        "petach_einayim_sotah_2a_2"
       ],
-      "internal_refs": [],
+      "internal_refs": [
+        "reference/corpus-doctrine-expansion.md"
+      ],
       "gap_reason": "Estas fuentes sostienen hermenéutica cabalística del alma, gilgul, raíz y zivug; no constituyen por sí mismas un método validado de astrología cabalística natal."
     },
     "lots": {
@@ -158,13 +174,19 @@
     "asteroids": {
       "status": "SUPPORTED",
       "epistemic_scope": [
-        "B_TECHNIQUE"
+        "B_TECHNIQUE",
+        "C_DOCTRINE"
       ],
       "source_ids": [
         "george_bloch_asteroid_goddesses_2003",
-        "lang_wescott_eros_basic_resources"
+        "lang_wescott_eros_basic_resources",
+        "homeric_hymn_hestia_24",
+        "homeric_hymn_hestia_29",
+        "gellius_attic_nights_1_12"
       ],
-      "internal_refs": [],
+      "internal_refs": [
+        "reference/corpus-doctrine-expansion.md"
+      ],
       "gap_reason": null
     },
     "timing": {

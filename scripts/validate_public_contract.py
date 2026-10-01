@@ -9,6 +9,13 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
+    "src/almas_tfa/corpus_doctrine.py",
+    "src/almas_tfa/data/corpus-doctrine-policy.json",
+    "schemas/corpus-doctrine-policy.schema.json",
+    "reference/corpus-doctrine-expansion.md",
+    "reference/corpus-expansion-audit-1.24.1.json",
+    "reference/source-audit-2026-10-01.md",
+    "docs/RELEASE_AUDIT_1.24.1.md",
     "reference/surrender-vestal-contract.md",
     "reference/surrender-vestal-corpus.md",
     "src/almas_tfa/surrender_vestal.py",
@@ -5320,6 +5327,27 @@ def main() -> int:
     validate_surrender_vestal_result(vestal_result)
     if vestal_fixture.get("synthetic") is not True or vestal_result != vestal_fixture.get("expected"):
         fail("surrender vestal synthetic fixture is not reproducible")
+
+    from almas_tfa.corpus_doctrine import assess_corpus_claim, corpus_source_trace, load_corpus_doctrine_policy
+    corpus_policy = load_corpus_doctrine_policy()
+    if corpus_policy.get("target_almas_version") != version:
+        fail("corpus doctrinal version diverges from VERSION")
+    if corpus_policy.get("ontology_effect") != "NONE" or any(corpus_policy.get(key) is not False for key in ("source_count_adds_weight", "iem_modified", "pu_created", "l3_substituted")):
+        fail("corpus doctrinal must preserve quantitative and ontological gates")
+    corpus_snapshots = corpus_policy.get("source_snapshots", [])
+    if {s["id"]: s for s in corpus_snapshots} != source_entries or len(corpus_snapshots) != len(source_entries):
+        fail("corpus source snapshot drift")
+    if corpus_policy.get("concept_ceilings") != {c["id"]: c["inferential_ceiling"] for c in concept_registry["concepts"]}:
+        fail("corpus concept ceiling drift")
+    for assertion in corpus_policy.get("assertions", []):
+        if assertion.get("source_id") not in source_entries or assertion.get("concept_id") not in concept_ids:
+            fail("corpus assertion has unresolved reference")
+    for upgrade in corpus_policy["forbidden_upgrades"]:
+        guarded = assess_corpus_claim("PREINCARNATIONAL_CHOICE", ["plato_republic_er_choice"], proposed_upgrade=upgrade)
+        if guarded["status"] != "INSUFFICIENT" or guarded["blocked_upgrades"] != [upgrade]:
+            fail("corpus forbidden upgrade gate failed")
+    if len(corpus_source_trace(["petach_einayim_sotah_2a_2", "vital_shaar_hagilgulim_20_zivug"])["dependency_groups"]) != 1:
+        fail("Lurianic corpus duplicated dependent roots")
 
     print("ALMAS public contract validation: PASS")
     print(f"Astrology package: {version}")

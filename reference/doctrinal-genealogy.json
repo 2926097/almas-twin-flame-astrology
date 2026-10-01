@@ -1,6 +1,6 @@
 {
-  "genealogy_version": "1.1.0",
-  "almas_version": "1.24.0",
+  "genealogy_version": "1.2.0",
+  "almas_version": "1.24.1",
   "edges": [
     {
       "from": "SPLIT_PRIMORDIAL_BEING",
@@ -561,6 +561,97 @@
       "relation": "NON_EQUIVALENT",
       "status": "INSUFFICIENT",
       "note": "Comparación conceptual sin identidad doctrinal ni transmisión histórica demostrada; no valida la operacionalización E de ALMAS."
+    },
+    {
+      "from": "CELIBACY_CHOSEN",
+      "to": "SEXUAL_CONTINENCE",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "CELIBACY_CHOSEN",
+      "to": "RELATIONAL_WITHDRAWAL",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "VESTAL_WITHDRAWAL",
+      "to": "ASCETIC_RENUNCIATION",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "VESTAL_WITHDRAWAL",
+      "to": "CELIBACY_CHOSEN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "INTERNAL_HIEROS_GAMOS",
+      "to": "EXTERNAL_DYADIC_UNION",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "INTERNAL_OR_TRANSPERSONAL_UNION",
+      "to": "EXTERNAL_DYADIC_UNION",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "PREINCARNATIONAL_CHOICE",
+      "to": "DYADIC_SOUL_CONTRACT",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "SPIRIT_AFFINITY",
+      "to": "SPLIT_SOUL",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "PROVIDENTIAL_PAIRING",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "CHIRON_MYTH_HEALER",
+      "to": "CHIRON_ASTROLOGICAL_WOUNDED_HEALER",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "CHIRON_MYTH_UNHEALABLE_WOUND",
+      "to": "CHIRON_ASTROLOGICAL_WOUNDED_HEALER",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "Alcance: distinción conceptual, no exclusión ontológica validada de un caso."
+    },
+    {
+      "from": "LITERAL_HALF_SOUL_REJECTION",
+      "to": "SPLIT_SOUL",
+      "relation": "DOCTRINAL_CONSTRAINT",
+      "status": "CONTRADICTED",
+      "note": "Kardec 298–303 contradice medias almas literales dentro de su doctrina; no falsación empírica general."
+    },
+    {
+      "from": "INTEGRATION_OF_OPPOSITES",
+      "to": "INTERNAL_HIEROS_GAMOS",
+      "relation": "PROJECT_OPERATIONALIZATION",
+      "status": "E_PROJECT_HYPOTHESIS",
+      "note": "Síntesis comparativa ALMAS, no término identificado literalmente en el pasaje de Jung."
     }
   ]
 }
