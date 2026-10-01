@@ -25,7 +25,16 @@
           "concepts",
           "supports",
           "does_not_support",
-          "verification_status"
+          "verification_status",
+          "source_id",
+          "date",
+          "passage",
+          "historical_context",
+          "dependency_root",
+          "dependency_kind",
+          "inferential_ceiling",
+          "forbidden_upgrades",
+          "notes"
         ],
         "properties": {
           "id": {
@@ -208,6 +217,56 @@
               "TECHNICAL_METHOD",
               null
             ]
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "historical_context": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dependency_root": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "dependency_kind": {
+            "enum": [
+              "UNRESOLVED",
+              "DOCUMENTED_INFLUENCE",
+              "CONSERVATIVE_DOCTRINAL_FAMILY"
+            ]
+          },
+          "inferential_ceiling": {
+            "enum": [
+              "HISTORICAL_ANALOGY_ONLY",
+              "DOCTRINAL_MODEL_ONLY",
+              "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+              "RELATIONAL_ARCHITECTURE_COMPATIBLE",
+              "PREINCARNATIONAL_CHOICE_ONLY",
+              "NOT_ONTOLOGICAL_DISCRIMINATOR"
+            ]
+          },
+          "forbidden_upgrades": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+                "DO_NOT_INFER_BILATERAL_CONTRACT",
+                "DO_NOT_INFER_RECIPROCITY",
+                "DO_NOT_INFER_REUNION",
+                "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+              ]
+            }
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": true

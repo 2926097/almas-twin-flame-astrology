@@ -179,3 +179,7 @@ verifica:
 La integración en M21 hace ejecutable la separación metodológica, pero no crea ningún discriminador L3 nuevo.
 
 El siguiente trabajo deberá conectar la robustez de discriminadores realmente validados con M25 sin permitir que señales L2 entren en el IRC como `VALIDATED_DISCRIMINATOR`.
+
+## Límite de la ampliación doctrinal 1.24.1
+
+`corpus_doctrine.assess_corpus_claim` atribuye pasajes y conserva límites, pero no suministra observaciones L3 ni elimina modelos del motor. SUPPORTED y CONTRADICTED en DOCTRINAL_ATTRIBUTION pertenecen a la afirmación dentro de una fuente. La acumulación de citas, incluso de familias diferentes, no crea PU, no modifica IEM/IDD y no valida el origen de una díada.

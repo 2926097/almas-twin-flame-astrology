@@ -80,3 +80,7 @@ El repositorio puede enlazar dominio público, acceso abierto y descargas autori
 No almacena copias completas de obras comerciales o con copyright cuando no existe permiso explícito.
 
 El registro máquina-a-máquina está en `reference/source-registry.json`.
+
+## Ampliación 1.24.1
+
+El corpus alcanza 109 fuentes y 143 conceptos; sus incorporaciones, localizadores, edición y límites se detallan en `reference/corpus-doctrine-expansion.md` y `reference/source-audit-2026-10-01.md`. Las fuentes consultadas sólo por metadatos permanecen limitadas a información bibliográfica. La oposición doctrinal de Kardec al split-soul literal no se transforma en exclusión ontológica de un caso.

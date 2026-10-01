@@ -25,3 +25,7 @@ La ruta personal acepta `surrender_vestal` y verifica identidad contra el sujeto
 La secuencia reconocimiento, activación, crisis, saturación, retirada de persecución, retirada vestal, recuperación, integración y redefinición es una propuesta E no obligatoria. No se rellenan etapas ausentes ni se reemplaza la taxonomía documental ya operativa. La redefinición admite reunión, cambio de relación, vínculo no romántico, continuidad transpersonal, servicio, cierre o indeterminación. En la salida personal el desenlace y la activación bilateral permanecen no evaluables; ninguna integración personal demuestra reciprocidad.
 
 El plan original contiene aspectos y una clasificación preliminar de un caso privado. Se tratan como afirmaciones pendientes de cálculo y contraste, no como fixtures ni resultados canónicos. El módulo procesa cualquier sujeto con las mismas reglas y no necesita excepciones creadas para ese caso. La versión no publica nombres, fechas natales ni observaciones privadas en el repositorio público.
+
+## Trazabilidad doctrinal 1.24.1
+
+La solicitud admite `doctrinal_source_refs[]` del snapshot canónico. La salida expone tres capas en `traceability`: observaciones documentales admitidas, referencias doctrinales agrupadas conservadoramente y señales simbólicas admitidas. Las citas permanecen contexto comparativo y no afectan el cálculo del estado, el respaldo conductual, celibato, outcome ni scoring. La validación reproduce también estas capas desde sus entradas minimizadas.

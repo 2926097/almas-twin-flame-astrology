@@ -1,6 +1,6 @@
 {
   "map_version": "1.4.0",
-  "almas_version": "1.24.0",
+  "almas_version": "1.24.1",
   "principles": [
     "La doctrina define conceptos y límites; su mera existencia no aporta puntuación estructural.",
     "Los mapeos astrológicos creados por ALMAS son E_PROJECT_HYPOTHESIS salvo que la fuente citada proporcione explícitamente la técnica.",
@@ -640,6 +640,120 @@
       ],
       "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
       "reason": "El nodo medio lunar se calcula mediante la fórmula astronómica declarada para reproducir una variante nodal; su disponibilidad técnica no añade puntuación doctrinal ni evidencia ontológica."
+    },
+    {
+      "concept_id": "VESTAL_WITHDRAWAL",
+      "metaphysical_variable": "INTEGRATION_SYMBOLISM",
+      "source_basis": [
+        "homeric_hymn_hestia_24",
+        "homeric_hymn_hestia_29",
+        "gellius_attic_nights_1_12"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "vesta_natal_aspects_houses",
+        "temporal_activation_of_existing_roots"
+      ],
+      "inadmissible_inferences": [
+        "celibato factual",
+        "deuda o identidad de vida pasada",
+        "contrato bilateral",
+        "reunión romántica"
+      ],
+      "source_alignment": "COMPARATIVE_ANALOGUE_METHOD_PROJECT",
+      "validation_state": "EXPLORATORY_NOT_ONTOLOGICALLY_VALIDATED",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "documented_behavior",
+        "existing_structural_roots"
+      ],
+      "required_gates": [
+        "no_single_symbol_proof",
+        "scope_explicit",
+        "documentary_behavior_required_for_phase"
+      ],
+      "discriminating_power": "NONE_ONTOLOGICAL",
+      "forbidden_upgrade": [
+        "shared_origin",
+        "bilateral_contract",
+        "romantic_destiny"
+      ]
+    },
+    {
+      "concept_id": "CHIRON_NODAL_INTEGRATION",
+      "metaphysical_variable": "INTEGRATION_SYMBOLISM",
+      "source_basis": [
+        "pindar_pythian_3_chiron",
+        "apollodorus_library_chiron_wound",
+        "stein_essence_application_chiron"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "chiron_nodal_roots",
+        "declared_school_and_dependencies"
+      ],
+      "inadmissible_inferences": [
+        "celibato factual",
+        "deuda o identidad de vida pasada",
+        "contrato bilateral",
+        "reunión romántica"
+      ],
+      "source_alignment": "CLASSICAL_ANTECEDENT_MODERN_METHOD_PROJECT",
+      "validation_state": "EXPLORATORY_NOT_ONTOLOGICALLY_VALIDATED",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "documented_behavior",
+        "existing_structural_roots"
+      ],
+      "required_gates": [
+        "no_single_symbol_proof",
+        "scope_explicit",
+        "documentary_behavior_required_for_phase"
+      ],
+      "discriminating_power": "NONE_ONTOLOGICAL",
+      "forbidden_upgrade": [
+        "shared_origin",
+        "bilateral_contract",
+        "romantic_destiny"
+      ]
+    },
+    {
+      "concept_id": "INTERNAL_HIEROS_GAMOS",
+      "metaphysical_variable": "INTEGRATION_SYMBOLISM",
+      "source_basis": [
+        "teresa_interior_castle_seventh"
+      ],
+      "operationalization_class": "E_PROJECT_HYPOTHESIS",
+      "admissible_astrology": [
+        "integration_symbolism"
+      ],
+      "inadmissible_inferences": [
+        "celibato factual",
+        "deuda o identidad de vida pasada",
+        "contrato bilateral",
+        "reunión romántica"
+      ],
+      "source_alignment": "COMPARATIVE_ANALOGUE_METHOD_PROJECT",
+      "validation_state": "EXPLORATORY_NOT_ONTOLOGICALLY_VALIDATED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "structural_score_policy": "NO_DIRECT_DOCTRINAL_POINTS",
+      "dependencies": [
+        "documented_behavior",
+        "existing_structural_roots"
+      ],
+      "required_gates": [
+        "no_single_symbol_proof",
+        "scope_explicit",
+        "documentary_behavior_required_for_phase"
+      ],
+      "discriminating_power": "NONE_ONTOLOGICAL",
+      "forbidden_upgrade": [
+        "shared_origin",
+        "bilateral_contract",
+        "romantic_destiny"
+      ]
     }
   ],
   "coverage": [
@@ -1170,8 +1284,193 @@
     },
     {
       "concept_id": "VESTAL_WITHDRAWAL",
-      "coverage_state": "PROJECT_INTERNAL",
+      "coverage_state": "MAPPED",
       "reason": "Extensión exploratoria de fase; no añade scoring ni confirma origen. Las doctrinas conservan sus contextos propios."
+    },
+    {
+      "concept_id": "HESTIA_CENTER",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "SACRED_CENTER",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "RITUAL_STABILITY",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "ASCETIC_RENUNCIATION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "SEXUAL_CONTINENCE",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CELIBACY_CHOSEN",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "RELATIONAL_WITHDRAWAL",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "SURRENDER_TRANSPERSONAL",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "SURRENDER_TO_TRANSCENDENT",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "RELINQUISH_CONTROL",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "RELINQUISH_FRUIT_ATTACHMENT",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "RELINQUISH_POSSESSIVENESS",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CONTINUE_RIGHT_ACTION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CHIRON_MYTH_HEALER",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CHIRON_MYTH_UNHEALABLE_WOUND",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CHIRON_ASTROLOGICAL_WOUNDED_HEALER",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CHIRON_INTEGRATION_PROCESS",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "MODERN_NODAL_REINCARNATION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "MODERN_NODAL_CAPACITY_DEVELOPMENT",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "PROVIDENTIAL_PAIRING",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "SPIRIT_AFFINITY",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "SOULMATE_AFFINITY",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "LITERAL_HALF_SOUL_REJECTION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "PSYCHOLOGICAL_MIRROR",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "PROJECTION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "TRANSFERENCE",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CONIUNCTIO",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "INTEGRATION_OF_OPPOSITES",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "INTERNAL_HIEROS_GAMOS",
+      "coverage_state": "MAPPED",
+      "reason": "Correspondencia exploratoria E declarada; sin discriminador ontológico."
+    },
+    {
+      "concept_id": "INTERNAL_OR_TRANSPERSONAL_UNION",
+      "coverage_state": "CONTEXT_ONLY",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "EXTERNAL_DYADIC_UNION",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "CHIRON_NODAL_INTEGRATION",
+      "coverage_state": "MAPPED",
+      "reason": "Correspondencia exploratoria E declarada; sin discriminador ontológico."
+    },
+    {
+      "concept_id": "HISTORY_CONTINUITY",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "HIEROS_GAMOS",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "INTERNAL_INTEGRATION",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "INTEGRATION_SYMBOLISM",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "EXTERNAL_ROMANTIC_REUNION",
+      "coverage_state": "PROJECT_INTERNAL",
+      "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
     }
   ],
   "audit_summary": {
@@ -1180,8 +1479,9 @@
     "academic_or_method_context_sources": 5,
     "ontological_discriminators_validated": 0,
     "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory.",
-    "coverage_total": 98,
+    "coverage_total": 143,
     "note_1_14": "Fortuna/Espíritu y reglas de secta se registran como técnica/contexto histórico, no como validación ontológica.",
-    "note_1_23": "El nodo lunar medio se añade como variable técnica de cálculo y comparación; no valida inferencias metafísicas."
+    "note_1_23": "El nodo lunar medio se añade como variable técnica de cálculo y comparación; no valida inferencias metafísicas.",
+    "note_1_24_1": "Cobertura completa de 143 conceptos; límites doctrinales y correspondencias E separados."
   }
 }

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/corpus-doctrine-policy.schema.json",
+  "title": "ALMAS · Política de corpus y límites doctrinales",
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "const": "ALMAS_CORPUS_DOCTRINE_V1"
+    },
+    "target_almas_version": {
+      "const": "1.24.1"
+    },
+    "source_registry_ref": {
+      "const": "reference/source-registry.json"
+    },
+    "concept_registry_ref": {
+      "const": "reference/concept-registry.json"
+    },
+    "dependency_families": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_snapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "source-registry.schema.json#/properties/entries/items"
+      }
+    },
+    "concept_ceilings": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "enum": [
+          "HISTORICAL_ANALOGY_ONLY",
+          "DOCTRINAL_MODEL_ONLY",
+          "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+          "RELATIONAL_ARCHITECTURE_COMPATIBLE",
+          "PREINCARNATIONAL_CHOICE_ONLY",
+          "NOT_ONTOLOGICAL_DISCRIMINATOR"
+        ]
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "concept_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "polarity": {
+            "enum": [
+              "SUPPORTS",
+              "CONTRADICTS"
+            ]
+          },
+          "epistemic_class": {
+            "enum": [
+              "A_CALCULATED",
+              "B_TECHNIQUE",
+              "C_DOCTRINE",
+              "D_CONTEMPORARY_USAGE",
+              "E_PROJECT_HYPOTHESIS"
+            ]
+          }
+        },
+        "required": [
+          "concept_id",
+          "source_id",
+          "polarity",
+          "epistemic_class"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "forbidden_upgrades": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+          "DO_NOT_INFER_BILATERAL_CONTRACT",
+          "DO_NOT_INFER_RECIPROCITY",
+          "DO_NOT_INFER_REUNION",
+          "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+        ]
+      }
+    },
+    "ontology_effect": {
+      "const": "NONE"
+    },
+    "source_count_adds_weight": {
+      "const": false
+    },
+    "iem_modified": {
+      "const": false
+    },
+    "pu_created": {
+      "const": false
+    },
+    "l3_substituted": {
+      "const": false
+    }
+  },
+  "required": [
+    "policy_id",
+    "target_almas_version",
+    "source_registry_ref",
+    "concept_registry_ref",
+    "dependency_families",
+    "source_snapshots",
+    "concept_ceilings",
+    "assertions",
+    "forbidden_upgrades",
+    "ontology_effect",
+    "source_count_adds_weight",
+    "iem_modified",
+    "pu_created",
+    "l3_substituted"
+  ],
+  "additionalProperties": false
+}

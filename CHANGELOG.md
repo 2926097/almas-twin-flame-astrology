@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.24.1 — 2026-10-01
+
+Amplía el corpus con 25 fuentes, 37 conceptos y 13 relaciones conceptuales. Conserva nueve incorporaciones como metadatos con texto íntegro pendiente. Formaliza techos inferenciales, promociones prohibidas y dependencia conservadora, separando transmisión documentada de agrupación de escuela. Kardec 298–303 aporta contra-doctrina a mitades literales en su propio marco.
+
+Añade consulta doctrinal ejecutable, separación de métodos B y doctrina C, trazabilidad documental/doctrinal/simbólica en surrender, schemas y regresiones sintéticas. Elección prenatal no crea contrato bilateral; unión interior no crea reunión romántica; Vesta no crea celibato. No modifica fórmulas, pesos, umbrales, índices ni discriminadores L3.
+
 ## 1.24.0 — 2026-10-01
 
 Incorpora surrender conductual, emocional, erótico y ontológico, retirada vestal y declaraciones sexuales separadas. El módulo documental funciona sin datos astronómicos; la correspondencia simbólica exige convergencia multitécnica independiente y estructura previa. Añade contratos estrictos, gates semánticos reproducibles, adapter M27, cadena personal y sección de informes. No modifica fórmulas, pesos, IEM, IAT ni ontología de origen.

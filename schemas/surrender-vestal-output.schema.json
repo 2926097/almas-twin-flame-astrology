@@ -720,6 +720,123 @@
         "type": "string",
         "minLength": 1
       }
+    },
+    "traceability": {
+      "type": "object",
+      "properties": {
+        "documentary_behavior": {
+          "type": "object",
+          "properties": {
+            "observation_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "scope": {
+              "const": "DOCUMENTED_BEHAVIOR"
+            }
+          },
+          "required": [
+            "observation_refs",
+            "scope"
+          ],
+          "additionalProperties": false
+        },
+        "doctrinal_correspondence": {
+          "type": "object",
+          "properties": {
+            "source_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "dependency_groups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dependency_root": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                "required": [
+                  "dependency_root",
+                  "source_refs"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "unresolved_dependency_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "independence_validated": {
+              "const": false
+            },
+            "source_count_adds_weight": {
+              "const": false
+            },
+            "scope": {
+              "const": "COMPARATIVE_CONTEXT_ONLY"
+            }
+          },
+          "required": [
+            "source_refs",
+            "dependency_groups",
+            "unresolved_dependency_refs",
+            "independence_validated",
+            "source_count_adds_weight",
+            "scope"
+          ],
+          "additionalProperties": false
+        },
+        "symbolic_astrological_activation": {
+          "type": "object",
+          "properties": {
+            "signal_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "scope": {
+              "const": "PERSONAL_SYMBOLIC_PHASE_ACTIVATION"
+            }
+          },
+          "required": [
+            "signal_refs",
+            "scope"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "documentary_behavior",
+        "doctrinal_correspondence",
+        "symbolic_astrological_activation"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -747,7 +864,8 @@
     "score_created",
     "epistemic_class",
     "policy_status",
-    "limitations"
+    "limitations",
+    "traceability"
   ],
   "additionalProperties": false,
   "$schema": "https://json-schema.org/draft/2020-12/schema",

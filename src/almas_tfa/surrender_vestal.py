@@ -12,6 +12,8 @@ import json
 import math
 from typing import Any, Mapping
 
+from .corpus_doctrine import corpus_source_trace
+
 POLICY_ID = "ALMAS_SURRENDER_VESTAL_V1"
 STATES = {"ABSENT", "EMERGING", "ACTIVE", "INTEGRATED", "NOT_EVALUABLE"}
 STATUSES = {"SUPPORTED", "COMPATIBLE", "INSUFFICIENT", "CONTRADICTED", "NOT_EVALUABLE"}
@@ -89,6 +91,7 @@ def assess_surrender_vestal(request: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(request, Mapping):
         raise ValueError("surrender_vestal requiere un objeto.")
     policy = load_surrender_vestal_policy()
+    doctrine_trace = corpus_source_trace(request.get("doctrinal_source_refs", []))
     subject = _text(request.get("subject_id"), "subject_id")
     start = _date(request.get("window_start"), "window_start")
     end = _date(request.get("window_end"), "window_end")
@@ -286,6 +289,11 @@ def assess_surrender_vestal(request: Mapping[str, Any]) -> dict[str, Any]:
         "outcome": {"status": "NOT_EVALUABLE", "value": None},
         "ontology_effect": "NONE", "structural_scoring_modified": False,
         "iat_modified": False, "score_created": False,
+        "traceability": {
+            "documentary_behavior": {"observation_refs": [item["observation_id"] for item in accepted], "scope": "DOCUMENTED_BEHAVIOR"},
+            "doctrinal_correspondence": dict(doctrine_trace, scope="COMPARATIVE_CONTEXT_ONLY"),
+            "symbolic_astrological_activation": {"signal_refs": [item["signal_id"] for item in signals], "scope": "PERSONAL_SYMBOLIC_PHASE_ACTIVATION"},
+        },
         "epistemic_class": "E_PROJECT_HYPOTHESIS", "policy_status": "EXPLORATORY",
         "limitations": [
             "Los estados describen ajuste a una política experimental; no certifican una ontología ni validación empírica externa.",
@@ -302,6 +310,7 @@ def validate_surrender_vestal_result(result: Mapping[str, Any]) -> None:
     signals = [dict(item, verified=True, temporal_correspondence_documented=True) for item in result.get("temporal_activations", [])]
     request = {key: result.get(key) for key in ("subject_id", "window_start", "window_end", "structural_roots")}
     request.update(observations=result.get("documented_behaviors", []), temporal_activations=signals)
+    request["doctrinal_source_refs"] = result.get("traceability", {}).get("doctrinal_correspondence", {}).get("source_refs", [])
     reproduced = assess_surrender_vestal(request)
     if set(result) != set(reproduced):
         raise ValueError("El resultado contiene campos ausentes o no declarados.")

@@ -30,7 +30,9 @@
           "method_sources",
           "historical_sources",
           "not_equivalent_to",
-          "almas_use"
+          "almas_use",
+          "inferential_ceiling",
+          "forbidden_upgrades"
         ],
         "properties": {
           "id": {
@@ -104,6 +106,30 @@
           "almas_use": {
             "type": "string",
             "minLength": 1
+          },
+          "inferential_ceiling": {
+            "enum": [
+              "HISTORICAL_ANALOGY_ONLY",
+              "DOCTRINAL_MODEL_ONLY",
+              "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+              "RELATIONAL_ARCHITECTURE_COMPATIBLE",
+              "PREINCARNATIONAL_CHOICE_ONLY",
+              "NOT_ONTOLOGICAL_DISCRIMINATOR"
+            ]
+          },
+          "forbidden_upgrades": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+                "DO_NOT_INFER_BILATERAL_CONTRACT",
+                "DO_NOT_INFER_RECIPROCITY",
+                "DO_NOT_INFER_REUNION",
+                "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+              ]
+            }
           }
         },
         "additionalProperties": true

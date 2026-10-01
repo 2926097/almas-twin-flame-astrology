@@ -1,6 +1,10 @@
 # Estado de validación
 
-**Versión pública:** 1.24.0
+**Versión pública:** 1.24.1
+
+## Release 1.24.1 · Corpus y doctrina
+
+La ampliación incorpora 25 fuentes y conserva nueve textos íntegros pendientes. Distingue atribución doctrinal, método y síntesis ALMAS, contra-doctrina y familias conservadoras de dependencia; añade trazabilidad personal sin alterar scoring ni L3. La regresión local pasa **786 pruebas**, incluidas **17 pruebas del corpus**; contrato público PASS con y sin extras. La verificación remota corresponde al SHA de la PR. Auditoría: `docs/RELEASE_AUDIT_1.24.1.md`.
 
 ## Release 1.24 · Surrender y retirada vestal
 
