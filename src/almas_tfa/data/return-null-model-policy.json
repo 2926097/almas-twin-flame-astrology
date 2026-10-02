@@ -1,0 +1,21 @@
+{
+  "methods": [
+    "EVENT_DATE_SHIFT",
+    "CONTROL_DATES",
+    "EVENT_DATE_PERMUTATION"
+  ],
+  "seed_required": true,
+  "fixed_budget": true,
+  "maximum_simulations": 10000,
+  "measure": "UNIQUE_DEPENDENCY_GROUP_DOCUMENTARY_FACT_EXACT_WINDOW",
+  "multiple_search": "ALL_DECLARED_CLOCKS_LOCATIONS_OVERLAYS_POINTS_ASPECTS_PASSES",
+  "formula": "(k+1)/(M+1)",
+  "static_reference_charts_only": true,
+  "probability_metaphysical": false,
+  "external_validation_status": "NOT_PERFORMED",
+  "policy_id": "ALMAS_RRA_NULL_MODEL_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

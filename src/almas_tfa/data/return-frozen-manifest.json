@@ -1,0 +1,16 @@
+{
+  "manifest_id": "ALMAS_RRA_FROZEN_V1",
+  "frozen_at": "2026-10-02",
+  "base_commit": "73caa8c7356139f4da87a97cbf91f4005ce1840c",
+  "personal_cases_used": false,
+  "resources": {
+    "return-activation-policy.json": "0a55eda8472bac895162facbe4337468d05b6030e677edfcad72b8c1b4b9dc8a",
+    "return-dependency-policy.json": "51f9fbf0a186c28b035f89bdc86539cfe5459524bd14ef5790a198e16160b0df",
+    "return-eligibility-policy.json": "ba27caf1bf67a4381fd6f163e07bf887a19b5920b8fccf4a155b21cb1d110640",
+    "return-event-window-policy.json": "c7f9e34677b0b0477ef77596319d33c7e66079a010b65c8e302b3edcd854da4c",
+    "return-location-policy.json": "7279d9d5dd4ff0b335a96841e7f46dbcc41508ccdd383a602eb2dee24bfc39ee",
+    "return-null-model-policy.json": "91cc51ae679d8d3117cb954ca9de2fb4ff69b47c62fa12c185f680d30274a7d3",
+    "return-orb-policy.json": "18724568bed12ffa78409afd0ecad2199b9c1bc9814844e6fd0d538f767430d1",
+    "return-contract-definitions.json": "b789dbc1ffb09f2300cc74a2229fb32abe12d9bb3f70fa4096ff094b999fa1cf"
+  }
+}

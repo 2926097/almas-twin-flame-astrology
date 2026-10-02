@@ -1016,3 +1016,7 @@ Reglas:
 
 Schema: `schemas/clause-assembly.schema.json` v1.1.0.  
 Reconstrucción: `schemas/preincarnation-reconstruction.schema.json` v1.9.0.
+
+## R3 · Activación relacional por retornos
+
+Para retornos solar, lunar o planetarios y overlays sobre arquitectura previa, leer `reference/relational-return-activation.md` y `docs/RRA_SOURCE_AUDIT.md`. La API está en `return_activation.py`; usar `almas-returns` para nueva ejecución con efemérides fijadas. RRA es experimental, no cambia índices u ontología y su validación externa permanece pendiente. No modificar las políticas SSAR congeladas para añadir la extensión.

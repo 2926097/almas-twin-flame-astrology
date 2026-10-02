@@ -1,0 +1,101 @@
+{
+  "status": "PASSED_NUMERICAL_RUNTIME",
+  "policy_hash": "3ef563388237f81a4b8af93d32f28e77c6cbf6c1d307a9b40879fb0263e5e134",
+  "kernel_sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+  "backend_provenance": {
+    "policy_id": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1",
+    "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+    "backend_id": "MOIRA_JPL_SPK",
+    "backend_version": "6.8.2",
+    "provider_package": "moira-astro",
+    "provider_version": "6.8.2",
+    "kernel_filename": "rra-de440s.bsp",
+    "kernel_family": "DE440",
+    "kernel_sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+    "house_system": "PLACIDUS",
+    "node_mode": "TRUE_NODE",
+    "node_variants": [
+      "TRUE",
+      "MEAN"
+    ],
+    "zodiac": "TROPICAL",
+    "coordinate_origin": "GEOCENTRIC",
+    "reference_frame": "TRUE_ECLIPTIC_AND_EQUINOX_OF_DATE",
+    "apparent_reduction": true,
+    "topocentric_positions": false,
+    "network_io_used": false,
+    "geocoding_used": false
+  },
+  "independent_method": "Skyfield 1.55 apparent geocentric ecliptic of date at common TT",
+  "independent_tolerance_arcseconds": 2,
+  "cases": [
+    {
+      "body": "SUN",
+      "reference_epoch": "2020-01-01T00:00:00Z",
+      "reference_longitude": 280.00950504133436,
+      "window": [
+        "2020-12-20T00:00:00Z",
+        "2021-01-10T00:00:00Z"
+      ],
+      "expected_passes": 1,
+      "hits": [
+        {
+          "exact_time": "2020-12-31T05:51:25.763770Z",
+          "motion_state": "DIRECT",
+          "residual_degrees": 4.218350113660563e-09,
+          "independent_skyfield_residual_degrees": 2.0740476998071244e-06
+        }
+      ]
+    },
+    {
+      "body": "MOON",
+      "reference_epoch": "2020-01-01T00:00:00Z",
+      "reference_longitude": 346.13839017369725,
+      "window": [
+        "2020-01-20T00:00:00Z",
+        "2020-02-15T00:00:00Z"
+      ],
+      "expected_passes": 1,
+      "hits": [
+        {
+          "exact_time": "2020-01-28T07:54:10.658798Z",
+          "motion_state": "DIRECT",
+          "residual_degrees": 6.376717465172987e-08,
+          "independent_skyfield_residual_degrees": 2.6165793485688482e-05
+        }
+      ]
+    },
+    {
+      "body": "VENUS",
+      "reference_epoch": "2020-05-01T00:00:00Z",
+      "reference_longitude": 79.1188904431695,
+      "window": [
+        "2020-04-01T00:00:00Z",
+        "2020-08-01T00:00:00Z"
+      ],
+      "expected_passes": 3,
+      "hits": [
+        {
+          "exact_time": "2020-05-01T00:00:00Z",
+          "motion_state": "DIRECT",
+          "residual_degrees": 0.0,
+          "independent_skyfield_residual_degrees": 2.08477149499231e-06
+        },
+        {
+          "exact_time": "2020-05-25T00:16:00.344983Z",
+          "motion_state": "RETROGRADE",
+          "residual_degrees": 4.334452796683763e-09,
+          "independent_skyfield_residual_degrees": 9.907041089718405e-07
+        },
+        {
+          "exact_time": "2020-07-25T18:51:00.564901Z",
+          "motion_state": "DIRECT",
+          "residual_degrees": 2.1746160427937866e-09,
+          "independent_skyfield_residual_degrees": 7.880892098910408e-07
+        }
+      ]
+    }
+  ],
+  "personal_cases_used": false,
+  "external_relational_validation": "NOT_PERFORMED"
+}

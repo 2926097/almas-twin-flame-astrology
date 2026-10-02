@@ -1,0 +1,29 @@
+{
+  "ordinary_bodies": [
+    "SUN",
+    "MOON",
+    "MERCURY",
+    "VENUS",
+    "MARS",
+    "JUPITER",
+    "SATURN"
+  ],
+  "conditional_bodies": "QUALIFIED_SSAR_ONLY",
+  "ordinary_outer_planet_returns": false,
+  "chart_layers": [
+    "NATAL",
+    "SYNASTRY",
+    "COMPOSITE",
+    "DAVISON",
+    "DRACONIC",
+    "SSAR",
+    "EVENT"
+  ],
+  "physical_frame": "TROPICAL_GEOCENTRIC_APPARENT_OF_DATE",
+  "draconic_reference_is_symbolic": true,
+  "policy_id": "ALMAS_RRA_ELIGIBILITY_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

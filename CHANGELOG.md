@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.25.0 R3 · RRA — 2026-10-02
+
+Añade retornos longitudinales exactos y todas las pasadas, cartas Moira por ubicación explícita, overlays anclados, intervalos de eventos, recurrencia deduplicada, controles nulos exploratorios y ocho ablaciones. Extiende opcionalmente `ssar.temporal_activation` sin modificar recursos SSAR congelados o índices. Integra solicitud explícita antes de M30, CLI, schemas, corpus y documentos de método. Corrige cancelación numérica del residual angular en contactos estacionarios. Contraste Moira/Skyfield para Sol, Luna y tres pasadas de Venus; validación relacional externa NOT_PERFORMED.
+
 ## 1.25.0 — 2026-10-02
 
 Completa SSAR como extensión optativa experimental: seis familias de lotes y ocho fórmulas atribuidas, cinco complejos S1, siete pares temáticos, agregación conservadora entre perfiles, relojes/ventanas y correspondencias M27 estructural y temporal separadas. Añade bloque canónico reproducible, rutas M31 condicionales, controles sintéticos de presupuesto fijo y nueve ablaciones del pipeline. Los contratos de desarrollo anteriores permanecen íntegros.

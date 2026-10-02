@@ -239,6 +239,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/return-activation.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_RETURN_ACTIVATION_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/role-selection.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_FIXTURE",
@@ -283,9 +294,31 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/ssar-integrated.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/ssar-liminal-moirai.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SSAR_LIMINAL_MOIRAI_AND_PROCESS_STUDY_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-lots.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
       "contains_real_person_data": false,
       "contains_nonpublic_material": false,
       "derived_from_private_case": false,
@@ -330,28 +363,6 @@
       "path": "examples/validation-run.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "VALIDATION_SMOKE_FIXTURE",
-      "contains_real_person_data": false,
-      "contains_nonpublic_material": false,
-      "derived_from_private_case": false,
-      "reversible_from_private_case": false,
-      "independently_verifiable": false,
-      "public_source_refs": []
-    },
-    {
-      "path": "examples/ssar-lots.synthetic.json",
-      "classification": "SYNTHETIC",
-      "purpose": "SYNTHETIC_FIXTURE",
-      "contains_real_person_data": false,
-      "contains_nonpublic_material": false,
-      "derived_from_private_case": false,
-      "reversible_from_private_case": false,
-      "independently_verifiable": false,
-      "public_source_refs": []
-    },
-    {
-      "path": "examples/ssar-integrated.synthetic.json",
-      "classification": "SYNTHETIC",
-      "purpose": "SYNTHETIC_FIXTURE",
       "contains_real_person_data": false,
       "contains_nonpublic_material": false,
       "derived_from_private_case": false,

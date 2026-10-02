@@ -607,6 +607,17 @@ class MoiraProductionBackend:
             "backend_provenance": self.provenance,
         }
 
+    def calculate_return_chart(self, instant_utc: datetime, *, latitude: float, longitude: float) -> Mapping[str, Any]:
+        """Carta geocéntrica para un retorno exacto y ubicación explícita."""
+        from math import isfinite
+        if not isinstance(instant_utc, datetime) or instant_utc.tzinfo is None:
+            raise AstronomyBackendNotEvaluableError("Carta de retorno requiere datetime con zona.")
+        for value, bound in ((latitude, 90), (longitude, 180)):
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not isfinite(value) or not -bound <= value <= bound:
+                raise AstronomyBackendNotEvaluableError("Coordenadas de retorno inválidas.")
+        return self._calculate_at(instant_utc.astimezone(timezone.utc), latitude=float(latitude),
+                                  longitude=float(longitude), subject_id="RETURN_CHART")
+
     def calculate_davison(self, request: DavisonRequest) -> Mapping[str, Any]:
         a = request.subject_a
         b = request.subject_b

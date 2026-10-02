@@ -1,0 +1,15 @@
+{
+  "effective_key": [
+    "root_dependency_group",
+    "documentary_fact_key"
+  ],
+  "all_contacts_same_return_share_dependency": true,
+  "all_passes_preserved": true,
+  "unknown_dependency_conservative": true,
+  "statistical_independence_established": false,
+  "policy_id": "ALMAS_RRA_DEPENDENCY_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

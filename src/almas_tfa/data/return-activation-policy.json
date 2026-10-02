@@ -1,0 +1,27 @@
+{
+  "solver": {
+    "step_hours": {
+      "SUN": 6,
+      "MOON": 1,
+      "MERCURY": 6,
+      "VENUS": 6,
+      "MARS": 6,
+      "JUPITER": 12,
+      "SATURN": 12
+    },
+    "secondary_step_hours": 1,
+    "time_tolerance_seconds": 0.01,
+    "angular_tolerance_degrees": 1e-05,
+    "station_speed_limit": 1e-07,
+    "max_samples": 2000000
+  },
+  "iat_eligible": false,
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "policy_id": "ALMAS_RRA_ACTIVATION_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

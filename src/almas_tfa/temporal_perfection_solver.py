@@ -7,7 +7,7 @@ directions and atacires must therefore supply their own declared time map.
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
-from math import isfinite
+from math import isfinite, remainder
 from typing import Any, Callable
 
 LongitudeEvaluator = Callable[[datetime], tuple[float, float]]
@@ -16,7 +16,8 @@ ContextEvaluator = Callable[[datetime], dict[str, Any]]
 
 def signed_angle_error(source: float, target: float, aspect_angle: float) -> float:
     """Signed shortest angular residual for an oriented aspect perfection."""
-    return ((float(target) - float(source) - float(aspect_angle) + 180.0) % 360.0) - 180.0
+    error = remainder(float(target) - float(source) - float(aspect_angle), 360.0)
+    return -180.0 if error == 180.0 else error
 
 
 def _to_utc(value: datetime, label: str) -> datetime:

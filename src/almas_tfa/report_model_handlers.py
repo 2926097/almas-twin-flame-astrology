@@ -246,8 +246,8 @@ def _section_model(
         paths = {
             'S04_STRUCTURE': ('ssar.structure',),
             'S05_RELATIONAL': ('ssar.structure.pair_themes',),
-            'S07_TEMPORAL': ('ssar.integration',),
-            'S08_ROBUSTNESS': ('ssar.coverage',),
+            'S07_TEMPORAL': ('ssar.integration','ssar.temporal_activation'),
+            'S08_ROBUSTNESS': ('ssar.coverage','ssar.temporal_activation.robustness','ssar.temporal_activation.null_model_result'),
             'S10_FINAL_SYNTHESIS': ('ssar',),
             'S11_SOURCES_APPENDICES': ('ssar.evaluation_policy_hash','ssar.profiles'),
         }

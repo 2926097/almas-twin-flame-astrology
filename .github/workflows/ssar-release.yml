@@ -51,7 +51,8 @@ jobs:
           existing = subprocess.run(['gh','api',f'repos/{repo}/git/ref/tags/v1.25.0'],capture_output=True,text=True)
           if existing.returncode == 0:
               if json.loads(existing.stdout)['object']['sha'] != sha:
-                  raise SystemExit('La etiqueta existente corresponde a otro commit; no se sobrescribe.')
+                  print('La release 1.25.0 ya corresponde a otro commit; esta revisión no la sobrescribe ni la vuelve a publicar.')
+                  raise SystemExit(0)
           else:
               subprocess.run(['gh','api','--method','POST',f'repos/{repo}/git/refs','-f','ref=refs/tags/v1.25.0','-f',f'sha={sha}'],check=True)
           release = subprocess.run(['gh','release','view','v1.25.0'],capture_output=True)

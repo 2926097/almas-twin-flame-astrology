@@ -200,3 +200,7 @@ La infraestructura incluye:
 - fixture sintético de prueba de humo.
 
 Hasta ejecutar cohortes holdout reales preregistradas, ALMAS no declara validación empírica externa de llama gemela, alma gemela, contrato álmico u otras ontologías metafísicas.
+
+## RRA · revisión 1.25.0 R3
+
+Retornos y overlays experimentales con políticas congeladas. Contraste técnico Moira/Skyfield de Sol, Luna y Venus retrógrado: recibo en `validation/returns/runtime-receipt.json`. Pruebas de contratos, negativos, dependencia y pipeline: `tests/test_return_activation.py`. La validación relacional externa permanece **NOT_PERFORMED**; ningún caso personal se empleó para diseño. Los controles nulos son exploratorios, condicionales a referencias fijas; cartas EVENT que exigen recomputación quedan bloqueadas.
