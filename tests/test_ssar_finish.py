@@ -52,6 +52,7 @@ class FinishTests(unittest.TestCase):
         r=fixture();out=run_ssar_pipeline(r);validate_canonical_ssar(out,request=r)
         self.assertEqual(out['policy_status'],'FROZEN_EXPERIMENTAL');self.assertEqual(out['profiles']['liminal']['policy_status'],'DEVELOPMENT')
         self.assertIn('validación externa',render_ssar_summary({'ssar':out}))
+        self.assertTrue(all(a['policy_ref']==out['policy_id'] for c in out['structure']['complexes']+out['structure']['dyads'] for a in c['assessments'].values()))
     def test_disabled_enabled_empty_and_complete_negative_search(self):
         disabled=run_ssar_pipeline(dict(enabled=False));empty=run_ssar_pipeline(dict(enabled=True))
         self.assertEqual(disabled['completion'],'NONE');self.assertEqual(empty['completion'],'NONE')

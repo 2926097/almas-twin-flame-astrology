@@ -55,7 +55,7 @@ def run_ssar_pipeline(request, *, canonical_roots=None, m27_ledger=None):
     m27_ledger=_documentary_projection(m27_ledger)
     if m27_ledger is not None:validate_ssar_schema(m27_ledger,'F10DocumentaryInput')
     frozen=load_frozen_policy();policy_hash=_hash(frozen)
-    structure=_empty_structure();profiles={};coverage=[];combined_policy=load_ssar_policy();units=[];edges=[];appearances=[];roots={};seen=set()
+    structure=_empty_structure();profiles={};coverage=[];combined_policy=load_ssar_policy();combined_policy['policy_id']=frozen['policy_id'];units=[];edges=[];appearances=[];roots={};seen=set()
     ablation=request.get('ablation')
     removed=dict(AB_NO_EROS_PSYCHE={'EROS','PSYCHE'},AB_NO_MOIRAI={'KLOTHO','LACHESIS','ATROPOS','MOIRA'},AB_NO_VERTEX={'VERTEX','ANTI_VERTEX'},AB_NO_BML={'BLACK_MOON_MEAN','BLACK_MOON_OSCULATING'}).get(ablation,set())
     if request['enabled']:
@@ -120,6 +120,7 @@ def run_ssar_pipeline(request, *, canonical_roots=None, m27_ledger=None):
                 c['assessments']['functional_interpretation']=assess_ssar_claim(scope='FUNCTIONAL_INTERPRETATION',policy_ref=frozen['policy_id'],
                    rule_ref='SSAR_F4_BIDIRECTIONAL_CORE_TWO_GROUPS_V1',coverage_sufficient=True,compatible=True,evidence_refs=c['admissible_refs'])
             for assessment in c['assessments'].values():
+                assessment['policy_ref']=frozen['policy_id']
                 for field in ('evidence_refs','counterevidence_refs'):assessment[field]=['families:'+r for r in assessment[field] if not r.startswith('families:')]+[r for r in assessment[field] if r.startswith('families:')]
             dyads.append(c)
         themes=[dict(id='_'.join(pair)+'_THEME',members=list(pair),appearance_refs=sorted(a['id'] for a in appearances if a['point_id'] in pair),

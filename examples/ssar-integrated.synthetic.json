@@ -216,8 +216,8 @@
         }
       ],
       "freeze": {
-        "policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
-        "architecture_hash": "469a44504ff47e77b4080e3d623adfefc6fcb2fcc9e1db7e45a65ce7070ace3d",
+        "policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
+        "architecture_hash": "f8316208f3f2b66ec975ad9653c892545724da0323880c033eece353f66633bc",
         "registered_at": "2019-12-01",
         "mode": "RETROSPECTIVE",
         "timestamp_externally_verified": false
@@ -253,11 +253,11 @@
     "schema_version": "ssar-1.25.0",
     "enabled": true,
     "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
-    "evaluation_policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
+    "evaluation_policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
     "policy_status": "FROZEN_EXPERIMENTAL",
     "execution_status": "executed",
     "completion": "COMPLETE",
-    "input_hash": "ed1133d32c4ffcb74bd8cb636dca893aa9e43c84bc797cd2d982b078dc84a88f",
+    "input_hash": "a35ce129b23843466a4e5a9349bb255e3bec95514d66394243244d6ff5757692",
     "evaluation_input": {
       "enabled": true,
       "profiles": {
@@ -473,8 +473,8 @@
           }
         ],
         "freeze": {
-          "policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
-          "architecture_hash": "469a44504ff47e77b4080e3d623adfefc6fcb2fcc9e1db7e45a65ce7070ace3d",
+          "policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
+          "architecture_hash": "f8316208f3f2b66ec975ad9653c892545724da0323880c033eece353f66633bc",
           "registered_at": "2019-12-01",
           "mode": "RETROSPECTIVE",
           "timestamp_externally_verified": false
@@ -1176,7 +1176,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1186,7 +1186,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1196,7 +1196,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1206,7 +1206,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1250,7 +1250,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1260,7 +1260,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1270,7 +1270,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1280,7 +1280,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1324,7 +1324,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1334,7 +1334,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1344,7 +1344,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1354,7 +1354,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1398,7 +1398,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1408,7 +1408,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1418,7 +1418,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1428,7 +1428,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1472,7 +1472,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1482,7 +1482,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1492,7 +1492,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1502,7 +1502,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1572,7 +1572,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "SUPPORTED",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
               "evidence_refs": [
                 "liminal:A1",
@@ -1585,7 +1585,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "SUPPORTED",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
               "evidence_refs": [
                 "liminal:A1",
@@ -1598,7 +1598,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1608,7 +1608,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1673,7 +1673,7 @@
             "structural_geometry": {
               "scope": "STRUCTURAL_GEOMETRY",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1683,7 +1683,7 @@
             "functional_interpretation": {
               "scope": "FUNCTIONAL_INTERPRETATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1693,7 +1693,7 @@
             "temporal_activation": {
               "scope": "TEMPORAL_ACTIVATION",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],
@@ -1703,7 +1703,7 @@
             "documentary_correspondence": {
               "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
               "status": "NOT_EVALUABLE",
-              "policy_ref": "ALMAS_SSAR_DEVELOPMENT_V1",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
               "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
               "evidence_refs": [],
               "counterevidence_refs": [],

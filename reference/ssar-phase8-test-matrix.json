@@ -1,6 +1,6 @@
 {
   "phase": 8,
-  "policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
+  "policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
   "scope": "SYNTHETIC_TECHNICAL_ACCEPTANCE",
   "requirements": [
     "structure before clocks",
