@@ -34,7 +34,9 @@ El acuerdo de algoritmos sobre entradas idénticas no constituye validación ind
 
 El fixture se reproduce con `scripts/validate_ssar_calculated_points.py`; el contrato público pasa con y sin extras mediante `python -S`. `scripts/validate_ssar_baseline.py` confirma salidas deterministas y archivos protegidos idénticos. Se han comparado también todas las definiciones previas de contrato: sólo se añaden ocho definiciones F6, sin modificar las anteriores. Pasan la revisión de formato y la auditoría pública de los 30 ejemplos sintéticos registrados.
 
-CI conserva los tres workflows existentes, con Python 3.10/3.12 donde corresponde. El workflow del núcleo reproduce también el nuevo fixture y el astronómico añade la comparación viva de puntos calculados en ambas versiones, con hash fijado y recibos adjuntos. Las referencias de validación son extras opcionales, separados de la matemática ejecutable.
+CI conserva los workflows existentes, con Python 3.10/3.12 donde corresponde. El workflow del núcleo reproduce también el nuevo fixture y el astronómico añade la comparación viva de puntos calculados en ambas versiones, con hash fijado y recibos adjuntos. Las referencias de validación son extras opcionales, separados de la matemática ejecutable.
+
+La primera ejecución remota pasó las 989 pruebas y detectó una diferencia de 5,684341886080802 × 10⁻¹⁴ grados al reproducir la muestra media +30 minutos en Python 3.10. La causa fue el cambio de acumulación de `sum` en Python 3.12. Se usa `math.fsum` en las acumulaciones de la matemática nueva, conservando la igualdad estricta del verificador. El fixture y el recibo completo de 67 comparaciones permanecen idénticos en Python 3.12; no se cambian tolerancias, referencias o núcleo.
 
 ## Trabajo pendiente
 

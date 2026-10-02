@@ -1,7 +1,7 @@
 """Geometría de puntos calculados; ninguna función decide interpretación."""
 from __future__ import annotations
 
-from math import atan2, cos, degrees, isfinite, radians, sin, sqrt
+from math import atan2, cos, degrees, fsum, isfinite, radians, sin, sqrt
 from typing import Sequence
 
 MIN_JD_TT = 2415020.5  # 1900-01-01: alcance aprobado del subperfil, no límite IERS.
@@ -20,17 +20,18 @@ def _cross(a, b):
 
 
 def _norm(v):
-    return sqrt(sum(x*x for x in v))
+    # fsum fija la acumulación entre Python 3.10/3.12; sum cambió en 3.12.
+    return sqrt(fsum(x*x for x in v))
 
 
 def _rotation(matrix: Sequence[Sequence[float]]) -> tuple[tuple[float, ...], ...]:
     if len(matrix) != 3 or any(len(row) != 3 for row in matrix):
         raise ValueError('La transformación requiere matriz 3×3.')
     rows = tuple(_numbers(row) for row in matrix)
-    if any(abs(sum(rows[i][k]*rows[j][k] for k in range(3)) - (1 if i == j else 0)) > 1e-10
+    if any(abs(fsum(rows[i][k]*rows[j][k] for k in range(3)) - (1 if i == j else 0)) > 1e-10
            for i in range(3) for j in range(3)):
         raise ValueError('La transformación no es ortonormal.')
-    det = sum(rows[0][i]*_cross(rows[1], rows[2])[i] for i in range(3))
+    det = fsum(rows[0][i]*_cross(rows[1], rows[2])[i] for i in range(3))
     if abs(det - 1) > 1e-10:
         raise ValueError('La transformación no conserva orientación.')
     return rows
@@ -73,7 +74,7 @@ def mean_apogee(jd_tt: float, nutation_longitude_deg: float) -> float:
         (450160.398036, -6962890.5431, 7.4722, 0.007702, -0.00005939),
     )
     lunar_anomaly, latitude_argument, node = (
-        sum(coefficient * t**power for power, coefficient in enumerate(poly)) / 3600
+        fsum(coefficient * t**power for power, coefficient in enumerate(poly)) / 3600
         for poly in polynomials)
     return (latitude_argument + node - lunar_anomaly + 180 + dpsi) % 360
 
@@ -102,7 +103,7 @@ def osculating_apogee(position_icrf_km: Sequence[float], velocity_icrf_km_s: Seq
     eccentricity = _norm(eccentricity_vector)
     if not 1e-10 < eccentricity < 1 - 1e-10:
         raise ValueError('Órbita circular o no elíptica: apogeo no admitido.')
-    apogee = tuple(-sum(rotation[i][j]*eccentricity_vector[j] for j in range(3)) for i in range(3))
+    apogee = tuple(-fsum(rotation[i][j]*eccentricity_vector[j] for j in range(3)) for i in range(3))
     if sqrt(apogee[0]**2 + apogee[1]**2) <= 1e-12 * eccentricity:
         raise ValueError('Longitud eclíptica del apogeo indefinida.')
     return dict(longitude=degrees(atan2(apogee[1], apogee[0])) % 360, eccentricity=eccentricity)
