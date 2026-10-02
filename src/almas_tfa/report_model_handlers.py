@@ -242,6 +242,17 @@ def _section_model(
 ) -> dict[str, Any]:
     required = list(spec["required_paths"])
     optional = list(spec["optional_paths"])
+    if 'ssar' in canonical:
+        paths = {
+            'S04_STRUCTURE': ('ssar.structure',),
+            'S05_RELATIONAL': ('ssar.structure.pair_themes',),
+            'S07_TEMPORAL': ('ssar.integration',),
+            'S08_ROBUSTNESS': ('ssar.coverage',),
+            'S10_FINAL_SYNTHESIS': ('ssar',),
+            'S11_SOURCES_APPENDICES': ('ssar.evaluation_policy_hash','ssar.profiles'),
+        }
+        optional.extend(paths.get(spec['section_id'], ()))
+
 
     available_required = [
         path for path in required if _path_available(canonical, path)

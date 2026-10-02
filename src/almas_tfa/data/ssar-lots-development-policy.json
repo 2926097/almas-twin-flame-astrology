@@ -1,0 +1,380 @@
+{
+  "schema_version": "ssar-policy-1.0-development",
+  "policy_id": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+  "policy_status": "DEVELOPMENT",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "qualified_source_priorities": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "type_rules": {
+    "NAMED_SMALL_BODY": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "CALCULATED_POINT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "HELLENISTIC_LOT": {
+      "aspect_policy": {
+        "CONJUNCTION": {
+          "angle": 0.0,
+          "orb": 1.5
+        },
+        "OPPOSITION": {
+          "angle": 180.0,
+          "orb": 1.5
+        }
+      },
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": true
+    }
+  },
+  "point_rules": {
+    "LOT_FORTUNE": {
+      "rule_id": "LOT_FORTUNE_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "FORTUNE_BODY_CIRCUMSTANCE",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_PAULUS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_SPIRIT": {
+      "rule_id": "LOT_SPIRIT_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "SPIRIT_ACTION_INTENTION",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_PAULUS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_EROS_PAULUS": {
+      "rule_id": "LOT_EROS_PAULUS_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "EROS_DESIRE_AGENCY",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_PAULUS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_NECESSITY_PAULUS": {
+      "rule_id": "LOT_NECESSITY_PAULUS_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "NECESSITY_CONSTRAINT",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_PAULUS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_NEMESIS": {
+      "rule_id": "LOT_NEMESIS_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "NEMESIS_LIMIT_ACCOUNTABILITY",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_PAULUS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_VICTORY": {
+      "rule_id": "LOT_VICTORY_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "VICTORY_EXPECTATION_CONTEST",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_PAULUS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_EROS_VALENS": {
+      "rule_id": "LOT_EROS_VALENS_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "EROS_DESIRE_AGENCY",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_VALENS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    },
+    "LOT_NECESSITY_VALENS": {
+      "rule_id": "LOT_NECESSITY_VALENS_EXPLORATORY_V1",
+      "kind": "HELLENISTIC_LOT",
+      "function_id": "NECESSITY_CONSTRAINT",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "TECHNICAL"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F7_VALENS"
+        ],
+        "semantic_basis": [
+          "F7_PROJECT"
+        ],
+        "method": [
+          "F7_PROJECT"
+        ]
+      },
+      "allow_project_method": true
+    }
+  },
+  "technique_groups": {
+    "SYNASTRY": "TROPICAL_PAIR",
+    "ANTISCIA": "TROPICAL_PAIR",
+    "COMPOSITE": "RELCHART",
+    "DAVISON": "RELCHART",
+    "NATAL_DRACONIC": "DRACONIC",
+    "DRACONIC_DRACONIC": "DRACONIC",
+    "VERTEX": "VERTEX_AXIS",
+    "ANTI_VERTEX": "VERTEX_AXIS",
+    "BLACK_MOON_MEAN": "BLACK_MOON_VARIANTS",
+    "BLACK_MOON_OSCULATING": "BLACK_MOON_VARIANTS",
+    "LOT_FORTUNE": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_SPIRIT": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_EROS_PAULUS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_NECESSITY_PAULUS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_NEMESIS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_VICTORY": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_EROS_VALENS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_NECESSITY_VALENS": "HELLENISTIC_DERIVED_LOTS"
+  },
+  "dependency_rules": {
+    "EQUIVALENT": "SSAR_DECLARED_EQUIVALENT_V1",
+    "TECHNICAL_DEPENDENCY": "SSAR_DECLARED_TECHNICAL_DEPENDENCY_V1",
+    "STATISTICAL_DEPENDENCY": "SSAR_DECLARED_STATISTICAL_DEPENDENCY_V1",
+    "SEMANTIC_OVERLAP": "SSAR_DECLARED_SEMANTIC_OVERLAP_V1",
+    "UNKNOWN": "SSAR_DECLARED_UNKNOWN_V1"
+  },
+  "unimplemented_layers": [
+    "STRUCTURAL_COMPLEXES",
+    "MYTHIC_DYADS",
+    "CALCULATED_POINTS",
+    "TEMPORAL_ACTIVATION",
+    "DOCUMENTARY_CORRESPONDENCE",
+    "NULL_CONTROLS"
+  ]
+}

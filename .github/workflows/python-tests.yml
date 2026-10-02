@@ -43,3 +43,6 @@ jobs:
       - name: Comprobar referencia exacta SSAR en Python 3.12
         if: matrix.python-version == '3.12'
         run: python scripts/validate_ssar_baseline.py
+
+      - name: Reproducir SSAR experimental congelado
+        run: python scripts/validate_ssar_release.py

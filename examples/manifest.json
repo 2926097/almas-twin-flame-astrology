@@ -336,6 +336,28 @@
       "reversible_from_private_case": false,
       "independently_verifiable": false,
       "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-lots.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-integrated.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
     }
   ]
 }

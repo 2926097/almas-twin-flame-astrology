@@ -1,18 +1,18 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.24.1
+version: 1.25.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.24.1
+# ALMAS · Astrología Metafísica Relacional v1.25.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.24.1` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.25.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
@@ -39,6 +39,18 @@ La release 1.24.1 amplía el corpus y añade límites doctrinales ejecutables. C
 ALMAS utiliza la astrología como **método metafísico de investigación** de la arquitectura del alma, el origen, historia y función relacional, la continuidad kármica o dhármica, la polaridad, la activación, la integración y otras dimensiones metafísicas definidas. Los controles metodológicos de esta skill son controles de calidad internos al paradigma: evitan inflación por dependencia, ajuste retrospectivo al caso y saltos ontológicos no sustentados; no constituyen una negación de la investigación metafísica.
 
 La skill sigue el protocolo **cálculo → evidencia → validación → ontología metafísica → diagnóstico diferencial → hermenéutica → informe**. No es un detector de etiqueta única.
+
+## SSAR experimental 1.25.0
+
+Usar [contrato final](reference/ssar-release.md), [lotes](reference/ssar-hellenistic-lots.md) y [auditoría](docs/RELEASE_AUDIT_1.25.0.md) cuando se active SSAR. Exigir `ssar_request.enabled` explícito y consumir el bloque canónico congelado; no recualificar ni modificar un canónico histórico desactivado. Una activación posterior exige una ejecución nueva, explícita y separada. M14 registra inputs, la cualificación espera raíces M17 y hechos M27, y el ensamblaje ocurre antes de M30. M31 referencia resultados ya evaluados. La ruta legacy sin SSAR conserva sus outputs.
+
+Separar dato A, fórmula técnica B, antecedente doctrinal C, método contemporáneo D y regla funcional E. La mayoría de las interpretaciones SSAR son E. No convertir Juno en matrimonio, Vesta en celibato, Psyche en alma compartida, Eros en consentimiento ni Moiras en destino. Nombramiento, identidad técnica y método son comprobaciones distintas. Mantener los bloqueos nominales de Isis y de identidad/alias/variante de Shiva–Shakti.
+
+Un complejo necesita anclaje core, al menos un significador cualificado y dos grupos efectivos. Los pares temáticos reutilizan contactos sin añadir evidencia. Conservar el eje Vertex/Anti-Vertex, ambas variantes de Luna Negra y las variantes de lotes sin elegir la favorable. Una secta desconocida conserva día/noche y bloquea la conclusión dependiente; M13 histórico sigue usando Fortuna/Espíritu por defecto.
+
+Distinguir geometría, interpretación funcional, activación temporal y correspondencia documental. La documental estructural no exige relojes; la temporal sí exige complejo previo, ventana concordante, dos grupos de relojes y observación suficiente. Una ventana abierta, falta de fuente o componente ausente conserva `NOT_EVALUABLE`; un contradicto evaluable puede preceder a otros faltantes. Un evento compartido no multiplica hechos. Un recibo con fecha declarada no autentica preregistro; un análisis retrospectivo sigue siendo retrospectivo.
+
+La política está `FROZEN_EXPERIMENTAL`, la métrica principal `NOT_OPERATIONALIZED` y la validación externa `NOT_PERFORMED`. Los controles sintéticos y las nueve ablaciones verifican comportamiento e invariancia, no eficacia empírica. No crear p-valores interpretativos, fuerza numérica, rankings, ontología, discriminadores, puntuación o cambios de umbral desde SSAR. Las hipótesis funcionales deben conservar alternativas, fuentes, bloqueos y límites. Para autoría usar `canonical_analysis.ssar` y la proyección `render_ssar_summary`; no recalcular astrología ni hechos durante el informe.
 
 ## 1. Objetivo
 
@@ -211,7 +223,7 @@ Reglas de dependencia:
 - Las fuentes `crane_draconic_astrology_1987` y `blaquier_draconic_astrology_2017_2021` sustentan el método dracónico moderno; no convierten un contacto dracónico en prueba independiente de reencarnación, contrato álmico u origen twin-flame.
 - Cuando M13 esté disponible, usar `canonical_analysis.lots_context` sólo como contexto histórico de autoría. Fortuna/Espíritu conservan fórmula, secta, signo, grado, casa y fuentes antes de M31; no entran en M15 ni crean raíces o puntuación.
 - En la baseline histórica, Valens distingue Fortuna —cuerpo y trabajo manual— de Daimon/Espíritu —asuntos intelectuales/espirituales y actividades de dar/recibir—. Aplicar signo y casa para cualificar el campo, no para equiparar Daimon con alma, Mónada, Yo Superior, misión o contrato.
-- M14 permanece `support_only=true` y no recibe una proyección narrativa paralela: sus contactos se interpretan únicamente cuando ya han sobrevivido como soporte de una raíz o motivo principal.
+- El M14 legacy permanece `support_only=true`; sin activar SSAR no recibe una proyección narrativa paralela: sus contactos se interpretan únicamente cuando ya han sobrevivido como soporte de una raíz o motivo principal.
 - Cuando una raíz retenida preserve `JUNO` o `EROS` en `concrete_contacts`, aplicar `reference/secondary-symbolic-hermeneutics.md` después de resolver las funciones planetarias/nodales/angulares principales y la geometría.
 - Juno usa `george_bloch_asteroid_goddesses_2003` como fuente de método para relación significativa, compromiso/asociación y equidad relacional; no prueba matrimonio, reciprocidad factual, contrato ni tipo de alma.
 - Eros usa `lang_wescott_eros_basic_resources` como fuente de método para erotismo, deseo, aquello que enciende y pasión/vitalidad; no prueba actividad sexual real, consentimiento, reciprocidad, exclusividad ni tipo de alma.

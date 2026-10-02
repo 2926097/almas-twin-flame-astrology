@@ -4680,6 +4680,1535 @@
         "integration_status"
       ],
       "additionalProperties": false
+    },
+    "F7Positions": {
+      "type": "object",
+      "properties": {
+        "ASC": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "SUN": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "MOON": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "MERCURY": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "VENUS": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "JUPITER": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "SATURN": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "F7Sample": {
+      "type": "object",
+      "properties": {
+        "offset_minutes": {
+          "type": "number",
+          "minimum": -1440,
+          "maximum": 1440
+        },
+        "positions": {
+          "$ref": "#/$defs/F7Positions"
+        },
+        "sect": {
+          "enum": [
+            "DAY",
+            "NIGHT",
+            null
+          ]
+        }
+      },
+      "required": [
+        "offset_minutes",
+        "positions",
+        "sect"
+      ],
+      "additionalProperties": false
+    },
+    "F7Context": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_id": {
+          "enum": [
+            "A",
+            "B",
+            "RELATIONSHIP"
+          ]
+        },
+        "technique": {
+          "enum": [
+            "SYNASTRY",
+            "COMPOSITE",
+            "DAVISON"
+          ]
+        },
+        "sect": {
+          "enum": [
+            "DAY",
+            "NIGHT",
+            null
+          ]
+        },
+        "sect_source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "input_source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "time_uncertainty_minutes": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1440
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "location_precision_sufficient": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F7Sample"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "subject_id",
+        "technique",
+        "sect",
+        "sect_source_refs",
+        "input_source_refs",
+        "time_uncertainty_minutes",
+        "location_precision_sufficient",
+        "samples"
+      ],
+      "additionalProperties": false
+    },
+    "F7Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "contexts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F7Context"
+          }
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F6Contact"
+          }
+        },
+        "core_roots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Root"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "F7CalculatedVariant": {
+      "type": "object",
+      "properties": {
+        "sect": {
+          "enum": [
+            "DAY",
+            "NIGHT"
+          ]
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "CALCULATED",
+            "BLOCKED"
+          ]
+        },
+        "missing_inputs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "sect",
+        "longitude",
+        "status",
+        "missing_inputs"
+      ],
+      "additionalProperties": false
+    },
+    "F7CalculatedSample": {
+      "type": "object",
+      "properties": {
+        "offset_minutes": {
+          "type": "number"
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F7CalculatedVariant"
+          }
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "offset_minutes",
+        "variants",
+        "longitude"
+      ],
+      "additionalProperties": false
+    },
+    "F7CalculatedLot": {
+      "type": "object",
+      "properties": {
+        "point_id": {
+          "enum": [
+            "LOT_FORTUNE",
+            "LOT_SPIRIT",
+            "LOT_EROS_PAULUS",
+            "LOT_NECESSITY_PAULUS",
+            "LOT_NEMESIS",
+            "LOT_VICTORY",
+            "LOT_EROS_VALENS",
+            "LOT_NECESSITY_VALENS"
+          ]
+        },
+        "function_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "formula_variant": {
+          "type": "string",
+          "minLength": 1
+        },
+        "central_longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "CALCULATED",
+            "BLOCKED"
+          ]
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F7CalculatedSample"
+          }
+        }
+      },
+      "required": [
+        "point_id",
+        "function_id",
+        "formula_variant",
+        "central_longitude",
+        "status",
+        "samples"
+      ],
+      "additionalProperties": false
+    },
+    "F7Calculation": {
+      "type": "object",
+      "properties": {
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technique": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sect": {
+          "enum": [
+            "DAY",
+            "NIGHT",
+            null
+          ]
+        },
+        "sect_stable": {
+          "type": "boolean"
+        },
+        "precision_sufficient": {
+          "type": "boolean"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F7CalculatedLot"
+          }
+        }
+      },
+      "required": [
+        "context_id",
+        "subject_id",
+        "technique",
+        "input_hash",
+        "sect",
+        "sect_stable",
+        "precision_sufficient",
+        "source_refs",
+        "points"
+      ],
+      "additionalProperties": false
+    },
+    "F7Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-lots-1.0-development"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "catalog_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "catalog_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ssar": {
+          "$ref": "#/$defs/Result"
+        },
+        "calculations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F7Calculation"
+          }
+        },
+        "variant_sensitivity": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "contact_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pair_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "appearance_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "separation_deg": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "selected_variant": {
+                "type": "null"
+              },
+              "rule": {
+                "const": "RETAIN_BOTH_NO_RETROSPECTIVE_SELECTION"
+              }
+            },
+            "required": [
+              "contact_ref",
+              "pair_id",
+              "appearance_refs",
+              "separation_deg",
+              "selected_variant",
+              "rule"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "functional_notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "appearance_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "function_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "epistemic_class": {
+                "const": "E_PROJECT_HYPOTHESIS"
+              },
+              "interpretation": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "inferential_limit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "appearance_ref",
+              "function_id",
+              "epistemic_class",
+              "interpretation",
+              "inferential_limit",
+              "source_refs"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "execution_status": {
+          "enum": [
+            "executed",
+            "not_run"
+          ]
+        },
+        "completion": {
+          "enum": [
+            "PARTIAL",
+            "NONE"
+          ]
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Coverage"
+          }
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        }
+      },
+      "required": [
+        "schema_version",
+        "enabled",
+        "catalog_id",
+        "catalog_hash",
+        "ssar",
+        "calculations",
+        "variant_sensitivity",
+        "functional_notes",
+        "execution_status",
+        "completion",
+        "coverage",
+        "external_validation_status",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect"
+      ],
+      "additionalProperties": false
+    },
+    "F8Clock": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "complex_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "family": {
+          "enum": [
+            "TPROG",
+            "TDIR",
+            "TTRANSIT",
+            "TECLIPSE",
+            "TREL",
+            "TATACIR"
+          ]
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "input_precision_sufficient": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "robust": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "complex_ref",
+        "family",
+        "date",
+        "longitude",
+        "target_longitude",
+        "input_precision_sufficient",
+        "robust",
+        "source_refs",
+        "core_root_refs"
+      ],
+      "additionalProperties": false
+    },
+    "F8Window": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "complex_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "end": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "observed_through": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observation_complete": {
+          "type": "boolean"
+        },
+        "monitoring_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "clocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F8Clock"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "complex_ref",
+        "start",
+        "end",
+        "observed_through",
+        "observation_complete",
+        "monitoring_ref",
+        "clocks"
+      ],
+      "additionalProperties": false
+    },
+    "F8Claim": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "complex_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "enum": [
+            "STRUCTURAL",
+            "TEMPORAL"
+          ]
+        },
+        "window_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coding_rule_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "support_event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "excluding_event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "coverage_complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "complex_ref",
+        "scope",
+        "window_ref",
+        "coding_rule_ref",
+        "support_event_refs",
+        "excluding_event_refs",
+        "coverage_complete"
+      ],
+      "additionalProperties": false
+    },
+    "F8Receipt": {
+      "type": "object",
+      "properties": {
+        "policy_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "architecture_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "registered_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "mode": {
+          "enum": [
+            "RETROSPECTIVE",
+            "PROSPECTIVELY_DECLARED"
+          ]
+        },
+        "timestamp_externally_verified": {
+          "const": false
+        }
+      },
+      "required": [
+        "policy_hash",
+        "architecture_hash",
+        "registered_at",
+        "mode",
+        "timestamp_externally_verified"
+      ],
+      "additionalProperties": false
+    },
+    "F8Request": {
+      "type": "object",
+      "properties": {
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F8Window"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F8Claim"
+          }
+        },
+        "freeze": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/F8Receipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "windows",
+        "claims",
+        "freeze"
+      ],
+      "additionalProperties": false
+    },
+    "F8Temporal": {
+      "type": "object",
+      "properties": {
+        "window_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "complex_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "clock_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "effective_clock_groups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "assessment": {
+          "$ref": "#/$defs/Assessment"
+        },
+        "qualified_temporal_complex": {
+          "type": "boolean"
+        },
+        "window_closed": {
+          "type": "boolean"
+        },
+        "architecture_frozen_before_window": {
+          "type": "boolean"
+        },
+        "prediction_class": {
+          "enum": [
+            "RETROSPECTIVE",
+            "PROSPECTIVELY_DECLARED_UNVERIFIED",
+            "UNREGISTERED"
+          ]
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "window_ref",
+        "complex_ref",
+        "clock_refs",
+        "effective_clock_groups",
+        "assessment",
+        "qualified_temporal_complex",
+        "window_closed",
+        "architecture_frozen_before_window",
+        "prediction_class",
+        "blockers"
+      ],
+      "additionalProperties": false
+    },
+    "F8Documentary": {
+      "type": "object",
+      "properties": {
+        "claim_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "complex_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "enum": [
+            "STRUCTURAL",
+            "TEMPORAL"
+          ]
+        },
+        "assessment": {
+          "$ref": "#/$defs/Assessment"
+        },
+        "event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "fact_group_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "window_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coding_rule_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "independent_fact_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "causal_status": {
+          "const": "UNESTABLISHED"
+        }
+      },
+      "required": [
+        "claim_ref",
+        "complex_ref",
+        "scope",
+        "assessment",
+        "event_refs",
+        "fact_group_refs",
+        "window_ref",
+        "coding_rule_ref",
+        "independent_fact_count",
+        "causal_status"
+      ],
+      "additionalProperties": false
+    },
+    "F8Result": {
+      "type": "object",
+      "properties": {
+        "temporal": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F8Temporal"
+          }
+        },
+        "documentary": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F8Documentary"
+          }
+        },
+        "shared_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fact_group_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "event_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "consumer_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "contributes_new_evidence": {
+                "const": false
+              }
+            },
+            "required": [
+              "fact_group_ref",
+              "event_refs",
+              "consumer_refs",
+              "contributes_new_evidence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "documentary_event_source": {
+          "const": "M27_NORMALIZED_LEDGER"
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        }
+      },
+      "required": [
+        "temporal",
+        "documentary",
+        "shared_events",
+        "documentary_event_source",
+        "external_validation_status"
+      ],
+      "additionalProperties": false
+    },
+    "F10Profiles": {
+      "type": "object",
+      "properties": {
+        "s1": {
+          "$ref": "#/$defs/S1Request"
+        },
+        "families": {
+          "$ref": "#/$defs/F4Request"
+        },
+        "liminal": {
+          "$ref": "#/$defs/F5Request"
+        },
+        "calculated_points": {
+          "$ref": "#/$defs/F6Request"
+        },
+        "lots": {
+          "$ref": "#/$defs/F7Request"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "F10Search": {
+      "type": "object",
+      "properties": {
+        "complex_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "search_complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "complex_ref",
+        "search_complete"
+      ],
+      "additionalProperties": false
+    },
+    "F10Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "profiles": {
+          "$ref": "#/$defs/F10Profiles"
+        },
+        "complex_search": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F10Search"
+          }
+        },
+        "cross_edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "integration": {
+          "$ref": "#/$defs/F8Request"
+        },
+        "ablation": {
+          "enum": [
+            "AB_NO_SSAR",
+            "AB_NO_S1",
+            "AB_NO_EROS_PSYCHE",
+            "AB_NO_MYTHIC_DYADS",
+            "AB_NO_MOIRAI",
+            "AB_NO_VERTEX",
+            "AB_NO_BML",
+            "AB_NO_LOTS",
+            "AB_ONLY_PLANETS_NODES_ANGLES"
+          ]
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "F10ProfileResult": {
+      "type": "object",
+      "properties": {
+        "s1": {
+          "$ref": "#/$defs/S1Result"
+        },
+        "families": {
+          "$ref": "#/$defs/F4Result"
+        },
+        "liminal": {
+          "$ref": "#/$defs/F5Result"
+        },
+        "calculated_points": {
+          "$ref": "#/$defs/F6Result"
+        },
+        "lots": {
+          "$ref": "#/$defs/F7Result"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "F10Theme": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "appearance_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "contributes_new_evidence": {
+          "const": false
+        }
+      },
+      "required": [
+        "id",
+        "members",
+        "appearance_refs",
+        "epistemic_class",
+        "contributes_new_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "F10Structure": {
+      "type": "object",
+      "properties": {
+        "appearances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AppearanceResult"
+          }
+        },
+        "dependency_graph": {
+          "$ref": "#/$defs/Graph"
+        },
+        "complexes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5Complex"
+          }
+        },
+        "dyads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F4Dyad"
+          }
+        },
+        "pair_themes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F10Theme"
+          }
+        }
+      },
+      "required": [
+        "appearances",
+        "dependency_graph",
+        "complexes",
+        "dyads",
+        "pair_themes"
+      ],
+      "additionalProperties": false
+    },
+    "F10Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-1.25.0"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "policy_id": {
+          "const": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1"
+        },
+        "evaluation_policy_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "policy_status": {
+          "const": "FROZEN_EXPERIMENTAL"
+        },
+        "execution_status": {
+          "enum": [
+            "executed",
+            "not_run"
+          ]
+        },
+        "completion": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "NONE"
+          ]
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "profiles": {
+          "$ref": "#/$defs/F10ProfileResult"
+        },
+        "structure": {
+          "$ref": "#/$defs/F10Structure"
+        },
+        "integration": {
+          "$ref": "#/$defs/F8Result"
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Coverage"
+          }
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        },
+        "primary_integration_metric_status": {
+          "const": "NOT_OPERATIONALIZED"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        },
+        "history_policy": {
+          "const": "ARCHIVE_ONLY_NO_AUTOMATIC_REQUALIFICATION"
+        },
+        "ablation": {
+          "enum": [
+            "AB_NO_SSAR",
+            "AB_NO_S1",
+            "AB_NO_EROS_PSYCHE",
+            "AB_NO_MYTHIC_DYADS",
+            "AB_NO_MOIRAI",
+            "AB_NO_VERTEX",
+            "AB_NO_BML",
+            "AB_NO_LOTS",
+            "AB_ONLY_PLANETS_NODES_ANGLES",
+            null
+          ]
+        },
+        "evaluation_input": {
+          "$ref": "#/$defs/F10Request"
+        },
+        "documentary_input": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/F10DocumentaryInput"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "enabled",
+        "policy_id",
+        "evaluation_policy_hash",
+        "policy_status",
+        "execution_status",
+        "completion",
+        "input_hash",
+        "profiles",
+        "structure",
+        "integration",
+        "coverage",
+        "external_validation_status",
+        "primary_integration_metric_status",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect",
+        "history_policy",
+        "ablation",
+        "evaluation_input",
+        "documentary_input"
+      ],
+      "additionalProperties": false
+    },
+    "F10DocumentaryEvent": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_key": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subjects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "date_range": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fact_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_status": {
+          "enum": [
+            "ACTIVE",
+            "SUPERSEDED"
+          ]
+        },
+        "documentary_quality_contract_met": {
+          "type": "boolean"
+        },
+        "fact_interpretation_separated": {
+          "type": "boolean"
+        },
+        "date_precision_contract_met": {
+          "type": "boolean"
+        },
+        "date_precision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "resolved_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "event_id",
+        "fact_key",
+        "subjects",
+        "date",
+        "date_range",
+        "fact_statement",
+        "record_status",
+        "documentary_quality_contract_met",
+        "fact_interpretation_separated",
+        "date_precision_contract_met",
+        "date_precision",
+        "source_refs",
+        "resolved_root_refs"
+      ],
+      "additionalProperties": false
+    },
+    "F10DocumentaryInput": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F10DocumentaryEvent"
+          }
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "additionalProperties": false
     }
   }
 }

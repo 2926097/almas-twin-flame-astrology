@@ -1,0 +1,456 @@
+{
+  "synthetic": true,
+  "core_snapshot": {
+    "models": "SYNTHETIC_UNCHANGED_CORE",
+    "indices": [
+      1,
+      2,
+      3
+    ]
+  },
+  "ablations": {
+    "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+    "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+    "baseline_metrics": {
+      "qualified_significators": 2,
+      "effective_groups": 2,
+      "qualified_complexes": 1,
+      "qualified_windows": 1,
+      "supported_documentary_claims": 2
+    },
+    "runs": [
+      {
+        "id": "AB_NO_SSAR",
+        "input_hash": "d9fb8086b271852a5b94f956da37a41f12b05f7ef7b0aebf7c03c8fe15d35a8c",
+        "experimental_metrics": {
+          "qualified_significators": 0,
+          "effective_groups": 0,
+          "qualified_complexes": 0,
+          "qualified_windows": 0,
+          "supported_documentary_claims": 0
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_S1",
+        "input_hash": "fed7ab1bd9ffef60fde177086100121394b2ddbb22d5beb0aff3945f5585457f",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_EROS_PSYCHE",
+        "input_hash": "3ebaece31c45da976763b2ac03109bf666ef67ac59430a53872b2c305ebf214f",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_MYTHIC_DYADS",
+        "input_hash": "da874ead36da69fb98e22abfba0a5c3d71a3245ba474b6155b96d2135816580e",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_MOIRAI",
+        "input_hash": "7b3154b431fae6e3b2bbee9893e7d56b0f6899c3c2fc7a2ea2d8ac5d721ec384",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_VERTEX",
+        "input_hash": "6e533bc5a6181a98fbf5bafa1fdd648a40018fccd17daf5673ee2bdc390ba885",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_BML",
+        "input_hash": "53b527feee8c242fde5517cdb2fb0d063e2cfaa5d03936b995b0a08184c2b421",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_NO_LOTS",
+        "input_hash": "b64839da7bcbf74dc814ca039f543f05d93bb32957e52241bf5b54ecf8a24ff5",
+        "experimental_metrics": {
+          "qualified_significators": 2,
+          "effective_groups": 2,
+          "qualified_complexes": 1,
+          "qualified_windows": 1,
+          "supported_documentary_claims": 2
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      },
+      {
+        "id": "AB_ONLY_PLANETS_NODES_ANGLES",
+        "input_hash": "bc7c8038a9f762a93baa6702192d197e73d95e668c70d66d0fbe910818f7e41a",
+        "experimental_metrics": {
+          "qualified_significators": 0,
+          "effective_groups": 0,
+          "qualified_complexes": 0,
+          "qualified_windows": 0,
+          "supported_documentary_claims": 0
+        },
+        "core_before_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_after_hash": "a7aa96553cd90f36e5deb0bc87d7659f6cebcabc42732803fc7b1947f0b8d9ed",
+        "core_invariant": true,
+        "prediction_class": "RETROSPECTIVE_COUNTERFACTUAL",
+        "discrimination_improvement_measured": false
+      }
+    ],
+    "external_validation_status": "NOT_PERFORMED",
+    "synthetic_scope_only": true
+  },
+  "null_controls": [
+    {
+      "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+      "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+      "method": "TARGET_ROTATION",
+      "seed": 20261002,
+      "requested_simulations": 3,
+      "completed_simulations": 3,
+      "failures": [],
+      "replicas": [
+        {
+          "index": 0,
+          "rotation_deg": 84.402,
+          "input_hash": "bc0689fa8eed6b0d60a1fe0cad481e1e35afc0d34794259a41b0921e3d40567c",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 0,
+            "effective_groups": 0,
+            "qualified_complexes": 0,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 0
+          }
+        },
+        {
+          "index": 1,
+          "rotation_deg": 355.137,
+          "input_hash": "87faf7dc7f15a5d2df1835e372cb6e53f2e8df6a07d425dcb782713b76358202",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 0,
+            "effective_groups": 0,
+            "qualified_complexes": 0,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 0
+          }
+        },
+        {
+          "index": 2,
+          "rotation_deg": 74.198,
+          "input_hash": "ecbf2b7e28eb493c366e29354a0ab3b06723f9ef69eb989bdc7267b83259681c",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 0,
+            "effective_groups": 0,
+            "qualified_complexes": 0,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 0
+          }
+        }
+      ],
+      "observed_metrics": {
+        "qualified_significators": 2,
+        "effective_groups": 2,
+        "qualified_complexes": 1,
+        "qualified_windows": 1,
+        "supported_documentary_claims": 2
+      },
+      "execution_status": "COMPLETED_SYNTHETIC_STRESS_TEST",
+      "stopping_rule": "FIXED_BUDGET_NO_RESAMPLING_NO_EARLY_STOP",
+      "multiplicity_rule": "REPLAY_ALL_DECLARED_OBJECTS_VARIANTS_ASPECTS_FILTERS_GROUPS_COMPLEXES_WINDOWS",
+      "exchangeability_status": "NOT_ESTABLISHED_FOR_REAL_POPULATION",
+      "matched_factors": [
+        "ALL_UNROTATED_INPUTS_FIXED"
+      ],
+      "epoch_age_place_precision_density_control": "HELD_FIXED_WITHIN_SYNTHETIC_INPUT; NO_POPULATION_MATCHING",
+      "p_values": null,
+      "cluster_strength": null,
+      "primary_metric_status": "NOT_OPERATIONALIZED",
+      "confirmatory_inference_allowed": false,
+      "core_invariant": true,
+      "external_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+      "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+      "method": "CLOCK_DATE_SHIFT",
+      "seed": 20261002,
+      "requested_simulations": 3,
+      "completed_simulations": 3,
+      "failures": [],
+      "replicas": [
+        {
+          "index": 0,
+          "rotation_deg": 84.402,
+          "input_hash": "8326eab2afff826b7dff559508b7b1834256aed0f4f5b34e3e5ae0c7dd6bbe9c",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 2,
+            "effective_groups": 2,
+            "qualified_complexes": 1,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 1
+          }
+        },
+        {
+          "index": 1,
+          "rotation_deg": 74.198,
+          "input_hash": "379fd9121481764ca7cb35ff2374a8474ae9446588f4351f90cb8783fa82ced6",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 2,
+            "effective_groups": 2,
+            "qualified_complexes": 1,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 1
+          }
+        },
+        {
+          "index": 2,
+          "rotation_deg": 194.229,
+          "input_hash": "a5eb4b19b038ec8997be093c97bf9aec6985d692d86654074c4cc212b319c327",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 2,
+            "effective_groups": 2,
+            "qualified_complexes": 1,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 1
+          }
+        }
+      ],
+      "observed_metrics": {
+        "qualified_significators": 2,
+        "effective_groups": 2,
+        "qualified_complexes": 1,
+        "qualified_windows": 1,
+        "supported_documentary_claims": 2
+      },
+      "execution_status": "COMPLETED_SYNTHETIC_STRESS_TEST",
+      "stopping_rule": "FIXED_BUDGET_NO_RESAMPLING_NO_EARLY_STOP",
+      "multiplicity_rule": "REPLAY_ALL_DECLARED_OBJECTS_VARIANTS_ASPECTS_FILTERS_GROUPS_COMPLEXES_WINDOWS",
+      "exchangeability_status": "NOT_ESTABLISHED_FOR_REAL_POPULATION",
+      "matched_factors": [
+        "ALL_UNROTATED_INPUTS_FIXED"
+      ],
+      "epoch_age_place_precision_density_control": "HELD_FIXED_WITHIN_SYNTHETIC_INPUT; NO_POPULATION_MATCHING",
+      "p_values": null,
+      "cluster_strength": null,
+      "primary_metric_status": "NOT_OPERATIONALIZED",
+      "confirmatory_inference_allowed": false,
+      "core_invariant": true,
+      "external_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+      "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+      "method": "EVENT_DATE_PERMUTATION",
+      "seed": 20261002,
+      "requested_simulations": 3,
+      "completed_simulations": 3,
+      "failures": [],
+      "replicas": [
+        {
+          "index": 0,
+          "rotation_deg": 84.402,
+          "input_hash": "ad299709f4263028ba527c21aac0a239cd9afa7052f7983e4eee93d58f2609f2",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 2,
+            "effective_groups": 2,
+            "qualified_complexes": 1,
+            "qualified_windows": 1,
+            "supported_documentary_claims": 2
+          }
+        },
+        {
+          "index": 1,
+          "rotation_deg": 355.137,
+          "input_hash": "ad299709f4263028ba527c21aac0a239cd9afa7052f7983e4eee93d58f2609f2",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 2,
+            "effective_groups": 2,
+            "qualified_complexes": 1,
+            "qualified_windows": 1,
+            "supported_documentary_claims": 2
+          }
+        },
+        {
+          "index": 2,
+          "rotation_deg": 74.198,
+          "input_hash": "ad299709f4263028ba527c21aac0a239cd9afa7052f7983e4eee93d58f2609f2",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 2,
+            "effective_groups": 2,
+            "qualified_complexes": 1,
+            "qualified_windows": 1,
+            "supported_documentary_claims": 2
+          }
+        }
+      ],
+      "observed_metrics": {
+        "qualified_significators": 2,
+        "effective_groups": 2,
+        "qualified_complexes": 1,
+        "qualified_windows": 1,
+        "supported_documentary_claims": 2
+      },
+      "execution_status": "COMPLETED_SYNTHETIC_STRESS_TEST",
+      "stopping_rule": "FIXED_BUDGET_NO_RESAMPLING_NO_EARLY_STOP",
+      "multiplicity_rule": "REPLAY_ALL_DECLARED_OBJECTS_VARIANTS_ASPECTS_FILTERS_GROUPS_COMPLEXES_WINDOWS",
+      "exchangeability_status": "NOT_ESTABLISHED_FOR_REAL_POPULATION",
+      "matched_factors": [
+        "ALL_UNROTATED_INPUTS_FIXED"
+      ],
+      "epoch_age_place_precision_density_control": "HELD_FIXED_WITHIN_SYNTHETIC_INPUT; NO_POPULATION_MATCHING",
+      "p_values": null,
+      "cluster_strength": null,
+      "primary_metric_status": "NOT_OPERATIONALIZED",
+      "confirmatory_inference_allowed": false,
+      "core_invariant": true,
+      "external_validation_status": "NOT_PERFORMED"
+    },
+    {
+      "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+      "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+      "method": "PRECISION_LOSS",
+      "seed": 20261002,
+      "requested_simulations": 3,
+      "completed_simulations": 3,
+      "failures": [],
+      "replicas": [
+        {
+          "index": 0,
+          "rotation_deg": 84.402,
+          "input_hash": "55751304243b6daa0abaa929031495d6d7392288324804da4bb6bd4c9579706c",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 0,
+            "effective_groups": 0,
+            "qualified_complexes": 0,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 0
+          }
+        },
+        {
+          "index": 1,
+          "rotation_deg": 355.137,
+          "input_hash": "55751304243b6daa0abaa929031495d6d7392288324804da4bb6bd4c9579706c",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 0,
+            "effective_groups": 0,
+            "qualified_complexes": 0,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 0
+          }
+        },
+        {
+          "index": 2,
+          "rotation_deg": 74.198,
+          "input_hash": "55751304243b6daa0abaa929031495d6d7392288324804da4bb6bd4c9579706c",
+          "ledger_hash": "37d87a66a838c80ce30bb21d741002aa8c6c03965a075dfea588e95f8d057607",
+          "metrics": {
+            "qualified_significators": 0,
+            "effective_groups": 0,
+            "qualified_complexes": 0,
+            "qualified_windows": 0,
+            "supported_documentary_claims": 0
+          }
+        }
+      ],
+      "observed_metrics": {
+        "qualified_significators": 2,
+        "effective_groups": 2,
+        "qualified_complexes": 1,
+        "qualified_windows": 1,
+        "supported_documentary_claims": 2
+      },
+      "execution_status": "COMPLETED_SYNTHETIC_STRESS_TEST",
+      "stopping_rule": "FIXED_BUDGET_NO_RESAMPLING_NO_EARLY_STOP",
+      "multiplicity_rule": "REPLAY_ALL_DECLARED_OBJECTS_VARIANTS_ASPECTS_FILTERS_GROUPS_COMPLEXES_WINDOWS",
+      "exchangeability_status": "NOT_ESTABLISHED_FOR_REAL_POPULATION",
+      "matched_factors": [
+        "ALL_UNROTATED_INPUTS_FIXED"
+      ],
+      "epoch_age_place_precision_density_control": "HELD_FIXED_WITHIN_SYNTHETIC_INPUT; NO_POPULATION_MATCHING",
+      "p_values": null,
+      "cluster_strength": null,
+      "primary_metric_status": "NOT_OPERATIONALIZED",
+      "confirmatory_inference_allowed": false,
+      "core_invariant": true,
+      "external_validation_status": "NOT_PERFORMED"
+    }
+  ]
+}

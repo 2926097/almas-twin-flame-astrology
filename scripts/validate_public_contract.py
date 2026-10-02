@@ -4841,6 +4841,7 @@ def main() -> int:
         "ontological_discrimination",
         "null_models",
         "assembly",
+        "ssar",
     }
     if set(canonical_props) != expected_canonical_root_props:
         fail("canonical schema root surface diverges from M30 output contract")

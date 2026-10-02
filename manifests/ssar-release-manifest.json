@@ -1,0 +1,51 @@
+{
+  "manifest_id": "ALMAS_SSAR_RELEASE_1_25_V1",
+  "almas_public_version": "1.25.0",
+  "technical_scope": "FROZEN_EXPERIMENTAL_IMPLEMENTATION",
+  "evaluation_policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+  "policy_ref": "src/almas_tfa/data/ssar-frozen-policy.json",
+  "phases_completed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source_audits": [
+    "reference/ssar-s1-source-audit.json",
+    "reference/ssar-families-source-audit.json",
+    "reference/ssar-liminal-moirai-source-audit.json",
+    "reference/ssar-calculated-points-source-audit.json",
+    "reference/ssar-lots-source-audit.json"
+  ],
+  "implemented": [
+    "S1_FUNCTIONS_AND_FIVE_COMPLEXES",
+    "MYTHIC_FAMILIES_AND_BIDIRECTIONAL_DYADS",
+    "LIMINAL_AND_MOIRAI",
+    "CALCULATED_POINT_VARIANTS",
+    "SIX_LOT_FAMILIES_EIGHT_FORMULAS",
+    "TEMPORAL_WINDOWS",
+    "M27_STRUCTURAL_TEMPORAL_CORRESPONDENCE",
+    "FIXED_BUDGET_SYNTHETIC_CONTROLS",
+    "NINE_PIPELINE_ABLATIONS",
+    "OPTIONAL_CANONICAL_AND_M31_PATHS"
+  ],
+  "blocked": [
+    "ISIS_NOMINAL_AMBIGUITY",
+    "SHIVA_SHAKTI_IDENTITY_ALIAS_DOCTRINAL_VARIANT",
+    "MISSING_ESSENTIAL_INPUTS",
+    "UNVERIFIED_PREREGISTRATION_TIMESTAMP",
+    "UNOPERATIONALIZED_EMPIRICAL_PRIMARY_METRIC"
+  ],
+  "external_validation_status": "NOT_PERFORMED",
+  "primary_integration_metric_status": "NOT_OPERATIONALIZED",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "release_condition": "FIVE_SAME_COMMIT_MAIN_WORKFLOWS_SUCCESS"
+}

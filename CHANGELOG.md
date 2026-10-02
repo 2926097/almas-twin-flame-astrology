@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.25.0 — 2026-10-02
+
+Completa SSAR como extensión optativa experimental: seis familias de lotes y ocho fórmulas atribuidas, cinco complejos S1, siete pares temáticos, agregación conservadora entre perfiles, relojes/ventanas y correspondencias M27 estructural y temporal separadas. Añade bloque canónico reproducible, rutas M31 condicionales, controles sintéticos de presupuesto fijo y nueve ablaciones del pipeline. Los contratos de desarrollo anteriores permanecen íntegros.
+
+La política experimental se congela por hash de recursos. El núcleo conserva exactamente las salidas y archivos protegidos de 1.24.1. Se sincronizan metadatos de versión, sin cambiar fórmulas, pesos, umbrales, scoring, ontología o discriminadores. La métrica principal permanece sin operacionalizar y la validación externa no se ha realizado. Isis–Osiris, Shiva–Shakti y las lecturas doctrinales pendientes conservan sus bloqueos. Véase la auditoría de release.
+
 ## Desarrollo 1.25.0 · SSAR fase 6 — 2026-10-02
 
 Añade Vertex/Anti-Vertex, apogeo medio escalar IERS y apogeo osculante derivado del estado lunar inercial, con proveedor auxiliar Skyfield 1.55/DE440, convenciones de tiempo, origen, marco, unidades y bloqueos explícitos. El eje conserva aspectos dirigidos y equivalencia; ambas variantes lunares conservan separación y discrepancias sin selección retrospectiva ni conteo independiente. La media declarada no se confunde con el apogeo de órbita media proyectado de Swiss Ephemeris.

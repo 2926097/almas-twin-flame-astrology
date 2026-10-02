@@ -1,0 +1,50 @@
+{
+  "audit_id": "ALMAS_SSAR_LOTS_PRIMARY_FORMULAS_V1",
+  "audited_on": "2026-10-02",
+  "sources": [
+    {
+      "id": "F7_PAULUS",
+      "priority": "P1",
+      "epistemic_scope": "B_TECHNIQUE",
+      "author": "Paulus Alexandrinus",
+      "work": "Introductory Matters",
+      "translator": "Robert Schmidt",
+      "editor": "Robert Hand",
+      "passage": "Chapter 23, printed pages 43–45",
+      "url": "https://www.scribd.com/document/807742809/Paulus-Alexandrinus-Introductory-Matters-Project-Hindsight-Greek-Track-Volume-I-Paulus-Alexandrinus-Robert-Hand-Editor-etc-Z-Library",
+      "verification": "TRANSLATED_PASSAGE_READ",
+      "year": null,
+      "supports": "Six formulas and night reversal",
+      "does_not_support": "SSAR reliability or lived psychological agency"
+    },
+    {
+      "id": "F7_VALENS",
+      "priority": "P1",
+      "epistemic_scope": "B_TECHNIQUE",
+      "author": "Vettius Valens",
+      "translator": "Mark Riley",
+      "editorial_recomposition": "Jane Griscti",
+      "passage": "IV.25, printed pages 372–373; marginal notes explicitly marked Riley",
+      "url": "https://raw.githubusercontent.com/janegca/latex-valens/main/Valens-Anthologies-Annotated.pdf",
+      "verification": "TRANSLATED_PASSAGE_READ_LOCAL_PDF",
+      "supports": "Transmitted marginal Eros/Necessity variant",
+      "does_not_support": "Critical-manuscript authentication or equivalence with Paulus"
+    },
+    {
+      "id": "F7_GREENBAUM_JONES",
+      "priority": "P2",
+      "epistemic_scope": "B_TECHNIQUE",
+      "work": "P.Berl. 9825 (2017)",
+      "url": "https://archive.nyu.edu/bitstream/2451/49543/4/Greenbaum%20and%20Jones%202017%20PBerl%209825%20ISAW%20Papers.pdf",
+      "verification": "ACADEMIC_PAPER_PASSAGES_READ",
+      "supports": "Historical nocturnal Nemesis corroboration and distinct traditions",
+      "does_not_support": "Experimental interpretation"
+    }
+  ],
+  "arithmetic_scope": "A_CALCULATED_DATA",
+  "functional_scope": "E_PROJECT_HYPOTHESIS",
+  "source_count_adds_weight": false,
+  "nominal_name_verification_required": false,
+  "default_m13_policy_modified": false,
+  "external_validation_status": "NOT_PERFORMED"
+}

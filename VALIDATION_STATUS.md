@@ -1,6 +1,10 @@
 # Estado de validación
 
-**Versión pública:** 1.24.1
+**Versión pública:** 1.25.0
+
+## Release 1.25.0 · SSAR experimental
+
+Las diez fases técnicas incorporan lotes, integración temporal/M27, controles, congelación y bloque canónico optativo. Las nueve ablaciones del pipeline M00–M31 conservan las salidas core. La política experimental está congelada; la métrica principal no está operacionalizada y la validación externa permanece `NOT_PERFORMED`. Los controles sintéticos no son evidencia de eficacia empírica. Auditoría: `docs/RELEASE_AUDIT_1.25.0.md`.
 
 ## Release 1.24.1 · Corpus y doctrina
 

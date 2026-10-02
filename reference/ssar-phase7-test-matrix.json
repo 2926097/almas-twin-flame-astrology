@@ -1,0 +1,111 @@
+{
+  "phase": 7,
+  "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+  "scope": "SYNTHETIC_TECHNICAL_ACCEPTANCE",
+  "requirements": [
+    "historical formulas and circularity",
+    "known/unknown sect and horizon stability",
+    "all variants without selection",
+    "sources precision and core anchors"
+  ],
+  "fixture": "examples/ssar-lots.synthetic.json",
+  "tests": [
+    "tests/test_ssar_lots.py::test_historical_arithmetic_both_sects_and_all_variants",
+    "tests/test_ssar_lots.py::test_periodicity_and_missing_dependencies",
+    "tests/test_ssar_lots.py::test_nonfinite_and_unknown_sect_rejected_by_pure_calculator",
+    "tests/test_ssar_lots.py::test_positive_and_negative_each_variant_both_sects",
+    "tests/test_ssar_lots.py::test_unknown_sect_retains_day_night_and_blocks_even_invariant_valens",
+    "tests/test_ssar_lots.py::test_time_location_sources_horizon_flip_and_missing_sample",
+    "tests/test_ssar_lots.py::test_variants_not_selected_and_shared_group_not_equivalence",
+    "tests/test_ssar_lots.py::test_absence_of_core_and_disabled_empty_distinctions",
+    "tests/test_ssar_lots.py::test_duplicate_and_broken_context_and_forged_result"
+  ],
+  "positive_cases": [
+    "qualified geometry",
+    "two structural groups",
+    "two clock groups",
+    "documentary correspondence"
+  ],
+  "failure_ambiguity_cases": [
+    "unknown sect",
+    "missing source",
+    "incomplete grid",
+    "no core",
+    "dependent groups",
+    "open window",
+    "missing M27",
+    "superseded event",
+    "contradictor",
+    "broken refs",
+    "forged output"
+  ],
+  "external_validation_status": "NOT_PERFORMED",
+  "cases": [
+    {
+      "requirement_id": "formulas_circularity",
+      "test": "tests/test_ssar_lots.py::test_historical_arithmetic_both_sects_and_all_variants",
+      "expected": "CALCULATED; exact eight expected longitudes",
+      "fixture": "examples/ssar-lots.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "missing_inputs",
+      "test": "tests/test_ssar_lots.py::test_periodicity_and_missing_dependencies",
+      "expected": "BLOCKED without invented zero",
+      "fixture": "examples/ssar-lots.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "sect_and_horizon",
+      "test": "tests/test_ssar_lots.py::test_unknown_sect_retains_day_night_and_blocks_even_invariant_valens",
+      "expected": "DAY/NIGHT retained; qualification BLOCKED",
+      "fixture": "examples/ssar-lots.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "precision_provenance",
+      "test": "tests/test_ssar_lots.py::test_time_location_sources_horizon_flip_and_missing_sample",
+      "expected": "BLOCKED",
+      "fixture": "examples/ssar-lots.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "variants_groups",
+      "test": "tests/test_ssar_lots.py::test_variants_not_selected_and_shared_group_not_equivalence",
+      "expected": "selected_variant null; one effective group; eight equivalence classes",
+      "fixture": "examples/ssar-lots.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "core_disabled",
+      "test": "tests/test_ssar_lots.py::test_absence_of_core_and_disabled_empty_distinctions",
+      "expected": "SECONDARY_SUPPORT or NONE",
+      "fixture": "examples/ssar-lots.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    }
+  ]
+}

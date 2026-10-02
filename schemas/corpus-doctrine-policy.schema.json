@@ -8,7 +8,7 @@
       "const": "ALMAS_CORPUS_DOCTRINE_V1"
     },
     "target_almas_version": {
-      "const": "1.24.1"
+      "const": "1.25.0"
     },
     "source_registry_ref": {
       "const": "reference/source-registry.json"
