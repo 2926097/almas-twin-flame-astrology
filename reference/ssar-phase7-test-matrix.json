@@ -1,6 +1,6 @@
 {
   "phase": 7,
-  "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+  "policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
   "scope": "SYNTHETIC_TECHNICAL_ACCEPTANCE",
   "requirements": [
     "historical formulas and circularity",

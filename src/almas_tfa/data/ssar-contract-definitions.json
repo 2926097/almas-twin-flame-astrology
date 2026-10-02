@@ -5694,7 +5694,7 @@
           "type": "string",
           "minLength": 1
         },
-        "independent_fact_count": {
+        "effective_fact_group_count": {
           "type": "integer",
           "minimum": 0
         },
@@ -5711,7 +5711,7 @@
         "fact_group_refs",
         "window_ref",
         "coding_rule_ref",
-        "independent_fact_count",
+        "effective_fact_group_count",
         "causal_status"
       ],
       "additionalProperties": false

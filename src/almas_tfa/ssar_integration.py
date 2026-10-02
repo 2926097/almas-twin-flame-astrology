@@ -60,7 +60,7 @@ def run_integration(structure, request, *, policy_hash, m27_ledger=None):
     events=_index((m27_ledger or {}).get('events',[]),'event_id');facts={};event_facts={}
     for e in events.values():
         # Equal facts do not become independent merely by acquiring another event ID.
-        key=e.get('fact_key') or _hash({k:e.get(k) for k in ('subjects','date','date_range','fact_statement')})
+        key=e.get('fact_key') or _hash(dict(subjects=sorted(e.get('subjects',[])),date=e.get('date'),date_range=e.get('date_range'),fact_statement=e.get('fact_statement')))
         facts.setdefault(key,[]).append(e['event_id']);event_facts[e['event_id']]=key
     docs=[];consumers={};tindex=_index(temporal,'window_ref')
     for claim in request['claims']:
@@ -96,7 +96,7 @@ def run_integration(structure, request, *, policy_hash, m27_ledger=None):
             excluding_counterevidence_refs=neg,counterevidence_evaluable=bool(neg))
         docs.append(dict(claim_ref=claim['id'],complex_ref=c['id'],scope=claim['scope'],assessment=assessment,event_refs=sorted(refs),
             fact_group_refs=sorted({event_facts[e] for e in refs if e in events}),window_ref=wr,coding_rule_ref=claim['coding_rule_ref'],
-            independent_fact_count=len({event_facts[e] for e in good}),causal_status='UNESTABLISHED'))
+            effective_fact_group_count=len({event_facts[e] for e in good}),causal_status='UNESTABLISHED'))
     out=dict(temporal=temporal,documentary=docs,shared_events=[dict(fact_group_ref=k,event_refs=sorted(facts[k]),consumer_refs=sorted(set(ids)),
         contributes_new_evidence=False) for k,ids in sorted(consumers.items()) if len(set(ids))>1 or len(facts[k])>1],
         documentary_event_source='M27_NORMALIZED_LEDGER',external_validation_status='NOT_PERFORMED')

@@ -216,7 +216,7 @@
         }
       ],
       "freeze": {
-        "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+        "policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
         "architecture_hash": "469a44504ff47e77b4080e3d623adfefc6fcb2fcc9e1db7e45a65ce7070ace3d",
         "registered_at": "2019-12-01",
         "mode": "RETROSPECTIVE",
@@ -253,11 +253,11 @@
     "schema_version": "ssar-1.25.0",
     "enabled": true,
     "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
-    "evaluation_policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+    "evaluation_policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
     "policy_status": "FROZEN_EXPERIMENTAL",
     "execution_status": "executed",
     "completion": "COMPLETE",
-    "input_hash": "ad299709f4263028ba527c21aac0a239cd9afa7052f7983e4eee93d58f2609f2",
+    "input_hash": "ed1133d32c4ffcb74bd8cb636dca893aa9e43c84bc797cd2d982b078dc84a88f",
     "evaluation_input": {
       "enabled": true,
       "profiles": {
@@ -473,7 +473,7 @@
           }
         ],
         "freeze": {
-          "policy_hash": "e7bf8d16b5caa17d247947c767e3d33ef8c7f747811bcbe3a5a9f3ef3ef20a9f",
+          "policy_hash": "53d721b037f4398fc81ab697731d1083304a1696321cc4a986de6a99169a99e2",
           "architecture_hash": "469a44504ff47e77b4080e3d623adfefc6fcb2fcc9e1db7e45a65ce7070ace3d",
           "registered_at": "2019-12-01",
           "mode": "RETROSPECTIVE",
@@ -1857,7 +1857,7 @@
           ],
           "window_ref": null,
           "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
-          "independent_fact_count": 1,
+          "effective_fact_group_count": 1,
           "causal_status": "UNESTABLISHED"
         },
         {
@@ -1884,7 +1884,7 @@
           ],
           "window_ref": "W",
           "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
-          "independent_fact_count": 1,
+          "effective_fact_group_count": 1,
           "causal_status": "UNESTABLISHED"
         }
       ],

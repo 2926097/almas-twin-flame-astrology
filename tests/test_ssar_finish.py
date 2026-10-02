@@ -176,3 +176,12 @@ class AdversarialFinishTests(unittest.TestCase):
         out=run_ssar_pipeline(r)
         self.assertEqual(out['integration']['temporal'][0]['prediction_class'],'PROSPECTIVELY_DECLARED_UNVERIFIED')
         self.assertEqual(out['external_validation_status'],'NOT_PERFORMED')
+
+class FactGroupTests(unittest.TestCase):
+    def test_subject_order_and_alias_ids_do_not_create_independent_facts(self):
+        r=fixture();r['integration']=dict(windows=[],claims=[claim()],freeze=None);l=ledger();l['events'][0].pop('fact_key')
+        alias=copy.deepcopy(l['events'][0]);alias['event_id']='ALIAS';alias['subjects'].reverse();l['events'].append(alias)
+        r['integration']['claims'][0]['support_event_refs'].append('ALIAS')
+        out=run_ssar_pipeline(r,m27_ledger=l);d=out['integration']['documentary'][0]
+        self.assertEqual(d['effective_fact_group_count'],1);self.assertEqual(len(out['integration']['shared_events']),1)
+        self.assertNotIn('independent_fact_count',d)
