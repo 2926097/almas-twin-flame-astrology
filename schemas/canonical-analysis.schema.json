@@ -1054,7 +1054,7 @@
       }
     },
     "ssar": {
-      "$ref": "ssar-canonical-output.schema.json"
+      "$ref": "return-ssar-envelope.schema.json"
     }
   },
   "additionalProperties": false,

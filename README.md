@@ -194,3 +194,7 @@ Véase `docs/PUBLICATION_POLICY.md`.
 ## Licencia
 
 No se ha seleccionado todavía una licencia open source. Publicar el repositorio en GitHub no concede por sí mismo derechos de reutilización adicionales a los previstos por la ley aplicable y los términos de GitHub.
+
+## ALMAS 1.25.0 R3 · Retornos experimentales
+
+RRA calcula retornos y todas sus pasadas sobre raíces previas, con variantes de ubicación, eventos, dependencia, controles nulos y ablaciones. Conserva el núcleo y SSAR congelados. [Método y ejecución](reference/relational-return-activation.md), [corpus](docs/RRA_SOURCE_AUDIT.md), [auditoría](docs/RRA_BASE_AUDIT.md). Validación externa relacional pendiente.

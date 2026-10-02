@@ -1,0 +1,19 @@
+{
+  "aspects": {
+    "CONJUNCTION": 0,
+    "SEXTILE": 60,
+    "SQUARE": 90,
+    "TRINE": 120,
+    "OPPOSITION": 180
+  },
+  "maximum_degrees": 1.0,
+  "boundary_inclusive": true,
+  "antiscia_enabled": false,
+  "declination_enabled": false,
+  "reason": "LONGITUDINAL_INITIAL_PROFILE; DECLINATION_AND_ANTISCIA_REQUIRE_SEPARATE_VALIDATED_POLICY",
+  "policy_id": "ALMAS_RRA_ORB_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

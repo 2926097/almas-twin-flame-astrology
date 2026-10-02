@@ -269,3 +269,22 @@ jobs:
           name: astronomy-golden-complete-py${{ matrix.python-version }}
           path: /tmp/almas-golden-complete-${{ matrix.python-version }}
           if-no-files-found: error
+
+  return-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar backends fijados
+        run: python -m pip install -e ".[schema-validation,astronomy-moira,astronomy-validation]"
+      - name: Descargar kernel registrado
+        run: curl --fail --location --retry 3 https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp --output /tmp/de440s.bsp
+      - name: Reproducir retornos y comparación independiente
+        run: python scripts/validate_return_runtime.py --kernel /tmp/de440s.bsp --output /tmp/rra-runtime.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rra-runtime-receipt
+          path: /tmp/rra-runtime.json
+          if-no-files-found: error

@@ -1,0 +1,1019 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "clocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "returning_body": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference_chart": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference_point": {
+                "type": "string",
+                "minLength": 1
+              },
+              "significator_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start": {
+                "type": "string",
+                "minLength": 1
+              },
+              "end": {
+                "type": "string",
+                "minLength": 1
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "basis": {
+                      "enum": [
+                        "birth_location",
+                        "residence_location",
+                        "actual_return_location",
+                        "event_location",
+                        "unknown"
+                      ]
+                    },
+                    "latitude": {
+                      "type": "number",
+                      "minimum": -90,
+                      "maximum": 90
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180
+                    },
+                    "source_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "basis"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "angular_reliability": {
+                "type": "boolean"
+              },
+              "birth_time_quality": {
+                "enum": [
+                  "DOCUMENTED",
+                  "REPORTED",
+                  "RECTIFIED",
+                  "APPROXIMATE",
+                  "UNKNOWN"
+                ]
+              },
+              "reference_uncertainty_degrees": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "id",
+              "owner",
+              "returning_body",
+              "reference_chart",
+              "reference_point",
+              "start",
+              "end",
+              "locations",
+              "angular_reliability",
+              "birth_time_quality"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "charts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "layer": {
+                "enum": [
+                  "NATAL",
+                  "SYNASTRY",
+                  "COMPOSITE",
+                  "DAVISON",
+                  "DRACONIC",
+                  "SSAR",
+                  "EVENT"
+                ]
+              },
+              "source_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "point_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "longitude": {
+                      "type": "number"
+                    },
+                    "core_root_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    },
+                    "time_sensitive": {
+                      "type": "boolean"
+                    },
+                    "angular_reliability": {
+                      "type": "boolean"
+                    },
+                    "uncertainty_degrees": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "parent_point_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    },
+                    "derivation_method": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "significator_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "point_id",
+                    "longitude",
+                    "core_root_refs"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "layer",
+              "source_ref",
+              "points"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "event_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "event_datetime": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timezone": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fact_statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fact_key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "occurred": {
+                "type": "boolean"
+              },
+              "certainty": {
+                "enum": [
+                  "DOCUMENTED",
+                  "REPORTED",
+                  "APPROXIMATE",
+                  "UNKNOWN"
+                ]
+              },
+              "uncertainty_hours": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "event_id",
+              "event_type",
+              "fact_statement",
+              "fact_key",
+              "source_refs",
+              "occurred",
+              "certainty",
+              "uncertainty_hours"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "string",
+                "minLength": 1
+              },
+              "b": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "null_model": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "enum": [
+                "EVENT_DATE_SHIFT",
+                "CONTROL_DATES",
+                "EVENT_DATE_PERMUTATION"
+              ]
+            },
+            "seed": {
+              "type": "integer"
+            },
+            "simulations": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            },
+            "control_datetimes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "method",
+            "seed",
+            "simulations"
+          ],
+          "additionalProperties": false
+        },
+        "robustness": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "rra-1.0"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "return_policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "return_policy_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engine_version": {
+          "const": "RRA_1.0"
+        },
+        "execution_status": {
+          "enum": [
+            "not_run",
+            "executed",
+            "partial",
+            "blocked"
+          ]
+        },
+        "input_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluation_input": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "clocks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "owner": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "returning_body": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reference_chart": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reference_point": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "significator_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "start": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "end": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "locations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "basis": {
+                          "enum": [
+                            "birth_location",
+                            "residence_location",
+                            "actual_return_location",
+                            "event_location",
+                            "unknown"
+                          ]
+                        },
+                        "latitude": {
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90
+                        },
+                        "longitude": {
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180
+                        },
+                        "source_ref": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "basis"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "angular_reliability": {
+                    "type": "boolean"
+                  },
+                  "birth_time_quality": {
+                    "enum": [
+                      "DOCUMENTED",
+                      "REPORTED",
+                      "RECTIFIED",
+                      "APPROXIMATE",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "reference_uncertainty_degrees": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "id",
+                  "owner",
+                  "returning_body",
+                  "reference_chart",
+                  "reference_point",
+                  "start",
+                  "end",
+                  "locations",
+                  "angular_reliability",
+                  "birth_time_quality"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "charts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "layer": {
+                    "enum": [
+                      "NATAL",
+                      "SYNASTRY",
+                      "COMPOSITE",
+                      "DAVISON",
+                      "DRACONIC",
+                      "SSAR",
+                      "EVENT"
+                    ]
+                  },
+                  "source_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "points": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "point_id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "longitude": {
+                          "type": "number"
+                        },
+                        "core_root_refs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "uniqueItems": true
+                        },
+                        "time_sensitive": {
+                          "type": "boolean"
+                        },
+                        "angular_reliability": {
+                          "type": "boolean"
+                        },
+                        "uncertainty_degrees": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "parent_point_ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "uniqueItems": true
+                        },
+                        "derivation_method": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "significator_ref": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "point_id",
+                        "longitude",
+                        "core_root_refs"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "layer",
+                  "source_ref",
+                  "points"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "event_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "event_type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "event_datetime": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "fact_statement": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "fact_key": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "occurred": {
+                    "type": "boolean"
+                  },
+                  "certainty": {
+                    "enum": [
+                      "DOCUMENTED",
+                      "REPORTED",
+                      "APPROXIMATE",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "uncertainty_hours": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "event_id",
+                  "event_type",
+                  "fact_statement",
+                  "fact_key",
+                  "source_refs",
+                  "occurred",
+                  "certainty",
+                  "uncertainty_hours"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "dependencies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "b": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "null_model": {
+              "type": "object",
+              "properties": {
+                "method": {
+                  "enum": [
+                    "EVENT_DATE_SHIFT",
+                    "CONTROL_DATES",
+                    "EVENT_DATE_PERMUTATION"
+                  ]
+                },
+                "seed": {
+                  "type": "integer"
+                },
+                "simulations": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10000
+                },
+                "control_datetimes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "required": [
+                "method",
+                "seed",
+                "simulations"
+              ],
+              "additionalProperties": false
+            },
+            "robustness": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enabled"
+          ],
+          "additionalProperties": false
+        },
+        "root_input": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "ssar_input": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "returns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "return_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "clock_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "return_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "returning_body": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference_chart": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference_longitude": {
+                "type": "number"
+              },
+              "exact_return_time": {
+                "type": "string",
+                "minLength": 1
+              },
+              "return_pass": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "motion_state": {
+                "enum": [
+                  "DIRECT",
+                  "RETROGRADE",
+                  "STATIONARY"
+                ]
+              },
+              "angular_error": {
+                "type": "number"
+              },
+              "solver": {
+                "type": "object"
+              },
+              "location_variant": {
+                "type": "string",
+                "minLength": 1
+              },
+              "location_basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "return_chart": {
+                "type": "object"
+              },
+              "contacts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "return_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "chart_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "layer": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source_point": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "target_point": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "aspect": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "orb": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "orb_limit": {
+                      "type": "number"
+                    },
+                    "root_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    },
+                    "dependency_group": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "epistemic_class": {
+                      "const": "E_PROJECT_HYPOTHESIS"
+                    },
+                    "status": {
+                      "enum": [
+                        "SUPPORTED"
+                      ]
+                    },
+                    "scope": {
+                      "const": "CALCULATED_ROOT_ACTIVATION"
+                    },
+                    "automatic_identity_contact": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "return_id",
+                    "chart_id",
+                    "layer",
+                    "source_point",
+                    "target_point",
+                    "aspect",
+                    "orb",
+                    "orb_limit",
+                    "root_refs",
+                    "dependency_group",
+                    "epistemic_class",
+                    "status",
+                    "scope",
+                    "automatic_identity_contact"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "excluded_contacts": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "event_correspondences": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "structural_roots": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "activation_depth": {
+                "enum": [
+                  "R1",
+                  "R2",
+                  "R3",
+                  "R4",
+                  "R5",
+                  "R6"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "SUPPORTED",
+                  "COMPATIBLE",
+                  "INSUFFICIENT",
+                  "NOT_EVALUABLE"
+                ]
+              },
+              "doctrine_class": {
+                "type": "string",
+                "minLength": 1
+              },
+              "iat_eligible": {
+                "const": false
+              }
+            },
+            "required": [
+              "return_id",
+              "clock_id",
+              "owner",
+              "return_type",
+              "returning_body",
+              "reference_chart",
+              "reference_longitude",
+              "exact_return_time",
+              "return_pass",
+              "motion_state",
+              "angular_error",
+              "solver",
+              "location_variant",
+              "location_basis",
+              "return_chart",
+              "contacts",
+              "excluded_contacts",
+              "event_correspondences",
+              "structural_roots",
+              "activation_depth",
+              "status",
+              "doctrine_class",
+              "iat_eligible"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "negative_results": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "dependency_graph": {
+          "type": "object"
+        },
+        "recurrence": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "robustness": {
+          "type": "object"
+        },
+        "null_model_result": {
+          "type": "object"
+        },
+        "calculation_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        },
+        "iat_modified": {
+          "const": false
+        },
+        "status_scope": {
+          "const": "TECHNICAL_TEMPORAL_ACTIVATION"
+        }
+      },
+      "required": [
+        "schema_version",
+        "enabled",
+        "return_policy_id",
+        "return_policy_hash",
+        "engine_version",
+        "execution_status",
+        "input_hash",
+        "evaluation_input",
+        "root_input",
+        "ssar_input",
+        "returns",
+        "coverage",
+        "negative_results",
+        "dependency_graph",
+        "recurrence",
+        "robustness",
+        "null_model_result",
+        "calculation_hash",
+        "external_validation_status",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect",
+        "iat_modified",
+        "status_scope"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

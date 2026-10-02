@@ -463,7 +463,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
     degradation_reasons: list[str] = []
 
     if 'ssar' in canonical_copy:
-        from .ssar_pipeline import validate_canonical_ssar
+        from .return_activation import validate_ssar_with_returns as validate_canonical_ssar
         from jsonschema.exceptions import ValidationError
         try:
             validate_canonical_ssar(canonical_copy['ssar'])
@@ -588,7 +588,7 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
 
 
 
-def make_m30_report_gate_auto():
+def make_m30_report_gate_auto(astrology_backend=None):
     """Construye M30 con ensamblaje canónico Q7 y compatibilidad legacy.
 
     Un canonical_analysis ya suministrado conserva prioridad y nunca se
@@ -612,6 +612,11 @@ def make_m30_report_gate_auto():
             snapshot_for_assembly['ssar'] = run_ssar_pipeline(
                 snapshot_for_assembly['ssar_configuration'], canonical_roots=roots,
                 m27_ledger=snapshot_for_assembly.get('documentary_events'))
+        if 'return_activation_request' in context.raw_input:
+            from .return_activation import attach_return_activation
+            snapshot_for_assembly = attach_return_activation(
+                snapshot_for_assembly, context.raw_input['return_activation_request'],
+                backend=astrology_backend)
         assembled = assemble_canonical_analysis(
             snapshot_for_assembly,
             context.prior_results,

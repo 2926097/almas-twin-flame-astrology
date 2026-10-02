@@ -497,5 +497,5 @@ def configured_handlers(*, astrology_backend=None, davison_backend=None):
             astrology_backend,
             davison_backend,
         )
-        handlers["M30"] = make_m30_report_gate_auto()
+        handlers["M30"] = make_m30_report_gate_auto(astrology_backend)
     return handlers

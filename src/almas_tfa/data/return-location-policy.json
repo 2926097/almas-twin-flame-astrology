@@ -1,0 +1,17 @@
+{
+  "bases": [
+    "birth_location",
+    "residence_location",
+    "actual_return_location",
+    "event_location",
+    "unknown"
+  ],
+  "implicit_fallback": false,
+  "keep_all_declared_variants": true,
+  "unknown_blocks_angles": true,
+  "policy_id": "ALMAS_RRA_LOCATION_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

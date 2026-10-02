@@ -1,0 +1,20 @@
+{
+  "exact_window_hours": {
+    "SUN": 168,
+    "MOON": 24,
+    "MERCURY": 72,
+    "VENUS": 72,
+    "MARS": 120,
+    "JUPITER": 336,
+    "SATURN": 336
+  },
+  "secondary_window_hours": 24,
+  "exact_window_is_project_convention": true,
+  "cycle_and_exact_window_are_distinct": true,
+  "future_events_are_not_correspondence_evidence": true,
+  "policy_id": "ALMAS_RRA_EVENT_WINDOW_V1",
+  "schema_version": "rra-1.0",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "case_used_for_design": false
+}

@@ -819,8 +819,11 @@ def assemble_canonical_analysis(
 
     if 'ssar' in canonical:
         from copy import deepcopy
-        from .ssar_pipeline import validate_canonical_ssar
+        from .return_activation import validate_ssar_with_returns as validate_canonical_ssar
         validate_canonical_ssar(canonical['ssar'])
+        rra=canonical['ssar'].get('temporal_activation')
+        if rra is not None and rra['root_input'] != canonical.get('independent_roots',{}).get('roots'):
+            raise ValueError('RRA no está anclado al registro M17 de esta ejecución.')
         assembled['ssar'] = deepcopy(canonical['ssar'])
 
     return {

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ALMAS · SSAR con extensión opcional de retornos",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "enabled",
+    "policy_id",
+    "evaluation_policy_hash",
+    "policy_status",
+    "execution_status",
+    "completion",
+    "input_hash",
+    "profiles",
+    "structure",
+    "integration",
+    "coverage",
+    "external_validation_status",
+    "primary_integration_metric_status",
+    "structural_scoring_modified",
+    "ontology_effect",
+    "discriminator_effect",
+    "history_policy",
+    "ablation",
+    "evaluation_input",
+    "documentary_input"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/schema_version"
+    },
+    "enabled": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/enabled"
+    },
+    "policy_id": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/policy_id"
+    },
+    "evaluation_policy_hash": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/evaluation_policy_hash"
+    },
+    "policy_status": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/policy_status"
+    },
+    "execution_status": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/execution_status"
+    },
+    "completion": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/completion"
+    },
+    "input_hash": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/input_hash"
+    },
+    "profiles": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/profiles"
+    },
+    "structure": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/structure"
+    },
+    "integration": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/integration"
+    },
+    "coverage": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/coverage"
+    },
+    "external_validation_status": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/external_validation_status"
+    },
+    "primary_integration_metric_status": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/primary_integration_metric_status"
+    },
+    "structural_scoring_modified": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/structural_scoring_modified"
+    },
+    "ontology_effect": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/ontology_effect"
+    },
+    "discriminator_effect": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/discriminator_effect"
+    },
+    "history_policy": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/history_policy"
+    },
+    "ablation": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/ablation"
+    },
+    "evaluation_input": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/evaluation_input"
+    },
+    "documentary_input": {
+      "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F10Result/properties/documentary_input"
+    },
+    "temporal_activation": {
+      "$ref": "return-activation-output.schema.json"
+    }
+  }
+}
