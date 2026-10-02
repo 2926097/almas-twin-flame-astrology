@@ -1,5 +1,11 @@
 # Changelog
 
+## Desarrollo 1.25.0 · SSAR fase 6 — 2026-10-02
+
+Añade Vertex/Anti-Vertex, apogeo medio escalar IERS y apogeo osculante derivado del estado lunar inercial, con proveedor auxiliar Skyfield 1.55/DE440, convenciones de tiempo, origen, marco, unidades y bloqueos explícitos. El eje conserva aspectos dirigidos y equivalencia; ambas variantes lunares conservan separación y discrepancias sin selección retrospectiva ni conteo independiente. La media declarada no se confunde con el apogeo de órbita media proyectado de Swiss Ephemeris.
+
+Incluye dos schemas, auditoría de fuentes técnicas, fixture sintético, 54 pruebas y 67 comparaciones de algoritmos con Swiss Ephemeris, ERFA/SOFA y CSPICE sobre entradas idénticas; tolerancia de desarrollo 10⁻⁷ grados. Las funciones interpretativas siguen siendo E y la validación externa permanece pendiente. No cambia núcleo, políticas previas, scoring, índices, ontología, discriminadores o versión pública 1.24.1. Fases 7–10 pendientes.
+
 ## Desarrollo 1.25.0 · SSAR fase 5 — 2026-10-02
 
 Añade siete funciones exploratorias de Hekate, Persephone, Eris y las Moiras, MOIRAI_CLUSTER y dos complejos optativos con anclajes heredados, robustez y dos grupos efectivos. Eris conserva alternativas interpretativas y sólo aporta contexto a los complejos. Perséfone puede enlazar evidencia de fase 4 sin duplicarla. La procedencia nominal se verifica en catálogo técnico P3 y NASA P1; los antecedentes antiguos y las reglas propias E permanecen separados.

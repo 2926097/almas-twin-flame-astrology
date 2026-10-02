@@ -1,0 +1,57 @@
+{
+  "policy_id": "ALMAS_SSAR_CALCULATED_POINT_PRECISION_DEV_V1",
+  "policy_status": "DEVELOPMENT",
+  "external_validation_status": "NOT_PERFORMED",
+  "scope": "ALGORITHM_AGREEMENT_ON_IDENTICAL_INPUTS_NOT_INTERPRETATION_OR_EPHEMERIS_ACCURACY",
+  "declared_before_parameter_adjustment": true,
+  "tolerances_deg": {
+    "VERTEX": 1e-07,
+    "BLACK_MOON_MEAN": 1e-07,
+    "BLACK_MOON_OSCULATING": 1e-07
+  },
+  "references": {
+    "pyswisseph": "2.10.3.2",
+    "swisseph": "2.10.03",
+    "pyerfa": "2.0.1.5",
+    "spiceypy": "8.0.2",
+    "skyfield": "1.55"
+  },
+  "vertex_latitudes_deg": [
+    0,
+    18,
+    -18,
+    41,
+    -41,
+    70,
+    -70
+  ],
+  "vertex_armc_deg": [
+    15,
+    90,
+    170,
+    270,
+    345
+  ],
+  "vertex_obliquity_deg": 23.4392911,
+  "jd_tt_epochs": [
+    2433282.5,
+    2451545.0,
+    2460676.5,
+    2469807.5
+  ],
+  "nutation_offsets_deg": [
+    -0.002,
+    0,
+    0.002
+  ],
+  "perturbation_offsets_minutes": [
+    -30,
+    -15,
+    0,
+    15,
+    30
+  ],
+  "kernel_sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+  "kernel_source": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp",
+  "numeric_failure_does_not_change_tolerance": true
+}

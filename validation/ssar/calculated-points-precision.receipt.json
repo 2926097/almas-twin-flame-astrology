@@ -1,0 +1,1570 @@
+{
+  "policy_id": "ALMAS_SSAR_CALCULATED_POINT_PRECISION_DEV_V1",
+  "policy_status": "DEVELOPMENT",
+  "status": "PASS",
+  "comparison_scope": "ALGORITHM_AGREEMENT_ON_IDENTICAL_INPUTS_NOT_INTERPRETATION_OR_EPHEMERIS_ACCURACY",
+  "records": [
+    {
+      "id": "V:0:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": 0,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 0.0,
+      "reference_deg": 0.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:0:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": 0,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 0.0,
+      "reference_deg": 0.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:0:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": 0,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 0.0,
+      "reference_deg": 0.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:0:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": 0,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.0,
+      "reference_deg": 180.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:0:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": 0,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.0,
+      "reference_deg": 180.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:18:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": 18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 224.38840503500342,
+      "reference_deg": 224.38840503500344,
+      "delta_deg": 2.842170943040401e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:18:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": 18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 1.1437173691827219e-14,
+      "reference_deg": 0.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:18:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": 18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 137.23804359668634,
+      "reference_deg": 137.23804359668637,
+      "delta_deg": 2.842170943040401e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:18:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": 18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.0,
+      "reference_deg": 180.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:18:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": 18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 213.45777591207178,
+      "reference_deg": 213.45777591207178,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-18:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": -18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 326.5422240879282,
+      "reference_deg": 326.5422240879282,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-18:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": -18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 360.0,
+      "reference_deg": 1e-10,
+      "delta_deg": 1.000444171950221e-10,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-18:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": -18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 35.44314961965389,
+      "reference_deg": 35.44314961965389,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-18:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": -18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.00000000000003,
+      "reference_deg": 180.0,
+      "delta_deg": 2.842170943040401e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-18:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": -18,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 315.6115949649966,
+      "reference_deg": 315.6115949649966,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:41:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": 41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 257.1619050924028,
+      "reference_deg": 257.1619050924028,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:41:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": 41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 0.0,
+      "reference_deg": 1e-10,
+      "delta_deg": 9.99875737761613e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:41:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": 41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 106.8501173172748,
+      "reference_deg": 106.85011731727475,
+      "delta_deg": 5.684341886080802e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:41:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": 41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.0,
+      "reference_deg": 180.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:41:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": 41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 234.26230829639377,
+      "reference_deg": 234.26230829639377,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-41:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": -41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 305.73769170360623,
+      "reference_deg": 305.73769170360623,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-41:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": -41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 360.0,
+      "reference_deg": 1e-10,
+      "delta_deg": 1.000444171950221e-10,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-41:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": -41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 57.93589365201145,
+      "reference_deg": 57.93589365201145,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-41:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": -41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 179.99999999999997,
+      "reference_deg": 180.0,
+      "delta_deg": 2.842170943040401e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-41:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": -41,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 282.8380949075972,
+      "reference_deg": 282.8380949075972,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:70:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": 70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 275.4808813226995,
+      "reference_deg": 275.4808813226995,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:70:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": 70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 0.0,
+      "reference_deg": 1e-10,
+      "delta_deg": 9.99875737761613e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:70:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": 70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 89.15412667873994,
+      "reference_deg": 89.15412667873994,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:70:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": 70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.0,
+      "reference_deg": 180.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:70:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": 70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 248.41006223641872,
+      "reference_deg": 248.41006223641872,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-70:15",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 15,
+        "latitude_deg": -70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 291.58993776358125,
+      "reference_deg": 291.58993776358125,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-70:90",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 90,
+        "latitude_deg": -70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 360.0,
+      "reference_deg": 1e-10,
+      "delta_deg": 1.000444171950221e-10,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-70:170",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 170,
+        "latitude_deg": -70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 72.83986974439698,
+      "reference_deg": 72.83986974439698,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-70:270",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 270,
+        "latitude_deg": -70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 180.0,
+      "reference_deg": 180.0,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "V:-70:345",
+      "point_id": "VERTEX",
+      "input": {
+        "armc_deg": 345,
+        "latitude_deg": -70,
+        "obliquity_deg": 23.4392911
+      },
+      "actual_deg": 264.5191186773005,
+      "reference_deg": 264.5191186773005,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2433282.5:-0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2433282.5,
+        "nutation_longitude_deg": -0.002
+      },
+      "actual_deg": 28.841846629199154,
+      "reference_deg": 28.84184662917532,
+      "delta_deg": 2.3845814212108962e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2433282.5:0",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2433282.5,
+        "nutation_longitude_deg": 0
+      },
+      "actual_deg": 28.843846629199106,
+      "reference_deg": 28.843846629175317,
+      "delta_deg": 2.3788970793248154e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2433282.5:0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2433282.5,
+        "nutation_longitude_deg": 0.002
+      },
+      "actual_deg": 28.84584662919906,
+      "reference_deg": 28.845846629175316,
+      "delta_deg": 2.3732127374387346e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2433282.5:-30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2433282.4791666665,
+        "position_icrf_km": [
+          188105.36166809642,
+          312169.61050760705,
+          164006.45256671772
+        ],
+        "velocity_icrf_km_s": [
+          -0.8843029585968792,
+          0.3724131091473169,
+          0.22091939780953918
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999255221488,
+            0.011192871509801701,
+            0.004865160101648997
+          ],
+          [
+            -0.012204509598219454,
+            0.9173686825785399,
+            0.39785141720192124
+          ],
+          [
+            -1.0045720248713294e-05,
+            -0.397881162976434,
+            0.9174369624380785
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 21.691067460421934,
+      "reference_deg": 21.691067460421834,
+      "delta_deg": 1.1368683772161603e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2433282.5:-15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2433282.4895833335,
+        "position_icrf_km": [
+          187309.00203601827,
+          312503.99176458933,
+          164204.86337689447
+        ],
+        "velocity_icrf_km_s": [
+          -0.8853843437193781,
+          0.3706559477542594,
+          0.21999327796318308
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999255222979454,
+            0.011192860301601102,
+            0.004865155233894178
+          ],
+          [
+            -0.012204497378613345,
+            0.9173686827410737,
+            0.39785141720199874
+          ],
+          [
+            -1.0045714711266925e-05,
+            -0.39788116291699016,
+            0.9174369624638588
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 21.67129054523316,
+      "reference_deg": 21.67129054523326,
+      "delta_deg": 1.1368683772161603e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2433282.5:0",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2433282.5,
+        "position_icrf_km": [
+          186511.67112622288,
+          312836.7905345993,
+          164402.44007033523
+        ],
+        "velocity_icrf_km_s": [
+          -0.8864614314952926,
+          0.36889650571812743,
+          0.21906582537126754
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999255224473615,
+            0.011192849073024164,
+            0.0048651503573023955
+          ],
+          [
+            -0.012204485136797165,
+            0.9173686829038559,
+            0.397851417202184
+          ],
+          [
+            -1.004570917382229e-05,
+            -0.3978811628575462,
+            0.9174369624896388
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 21.651487696718316,
+      "reference_deg": 21.65148769671815,
+      "delta_deg": 1.7053025658242404e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2433282.5:15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2433282.5104166665,
+        "position_icrf_km": [
+          185713.37277386672,
+          313168.0047830879,
+          164599.18145806462
+        ],
+        "velocity_icrf_km_s": [
+          -0.887534214936065,
+          0.36713478990541226,
+          0.21813704360879113
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999255225970485,
+            0.011192837824103793,
+            0.004865145471887919
+          ],
+          [
+            -0.012204472872806784,
+            0.9173686830668862,
+            0.3978514172024769
+          ],
+          [
+            -1.004570363637592e-05,
+            -0.3978811627981024,
+            0.9174369625154188
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 21.631659303933834,
+      "reference_deg": 21.63165930393362,
+      "delta_deg": 2.2737367544323206e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2433282.5:30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2433282.5208333335,
+        "position_icrf_km": [
+          184914.11082025972,
+          313497.6324814683,
+          164795.0863541883
+        ],
+        "velocity_icrf_km_s": [
+          -0.8886026870603048,
+          0.36537080719970155,
+          0.21720693626019352
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999255227470054,
+            0.011192826554873294,
+            0.004865140577665194
+          ],
+          [
+            -0.012204460586678505,
+            0.9173686832301643,
+            0.39785141720287764
+          ],
+          [
+            -1.004569809893302e-05,
+            -0.39788116273865837,
+            0.9174369625411989
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 21.611805759437797,
+      "reference_deg": 21.611805759437512,
+      "delta_deg": 2.8421709430404007e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2451545.0:-0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2451545.0,
+        "nutation_longitude_deg": -0.002
+      },
+      "actual_deg": 263.35124312,
+      "reference_deg": 263.35124312,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2451545.0:0",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2451545.0,
+        "nutation_longitude_deg": 0
+      },
+      "actual_deg": 263.35324312,
+      "reference_deg": 263.35324312,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2451545.0:0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2451545.0,
+        "nutation_longitude_deg": 0.002
+      },
+      "actual_deg": 263.35524312,
+      "reference_deg": 263.35524312,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2451545.0:-30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2451544.9791666665,
+        "position_icrf_km": [
+          -292763.7848026937,
+          -265515.22613030334,
+          -75559.35142957717
+        ],
+        "velocity_icrf_km_s": [
+          0.6402441167365035,
+          -0.669029429949104,
+          -0.30215740177573686
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999999977201184,
+            6.1913239941292e-05,
+            2.6953924353835835e-05
+          ],
+          [
+            -6.752594240062183e-05,
+            0.9174821277740743,
+            0.3977769986505001
+          ],
+          [
+            -1.0208110635577937e-07,
+            -0.39777699956371,
+            0.9174821298630759
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 252.96018277805626,
+      "reference_deg": 252.96018277805626,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2451545.0:-15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2451544.9895833335,
+        "position_icrf_km": [
+          -292186.824372103,
+          -266116.69163686037,
+          -75831.10638824308
+        ],
+        "velocity_icrf_km_s": [
+          0.6418895395020128,
+          -0.6675600470770009,
+          -0.3017422543248113
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999999977206111,
+            6.19065457308225e-05,
+            2.6951015726917774e-05
+          ],
+          [
+            -6.751864359724756e-05,
+            0.9174821278002716,
+            0.3977769985913146
+          ],
+          [
+            -1.0207530046100617e-07,
+            -0.3977769995043274,
+            0.9174821298888212
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 252.97717280762242,
+      "reference_deg": 252.9771728076223,
+      "delta_deg": 1.1368683772161603e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2451545.0:0",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2451545.0,
+        "position_icrf_km": [
+          -291608.38469505816,
+          -266716.8333304543,
+          -76102.4870710492
+        ],
+        "velocity_icrf_km_s": [
+          0.6435313875445358,
+          -0.6660876842484439,
+          -0.3013257050266671
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999999977211051,
+            6.189983589748964e-05,
+            2.6948100326663827e-05
+          ],
+          [
+            -6.751132776589819e-05,
+            0.9174821278264698,
+            0.39777699853212944
+          ],
+          [
+            -1.0206949456633801e-07,
+            -0.3977769994449447,
+            0.9174821299145668
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 252.99420857491623,
+      "reference_deg": 252.99420857491646,
+      "delta_deg": 2.2737367544323206e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2451545.0:15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2451545.0104166665,
+        "position_icrf_km": [
+          -291028.4689654206,
+          -267315.6485592738,
+          -76373.49222952788
+        ],
+        "velocity_icrf_km_s": [
+          0.6451696555148971,
+          -0.6646123488402456,
+          -0.3009077561950216
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999999977216002,
+            6.189311043154913e-05,
+            2.6945178148849012e-05
+          ],
+          [
+            -6.750399489595279e-05,
+            0.917482127852669,
+            0.39777699847294495
+          ],
+          [
+            -1.0206368867152077e-07,
+            -0.3977769993855622,
+            0.9174821299403123
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 253.01128984208833,
+      "reference_deg": 253.01128984208827,
+      "delta_deg": 5.684341886080802e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2451545.0:30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2451545.0208333335,
+        "position_icrf_km": [
+          -290447.0803816731,
+          -267913.1346780843,
+          -76644.1206172377
+        ],
+        "velocity_icrf_km_s": [
+          0.6468043380762183,
+          -0.6631340482311044,
+          -0.3004884101452769
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999999977220961,
+            6.188636932352612e-05,
+            2.6942249189365215e-05
+          ],
+          [
+            -6.749664497708427e-05,
+            0.9174821278788692,
+            0.3977769984137608
+          ],
+          [
+            -1.020578827763139e-07,
+            -0.3977769993261797,
+            0.9174821299660579
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 253.02841637212117,
+      "reference_deg": 253.02841637212117,
+      "delta_deg": 0.0,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2460676.5:-0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2460676.5,
+        "nutation_longitude_deg": -0.002
+      },
+      "actual_deg": 200.63185747501166,
+      "reference_deg": 200.6318574750096,
+      "delta_deg": 2.0463630789890885e-12,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2460676.5:0",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2460676.5,
+        "nutation_longitude_deg": 0
+      },
+      "actual_deg": 200.6338574750116,
+      "reference_deg": 200.63385747500962,
+      "delta_deg": 1.9895196601282805e-12,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2460676.5:0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2460676.5,
+        "nutation_longitude_deg": 0.002
+      },
+      "actual_deg": 200.63585747501156,
+      "reference_deg": 200.63585747500963,
+      "delta_deg": 1.9326762412674725e-12,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2460676.5:-30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2460676.4791666665,
+        "position_icrf_km": [
+          150371.8596948311,
+          -308529.9795056745,
+          -167260.9413813481
+        ],
+        "velocity_icrf_km_s": [
+          0.9345934580385656,
+          0.39042944779378497,
+          0.21061665409757743
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999814161716681,
+            -0.005591558372701019,
+            -0.0024293592302108077
+          ],
+          [
+            0.006096497833996165,
+            0.9174876528313585,
+            0.39771753747623484
+          ],
+          [
+            5.046271366125187e-06,
+            -0.3977249569450841,
+            0.9175046913218319
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 187.3852807733936,
+      "reference_deg": 187.38528077339416,
+      "delta_deg": 5.684341886080801e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2460676.5:-15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2460676.4895833335,
+        "position_icrf_km": [
+          151212.55233407035,
+          -308177.6991902696,
+          -167070.89998473172
+        ],
+        "velocity_icrf_km_s": [
+          0.9336113855408953,
+          0.39241538672593024,
+          0.21169739272686275
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999814160833536,
+            -0.005591571661342019,
+            -0.002429364996687253
+          ],
+          [
+            0.006096512319857895,
+            0.9174876527761006,
+            0.3977175373816592
+          ],
+          [
+            5.04627730607294e-06,
+            -0.39772495688573273,
+            0.9175046913475601
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 187.3995155441066,
+      "reference_deg": 187.39951554410686,
+      "delta_deg": 2.5579538487363607e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2460676.5:0",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2460676.5,
+        "position_icrf_km": [
+          152052.3584652016,
+          -307823.632323239,
+          -166879.88635186854
+        ],
+        "velocity_icrf_km_s": [
+          0.932623524014089,
+          0.39439959528432683,
+          0.21277719677553147
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999814159951593,
+            -0.005591584931777626,
+            -0.002429370755271923
+          ],
+          [
+            0.006096526785877331,
+            0.9174876527209532,
+            0.3977175372871316
+          ],
+          [
+            5.046283246021126e-06,
+            -0.3977249568263813,
+            0.9175046913732879
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 187.4139123674642,
+      "reference_deg": 187.41391236746378,
+      "delta_deg": 4.263256414560601e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2460676.5:15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2460676.5104166665,
+        "position_icrf_km": [
+          152891.27291701056,
+          -307467.7804521981,
+          -166687.9013186578
+        ],
+        "velocity_icrf_km_s": [
+          0.931629876411886,
+          0.396382060161808,
+          0.21385605898828702
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999814159070869,
+            -0.005591598183895869,
+            -0.0024293765059162815
+          ],
+          [
+            0.0060965412319324425,
+            0.9174876526659173,
+            0.3977175371926524
+          ],
+          [
+            5.046289185971914e-06,
+            -0.3977249567670295,
+            0.9175046913990161
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 187.4284711353742,
+      "reference_deg": 187.42847113537343,
+      "delta_deg": 7.673861546209082e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2460676.5:30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2460676.5208333335,
+        "position_icrf_km": [
+          153729.29052084073,
+          -307110.14513643814,
+          -166494.94572739306
+        ],
+        "velocity_icrf_km_s": [
+          0.9306304457323883,
+          0.39836276804997245,
+          0.2149339721091247
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999814158191365,
+            -0.0055916114175851555,
+            -0.0024293822485719533
+          ],
+          [
+            0.006096555657901601,
+            0.9174876526109932,
+            0.39771753709822194
+          ],
+          [
+            5.046295125920534e-06,
+            -0.39772495670767793,
+            0.917504691424744
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 187.44319173610634,
+      "reference_deg": 187.44319173610626,
+      "delta_deg": 8.526512829121202e-14,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2469807.5:-0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2469807.5,
+        "nutation_longitude_deg": -0.002
+      },
+      "actual_deg": 137.855478756283,
+      "reference_deg": 137.85547875629652,
+      "delta_deg": 1.3528733688872308e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2469807.5:0",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2469807.5,
+        "nutation_longitude_deg": 0
+      },
+      "actual_deg": 137.85747875628294,
+      "reference_deg": 137.85747875629653,
+      "delta_deg": 1.3585577107733116e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "M:2469807.5:0.002",
+      "point_id": "BLACK_MOON_MEAN",
+      "input": {
+        "jd_tt": 2469807.5,
+        "nutation_longitude_deg": 0.002
+      },
+      "actual_deg": 137.8594787562829,
+      "reference_deg": 137.85947875629654,
+      "delta_deg": 1.3642420526593924e-11,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2469807.5:-30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2469807.4791666665,
+        "position_icrf_km": [
+          360051.8583371315,
+          96353.79560193312,
+          66307.25402345123
+        ],
+        "velocity_icrf_km_s": [
+          -0.25938968525698497,
+          0.9433591416090233,
+          0.33581910074901594
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999247850349844,
+            -0.011249144519402508,
+            -0.004886821085505703
+          ],
+          [
+            0.012264753010439843,
+            0.9174582747890373,
+            0.3976429175211246
+          ],
+          [
+            1.0311795999859603e-05,
+            -0.39767294447661966,
+            0.9175272361761073
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 109.64482699263753,
+      "reference_deg": 109.64482699263718,
+      "delta_deg": 3.410605131648481e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2469807.5:-15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2469807.4895833335,
+        "position_icrf_km": [
+          359817.3169950082,
+          97202.52853005176,
+          66609.29112137317
+        ],
+        "velocity_icrf_km_s": [
+          -0.2618128719112163,
+          0.9427130779098569,
+          0.3353741250832284
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999247849669556,
+            -0.011249149606167873,
+            -0.0048868232959564184
+          ],
+          [
+            0.012264758556721392,
+            0.91745827475238,
+            0.3976429174346348
+          ],
+          [
+            1.0311802073737983e-05,
+            -0.39767294441729945,
+            0.9175272362018179
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 109.65769627376085,
+      "reference_deg": 109.65769627376032,
+      "delta_deg": 5.115907697472721e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2469807.5:0",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2469807.5,
+        "position_icrf_km": [
+          359580.59590336087,
+          98050.677541552,
+          66910.92690514433
+        ],
+        "velocity_icrf_km_s": [
+          -0.26423359431977206,
+          0.9420616347007723,
+          0.3349273221921274
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999247848987071,
+            -0.01124915470937434,
+            -0.004886825513533001
+          ],
+          [
+            0.012264764120921857,
+            0.9174582747155212,
+            0.39764291734805723
+          ],
+          [
+            1.0311808147616362e-05,
+            -0.3976729443579792,
+            0.9175272362275284
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 109.67074170477292,
+      "reference_deg": 109.67074170477281,
+      "delta_deg": 1.1368683772161603e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2469807.5:15",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2469807.5104166665,
+        "position_icrf_km": [
+          359341.6972752489,
+          98898.23783635344,
+          67212.15974558408
+        ],
+        "velocity_icrf_km_s": [
+          -0.26665183976818413,
+          0.9414048199160905,
+          0.33447869613179193
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999247848302374,
+            -0.011249159829082953,
+            -0.004886827738261912
+          ],
+          [
+            0.012264769703107779,
+            0.9174582746784593,
+            0.3976429172613919
+          ],
+          [
+            1.0311814221494742e-05,
+            -0.3976729442986589,
+            0.9175272362532385
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 109.68396324670816,
+      "reference_deg": 109.68396324670839,
+      "delta_deg": 2.2737367544323206e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    },
+    {
+      "id": "O:2469807.5:30",
+      "point_id": "BLACK_MOON_OSCULATING",
+      "input": {
+        "epoch_jd_tt": 2469807.5208333335,
+        "position_icrf_km": [
+          359100.62333487207,
+          99745.20462148421,
+          67512.98801712421
+        ],
+        "velocity_icrf_km_s": [
+          -0.2690675955754204,
+          0.9407426415113527,
+          0.33402825096350475
+        ],
+        "rotation_icrf_to_true_ecliptic": [
+          [
+            0.9999247847615464,
+            -0.011249164965354273,
+            -0.004886829970169396
+          ],
+          [
+            0.012264775303345158,
+            0.9174582746411951,
+            0.3976429171746382
+          ],
+          [
+            1.0311820295373121e-05,
+            -0.3976729442393385,
+            0.9175272362789492
+          ]
+        ],
+        "mu_km3_s2": 403503.2356254802,
+        "frame": "ICRF_INERTIAL",
+        "coordinate_origin": "GEOCENTRIC",
+        "position_units": "KM",
+        "velocity_units": "KM_PER_SECOND"
+      },
+      "actual_deg": 109.69736085667877,
+      "reference_deg": 109.69736085667925,
+      "delta_deg": 4.831690603168681e-13,
+      "tolerance_deg": 1e-07,
+      "passed": true
+    }
+  ],
+  "comparison_count": 67,
+  "input_provenance": {
+    "provider": "SKYFIELD_CALCULATED_POINT_INPUTS",
+    "software_version": "1.55",
+    "epoch_scale": "TT",
+    "armc_scale": "GAST_UT1",
+    "coordinate_origin": "GEOCENTRIC",
+    "state_frame": "ICRF_INERTIAL",
+    "reference_frame": "TRUE_ECLIPTIC_EQUINOX_OF_DATE",
+    "ephemeris_id": "DE440",
+    "ephemeris_sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+    "source_refs": [
+      "JPL_DE440",
+      "SKYFIELD_1_55"
+    ],
+    "network_io_used": false,
+    "time_conversion": "SKYFIELD_BUILTIN_TT_UT1_DELTA_T",
+    "frame_model": "SKYFIELD_IAU2000A_DATE_FRAMES"
+  },
+  "references": {
+    "pyswisseph": "2.10.3.2",
+    "swisseph": "2.10.03",
+    "pyerfa": "2.0.1.5",
+    "spiceypy": "8.0.2",
+    "skyfield": "1.55",
+    "cspice": "CSPICE_N0067"
+  },
+  "maximum_delta_deg": {
+    "VERTEX": 1.000444171950221e-10,
+    "BLACK_MOON_MEAN": 2.3845814212108962e-11,
+    "BLACK_MOON_OSCULATING": 7.673861546209082e-13
+  },
+  "kernel_sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+  "external_validation_status": "NOT_PERFORMED",
+  "interpretation_validated": false,
+  "independent_ephemeris_accuracy_validated": false
+}

@@ -1,0 +1,259 @@
+{
+  "catalog_id": "ALMAS_SSAR_CALCULATED_POINTS_CATALOG_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "sources": [
+    {
+      "id": "F6_PROJECT",
+      "author": "Proyecto ALMAS",
+      "work": "Puntos calculados, convenciones e interpretación exploratoria",
+      "locator": "reference/ssar-calculated-points.md",
+      "priority": "P4",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "claim_scopes": [
+        "SEMANTIC_BASIS",
+        "ASTROLOGICAL_METHOD"
+      ],
+      "date": "2026-10-02",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F6_VERTEX",
+      "author": "Dieter Koch y Alois Treindl / Astrodienst",
+      "work": "Swiss Ephemeris documentación",
+      "locator": "6.3 y 6.4: definición occidental y oposición del eje",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scopes": [
+        "TECHNICAL_DEFINITION"
+      ],
+      "date": "2022",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F6_IERS",
+      "author": "D. McCarthy y G. Petit (eds.) / IERS",
+      "work": "IERS Conventions (2003), TN32",
+      "locator": "5.8.2, ecuación 40, página impresa 48: l, F y Ω; TT en lugar de TDB delimitado",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scopes": [
+        "TECHNICAL_DEFINITION"
+      ],
+      "date": "2004",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F6_OSCU",
+      "author": "NASA/JPL NAIF",
+      "work": "CSPICE oscelt_c y GM DE440",
+      "locator": "estado inercial, parámetros elípticos; gm_de440.tpc BODY301_GM y BODY399_GM",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scopes": [
+        "TECHNICAL_DEFINITION"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F6_MOIRA",
+      "author": "Moira contributors",
+      "work": "Moira 6.8.2, nodes.py",
+      "locator": "mean_lilith / true_lilith, commit 6be6d52af3a3db6db6bb5788ea2df5e6c21b2423: antecedentes de implementación",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scopes": [
+        "TECHNICAL_DEFINITION"
+      ],
+      "date": "2026",
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "entries": [
+    {
+      "point_id": "VERTEX",
+      "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+      "algorithm_id": "ALMAS_VERTEX_PRIME_VERTICAL_WEST_V1",
+      "variant": "WESTERN_VERTEX",
+      "interpretation": "Umbral y sensibilidad al encuentro como hipótesis E.",
+      "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F6_VERTEX"
+        ],
+        "algorithm": "ALMAS_VERTEX_PRIME_VERTICAL_WEST_V1",
+        "conventions": "TROPICAL_TRUE_ECLIPTIC_EQUINOX_OF_DATE; GEOCENTRIC; TT_FOR_LUNAR_INPUTS; GAST_UT1_FOR_ARMC; INERTIAL_STATE_THEN_ROTATION",
+        "inputs": [
+          "ARMC_GAST_UT1",
+          "GEOGRAPHIC_LATITUDE",
+          "TRUE_OBLIQUITY"
+        ],
+        "variant": "WESTERN_VERTEX",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Función propia del plan R2; técnica no valida semántica.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Contacto, anclaje heredado y perturbaciones bajo subperfil exploratorio.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "ANTI_VERTEX",
+      "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+      "algorithm_id": "ALMAS_VERTEX_PRIME_VERTICAL_WEST_V1",
+      "variant": "EASTERN_ANTI_VERTEX",
+      "interpretation": "Polo opuesto del mismo eje de encuentro; no evidencia adicional.",
+      "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F6_VERTEX"
+        ],
+        "algorithm": "ALMAS_VERTEX_PRIME_VERTICAL_WEST_V1",
+        "conventions": "TROPICAL_TRUE_ECLIPTIC_EQUINOX_OF_DATE; GEOCENTRIC; TT_FOR_LUNAR_INPUTS; GAST_UT1_FOR_ARMC; INERTIAL_STATE_THEN_ROTATION",
+        "inputs": [
+          "ARMC_GAST_UT1",
+          "GEOGRAPHIC_LATITUDE",
+          "TRUE_OBLIQUITY"
+        ],
+        "variant": "EASTERN_ANTI_VERTEX",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Función propia del plan R2; técnica no valida semántica.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Contacto, anclaje heredado y perturbaciones bajo subperfil exploratorio.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "BLACK_MOON_MEAN",
+      "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+      "algorithm_id": "ALMAS_IERS2003_SCALAR_MEAN_APOGEE_V1",
+      "variant": "IERS2003_F_OMEGA_MINUS_L_PLUS180_TRUE_EQUINOX",
+      "interpretation": "Sombra, deseo, autonomía, tabú y vacío como temas interpretativos.",
+      "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F6_IERS",
+          "F6_MOIRA"
+        ],
+        "algorithm": "ALMAS_IERS2003_SCALAR_MEAN_APOGEE_V1",
+        "conventions": "TROPICAL_TRUE_ECLIPTIC_EQUINOX_OF_DATE; GEOCENTRIC; TT_FOR_LUNAR_INPUTS; GAST_UT1_FOR_ARMC; INERTIAL_STATE_THEN_ROTATION",
+        "inputs": [
+          "JD_TT",
+          "NUTATION_LONGITUDE"
+        ],
+        "variant": "IERS2003_F_OMEGA_MINUS_L_PLUS180_TRUE_EQUINOX",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Función propia del plan R2; técnica no valida semántica.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Contacto, anclaje heredado y perturbaciones bajo subperfil exploratorio.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "BLACK_MOON_OSCULATING",
+      "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+      "algorithm_id": "ALMAS_INERTIAL_ECCENTRICITY_VECTOR_APOGEE_V1",
+      "variant": "GEOCENTRIC_OSCULATING_ELLIPSE_APOGEE",
+      "interpretation": "Los mismos temas bajo variante osculante; no modalidad más verdadera por su etiqueta.",
+      "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F6_OSCU",
+          "F6_MOIRA"
+        ],
+        "algorithm": "ALMAS_INERTIAL_ECCENTRICITY_VECTOR_APOGEE_V1",
+        "conventions": "TROPICAL_TRUE_ECLIPTIC_EQUINOX_OF_DATE; GEOCENTRIC; TT_FOR_LUNAR_INPUTS; GAST_UT1_FOR_ARMC; INERTIAL_STATE_THEN_ROTATION",
+        "inputs": [
+          "GEOCENTRIC_ICRF_POSITION_KM",
+          "GEOCENTRIC_ICRF_VELOCITY_KM_PER_SECOND",
+          "ICRF_TO_TRUE_ECLIPTIC_ROTATION",
+          "GM_EARTH_PLUS_MOON_DE440"
+        ],
+        "variant": "GEOCENTRIC_OSCULATING_ELLIPSE_APOGEE",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Función propia del plan R2; técnica no valida semántica.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F6_PROJECT"
+        ],
+        "justification": "Contacto, anclaje heredado y perturbaciones bajo subperfil exploratorio.",
+        "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1"
+      }
+    }
+  ],
+  "axis_id": "VERTEX_ENCOUNTER_AXIS",
+  "family_ids": [
+    "VERTEX_AXIS",
+    "BLACK_MOON_VARIANTS"
+  ],
+  "max_time_uncertainty_minutes": 30,
+  "perturbation_offsets_minutes": [
+    -30,
+    -15,
+    0,
+    15,
+    30
+  ],
+  "ranking_status": "NO_SELECTION_OR_NUMERIC_RANKING",
+  "production_core_adapter_modified": false
+}

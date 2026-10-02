@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ALMAS · Entrada de puntos calculados",
+  "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/F6Request"
+}

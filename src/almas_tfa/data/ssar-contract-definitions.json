@@ -3366,6 +3366,1320 @@
         "external_validation_status"
       ],
       "additionalProperties": false
+    },
+    "F6MoonState": {
+      "type": "object",
+      "properties": {
+        "epoch_jd_tt": {
+          "type": "number",
+          "minimum": 2415020.5,
+          "maximum": 2488069.5
+        },
+        "position_icrf_km": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "velocity_icrf_km_s": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "rotation_icrf_to_true_ecliptic": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "mu_km3_s2": {
+          "const": 403503.2356254802
+        },
+        "frame": {
+          "const": "ICRF_INERTIAL"
+        },
+        "coordinate_origin": {
+          "const": "GEOCENTRIC"
+        },
+        "position_units": {
+          "const": "KM"
+        },
+        "velocity_units": {
+          "const": "KM_PER_SECOND"
+        }
+      },
+      "required": [
+        "epoch_jd_tt",
+        "position_icrf_km",
+        "velocity_icrf_km_s",
+        "rotation_icrf_to_true_ecliptic",
+        "mu_km3_s2",
+        "frame",
+        "coordinate_origin",
+        "position_units",
+        "velocity_units"
+      ],
+      "additionalProperties": false
+    },
+    "F6CalculationSample": {
+      "type": "object",
+      "properties": {
+        "offset_minutes": {
+          "type": "number",
+          "minimum": -1440,
+          "maximum": 1440
+        },
+        "jd_tt": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 2415020.5,
+              "maximum": 2488069.5
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "armc_deg": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "latitude_deg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "true_obliquity_deg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 20,
+              "maximum": 26
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nutation_longitude_deg": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "moon_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/F6MoonState"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "offset_minutes",
+        "jd_tt",
+        "armc_deg",
+        "latitude_deg",
+        "true_obliquity_deg",
+        "nutation_longitude_deg",
+        "moon_state"
+      ],
+      "additionalProperties": false
+    },
+    "F6InputProvenance": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "software_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epoch_scale": {
+          "const": "TT"
+        },
+        "armc_scale": {
+          "const": "GAST_UT1"
+        },
+        "coordinate_origin": {
+          "const": "GEOCENTRIC"
+        },
+        "state_frame": {
+          "const": "ICRF_INERTIAL"
+        },
+        "reference_frame": {
+          "const": "TRUE_ECLIPTIC_EQUINOX_OF_DATE"
+        },
+        "ephemeris_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ephemeris_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "network_io_used": {
+          "type": "boolean"
+        },
+        "time_conversion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frame_model": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "provider",
+        "software_version",
+        "epoch_scale",
+        "armc_scale",
+        "coordinate_origin",
+        "state_frame",
+        "reference_frame",
+        "ephemeris_id",
+        "ephemeris_sha256",
+        "source_refs",
+        "network_io_used",
+        "time_conversion",
+        "frame_model"
+      ],
+      "additionalProperties": false
+    },
+    "F6Context": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_id": {
+          "enum": [
+            "A",
+            "B",
+            "RELATIONSHIP"
+          ]
+        },
+        "technique": {
+          "enum": [
+            "SYNASTRY",
+            "COMPOSITE",
+            "DAVISON"
+          ]
+        },
+        "time_uncertainty_minutes": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1440
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "location_precision_sufficient": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "input_provenance": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "minLength": 1
+            },
+            "software_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "epoch_scale": {
+              "const": "TT"
+            },
+            "armc_scale": {
+              "const": "GAST_UT1"
+            },
+            "coordinate_origin": {
+              "const": "GEOCENTRIC"
+            },
+            "state_frame": {
+              "const": "ICRF_INERTIAL"
+            },
+            "reference_frame": {
+              "const": "TRUE_ECLIPTIC_EQUINOX_OF_DATE"
+            },
+            "ephemeris_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ephemeris_sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "network_io_used": {
+              "type": "boolean"
+            },
+            "time_conversion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "frame_model": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "provider",
+            "software_version",
+            "epoch_scale",
+            "armc_scale",
+            "coordinate_origin",
+            "state_frame",
+            "reference_frame",
+            "ephemeris_id",
+            "ephemeris_sha256",
+            "source_refs",
+            "network_io_used",
+            "time_conversion",
+            "frame_model"
+          ],
+          "additionalProperties": false
+        },
+        "samples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F6CalculationSample"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "subject_id",
+        "technique",
+        "time_uncertainty_minutes",
+        "location_precision_sufficient",
+        "input_provenance",
+        "samples"
+      ],
+      "additionalProperties": false
+    },
+    "F6Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "offset_minutes": {
+                "type": "number",
+                "minimum": -1440,
+                "maximum": 1440
+              },
+              "target_longitude": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "offset_minutes",
+              "target_longitude"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_anchor_search_complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "context_ref",
+        "target_id",
+        "target_longitude",
+        "target_samples",
+        "core_root_refs",
+        "core_anchor_search_complete"
+      ],
+      "additionalProperties": false
+    },
+    "F6Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "contexts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F6Context"
+          }
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F6Contact"
+          }
+        },
+        "core_roots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Root"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "F6CalculationResult": {
+      "type": "object",
+      "properties": {
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_id": {
+          "enum": [
+            "A",
+            "B",
+            "RELATIONSHIP"
+          ]
+        },
+        "technique": {
+          "enum": [
+            "SYNASTRY",
+            "COMPOSITE",
+            "DAVISON"
+          ]
+        },
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "input_provenance": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "minLength": 1
+            },
+            "software_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "epoch_scale": {
+              "const": "TT"
+            },
+            "armc_scale": {
+              "const": "GAST_UT1"
+            },
+            "coordinate_origin": {
+              "const": "GEOCENTRIC"
+            },
+            "state_frame": {
+              "const": "ICRF_INERTIAL"
+            },
+            "reference_frame": {
+              "const": "TRUE_ECLIPTIC_EQUINOX_OF_DATE"
+            },
+            "ephemeris_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ephemeris_sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "network_io_used": {
+              "type": "boolean"
+            },
+            "time_conversion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "frame_model": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "provider",
+            "software_version",
+            "epoch_scale",
+            "armc_scale",
+            "coordinate_origin",
+            "state_frame",
+            "reference_frame",
+            "ephemeris_id",
+            "ephemeris_sha256",
+            "source_refs",
+            "network_io_used",
+            "time_conversion",
+            "frame_model"
+          ],
+          "additionalProperties": false
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "point_id": {
+                "enum": [
+                  "VERTEX",
+                  "ANTI_VERTEX",
+                  "BLACK_MOON_MEAN",
+                  "BLACK_MOON_OSCULATING"
+                ]
+              },
+              "algorithm_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "variant": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "CALCULATED",
+                  "BLOCKED"
+                ]
+              },
+              "central_longitude": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "samples": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "offset_minutes": {
+                      "type": "number"
+                    },
+                    "jd_tt": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "status": {
+                      "enum": [
+                        "CALCULATED",
+                        "BLOCKED"
+                      ]
+                    },
+                    "longitude": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 360
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "eccentricity": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "reasons": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "offset_minutes",
+                    "jd_tt",
+                    "status",
+                    "longitude",
+                    "eccentricity",
+                    "reasons"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "time_precision_sufficient": {
+                "type": "boolean"
+              },
+              "location_precision_required": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "point_id",
+              "algorithm_id",
+              "variant",
+              "status",
+              "central_longitude",
+              "samples",
+              "time_precision_sufficient",
+              "location_precision_required"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "context_id",
+        "subject_id",
+        "technique",
+        "input_hash",
+        "input_provenance",
+        "points"
+      ],
+      "additionalProperties": false
+    },
+    "F6Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-calculated-points-1.0-development"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "catalog_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "catalog_hash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "policy_status": {
+          "const": "DEVELOPMENT"
+        },
+        "ssar": {
+          "$ref": "#/$defs/Result"
+        },
+        "calculations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "context_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_id": {
+                "enum": [
+                  "A",
+                  "B",
+                  "RELATIONSHIP"
+                ]
+              },
+              "technique": {
+                "enum": [
+                  "SYNASTRY",
+                  "COMPOSITE",
+                  "DAVISON"
+                ]
+              },
+              "input_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "input_provenance": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "software_version": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "epoch_scale": {
+                    "const": "TT"
+                  },
+                  "armc_scale": {
+                    "const": "GAST_UT1"
+                  },
+                  "coordinate_origin": {
+                    "const": "GEOCENTRIC"
+                  },
+                  "state_frame": {
+                    "const": "ICRF_INERTIAL"
+                  },
+                  "reference_frame": {
+                    "const": "TRUE_ECLIPTIC_EQUINOX_OF_DATE"
+                  },
+                  "ephemeris_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "ephemeris_sha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  },
+                  "network_io_used": {
+                    "type": "boolean"
+                  },
+                  "time_conversion": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "frame_model": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "provider",
+                  "software_version",
+                  "epoch_scale",
+                  "armc_scale",
+                  "coordinate_origin",
+                  "state_frame",
+                  "reference_frame",
+                  "ephemeris_id",
+                  "ephemeris_sha256",
+                  "source_refs",
+                  "network_io_used",
+                  "time_conversion",
+                  "frame_model"
+                ],
+                "additionalProperties": false
+              },
+              "points": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "point_id": {
+                      "enum": [
+                        "VERTEX",
+                        "ANTI_VERTEX",
+                        "BLACK_MOON_MEAN",
+                        "BLACK_MOON_OSCULATING"
+                      ]
+                    },
+                    "algorithm_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "variant": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "status": {
+                      "enum": [
+                        "CALCULATED",
+                        "BLOCKED"
+                      ]
+                    },
+                    "central_longitude": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 360
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "samples": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "offset_minutes": {
+                            "type": "number"
+                          },
+                          "jd_tt": {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "status": {
+                            "enum": [
+                              "CALCULATED",
+                              "BLOCKED"
+                            ]
+                          },
+                          "longitude": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 360
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "eccentricity": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "reasons": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [
+                          "offset_minutes",
+                          "jd_tt",
+                          "status",
+                          "longitude",
+                          "eccentricity",
+                          "reasons"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "time_precision_sufficient": {
+                      "type": "boolean"
+                    },
+                    "location_precision_required": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "point_id",
+                    "algorithm_id",
+                    "variant",
+                    "status",
+                    "central_longitude",
+                    "samples",
+                    "time_precision_sufficient",
+                    "location_precision_required"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "context_id",
+              "subject_id",
+              "technique",
+              "input_hash",
+              "input_provenance",
+              "points"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "axis_normalization": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "contact_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "axis_id": {
+                "const": "VERTEX_ENCOUNTER_AXIS"
+              },
+              "appearance_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "original_longitudes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "appearance_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "longitude": {
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "directed_aspect": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/MatchedAspect"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "appearance_ref",
+                    "longitude",
+                    "directed_aspect"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "canonical_axis_longitude": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 180
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contributes_new_evidence": {
+                "const": false
+              },
+              "equivalence_scope": {
+                "const": "CONJUNCTION_OPPOSITION_ONLY"
+              }
+            },
+            "required": [
+              "contact_ref",
+              "axis_id",
+              "appearance_refs",
+              "original_longitudes",
+              "canonical_axis_longitude",
+              "contributes_new_evidence",
+              "equivalence_scope"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "variant_sensitivity": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "contact_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "family_id": {
+                "const": "BLACK_MOON_VARIANTS"
+              },
+              "mean_appearance_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "osculating_appearance_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "separation_deg": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 180
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "geometry_concordance": {
+                "enum": [
+                  "BOTH_CONTACT",
+                  "BOTH_NO_CONTACT",
+                  "DISAGREE",
+                  "NOT_EVALUABLE"
+                ]
+              },
+              "qualification_concordance": {
+                "enum": [
+                  "BOTH_QUALIFIED",
+                  "NEITHER_QUALIFIED",
+                  "DISAGREE",
+                  "NOT_EVALUABLE"
+                ]
+              },
+              "selected_variant": {
+                "type": "null"
+              },
+              "variant_rule": {
+                "const": "RETAIN_BOTH_NO_RETROSPECTIVE_SELECTION"
+              }
+            },
+            "required": [
+              "contact_ref",
+              "family_id",
+              "mean_appearance_ref",
+              "osculating_appearance_ref",
+              "separation_deg",
+              "geometry_concordance",
+              "qualification_concordance",
+              "selected_variant",
+              "variant_rule"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "functional_notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "appearance_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "function_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "epistemic_class": {
+                "const": "E_PROJECT_HYPOTHESIS"
+              },
+              "interpretation": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "inferential_limit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "documentary_status": {
+                "const": "NOT_EVALUABLE"
+              }
+            },
+            "required": [
+              "appearance_ref",
+              "function_id",
+              "epistemic_class",
+              "interpretation",
+              "inferential_limit",
+              "source_refs",
+              "documentary_status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "completion": {
+          "enum": [
+            "NONE",
+            "PARTIAL"
+          ]
+        },
+        "execution_status": {
+          "enum": [
+            "not_run",
+            "executed"
+          ]
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Coverage"
+          }
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        },
+        "integration_status": {
+          "const": "AUXILIARY_POST_CORE_NOT_CANONICAL_NOT_M27"
+        }
+      },
+      "required": [
+        "schema_version",
+        "enabled",
+        "catalog_id",
+        "catalog_hash",
+        "policy_id",
+        "policy_status",
+        "ssar",
+        "calculations",
+        "axis_normalization",
+        "variant_sensitivity",
+        "functional_notes",
+        "completion",
+        "execution_status",
+        "coverage",
+        "external_validation_status",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect",
+        "integration_status"
+      ],
+      "additionalProperties": false
     }
   }
 }

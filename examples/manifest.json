@@ -250,6 +250,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/ssar-calculated-points.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_CALCULATED_POINTS_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/ssar-contracts.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SSAR_DEVELOPMENT_CONTRACT_FIXTURE",
