@@ -7,7 +7,7 @@ from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_e
 from .relational_handlers import _chart_points
 
 
-def m14_secondary_symbolic(context: ModuleContext) -> ModuleResult:
+def _m14_secondary_symbolic_legacy(context: ModuleContext) -> ModuleResult:
     """M14: contactos de puntos secundarios declarados, siempre support-only."""
 
     natal = context.canonical_snapshot.get("natal")
@@ -124,3 +124,19 @@ def m14_secondary_symbolic(context: ModuleContext) -> ModuleResult:
             "M14 es support-only y no puede crear por sí sola una raíz ontológica.",
         ),
     )
+
+
+def m14_secondary_symbolic(context: ModuleContext) -> ModuleResult:
+    """Register optional SSAR input; qualify only after M17 and M27."""
+    result = _m14_secondary_symbolic_legacy(context)
+    if 'ssar_request' not in context.raw_input:
+        return result
+    from copy import deepcopy
+    from .ssar import validate_ssar_schema
+    request = context.raw_input['ssar_request']
+    validate_ssar_schema(request, 'F10Request')
+    updates = dict(result.canonical_updates)
+    updates['ssar_configuration'] = deepcopy(request)
+    return ModuleResult(module_id=result.module_id,status=result.status,payload=result.payload,
+        canonical_updates=updates,evidence_refs=result.evidence_refs,limitations=result.limitations,
+        diagnostics=result.diagnostics+('M14 SSAR qualification deferred until core and M27 are available.',))

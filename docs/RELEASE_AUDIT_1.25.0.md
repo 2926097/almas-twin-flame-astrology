@@ -1,0 +1,35 @@
+# Auditoría técnica ALMAS 1.25.0 · 2026-10-02
+
+El plan SSAR R2 queda implementado en sus diez fases técnicas como extensión optativa experimental. El alcance no incluye una validación empírica inexistente. La política efectiva y su hash se registran en `manifests/ssar-release-manifest.json`; sus recursos se verifican en cada evaluación. Las APIs de desarrollo y sus 63 definiciones previas permanecen íntegramente conservadas. Sólo se añaden contratos y el sobre final. Los metadatos activos de versión se sincronizan a 1.25.0; los registros históricos siguen indicando su versión original.
+
+## Capacidades y fuentes
+
+Las fases previas conservan siete funciones S1, familias/overlays y díadas con reglas bidireccionales, liminalidad/Moiras y puntos calculados. La fase 7 añade Fortuna, Espíritu/Daimon, Eros, Necesidad, Némesis y Victoria: ocho fórmulas con variantes de Paulus y las notas marginales transmitidas con Valens. Sus traducciones y localizadores están en `reference/ssar-lots-source-audit.json`; no se afirma cotejo de manuscritos. Las fórmulas técnicas son B, su aritmética reproducida A y sus funciones experimentales E. Todas las variantes quedan visibles, incluida secta desconocida y cambios de horizonte; no se selecciona la más favorable.
+
+La agregación final incorpora cinco complejos S1 y siete pares temáticos sin duplicar evidencia. Conserva complejos de liminalidad/Moiras y díadas previas. Anclajes, al menos un significador cualificado y dos grupos efectivos son requisitos; no existe excepción por una raíz intensa. Compuesta/Davison, variantes lunares y lotes comparten sus respectivas familias conservadoras. La equivalencia no se confunde con dependencia. La fuerza y el ranking numéricos siguen ausentes.
+
+M14 registra la solicitud, sin alimentar los contactos legacy que producen scoring. La cualificación espera raíces M17 y el ledger M27 y se ensambla antes de M30. El bloque opcional conserva entrada efectiva y proyección documental para reproducción integral y comprobación de referencias. M31 sólo añade rutas cuando existe SSAR. La proyección narrativa incluye funciones, fuentes por alcance, variantes, dependencias, anclajes, contraevidencia, límites y documentación; no calcula astrología durante autoría.
+
+Las ventanas requieren estructura previa, arquitectura comprometida antes del inicio, dos grupos de relojes y observación cerrada/suficiente. La correspondencia documental estructural no necesita relojes; la temporal sí. Los hechos compartidos y aliases no se multiplican. Un contradicto evaluable puede prevalecer aunque falte cobertura en otro ámbito. Las fechas de preregistro y las posiciones suministradas siguen siendo declarativas, sin autenticación externa; no se presenta una declaración prospectiva como predicción validada.
+
+## Verificación y cierre
+
+Las matrices `reference/ssar-phase7-test-matrix.json` a `ssar-phase10-test-matrix.json` enlazan requisitos, fixtures, resultados y ejecución. Las nuevas pruebas cubren ocho fórmulas en ambas sectas, periodicidad, inputs faltantes, fuentes/precisión, mallas, ausencia de core, variantes, grupos, ventanas abiertas, documentación ausente/supersedida, aliases y exclusiones, recibos alterados, referencias rotas y manipulación de salidas. Los fallos y ambigüedades tienen cobertura propia; el número de pruebas no sustituye a esa matriz.
+
+Las nueve ablaciones se han ejecutado por M00–M31: `AB_NO_SSAR`, `AB_NO_S1`, `AB_NO_EROS_PSYCHE`, `AB_NO_MYTHIC_DYADS`, `AB_NO_MOIRAI`, `AB_NO_VERTEX`, `AB_NO_BML`, `AB_NO_LOTS`, `AB_ONLY_PLANETS_NODES_ANGLES`. Conservaron exactamente las salidas y estados core. El verificador de referencia 1.24.1 confirma salidas deterministas y archivos protegidos idénticos; sólo cambia el metadato de versión precomputada, anteriormente desincronizado. No se alteran fórmulas, pesos, orbes o umbrales del núcleo.
+
+El primer pase completo local ejecutó 1021 pruebas y detectó tres ajustes: metadato de versión esperado, recuento de ejemplos públicos y completitud de una búsqueda negativa. Se corrigieron sin relajar criterios de cualificación o regresión. Se vuelven a ejecutar las comprobaciones afectadas y la suite final. Los resultados finales por commit están registrados en GitHub Actions y en la PR #84; el cierre exige suite, contrato público, reproducción de fixtures/controles y referencia protegida aprobados.
+
+`validate_ssar_release.py` reproduce los lotes, canónico, hechos M27 y recibos. Los cuatro controles sintéticos reejecutan todo el selector declarado con presupuesto fijo: rotación de targets, desplazamiento de relojes, permutación de fechas documentales y pérdida de precisión. Las semillas, presupuestos, fallos y métricas técnicas secundarias quedan registrados; no hay reemplazo de fallos, parada adaptativa, p-valores o intercambiabilidad poblacional establecida. Se mantienen fijos los otros inputs; no se afirma emparejamiento empírico de época, edad o lugar.
+
+El contrato público se comprueba con y sin extras. Los cinco workflows de CI conservan pruebas Python 3.10/3.12, contratos, backend y publicación DOCX/PDF, además de las comparaciones astronómicas previas. La etiqueta/release `v1.25.0` sólo se crea tras aprobar los cinco workflows del mismo commit en `main`; no se sobrescribe una etiqueta existente. Las comparaciones de algoritmos de fase 6 verifican aritmética, sin validar interpretación.
+
+Las instrucciones de la skill han pasado forward-testing de dos tareas adversas conforme a skill-creator: contactos Juno/Psyche con inferencia matrimonial/ontológica y reunión a partir de un reloj, ventana abierta y evento compartido. Se aclaró que activar posteriormente SSAR requiere una ejecución nueva separada, sin modificar el histórico. No se detectó contradicción material con la ruta legacy.
+
+## Límites pendientes
+
+La métrica principal de integración funcional permanece `NOT_OPERATIONALIZED`, sin endpoint empírico, fiabilidad de codificación o criterio de éxito definidos. Por eso no se permite inferencia confirmatoria ni afirmar mejora discriminativa. La congelación antecede a cualquier inspección externa; no se ha inspeccionado una muestra externa y `external_validation_status=NOT_PERFORMED`. Una futura validación exige etiquetas independientes de la carta, métrica previa y control de contaminación entre personas, parejas y eventos; una revisión informada por esa muestra exige otra política.
+
+Isis–Osiris conserva ambigüedad nominal; Shiva–Shakti conserva identidad, alias y variante doctrinal sin resolver. Las lecturas doctrinales completas pendientes del corpus anterior siguen pendientes. Inputs o capacidades ausentes bloquean el ámbito dependiente; no se inventan coordenadas, datos natales, eventos o fuentes. Todos los nuevos ejemplos son fabricados, registrados como sintéticos y no derivados de un caso privado.
+
+`structural_scoring_modified=false`, `ontology_effect=NONE`, `discriminator_effect=NONE`. El cierre es una implementación experimental reproducible, no una acreditación metafísica, psicológica o predictiva.

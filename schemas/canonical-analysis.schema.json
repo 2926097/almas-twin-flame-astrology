@@ -1052,6 +1052,9 @@
       "additionalProperties": {
         "$ref": "surrender-vestal-output.schema.json"
       }
+    },
+    "ssar": {
+      "$ref": "ssar-canonical-output.schema.json"
     }
   },
   "additionalProperties": false,

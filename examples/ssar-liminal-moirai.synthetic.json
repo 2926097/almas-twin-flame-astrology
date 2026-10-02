@@ -1,0 +1,1890 @@
+{
+  "synthetic": true,
+  "scope": "DEVELOPMENT_FIXTURE_ONLY",
+  "note": "Geometría y eventos fabricados, sin personas reales ni validación externa. Las fechas 2030 son ficción de estudio; no agenda ni pronóstico.",
+  "request": {
+    "enabled": true,
+    "core_roots": [
+      {
+        "root_id": "R1",
+        "core_eligible": true,
+        "core_evidence_ids": [
+          "CORE1"
+        ],
+        "point_ids": [
+          "SUN"
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "id": "L1",
+        "point_id": "HEKATE",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "evidence_key": "CONTACT:L1",
+        "geometry": {
+          "longitude": 10,
+          "target_longitude": 11,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 10,
+              "target_longitude": 11
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 10,
+              "target_longitude": 11
+            }
+          ]
+        }
+      },
+      {
+        "id": "L2",
+        "point_id": "PERSEPHONE",
+        "subject_id": "RELATIONSHIP",
+        "technique": "COMPOSITE",
+        "evidence_key": "CONTACT:L2",
+        "geometry": {
+          "longitude": 50,
+          "target_longitude": 51,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 50,
+              "target_longitude": 51
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 50,
+              "target_longitude": 51
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 50,
+              "target_longitude": 51
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 50,
+              "target_longitude": 51
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 50,
+              "target_longitude": 51
+            }
+          ]
+        }
+      },
+      {
+        "id": "M1",
+        "point_id": "KLOTHO",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "evidence_key": "CONTACT:M1",
+        "geometry": {
+          "longitude": 90,
+          "target_longitude": 91,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 90,
+              "target_longitude": 91
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 90,
+              "target_longitude": 91
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 90,
+              "target_longitude": 91
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 90,
+              "target_longitude": 91
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 90,
+              "target_longitude": 91
+            }
+          ]
+        }
+      },
+      {
+        "id": "M2",
+        "point_id": "LACHESIS",
+        "subject_id": "RELATIONSHIP",
+        "technique": "COMPOSITE",
+        "evidence_key": "CONTACT:M2",
+        "geometry": {
+          "longitude": 130,
+          "target_longitude": 131,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 130,
+              "target_longitude": 131
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 130,
+              "target_longitude": 131
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 130,
+              "target_longitude": 131
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 130,
+              "target_longitude": 131
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 130,
+              "target_longitude": 131
+            }
+          ]
+        }
+      },
+      {
+        "id": "M3",
+        "point_id": "ATROPOS",
+        "subject_id": "RELATIONSHIP",
+        "technique": "COMPOSITE",
+        "evidence_key": "CONTACT:M3",
+        "geometry": {
+          "longitude": 170,
+          "target_longitude": 171,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 170,
+              "target_longitude": 171
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 170,
+              "target_longitude": 171
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 170,
+              "target_longitude": 171
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 170,
+              "target_longitude": 171
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 170,
+              "target_longitude": 171
+            }
+          ]
+        }
+      },
+      {
+        "id": "M4",
+        "point_id": "MOIRA",
+        "subject_id": "RELATIONSHIP",
+        "technique": "COMPOSITE",
+        "evidence_key": "CONTACT:M4",
+        "geometry": {
+          "longitude": 210,
+          "target_longitude": 211,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 210,
+              "target_longitude": 211
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 210,
+              "target_longitude": 211
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 210,
+              "target_longitude": 211
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 210,
+              "target_longitude": 211
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 210,
+              "target_longitude": 211
+            }
+          ]
+        }
+      },
+      {
+        "id": "E1",
+        "point_id": "ERIS",
+        "subject_id": "RELATIONSHIP",
+        "technique": "COMPOSITE",
+        "evidence_key": "CONTACT:E1",
+        "geometry": {
+          "longitude": 290,
+          "target_longitude": 291,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 290,
+              "target_longitude": 291
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 290,
+              "target_longitude": 291
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 290,
+              "target_longitude": 291
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 290,
+              "target_longitude": 291
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 290,
+              "target_longitude": 291
+            }
+          ]
+        }
+      }
+    ],
+    "edges": [],
+    "complexes": [
+      {
+        "id": "LIMINAL_TRANSITION_COMPLEX",
+        "appearance_refs": [
+          "L1",
+          "L2",
+          "E1"
+        ],
+        "search_complete": true
+      },
+      {
+        "id": "FATE_PROCESS_COMPLEX",
+        "appearance_refs": [
+          "M1",
+          "M2",
+          "M3",
+          "M4",
+          "E1"
+        ],
+        "search_complete": true
+      }
+    ]
+  },
+  "result": {
+    "schema_version": "ssar-liminal-moirai-1.0-development",
+    "enabled": true,
+    "catalog_id": "ALMAS_SSAR_LIMINAL_MOIRAI_CATALOG_V1",
+    "catalog_hash": "f660e902e4e600695a560c86415777fbf698ecfc32a74e52dc28b713628bee2f",
+    "policy_id": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+    "policy_status": "DEVELOPMENT",
+    "ssar": {
+      "schema_version": "ssar-contract-1.0-development",
+      "enabled": true,
+      "policy_id": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+      "policy_hash": "59c6cb6d18e15c4cc98dbb23dd2aeda72b698a98a7358dd41e21d2c028c79b64",
+      "policy_status": "DEVELOPMENT",
+      "analysis_scope": "EXPLORATORY",
+      "execution_status": "executed",
+      "completion": "PARTIAL",
+      "coverage": [
+        {
+          "layer": "APPEARANCE_GATES",
+          "status": "executed",
+          "completion": "COMPLETE",
+          "reason": "SUPPLIED_APPEARANCES_ONLY",
+          "assessed_refs": [
+            "L1",
+            "L2",
+            "M1",
+            "M2",
+            "M3",
+            "M4",
+            "E1"
+          ]
+        },
+        {
+          "layer": "DEPENDENCY_GROUPING",
+          "status": "executed",
+          "completion": "COMPLETE",
+          "reason": "DECLARED_DEPENDENCIES_ONLY",
+          "assessed_refs": [
+            "U:L1",
+            "U:L2",
+            "U:M1",
+            "U:M2",
+            "U:M3",
+            "U:M4",
+            "U:E1"
+          ]
+        },
+        {
+          "layer": "MYTHIC_DYADS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "CALCULATED_POINTS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "HELLENISTIC_LOTS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "TEMPORAL_ACTIVATION",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "DOCUMENTARY_CORRESPONDENCE",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "NULL_CONTROLS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        }
+      ],
+      "appearances": [
+        {
+          "id": "L1",
+          "point_id": "HEKATE",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_HEKATE_DEV_V1",
+            "evidence_refs": [
+              "L1"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F4_HYMN",
+            "F5_HESIOD",
+            "F5_NAME_HEKATE",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "L2",
+          "point_id": "PERSEPHONE",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "DESCENT_TRANSFORMATION_RETURN",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_PERSEPHONE_DEV_V1",
+            "evidence_refs": [
+              "L2"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F4_HYMN",
+            "F5_NAME_PERSEPHONE",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "M1",
+          "point_id": "KLOTHO",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "THREAD_INITIATION",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_KLOTHO_DEV_V1",
+            "evidence_refs": [
+              "M1"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F5_HESIOD",
+            "F5_NAME_KLOTHO",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "M2",
+          "point_id": "LACHESIS",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "MEASURE_DURATION_ALLOCATION",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_LACHESIS_DEV_V1",
+            "evidence_refs": [
+              "M2"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F5_HESIOD",
+            "F5_NAME_LACHESIS",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "M3",
+          "point_id": "ATROPOS",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "CUT_COMPLETION_IRREVERSIBILITY",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_ATROPOS_DEV_V1",
+            "evidence_refs": [
+              "M3"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F5_HESIOD",
+            "F5_NAME_ATROPOS",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "M4",
+          "point_id": "MOIRA",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "FATE_ALLOTMENT_CONTEXT",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_MOIRA_DEV_V1",
+            "evidence_refs": [
+              "M4"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F5_HESIOD",
+            "F5_NAME_MOIRA",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "E1",
+          "point_id": "ERIS",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "DISCORD_EXCLUSION_RIVALRY",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_ERIS_DEV_V1",
+            "evidence_refs": [
+              "E1"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F5_HESIOD",
+            "F5_NAME_ERIS",
+            "F5_PROJECT",
+            "F5_WORKS"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        }
+      ],
+      "qualified_significators": [
+        "E1",
+        "L1",
+        "L2",
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "secondary_support": [],
+      "complexes": [],
+      "mythic_dyads": [],
+      "calculated_points": [],
+      "hellenistic_lots": [],
+      "temporal_activation": [],
+      "documentary_correspondence": [],
+      "dependency_graph": {
+        "units": [
+          {
+            "id": "U:E1",
+            "appearance_ref": "E1",
+            "technique": "COMPOSITE",
+            "equivalence_key": "CONTACT:E1"
+          },
+          {
+            "id": "U:L1",
+            "appearance_ref": "L1",
+            "technique": "SYNASTRY",
+            "equivalence_key": "CONTACT:L1"
+          },
+          {
+            "id": "U:L2",
+            "appearance_ref": "L2",
+            "technique": "COMPOSITE",
+            "equivalence_key": "CONTACT:L2"
+          },
+          {
+            "id": "U:M1",
+            "appearance_ref": "M1",
+            "technique": "SYNASTRY",
+            "equivalence_key": "CONTACT:M1"
+          },
+          {
+            "id": "U:M2",
+            "appearance_ref": "M2",
+            "technique": "COMPOSITE",
+            "equivalence_key": "CONTACT:M2"
+          },
+          {
+            "id": "U:M3",
+            "appearance_ref": "M3",
+            "technique": "COMPOSITE",
+            "equivalence_key": "CONTACT:M3"
+          },
+          {
+            "id": "U:M4",
+            "appearance_ref": "M4",
+            "technique": "COMPOSITE",
+            "equivalence_key": "CONTACT:M4"
+          }
+        ],
+        "edges": [],
+        "equivalence_classes": [
+          {
+            "id": "EQ:U:E1",
+            "unit_refs": [
+              "U:E1"
+            ]
+          },
+          {
+            "id": "EQ:U:L1",
+            "unit_refs": [
+              "U:L1"
+            ]
+          },
+          {
+            "id": "EQ:U:L2",
+            "unit_refs": [
+              "U:L2"
+            ]
+          },
+          {
+            "id": "EQ:U:M1",
+            "unit_refs": [
+              "U:M1"
+            ]
+          },
+          {
+            "id": "EQ:U:M2",
+            "unit_refs": [
+              "U:M2"
+            ]
+          },
+          {
+            "id": "EQ:U:M3",
+            "unit_refs": [
+              "U:M3"
+            ]
+          },
+          {
+            "id": "EQ:U:M4",
+            "unit_refs": [
+              "U:M4"
+            ]
+          }
+        ],
+        "effective_groups": [
+          {
+            "id": "GR:U:E1",
+            "unit_refs": [
+              "U:E1",
+              "U:L2",
+              "U:M2",
+              "U:M3",
+              "U:M4"
+            ]
+          },
+          {
+            "id": "GR:U:L1",
+            "unit_refs": [
+              "U:L1",
+              "U:M1"
+            ]
+          }
+        ],
+        "excluded_unit_refs": [],
+        "grouping_rule_ref": "SSAR_CONSERVATIVE_CONNECTED_GROUPS_DEV_V1",
+        "statistical_independence_established": false
+      },
+      "external_validation_status": "NOT_PERFORMED",
+      "structural_scoring_modified": false,
+      "ontology_effect": "NONE",
+      "discriminator_effect": "NONE"
+    },
+    "families": [
+      {
+        "id": "MOIRAI_CLUSTER",
+        "components": [
+          {
+            "point_id": "KLOTHO",
+            "appearance_refs": [
+              "M1"
+            ],
+            "admissible_refs": [
+              "M1"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "LACHESIS",
+            "appearance_refs": [
+              "M2"
+            ],
+            "admissible_refs": [
+              "M2"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "ATROPOS",
+            "appearance_refs": [
+              "M3"
+            ],
+            "admissible_refs": [
+              "M3"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "MOIRA",
+            "appearance_refs": [
+              "M4"
+            ],
+            "admissible_refs": [
+              "M4"
+            ],
+            "coverage": "SUPPLIED"
+          }
+        ],
+        "contact_refs": [
+          "M1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "effective_group_refs": [
+          "GR:U:E1",
+          "GR:U:L1"
+        ],
+        "cluster_strength": null,
+        "selection_policy": "NO_RANKING_WITHOUT_FROZEN_COMMON_MAGNITUDE",
+        "coverage": "SUPPLIED",
+        "independent_function": true
+      }
+    ],
+    "complexes": [
+      {
+        "id": "FATE_PROCESS_COMPLEX",
+        "members": [
+          "KLOTHO",
+          "LACHESIS",
+          "ATROPOS",
+          "MOIRA"
+        ],
+        "appearance_refs": [
+          "M1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "context_refs": [
+          "E1"
+        ],
+        "component_coverage": [
+          {
+            "point_id": "KLOTHO",
+            "appearance_refs": [
+              "M1"
+            ],
+            "admissible_refs": [
+              "M1"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "LACHESIS",
+            "appearance_refs": [
+              "M2"
+            ],
+            "admissible_refs": [
+              "M2"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "ATROPOS",
+            "appearance_refs": [
+              "M3"
+            ],
+            "admissible_refs": [
+              "M3"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "MOIRA",
+            "appearance_refs": [
+              "M4"
+            ],
+            "admissible_refs": [
+              "M4"
+            ],
+            "coverage": "SUPPLIED"
+          }
+        ],
+        "admissible_refs": [
+          "M1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "effective_group_refs": [
+          "GR:U:E1",
+          "GR:U:L1"
+        ],
+        "core_root_refs": [
+          "R1"
+        ],
+        "qualified_complex": true,
+        "assessments": {
+          "structural_geometry": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+            "evidence_refs": [
+              "M1",
+              "M2",
+              "M3",
+              "M4"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "functional_interpretation": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+            "evidence_refs": [
+              "M1",
+              "M2",
+              "M3",
+              "M4"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "temporal_activation": {
+            "scope": "TEMPORAL_ACTIVATION",
+            "status": "NOT_EVALUABLE",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [],
+            "coverage_sufficient": false,
+            "reason": "ESSENTIAL_COVERAGE_MISSING"
+          },
+          "documentary_correspondence": {
+            "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+            "status": "NOT_EVALUABLE",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [],
+            "coverage_sufficient": false,
+            "reason": "ESSENTIAL_COVERAGE_MISSING"
+          }
+        },
+        "blockers": [],
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "documentary_scope": "STRUCTURAL",
+        "cluster_strength": null,
+        "source_refs": [
+          "F5_HESIOD",
+          "F5_NAME_ATROPOS",
+          "F5_NAME_KLOTHO",
+          "F5_NAME_LACHESIS",
+          "F5_NAME_MOIRA",
+          "F5_PROJECT"
+        ],
+        "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+      },
+      {
+        "id": "LIMINAL_TRANSITION_COMPLEX",
+        "members": [
+          "HEKATE",
+          "PERSEPHONE"
+        ],
+        "appearance_refs": [
+          "L1",
+          "L2"
+        ],
+        "context_refs": [
+          "E1"
+        ],
+        "component_coverage": [
+          {
+            "point_id": "HEKATE",
+            "appearance_refs": [
+              "L1"
+            ],
+            "admissible_refs": [
+              "L1"
+            ],
+            "coverage": "SUPPLIED"
+          },
+          {
+            "point_id": "PERSEPHONE",
+            "appearance_refs": [
+              "L2"
+            ],
+            "admissible_refs": [
+              "L2"
+            ],
+            "coverage": "SUPPLIED"
+          }
+        ],
+        "admissible_refs": [
+          "L1",
+          "L2"
+        ],
+        "effective_group_refs": [
+          "GR:U:E1",
+          "GR:U:L1"
+        ],
+        "core_root_refs": [
+          "R1"
+        ],
+        "qualified_complex": true,
+        "assessments": {
+          "structural_geometry": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+            "evidence_refs": [
+              "L1",
+              "L2"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "functional_interpretation": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+            "evidence_refs": [
+              "L1",
+              "L2"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "temporal_activation": {
+            "scope": "TEMPORAL_ACTIVATION",
+            "status": "NOT_EVALUABLE",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [],
+            "coverage_sufficient": false,
+            "reason": "ESSENTIAL_COVERAGE_MISSING"
+          },
+          "documentary_correspondence": {
+            "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+            "status": "NOT_EVALUABLE",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [],
+            "coverage_sufficient": false,
+            "reason": "ESSENTIAL_COVERAGE_MISSING"
+          }
+        },
+        "blockers": [],
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "documentary_scope": "STRUCTURAL",
+        "cluster_strength": null,
+        "source_refs": [
+          "F4_HYMN",
+          "F5_HESIOD",
+          "F5_NAME_HEKATE",
+          "F5_NAME_PERSEPHONE",
+          "F5_PROJECT"
+        ],
+        "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+      }
+    ],
+    "functional_notes": [
+      {
+        "appearance_ref": "L1",
+        "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Umbral y acompañamiento como motivos simbólicos.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F4_HYMN",
+          "F5_HESIOD",
+          "F5_NAME_HEKATE",
+          "F5_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "L2",
+        "function_id": "DESCENT_TRANSFORMATION_RETURN",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Descenso, transformación y retorno como motivos simbólicos.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F4_HYMN",
+          "F5_NAME_PERSEPHONE",
+          "F5_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "M1",
+        "function_id": "THREAD_INITIATION",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Inicio del hilo como metáfora de un proceso.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F5_HESIOD",
+          "F5_NAME_KLOTHO",
+          "F5_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "M2",
+        "function_id": "MEASURE_DURATION_ALLOCATION",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Medida, duración y asignación como temas simbólicos.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F5_HESIOD",
+          "F5_NAME_LACHESIS",
+          "F5_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "M3",
+        "function_id": "CUT_COMPLETION_IRREVERSIBILITY",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Corte y terminación como motivos; la irreversibilidad vivida requiere hechos y ventana delimitada.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F5_HESIOD",
+          "F5_NAME_ATROPOS",
+          "F5_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "M4",
+        "function_id": "FATE_ALLOTMENT_CONTEXT",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Reparto y contexto del proceso como temas simbólicos.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F5_HESIOD",
+          "F5_NAME_MOIRA",
+          "F5_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "E1",
+        "function_id": "DISCORD_EXCLUSION_RIVALRY",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Discordia, exclusión y rivalidad como temas; conservar alternativas de competencia constructiva.",
+        "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+        "source_refs": [
+          "F5_HESIOD",
+          "F5_NAME_ERIS",
+          "F5_PROJECT",
+          "F5_WORKS"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      }
+    ],
+    "shared_contacts": [
+      {
+        "appearance_ref": "M1",
+        "consumer_refs": [
+          "FATE_PROCESS_COMPLEX",
+          "MOIRAI_CLUSTER"
+        ],
+        "contributes_new_evidence": false
+      },
+      {
+        "appearance_ref": "M2",
+        "consumer_refs": [
+          "FATE_PROCESS_COMPLEX",
+          "MOIRAI_CLUSTER"
+        ],
+        "contributes_new_evidence": false
+      },
+      {
+        "appearance_ref": "M3",
+        "consumer_refs": [
+          "FATE_PROCESS_COMPLEX",
+          "MOIRAI_CLUSTER"
+        ],
+        "contributes_new_evidence": false
+      },
+      {
+        "appearance_ref": "M4",
+        "consumer_refs": [
+          "FATE_PROCESS_COMPLEX",
+          "MOIRAI_CLUSTER"
+        ],
+        "contributes_new_evidence": false
+      }
+    ],
+    "reused_contacts": [],
+    "completion": "PARTIAL",
+    "execution_status": "executed",
+    "coverage": [
+      {
+        "layer": "APPEARANCE_GATES",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "SUPPLIED_APPEARANCES_ONLY",
+        "assessed_refs": [
+          "L1",
+          "L2",
+          "M1",
+          "M2",
+          "M3",
+          "M4",
+          "E1"
+        ]
+      },
+      {
+        "layer": "DEPENDENCY_GROUPING",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_DEPENDENCIES_ONLY",
+        "assessed_refs": [
+          "U:L1",
+          "U:L2",
+          "U:M1",
+          "U:M2",
+          "U:M3",
+          "U:M4",
+          "U:E1"
+        ]
+      },
+      {
+        "layer": "MYTHIC_DYADS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "CALCULATED_POINTS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "HELLENISTIC_LOTS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "TEMPORAL_ACTIVATION",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "DOCUMENTARY_CORRESPONDENCE",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "NULL_CONTROLS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "MOIRAI_CLUSTER",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "SUPPLIED_COMPONENTS_ONLY",
+        "assessed_refs": [
+          "M1",
+          "M2",
+          "M3",
+          "M4"
+        ]
+      },
+      {
+        "layer": "STRUCTURAL_COMPLEXES",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_SELECTIONS_ONLY",
+        "assessed_refs": [
+          "LIMINAL_TRANSITION_COMPLEX",
+          "FATE_PROCESS_COMPLEX"
+        ]
+      }
+    ],
+    "external_validation_status": "NOT_PERFORMED",
+    "structural_scoring_modified": false,
+    "ontology_effect": "NONE",
+    "discriminator_effect": "NONE"
+  },
+  "study_request": {
+    "events": [
+      {
+        "event_id": "E1",
+        "fact_key": "FACT:E1",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "START_EVENT",
+        "start_date": "2030-01-03",
+        "end_date": null,
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:record:E1"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": null,
+        "from_state": null,
+        "to_state": null,
+        "data_class": "DOCUMENT"
+      },
+      {
+        "event_id": "E2",
+        "fact_key": "FACT:E2",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "DURATION_INTERVAL",
+        "start_date": "2030-01-03",
+        "end_date": "2030-01-10",
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:record:E2"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": true,
+        "from_state": null,
+        "to_state": null,
+        "data_class": "DOCUMENT"
+      },
+      {
+        "event_id": "E3",
+        "fact_key": "FACT:E3",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "CLOSURE_EVENT",
+        "start_date": "2030-01-12",
+        "end_date": null,
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:record:E3"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": null,
+        "from_state": null,
+        "to_state": null,
+        "data_class": "DOCUMENT"
+      },
+      {
+        "event_id": "E4",
+        "fact_key": "FACT:E4",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "TRANSITION_EVENT",
+        "start_date": "2030-01-08",
+        "end_date": null,
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:record:E4"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": null,
+        "from_state": "STATE_A",
+        "to_state": "STATE_B",
+        "data_class": "DOCUMENT"
+      },
+      {
+        "event_id": "E5",
+        "fact_key": "FACT:E5",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "REOPENING_EVENT",
+        "start_date": "2030-01-15",
+        "end_date": null,
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:record:E5"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": null,
+        "from_state": null,
+        "to_state": null,
+        "data_class": "DOCUMENT"
+      },
+      {
+        "event_id": "E6",
+        "fact_key": "FACT:E6",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "DISCORD_EVENT",
+        "start_date": "2030-01-16",
+        "end_date": null,
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:record:E6"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": null,
+        "from_state": null,
+        "to_state": null,
+        "data_class": "DOCUMENT"
+      },
+      {
+        "event_id": "E1_ALIAS",
+        "fact_key": "FACT:E1",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "role": "START_EVENT",
+        "start_date": "2030-01-03",
+        "end_date": null,
+        "precision_sufficient": true,
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "synthetic:second_record:E1"
+        ],
+        "fact_interpretation_separated": true,
+        "continuity_observed": null,
+        "from_state": null,
+        "to_state": null,
+        "data_class": "DOCUMENT"
+      }
+    ],
+    "claims": [
+      {
+        "id": "C1",
+        "kind": "INITIATION_OCCURRED",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "window_start": "2030-01-01",
+        "window_end": "2030-01-31",
+        "as_of": "2030-02-01",
+        "preregistered_before_chart_inspection": true,
+        "observation_coverage_complete": true,
+        "event_refs": [
+          "E1",
+          "E1_ALIAS"
+        ],
+        "minimum_days": null,
+        "maximum_days": null
+      },
+      {
+        "id": "C2",
+        "kind": "DURATION_WITHIN_BOUNDS",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "window_start": "2030-01-01",
+        "window_end": "2030-01-31",
+        "as_of": "2030-02-01",
+        "preregistered_before_chart_inspection": true,
+        "observation_coverage_complete": true,
+        "event_refs": [
+          "E2"
+        ],
+        "minimum_days": 5,
+        "maximum_days": 10
+      },
+      {
+        "id": "C3",
+        "kind": "CLOSURE_PERSISTED_IN_WINDOW",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "window_start": "2030-01-01",
+        "window_end": "2030-01-31",
+        "as_of": "2030-02-01",
+        "preregistered_before_chart_inspection": true,
+        "observation_coverage_complete": true,
+        "event_refs": [
+          "E3"
+        ],
+        "minimum_days": null,
+        "maximum_days": null
+      },
+      {
+        "id": "C4",
+        "kind": "TRANSITION_OCCURRED",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "window_start": "2030-01-01",
+        "window_end": "2030-01-31",
+        "as_of": "2030-02-01",
+        "preregistered_before_chart_inspection": true,
+        "observation_coverage_complete": true,
+        "event_refs": [
+          "E4"
+        ],
+        "minimum_days": null,
+        "maximum_days": null
+      },
+      {
+        "id": "C5",
+        "kind": "DISCORD_FREE_WINDOW",
+        "episode_id": "EP1",
+        "subject_id": "S1",
+        "window_start": "2030-01-01",
+        "window_end": "2030-01-31",
+        "as_of": "2030-02-01",
+        "preregistered_before_chart_inspection": true,
+        "observation_coverage_complete": true,
+        "event_refs": [],
+        "minimum_days": null,
+        "maximum_days": null
+      }
+    ]
+  },
+  "study_result": {
+    "schema_version": "ssar-process-study-1.0-development",
+    "policy_id": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+    "policy_status": "DEVELOPMENT",
+    "epistemic_class": "E_PROJECT_HYPOTHESIS",
+    "external_validation_status": "NOT_PERFORMED",
+    "policy_hash": "df18c8613f0b1ec52bdb9e24a5912a91994114b0bd325306ee44c23fd134549e",
+    "integration_status": "STANDALONE_STUDY_CONTRACT_NOT_M27",
+    "facts": [
+      {
+        "fact_key": "FACT:E1",
+        "event_refs": [
+          "E1",
+          "E1_ALIAS"
+        ],
+        "conflict": false,
+        "admissible_event_ref": "E1"
+      },
+      {
+        "fact_key": "FACT:E2",
+        "event_refs": [
+          "E2"
+        ],
+        "conflict": false,
+        "admissible_event_ref": "E2"
+      },
+      {
+        "fact_key": "FACT:E3",
+        "event_refs": [
+          "E3"
+        ],
+        "conflict": false,
+        "admissible_event_ref": "E3"
+      },
+      {
+        "fact_key": "FACT:E4",
+        "event_refs": [
+          "E4"
+        ],
+        "conflict": false,
+        "admissible_event_ref": "E4"
+      },
+      {
+        "fact_key": "FACT:E5",
+        "event_refs": [
+          "E5"
+        ],
+        "conflict": false,
+        "admissible_event_ref": "E5"
+      },
+      {
+        "fact_key": "FACT:E6",
+        "event_refs": [
+          "E6"
+        ],
+        "conflict": false,
+        "admissible_event_ref": "E6"
+      }
+    ],
+    "claims": [
+      {
+        "id": "C1",
+        "assessment": {
+          "scope": "DOCUMENTARY_PROCESS_STUDY:INITIATION_OCCURRED",
+          "status": "SUPPORTED",
+          "policy_ref": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+          "rule_ref": "SSAR_STUDY_START_IN_WINDOW_V1",
+          "evidence_refs": [
+            "E1"
+          ],
+          "counterevidence_refs": [],
+          "coverage_sufficient": true,
+          "reason": "ALL_DEFINED_CONDITIONS_MET"
+        },
+        "supporting_event_refs": [
+          "E1"
+        ],
+        "contradicting_event_refs": [],
+        "unresolved_fact_keys": [],
+        "duration_days": null,
+        "window_closed": true
+      },
+      {
+        "id": "C2",
+        "assessment": {
+          "scope": "DOCUMENTARY_PROCESS_STUDY:DURATION_WITHIN_BOUNDS",
+          "status": "SUPPORTED",
+          "policy_ref": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+          "rule_ref": "SSAR_STUDY_ELAPSED_DURATION_BOUNDS_V1",
+          "evidence_refs": [
+            "E2"
+          ],
+          "counterevidence_refs": [],
+          "coverage_sufficient": true,
+          "reason": "ALL_DEFINED_CONDITIONS_MET"
+        },
+        "supporting_event_refs": [
+          "E2"
+        ],
+        "contradicting_event_refs": [],
+        "unresolved_fact_keys": [],
+        "duration_days": 7,
+        "window_closed": true
+      },
+      {
+        "id": "C3",
+        "assessment": {
+          "scope": "DOCUMENTARY_PROCESS_STUDY:CLOSURE_PERSISTED_IN_WINDOW",
+          "status": "CONTRADICTED",
+          "policy_ref": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+          "rule_ref": "SSAR_STUDY_CLOSURE_NO_REOPENING_V1",
+          "evidence_refs": [
+            "E3"
+          ],
+          "counterevidence_refs": [
+            "E5"
+          ],
+          "coverage_sufficient": true,
+          "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+        },
+        "supporting_event_refs": [],
+        "contradicting_event_refs": [
+          "E5"
+        ],
+        "unresolved_fact_keys": [],
+        "duration_days": null,
+        "window_closed": true
+      },
+      {
+        "id": "C4",
+        "assessment": {
+          "scope": "DOCUMENTARY_PROCESS_STUDY:TRANSITION_OCCURRED",
+          "status": "SUPPORTED",
+          "policy_ref": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+          "rule_ref": "SSAR_STUDY_DISTINCT_STATES_V1",
+          "evidence_refs": [
+            "E4"
+          ],
+          "counterevidence_refs": [],
+          "coverage_sufficient": true,
+          "reason": "ALL_DEFINED_CONDITIONS_MET"
+        },
+        "supporting_event_refs": [
+          "E4"
+        ],
+        "contradicting_event_refs": [],
+        "unresolved_fact_keys": [],
+        "duration_days": null,
+        "window_closed": true
+      },
+      {
+        "id": "C5",
+        "assessment": {
+          "scope": "DOCUMENTARY_PROCESS_STUDY:DISCORD_FREE_WINDOW",
+          "status": "CONTRADICTED",
+          "policy_ref": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+          "rule_ref": "SSAR_STUDY_NO_DISCORD_IN_WINDOW_V1",
+          "evidence_refs": [],
+          "counterevidence_refs": [
+            "E6"
+          ],
+          "coverage_sufficient": true,
+          "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+        },
+        "supporting_event_refs": [],
+        "contradicting_event_refs": [
+          "E6"
+        ],
+        "unresolved_fact_keys": [],
+        "duration_days": null,
+        "window_closed": true
+      }
+    ],
+    "astrological_effect": "NONE",
+    "documentary_correspondence_effect": "NONE",
+    "ontology_effect": "NONE"
+  }
+}

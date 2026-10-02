@@ -1,0 +1,1381 @@
+{
+  "synthetic": true,
+  "scope": "DEVELOPMENT_FIXTURE_ONLY",
+  "description": "Geometría y targets fabricados; el SHA nulo es un marcador sintético, no una efeméride autenticada. Discrepancia lunar conservada y eje equivalente.",
+  "request": {
+    "enabled": true,
+    "contexts": [
+      {
+        "id": "CTX1",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "time_uncertainty_minutes": 1,
+        "location_precision_sufficient": true,
+        "input_provenance": {
+          "provider": "SYNTHETIC_INPUTS",
+          "software_version": "fixture-1",
+          "epoch_scale": "TT",
+          "armc_scale": "GAST_UT1",
+          "coordinate_origin": "GEOCENTRIC",
+          "state_frame": "ICRF_INERTIAL",
+          "reference_frame": "TRUE_ECLIPTIC_EQUINOX_OF_DATE",
+          "ephemeris_id": "DE440",
+          "ephemeris_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "source_refs": [
+            "synthetic:geometry"
+          ],
+          "network_io_used": false,
+          "time_conversion": "SYNTHETIC_TT_AND_ARMC",
+          "frame_model": "SYNTHETIC_ROTATION"
+        },
+        "samples": [
+          {
+            "offset_minutes": -30,
+            "jd_tt": 2451544.9791666665,
+            "armc_deg": 262.47948,
+            "latitude_deg": 41.0,
+            "true_obliquity_deg": 23.4392911,
+            "nutation_longitude_deg": 0.0,
+            "moon_state": {
+              "epoch_jd_tt": 2451544.9791666665,
+              "position_icrf_km": [
+                -197927.73707748138,
+                275893.1427593659,
+                119614.31634109502
+              ],
+              "velocity_icrf_km_s": [
+                -0.9082778643746259,
+                -0.5485038082583326,
+                -0.23780550462079308
+              ],
+              "rotation_icrf_to_true_ecliptic": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.917482062146321,
+                  0.39777715575399053
+                ],
+                [
+                  0.0,
+                  -0.39777715575399053,
+                  0.917482062146321
+                ]
+              ],
+              "mu_km3_s2": 403503.2356254802,
+              "frame": "ICRF_INERTIAL",
+              "coordinate_origin": "GEOCENTRIC",
+              "position_units": "KM",
+              "velocity_units": "KM_PER_SECOND"
+            }
+          },
+          {
+            "offset_minutes": -15,
+            "jd_tt": 2451544.9895833335,
+            "armc_deg": 266.23974,
+            "latitude_deg": 41.0,
+            "true_obliquity_deg": 23.4392911,
+            "nutation_longitude_deg": 0.0,
+            "moon_state": {
+              "epoch_jd_tt": 2451544.9895833335,
+              "position_icrf_km": [
+                -197927.73707748138,
+                275893.1427593659,
+                119614.31634109502
+              ],
+              "velocity_icrf_km_s": [
+                -0.9082778643746259,
+                -0.5485038082583326,
+                -0.23780550462079308
+              ],
+              "rotation_icrf_to_true_ecliptic": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.917482062146321,
+                  0.39777715575399053
+                ],
+                [
+                  0.0,
+                  -0.39777715575399053,
+                  0.917482062146321
+                ]
+              ],
+              "mu_km3_s2": 403503.2356254802,
+              "frame": "ICRF_INERTIAL",
+              "coordinate_origin": "GEOCENTRIC",
+              "position_units": "KM",
+              "velocity_units": "KM_PER_SECOND"
+            }
+          },
+          {
+            "offset_minutes": 0,
+            "jd_tt": 2451545.0,
+            "armc_deg": 270.0,
+            "latitude_deg": 41.0,
+            "true_obliquity_deg": 23.4392911,
+            "nutation_longitude_deg": 0.0,
+            "moon_state": {
+              "epoch_jd_tt": 2451545.0,
+              "position_icrf_km": [
+                -197927.73707748138,
+                275893.1427593659,
+                119614.31634109502
+              ],
+              "velocity_icrf_km_s": [
+                -0.9082778643746259,
+                -0.5485038082583326,
+                -0.23780550462079308
+              ],
+              "rotation_icrf_to_true_ecliptic": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.917482062146321,
+                  0.39777715575399053
+                ],
+                [
+                  0.0,
+                  -0.39777715575399053,
+                  0.917482062146321
+                ]
+              ],
+              "mu_km3_s2": 403503.2356254802,
+              "frame": "ICRF_INERTIAL",
+              "coordinate_origin": "GEOCENTRIC",
+              "position_units": "KM",
+              "velocity_units": "KM_PER_SECOND"
+            }
+          },
+          {
+            "offset_minutes": 15,
+            "jd_tt": 2451545.0104166665,
+            "armc_deg": 273.76026,
+            "latitude_deg": 41.0,
+            "true_obliquity_deg": 23.4392911,
+            "nutation_longitude_deg": 0.0,
+            "moon_state": {
+              "epoch_jd_tt": 2451545.0104166665,
+              "position_icrf_km": [
+                -197927.73707748138,
+                275893.1427593659,
+                119614.31634109502
+              ],
+              "velocity_icrf_km_s": [
+                -0.9082778643746259,
+                -0.5485038082583326,
+                -0.23780550462079308
+              ],
+              "rotation_icrf_to_true_ecliptic": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.917482062146321,
+                  0.39777715575399053
+                ],
+                [
+                  0.0,
+                  -0.39777715575399053,
+                  0.917482062146321
+                ]
+              ],
+              "mu_km3_s2": 403503.2356254802,
+              "frame": "ICRF_INERTIAL",
+              "coordinate_origin": "GEOCENTRIC",
+              "position_units": "KM",
+              "velocity_units": "KM_PER_SECOND"
+            }
+          },
+          {
+            "offset_minutes": 30,
+            "jd_tt": 2451545.0208333335,
+            "armc_deg": 277.52052,
+            "latitude_deg": 41.0,
+            "true_obliquity_deg": 23.4392911,
+            "nutation_longitude_deg": 0.0,
+            "moon_state": {
+              "epoch_jd_tt": 2451545.0208333335,
+              "position_icrf_km": [
+                -197927.73707748138,
+                275893.1427593659,
+                119614.31634109502
+              ],
+              "velocity_icrf_km_s": [
+                -0.9082778643746259,
+                -0.5485038082583326,
+                -0.23780550462079308
+              ],
+              "rotation_icrf_to_true_ecliptic": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.917482062146321,
+                  0.39777715575399053
+                ],
+                [
+                  0.0,
+                  -0.39777715575399053,
+                  0.917482062146321
+                ]
+              ],
+              "mu_km3_s2": 403503.2356254802,
+              "frame": "ICRF_INERTIAL",
+              "coordinate_origin": "GEOCENTRIC",
+              "position_units": "KM",
+              "velocity_units": "KM_PER_SECOND"
+            }
+          }
+        ]
+      }
+    ],
+    "core_roots": [
+      {
+        "root_id": "R1",
+        "core_eligible": true,
+        "core_evidence_ids": [
+          "CORE1"
+        ],
+        "point_ids": [
+          "SUN"
+        ]
+      },
+      {
+        "root_id": "R2",
+        "core_eligible": true,
+        "core_evidence_ids": [
+          "CORE2"
+        ],
+        "point_ids": [
+          "MOON"
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "id": "C1",
+        "context_ref": "CTX1",
+        "target_id": "SUN",
+        "target_longitude": 264.35324312,
+        "target_samples": [
+          {
+            "offset_minutes": -30,
+            "target_longitude": 264.3509222132777
+          },
+          {
+            "offset_minutes": -15,
+            "target_longitude": 264.3520826666648
+          },
+          {
+            "offset_minutes": 0,
+            "target_longitude": 264.35324312
+          },
+          {
+            "offset_minutes": 15,
+            "target_longitude": 264.3544035733352
+          },
+          {
+            "offset_minutes": 30,
+            "target_longitude": 264.3555640267223
+          }
+        ],
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true
+      },
+      {
+        "id": "C2",
+        "context_ref": "CTX1",
+        "target_id": "MOON",
+        "target_longitude": 181.0,
+        "target_samples": [
+          {
+            "offset_minutes": -30,
+            "target_longitude": 175.5316928282566
+          },
+          {
+            "offset_minutes": -15,
+            "target_longitude": 178.26551917861946
+          },
+          {
+            "offset_minutes": 0,
+            "target_longitude": 181.0
+          },
+          {
+            "offset_minutes": 15,
+            "target_longitude": 183.7344808213805
+          },
+          {
+            "offset_minutes": 30,
+            "target_longitude": 186.46830717174333
+          }
+        ],
+        "core_root_refs": [
+          "R2"
+        ],
+        "core_anchor_search_complete": true
+      }
+    ],
+    "edges": []
+  },
+  "result": {
+    "schema_version": "ssar-calculated-points-1.0-development",
+    "enabled": true,
+    "catalog_id": "ALMAS_SSAR_CALCULATED_POINTS_CATALOG_V1",
+    "catalog_hash": "6363b08431a032c7e122203df445116fbbd2ed1210e8e6687d2831220046a13c",
+    "policy_id": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+    "policy_status": "DEVELOPMENT",
+    "ssar": {
+      "schema_version": "ssar-contract-1.0-development",
+      "enabled": true,
+      "policy_id": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+      "policy_hash": "0eecd4a64e5891c41ff7e920cfae41b32bf4c4e417e2cb22b504b43df5155a7d",
+      "policy_status": "DEVELOPMENT",
+      "analysis_scope": "EXPLORATORY",
+      "execution_status": "executed",
+      "completion": "PARTIAL",
+      "coverage": [
+        {
+          "layer": "APPEARANCE_GATES",
+          "status": "executed",
+          "completion": "COMPLETE",
+          "reason": "SUPPLIED_APPEARANCES_ONLY",
+          "assessed_refs": [
+            "C1:VERTEX",
+            "C1:ANTI_VERTEX",
+            "C1:BLACK_MOON_MEAN",
+            "C1:BLACK_MOON_OSCULATING",
+            "C2:VERTEX",
+            "C2:ANTI_VERTEX",
+            "C2:BLACK_MOON_MEAN",
+            "C2:BLACK_MOON_OSCULATING"
+          ]
+        },
+        {
+          "layer": "DEPENDENCY_GROUPING",
+          "status": "executed",
+          "completion": "COMPLETE",
+          "reason": "DECLARED_DEPENDENCIES_ONLY",
+          "assessed_refs": [
+            "U:C1:VERTEX",
+            "U:C1:ANTI_VERTEX",
+            "U:C1:BLACK_MOON_MEAN",
+            "U:C1:BLACK_MOON_OSCULATING",
+            "U:C2:VERTEX",
+            "U:C2:ANTI_VERTEX",
+            "U:C2:BLACK_MOON_MEAN",
+            "U:C2:BLACK_MOON_OSCULATING"
+          ]
+        },
+        {
+          "layer": "STRUCTURAL_COMPLEXES",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "MYTHIC_DYADS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "HELLENISTIC_LOTS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "TEMPORAL_ACTIVATION",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "DOCUMENTARY_CORRESPONDENCE",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "NULL_CONTROLS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        }
+      ],
+      "appearances": [
+        {
+          "id": "C1:VERTEX",
+          "point_id": "VERTEX",
+          "kind": "CALCULATED_POINT",
+          "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_VERTEX_DEV_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C1:VERTEX"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F6_PROJECT",
+            "F6_VERTEX"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C1:ANTI_VERTEX",
+          "point_id": "ANTI_VERTEX",
+          "kind": "CALCULATED_POINT",
+          "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_ANTI_VERTEX_DEV_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C1:ANTI_VERTEX"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F6_PROJECT",
+            "F6_VERTEX"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C1:BLACK_MOON_MEAN",
+          "point_id": "BLACK_MOON_MEAN",
+          "kind": "CALCULATED_POINT",
+          "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_BLACK_MOON_MEAN_DEV_V1",
+            "evidence_refs": [
+              "C1:BLACK_MOON_MEAN"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F6_IERS",
+            "F6_MOIRA",
+            "F6_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "C1:BLACK_MOON_OSCULATING",
+          "point_id": "BLACK_MOON_OSCULATING",
+          "kind": "CALCULATED_POINT",
+          "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_BLACK_MOON_OSCULATING_DEV_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C1:BLACK_MOON_OSCULATING"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F6_MOIRA",
+            "F6_OSCU",
+            "F6_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C2:VERTEX",
+          "point_id": "VERTEX",
+          "kind": "CALCULATED_POINT",
+          "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_VERTEX_DEV_V1",
+            "evidence_refs": [
+              "C2:VERTEX"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R2"
+          ],
+          "source_refs": [
+            "F6_PROJECT",
+            "F6_VERTEX"
+          ],
+          "matched_aspect": {
+            "aspect": "OPPOSITION",
+            "angle": 180.0,
+            "distance": 179.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "C2:ANTI_VERTEX",
+          "point_id": "ANTI_VERTEX",
+          "kind": "CALCULATED_POINT",
+          "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_ANTI_VERTEX_DEV_V1",
+            "evidence_refs": [
+              "C2:ANTI_VERTEX"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R2"
+          ],
+          "source_refs": [
+            "F6_PROJECT",
+            "F6_VERTEX"
+          ],
+          "matched_aspect": {
+            "aspect": "OPPOSITION",
+            "angle": 180.0,
+            "distance": 179.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "C2:BLACK_MOON_MEAN",
+          "point_id": "BLACK_MOON_MEAN",
+          "kind": "CALCULATED_POINT",
+          "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_BLACK_MOON_MEAN_DEV_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C2:BLACK_MOON_MEAN"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R2"
+          ],
+          "source_refs": [
+            "F6_IERS",
+            "F6_MOIRA",
+            "F6_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C2:BLACK_MOON_OSCULATING",
+          "point_id": "BLACK_MOON_OSCULATING",
+          "kind": "CALCULATED_POINT",
+          "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_CALCULATED_POINTS_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F6_BLACK_MOON_OSCULATING_DEV_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C2:BLACK_MOON_OSCULATING"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R2"
+          ],
+          "source_refs": [
+            "F6_MOIRA",
+            "F6_OSCU",
+            "F6_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        }
+      ],
+      "qualified_significators": [
+        "C1:BLACK_MOON_MEAN",
+        "C2:ANTI_VERTEX",
+        "C2:VERTEX"
+      ],
+      "secondary_support": [],
+      "complexes": [],
+      "mythic_dyads": [],
+      "calculated_points": [],
+      "hellenistic_lots": [],
+      "temporal_activation": [],
+      "documentary_correspondence": [],
+      "dependency_graph": {
+        "units": [
+          {
+            "id": "U:C1:ANTI_VERTEX",
+            "appearance_ref": "C1:ANTI_VERTEX",
+            "technique": "ANTI_VERTEX",
+            "equivalence_key": "AXIS:C1"
+          },
+          {
+            "id": "U:C1:BLACK_MOON_MEAN",
+            "appearance_ref": "C1:BLACK_MOON_MEAN",
+            "technique": "BLACK_MOON_MEAN",
+            "equivalence_key": "CONTACT:C1:BLACK_MOON_MEAN"
+          },
+          {
+            "id": "U:C1:BLACK_MOON_OSCULATING",
+            "appearance_ref": "C1:BLACK_MOON_OSCULATING",
+            "technique": "BLACK_MOON_OSCULATING",
+            "equivalence_key": "CONTACT:C1:BLACK_MOON_OSCULATING"
+          },
+          {
+            "id": "U:C1:VERTEX",
+            "appearance_ref": "C1:VERTEX",
+            "technique": "VERTEX",
+            "equivalence_key": "AXIS:C1"
+          },
+          {
+            "id": "U:C2:ANTI_VERTEX",
+            "appearance_ref": "C2:ANTI_VERTEX",
+            "technique": "ANTI_VERTEX",
+            "equivalence_key": "AXIS:C2"
+          },
+          {
+            "id": "U:C2:BLACK_MOON_MEAN",
+            "appearance_ref": "C2:BLACK_MOON_MEAN",
+            "technique": "BLACK_MOON_MEAN",
+            "equivalence_key": "CONTACT:C2:BLACK_MOON_MEAN"
+          },
+          {
+            "id": "U:C2:BLACK_MOON_OSCULATING",
+            "appearance_ref": "C2:BLACK_MOON_OSCULATING",
+            "technique": "BLACK_MOON_OSCULATING",
+            "equivalence_key": "CONTACT:C2:BLACK_MOON_OSCULATING"
+          },
+          {
+            "id": "U:C2:VERTEX",
+            "appearance_ref": "C2:VERTEX",
+            "technique": "VERTEX",
+            "equivalence_key": "AXIS:C2"
+          }
+        ],
+        "edges": [],
+        "equivalence_classes": [
+          {
+            "id": "EQ:U:C1:ANTI_VERTEX",
+            "unit_refs": [
+              "U:C1:ANTI_VERTEX",
+              "U:C1:VERTEX"
+            ]
+          },
+          {
+            "id": "EQ:U:C1:BLACK_MOON_MEAN",
+            "unit_refs": [
+              "U:C1:BLACK_MOON_MEAN"
+            ]
+          },
+          {
+            "id": "EQ:U:C1:BLACK_MOON_OSCULATING",
+            "unit_refs": [
+              "U:C1:BLACK_MOON_OSCULATING"
+            ]
+          },
+          {
+            "id": "EQ:U:C2:ANTI_VERTEX",
+            "unit_refs": [
+              "U:C2:ANTI_VERTEX",
+              "U:C2:VERTEX"
+            ]
+          },
+          {
+            "id": "EQ:U:C2:BLACK_MOON_MEAN",
+            "unit_refs": [
+              "U:C2:BLACK_MOON_MEAN"
+            ]
+          },
+          {
+            "id": "EQ:U:C2:BLACK_MOON_OSCULATING",
+            "unit_refs": [
+              "U:C2:BLACK_MOON_OSCULATING"
+            ]
+          }
+        ],
+        "effective_groups": [
+          {
+            "id": "GR:U:C2:ANTI_VERTEX",
+            "unit_refs": [
+              "U:C2:ANTI_VERTEX",
+              "U:C2:VERTEX"
+            ]
+          },
+          {
+            "id": "GR:U:C1:BLACK_MOON_MEAN",
+            "unit_refs": [
+              "U:C1:BLACK_MOON_MEAN"
+            ]
+          }
+        ],
+        "excluded_unit_refs": [
+          "U:C1:ANTI_VERTEX",
+          "U:C1:BLACK_MOON_OSCULATING",
+          "U:C1:VERTEX",
+          "U:C2:BLACK_MOON_MEAN",
+          "U:C2:BLACK_MOON_OSCULATING"
+        ],
+        "grouping_rule_ref": "SSAR_CONSERVATIVE_CONNECTED_GROUPS_DEV_V1",
+        "statistical_independence_established": false
+      },
+      "external_validation_status": "NOT_PERFORMED",
+      "structural_scoring_modified": false,
+      "ontology_effect": "NONE",
+      "discriminator_effect": "NONE"
+    },
+    "calculations": [
+      {
+        "context_id": "CTX1",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "input_hash": "109ad73595f4264baaeadcbff7e0c368f301385c8149e7c22a276cfb0e9c3c82",
+        "input_provenance": {
+          "provider": "SYNTHETIC_INPUTS",
+          "software_version": "fixture-1",
+          "epoch_scale": "TT",
+          "armc_scale": "GAST_UT1",
+          "coordinate_origin": "GEOCENTRIC",
+          "state_frame": "ICRF_INERTIAL",
+          "reference_frame": "TRUE_ECLIPTIC_EQUINOX_OF_DATE",
+          "ephemeris_id": "DE440",
+          "ephemeris_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "source_refs": [
+            "synthetic:geometry"
+          ],
+          "network_io_used": false,
+          "time_conversion": "SYNTHETIC_TT_AND_ARMC",
+          "frame_model": "SYNTHETIC_ROTATION"
+        },
+        "points": [
+          {
+            "point_id": "VERTEX",
+            "algorithm_id": "ALMAS_VERTEX_PRIME_VERTICAL_WEST_V1",
+            "variant": "WESTERN_VERTEX",
+            "status": "CALCULATED",
+            "central_longitude": 180.0,
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "jd_tt": 2451544.9791666665,
+                "status": "CALCULATED",
+                "longitude": 174.5316928282566,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": -15,
+                "jd_tt": 2451544.9895833335,
+                "status": "CALCULATED",
+                "longitude": 177.26551917861946,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 0,
+                "jd_tt": 2451545.0,
+                "status": "CALCULATED",
+                "longitude": 180.0,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 15,
+                "jd_tt": 2451545.0104166665,
+                "status": "CALCULATED",
+                "longitude": 182.7344808213805,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 30,
+                "jd_tt": 2451545.0208333335,
+                "status": "CALCULATED",
+                "longitude": 185.46830717174333,
+                "eccentricity": null,
+                "reasons": []
+              }
+            ],
+            "time_precision_sufficient": true,
+            "location_precision_required": true
+          },
+          {
+            "point_id": "ANTI_VERTEX",
+            "algorithm_id": "ALMAS_VERTEX_PRIME_VERTICAL_WEST_V1",
+            "variant": "EASTERN_ANTI_VERTEX",
+            "status": "CALCULATED",
+            "central_longitude": 0.0,
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "jd_tt": 2451544.9791666665,
+                "status": "CALCULATED",
+                "longitude": 354.5316928282566,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": -15,
+                "jd_tt": 2451544.9895833335,
+                "status": "CALCULATED",
+                "longitude": 357.26551917861946,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 0,
+                "jd_tt": 2451545.0,
+                "status": "CALCULATED",
+                "longitude": 0.0,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 15,
+                "jd_tt": 2451545.0104166665,
+                "status": "CALCULATED",
+                "longitude": 2.7344808213804868,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 30,
+                "jd_tt": 2451545.0208333335,
+                "status": "CALCULATED",
+                "longitude": 5.468307171743334,
+                "eccentricity": null,
+                "reasons": []
+              }
+            ],
+            "time_precision_sufficient": true,
+            "location_precision_required": true
+          },
+          {
+            "point_id": "BLACK_MOON_MEAN",
+            "algorithm_id": "ALMAS_IERS2003_SCALAR_MEAN_APOGEE_V1",
+            "variant": "IERS2003_F_OMEGA_MINUS_L_PLUS180_TRUE_EQUINOX",
+            "status": "CALCULATED",
+            "central_longitude": 263.35324312,
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "jd_tt": 2451544.9791666665,
+                "status": "CALCULATED",
+                "longitude": 263.3509222132777,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": -15,
+                "jd_tt": 2451544.9895833335,
+                "status": "CALCULATED",
+                "longitude": 263.3520826666648,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 0,
+                "jd_tt": 2451545.0,
+                "status": "CALCULATED",
+                "longitude": 263.35324312,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 15,
+                "jd_tt": 2451545.0104166665,
+                "status": "CALCULATED",
+                "longitude": 263.3544035733352,
+                "eccentricity": null,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 30,
+                "jd_tt": 2451545.0208333335,
+                "status": "CALCULATED",
+                "longitude": 263.3555640267223,
+                "eccentricity": null,
+                "reasons": []
+              }
+            ],
+            "time_precision_sufficient": true,
+            "location_precision_required": false
+          },
+          {
+            "point_id": "BLACK_MOON_OSCULATING",
+            "algorithm_id": "ALMAS_INERTIAL_ECCENTRICITY_VECTOR_APOGEE_V1",
+            "variant": "GEOCENTRIC_OSCULATING_ELLIPSE_APOGEE",
+            "status": "CALCULATED",
+            "central_longitude": 303.35324312000006,
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "jd_tt": 2451544.9791666665,
+                "status": "CALCULATED",
+                "longitude": 303.35324312000006,
+                "eccentricity": 0.0549,
+                "reasons": []
+              },
+              {
+                "offset_minutes": -15,
+                "jd_tt": 2451544.9895833335,
+                "status": "CALCULATED",
+                "longitude": 303.35324312000006,
+                "eccentricity": 0.0549,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 0,
+                "jd_tt": 2451545.0,
+                "status": "CALCULATED",
+                "longitude": 303.35324312000006,
+                "eccentricity": 0.0549,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 15,
+                "jd_tt": 2451545.0104166665,
+                "status": "CALCULATED",
+                "longitude": 303.35324312000006,
+                "eccentricity": 0.0549,
+                "reasons": []
+              },
+              {
+                "offset_minutes": 30,
+                "jd_tt": 2451545.0208333335,
+                "status": "CALCULATED",
+                "longitude": 303.35324312000006,
+                "eccentricity": 0.0549,
+                "reasons": []
+              }
+            ],
+            "time_precision_sufficient": true,
+            "location_precision_required": false
+          }
+        ]
+      }
+    ],
+    "axis_normalization": [
+      {
+        "contact_ref": "C1",
+        "axis_id": "VERTEX_ENCOUNTER_AXIS",
+        "appearance_refs": [
+          "C1:VERTEX",
+          "C1:ANTI_VERTEX"
+        ],
+        "original_longitudes": [
+          {
+            "appearance_ref": "C1:VERTEX",
+            "longitude": 180.0,
+            "directed_aspect": null
+          },
+          {
+            "appearance_ref": "C1:ANTI_VERTEX",
+            "longitude": 0.0,
+            "directed_aspect": null
+          }
+        ],
+        "canonical_axis_longitude": 0.0,
+        "contributes_new_evidence": false,
+        "equivalence_scope": "CONJUNCTION_OPPOSITION_ONLY"
+      },
+      {
+        "contact_ref": "C2",
+        "axis_id": "VERTEX_ENCOUNTER_AXIS",
+        "appearance_refs": [
+          "C2:VERTEX",
+          "C2:ANTI_VERTEX"
+        ],
+        "original_longitudes": [
+          {
+            "appearance_ref": "C2:VERTEX",
+            "longitude": 180.0,
+            "directed_aspect": {
+              "aspect": "CONJUNCTION",
+              "angle": 0.0,
+              "distance": 1.0,
+              "orb": 1.0,
+              "orb_limit": 1.5,
+              "exactness": 0.5555555555555556
+            }
+          },
+          {
+            "appearance_ref": "C2:ANTI_VERTEX",
+            "longitude": 0.0,
+            "directed_aspect": {
+              "aspect": "OPPOSITION",
+              "angle": 180.0,
+              "distance": 179.0,
+              "orb": 1.0,
+              "orb_limit": 1.5,
+              "exactness": 0.5555555555555556
+            }
+          }
+        ],
+        "canonical_axis_longitude": 0.0,
+        "contributes_new_evidence": false,
+        "equivalence_scope": "CONJUNCTION_OPPOSITION_ONLY"
+      }
+    ],
+    "variant_sensitivity": [
+      {
+        "contact_ref": "C1",
+        "family_id": "BLACK_MOON_VARIANTS",
+        "mean_appearance_ref": "C1:BLACK_MOON_MEAN",
+        "osculating_appearance_ref": "C1:BLACK_MOON_OSCULATING",
+        "separation_deg": 40.00000000000006,
+        "geometry_concordance": "DISAGREE",
+        "qualification_concordance": "DISAGREE",
+        "selected_variant": null,
+        "variant_rule": "RETAIN_BOTH_NO_RETROSPECTIVE_SELECTION"
+      },
+      {
+        "contact_ref": "C2",
+        "family_id": "BLACK_MOON_VARIANTS",
+        "mean_appearance_ref": "C2:BLACK_MOON_MEAN",
+        "osculating_appearance_ref": "C2:BLACK_MOON_OSCULATING",
+        "separation_deg": 40.00000000000006,
+        "geometry_concordance": "BOTH_NO_CONTACT",
+        "qualification_concordance": "NEITHER_QUALIFIED",
+        "selected_variant": null,
+        "variant_rule": "RETAIN_BOTH_NO_RETROSPECTIVE_SELECTION"
+      }
+    ],
+    "functional_notes": [
+      {
+        "appearance_ref": "C1:VERTEX",
+        "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_PROJECT",
+          "F6_VERTEX"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C1:ANTI_VERTEX",
+        "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_PROJECT",
+          "F6_VERTEX"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C1:BLACK_MOON_MEAN",
+        "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Sombra, deseo, autonomía, tabú y vacío como temas interpretativos.",
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_IERS",
+          "F6_MOIRA",
+          "F6_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C1:BLACK_MOON_OSCULATING",
+        "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_MOIRA",
+          "F6_OSCU",
+          "F6_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C2:VERTEX",
+        "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Umbral y sensibilidad al encuentro como hipótesis E.",
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_PROJECT",
+          "F6_VERTEX"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C2:ANTI_VERTEX",
+        "function_id": "ENCOUNTER_SENSITIVITY_THRESHOLD",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Polo opuesto del mismo eje de encuentro; no evidencia adicional.",
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_PROJECT",
+          "F6_VERTEX"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C2:BLACK_MOON_MEAN",
+        "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_IERS",
+          "F6_MOIRA",
+          "F6_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      },
+      {
+        "appearance_ref": "C2:BLACK_MOON_OSCULATING",
+        "function_id": "SHADOW_DESIRE_AUTONOMY_TABOO_VOID",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No establece destino, encuentro vivido, conducta sexual, reciprocidad, identidad espiritual o pensamiento ajeno; no sustituye a Lilith 1181.",
+        "source_refs": [
+          "F6_MOIRA",
+          "F6_OSCU",
+          "F6_PROJECT"
+        ],
+        "documentary_status": "NOT_EVALUABLE"
+      }
+    ],
+    "completion": "PARTIAL",
+    "execution_status": "executed",
+    "coverage": [
+      {
+        "layer": "APPEARANCE_GATES",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "SUPPLIED_APPEARANCES_ONLY",
+        "assessed_refs": [
+          "C1:VERTEX",
+          "C1:ANTI_VERTEX",
+          "C1:BLACK_MOON_MEAN",
+          "C1:BLACK_MOON_OSCULATING",
+          "C2:VERTEX",
+          "C2:ANTI_VERTEX",
+          "C2:BLACK_MOON_MEAN",
+          "C2:BLACK_MOON_OSCULATING"
+        ]
+      },
+      {
+        "layer": "DEPENDENCY_GROUPING",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_DEPENDENCIES_ONLY",
+        "assessed_refs": [
+          "U:C1:VERTEX",
+          "U:C1:ANTI_VERTEX",
+          "U:C1:BLACK_MOON_MEAN",
+          "U:C1:BLACK_MOON_OSCULATING",
+          "U:C2:VERTEX",
+          "U:C2:ANTI_VERTEX",
+          "U:C2:BLACK_MOON_MEAN",
+          "U:C2:BLACK_MOON_OSCULATING"
+        ]
+      },
+      {
+        "layer": "STRUCTURAL_COMPLEXES",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "MYTHIC_DYADS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "HELLENISTIC_LOTS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "TEMPORAL_ACTIVATION",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "DOCUMENTARY_CORRESPONDENCE",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "NULL_CONTROLS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "CALCULATED_POINTS",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_CONTEXTS_ONLY",
+        "assessed_refs": [
+          "CTX1"
+        ]
+      }
+    ],
+    "external_validation_status": "NOT_PERFORMED",
+    "structural_scoring_modified": false,
+    "ontology_effect": "NONE",
+    "discriminator_effect": "NONE",
+    "integration_status": "AUXILIARY_POST_CORE_NOT_CANONICAL_NOT_M27"
+  }
+}

@@ -1,0 +1,61 @@
+name: Release SSAR 1.25.0
+
+on:
+  workflow_run:
+    workflows: ["Núcleo Python", "Contrato público", "Backend astronómico", "Publicación DOCX", "Publicación PDF"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: ssar-release-1.25.0
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Obtener el commit verificado
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Comprobar los cinco workflows y crear la release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          if Path('VERSION').read_text().strip() != '1.25.0':
+              raise SystemExit(0)
+          sha = os.environ['RELEASE_SHA']
+          repo = os.environ['GH_REPO']
+          data = json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs?head_sha={sha}&event=push&per_page=100']))
+          names = {'Núcleo Python','Contrato público','Backend astronómico','Publicación DOCX','Publicación PDF'}
+          latest = {}
+          for run in sorted(data['workflow_runs'],key=lambda r:r['id']):
+              if run['name'] in names: latest[run['name']] = run
+          if set(latest) != names or any(r['status'] != 'completed' or r['conclusion'] != 'success' for r in latest.values()):
+              print('La release espera a los cinco workflows aprobados para este commit.')
+              raise SystemExit(0)
+          existing = subprocess.run(['gh','api',f'repos/{repo}/git/ref/tags/v1.25.0'],capture_output=True,text=True)
+          if existing.returncode == 0:
+              if json.loads(existing.stdout)['object']['sha'] != sha:
+                  raise SystemExit('La etiqueta existente corresponde a otro commit; no se sobrescribe.')
+          else:
+              subprocess.run(['gh','api','--method','POST',f'repos/{repo}/git/refs','-f','ref=refs/tags/v1.25.0','-f',f'sha={sha}'],check=True)
+          release = subprocess.run(['gh','release','view','v1.25.0'],capture_output=True)
+          if release.returncode != 0:
+              subprocess.run(['gh','release','create','v1.25.0','--verify-tag','--title','ALMAS 1.25.0 · SSAR experimental','--notes-file','docs/RELEASE_NOTES_1.25.0.md'],check=True)
+          print('Release 1.25.0 verificada para '+sha)
+          PY

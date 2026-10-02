@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.25.0 — 2026-10-02
+
+Completa SSAR como extensión optativa experimental: seis familias de lotes y ocho fórmulas atribuidas, cinco complejos S1, siete pares temáticos, agregación conservadora entre perfiles, relojes/ventanas y correspondencias M27 estructural y temporal separadas. Añade bloque canónico reproducible, rutas M31 condicionales, controles sintéticos de presupuesto fijo y nueve ablaciones del pipeline. Los contratos de desarrollo anteriores permanecen íntegros.
+
+La política experimental se congela por hash de recursos. El núcleo conserva exactamente las salidas y archivos protegidos de 1.24.1. Se sincronizan metadatos de versión, sin cambiar fórmulas, pesos, umbrales, scoring, ontología o discriminadores. La métrica principal permanece sin operacionalizar y la validación externa no se ha realizado. Isis–Osiris, Shiva–Shakti y las lecturas doctrinales pendientes conservan sus bloqueos. Véase la auditoría de release.
+
+## Desarrollo 1.25.0 · SSAR fase 6 — 2026-10-02
+
+Añade Vertex/Anti-Vertex, apogeo medio escalar IERS y apogeo osculante derivado del estado lunar inercial, con proveedor auxiliar Skyfield 1.55/DE440, convenciones de tiempo, origen, marco, unidades y bloqueos explícitos. El eje conserva aspectos dirigidos y equivalencia; ambas variantes lunares conservan separación y discrepancias sin selección retrospectiva ni conteo independiente. La media declarada no se confunde con el apogeo de órbita media proyectado de Swiss Ephemeris.
+
+Incluye dos schemas, auditoría de fuentes técnicas, fixture sintético, 54 pruebas y 67 comparaciones de algoritmos con Swiss Ephemeris, ERFA/SOFA y CSPICE sobre entradas idénticas; tolerancia de desarrollo 10⁻⁷ grados. Las funciones interpretativas siguen siendo E y la validación externa permanece pendiente. No cambia núcleo, políticas previas, scoring, índices, ontología, discriminadores o versión pública 1.24.1. Fases 7–10 pendientes.
+
+## Desarrollo 1.25.0 · SSAR fase 5 — 2026-10-02
+
+Añade siete funciones exploratorias de Hekate, Persephone, Eris y las Moiras, MOIRAI_CLUSTER y dos complejos optativos con anclajes heredados, robustez y dos grupos efectivos. Eris conserva alternativas interpretativas y sólo aporta contexto a los complejos. Perséfone puede enlazar evidencia de fase 4 sin duplicarla. La procedencia nominal se verifica en catálogo técnico P3 y NASA P1; los antecedentes antiguos y las reglas propias E permanecen separados.
+
+Define un contrato independiente para inicio, duración, cierre, transición y discordia en futuros estudios: hechos deduplicados, preregistro, ventanas delimitadas y contradictores conocidos visibles aunque se omitan de referencias. No promueve los alcances temporal o documental SSAR ni integra M27. Incorpora cuatro schemas, fixture sintético, auditoría y 51 pruebas. La fuerza numérica permanece null y no cambia scoring, ontología, discriminadores, políticas anteriores o versión pública 1.24.1. Fases 6–10 y validación externa siguen pendientes.
+
+## Desarrollo 1.25.0 · SSAR fase 4 — 2026-10-01
+
+Añade familia erótica Eros/Amor/Cupido, overlay de Afrodita a Venus y API optativa de díadas con contactos cruzados, anclajes core, perturbaciones, dos grupos efectivos y deduplicación. Eros–Psyche y Deméter–Perséfone tienen reglas ejecutables; Isis–Osiris conserva ambigüedad nominal NP4 y Shiva–Shakti conserva identidad/alias/variante doctrinal sin resolver. Se separan cuatro alcances sin estado global o score. La fuerza numérica queda null hasta definir y congelar una magnitud común.
+
+Incluye contratos estrictos, auditoría de denominaciones en catálogo técnico P3, antecedentes narrativos primarios delimitados, fixture sintético y 30 pruebas. No cambia S1, scoring, índices, ontología, discriminadores o versión pública 1.24.1. Integración canonical, temporalidad, M27, controles y congelación siguen pendientes. La verificación de esta fase se ejecuta en GitHub Actions por desconexión del entorno local.
+
+## Desarrollo 1.25.0 · SSAR fase 3 — 2026-10-01
+
+Añade un subperfil S1 optativo con Ceres, Pallas, Juno, Vesta, Quirón, Psyche y Eros, fuentes por alcance, límites y anclajes explícitos. Las siete funciones conservan clase E. Ceres, Vesta, Psyche y Eros tienen denominación verificada; Pallas, Juno y Quirón conservan procedencia nominal pendiente y métodos declarados independientes del nombre. La política genérica de fase 2 mantiene su catálogo vacío.
+
+Reutiliza contactos suministrados de CHIRON_PROCESS, WOUND_REPAIR y SURRENDER_VESTAL mediante referencias sin crear evidencias adicionales. Añade schemas de entrada/salida S1, huella de catálogo y reproducción semántica, así como escenarios sintéticos positivos, negativos y ambiguos de las siete funciones. No calcula nuevas efemérides, no evalúa M27 ni cambia scoring, índices, ontología o discriminadores. Complejos, familias, temporalidad, congelación y validación externa siguen pendientes. La versión pública permanece 1.24.1.
+
 ## 1.24.1 — 2026-10-01
 
 Amplía el corpus con 25 fuentes, 37 conceptos y 13 relaciones conceptuales. Conserva nueve incorporaciones como metadatos con texto íntegro pendiente. Formaliza techos inferenciales, promociones prohibidas y dependencia conservadora, separando transmisión documentada de agrupación de escuela. Kardec 298–303 aporta contra-doctrina a mitades literales en su propio marco.

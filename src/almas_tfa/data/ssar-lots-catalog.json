@@ -1,0 +1,476 @@
+{
+  "catalog_id": "ALMAS_SSAR_SIX_LOTS_WITH_VARIANTS_V1",
+  "entries": [
+    {
+      "point_id": "LOT_FORTUNE",
+      "function_id": "FORTUNE_BODY_CIRCUMSTANCE",
+      "variant": "PAULUS_CH23",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "MOON",
+          "subtract": "SUN"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "SUN",
+          "subtract": "MOON"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_PAULUS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "MOON",
+          "SUN"
+        ],
+        "variant": "PAULUS_CH23",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio FORTUNE_BODY_CIRCUMSTANCE bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_SPIRIT",
+      "function_id": "SPIRIT_ACTION_INTENTION",
+      "variant": "PAULUS_CH23",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "SUN",
+          "subtract": "MOON"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "MOON",
+          "subtract": "SUN"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_PAULUS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "SUN",
+          "MOON"
+        ],
+        "variant": "PAULUS_CH23",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio SPIRIT_ACTION_INTENTION bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_EROS_PAULUS",
+      "function_id": "EROS_DESIRE_AGENCY",
+      "variant": "PAULUS_CH23",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "VENUS",
+          "subtract": "LOT_SPIRIT"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "LOT_SPIRIT",
+          "subtract": "VENUS"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_PAULUS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "VENUS",
+          "LOT_SPIRIT"
+        ],
+        "variant": "PAULUS_CH23",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio EROS_DESIRE_AGENCY bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_NECESSITY_PAULUS",
+      "function_id": "NECESSITY_CONSTRAINT",
+      "variant": "PAULUS_CH23",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "LOT_FORTUNE",
+          "subtract": "MERCURY"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "MERCURY",
+          "subtract": "LOT_FORTUNE"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_PAULUS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "LOT_FORTUNE",
+          "MERCURY"
+        ],
+        "variant": "PAULUS_CH23",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio NECESSITY_CONSTRAINT bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_NEMESIS",
+      "function_id": "NEMESIS_LIMIT_ACCOUNTABILITY",
+      "variant": "PAULUS_CH23",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "LOT_FORTUNE",
+          "subtract": "SATURN"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "SATURN",
+          "subtract": "LOT_FORTUNE"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_PAULUS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "LOT_FORTUNE",
+          "SATURN"
+        ],
+        "variant": "PAULUS_CH23",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio NEMESIS_LIMIT_ACCOUNTABILITY bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_VICTORY",
+      "function_id": "VICTORY_EXPECTATION_CONTEST",
+      "variant": "PAULUS_CH23",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "JUPITER",
+          "subtract": "LOT_SPIRIT"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "LOT_SPIRIT",
+          "subtract": "JUPITER"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_PAULUS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "JUPITER",
+          "LOT_SPIRIT"
+        ],
+        "variant": "PAULUS_CH23",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio VICTORY_EXPECTATION_CONTEST bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_EROS_VALENS",
+      "function_id": "EROS_DESIRE_AGENCY",
+      "variant": "VALENS_IV25_MARGINAL_NOTE",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "LOT_SPIRIT",
+          "subtract": "LOT_FORTUNE"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "LOT_FORTUNE",
+          "subtract": "LOT_SPIRIT"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_VALENS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "LOT_SPIRIT",
+          "LOT_FORTUNE"
+        ],
+        "variant": "VALENS_IV25_MARGINAL_NOTE",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio EROS_DESIRE_AGENCY bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    },
+    {
+      "point_id": "LOT_NECESSITY_VALENS",
+      "function_id": "NECESSITY_CONSTRAINT",
+      "variant": "VALENS_IV25_MARGINAL_NOTE",
+      "formulas": {
+        "DAY": {
+          "base": "ASC",
+          "add": "LOT_FORTUNE",
+          "subtract": "LOT_SPIRIT"
+        },
+        "NIGHT": {
+          "base": "ASC",
+          "add": "LOT_SPIRIT",
+          "subtract": "LOT_FORTUNE"
+        }
+      },
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "TECHNICAL",
+        "verification_status": "VERIFIED",
+        "name_class": null,
+        "source_refs": [
+          "F7_VALENS"
+        ],
+        "algorithm": "ALMAS_SECT_REVERSIBLE_CIRCULAR_LOT_V1",
+        "conventions": "TROPICAL_ECLIPTIC_LONGITUDES_MOD360; GEOCENTRIC; ASC_DEPENDENT; DAY_NIGHT_REVERSE; SHARED_SECT_FOR_DERIVED_LOTS",
+        "inputs": [
+          "ASC",
+          "LOT_FORTUNE",
+          "LOT_SPIRIT"
+        ],
+        "variant": "VALENS_IV25_MARGINAL_NOTE",
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F7_PROJECT"
+        ],
+        "justification": "Uso funcional experimental separado de la fórmula histórica.",
+        "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1"
+      },
+      "interpretation": "Tema exploratorio NECESSITY_CONSTRAINT bajo una fórmula y fuente atribuidas.",
+      "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual."
+    }
+  ],
+  "sources": [
+    {
+      "id": "F7_PAULUS",
+      "author": "Paulus Alexandrinus; traducción Robert Schmidt, edición Robert Hand",
+      "work": "Introductory Matters, capítulo 23",
+      "locator": "páginas impresas 43–45; fórmulas diurnas y reversión nocturna",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scopes": [
+        "TECHNICAL_DEFINITION"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F7_VALENS",
+      "author": "Vettius Valens; traducción Mark T. Riley; reformato anotado Jane Griscti",
+      "work": "Anthologies, IV.25",
+      "locator": "notas marginales conservadas de Riley; edición anotada páginas 372–373 (192P/202K)",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "claim_scopes": [
+        "TECHNICAL_DEFINITION"
+      ],
+      "date": "2010",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F7_PROJECT",
+      "author": "Proyecto ALMAS",
+      "work": "Lotes SSAR: método exploratorio",
+      "locator": "reference/ssar-hellenistic-lots.md",
+      "priority": "P4",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "claim_scopes": [
+        "SEMANTIC_BASIS",
+        "ASTROLOGICAL_METHOD"
+      ],
+      "date": "2026-10-02",
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "lot_families": 6,
+  "point_variants": 8,
+  "unknown_sect_rule": "RETAIN_DAY_AND_NIGHT_BLOCK_SECT_DEPENDENT_QUALIFICATION",
+  "retrospective_formula_selection_allowed": false,
+  "default_m13_policy_modified": false
+}

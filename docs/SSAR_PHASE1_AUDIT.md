@@ -1,0 +1,37 @@
+# SSAR · Auditoría de base y procedencia, fase 1
+
+La fase 1 de ALMAS 1.25.0 R2 se ha trabajado sobre el commit `e0e8db8c2aab7484ffaf628a8c24f2dbb18a3e09`, cuya versión pública es 1.24.1. La consulta del commit de `main` mediante GitHub coincidió con la copia local el 1 de octubre de 2026. El árbol de referencia es `ae8ca0eeaa9db1a3b70807906c6262924a94d63c`. No se encontraron archivos AGENTS.md en los directorios inspeccionados. Se consultaron SKILL.md, README.md, los manifiestos normativos y los workflows existentes. Este entregable registra el inventario y la referencia de regresión; no constituye la release 1.25.0 ni una implementación de SSAR.
+
+## Capacidad comprobada
+
+M14, en `src/almas_tfa/secondary_handlers.py`, calcula contactos entre puntos suministrados de dos cartas, con política de aspectos declarada y `support_only=true`. Conserva faltantes por sujeto, pero no implementa procedencia nominal, cualificación SSAR, complejos, estados por alcance ni grupos efectivos. M15–M17 mantienen los contactos secundarios como apoyo; una raíz core se reconoce mediante `core_eligible` y `core_evidence_ids`. SSAR deberá referenciar esas raíces, sin crearlas ni aumentar su fuerza.
+
+El adaptador `src/almas_tfa/production_astronomy.py` filtra los diez cuerpos planetarios y calcula los nodos; su política no declara asteroides, Quirón, Vertex o Luna Negra. Se ha inspeccionado el adaptador ALMAS, no certificado la incapacidad de la biblioteca externa Moira. Las posiciones suministradas pueden alimentar M14, pero la producción de nuevas efemérides secundarias requiere desarrollo y verificación específicos. No se realizaron cálculos astronómicos nuevos en esta fase.
+
+M13, en `src/almas_tfa/lot_handlers.py`, admite fórmulas expresamente suministradas. Su política predeterminada contiene Fortuna y Espíritu, con variantes de secta y resolución heredada por casa solar. Esto no demuestra que los otros cuatro lotes del plan estén documentados, ni autoriza una variante favorable al caso. Se conservará la baseline; la ampliación deberá separar fórmulas, secta y variantes, y comprobarlas contra pasajes históricos.
+
+M27 trata eventos documentales; M30 verifica completitud y construye canonical mediante `canonical_assembly.py`; M31 produce el modelo documental. La cualificación SSAR necesita raíces de M17, posteriores a M14. Por ello, su futura integración debe separar cálculo geométrico temprano de evaluación posterior al núcleo, o usar una etapa interna posterior al cálculo de raíces. No deberá introducir dependencias circulares, un módulo analítico nuevo, ni alterar ICC/IAT a través de cambios en la completitud legacy. La estrategia exacta se resolverá en fase 2.
+
+## Inventario y procedencia
+
+`reference/ssar-provenance-audit-1.25-phase1.json` cubre 39 entradas del plan: 29 candidatos nominales, cuatro entradas de puntos calculados y seis lotes. Mantiene dos candidatos auxiliares de investigación, sin habilitarlos: Siva y Parvati. Las consultas directas al API de NASA/JPL comprobaron 29 identidades en total, 27 del catálogo comprometido y dos auxiliares. Las consultas literales Shiva y Shakti no identificaron objeto; ello no prueba inexistencia. JPL identifica `(1170) Siva` y `(2847) Parvati`, pero estos resultados no autorizan sustitución nominal ni equivalencia doctrinal. El complejo Shiva–Shakti conserva sus componentes sin resolver.
+
+Las citas nominales reproducidas en JPL acreditan procedencia mitológica para Osiris y Eris. Para `(4386) Lüst`, Haupt y Hahn reproducen la cita de MPC 18141, de 28 de abril de 1991, en la página 77 de su publicación de 2007: el nombre honra a Reimar Lüst. Se conserva la prioridad técnica de la reproducción y el hecho de que el circular original no pudo consultarse directamente. Se bloquea específicamente la asociación del apellido con deseo sexual por semejanza gráfica. Las explicaciones de Alma, Karma, Union, Destinn, Valentine, Lilith y la asociación nominal de Isis siguen pendientes; los indicios encontrados en fuentes secundarias no se han elevado a verificación.
+
+La descripción pública de Demetra George documenta un método de delineación de Ceres, Pallas, Juno y Vesta por signo, casa y aspectos, incluyendo contactos con ángulos y nodos. Su alcance no acredita las funciones específicas de SSAR, sus orbes, independencia o eficacia. El libro completo no se consultó. La bibliografía heredada de Quirón, Vesta y lotes se identifica para reutilización, sin dar por reauditable todo su contenido mediante una referencia bibliográfica. Ninguna función SSAR queda habilitada en esta fase, aunque una identidad o denominación haya sido verificada.
+
+## Regresión fijada
+
+`reference/ssar-baseline-1.24.1.json` conserva salidas deterministas del fixture FULL M00–M31, resultados con pilares precalculados y un caso sin ICE. Incluye raíces, pilares, atribución, índices, estados, robustez, contraevidencia, temporalidad y ontología; los metadatos de versión se registran aparte. Los archivos cuantitativos y políticas protegidos tienen huellas SHA-256. La comparación es exacta porque los fixtures son sintéticos y no ejecutan efemérides. No se introduce tolerancia astronómica para encubrir cambios normativos.
+
+La auditoría detectó un metadato heredado: `analyze_precomputed` devuelve `public_version=1.24.0` en una distribución 1.24.1, y su prueba existente espera ese valor. Se registra expresamente; no se modifica al fijar la referencia. Una futura corrección de versión requerirá revisión separada de metadatos, preservando los resultados numéricos.
+
+La suite de base pasó 786 pruebas en Python 3.12, en 52,412 segundos. El primer intento no pudo importar 31 módulos por ausencia de jsonschema; tras instalar la dependencia declarada `jsonschema==4.26.0` se repitió toda la suite con éxito. El contrato público pasó con extras y con `python -S` sin extras. Estos resultados describen ejecución local; no certifican una nueva ejecución remota de workflows ni una validación externa.
+
+El comando `PYTHONPATH=src python scripts/validate_ssar_baseline.py` compara el estado actual con la referencia. Requiere las dependencias de schema utilizadas por el fixture existente. `--write` solo crea un archivo nuevo y rechaza sobrescribir una referencia. Los nuevos metadatos se revisan por separado; un cambio de salidas core o archivos protegidos produce fallo.
+
+La comparación ejecutada contra la referencia pasó con igualdad exacta. Un control negativo alteró únicamente ICC a 99 en una copia temporal: el verificador devolvió fallo y señaló `outputs.full_pipeline.canonical_core.indices.ICC`. El inventario pasó controles de unicidad, conteos, referencias internas de díadas, candidatos auxiliares y referencias heredadas al registro de fuentes. La compilación del script pasó. La ausencia de funciones habilitadas se comprobó para todas las entradas.
+
+## Cierre y continuidad
+
+El cierre de fase 1 acredita base identificada, inventario con estado explícito, fuentes consultadas y regresión fijada. Las denominaciones pendientes, reglas semánticas, capacidad astronómica adicional y validación externa permanecen expresamente abiertas. La fase 2 deberá desarrollar gates, estados por alcance, dependencias, cobertura, schemas y criterios de robustez, con política de desarrollo; la congelación final sigue reservada a fase 9. La identidad de un cuerpo, una cita mitológica o un método publicado no habilitan por sí solos una aparición cualificada. No se han modificado los valores del núcleo ni estudiado un caso personal.

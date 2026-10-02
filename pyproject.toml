@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "almas-twin-flame-astrology"
-version = "1.24.1"
+version = "1.25.0"
 description = "Núcleo público de puntuación, validación y orquestación para la Astrología Metafísica Relacional ALMAS"
 requires-python = ">=3.10"
 authors = [{name = "Proyecto ALMAS"}]
@@ -13,6 +13,7 @@ readme = "README.md"
 [project.optional-dependencies]
 astronomy-moira = ["moira-astro==6.8.2"]
 astronomy-validation = ["skyfield==1.55"]
+calculated-point-validation = ["pyswisseph==2.10.3.2", "pyerfa==2.0.1.5", "spiceypy==8.0.2"]
 schema-validation = ["jsonschema==4.26.0"]
 publication-docx = ["python-docx==1.2.0"]
 publication-pdf = ["pypdf==6.19.0"]

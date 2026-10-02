@@ -1,0 +1,143 @@
+{
+  "matrix_id": "SSAR_PHASE2_TEST_MATRIX_V1",
+  "scope": "DEVELOPMENT_ONLY",
+  "requirements": [
+    {
+      "requirement": "F2_PROVENANCE_GATE",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_pending_disputed_unresolved_nominal_provenance_is_blocked",
+        "tests/test_ssar_contracts.py::test_person_place_and_ambiguous_names_cannot_qualify_by_name",
+        "tests/test_ssar_contracts.py::test_independent_method_can_be_exploratory_without_restoring_nominal_equivalence"
+      ]
+    },
+    {
+      "requirement": "F2_METHOD_GATE",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_missing_essential_fields_are_not_positive_support",
+        "tests/test_ssar_contracts.py::test_calculated_method_needs_algorithm_conventions_and_verification",
+        "tests/test_ssar_contracts.py::test_project_method_needs_justification_and_explicit_authorization",
+        "tests/test_ssar_contracts.py::test_unknown_required_sect_blocks_lot_interpretation"
+      ]
+    },
+    {
+      "requirement": "F2_SOURCES_AND_CLASSES",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_source_pending_or_wrong_claim_scope_blocks_support",
+        "tests/test_ssar_contracts.py::test_doctrine_cannot_borrow_project_method_classification",
+        "tests/test_ssar_contracts.py::test_weak_source_remains_secondary_support"
+      ]
+    },
+    {
+      "requirement": "F2_TYPE_QUALIFICATION",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_qualified_synthetic_appearance_for_each_kind",
+        "tests/test_ssar_contracts.py::test_default_policy_blocks_synthetic_candidate",
+        "tests/test_ssar_contracts.py::test_default_policy_has_no_enabled_points_or_implicit_orbs"
+      ]
+    },
+    {
+      "requirement": "F2_CORE_ANCHOR",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_complete_search_without_core_anchor_is_secondary_support",
+        "tests/test_ssar_contracts.py::test_incomplete_anchor_search_is_blocked",
+        "tests/test_ssar_contracts.py::test_support_root_empty_core_proof_or_wrong_target_cannot_anchor"
+      ]
+    },
+    {
+      "requirement": "F2_GEOMETRY",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_exact_orb_boundary_is_inclusive",
+        "tests/test_ssar_contracts.py::test_complete_geometry_outside_orb_is_no_contact_in_geometric_scope",
+        "tests/test_ssar_contracts.py::test_invalid_numeric_or_boolean_values_are_rejected"
+      ]
+    },
+    {
+      "requirement": "F2_ROBUSTNESS",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_robustness_at_criterion_qualifies_below_it_is_secondary",
+        "tests/test_ssar_contracts.py::test_perturbation_cannot_change_aspect_to_preserve_contact",
+        "tests/test_ssar_contracts.py::test_missing_wrong_grid_and_precision_block_qualification",
+        "tests/test_ssar_contracts.py::test_duplicate_perturbation_offsets_are_invalid"
+      ]
+    },
+    {
+      "requirement": "F2_SCOPED_STATES",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_scoped_state_precedence_and_counterevidence_with_partial_coverage",
+        "tests/test_ssar_contracts.py::test_supported_geometry_does_not_promote_unknown_or_contradicted_manifestation"
+      ]
+    },
+    {
+      "requirement": "F2_REFERENCES",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_broken_references_and_duplicate_ids_are_rejected",
+        "tests/test_ssar_contracts.py::test_effective_output_requires_input_context_for_reference_validation",
+        "tests/test_ssar_contracts.py::test_output_replay_detects_fabricated_geometry_or_robustness"
+      ]
+    },
+    {
+      "requirement": "F2_DEPENDENCY_TYPES",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_two_groups_are_operational_not_independence_certification",
+        "tests/test_ssar_contracts.py::test_unknown_technical_statistical_edges_merge_without_equivalence",
+        "tests/test_ssar_contracts.py::test_semantic_overlap_is_recorded_without_imposed_equivalence",
+        "tests/test_ssar_contracts.py::test_unknown_dependency_is_transitive_and_order_deterministic"
+      ]
+    },
+    {
+      "requirement": "F2_EQUIVALENCE_AND_VARIANTS",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_same_equivalence_key_is_deduplicated_without_missing_edge_loophole",
+        "tests/test_ssar_contracts.py::test_relationship_chart_and_calculated_variants_share_published_groups",
+        "tests/test_ssar_contracts.py::test_same_appearance_cannot_count_twice_under_distinct_keys_or_techniques"
+      ]
+    },
+    {
+      "requirement": "F2_GROUP_INTEGRITY",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_broken_edge_unknown_technique_and_rule_mismatch_are_invalid",
+        "tests/test_ssar_contracts.py::test_blocked_units_do_not_enter_effective_groups",
+        "tests/test_ssar_contracts.py::test_partition_tampering_and_double_membership_are_rejected"
+      ]
+    },
+    {
+      "requirement": "F2_COVERAGE",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_no_run_disabled_or_empty_never_means_no_findings",
+        "tests/test_ssar_contracts.py::test_output_references_hash_coverage_and_states_are_verified"
+      ]
+    },
+    {
+      "requirement": "F2_POLICY_HASH",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_policy_hash_is_deterministic_key_order_invariant_and_sensitive",
+        "tests/test_ssar_contracts.py::test_policy_cannot_freeze_claim_confirmation_or_modify_core"
+      ]
+    },
+    {
+      "requirement": "F2_OUTPUT_ARITHMETIC",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_output_rejects_fabricated_counts_or_thresholds_without_request"
+      ]
+    },
+    {
+      "requirement": "F2_DISABLE_AND_CORE",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_disabled_path_does_not_load_policy_or_need_extras",
+        "tests/test_ssar_contracts.py::test_call_does_not_mutate_request_policy_or_core_outputs"
+      ]
+    },
+    {
+      "requirement": "F2_SCHEMAS_AND_FIXTURE",
+      "test_refs": [
+        "tests/test_ssar_contracts.py::test_schemas_are_packaged_and_repository_wrappers_reference_same_contract",
+        "tests/test_ssar_contracts.py::test_public_synthetic_fixture_is_reproducible"
+      ]
+    }
+  ],
+  "legacy_regression_command": "python scripts/validate_ssar_baseline.py",
+  "legacy_baseline_ref": "reference/ssar-baseline-1.24.1.json",
+  "fixture_ref": "examples/ssar-contracts.synthetic.json",
+  "external_validation_status": "NOT_PERFORMED",
+  "real_case_data_used": false
+}

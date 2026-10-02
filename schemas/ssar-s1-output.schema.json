@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.local/schemas/ssar-s1-output.schema.json",
+  "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/S1Result",
+  "title": "ALMAS · Salida exploratoria de funciones S1"
+}

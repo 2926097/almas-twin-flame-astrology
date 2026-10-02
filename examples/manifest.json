@@ -250,6 +250,50 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/ssar-calculated-points.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_CALCULATED_POINTS_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-contracts.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_DEVELOPMENT_CONTRACT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-families.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_FAMILIES_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-liminal-moirai.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_LIMINAL_MOIRAI_AND_PROCESS_STUDY_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/surrender-vestal.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_SURRENDER_VESTAL_CONTROL",
@@ -286,6 +330,28 @@
       "path": "examples/validation-run.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "VALIDATION_SMOKE_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-lots.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/ssar-integrated.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
       "contains_real_person_data": false,
       "contains_nonpublic_material": false,
       "derived_from_private_case": false,

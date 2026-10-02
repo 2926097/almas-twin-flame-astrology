@@ -1,0 +1,105 @@
+{
+  "audit_id": "ALMAS_SSAR_CALCULATED_POINTS_SOURCE_AUDIT_V1",
+  "date": "2026-10-02",
+  "development_only": true,
+  "sources": [
+    {
+      "id": "F6_VERTEX",
+      "urls": [
+        "https://www.astro.com/swisseph/swisseph.htm"
+      ],
+      "locator": "6.3 y 6.4",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification": "PRIMARY_TEXT_CHECKED",
+      "role": "TECHNICAL_DEFINITION",
+      "supports": "Intersección occidental eclíptica/vertical primario y polo opuesto; distinta del East Point.",
+      "does_not_support": "Destino, encuentro vivido o significado espiritual."
+    },
+    {
+      "id": "F6_IERS",
+      "urls": [
+        "https://iers-conventions.obspm.fr/archive/2003/tn32.pdf"
+      ],
+      "locator": "TN32 §5.8.2 ecuación 40, página impresa 48; §5.8.3 para TT/TDB",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification": "PRIMARY_TEXT_CHECKED",
+      "role": "FUNDAMENTAL_ARGUMENTS",
+      "supports": "Polinomios l, F y Ω. La combinación escalar de apogeo es una convención ALMAS declarada.",
+      "does_not_support": "Apogeo medio Moshier/Swiss proyectado, precisión física del modelo combinado o interpretación."
+    },
+    {
+      "id": "F6_OSCU",
+      "urls": [
+        "https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/oscelt_c.html",
+        "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/gm_de440.tpc"
+      ],
+      "locator": "oscelt_c: entrada inercial y degeneraciones; BODY399_GM y BODY301_GM",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification": "PRIMARY_TEXT_CHECKED",
+      "role": "OSCULATING_ELEMENTS_AND_GM",
+      "supports": "Estado inercial y parámetro gravitacional para elipse osculante; GM DE440 declarado.",
+      "does_not_support": "Máximo de distancia de la trayectoria perturbada o superioridad interpretativa de true."
+    },
+    {
+      "id": "F6_MOIRA",
+      "urls": [
+        "https://github.com/TheDaniel166/moira/blob/6be6d52af3a3db6db6bb5788ea2df5e6c21b2423/moira/nodes.py",
+        "https://github.com/TheDaniel166/moira/blob/6be6d52af3a3db6db6bb5788ea2df5e6c21b2423/moira/houses.py"
+      ],
+      "locator": "Moira 6.8.2, mean_lilith/true_lilith y _vertex_from_armc; commit fijado",
+      "priority": "P1",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification": "PINNED_SOURCE_CHECKED",
+      "role": "IMPLEMENTATION_ANTECEDENT_NOT_INDEPENDENT_AUTHORITY",
+      "supports": "Antecedente de combinación de argumentos y vector excéntrico.",
+      "does_not_support": "Validación independiente, igualdad de GM o sustitución de singularidades por cero."
+    },
+    {
+      "id": "F6_PROJECT",
+      "urls": [],
+      "locator": "reference/ssar-calculated-points.md y plan ALMAS 1.25.0 R2 fase 6",
+      "priority": "P4",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "verification": "PROJECT_RULE_DECLARED",
+      "role": "SEMANTIC_BASIS_AND_ASTROLOGICAL_METHOD",
+      "supports": "Dos funciones, orbe, anclajes, perturbaciones, normalización y agrupación conservadora.",
+      "does_not_support": "Doctrina primaria, contraste empírico, reciprocidad o hechos vividos."
+    }
+  ],
+  "technical_checks": [
+    {
+      "url": "https://www.astro.com/swisseph/swisseph.htm",
+      "locator": "2.2.1 y 2.2.3",
+      "scope": "Media proyectada distinta de modelo escalar; osculante distinta de extremo físico de trayectoria."
+    },
+    {
+      "url": "https://rhodesmill.org/skyfield/api-time.html",
+      "locator": "Time.gast, delta_t y M; código instalado Skyfield 1.55",
+      "scope": "GAST en horas, TT/UT1 y matrices de fecha; acceso a nutación ligado a versión."
+    },
+    {
+      "url": "https://github.com/liberfa/erfa",
+      "locator": "fal03, faf03 y faom03 vía pyerfa 2.0.1.5",
+      "scope": "Comparación de argumentos fundamentales con entradas idénticas."
+    }
+  ],
+  "source_authentication": {
+    "catalog_definition_status": "VERIFIED_TECHNICAL_REFERENCES",
+    "caller_metadata_status": "DECLARED_NOT_AUTHENTICATED",
+    "provider_file_status": "SHA256_CHECKED",
+    "precision_kernel_status": "EXACT_FIXED_DE440S_SHA256_CHECKED",
+    "public_fixture_status": "FABRICATED_GEOMETRY_WITH_EXPLICIT_SYNTHETIC_HASH"
+  },
+  "unresolved": [
+    "EXTERNAL_INTERPRETIVE_VALIDATION",
+    "INDEPENDENT_EPHEMERIS_AND_TIME_CONVERSION_ACCURACY",
+    "CANONICAL_AND_M27_INTEGRATION",
+    "CONTROLS_AND_CONFIRMATORY_FREEZE"
+  ],
+  "historical_source_audits_modified": false,
+  "nominal_provenance_required": false,
+  "lilith_1181_substitution_allowed": false
+}

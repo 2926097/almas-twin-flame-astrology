@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://almas.local/schemas/ssar-s1-request.schema.json",
+  "$ref": "../src/almas_tfa/data/ssar-contract-definitions.json#/$defs/S1Request",
+  "title": "ALMAS · Entrada de funciones S1 y contactos heredados"
+}

@@ -1,0 +1,354 @@
+{
+  "schema_version": "ssar-policy-1.0-development",
+  "policy_id": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+  "policy_status": "DEVELOPMENT",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "qualified_source_priorities": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "type_rules": {
+    "NAMED_SMALL_BODY": {
+      "aspect_policy": {
+        "CONJUNCTION": {
+          "angle": 0.0,
+          "orb": 1.5
+        },
+        "OPPOSITION": {
+          "angle": 180.0,
+          "orb": 1.5
+        }
+      },
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "CALCULATED_POINT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "HELLENISTIC_LOT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": true
+    }
+  },
+  "point_rules": {
+    "HEKATE": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_HEKATE_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_HEKATE"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F5_HESIOD",
+          "F4_HYMN"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    },
+    "PERSEPHONE": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "DESCENT_TRANSFORMATION_RETURN",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_PERSEPHONE_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_PERSEPHONE"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F4_HYMN"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    },
+    "ERIS": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "DISCORD_EXCLUSION_RIVALRY",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_ERIS_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_ERIS"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F5_HESIOD",
+          "F5_WORKS"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    },
+    "KLOTHO": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "THREAD_INITIATION",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_KLOTHO_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_KLOTHO"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    },
+    "LACHESIS": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "MEASURE_DURATION_ALLOCATION",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_LACHESIS_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_LACHESIS"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    },
+    "ATROPOS": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "CUT_COMPLETION_IRREVERSIBILITY",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_ATROPOS_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_ATROPOS"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    },
+    "MOIRA": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "FATE_ALLOTMENT_CONTEXT",
+      "allow_project_method": true,
+      "rule_id": "SSAR_F5_MOIRA_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "required_source_refs": {
+        "provenance": [
+          "F5_NAME_MOIRA"
+        ],
+        "semantic_basis": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "method": [
+          "F5_PROJECT"
+        ]
+      }
+    }
+  },
+  "technique_groups": {
+    "SYNASTRY": "TROPICAL_PAIR",
+    "COMPOSITE": "RELCHART",
+    "DAVISON": "RELCHART"
+  },
+  "dependency_rules": {
+    "EQUIVALENT": "SSAR_DECLARED_EQUIVALENT_V1",
+    "TECHNICAL_DEPENDENCY": "SSAR_DECLARED_TECHNICAL_DEPENDENCY_V1",
+    "STATISTICAL_DEPENDENCY": "SSAR_DECLARED_STATISTICAL_DEPENDENCY_V1",
+    "SEMANTIC_OVERLAP": "SSAR_DECLARED_SEMANTIC_OVERLAP_V1",
+    "UNKNOWN": "SSAR_DECLARED_UNKNOWN_V1"
+  },
+  "unimplemented_layers": [
+    "MYTHIC_DYADS",
+    "CALCULATED_POINTS",
+    "HELLENISTIC_LOTS",
+    "TEMPORAL_ACTIVATION",
+    "DOCUMENTARY_CORRESPONDENCE",
+    "NULL_CONTROLS"
+  ]
+}

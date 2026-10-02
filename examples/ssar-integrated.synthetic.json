@@ -1,0 +1,1935 @@
+{
+  "synthetic": true,
+  "scope": "FROZEN_EXPERIMENTAL_FIXTURE_ONLY",
+  "request": {
+    "enabled": true,
+    "profiles": {
+      "liminal": {
+        "enabled": true,
+        "core_roots": [
+          {
+            "root_id": "R1",
+            "core_eligible": true,
+            "core_evidence_ids": [
+              "CORE1"
+            ],
+            "point_ids": [
+              "SUN"
+            ]
+          }
+        ],
+        "observations": [
+          {
+            "id": "A1",
+            "point_id": "HEKATE",
+            "subject_id": "A",
+            "technique": "SYNASTRY",
+            "evidence_key": "CONTACT:A1",
+            "geometry": {
+              "longitude": 10,
+              "target_longitude": 11,
+              "target_id": "SUN",
+              "frame": "TROPICAL_ECLIPTIC"
+            },
+            "core_root_refs": [
+              "R1"
+            ],
+            "core_anchor_search_complete": true,
+            "robustness": {
+              "input_precision_sufficient": true,
+              "samples": [
+                {
+                  "id": "P0",
+                  "offset_minutes": -30,
+                  "longitude": 10,
+                  "target_longitude": 11
+                },
+                {
+                  "id": "P1",
+                  "offset_minutes": -15,
+                  "longitude": 10,
+                  "target_longitude": 11
+                },
+                {
+                  "id": "P2",
+                  "offset_minutes": 0,
+                  "longitude": 10,
+                  "target_longitude": 11
+                },
+                {
+                  "id": "P3",
+                  "offset_minutes": 15,
+                  "longitude": 10,
+                  "target_longitude": 11
+                },
+                {
+                  "id": "P4",
+                  "offset_minutes": 30,
+                  "longitude": 10,
+                  "target_longitude": 11
+                }
+              ]
+            }
+          },
+          {
+            "id": "A2",
+            "point_id": "PERSEPHONE",
+            "subject_id": "RELATIONSHIP",
+            "technique": "COMPOSITE",
+            "evidence_key": "CONTACT:A2",
+            "geometry": {
+              "longitude": 50,
+              "target_longitude": 51,
+              "target_id": "SUN",
+              "frame": "TROPICAL_ECLIPTIC"
+            },
+            "core_root_refs": [
+              "R1"
+            ],
+            "core_anchor_search_complete": true,
+            "robustness": {
+              "input_precision_sufficient": true,
+              "samples": [
+                {
+                  "id": "P0",
+                  "offset_minutes": -30,
+                  "longitude": 50,
+                  "target_longitude": 51
+                },
+                {
+                  "id": "P1",
+                  "offset_minutes": -15,
+                  "longitude": 50,
+                  "target_longitude": 51
+                },
+                {
+                  "id": "P2",
+                  "offset_minutes": 0,
+                  "longitude": 50,
+                  "target_longitude": 51
+                },
+                {
+                  "id": "P3",
+                  "offset_minutes": 15,
+                  "longitude": 50,
+                  "target_longitude": 51
+                },
+                {
+                  "id": "P4",
+                  "offset_minutes": 30,
+                  "longitude": 50,
+                  "target_longitude": 51
+                }
+              ]
+            }
+          }
+        ],
+        "edges": [],
+        "complexes": [
+          {
+            "id": "LIMINAL_TRANSITION_COMPLEX",
+            "appearance_refs": [
+              "A1",
+              "A2"
+            ],
+            "search_complete": true
+          }
+        ]
+      }
+    },
+    "complex_search": [
+      {
+        "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+        "search_complete": true
+      }
+    ],
+    "integration": {
+      "windows": [
+        {
+          "id": "W",
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "start": "2020-01-01",
+          "end": "2020-01-31",
+          "observed_through": "2020-02-01",
+          "observation_complete": true,
+          "monitoring_ref": "synthetic:complete-monitoring",
+          "clocks": [
+            {
+              "id": "T0",
+              "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+              "family": "TPROG",
+              "date": "2020-01-15",
+              "longitude": 10,
+              "target_longitude": 11,
+              "input_precision_sufficient": true,
+              "robust": true,
+              "source_refs": [
+                "synthetic:clock"
+              ],
+              "core_root_refs": [
+                "R1"
+              ]
+            },
+            {
+              "id": "T1",
+              "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+              "family": "TTRANSIT",
+              "date": "2020-01-15",
+              "longitude": 10,
+              "target_longitude": 11,
+              "input_precision_sufficient": true,
+              "robust": true,
+              "source_refs": [
+                "synthetic:clock"
+              ],
+              "core_root_refs": [
+                "R1"
+              ]
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "id": "D",
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "scope": "STRUCTURAL",
+          "window_ref": null,
+          "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+          "support_event_refs": [
+            "E"
+          ],
+          "excluding_event_refs": [],
+          "coverage_complete": true
+        },
+        {
+          "id": "DT",
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "scope": "TEMPORAL",
+          "window_ref": "W",
+          "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+          "support_event_refs": [
+            "E"
+          ],
+          "excluding_event_refs": [],
+          "coverage_complete": true
+        }
+      ],
+      "freeze": {
+        "policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
+        "architecture_hash": "f8316208f3f2b66ec975ad9653c892545724da0323880c033eece353f66633bc",
+        "registered_at": "2019-12-01",
+        "mode": "RETROSPECTIVE",
+        "timestamp_externally_verified": false
+      }
+    }
+  },
+  "m27_ledger": {
+    "events": [
+      {
+        "event_id": "E",
+        "fact_key": "FACT",
+        "subjects": [
+          "A",
+          "B"
+        ],
+        "date": "2020-01-15",
+        "date_precision": "EXACT_DATE",
+        "fact_statement": "SYNTHETIC documented transition",
+        "record_status": "ACTIVE",
+        "documentary_quality_contract_met": true,
+        "fact_interpretation_separated": true,
+        "date_precision_contract_met": true,
+        "source_refs": [
+          "synthetic:event"
+        ],
+        "resolved_root_refs": [
+          "R1"
+        ]
+      }
+    ]
+  },
+  "result": {
+    "schema_version": "ssar-1.25.0",
+    "enabled": true,
+    "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+    "evaluation_policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
+    "policy_status": "FROZEN_EXPERIMENTAL",
+    "execution_status": "executed",
+    "completion": "COMPLETE",
+    "input_hash": "a35ce129b23843466a4e5a9349bb255e3bec95514d66394243244d6ff5757692",
+    "evaluation_input": {
+      "enabled": true,
+      "profiles": {
+        "liminal": {
+          "enabled": true,
+          "core_roots": [
+            {
+              "root_id": "R1",
+              "core_eligible": true,
+              "core_evidence_ids": [
+                "CORE1"
+              ],
+              "point_ids": [
+                "SUN"
+              ]
+            }
+          ],
+          "observations": [
+            {
+              "id": "A1",
+              "point_id": "HEKATE",
+              "subject_id": "A",
+              "technique": "SYNASTRY",
+              "evidence_key": "CONTACT:A1",
+              "geometry": {
+                "longitude": 10,
+                "target_longitude": 11,
+                "target_id": "SUN",
+                "frame": "TROPICAL_ECLIPTIC"
+              },
+              "core_root_refs": [
+                "R1"
+              ],
+              "core_anchor_search_complete": true,
+              "robustness": {
+                "input_precision_sufficient": true,
+                "samples": [
+                  {
+                    "id": "P0",
+                    "offset_minutes": -30,
+                    "longitude": 10,
+                    "target_longitude": 11
+                  },
+                  {
+                    "id": "P1",
+                    "offset_minutes": -15,
+                    "longitude": 10,
+                    "target_longitude": 11
+                  },
+                  {
+                    "id": "P2",
+                    "offset_minutes": 0,
+                    "longitude": 10,
+                    "target_longitude": 11
+                  },
+                  {
+                    "id": "P3",
+                    "offset_minutes": 15,
+                    "longitude": 10,
+                    "target_longitude": 11
+                  },
+                  {
+                    "id": "P4",
+                    "offset_minutes": 30,
+                    "longitude": 10,
+                    "target_longitude": 11
+                  }
+                ]
+              }
+            },
+            {
+              "id": "A2",
+              "point_id": "PERSEPHONE",
+              "subject_id": "RELATIONSHIP",
+              "technique": "COMPOSITE",
+              "evidence_key": "CONTACT:A2",
+              "geometry": {
+                "longitude": 50,
+                "target_longitude": 51,
+                "target_id": "SUN",
+                "frame": "TROPICAL_ECLIPTIC"
+              },
+              "core_root_refs": [
+                "R1"
+              ],
+              "core_anchor_search_complete": true,
+              "robustness": {
+                "input_precision_sufficient": true,
+                "samples": [
+                  {
+                    "id": "P0",
+                    "offset_minutes": -30,
+                    "longitude": 50,
+                    "target_longitude": 51
+                  },
+                  {
+                    "id": "P1",
+                    "offset_minutes": -15,
+                    "longitude": 50,
+                    "target_longitude": 51
+                  },
+                  {
+                    "id": "P2",
+                    "offset_minutes": 0,
+                    "longitude": 50,
+                    "target_longitude": 51
+                  },
+                  {
+                    "id": "P3",
+                    "offset_minutes": 15,
+                    "longitude": 50,
+                    "target_longitude": 51
+                  },
+                  {
+                    "id": "P4",
+                    "offset_minutes": 30,
+                    "longitude": 50,
+                    "target_longitude": 51
+                  }
+                ]
+              }
+            }
+          ],
+          "edges": [],
+          "complexes": [
+            {
+              "id": "LIMINAL_TRANSITION_COMPLEX",
+              "appearance_refs": [
+                "A1",
+                "A2"
+              ],
+              "search_complete": true
+            }
+          ]
+        }
+      },
+      "complex_search": [
+        {
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "search_complete": true
+        }
+      ],
+      "integration": {
+        "windows": [
+          {
+            "id": "W",
+            "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+            "start": "2020-01-01",
+            "end": "2020-01-31",
+            "observed_through": "2020-02-01",
+            "observation_complete": true,
+            "monitoring_ref": "synthetic:complete-monitoring",
+            "clocks": [
+              {
+                "id": "T0",
+                "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+                "family": "TPROG",
+                "date": "2020-01-15",
+                "longitude": 10,
+                "target_longitude": 11,
+                "input_precision_sufficient": true,
+                "robust": true,
+                "source_refs": [
+                  "synthetic:clock"
+                ],
+                "core_root_refs": [
+                  "R1"
+                ]
+              },
+              {
+                "id": "T1",
+                "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+                "family": "TTRANSIT",
+                "date": "2020-01-15",
+                "longitude": 10,
+                "target_longitude": 11,
+                "input_precision_sufficient": true,
+                "robust": true,
+                "source_refs": [
+                  "synthetic:clock"
+                ],
+                "core_root_refs": [
+                  "R1"
+                ]
+              }
+            ]
+          }
+        ],
+        "claims": [
+          {
+            "id": "D",
+            "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+            "scope": "STRUCTURAL",
+            "window_ref": null,
+            "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+            "support_event_refs": [
+              "E"
+            ],
+            "excluding_event_refs": [],
+            "coverage_complete": true
+          },
+          {
+            "id": "DT",
+            "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+            "scope": "TEMPORAL",
+            "window_ref": "W",
+            "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+            "support_event_refs": [
+              "E"
+            ],
+            "excluding_event_refs": [],
+            "coverage_complete": true
+          }
+        ],
+        "freeze": {
+          "policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
+          "architecture_hash": "f8316208f3f2b66ec975ad9653c892545724da0323880c033eece353f66633bc",
+          "registered_at": "2019-12-01",
+          "mode": "RETROSPECTIVE",
+          "timestamp_externally_verified": false
+        }
+      }
+    },
+    "documentary_input": {
+      "events": [
+        {
+          "event_id": "E",
+          "fact_key": "FACT",
+          "subjects": [
+            "A",
+            "B"
+          ],
+          "date": "2020-01-15",
+          "date_range": null,
+          "fact_statement": "SYNTHETIC documented transition",
+          "record_status": "ACTIVE",
+          "documentary_quality_contract_met": true,
+          "fact_interpretation_separated": true,
+          "date_precision_contract_met": true,
+          "date_precision": "EXACT_DATE",
+          "source_refs": [
+            "synthetic:event"
+          ],
+          "resolved_root_refs": [
+            "R1"
+          ]
+        }
+      ]
+    },
+    "ablation": null,
+    "profiles": {
+      "liminal": {
+        "schema_version": "ssar-liminal-moirai-1.0-development",
+        "enabled": true,
+        "catalog_id": "ALMAS_SSAR_LIMINAL_MOIRAI_CATALOG_V1",
+        "catalog_hash": "f660e902e4e600695a560c86415777fbf698ecfc32a74e52dc28b713628bee2f",
+        "policy_id": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+        "policy_status": "DEVELOPMENT",
+        "ssar": {
+          "schema_version": "ssar-contract-1.0-development",
+          "enabled": true,
+          "policy_id": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+          "policy_hash": "59c6cb6d18e15c4cc98dbb23dd2aeda72b698a98a7358dd41e21d2c028c79b64",
+          "policy_status": "DEVELOPMENT",
+          "analysis_scope": "EXPLORATORY",
+          "execution_status": "executed",
+          "completion": "PARTIAL",
+          "coverage": [
+            {
+              "layer": "APPEARANCE_GATES",
+              "status": "executed",
+              "completion": "COMPLETE",
+              "reason": "SUPPLIED_APPEARANCES_ONLY",
+              "assessed_refs": [
+                "A1",
+                "A2"
+              ]
+            },
+            {
+              "layer": "DEPENDENCY_GROUPING",
+              "status": "executed",
+              "completion": "COMPLETE",
+              "reason": "DECLARED_DEPENDENCIES_ONLY",
+              "assessed_refs": [
+                "U:A1",
+                "U:A2"
+              ]
+            },
+            {
+              "layer": "MYTHIC_DYADS",
+              "status": "blocked",
+              "completion": "NONE",
+              "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+              "assessed_refs": []
+            },
+            {
+              "layer": "CALCULATED_POINTS",
+              "status": "blocked",
+              "completion": "NONE",
+              "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+              "assessed_refs": []
+            },
+            {
+              "layer": "HELLENISTIC_LOTS",
+              "status": "blocked",
+              "completion": "NONE",
+              "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+              "assessed_refs": []
+            },
+            {
+              "layer": "TEMPORAL_ACTIVATION",
+              "status": "blocked",
+              "completion": "NONE",
+              "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+              "assessed_refs": []
+            },
+            {
+              "layer": "DOCUMENTARY_CORRESPONDENCE",
+              "status": "blocked",
+              "completion": "NONE",
+              "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+              "assessed_refs": []
+            },
+            {
+              "layer": "NULL_CONTROLS",
+              "status": "blocked",
+              "completion": "NONE",
+              "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+              "assessed_refs": []
+            }
+          ],
+          "appearances": [
+            {
+              "id": "A1",
+              "point_id": "HEKATE",
+              "kind": "NAMED_SMALL_BODY",
+              "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+              "epistemic_class": "E_PROJECT_HYPOTHESIS",
+              "qualification": "QUALIFIED_SIGNIFICATOR",
+              "assessment": {
+                "scope": "FUNCTIONAL_INTERPRETATION",
+                "status": "SUPPORTED",
+                "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+                "rule_ref": "SSAR_F5_HEKATE_DEV_V1",
+                "evidence_refs": [
+                  "A1"
+                ],
+                "counterevidence_refs": [],
+                "coverage_sufficient": true,
+                "reason": "ALL_DEFINED_CONDITIONS_MET"
+              },
+              "gate_reasons": [],
+              "core_root_refs": [
+                "R1"
+              ],
+              "source_refs": [
+                "F4_HYMN",
+                "F5_HESIOD",
+                "F5_NAME_HEKATE",
+                "F5_PROJECT"
+              ],
+              "matched_aspect": {
+                "aspect": "CONJUNCTION",
+                "angle": 0.0,
+                "distance": 1.0,
+                "orb": 1.0,
+                "orb_limit": 1.5,
+                "exactness": 0.5555555555555556
+              },
+              "robustness": {
+                "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+                "sample_count": 5,
+                "preserved_count": 5,
+                "preserved_fraction": 1.0,
+                "required_fraction": 0.8
+              },
+              "project_method": true
+            },
+            {
+              "id": "A2",
+              "point_id": "PERSEPHONE",
+              "kind": "NAMED_SMALL_BODY",
+              "function_id": "DESCENT_TRANSFORMATION_RETURN",
+              "epistemic_class": "E_PROJECT_HYPOTHESIS",
+              "qualification": "QUALIFIED_SIGNIFICATOR",
+              "assessment": {
+                "scope": "FUNCTIONAL_INTERPRETATION",
+                "status": "SUPPORTED",
+                "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+                "rule_ref": "SSAR_F5_PERSEPHONE_DEV_V1",
+                "evidence_refs": [
+                  "A2"
+                ],
+                "counterevidence_refs": [],
+                "coverage_sufficient": true,
+                "reason": "ALL_DEFINED_CONDITIONS_MET"
+              },
+              "gate_reasons": [],
+              "core_root_refs": [
+                "R1"
+              ],
+              "source_refs": [
+                "F4_HYMN",
+                "F5_NAME_PERSEPHONE",
+                "F5_PROJECT"
+              ],
+              "matched_aspect": {
+                "aspect": "CONJUNCTION",
+                "angle": 0.0,
+                "distance": 1.0,
+                "orb": 1.0,
+                "orb_limit": 1.5,
+                "exactness": 0.5555555555555556
+              },
+              "robustness": {
+                "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+                "sample_count": 5,
+                "preserved_count": 5,
+                "preserved_fraction": 1.0,
+                "required_fraction": 0.8
+              },
+              "project_method": true
+            }
+          ],
+          "qualified_significators": [
+            "A1",
+            "A2"
+          ],
+          "secondary_support": [],
+          "complexes": [],
+          "mythic_dyads": [],
+          "calculated_points": [],
+          "hellenistic_lots": [],
+          "temporal_activation": [],
+          "documentary_correspondence": [],
+          "dependency_graph": {
+            "units": [
+              {
+                "id": "U:A1",
+                "appearance_ref": "A1",
+                "technique": "SYNASTRY",
+                "equivalence_key": "CONTACT:A1"
+              },
+              {
+                "id": "U:A2",
+                "appearance_ref": "A2",
+                "technique": "COMPOSITE",
+                "equivalence_key": "CONTACT:A2"
+              }
+            ],
+            "edges": [],
+            "equivalence_classes": [
+              {
+                "id": "EQ:U:A1",
+                "unit_refs": [
+                  "U:A1"
+                ]
+              },
+              {
+                "id": "EQ:U:A2",
+                "unit_refs": [
+                  "U:A2"
+                ]
+              }
+            ],
+            "effective_groups": [
+              {
+                "id": "GR:U:A1",
+                "unit_refs": [
+                  "U:A1"
+                ]
+              },
+              {
+                "id": "GR:U:A2",
+                "unit_refs": [
+                  "U:A2"
+                ]
+              }
+            ],
+            "excluded_unit_refs": [],
+            "grouping_rule_ref": "SSAR_CONSERVATIVE_CONNECTED_GROUPS_DEV_V1",
+            "statistical_independence_established": false
+          },
+          "external_validation_status": "NOT_PERFORMED",
+          "structural_scoring_modified": false,
+          "ontology_effect": "NONE",
+          "discriminator_effect": "NONE"
+        },
+        "families": [
+          {
+            "id": "MOIRAI_CLUSTER",
+            "components": [
+              {
+                "point_id": "KLOTHO",
+                "appearance_refs": [],
+                "admissible_refs": [],
+                "coverage": "MISSING"
+              },
+              {
+                "point_id": "LACHESIS",
+                "appearance_refs": [],
+                "admissible_refs": [],
+                "coverage": "MISSING"
+              },
+              {
+                "point_id": "ATROPOS",
+                "appearance_refs": [],
+                "admissible_refs": [],
+                "coverage": "MISSING"
+              },
+              {
+                "point_id": "MOIRA",
+                "appearance_refs": [],
+                "admissible_refs": [],
+                "coverage": "MISSING"
+              }
+            ],
+            "contact_refs": [],
+            "effective_group_refs": [],
+            "cluster_strength": null,
+            "selection_policy": "NO_RANKING_WITHOUT_FROZEN_COMMON_MAGNITUDE",
+            "coverage": "PARTIAL",
+            "independent_function": true
+          }
+        ],
+        "complexes": [
+          {
+            "id": "LIMINAL_TRANSITION_COMPLEX",
+            "members": [
+              "HEKATE",
+              "PERSEPHONE"
+            ],
+            "appearance_refs": [
+              "A1",
+              "A2"
+            ],
+            "context_refs": [],
+            "component_coverage": [
+              {
+                "point_id": "HEKATE",
+                "appearance_refs": [
+                  "A1"
+                ],
+                "admissible_refs": [
+                  "A1"
+                ],
+                "coverage": "SUPPLIED"
+              },
+              {
+                "point_id": "PERSEPHONE",
+                "appearance_refs": [
+                  "A2"
+                ],
+                "admissible_refs": [
+                  "A2"
+                ],
+                "coverage": "SUPPLIED"
+              }
+            ],
+            "admissible_refs": [
+              "A1",
+              "A2"
+            ],
+            "effective_group_refs": [
+              "GR:U:A1",
+              "GR:U:A2"
+            ],
+            "core_root_refs": [
+              "R1"
+            ],
+            "qualified_complex": true,
+            "assessments": {
+              "structural_geometry": {
+                "scope": "STRUCTURAL_GEOMETRY",
+                "status": "SUPPORTED",
+                "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+                "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+                "evidence_refs": [
+                  "A1",
+                  "A2"
+                ],
+                "counterevidence_refs": [],
+                "coverage_sufficient": true,
+                "reason": "ALL_DEFINED_CONDITIONS_MET"
+              },
+              "functional_interpretation": {
+                "scope": "FUNCTIONAL_INTERPRETATION",
+                "status": "SUPPORTED",
+                "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+                "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+                "evidence_refs": [
+                  "A1",
+                  "A2"
+                ],
+                "counterevidence_refs": [],
+                "coverage_sufficient": true,
+                "reason": "ALL_DEFINED_CONDITIONS_MET"
+              },
+              "temporal_activation": {
+                "scope": "TEMPORAL_ACTIVATION",
+                "status": "NOT_EVALUABLE",
+                "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+                "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+                "evidence_refs": [],
+                "counterevidence_refs": [],
+                "coverage_sufficient": false,
+                "reason": "ESSENTIAL_COVERAGE_MISSING"
+              },
+              "documentary_correspondence": {
+                "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+                "status": "NOT_EVALUABLE",
+                "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+                "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+                "evidence_refs": [],
+                "counterevidence_refs": [],
+                "coverage_sufficient": false,
+                "reason": "ESSENTIAL_COVERAGE_MISSING"
+              }
+            },
+            "blockers": [],
+            "epistemic_class": "E_PROJECT_HYPOTHESIS",
+            "documentary_scope": "STRUCTURAL",
+            "cluster_strength": null,
+            "source_refs": [
+              "F4_HYMN",
+              "F5_HESIOD",
+              "F5_NAME_HEKATE",
+              "F5_NAME_PERSEPHONE",
+              "F5_PROJECT"
+            ],
+            "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+          }
+        ],
+        "functional_notes": [
+          {
+            "appearance_ref": "A1",
+            "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+            "epistemic_class": "E_PROJECT_HYPOTHESIS",
+            "interpretation": "Umbral y acompañamiento como motivos simbólicos.",
+            "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+            "source_refs": [
+              "F4_HYMN",
+              "F5_HESIOD",
+              "F5_NAME_HEKATE",
+              "F5_PROJECT"
+            ],
+            "documentary_status": "NOT_EVALUABLE"
+          },
+          {
+            "appearance_ref": "A2",
+            "function_id": "DESCENT_TRANSFORMATION_RETURN",
+            "epistemic_class": "E_PROJECT_HYPOTHESIS",
+            "interpretation": "Descenso, transformación y retorno como motivos simbólicos.",
+            "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+            "source_refs": [
+              "F4_HYMN",
+              "F5_NAME_PERSEPHONE",
+              "F5_PROJECT"
+            ],
+            "documentary_status": "NOT_EVALUABLE"
+          }
+        ],
+        "shared_contacts": [],
+        "reused_contacts": [],
+        "completion": "PARTIAL",
+        "execution_status": "executed",
+        "coverage": [
+          {
+            "layer": "APPEARANCE_GATES",
+            "status": "executed",
+            "completion": "COMPLETE",
+            "reason": "SUPPLIED_APPEARANCES_ONLY",
+            "assessed_refs": [
+              "A1",
+              "A2"
+            ]
+          },
+          {
+            "layer": "DEPENDENCY_GROUPING",
+            "status": "executed",
+            "completion": "COMPLETE",
+            "reason": "DECLARED_DEPENDENCIES_ONLY",
+            "assessed_refs": [
+              "U:A1",
+              "U:A2"
+            ]
+          },
+          {
+            "layer": "MYTHIC_DYADS",
+            "status": "blocked",
+            "completion": "NONE",
+            "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+            "assessed_refs": []
+          },
+          {
+            "layer": "CALCULATED_POINTS",
+            "status": "blocked",
+            "completion": "NONE",
+            "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+            "assessed_refs": []
+          },
+          {
+            "layer": "HELLENISTIC_LOTS",
+            "status": "blocked",
+            "completion": "NONE",
+            "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+            "assessed_refs": []
+          },
+          {
+            "layer": "TEMPORAL_ACTIVATION",
+            "status": "blocked",
+            "completion": "NONE",
+            "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+            "assessed_refs": []
+          },
+          {
+            "layer": "DOCUMENTARY_CORRESPONDENCE",
+            "status": "blocked",
+            "completion": "NONE",
+            "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+            "assessed_refs": []
+          },
+          {
+            "layer": "NULL_CONTROLS",
+            "status": "blocked",
+            "completion": "NONE",
+            "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+            "assessed_refs": []
+          },
+          {
+            "layer": "MOIRAI_CLUSTER",
+            "status": "not_run",
+            "completion": "NONE",
+            "reason": "NO_COMPONENTS_SUPPLIED",
+            "assessed_refs": []
+          },
+          {
+            "layer": "STRUCTURAL_COMPLEXES",
+            "status": "executed",
+            "completion": "COMPLETE",
+            "reason": "DECLARED_SELECTIONS_ONLY",
+            "assessed_refs": [
+              "LIMINAL_TRANSITION_COMPLEX"
+            ]
+          }
+        ],
+        "external_validation_status": "NOT_PERFORMED",
+        "structural_scoring_modified": false,
+        "ontology_effect": "NONE",
+        "discriminator_effect": "NONE"
+      }
+    },
+    "structure": {
+      "appearances": [
+        {
+          "id": "liminal:A1",
+          "point_id": "HEKATE",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_HEKATE_DEV_V1",
+            "evidence_refs": [
+              "liminal:A1"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F4_HYMN",
+            "F5_HESIOD",
+            "F5_NAME_HEKATE",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "liminal:A2",
+          "point_id": "PERSEPHONE",
+          "kind": "NAMED_SMALL_BODY",
+          "function_id": "DESCENT_TRANSFORMATION_RETURN",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1",
+            "rule_ref": "SSAR_F5_PERSEPHONE_DEV_V1",
+            "evidence_refs": [
+              "liminal:A2"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R1"
+          ],
+          "source_refs": [
+            "F4_HYMN",
+            "F5_NAME_PERSEPHONE",
+            "F5_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        }
+      ],
+      "dependency_graph": {
+        "units": [
+          {
+            "id": "liminal:U:A1",
+            "appearance_ref": "liminal:A1",
+            "technique": "SYNASTRY",
+            "equivalence_key": "CONTACT:A1"
+          },
+          {
+            "id": "liminal:U:A2",
+            "appearance_ref": "liminal:A2",
+            "technique": "COMPOSITE",
+            "equivalence_key": "CONTACT:A2"
+          }
+        ],
+        "edges": [],
+        "equivalence_classes": [
+          {
+            "id": "EQ:liminal:U:A1",
+            "unit_refs": [
+              "liminal:U:A1"
+            ]
+          },
+          {
+            "id": "EQ:liminal:U:A2",
+            "unit_refs": [
+              "liminal:U:A2"
+            ]
+          }
+        ],
+        "effective_groups": [
+          {
+            "id": "GR:liminal:U:A1",
+            "unit_refs": [
+              "liminal:U:A1"
+            ]
+          },
+          {
+            "id": "GR:liminal:U:A2",
+            "unit_refs": [
+              "liminal:U:A2"
+            ]
+          }
+        ],
+        "excluded_unit_refs": [],
+        "grouping_rule_ref": "SSAR_CONSERVATIVE_CONNECTED_GROUPS_DEV_V1",
+        "statistical_independence_established": false
+      },
+      "complexes": [
+        {
+          "id": "COVENANT_COMPLEX",
+          "members": [
+            "JUNO"
+          ],
+          "appearance_refs": [],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "JUNO",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            }
+          ],
+          "admissible_refs": [],
+          "effective_group_refs": [],
+          "core_root_refs": [],
+          "qualified_complex": false,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "COVENANT_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [
+            "CORE_ANCHOR_MISSING",
+            "ESSENTIAL_COMPONENT_OR_SEARCH_COVERAGE_MISSING",
+            "QUALIFIED_SIGNIFICATOR_MISSING",
+            "ROBUST_COMPONENT_CONTACTS_NOT_MET",
+            "TWO_EFFECTIVE_GROUPS_NOT_MET"
+          ],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        },
+        {
+          "id": "CONSECRATION_COMPLEX",
+          "members": [
+            "VESTA"
+          ],
+          "appearance_refs": [],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "VESTA",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            }
+          ],
+          "admissible_refs": [],
+          "effective_group_refs": [],
+          "core_root_refs": [],
+          "qualified_complex": false,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "CONSECRATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [
+            "CORE_ANCHOR_MISSING",
+            "ESSENTIAL_COMPONENT_OR_SEARCH_COVERAGE_MISSING",
+            "QUALIFIED_SIGNIFICATOR_MISSING",
+            "ROBUST_COMPONENT_CONTACTS_NOT_MET",
+            "TWO_EFFECTIVE_GROUPS_NOT_MET"
+          ],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        },
+        {
+          "id": "PATTERN_RECOGNITION_COMPLEX",
+          "members": [
+            "PALLAS"
+          ],
+          "appearance_refs": [],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "PALLAS",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            }
+          ],
+          "admissible_refs": [],
+          "effective_group_refs": [],
+          "core_root_refs": [],
+          "qualified_complex": false,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [
+            "CORE_ANCHOR_MISSING",
+            "ESSENTIAL_COMPONENT_OR_SEARCH_COVERAGE_MISSING",
+            "QUALIFIED_SIGNIFICATOR_MISSING",
+            "ROBUST_COMPONENT_CONTACTS_NOT_MET",
+            "TWO_EFFECTIVE_GROUPS_NOT_MET"
+          ],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        },
+        {
+          "id": "NURTURE_LOSS_RETURN_COMPLEX",
+          "members": [
+            "CERES"
+          ],
+          "appearance_refs": [],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "CERES",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            }
+          ],
+          "admissible_refs": [],
+          "effective_group_refs": [],
+          "core_root_refs": [],
+          "qualified_complex": false,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [
+            "CORE_ANCHOR_MISSING",
+            "ESSENTIAL_COMPONENT_OR_SEARCH_COVERAGE_MISSING",
+            "QUALIFIED_SIGNIFICATOR_MISSING",
+            "ROBUST_COMPONENT_CONTACTS_NOT_MET",
+            "TWO_EFFECTIVE_GROUPS_NOT_MET"
+          ],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        },
+        {
+          "id": "WOUND_INITIATION_COMPLEX",
+          "members": [
+            "CHIRON"
+          ],
+          "appearance_refs": [],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "CHIRON",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            }
+          ],
+          "admissible_refs": [],
+          "effective_group_refs": [],
+          "core_root_refs": [],
+          "qualified_complex": false,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [
+            "CORE_ANCHOR_MISSING",
+            "ESSENTIAL_COMPONENT_OR_SEARCH_COVERAGE_MISSING",
+            "QUALIFIED_SIGNIFICATOR_MISSING",
+            "ROBUST_COMPONENT_CONTACTS_NOT_MET",
+            "TWO_EFFECTIVE_GROUPS_NOT_MET"
+          ],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        },
+        {
+          "id": "LIMINAL_TRANSITION_COMPLEX",
+          "members": [
+            "HEKATE",
+            "PERSEPHONE"
+          ],
+          "appearance_refs": [
+            "liminal:A1",
+            "liminal:A2"
+          ],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "HEKATE",
+              "appearance_refs": [
+                "liminal:A1"
+              ],
+              "admissible_refs": [
+                "liminal:A1"
+              ],
+              "coverage": "SUPPLIED"
+            },
+            {
+              "point_id": "PERSEPHONE",
+              "appearance_refs": [
+                "liminal:A2"
+              ],
+              "admissible_refs": [
+                "liminal:A2"
+              ],
+              "coverage": "SUPPLIED"
+            }
+          ],
+          "admissible_refs": [
+            "liminal:A1",
+            "liminal:A2"
+          ],
+          "effective_group_refs": [
+            "GR:liminal:U:A1",
+            "GR:liminal:U:A2"
+          ],
+          "core_root_refs": [
+            "R1"
+          ],
+          "qualified_complex": true,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "SUPPORTED",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+              "evidence_refs": [
+                "liminal:A1",
+                "liminal:A2"
+              ],
+              "counterevidence_refs": [],
+              "coverage_sufficient": true,
+              "reason": "ALL_DEFINED_CONDITIONS_MET"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "SUPPORTED",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+              "evidence_refs": [
+                "liminal:A1",
+                "liminal:A2"
+              ],
+              "counterevidence_refs": [],
+              "coverage_sufficient": true,
+              "reason": "ALL_DEFINED_CONDITIONS_MET"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_LIMINAL_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [
+            "F4_HYMN",
+            "F5_HESIOD",
+            "F5_NAME_HEKATE",
+            "F5_NAME_PERSEPHONE",
+            "F5_PROJECT"
+          ],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        },
+        {
+          "id": "FATE_PROCESS_COMPLEX",
+          "members": [
+            "KLOTHO",
+            "LACHESIS",
+            "ATROPOS",
+            "MOIRA"
+          ],
+          "appearance_refs": [],
+          "context_refs": [],
+          "component_coverage": [
+            {
+              "point_id": "KLOTHO",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            },
+            {
+              "point_id": "LACHESIS",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            },
+            {
+              "point_id": "ATROPOS",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            },
+            {
+              "point_id": "MOIRA",
+              "appearance_refs": [],
+              "admissible_refs": [],
+              "coverage": "MISSING"
+            }
+          ],
+          "admissible_refs": [],
+          "effective_group_refs": [],
+          "core_root_refs": [],
+          "qualified_complex": false,
+          "assessments": {
+            "structural_geometry": {
+              "scope": "STRUCTURAL_GEOMETRY",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "functional_interpretation": {
+              "scope": "FUNCTIONAL_INTERPRETATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "temporal_activation": {
+              "scope": "TEMPORAL_ACTIVATION",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            },
+            "documentary_correspondence": {
+              "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+              "status": "NOT_EVALUABLE",
+              "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+              "rule_ref": "SSAR_F5_MOIRAI_TWO_GROUPS_V1",
+              "evidence_refs": [],
+              "counterevidence_refs": [],
+              "coverage_sufficient": false,
+              "reason": "ESSENTIAL_COVERAGE_MISSING"
+            }
+          },
+          "blockers": [
+            "CORE_ANCHOR_MISSING",
+            "ESSENTIAL_COMPONENT_OR_SEARCH_COVERAGE_MISSING",
+            "QUALIFIED_SIGNIFICATOR_MISSING",
+            "ROBUST_COMPONENT_CONTACTS_NOT_MET",
+            "TWO_EFFECTIVE_GROUPS_NOT_MET"
+          ],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "documentary_scope": "STRUCTURAL",
+          "cluster_strength": null,
+          "source_refs": [],
+          "inferential_limit": "Patrón funcional E; no demuestra fase vivida, destino, reunión ni cierre irreversible. Eris es contexto, no contradicto automático."
+        }
+      ],
+      "dyads": [],
+      "pair_themes": [
+        {
+          "id": "JUNO_VESTA_THEME",
+          "members": [
+            "JUNO",
+            "VESTA"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        },
+        {
+          "id": "CERES_VESTA_THEME",
+          "members": [
+            "CERES",
+            "VESTA"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        },
+        {
+          "id": "CERES_CHIRON_THEME",
+          "members": [
+            "CERES",
+            "CHIRON"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        },
+        {
+          "id": "JUNO_CHIRON_THEME",
+          "members": [
+            "JUNO",
+            "CHIRON"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        },
+        {
+          "id": "PALLAS_CHIRON_THEME",
+          "members": [
+            "PALLAS",
+            "CHIRON"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        },
+        {
+          "id": "PALLAS_VESTA_THEME",
+          "members": [
+            "PALLAS",
+            "VESTA"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        },
+        {
+          "id": "JUNO_CERES_THEME",
+          "members": [
+            "JUNO",
+            "CERES"
+          ],
+          "appearance_refs": [],
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "contributes_new_evidence": false
+        }
+      ]
+    },
+    "integration": {
+      "temporal": [
+        {
+          "window_ref": "W",
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "clock_refs": [
+            "T0",
+            "T1"
+          ],
+          "effective_clock_groups": [
+            "DIRECTIONS_PROGRESSIONS",
+            "TRANSITS_ECLIPSES"
+          ],
+          "assessment": {
+            "scope": "TEMPORAL_ACTIVATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+            "rule_ref": "SSAR_TEMPORAL_TWO_GROUPS_V1",
+            "evidence_refs": [
+              "T0",
+              "T1"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "qualified_temporal_complex": true,
+          "window_closed": true,
+          "architecture_frozen_before_window": true,
+          "prediction_class": "RETROSPECTIVE",
+          "blockers": []
+        }
+      ],
+      "documentary": [
+        {
+          "claim_ref": "D",
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "scope": "STRUCTURAL",
+          "assessment": {
+            "scope": "DOCUMENTARY_STRUCTURAL_CORRESPONDENCE",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+            "rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+            "evidence_refs": [
+              "E"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "event_refs": [
+            "E"
+          ],
+          "fact_group_refs": [
+            "FACT"
+          ],
+          "window_ref": null,
+          "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+          "effective_fact_group_count": 1,
+          "causal_status": "UNESTABLISHED"
+        },
+        {
+          "claim_ref": "DT",
+          "complex_ref": "LIMINAL_TRANSITION_COMPLEX",
+          "scope": "TEMPORAL",
+          "assessment": {
+            "scope": "DOCUMENTARY_TEMPORAL_CORRESPONDENCE",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+            "rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+            "evidence_refs": [
+              "E"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "event_refs": [
+            "E"
+          ],
+          "fact_group_refs": [
+            "FACT"
+          ],
+          "window_ref": "W",
+          "coding_rule_ref": "LIMINAL_TRANSITION_COMPLEX_DOCUMENTARY_V1",
+          "effective_fact_group_count": 1,
+          "causal_status": "UNESTABLISHED"
+        }
+      ],
+      "shared_events": [
+        {
+          "fact_group_ref": "FACT",
+          "event_refs": [
+            "E"
+          ],
+          "consumer_refs": [
+            "D",
+            "DT"
+          ],
+          "contributes_new_evidence": false
+        }
+      ],
+      "documentary_event_source": "M27_NORMALIZED_LEDGER",
+      "external_validation_status": "NOT_PERFORMED"
+    },
+    "coverage": [
+      {
+        "layer": "liminal",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_INPUTS_ONLY",
+        "assessed_refs": [
+          "liminal:A1",
+          "liminal:A2"
+        ]
+      },
+      {
+        "layer": "SSAR",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_INPUTS_ONLY",
+        "assessed_refs": [
+          "LIMINAL_TRANSITION_COMPLEX"
+        ]
+      }
+    ],
+    "external_validation_status": "NOT_PERFORMED",
+    "primary_integration_metric_status": "NOT_OPERATIONALIZED",
+    "structural_scoring_modified": false,
+    "ontology_effect": "NONE",
+    "discriminator_effect": "NONE",
+    "history_policy": "ARCHIVE_ONLY_NO_AUTOMATIC_REQUALIFICATION"
+  }
+}

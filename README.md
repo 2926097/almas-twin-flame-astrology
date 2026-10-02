@@ -1,9 +1,12 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.24.1
-**Estado:** Corpus doctrinal ampliado, contraevidencia y trazabilidad de surrender/retirada vestal; scoring y gate L3 conservados
+**Versión pública:** 1.25.0
+**Estado:** SSAR experimental integrado y política congelada; núcleo conservado y validación externa pendiente
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
+
+SSAR 1.25.0 completa el desarrollo técnico optativo de significadores funcionales, familias/díadas, liminalidad/Moiras, Vertex y variantes de Luna Negra, seis familias de lotes, temporalidad, M27, controles y bloque canónico. Consultar el [contrato final](reference/ssar-release.md), las [fórmulas de lotes](reference/ssar-hellenistic-lots.md) y la [auditoría](docs/RELEASE_AUDIT_1.25.0.md). La política está congelada y las reglas conservan límites y bloqueos documentales. Las métricas empíricas principales y la validación externa siguen pendientes; los controles sintéticos no las sustituyen. No cambia el scoring, los índices o los discriminadores.
+
 
 ## Principios
 

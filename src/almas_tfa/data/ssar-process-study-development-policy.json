@@ -1,0 +1,47 @@
+{
+  "policy_id": "ALMAS_SSAR_PROCESS_STUDY_DEVELOPMENT_V1",
+  "policy_status": "DEVELOPMENT",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "integration_status": "STANDALONE_STUDY_CONTRACT_NOT_M27",
+  "source_quality": "VERIFIED_DOCUMENT_OR_OBSERVATION_WITH_PRECISION_AND_SEPARATED_FACT",
+  "date_convention": "ISO_DATE_INCLUSIVE_WINDOW_ELAPSED_DAYS_END_MINUS_START",
+  "event_roles": {
+    "START_EVENT": "Inicio observado de un episodio definido; no inicio inferido por Klotho.",
+    "DURATION_INTERVAL": "Intervalo observado de continuidad; los endpoints no prueban continuidad por sí solos.",
+    "CLOSURE_EVENT": "Cierre de un episodio definido; no cierre metafísico ni irreversibilidad ilimitada.",
+    "TRANSITION_EVENT": "Cambio declarado de estado anterior a posterior distintos.",
+    "REOPENING_EVENT": "Reapertura del mismo episodio después del cierre, dentro de la ventana.",
+    "DISCORD_EVENT": "Hecho observado de conflicto o exclusión; sin inferencia de tercero o infidelidad."
+  },
+  "claims": {
+    "INITIATION_OCCURRED": {
+      "rule_id": "SSAR_STUDY_START_IN_WINDOW_V1",
+      "event_role": "START_EVENT",
+      "counter_role": null
+    },
+    "DURATION_WITHIN_BOUNDS": {
+      "rule_id": "SSAR_STUDY_ELAPSED_DURATION_BOUNDS_V1",
+      "event_role": "DURATION_INTERVAL",
+      "counter_role": null
+    },
+    "CLOSURE_PERSISTED_IN_WINDOW": {
+      "rule_id": "SSAR_STUDY_CLOSURE_NO_REOPENING_V1",
+      "event_role": "CLOSURE_EVENT",
+      "counter_role": "REOPENING_EVENT"
+    },
+    "TRANSITION_OCCURRED": {
+      "rule_id": "SSAR_STUDY_DISTINCT_STATES_V1",
+      "event_role": "TRANSITION_EVENT",
+      "counter_role": null
+    },
+    "DISCORD_FREE_WINDOW": {
+      "rule_id": "SSAR_STUDY_NO_DISCORD_IN_WINDOW_V1",
+      "event_role": null,
+      "counter_role": "DISCORD_EVENT"
+    }
+  },
+  "astrological_effect": "NONE",
+  "documentary_correspondence_effect": "NONE",
+  "ontology_effect": "NONE",
+  "self_report_limit": "Un autoinforme no verifica por sí solo los cinco hechos observables definidos en este subperfil."
+}

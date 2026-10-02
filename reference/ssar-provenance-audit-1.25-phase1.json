@@ -1,0 +1,1339 @@
+{
+  "audit_id": "SSAR_PHASE1_PROVENANCE_AUDIT_V1",
+  "schema_status": "AUDIT_RECORD_NOT_SSAR_RUNTIME_CONTRACT",
+  "base_commit": "e0e8db8c2aab7484ffaf628a8c24f2dbb18a3e09",
+  "date": "2026-10-01",
+  "plan_revision": "ALMAS_1.25.0_R2",
+  "policy_status": "NOT_DEFINED",
+  "ssar_implemented": false,
+  "external_validation_status": "NOT_PERFORMED",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "counts": {
+    "plan_entries": 39,
+    "research_companions": 2,
+    "body_identities_verified": 29,
+    "name_origins_verified": 3,
+    "semantic_functions_enabled": 0
+  },
+  "sources": [
+    {
+      "id": "jpl_sbdb_identity",
+      "institution": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database API",
+      "url": "https://ssd-api.jpl.nasa.gov/doc/sbdb.html",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "A_DOCUMENTARY",
+      "scope": "Identidad astronómica en object.des/object.shortname/object.spkid; cada registro conserva URL consultada.",
+      "limitation": "Los campos discovery.name y discovery.citation pueden ser nulos; no prueban procedencia por sí solos."
+    },
+    {
+      "id": "haupt_hahn_2007_lust",
+      "author": "Hermann Haupt y Gerhard Hahn",
+      "work": "Kleine Planeten, deren Namen einen Österreichbezug aufweisen (II)",
+      "date": "2007",
+      "edition": "Sitzungsberichte Abt. II, 216, pp. 57–126",
+      "passage": "p. 77, entrada (4386) Lüst",
+      "url": "https://www.austriaca.at/0xc1aa5572%200x001b215b.pdf",
+      "priority": "P3_HISTORICAL_TECHNICAL",
+      "epistemic_class": "A_DOCUMENTARY",
+      "scope": "Reproducción de cita nominal MPC 18141, 28-04-1991.",
+      "limitation": "No documenta eficacia ni método astrológico."
+    },
+    {
+      "id": "demetra_george_public_method_description",
+      "author": "Demetra George",
+      "work": "Asteroid Goddess Report",
+      "date": null,
+      "retrieved_on": "2026-10-01",
+      "url": "https://demetra-george.com/asteroid-goddess-report/",
+      "passage": "Descripción del informe, párrafos sobre Ceres, Pallas, Juno y Vesta y delineación por signo/casa/aspectos.",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "epistemic_class": "B_TECHNIQUE",
+      "scope": "Documenta adopción astrológica por una autora identificada, incluyendo contactos con ángulos y nodos.",
+      "limitation": "No confirma las siete funciones SSAR, orbes, independencia ni validación externa; texto completo de Asteroid Goddesses no consultado."
+    }
+  ],
+  "entries": [
+    {
+      "id": "CERES",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1",
+        "name": "1 Ceres",
+        "spkid": "20000001",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Ceres&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "NURTURE_LOSS_RETURN",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "PALLAS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "2",
+        "name": "2 Pallas",
+        "spkid": "20000002",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Pallas&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "PATTERN_RECOGNITION",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "JUNO",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "3",
+        "name": "3 Juno",
+        "spkid": "20000003",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Juno&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "COVENANT_PARTNERSHIP",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "VESTA",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "4",
+        "name": "4 Vesta",
+        "spkid": "20000004",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Vesta&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "CONSECRATION_RECENTERING",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "CHIRON",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "2060",
+        "name": "2060 Chiron",
+        "spkid": "20002060",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Chiron&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "WOUND_INITIATION_INTEGRATION",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "PSYCHE",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "16",
+        "name": "16 Psyche",
+        "spkid": "20000016",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Psyche&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "SOUL_CONSCIOUSNESS_TRANSFORMATION",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "EROS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "433",
+        "name": "433 Eros",
+        "spkid": "20000433",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=433&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "EROTIC_DESIRE_VITAL_ATTRACTION",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "AMOR",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1221",
+        "name": "1221 Amor",
+        "spkid": "20001221",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1221&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "EROTIC_LOVE_DEITY_CLUSTER",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "CUPIDO",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "763",
+        "name": "763 Cupido",
+        "spkid": "20000763",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=763&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "EROTIC_LOVE_DEITY_CLUSTER",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "APHRODITE",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1388",
+        "name": "1388 Aphrodite",
+        "spkid": "20001388",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1388&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "VENUSIAN_MYTHIC_OVERLAY",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "SHIVA",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "UNRESOLVED",
+        "number": null,
+        "name": null,
+        "spkid": null,
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Shiva&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta exacta no identificó un objeto; no equivale a prueba de inexistencia."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "BLOCKED_IDENTITY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "research_candidate_refs": [
+        "SIVA_NAME_CANDIDATE"
+      ]
+    },
+    {
+      "id": "SHAKTI",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "UNRESOLVED",
+        "number": null,
+        "name": null,
+        "spkid": null,
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Shakti&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta exacta no identificó un objeto; no equivale a prueba de inexistencia."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "BLOCKED_IDENTITY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "No se identificó Shakti en la consulta exacta; Parvati es candidato de investigación, sin sustitución doctrinal ni astronómica autorizada.",
+      "research_candidate_refs": [
+        "PARVATI"
+      ]
+    },
+    {
+      "id": "PARVATI",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "RESEARCH_COMPANION_ONLY",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "2847",
+        "name": "2847 Parvati",
+        "spkid": "20002847",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Parvati&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "DEMETER",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1108",
+        "name": "1108 Demeter",
+        "spkid": "20001108",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Demeter&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "NURTURE_LOSS_RETURN",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "PERSEPHONE",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "399",
+        "name": "399 Persephone",
+        "spkid": "20000399",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Persephone&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "DESCENT_TRANSFORMATION_RETURN",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "ISIS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "42",
+        "name": "42 Isis",
+        "spkid": "20000042",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=42&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "OSIRIS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1923",
+        "name": "1923 Osiris",
+        "spkid": "20001923",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Osiris&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": "NP1_MYTHIC_DIRECT",
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Osiris&discovery=true"
+        ],
+        "passage": "MPC 5013",
+        "paraphrase": "La cita de denominación atribuye el nombre al dios egipcio Osiris.",
+        "source_priority": "P3_HISTORICAL_TECHNICAL",
+        "source_role": "OFFICIAL_CITATION_REPRODUCED_BY_JPL",
+        "retrieved_on": "2026-10-01",
+        "reason": "Se comprobó la cita nominal reproducida en discovery.citation; no valida función astrológica."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "HEKATE",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "100",
+        "name": "100 Hekate",
+        "spkid": "20000100",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Hekate&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "LIMINAL_THRESHOLD_GUIDANCE",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "ERIS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "136199",
+        "name": "136199 Eris",
+        "spkid": "20136199",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Eris&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": "NP1_MYTHIC_DIRECT",
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Eris&discovery=true"
+        ],
+        "passage": "20061009/MPCPages.arc",
+        "paraphrase": "La cita de denominación atribuye el nombre a Eris, diosa griega de la discordia.",
+        "source_priority": "P3_HISTORICAL_TECHNICAL",
+        "source_role": "OFFICIAL_CITATION_REPRODUCED_BY_JPL",
+        "retrieved_on": "2026-10-01",
+        "reason": "Se comprobó la cita nominal reproducida en discovery.citation; no valida función astrológica."
+      },
+      "proposed_function": "DISCORD_EXCLUSION_RIVALRY",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "KLOTHO",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "97",
+        "name": "97 Klotho",
+        "spkid": "20000097",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Klotho&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "THREAD_INITIATION",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "LACHESIS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "120",
+        "name": "120 Lachesis",
+        "spkid": "20000120",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Lachesis&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "MEASURE_DURATION_ALLOCATION",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "ATROPOS",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "273",
+        "name": "273 Atropos",
+        "spkid": "20000273",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Atropos&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "CUT_COMPLETION_IRREVERSIBILITY",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "MOIRA",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "638",
+        "name": "638 Moira",
+        "spkid": "20000638",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Moira&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": "FATE_ALLOTMENT_CONTEXT",
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "ALMA",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "390",
+        "name": "390 Alma",
+        "spkid": "20000390",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=390&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "KARMA",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "3811",
+        "name": "3811 Karma",
+        "spkid": "20003811",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=3811&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "UNION",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1585",
+        "name": "1585 Union",
+        "spkid": "20001585",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1585&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "DESTINN",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "6583",
+        "name": "6583 Destinn",
+        "spkid": "20006583",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=6583&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "VALENTINE",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "447",
+        "name": "447 Valentine",
+        "spkid": "20000447",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=447&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "LUST",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "4386",
+        "name": "4386 Lust",
+        "spkid": "20004386",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=4386&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true,
+        "display_name": "(4386) Lüst"
+      },
+      "name_provenance": {
+        "class": "NP3_PERSON_OR_PLACE",
+        "verification_status": "VERIFIED",
+        "source_refs": [
+          "haupt_hahn_2007_lust"
+        ],
+        "passage": "p. 77, entrada (4386) Lüst; remite a MPC 18141, 28-04-1991",
+        "paraphrase": "La denominación honra al astrónomo Reimar Lüst.",
+        "source_priority": "P3_HISTORICAL_TECHNICAL",
+        "source_role": "MPC_CITATION_REPRODUCED_IN_ACADEMY_PUBLICATION",
+        "retrieved_on": "2026-10-01",
+        "reason": "Publicación técnica reproduce la cita MPC; acceso directo al circular no conseguido."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "No asociar el apellido Lüst con lust/deseo sexual por semejanza gráfica."
+    },
+    {
+      "id": "LILITH_ASTEROID",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1181",
+        "name": "1181 Lilith",
+        "spkid": "20001181",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1181&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación.",
+      "nominal_association_excluded": "Asociación por semejanza nominal bloqueada hasta resolver denominación y método."
+    },
+    {
+      "id": "SIVA_NAME_CANDIDATE",
+      "kind": "NAMED_SMALL_BODY",
+      "scope": "RESEARCH_COMPANION_ONLY",
+      "identity": {
+        "status": "VERIFIED",
+        "number": "1170",
+        "name": "1170 Siva",
+        "spkid": "20001170",
+        "source_url": "https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=Siva&discovery=true",
+        "retrieved_on": "2026-10-01",
+        "source_priority": "P1_PRIMARY",
+        "epistemic_class": "A_DOCUMENTARY",
+        "identity_does_not_verify_name_origin": true
+      },
+      "name_provenance": {
+        "class": null,
+        "verification_status": "PENDING",
+        "source_refs": [],
+        "passage": null,
+        "reason": "La consulta JPL identifica el objeto; no proporciona explicación de denominación en este registro."
+      },
+      "proposed_function": null,
+      "function_epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "semantic_basis_status": "PENDING",
+      "ssar_method_status": "NOT_DEFINED",
+      "semantic_enabled": false,
+      "geometry_ingestion": "DECLARED_POSITIONS_ONLY",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fundamento semántico específico y política SSAR; el cálculo geométrico por posiciones suministradas no habilita interpretación."
+    },
+    {
+      "id": "VERTEX",
+      "kind": "CALCULATED_AXIS",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_TECHNICAL_CONVENTION",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "formula": null,
+        "source_refs": []
+      },
+      "deduplication_family": "VERTEX_ENCOUNTER_AXIS",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fórmula/algoritmo versionado, convenciones y regla de sensibilidad horaria SSAR."
+    },
+    {
+      "id": "ANTI_VERTEX",
+      "kind": "CALCULATED_AXIS",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_TECHNICAL_CONVENTION",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "formula": null,
+        "source_refs": []
+      },
+      "deduplication_family": "VERTEX_ENCOUNTER_AXIS",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fórmula/algoritmo versionado, convenciones y regla de sensibilidad horaria SSAR."
+    },
+    {
+      "id": "BLACK_MOON_MEAN",
+      "kind": "CALCULATED_POINT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_TECHNICAL_CONVENTION",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "formula": null,
+        "source_refs": []
+      },
+      "deduplication_family": "BLACK_MOON_VARIANTS",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fórmula/algoritmo versionado, convenciones y regla de sensibilidad horaria SSAR."
+    },
+    {
+      "id": "BLACK_MOON_OSCULATING",
+      "kind": "CALCULATED_POINT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_TECHNICAL_CONVENTION",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "formula": null,
+        "source_refs": []
+      },
+      "deduplication_family": "BLACK_MOON_VARIANTS",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "production_adapter_calculation": "NOT_IMPLEMENTED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "Faltan fórmula/algoritmo versionado, convenciones y regla de sensibilidad horaria SSAR."
+    },
+    {
+      "id": "FORTUNE",
+      "kind": "HELLENISTIC_LOT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_SSAR_METHOD",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "INHERITED_METHOD_NOT_REAUDITED",
+        "policy_ref": "src/almas_tfa/data/hellenistic-lots-policy.json",
+        "source_refs": [
+          "paulus_alexandrinus_introductory_matters_ch23",
+          "vettius_valens_anthology_lots"
+        ],
+        "sources_status": "INHERITED_REGISTRY_ONLY"
+      },
+      "existing_m13_calculation": "DEFAULT_SECT_VARIANTS",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "La baseline M13 no es una habilitación SSAR; revisar texto, fórmula, secta, variantes y función antes de habilitar."
+    },
+    {
+      "id": "SPIRIT",
+      "kind": "HELLENISTIC_LOT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_SSAR_METHOD",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "INHERITED_METHOD_NOT_REAUDITED",
+        "policy_ref": "src/almas_tfa/data/hellenistic-lots-policy.json",
+        "source_refs": [
+          "paulus_alexandrinus_introductory_matters_ch23",
+          "vettius_valens_anthology_lots"
+        ],
+        "sources_status": "INHERITED_REGISTRY_ONLY"
+      },
+      "existing_m13_calculation": "DEFAULT_SECT_VARIANTS",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "La baseline M13 no es una habilitación SSAR; revisar texto, fórmula, secta, variantes y función antes de habilitar."
+    },
+    {
+      "id": "EROS_LOT",
+      "kind": "HELLENISTIC_LOT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_SSAR_METHOD",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "policy_ref": null,
+        "source_refs": [],
+        "sources_status": "NOT_CHECKED"
+      },
+      "existing_m13_calculation": "DECLARED_FORMULA_ONLY",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "La baseline M13 no es una habilitación SSAR; revisar texto, fórmula, secta, variantes y función antes de habilitar."
+    },
+    {
+      "id": "NECESSITY",
+      "kind": "HELLENISTIC_LOT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_SSAR_METHOD",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "policy_ref": null,
+        "source_refs": [],
+        "sources_status": "NOT_CHECKED"
+      },
+      "existing_m13_calculation": "DECLARED_FORMULA_ONLY",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "La baseline M13 no es una habilitación SSAR; revisar texto, fórmula, secta, variantes y función antes de habilitar."
+    },
+    {
+      "id": "NEMESIS",
+      "kind": "HELLENISTIC_LOT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_SSAR_METHOD",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "policy_ref": null,
+        "source_refs": [],
+        "sources_status": "NOT_CHECKED"
+      },
+      "existing_m13_calculation": "DECLARED_FORMULA_ONLY",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "La baseline M13 no es una habilitación SSAR; revisar texto, fórmula, secta, variantes y función antes de habilitar."
+    },
+    {
+      "id": "VICTORY",
+      "kind": "HELLENISTIC_LOT",
+      "scope": "PLAN_CATALOGUE",
+      "identity": {
+        "status": "DEFINED_CONCEPT_PENDING_SSAR_METHOD",
+        "number": null
+      },
+      "method_provenance": {
+        "verification_status": "PENDING",
+        "policy_ref": null,
+        "source_refs": [],
+        "sources_status": "NOT_CHECKED"
+      },
+      "existing_m13_calculation": "DECLARED_FORMULA_ONLY",
+      "semantic_enabled": false,
+      "ssar_method_status": "NOT_DEFINED",
+      "qualification_status": "NOT_EVALUABLE",
+      "decision_reason": "La baseline M13 no es una habilitación SSAR; revisar texto, fórmula, secta, variantes y función antes de habilitar."
+    }
+  ],
+  "dyads": [
+    {
+      "id": "EROS_PSYCHE_COMPLEX",
+      "component_refs": [
+        "EROS",
+        "PSYCHE"
+      ],
+      "status": "NOT_EVALUABLE",
+      "semantic_enabled": false,
+      "reason": "Faltan fuentes semánticas y método SSAR; identidad por nombre no habilita complejo."
+    },
+    {
+      "id": "SHIVA_SHAKTI_RELATIONAL_COMPLEX",
+      "component_refs": [
+        "SHIVA",
+        "SHAKTI"
+      ],
+      "status": "NOT_EVALUABLE",
+      "semantic_enabled": false,
+      "reason": "Faltan fuentes semánticas y método SSAR; identidad por nombre no habilita complejo."
+    },
+    {
+      "id": "DEMETER_PERSEPHONE_SEPARATION_RETURN_COMPLEX",
+      "component_refs": [
+        "DEMETER",
+        "PERSEPHONE"
+      ],
+      "status": "NOT_EVALUABLE",
+      "semantic_enabled": false,
+      "reason": "Faltan fuentes semánticas y método SSAR; identidad por nombre no habilita complejo."
+    },
+    {
+      "id": "ISIS_OSIRIS_RECOMPOSITION_COMPLEX",
+      "component_refs": [
+        "ISIS",
+        "OSIRIS"
+      ],
+      "status": "NOT_EVALUABLE",
+      "semantic_enabled": false,
+      "reason": "Faltan fuentes semánticas y método SSAR; identidad por nombre no habilita complejo."
+    }
+  ],
+  "limitations": [
+    "No se ejecutaron efemérides nuevas ni casos personales.",
+    "No se verificó toda la bibliografía ni se habilitó ninguna función SSAR.",
+    "No interpretar la falta de resultado de una consulta literal como ausencia del cuerpo o del concepto.",
+    "No convertir Parvati en Shakti ni Siva en Shiva automáticamente."
+  ]
+}

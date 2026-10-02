@@ -1,3 +1,4 @@
+from pathlib import Path
 import unittest
 
 from almas_tfa.analysis import analyze_precomputed
@@ -32,7 +33,7 @@ class TestAnalyzePrecomputed(unittest.TestCase):
                 },
             }
         )
-        self.assertEqual(result["public_version"], "1.24.0")
+        self.assertEqual(result["public_version"], (Path(__file__).resolve().parents[1] / "VERSION").read_text().strip())
         self.assertEqual(set(result["models"]), {"AF", "KA", "AG", "LG"})
         self.assertIn("AG_vs_LG", result["pairwise_idd"])
         self.assertIsInstance(result["models"]["AG"]["iem_final"], float)

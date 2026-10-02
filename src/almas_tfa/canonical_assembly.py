@@ -817,6 +817,12 @@ def assemble_canonical_analysis(
     if isinstance(time_sensitivity, Mapping):
         assembled["time_sensitivity"] = time_sensitivity
 
+    if 'ssar' in canonical:
+        from copy import deepcopy
+        from .ssar_pipeline import validate_canonical_ssar
+        validate_canonical_ssar(canonical['ssar'])
+        assembled['ssar'] = deepcopy(canonical['ssar'])
+
     return {
         "state": "EVALUABLE",
         "canonical_analysis": assembled,

@@ -1,0 +1,148 @@
+{
+  "phase": 10,
+  "policy_hash": "883dc8a264c8864ab146462ad1e23a4608ff4178fc94f2324a090877f8cc9483",
+  "scope": "SYNTHETIC_TECHNICAL_ACCEPTANCE",
+  "requirements": [
+    "legacy absence disabled empty negative incomplete",
+    "canonical self reproduction cross references",
+    "conditional M31 authoring paths",
+    "core regression protected files",
+    "public contract version metadata",
+    "no private fixtures"
+  ],
+  "fixture": "examples/ssar-integrated.synthetic.json",
+  "tests": [
+    "tests/test_ssar_finish.py::test_general_complexes_two_groups_positive_one_group_candidate",
+    "tests/test_ssar_finish.py::test_pipeline_preserves_legacy_profile_results_and_reproduces",
+    "tests/test_ssar_finish.py::test_disabled_enabled_empty_and_complete_negative_search",
+    "tests/test_ssar_finish.py::test_two_clocks_positive_without_any_documentary_promotion",
+    "tests/test_ssar_finish.py::test_temporal_clocks_cannot_create_structure",
+    "tests/test_ssar_finish.py::test_same_group_unknown_precision_open_window_missing_monitoring_no_freeze",
+    "tests/test_ssar_finish.py::test_freeze_change_to_architecture_policy_or_windows_rejected",
+    "tests/test_ssar_finish.py::test_structural_documentary_positive_without_clocks_temporal_requires_window",
+    "tests/test_ssar_finish.py::test_documentary_missing_m27_quality_coverage_superseded_or_wrong_date_not_absence",
+    "tests/test_ssar_finish.py::test_exclusion_precedes_missing_clocks_and_shared_event_one_fact",
+    "tests/test_ssar_finish.py::test_duplicate_event_alias_opposite_roles_rejected",
+    "tests/test_ssar_finish.py::test_root_forgery_and_duplicate_profile_contact_rejected",
+    "tests/test_ssar_finish.py::test_nine_ablations_and_fixed_budget_controls_deterministic_no_pvalues",
+    "tests/test_ssar_finish.py::test_forged_canonical_claim_rejected_and_summary_absent_is_empty",
+    "tests/test_ssar_finish.py::test_clock_zero_geometry_unknown_orb_boundary_and_invalid_calendar",
+    "tests/test_ssar_finish.py::test_canonical_forged_good_groups_and_profile_metadata_cannot_escape_reproduction",
+    "tests/test_ssar_finish.py::test_conservative_cross_dependency_defeats_two_profiles_and_broken_refs",
+    "tests/test_ssar_finish.py::test_all_four_control_methods_replay_windows_and_missing_precision",
+    "tests/test_ssar_finish.py::test_missing_components_and_search_incomplete_remain_not_evaluable",
+    "tests/test_ssar_finish.py::test_retrospective_labels_and_prospective_declaration_stay_unverified",
+    "tests/test_ssar_canonical_pipeline.py::test_absent_has_no_optional_block_and_disabled_preserves_core",
+    "tests/test_ssar_canonical_pipeline.py::test_enabled_is_m14_registered_m27_consumed_before_gate_and_m31_paths",
+    "tests/test_ssar_canonical_pipeline.py::test_nine_ablations_through_actual_m00_m31_preserve_numeric_outputs",
+    "tests/test_ssar_finish.py::test_subject_order_and_alias_ids_do_not_create_independent_facts"
+  ],
+  "positive_cases": [
+    "qualified geometry",
+    "two structural groups",
+    "two clock groups",
+    "documentary correspondence"
+  ],
+  "failure_ambiguity_cases": [
+    "unknown sect",
+    "missing source",
+    "incomplete grid",
+    "no core",
+    "dependent groups",
+    "open window",
+    "missing M27",
+    "superseded event",
+    "contradictor",
+    "broken refs",
+    "forged output"
+  ],
+  "external_validation_status": "NOT_PERFORMED",
+  "cases": [
+    {
+      "requirement_id": "legacy_disabled",
+      "test": "tests/test_ssar_canonical_pipeline.py::test_absent_has_no_optional_block_and_disabled_preserves_core",
+      "expected": "no SSAR or disabled NONE; core identical",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "enabled_m14_m27_m30_m31",
+      "test": "tests/test_ssar_canonical_pipeline.py::test_enabled_is_m14_registered_m27_consumed_before_gate_and_m31_paths",
+      "expected": "M14 input; M27 projected; gate unchanged; conditional M31 paths",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "empty_complete_negative",
+      "test": "tests/test_ssar_finish.py::test_disabled_enabled_empty_and_complete_negative_search",
+      "expected": "not_run/NONE distinct from executed/COMPLETE with zero qualified complexes",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "partial_missing",
+      "test": "tests/test_ssar_finish.py::test_missing_components_and_search_incomplete_remain_not_evaluable",
+      "expected": "NOT_EVALUABLE",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "canonical_forgery",
+      "test": "tests/test_ssar_finish.py::test_canonical_forged_good_groups_and_profile_metadata_cannot_escape_reproduction",
+      "expected": "ValueError",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "dependencies_references",
+      "test": "tests/test_ssar_finish.py::test_conservative_cross_dependency_defeats_two_profiles_and_broken_refs",
+      "expected": "conservative collapse; broken reference rejected",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "five_general_complexes",
+      "test": "tests/test_ssar_finish.py::test_general_complexes_two_groups_positive_one_group_candidate",
+      "expected": "two groups SUPPORTED; one group COMPATIBLE",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "validation/ssar/controls.synthetic.receipt.json",
+        "GitHub Actions same-commit logs",
+        "docs/RELEASE_AUDIT_1.25.0.md"
+      ]
+    },
+    {
+      "requirement_id": "same_fact_alias_and_subject_order",
+      "test": "tests/test_ssar_finish.py::test_subject_order_and_alias_ids_do_not_create_independent_facts",
+      "expected": "one effective fact group; no statistical-independence claim",
+      "fixture": "examples/ssar-integrated.synthetic.json",
+      "execution_artifacts": [
+        "GitHub Actions same-commit logs"
+      ]
+    }
+  ]
+}

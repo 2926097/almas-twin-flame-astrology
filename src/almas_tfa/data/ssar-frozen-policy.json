@@ -1,0 +1,154 @@
+{
+  "policy_id": "ALMAS_SSAR_1_25_FROZEN_EXPERIMENTAL_V1",
+  "status": "FROZEN_EXPERIMENTAL",
+  "frozen_on": "2026-10-02",
+  "resource_sha256": {
+    "calculated_points.py": "ff46058d60d42f1d7fe6e6f9515f5ecb61326c9a2778ac5b216dcbbe0f5e73e1",
+    "data/ssar-calculated-points-catalog.json": "1b1b70e51311f41422509817311d9cbb74337467103bbcdbdfe7e27f577ba57b",
+    "data/ssar-calculated-points-development-policy.json": "a35f6bc14df37b7b1ace3f47212456816c3658ee61050e03ed99b963e02b5ca2",
+    "data/ssar-calculated-points-precision-policy.json": "7d98f4cc91e84627f8fb45ad325b835e9899be880f22c32d490a9917ddf494a7",
+    "data/ssar-contract-definitions.json": "c82658d3f284f558a60a4d9f581cbad772268ab6effa1ea96251a61be5a0a8fb",
+    "data/ssar-development-policy.json": "4b5b2a1b8a26bdb9ea60f98aa3a0344de97f9582ab01e2a7e23727043138891b",
+    "data/ssar-families-catalog.json": "76bc71fe979a21578fe21920596c60999d43f952d64c87f746fb59f4c40b1027",
+    "data/ssar-families-development-policy.json": "4c904bafc10c9fab5849fe6384462b70ee4ca5f9f06dd06539645ede2533e234",
+    "data/ssar-liminal-moirai-catalog.json": "58a1ebf16ec499726e033ca31f4ad53ef30cb3c449e7076bec1bb6e99209785f",
+    "data/ssar-liminal-moirai-development-policy.json": "1ff4e3386f67fd65aba5fb58608a91f660639907791ea3a9ee30a8d15beb3a07",
+    "data/ssar-lots-catalog.json": "2f0a0cfc5cecbf7fbb01607fe9b1ba5a8f67b2702f6c0e532abcbe6757078de2",
+    "data/ssar-lots-development-policy.json": "570ee3b25db1c057d8cb3d30a7f28ecace081e788a1326176ccf487654cdea31",
+    "data/ssar-process-study-development-policy.json": "47ffd05ccd2029d00a832606b8e18f19ca195831da49a8160f90f46145d84762",
+    "data/ssar-s1-catalog.json": "0054102654b5f2fb67267193a8ede900f2af19e50d462af4be1ba670888b46e8",
+    "data/ssar-s1-development-policy.json": "010c287452377237d587e9227a815175e5e904af885e7b0e5c2107caf2eaa6d3",
+    "ssar.py": "8261e750a4af81c613020830029bec9d8f88e66e4bf2700f187e67db1833d320",
+    "ssar_calculated_points.py": "752b2a05482d3d848d6df2ca530915e3e8e2e2bc3e4044e885fb2d2de5d4ecb6",
+    "ssar_controls.py": "7925e9172b1f3e63c987138a13306aab560f0b93620fb3168706eeacdab55a0e",
+    "ssar_families.py": "48f2216a2b8a423e53e49c9e21c71e040df39cafa130895312f8321e37b0eb30",
+    "ssar_integration.py": "f32658a1e5415d5f98f29528933bc5a2764694e07e398977859acc7cc454579a",
+    "ssar_liminal_moirai.py": "4013df51818086a1f7d908622ec3dcd005b0d00422623f7211fee858931e340b",
+    "ssar_lots.py": "efe303b558b5fcfe60d34291371f631e7fc66e6ddcea35c2fc038f7cfd9e3881",
+    "ssar_pipeline.py": "251e5f3b07992f756c7c1f0de96f20069971fb744819a9b34580627500460b14",
+    "ssar_s1.py": "0076a8e48dc00e6410e7e8b32db47c28ecc1cab6ff23bf9114cf031a6384d62d"
+  },
+  "technique_groups": {
+    "SYNASTRY": "TROPICAL_PAIR",
+    "ANTISCIA": "TROPICAL_PAIR",
+    "COMPOSITE": "RELCHART",
+    "DAVISON": "RELCHART",
+    "NATAL_DRACONIC": "DRACONIC",
+    "DRACONIC_DRACONIC": "DRACONIC",
+    "VERTEX": "VERTEX_AXIS",
+    "ANTI_VERTEX": "VERTEX_AXIS",
+    "BLACK_MOON_MEAN": "BLACK_MOON_VARIANTS",
+    "BLACK_MOON_OSCULATING": "BLACK_MOON_VARIANTS",
+    "LOT_FORTUNE": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_SPIRIT": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_EROS_PAULUS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_NECESSITY_PAULUS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_NEMESIS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_VICTORY": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_EROS_VALENS": "HELLENISTIC_DERIVED_LOTS",
+    "LOT_NECESSITY_VALENS": "HELLENISTIC_DERIVED_LOTS"
+  },
+  "complexes": [
+    {
+      "id": "COVENANT_COMPLEX",
+      "members": [
+        "JUNO"
+      ],
+      "context_points": [],
+      "rule_id": "COVENANT_COMPLEX_TWO_GROUPS_V1"
+    },
+    {
+      "id": "CONSECRATION_COMPLEX",
+      "members": [
+        "VESTA"
+      ],
+      "context_points": [],
+      "rule_id": "CONSECRATION_COMPLEX_TWO_GROUPS_V1"
+    },
+    {
+      "id": "PATTERN_RECOGNITION_COMPLEX",
+      "members": [
+        "PALLAS"
+      ],
+      "context_points": [],
+      "rule_id": "PATTERN_RECOGNITION_COMPLEX_TWO_GROUPS_V1"
+    },
+    {
+      "id": "NURTURE_LOSS_RETURN_COMPLEX",
+      "members": [
+        "CERES"
+      ],
+      "context_points": [],
+      "rule_id": "NURTURE_LOSS_RETURN_COMPLEX_TWO_GROUPS_V1"
+    },
+    {
+      "id": "WOUND_INITIATION_COMPLEX",
+      "members": [
+        "CHIRON"
+      ],
+      "context_points": [],
+      "rule_id": "WOUND_INITIATION_COMPLEX_TWO_GROUPS_V1"
+    },
+    {
+      "id": "LIMINAL_TRANSITION_COMPLEX",
+      "members": [
+        "HEKATE",
+        "PERSEPHONE"
+      ],
+      "context_points": [
+        "ERIS"
+      ],
+      "rule_id": "SSAR_F5_LIMINAL_TWO_GROUPS_V1"
+    },
+    {
+      "id": "FATE_PROCESS_COMPLEX",
+      "members": [
+        "KLOTHO",
+        "LACHESIS",
+        "ATROPOS",
+        "MOIRA"
+      ],
+      "context_points": [
+        "ERIS"
+      ],
+      "rule_id": "SSAR_F5_MOIRAI_TWO_GROUPS_V1"
+    }
+  ],
+  "dyad_ids": [
+    "EROS_PSYCHE_COMPLEX",
+    "SHIVA_SHAKTI_RELATIONAL_COMPLEX",
+    "DEMETER_PERSEPHONE_SEPARATION_RETURN_COMPLEX",
+    "ISIS_OSIRIS_RECOMPOSITION_COMPLEX"
+  ],
+  "minimum_structural_groups": 2,
+  "minimum_clock_groups": 2,
+  "clock_groups": {
+    "TPROG": "DIRECTIONS_PROGRESSIONS",
+    "TDIR": "DIRECTIONS_PROGRESSIONS",
+    "TTRANSIT": "TRANSITS_ECLIPSES",
+    "TECLIPSE": "TRANSITS_ECLIPSES",
+    "TREL": "RELATIONAL",
+    "TATACIR": "CIRCUMAMBULATION"
+  },
+  "clock_aspects": {
+    "CONJUNCTION": {
+      "angle": 0,
+      "orb": 1
+    },
+    "OPPOSITION": {
+      "angle": 180,
+      "orb": 1
+    }
+  },
+  "documentary_coding_status": "QUALITATIVE_HYPOTHESIS_SPECIFIC_CODING_DECLARED; NO_EXTERNAL_RELIABILITY_STUDY",
+  "primary_integration_metric": {
+    "status": "NOT_OPERATIONALIZED",
+    "confirmatory_inference_allowed": false,
+    "exclusions": "MISSING_ESSENTIAL_INPUTS_REMAIN_NOT_EVALUABLE",
+    "success_criterion": null
+  },
+  "external_validation_status": "NOT_PERFORMED",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE"
+}

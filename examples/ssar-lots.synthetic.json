@@ -1,0 +1,1656 @@
+{
+  "synthetic": true,
+  "scope": "DEVELOPMENT_FIXTURE_ONLY",
+  "request": {
+    "enabled": true,
+    "contexts": [
+      {
+        "id": "CTX",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "sect": "DAY",
+        "sect_source_refs": [
+          "synthetic:sect"
+        ],
+        "input_source_refs": [
+          "synthetic:positions"
+        ],
+        "time_uncertainty_minutes": 1,
+        "location_precision_sufficient": true,
+        "samples": [
+          {
+            "offset_minutes": -30,
+            "positions": {
+              "ASC": 350,
+              "SUN": 10,
+              "MOON": 40,
+              "MERCURY": 70,
+              "VENUS": 120,
+              "JUPITER": 200,
+              "SATURN": 290
+            },
+            "sect": "DAY"
+          },
+          {
+            "offset_minutes": -15,
+            "positions": {
+              "ASC": 350,
+              "SUN": 10,
+              "MOON": 40,
+              "MERCURY": 70,
+              "VENUS": 120,
+              "JUPITER": 200,
+              "SATURN": 290
+            },
+            "sect": "DAY"
+          },
+          {
+            "offset_minutes": 0,
+            "positions": {
+              "ASC": 350,
+              "SUN": 10,
+              "MOON": 40,
+              "MERCURY": 70,
+              "VENUS": 120,
+              "JUPITER": 200,
+              "SATURN": 290
+            },
+            "sect": "DAY"
+          },
+          {
+            "offset_minutes": 15,
+            "positions": {
+              "ASC": 350,
+              "SUN": 10,
+              "MOON": 40,
+              "MERCURY": 70,
+              "VENUS": 120,
+              "JUPITER": 200,
+              "SATURN": 290
+            },
+            "sect": "DAY"
+          },
+          {
+            "offset_minutes": 30,
+            "positions": {
+              "ASC": 350,
+              "SUN": 10,
+              "MOON": 40,
+              "MERCURY": 70,
+              "VENUS": 120,
+              "JUPITER": 200,
+              "SATURN": 290
+            },
+            "sect": "DAY"
+          }
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "id": "C",
+        "context_ref": "CTX",
+        "target_id": "SUN",
+        "target_longitude": 151.0,
+        "target_samples": [
+          {
+            "offset_minutes": -30,
+            "target_longitude": 151.0
+          },
+          {
+            "offset_minutes": -15,
+            "target_longitude": 151.0
+          },
+          {
+            "offset_minutes": 0,
+            "target_longitude": 151.0
+          },
+          {
+            "offset_minutes": 15,
+            "target_longitude": 151.0
+          },
+          {
+            "offset_minutes": 30,
+            "target_longitude": 151.0
+          }
+        ],
+        "core_root_refs": [
+          "R"
+        ],
+        "core_anchor_search_complete": true
+      }
+    ],
+    "core_roots": [
+      {
+        "root_id": "R",
+        "core_eligible": true,
+        "core_evidence_ids": [
+          "CORE"
+        ],
+        "point_ids": [
+          "SUN"
+        ]
+      }
+    ],
+    "edges": []
+  },
+  "result": {
+    "schema_version": "ssar-lots-1.0-development",
+    "enabled": true,
+    "catalog_id": "ALMAS_SSAR_SIX_LOTS_WITH_VARIANTS_V1",
+    "catalog_hash": "eaa05af7b851eb443147b4e5084f4ec9d4a2ef16282d1d55a4f9b97596b9192c",
+    "ssar": {
+      "schema_version": "ssar-contract-1.0-development",
+      "enabled": true,
+      "policy_id": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+      "policy_hash": "f2332641aa1355d098290f5215db7cc67faa34eed5be645e25f1ba2c90f5042d",
+      "policy_status": "DEVELOPMENT",
+      "analysis_scope": "EXPLORATORY",
+      "execution_status": "executed",
+      "completion": "PARTIAL",
+      "coverage": [
+        {
+          "layer": "APPEARANCE_GATES",
+          "status": "executed",
+          "completion": "COMPLETE",
+          "reason": "SUPPLIED_APPEARANCES_ONLY",
+          "assessed_refs": [
+            "C:LOT_FORTUNE",
+            "C:LOT_SPIRIT",
+            "C:LOT_EROS_PAULUS",
+            "C:LOT_NECESSITY_PAULUS",
+            "C:LOT_NEMESIS",
+            "C:LOT_VICTORY",
+            "C:LOT_EROS_VALENS",
+            "C:LOT_NECESSITY_VALENS"
+          ]
+        },
+        {
+          "layer": "DEPENDENCY_GROUPING",
+          "status": "executed",
+          "completion": "COMPLETE",
+          "reason": "DECLARED_DEPENDENCIES_ONLY",
+          "assessed_refs": [
+            "U:C:LOT_FORTUNE",
+            "U:C:LOT_SPIRIT",
+            "U:C:LOT_EROS_PAULUS",
+            "U:C:LOT_NECESSITY_PAULUS",
+            "U:C:LOT_NEMESIS",
+            "U:C:LOT_VICTORY",
+            "U:C:LOT_EROS_VALENS",
+            "U:C:LOT_NECESSITY_VALENS"
+          ]
+        },
+        {
+          "layer": "STRUCTURAL_COMPLEXES",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "MYTHIC_DYADS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "CALCULATED_POINTS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "TEMPORAL_ACTIVATION",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "DOCUMENTARY_CORRESPONDENCE",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        },
+        {
+          "layer": "NULL_CONTROLS",
+          "status": "blocked",
+          "completion": "NONE",
+          "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+          "assessed_refs": []
+        }
+      ],
+      "appearances": [
+        {
+          "id": "C:LOT_FORTUNE",
+          "point_id": "LOT_FORTUNE",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "FORTUNE_BODY_CIRCUMSTANCE",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_FORTUNE_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_FORTUNE"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PAULUS",
+            "F7_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_SPIRIT",
+          "point_id": "LOT_SPIRIT",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "SPIRIT_ACTION_INTENTION",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_SPIRIT_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_SPIRIT"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PAULUS",
+            "F7_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_EROS_PAULUS",
+          "point_id": "LOT_EROS_PAULUS",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "EROS_DESIRE_AGENCY",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "QUALIFIED_SIGNIFICATOR",
+          "assessment": {
+            "scope": "FUNCTIONAL_INTERPRETATION",
+            "status": "SUPPORTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_EROS_PAULUS_EXPLORATORY_V1",
+            "evidence_refs": [
+              "C:LOT_EROS_PAULUS"
+            ],
+            "counterevidence_refs": [],
+            "coverage_sufficient": true,
+            "reason": "ALL_DEFINED_CONDITIONS_MET"
+          },
+          "gate_reasons": [],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PAULUS",
+            "F7_PROJECT"
+          ],
+          "matched_aspect": {
+            "aspect": "CONJUNCTION",
+            "angle": 0.0,
+            "distance": 1.0,
+            "orb": 1.0,
+            "orb_limit": 1.5,
+            "exactness": 0.5555555555555556
+          },
+          "robustness": {
+            "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+            "sample_count": 5,
+            "preserved_count": 5,
+            "preserved_fraction": 1.0,
+            "required_fraction": 0.8
+          },
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_NECESSITY_PAULUS",
+          "point_id": "LOT_NECESSITY_PAULUS",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "NECESSITY_CONSTRAINT",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_NECESSITY_PAULUS_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_NECESSITY_PAULUS"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PAULUS",
+            "F7_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_NEMESIS",
+          "point_id": "LOT_NEMESIS",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "NEMESIS_LIMIT_ACCOUNTABILITY",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_NEMESIS_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_NEMESIS"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PAULUS",
+            "F7_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_VICTORY",
+          "point_id": "LOT_VICTORY",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "VICTORY_EXPECTATION_CONTEST",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_VICTORY_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_VICTORY"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PAULUS",
+            "F7_PROJECT"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_EROS_VALENS",
+          "point_id": "LOT_EROS_VALENS",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "EROS_DESIRE_AGENCY",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_EROS_VALENS_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_EROS_VALENS"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PROJECT",
+            "F7_VALENS"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        },
+        {
+          "id": "C:LOT_NECESSITY_VALENS",
+          "point_id": "LOT_NECESSITY_VALENS",
+          "kind": "HELLENISTIC_LOT",
+          "function_id": "NECESSITY_CONSTRAINT",
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "qualification": "NO_CONTACT",
+          "assessment": {
+            "scope": "STRUCTURAL_GEOMETRY",
+            "status": "CONTRADICTED",
+            "policy_ref": "ALMAS_SSAR_LOTS_DEVELOPMENT_V1",
+            "rule_ref": "LOT_NECESSITY_VALENS_EXPLORATORY_V1",
+            "evidence_refs": [],
+            "counterevidence_refs": [
+              "C:LOT_NECESSITY_VALENS"
+            ],
+            "coverage_sufficient": true,
+            "reason": "PREDEFINED_EXCLUDING_COUNTEREVIDENCE"
+          },
+          "gate_reasons": [
+            "NO_DECLARED_CONTACT"
+          ],
+          "core_root_refs": [
+            "R"
+          ],
+          "source_refs": [
+            "F7_PROJECT",
+            "F7_VALENS"
+          ],
+          "matched_aspect": null,
+          "robustness": null,
+          "project_method": true
+        }
+      ],
+      "qualified_significators": [
+        "C:LOT_EROS_PAULUS"
+      ],
+      "secondary_support": [],
+      "complexes": [],
+      "mythic_dyads": [],
+      "calculated_points": [],
+      "hellenistic_lots": [],
+      "temporal_activation": [],
+      "documentary_correspondence": [],
+      "dependency_graph": {
+        "units": [
+          {
+            "id": "U:C:LOT_EROS_PAULUS",
+            "appearance_ref": "C:LOT_EROS_PAULUS",
+            "technique": "LOT_EROS_PAULUS",
+            "equivalence_key": "CONTACT:C:LOT_EROS_PAULUS"
+          },
+          {
+            "id": "U:C:LOT_EROS_VALENS",
+            "appearance_ref": "C:LOT_EROS_VALENS",
+            "technique": "LOT_EROS_VALENS",
+            "equivalence_key": "CONTACT:C:LOT_EROS_VALENS"
+          },
+          {
+            "id": "U:C:LOT_FORTUNE",
+            "appearance_ref": "C:LOT_FORTUNE",
+            "technique": "LOT_FORTUNE",
+            "equivalence_key": "CONTACT:C:LOT_FORTUNE"
+          },
+          {
+            "id": "U:C:LOT_NECESSITY_PAULUS",
+            "appearance_ref": "C:LOT_NECESSITY_PAULUS",
+            "technique": "LOT_NECESSITY_PAULUS",
+            "equivalence_key": "CONTACT:C:LOT_NECESSITY_PAULUS"
+          },
+          {
+            "id": "U:C:LOT_NECESSITY_VALENS",
+            "appearance_ref": "C:LOT_NECESSITY_VALENS",
+            "technique": "LOT_NECESSITY_VALENS",
+            "equivalence_key": "CONTACT:C:LOT_NECESSITY_VALENS"
+          },
+          {
+            "id": "U:C:LOT_NEMESIS",
+            "appearance_ref": "C:LOT_NEMESIS",
+            "technique": "LOT_NEMESIS",
+            "equivalence_key": "CONTACT:C:LOT_NEMESIS"
+          },
+          {
+            "id": "U:C:LOT_SPIRIT",
+            "appearance_ref": "C:LOT_SPIRIT",
+            "technique": "LOT_SPIRIT",
+            "equivalence_key": "CONTACT:C:LOT_SPIRIT"
+          },
+          {
+            "id": "U:C:LOT_VICTORY",
+            "appearance_ref": "C:LOT_VICTORY",
+            "technique": "LOT_VICTORY",
+            "equivalence_key": "CONTACT:C:LOT_VICTORY"
+          }
+        ],
+        "edges": [],
+        "equivalence_classes": [
+          {
+            "id": "EQ:U:C:LOT_EROS_PAULUS",
+            "unit_refs": [
+              "U:C:LOT_EROS_PAULUS"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_EROS_VALENS",
+            "unit_refs": [
+              "U:C:LOT_EROS_VALENS"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_FORTUNE",
+            "unit_refs": [
+              "U:C:LOT_FORTUNE"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_NECESSITY_PAULUS",
+            "unit_refs": [
+              "U:C:LOT_NECESSITY_PAULUS"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_NECESSITY_VALENS",
+            "unit_refs": [
+              "U:C:LOT_NECESSITY_VALENS"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_NEMESIS",
+            "unit_refs": [
+              "U:C:LOT_NEMESIS"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_SPIRIT",
+            "unit_refs": [
+              "U:C:LOT_SPIRIT"
+            ]
+          },
+          {
+            "id": "EQ:U:C:LOT_VICTORY",
+            "unit_refs": [
+              "U:C:LOT_VICTORY"
+            ]
+          }
+        ],
+        "effective_groups": [
+          {
+            "id": "GR:U:C:LOT_EROS_PAULUS",
+            "unit_refs": [
+              "U:C:LOT_EROS_PAULUS"
+            ]
+          }
+        ],
+        "excluded_unit_refs": [
+          "U:C:LOT_EROS_VALENS",
+          "U:C:LOT_FORTUNE",
+          "U:C:LOT_NECESSITY_PAULUS",
+          "U:C:LOT_NECESSITY_VALENS",
+          "U:C:LOT_NEMESIS",
+          "U:C:LOT_SPIRIT",
+          "U:C:LOT_VICTORY"
+        ],
+        "grouping_rule_ref": "SSAR_CONSERVATIVE_CONNECTED_GROUPS_DEV_V1",
+        "statistical_independence_established": false
+      },
+      "external_validation_status": "NOT_PERFORMED",
+      "structural_scoring_modified": false,
+      "ontology_effect": "NONE",
+      "discriminator_effect": "NONE"
+    },
+    "calculations": [
+      {
+        "context_id": "CTX",
+        "subject_id": "A",
+        "technique": "SYNASTRY",
+        "input_hash": "b8b47f65ed38d2e79bbaccf56fbc1fe9fdbc4d3477ee709d17fa07efda63bd81",
+        "sect": "DAY",
+        "sect_stable": true,
+        "precision_sufficient": true,
+        "source_refs": [
+          "synthetic:positions",
+          "synthetic:sect"
+        ],
+        "points": [
+          {
+            "point_id": "LOT_FORTUNE",
+            "function_id": "FORTUNE_BODY_CIRCUMSTANCE",
+            "formula_variant": "PAULUS_CH23",
+            "central_longitude": 20.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 20.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 20.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 20.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 20.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 20.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_SPIRIT",
+            "function_id": "SPIRIT_ACTION_INTENTION",
+            "formula_variant": "PAULUS_CH23",
+            "central_longitude": 320.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 320.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 320.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 320.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 320.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 20.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 320.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_EROS_PAULUS",
+            "function_id": "EROS_DESIRE_AGENCY",
+            "formula_variant": "PAULUS_CH23",
+            "central_longitude": 150.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 150.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 250.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 150.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 150.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 250.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 150.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 150.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 250.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 150.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 150.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 250.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 150.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 150.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 250.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 150.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_NECESSITY_PAULUS",
+            "function_id": "NECESSITY_CONSTRAINT",
+            "formula_variant": "PAULUS_CH23",
+            "central_longitude": 300.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 300.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 100.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 300.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 300.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 100.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 300.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 300.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 100.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 300.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 300.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 100.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 300.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 300.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 100.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 300.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_NEMESIS",
+            "function_id": "NEMESIS_LIMIT_ACCOUNTABILITY",
+            "formula_variant": "PAULUS_CH23",
+            "central_longitude": 80.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 80.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 80.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 80.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 80.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 80.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 80.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 80.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 80.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 80.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 320.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 80.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_VICTORY",
+            "function_id": "VICTORY_EXPECTATION_CONTEST",
+            "formula_variant": "PAULUS_CH23",
+            "central_longitude": 230.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 230.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 170.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 230.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 230.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 170.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 230.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 230.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 170.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 230.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 230.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 170.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 230.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 230.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 170.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 230.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_EROS_VALENS",
+            "function_id": "EROS_DESIRE_AGENCY",
+            "formula_variant": "VALENS_IV25_MARGINAL_NOTE",
+            "central_longitude": 290.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 290.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 290.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 290.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 290.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 290.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 290.0
+              }
+            ]
+          },
+          {
+            "point_id": "LOT_NECESSITY_VALENS",
+            "function_id": "NECESSITY_CONSTRAINT",
+            "formula_variant": "VALENS_IV25_MARGINAL_NOTE",
+            "central_longitude": 50.0,
+            "status": "CALCULATED",
+            "samples": [
+              {
+                "offset_minutes": -30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 50.0
+              },
+              {
+                "offset_minutes": -15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 50.0
+              },
+              {
+                "offset_minutes": 0,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 50.0
+              },
+              {
+                "offset_minutes": 15,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 50.0
+              },
+              {
+                "offset_minutes": 30,
+                "variants": [
+                  {
+                    "sect": "DAY",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  },
+                  {
+                    "sect": "NIGHT",
+                    "status": "CALCULATED",
+                    "longitude": 50.0,
+                    "missing_inputs": []
+                  }
+                ],
+                "longitude": 50.0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "variant_sensitivity": [
+      {
+        "contact_ref": "C",
+        "pair_id": "EROS",
+        "appearance_refs": [
+          "C:LOT_EROS_PAULUS",
+          "C:LOT_EROS_VALENS"
+        ],
+        "separation_deg": 140.0,
+        "selected_variant": null,
+        "rule": "RETAIN_BOTH_NO_RETROSPECTIVE_SELECTION"
+      },
+      {
+        "contact_ref": "C",
+        "pair_id": "NECESSITY",
+        "appearance_refs": [
+          "C:LOT_NECESSITY_PAULUS",
+          "C:LOT_NECESSITY_VALENS"
+        ],
+        "separation_deg": 110.0,
+        "selected_variant": null,
+        "rule": "RETAIN_BOTH_NO_RETROSPECTIVE_SELECTION"
+      }
+    ],
+    "functional_notes": [
+      {
+        "appearance_ref": "C:LOT_FORTUNE",
+        "function_id": "FORTUNE_BODY_CIRCUMSTANCE",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PAULUS",
+          "F7_PROJECT"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_SPIRIT",
+        "function_id": "SPIRIT_ACTION_INTENTION",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PAULUS",
+          "F7_PROJECT"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_EROS_PAULUS",
+        "function_id": "EROS_DESIRE_AGENCY",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": "Tema exploratorio EROS_DESIRE_AGENCY bajo una fórmula y fuente atribuidas.",
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PAULUS",
+          "F7_PROJECT"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_NECESSITY_PAULUS",
+        "function_id": "NECESSITY_CONSTRAINT",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PAULUS",
+          "F7_PROJECT"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_NEMESIS",
+        "function_id": "NEMESIS_LIMIT_ACCOUNTABILITY",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PAULUS",
+          "F7_PROJECT"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_VICTORY",
+        "function_id": "VICTORY_EXPECTATION_CONTEST",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PAULUS",
+          "F7_PROJECT"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_EROS_VALENS",
+        "function_id": "EROS_DESIRE_AGENCY",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PROJECT",
+          "F7_VALENS"
+        ]
+      },
+      {
+        "appearance_ref": "C:LOT_NECESSITY_VALENS",
+        "function_id": "NECESSITY_CONSTRAINT",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "interpretation": null,
+        "inferential_limit": "No acredita agencia psicológica, compulsión vivida, destino, éxito, castigo, reciprocidad, conducta o identidad espiritual.",
+        "source_refs": [
+          "F7_PROJECT",
+          "F7_VALENS"
+        ]
+      }
+    ],
+    "execution_status": "executed",
+    "completion": "PARTIAL",
+    "coverage": [
+      {
+        "layer": "APPEARANCE_GATES",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "SUPPLIED_APPEARANCES_ONLY",
+        "assessed_refs": [
+          "C:LOT_FORTUNE",
+          "C:LOT_SPIRIT",
+          "C:LOT_EROS_PAULUS",
+          "C:LOT_NECESSITY_PAULUS",
+          "C:LOT_NEMESIS",
+          "C:LOT_VICTORY",
+          "C:LOT_EROS_VALENS",
+          "C:LOT_NECESSITY_VALENS"
+        ]
+      },
+      {
+        "layer": "DEPENDENCY_GROUPING",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "DECLARED_DEPENDENCIES_ONLY",
+        "assessed_refs": [
+          "U:C:LOT_FORTUNE",
+          "U:C:LOT_SPIRIT",
+          "U:C:LOT_EROS_PAULUS",
+          "U:C:LOT_NECESSITY_PAULUS",
+          "U:C:LOT_NEMESIS",
+          "U:C:LOT_VICTORY",
+          "U:C:LOT_EROS_VALENS",
+          "U:C:LOT_NECESSITY_VALENS"
+        ]
+      },
+      {
+        "layer": "STRUCTURAL_COMPLEXES",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "MYTHIC_DYADS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "CALCULATED_POINTS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "TEMPORAL_ACTIVATION",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "DOCUMENTARY_CORRESPONDENCE",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "NULL_CONTROLS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "HELLENISTIC_LOTS",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "ALL_VARIANTS_RETAINED",
+        "assessed_refs": [
+          "CTX"
+        ]
+      }
+    ],
+    "external_validation_status": "NOT_PERFORMED",
+    "structural_scoring_modified": false,
+    "ontology_effect": "NONE",
+    "discriminator_effect": "NONE"
+  }
+}

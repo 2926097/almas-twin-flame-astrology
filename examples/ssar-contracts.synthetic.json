@@ -1,0 +1,395 @@
+{
+  "synthetic": true,
+  "scope": "DEVELOPMENT_FIXTURE_ONLY",
+  "request": {
+    "enabled": true,
+    "sources": [
+      {
+        "id": "S0",
+        "author": "Autor sintético",
+        "work": "Identidad y definición sintéticas",
+        "date": null,
+        "locator": "Pasaje sintético 1",
+        "priority": "P1",
+        "epistemic_class": "A_DOCUMENTARY",
+        "verification_status": "VERIFIED",
+        "claim_scopes": [
+          "IDENTITY",
+          "NAME_ORIGIN",
+          "TECHNICAL_DEFINITION"
+        ]
+      },
+      {
+        "id": "S1",
+        "author": "Autor sintético",
+        "work": "Doctrina sintética",
+        "date": null,
+        "locator": "Pasaje sintético 2",
+        "priority": "P1",
+        "epistemic_class": "C_DOCTRINE",
+        "verification_status": "VERIFIED",
+        "claim_scopes": [
+          "SEMANTIC_BASIS"
+        ]
+      },
+      {
+        "id": "S2",
+        "author": "Proyecto sintético",
+        "work": "Método experimental sintético",
+        "date": null,
+        "locator": "Regla sintética 3",
+        "priority": "P4",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "verification_status": "VERIFIED",
+        "claim_scopes": [
+          "ASTROLOGICAL_METHOD"
+        ]
+      }
+    ],
+    "core_roots": [
+      {
+        "root_id": "R1",
+        "core_eligible": true,
+        "core_evidence_ids": [
+          "E-CORE-1"
+        ],
+        "point_ids": [
+          "SUN",
+          "MOON"
+        ]
+      }
+    ],
+    "appearances": [
+      {
+        "id": "A1",
+        "point_id": "SYNTH_NAMED_SMALL_BODY",
+        "kind": "NAMED_SMALL_BODY",
+        "provenance": {
+          "identity_status": "VERIFIED",
+          "basis": "NAME",
+          "verification_status": "VERIFIED",
+          "name_class": "NP1_MYTHIC_DIRECT",
+          "source_refs": [
+            "S0"
+          ],
+          "algorithm": null,
+          "conventions": null,
+          "inputs": [],
+          "variant": null,
+          "sect": null
+        },
+        "semantic_basis": {
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "source_refs": [
+            "S1"
+          ],
+          "justification": "Hipótesis sintética; no es doctrina del autor.",
+          "policy_ref": "SSAR_SYNTHETIC_DEVELOPMENT_V1"
+        },
+        "method": {
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "source_refs": [
+            "S2"
+          ],
+          "justification": "Método sintético independiente del caso.",
+          "policy_ref": "SSAR_SYNTHETIC_DEVELOPMENT_V1"
+        },
+        "geometry": {
+          "longitude": 10.0,
+          "target_longitude": 11.0,
+          "target_id": "SUN",
+          "frame": "TROPICAL_ECLIPTIC"
+        },
+        "core_root_refs": [
+          "R1"
+        ],
+        "core_anchor_search_complete": true,
+        "robustness": {
+          "input_precision_sufficient": true,
+          "samples": [
+            {
+              "id": "P0",
+              "offset_minutes": -30,
+              "longitude": 9.97,
+              "target_longitude": 11.0
+            },
+            {
+              "id": "P1",
+              "offset_minutes": -15,
+              "longitude": 9.985,
+              "target_longitude": 11.0
+            },
+            {
+              "id": "P2",
+              "offset_minutes": 0,
+              "longitude": 10.0,
+              "target_longitude": 11.0
+            },
+            {
+              "id": "P3",
+              "offset_minutes": 15,
+              "longitude": 10.015,
+              "target_longitude": 11.0
+            },
+            {
+              "id": "P4",
+              "offset_minutes": 30,
+              "longitude": 10.03,
+              "target_longitude": 11.0
+            }
+          ]
+        }
+      }
+    ],
+    "units": [],
+    "edges": []
+  },
+  "policy": {
+    "schema_version": "ssar-policy-1.0-development",
+    "policy_id": "SSAR_SYNTHETIC_DEVELOPMENT_V1",
+    "policy_status": "DEVELOPMENT",
+    "epistemic_class": "E_PROJECT_HYPOTHESIS",
+    "structural_scoring_modified": false,
+    "ontology_effect": "NONE",
+    "discriminator_effect": "NONE",
+    "qualified_source_priorities": [
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ],
+    "type_rules": {
+      "NAMED_SMALL_BODY": {
+        "aspect_policy": {
+          "CONJUNCTION": {
+            "angle": 0.0,
+            "orb": 1.5
+          },
+          "OPPOSITION": {
+            "angle": 180.0,
+            "orb": 1.5
+          }
+        },
+        "minimum_samples": 5,
+        "sample_offsets_minutes": [
+          -30,
+          -15,
+          0,
+          15,
+          30
+        ],
+        "minimum_preserved_fraction": 0.8,
+        "boundary": "INCLUSIVE",
+        "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+        "requires_sect": false
+      },
+      "CALCULATED_POINT": {
+        "aspect_policy": null,
+        "minimum_samples": 5,
+        "sample_offsets_minutes": [
+          -30,
+          -15,
+          0,
+          15,
+          30
+        ],
+        "minimum_preserved_fraction": 0.8,
+        "boundary": "INCLUSIVE",
+        "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+        "requires_sect": false
+      },
+      "HELLENISTIC_LOT": {
+        "aspect_policy": null,
+        "minimum_samples": 5,
+        "sample_offsets_minutes": [
+          -30,
+          -15,
+          0,
+          15,
+          30
+        ],
+        "minimum_preserved_fraction": 0.8,
+        "boundary": "INCLUSIVE",
+        "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+        "requires_sect": true
+      }
+    },
+    "point_rules": {
+      "SYNTH_NAMED_SMALL_BODY": {
+        "kind": "NAMED_SMALL_BODY",
+        "function_id": "SYNTHETIC_FUNCTION",
+        "allow_project_method": true,
+        "rule_id": "SYNTHETIC_APPEARANCE_RULE_V1"
+      }
+    },
+    "technique_groups": {
+      "SYNASTRY": "TROPICAL_PAIR",
+      "ANTISCIA": "TROPICAL_PAIR",
+      "COMPOSITE": "RELCHART",
+      "DAVISON": "RELCHART",
+      "NATAL_DRACONIC": "DRACONIC",
+      "DRACONIC_DRACONIC": "DRACONIC",
+      "VERTEX": "VERTEX_AXIS",
+      "ANTI_VERTEX": "VERTEX_AXIS",
+      "BLACK_MOON_MEAN": "BLACK_MOON_VARIANTS",
+      "BLACK_MOON_OSCULATING": "BLACK_MOON_VARIANTS",
+      "SYNTH_A": "SYNTH_A",
+      "SYNTH_B": "SYNTH_B"
+    },
+    "dependency_rules": {
+      "EQUIVALENT": "SSAR_DECLARED_EQUIVALENT_V1",
+      "TECHNICAL_DEPENDENCY": "SSAR_DECLARED_TECHNICAL_DEPENDENCY_V1",
+      "STATISTICAL_DEPENDENCY": "SSAR_DECLARED_STATISTICAL_DEPENDENCY_V1",
+      "SEMANTIC_OVERLAP": "SSAR_DECLARED_SEMANTIC_OVERLAP_V1",
+      "UNKNOWN": "SSAR_DECLARED_UNKNOWN_V1"
+    },
+    "unimplemented_layers": [
+      "STRUCTURAL_COMPLEXES",
+      "MYTHIC_DYADS",
+      "CALCULATED_POINTS",
+      "HELLENISTIC_LOTS",
+      "TEMPORAL_ACTIVATION",
+      "DOCUMENTARY_CORRESPONDENCE",
+      "NULL_CONTROLS"
+    ]
+  },
+  "result": {
+    "schema_version": "ssar-contract-1.0-development",
+    "enabled": true,
+    "policy_id": "SSAR_SYNTHETIC_DEVELOPMENT_V1",
+    "policy_hash": "49ab63fa1543815c1a4152cb30fdf43fcc30f530c1ef1adf85ba8aef3fea5917",
+    "policy_status": "DEVELOPMENT",
+    "analysis_scope": "EXPLORATORY",
+    "execution_status": "executed",
+    "completion": "PARTIAL",
+    "coverage": [
+      {
+        "layer": "APPEARANCE_GATES",
+        "status": "executed",
+        "completion": "COMPLETE",
+        "reason": "SUPPLIED_APPEARANCES_ONLY",
+        "assessed_refs": [
+          "A1"
+        ]
+      },
+      {
+        "layer": "DEPENDENCY_GROUPING",
+        "status": "not_run",
+        "completion": "NONE",
+        "reason": "NO_UNITS_SUPPLIED",
+        "assessed_refs": []
+      },
+      {
+        "layer": "STRUCTURAL_COMPLEXES",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "MYTHIC_DYADS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "CALCULATED_POINTS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "HELLENISTIC_LOTS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "TEMPORAL_ACTIVATION",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "DOCUMENTARY_CORRESPONDENCE",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      },
+      {
+        "layer": "NULL_CONTROLS",
+        "status": "blocked",
+        "completion": "NONE",
+        "reason": "NOT_IMPLEMENTED_IN_PHASE2",
+        "assessed_refs": []
+      }
+    ],
+    "appearances": [
+      {
+        "id": "A1",
+        "point_id": "SYNTH_NAMED_SMALL_BODY",
+        "kind": "NAMED_SMALL_BODY",
+        "function_id": "SYNTHETIC_FUNCTION",
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "qualification": "QUALIFIED_SIGNIFICATOR",
+        "assessment": {
+          "scope": "FUNCTIONAL_INTERPRETATION",
+          "status": "SUPPORTED",
+          "policy_ref": "SSAR_SYNTHETIC_DEVELOPMENT_V1",
+          "rule_ref": "SYNTHETIC_APPEARANCE_RULE_V1",
+          "evidence_refs": [
+            "A1"
+          ],
+          "counterevidence_refs": [],
+          "coverage_sufficient": true,
+          "reason": "ALL_DEFINED_CONDITIONS_MET"
+        },
+        "gate_reasons": [],
+        "core_root_refs": [
+          "R1"
+        ],
+        "source_refs": [
+          "S0",
+          "S1",
+          "S2"
+        ],
+        "matched_aspect": {
+          "aspect": "CONJUNCTION",
+          "angle": 0.0,
+          "distance": 1.0,
+          "orb": 1.0,
+          "orb_limit": 1.5,
+          "exactness": 0.5555555555555556
+        },
+        "robustness": {
+          "rule_ref": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+          "sample_count": 5,
+          "preserved_count": 5,
+          "preserved_fraction": 1.0,
+          "required_fraction": 0.8
+        },
+        "project_method": true
+      }
+    ],
+    "qualified_significators": [
+      "A1"
+    ],
+    "secondary_support": [],
+    "complexes": [],
+    "mythic_dyads": [],
+    "calculated_points": [],
+    "hellenistic_lots": [],
+    "temporal_activation": [],
+    "documentary_correspondence": [],
+    "dependency_graph": null,
+    "external_validation_status": "NOT_PERFORMED",
+    "structural_scoring_modified": false,
+    "ontology_effect": "NONE",
+    "discriminator_effect": "NONE"
+  }
+}

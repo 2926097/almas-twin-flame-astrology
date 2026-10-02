@@ -462,6 +462,14 @@ def m30_report_gate(context: ModuleContext) -> ModuleResult:
     blocking_issues: list[str] = []
     degradation_reasons: list[str] = []
 
+    if 'ssar' in canonical_copy:
+        from .ssar_pipeline import validate_canonical_ssar
+        from jsonschema.exceptions import ValidationError
+        try:
+            validate_canonical_ssar(canonical_copy['ssar'])
+        except (ValueError, TypeError, KeyError, ValidationError):
+            blocking_issues.append('INVALID_CANONICAL_SSAR')
+
     vestal = canonical_copy.get("surrender_vestal")
     if vestal is not None:
         from .surrender_vestal import validate_surrender_vestal_result
@@ -597,8 +605,15 @@ def make_m30_report_gate_auto():
         ):
             return m30_report_gate(context)
 
+        snapshot_for_assembly = dict(context.canonical_snapshot)
+        if 'ssar_configuration' in snapshot_for_assembly:
+            from .ssar_pipeline import run_ssar_pipeline
+            roots = snapshot_for_assembly.get('independent_roots', {}).get('roots', [])
+            snapshot_for_assembly['ssar'] = run_ssar_pipeline(
+                snapshot_for_assembly['ssar_configuration'], canonical_roots=roots,
+                m27_ledger=snapshot_for_assembly.get('documentary_events'))
         assembled = assemble_canonical_analysis(
-            context.canonical_snapshot,
+            snapshot_for_assembly,
             context.prior_results,
             policy=load_canonical_assembly_policy(),
             analysis_profile=context.raw_input.get("analysis_profile"),

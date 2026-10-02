@@ -1,0 +1,130 @@
+{
+  "phase": 4,
+  "scope": "DOCUMENTARY_AUDIT_NOT_ASTROLOGICAL_VALIDATION",
+  "checked_date": "2026-10-01",
+  "sources": [
+    {
+      "id": "SCHMADEL_2003",
+      "author": "Lutz D. Schmadel",
+      "title": "Dictionary of Minor Planet Names",
+      "edition": 5,
+      "copyright_year": 2003,
+      "electronic_publication": "2007-04-18",
+      "priority": "P3",
+      "classification": "TECHNICAL_AUTHOR_CATALOGUE",
+      "url": "https://link.springer.com/referencework/10.1007/978-3-540-29925-7",
+      "pdf_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "consulted_scope": "Entradas localizadas, no lectura íntegra; anuncios originales citados no consultados.",
+      "inferential_limit": "Procedencia nominal; no valida semántica astrológica."
+    },
+    {
+      "id": "F4_HYMN",
+      "url": "https://chs.harvard.edu/primary-source/homeric-hymn-to-demeter-sb/",
+      "locator": "versos 1–39, 334–403, 445–470",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "consulted_scope": "Pasajes de la traducción de Gregory Nagy",
+      "summary": "Relación madre–hija, separación impuesta, búsqueda y retorno condicionado.",
+      "inferential_limit": "No doctrina de mitades de alma ni retorno de una relación humana."
+    },
+    {
+      "id": "F4_PLUTARCH",
+      "url": "https://penelope.uchicago.edu/thayer/e/roman/texts/plutarch/moralia/isis_and_osiris%2A/a.html",
+      "locator": "13–19",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "consulted_scope": "Pasajes de traducción Babbitt, 1936; transcripción LacusCurtius",
+      "summary": "Búsqueda de partes de Osiris, prácticas funerarias y variantes narrativas.",
+      "inferential_limit": "Testimonio grecorromano localizado; no consenso universal ni validación SSAR."
+    }
+  ],
+  "entries": [
+    {
+      "point_id": "AMOR",
+      "number": 1221,
+      "printed_page": 102,
+      "pdf_page_index": 89,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Nombre latino asociado a Eros.",
+      "original_reference_as_catalogued": "H113"
+    },
+    {
+      "point_id": "CUPIDO",
+      "number": 763,
+      "printed_page": 72,
+      "pdf_page_index": 59,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Dios romano del amor erótico; proponente probable B. Asplind.",
+      "original_reference_as_catalogued": "H76"
+    },
+    {
+      "point_id": "APHRODITE",
+      "number": 1388,
+      "printed_page": 112,
+      "pdf_page_index": 99,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Diosa griega del amor y la belleza.",
+      "original_reference_as_catalogued": "RI1702"
+    },
+    {
+      "point_id": "DEMETER",
+      "number": 1108,
+      "printed_page": 94,
+      "pdf_page_index": 81,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Diosa griega de la agricultura.",
+      "original_reference_as_catalogued": "H104"
+    },
+    {
+      "point_id": "PERSEPHONE",
+      "number": 399,
+      "printed_page": 48,
+      "pdf_page_index": 35,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Figura mitológica, hija de Deméter.",
+      "original_reference_as_catalogued": "Z200; AN156,127(1901)"
+    },
+    {
+      "point_id": "SIVA",
+      "number": 1170,
+      "printed_page": 98,
+      "pdf_page_index": 85,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Deidad hindú; no autorización automática del alias SHIVA.",
+      "original_reference_as_catalogued": "H109"
+    },
+    {
+      "point_id": "ISIS",
+      "number": 42,
+      "printed_page": 19,
+      "pdf_page_index": 6,
+      "name_class": "NP4_AMBIGUOUS",
+      "finding": "Atribución a la diosa y posible homenaje adicional a Elizabeth Isis Pogson; se conserva ambigüedad.",
+      "original_reference_as_catalogued": "H7"
+    },
+    {
+      "point_id": "OSIRIS",
+      "number": 1923,
+      "printed_page": 154,
+      "pdf_page_index": 141,
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "finding": "Deidad egipcia; concuerda con la auditoría JPL de fase 1.",
+      "original_reference_as_catalogued": "M5013"
+    }
+  ],
+  "identity_basis": "Registros JPL de fase 1, enlazados por número/SPKID en catálogo; no se reescribe la auditoría histórica.",
+  "unresolved": [
+    {
+      "point_id": "SHAKTI",
+      "reason": "Identidad no resuelta en la búsqueda exacta de fase 1; no equivale a prueba de inexistencia."
+    },
+    {
+      "point_id": "SHIVA",
+      "reason": "Siva1170 es candidato; alias y variante doctrinal no autorizados."
+    }
+  ],
+  "forbidden_substitutions": [
+    "PARVATI_FOR_SHAKTI",
+    "SIVA_FOR_SHIVA_WITHOUT_REVIEW"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "matrix_id": "ALMAS_SSAR_PHASE5_TEST_MATRIX_V1",
+  "synthetic_only": true,
+  "development_only": true,
+  "test_count": 51,
+  "groups": [
+    {
+      "id": "LIMINAL_MOIRAI",
+      "test_file": "tests/test_ssar_liminal_moirai.py",
+      "count": 24,
+      "tests": [
+        "test_two_complexes_positive_four_scopes_without_temporal_documentary_promotion",
+        "test_all_seven_functions_have_positive_geometry_and_explicit_limits",
+        "test_all_seven_negative_geometry_suppresses_functional_notes",
+        "test_all_seven_missing_inputs_and_incomplete_anchor_search_block",
+        "test_all_seven_source_roles_identity_and_name_cannot_be_removed",
+        "test_all_seven_no_anchor_or_weak_robustness_are_only_secondary",
+        "test_all_seven_precision_or_grid_missing_are_not_support",
+        "test_missing_component_or_incomplete_search_not_absence",
+        "test_evaluable_geometry_contradictor_precedes_other_missing_components",
+        "test_one_group_is_compatible_and_core_exception_is_forbidden",
+        "test_dependency_unknown_technical_statistical_and_equivalence_collapse",
+        "test_semantic_overlap_kept_distinct_and_composite_davison_share_group",
+        "test_eris_context_neither_supplies_missing_member_nor_second_group",
+        "test_moirai_shared_family_complex_no_added_units_strength_or_event",
+        "test_family_missing_component_is_partial_and_never_zero",
+        "test_weak_robustness_of_required_member_prevents_complex_qualification",
+        "test_negative_eris_context_does_not_contradict_positive_liminal_complex",
+        "test_inherited_persephone_data_link_does_not_add_evidence",
+        "test_reuse_context_geometry_roots_perturbations_and_duplicates_checked",
+        "test_duplicate_contact_reference_unknown_object_and_nonfinite_rejected",
+        "test_source_class_cannot_be_promoted_to_doctrine",
+        "test_result_four_scopes_hash_and_group_tampering_rejected",
+        "test_defaults_previous_catalogs_and_inputs_unchanged",
+        "test_disabled_ignores_history_without_extras_and_empty_is_not_absence"
+      ]
+    },
+    {
+      "id": "PROCESS_STUDY",
+      "test_file": "tests/test_ssar_process_study.py",
+      "count": 27,
+      "tests": [
+        "test_four_event_roles_positive_are_standalone_without_astrological_promotion",
+        "test_known_fact_occurrence_supported_even_with_incomplete_window_coverage",
+        "test_all_five_claims_unknown_precision_sources_verification_and_mixed_fact_block",
+        "test_self_reports_and_interpretations_do_not_verify_external_occurrence",
+        "test_duration_requires_observed_continuity_not_just_endpoints",
+        "test_duration_elapsed_days_and_inclusive_bounds",
+        "test_duration_outside_bounds_contradicts_specific_measurement",
+        "test_duration_missing_bounds_is_not_evaluable_even_with_complete_absence",
+        "test_conflicting_duration_measurements_are_insufficient_not_best_fit",
+        "test_transition_requires_two_distinct_documented_states",
+        "test_complete_observed_absence_contradicts_occurrence_only_after_window",
+        "test_no_discord_only_supported_in_closed_completely_observed_window",
+        "test_known_discord_excludes_even_while_window_is_open_and_other_data_missing",
+        "test_closure_never_irreversible_beyond_observed_window",
+        "test_reopening_after_closure_contradicts_without_complete_observation",
+        "test_omitting_known_counter_ref_does_not_hide_it",
+        "test_reopening_before_closure_or_other_episode_is_not_excluding",
+        "test_events_outside_window_and_future_as_of_do_not_create_positive",
+        "test_window_boundaries_included",
+        "test_same_fact_two_sources_deduplicate_not_two_events",
+        "test_conflicting_alias_dates_or_roles_are_blocked_not_silently_chosen",
+        "test_pending_alias_cannot_destroy_verified_identical_fact",
+        "test_event_order_and_claim_order_deterministic_and_input_not_mutated",
+        "test_no_preregistration_never_promotes_claim_or_negation",
+        "test_bad_dates_intervals_bounds_refs_duplicate_ids_and_subjects_rejected",
+        "test_unknown_role_astrological_or_ontological_fields_rejected",
+        "test_result_status_fact_partition_duration_hash_and_effect_tampering_rejected"
+      ]
+    }
+  ],
+  "covered_axes": [
+    "SEVEN_FUNCTIONS_POSITIVE_NEGATIVE_BLOCKED",
+    "TWO_COMPLEXES_FOUR_SEPARATE_SCOPES",
+    "CORE_ROBUSTNESS_COVERAGE_AND_SOURCE_GATES",
+    "GLOBAL_DEPENDENCY_EQUIVALENCE_AND_SHARED_CONTACTS",
+    "ERIS_CONTEXT_NOT_COMPONENT_OR_AUTOMATIC_CONTRADICTOR",
+    "NO_NUMERIC_RANKING_WITHOUT_COMMON_MAGNITUDE",
+    "DOCUMENTARY_EVENT_ROLES_PREREGISTERED_WINDOWS",
+    "FACT_ALIAS_DEDUPLICATION_AND_CONFLICTS",
+    "KNOWN_OMITTED_COUNTEREVIDENCE_VISIBLE",
+    "UNKNOWN_METADATA_NOT_ABSENCE",
+    "FINITE_CLOSURE_AND_OBSERVED_CONTINUITY",
+    "REPRODUCTION_HASHES_AND_EFFECT_ISOLATION"
+  ],
+  "unvalidated": [
+    "EXTERNAL_VALIDATION",
+    "M27_TEMPORAL_AND_SSAR_DOCUMENTARY_INTEGRATION",
+    "COMMON_FROZEN_STRENGTH_MAGNITUDE"
+  ]
+}

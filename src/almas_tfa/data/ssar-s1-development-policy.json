@@ -1,0 +1,356 @@
+{
+  "schema_version": "ssar-policy-1.0-development",
+  "policy_id": "ALMAS_SSAR_S1_DEVELOPMENT_V1",
+  "policy_status": "DEVELOPMENT",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "qualified_source_priorities": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "type_rules": {
+    "NAMED_SMALL_BODY": {
+      "aspect_policy": {
+        "CONJUNCTION": {
+          "angle": 0.0,
+          "orb": 1.5
+        },
+        "OPPOSITION": {
+          "angle": 180.0,
+          "orb": 1.5
+        }
+      },
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "CALCULATED_POINT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": false
+    },
+    "HELLENISTIC_LOT": {
+      "aspect_policy": null,
+      "minimum_samples": 5,
+      "sample_offsets_minutes": [
+        -30,
+        -15,
+        0,
+        15,
+        30
+      ],
+      "minimum_preserved_fraction": 0.8,
+      "boundary": "INCLUSIVE",
+      "robustness_rule_id": "SSAR_PERTURBED_GEOMETRY_PRESERVATION_DEV_V1",
+      "requires_sect": true
+    }
+  },
+  "point_rules": {
+    "CERES": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "NURTURE_LOSS_RETURN",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_CERES_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_NAME_CERES"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "method": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "PALLAS": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "PATTERN_RECOGNITION",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_PALLAS_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "INDEPENDENT_OF_NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_ID_PALLAS"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT"
+        ],
+        "method": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "JUNO": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "COVENANT_PARTNERSHIP",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_JUNO_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "INDEPENDENT_OF_NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_ID_JUNO"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "method": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "VESTA": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "CONSECRATION_RECENTERING",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_VESTA_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_NAME_VESTA"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT"
+        ],
+        "method": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "CHIRON": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "WOUND_INITIATION_INTEGRATION",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_CHIRON_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "INDEPENDENT_OF_NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_ID_CHIRON"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT",
+          "S1_REINHART"
+        ],
+        "method": [
+          "S1_PROJECT",
+          "S1_REINHART"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "PSYCHE": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "SOUL_CONSCIOUSNESS_TRANSFORMATION",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_PSYCHE_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_NAME_PSYCHE"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "method": [
+          "S1_PROJECT"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    },
+    "EROS": {
+      "kind": "NAMED_SMALL_BODY",
+      "function_id": "EROTIC_DESIRE_VITAL_ATTRACTION",
+      "allow_project_method": true,
+      "rule_id": "SSAR_S1_EROS_DEV_V1",
+      "allowed_target_ids": [
+        "SUN",
+        "MOON",
+        "MERCURY",
+        "VENUS",
+        "MARS",
+        "ASC",
+        "DSC",
+        "MC",
+        "IC",
+        "NORTH_NODE",
+        "SOUTH_NODE",
+        "MEAN_NORTH_NODE",
+        "MEAN_SOUTH_NODE"
+      ],
+      "allowed_provenance_bases": [
+        "NAME"
+      ],
+      "required_source_refs": {
+        "provenance": [
+          "S1_NAME_EROS"
+        ],
+        "semantic_basis": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "method": [
+          "S1_PROJECT"
+        ]
+      },
+      "required_epistemic_class": "E_PROJECT_HYPOTHESIS"
+    }
+  },
+  "technique_groups": {
+    "SYNASTRY": "TROPICAL_PAIR",
+    "COMPOSITE": "RELCHART",
+    "DAVISON": "RELCHART"
+  },
+  "dependency_rules": {
+    "EQUIVALENT": "SSAR_DECLARED_EQUIVALENT_V1",
+    "TECHNICAL_DEPENDENCY": "SSAR_DECLARED_TECHNICAL_DEPENDENCY_V1",
+    "STATISTICAL_DEPENDENCY": "SSAR_DECLARED_STATISTICAL_DEPENDENCY_V1",
+    "SEMANTIC_OVERLAP": "SSAR_DECLARED_SEMANTIC_OVERLAP_V1",
+    "UNKNOWN": "SSAR_DECLARED_UNKNOWN_V1"
+  },
+  "unimplemented_layers": [
+    "STRUCTURAL_COMPLEXES",
+    "MYTHIC_DYADS",
+    "CALCULATED_POINTS",
+    "HELLENISTIC_LOTS",
+    "TEMPORAL_ACTIVATION",
+    "DOCUMENTARY_CORRESPONDENCE",
+    "NULL_CONTROLS"
+  ]
+}

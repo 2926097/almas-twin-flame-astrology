@@ -1,0 +1,507 @@
+{
+  "catalog_id": "ALMAS_SSAR_S1_CATALOG_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "sources": [
+    {
+      "id": "S1_GEORGE",
+      "author": "Demetra George",
+      "work": "Asteroid Goddess Report",
+      "date": null,
+      "locator": "Descripción del sistema simbólico y delineación por signo, casa, planetas, ángulos y nodos",
+      "priority": "P4",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "ASTROLOGICAL_METHOD"
+      ]
+    },
+    {
+      "id": "S1_REINHART",
+      "author": "Melanie Reinhart",
+      "work": "Chiron Astrology: Books",
+      "date": null,
+      "locator": "Chiron and the Healing Journey; Saturn, Chiron and the Centaurs",
+      "priority": "P4",
+      "epistemic_class": "B_TECHNIQUE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "ASTROLOGICAL_METHOD",
+        "SEMANTIC_BASIS"
+      ]
+    },
+    {
+      "id": "S1_APULEIUS",
+      "author": "Apuleyo; traducción A. S. Kline",
+      "work": "Metamorfosis, libro VI",
+      "date": "2013",
+      "locator": "VI.1–4, 9–21 y 23–24; traducción 2013",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "SEMANTIC_BASIS"
+      ]
+    },
+    {
+      "id": "S1_PROJECT",
+      "author": "Proyecto ALMAS",
+      "work": "SSAR S1: reglas de desarrollo",
+      "date": "2026-10-01",
+      "locator": "reference/ssar-s1-functions.md; siete funciones y método S1 V1",
+      "priority": "P4",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "SEMANTIC_BASIS",
+        "ASTROLOGICAL_METHOD"
+      ]
+    },
+    {
+      "id": "S1_ID_CERES",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 1 Ceres",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_NAME_CERES",
+      "author": "NASA Science",
+      "work": "Ceres",
+      "date": null,
+      "locator": "Namesake",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ]
+    },
+    {
+      "id": "S1_ID_PALLAS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 2 Pallas",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_ID_JUNO",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 3 Juno",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_ID_VESTA",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 4 Vesta",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_NAME_VESTA",
+      "author": "NASA Science",
+      "work": "Vesta",
+      "date": null,
+      "locator": "How Vesta Got Its Name",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ]
+    },
+    {
+      "id": "S1_ID_CHIRON",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 2060 Chiron",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_ID_PSYCHE",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 16 Psyche",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_NAME_PSYCHE",
+      "author": "NASA Science",
+      "work": "Psyche",
+      "date": null,
+      "locator": "How Psyche Got its Name",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ]
+    },
+    {
+      "id": "S1_ID_EROS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "date": null,
+      "locator": "object.des/object.shortname/object.spkid: 433 Eros",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "IDENTITY"
+      ]
+    },
+    {
+      "id": "S1_NAME_EROS",
+      "author": "NASA Science",
+      "work": "Eros",
+      "date": null,
+      "locator": "How Eros Got Its Name",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "point_id": "CERES",
+      "identity_source_ref": "S1_ID_CERES",
+      "number": "1",
+      "spkid": "20000001",
+      "function_id": "NURTURE_LOSS_RETURN",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Cuidado, nutrición, pérdida y retorno como temas simbólicos.",
+      "inferential_limit": "No acredita maternidad, dependencia real ni retorno futuro.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "S1_NAME_CERES"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": []
+    },
+    {
+      "point_id": "PALLAS",
+      "identity_source_ref": "S1_ID_PALLAS",
+      "number": "2",
+      "spkid": "20000002",
+      "function_id": "PATTERN_RECOGNITION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Discernimiento, estrategia y examen de patrones como hipótesis funcional.",
+      "inferential_limit": "No acredita telepatía, verdad de una lectura ni superioridad espiritual.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "INDEPENDENT_OF_NAME",
+        "verification_status": "PENDING",
+        "name_class": null,
+        "source_refs": [
+          "S1_ID_PALLAS"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": []
+    },
+    {
+      "point_id": "JUNO",
+      "identity_source_ref": "S1_ID_JUNO",
+      "number": "3",
+      "spkid": "20000003",
+      "function_id": "COVENANT_PARTNERSHIP",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Pacto, equidad, expectativas y renegociación como temas de asociación.",
+      "inferential_limit": "No acredita matrimonio, fidelidad, consentimiento ni compromiso vivido.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "INDEPENDENT_OF_NAME",
+        "verification_status": "PENDING",
+        "name_class": null,
+        "source_refs": [
+          "S1_ID_JUNO"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": []
+    },
+    {
+      "point_id": "VESTA",
+      "identity_source_ref": "S1_ID_VESTA",
+      "number": "4",
+      "spkid": "20000004",
+      "function_id": "CONSECRATION_RECENTERING",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Concentración, servicio, autonomía y recentrado como motivos simbólicos.",
+      "inferential_limit": "No acredita celibato, abstinencia, surrender ni reunión.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "S1_NAME_VESTA"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_GEORGE"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": [
+        "SURRENDER_VESTAL"
+      ]
+    },
+    {
+      "point_id": "CHIRON",
+      "identity_source_ref": "S1_ID_CHIRON",
+      "number": "2060",
+      "spkid": "20002060",
+      "function_id": "WOUND_INITIATION_INTEGRATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Vulnerabilidad, aprendizaje, reparación e integración como motivos simbólicos.",
+      "inferential_limit": "No diagnostica heridas psicológicas ni acredita sanación o integración vivida.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "INDEPENDENT_OF_NAME",
+        "verification_status": "PENDING",
+        "name_class": null,
+        "source_refs": [
+          "S1_ID_CHIRON"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_REINHART"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_REINHART"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": [
+        "CHIRON_PROCESS",
+        "WOUND_REPAIR"
+      ]
+    },
+    {
+      "point_id": "PSYCHE",
+      "identity_source_ref": "S1_ID_PSYCHE",
+      "number": "16",
+      "spkid": "20000016",
+      "function_id": "SOUL_CONSCIOUSNESS_TRANSFORMATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Pruebas y transformación interior como lectura simbólica de la psique.",
+      "inferential_limit": "No demuestra alma dividida, Mónada común ni identidad espiritual compartida.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "S1_NAME_PSYCHE"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": []
+    },
+    {
+      "point_id": "EROS",
+      "identity_source_ref": "S1_ID_EROS",
+      "number": "433",
+      "spkid": "20000433",
+      "function_id": "EROTIC_DESIRE_VITAL_ATTRACTION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Deseo y vitalidad erótica como motivos simbólicos.",
+      "inferential_limit": "No acredita actividad sexual, deseo bilateral, pensamientos ni consentimiento.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "S1_NAME_EROS"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT",
+          "S1_APULEIUS"
+        ],
+        "justification": "Función E declarada en el plan R2; los antecedentes no confirman la regla SSAR.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "S1_PROJECT"
+        ],
+        "justification": "Método E por contactos geométricos y anclajes core; en modo INDEPENDENT_OF_NAME no depende del origen ni de semejanza del nombre.",
+        "policy_ref": "ALMAS_SSAR_S1_DEVELOPMENT_V1"
+      },
+      "reuse_layers": []
+    }
+  ]
+}
