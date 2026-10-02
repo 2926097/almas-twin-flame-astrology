@@ -344,13 +344,31 @@ def render_return_summary(result):
     paragraphs=['RRA registra activaciones temporales de raíces preexistentes; su validación externa sigue pendiente. Estado de ejecución: '+result['execution_status']+'.']
     for record in result['returns']:
         paragraphs.append(record['returning_body']+' de '+record['owner']+': retorno '+record['exact_return_time']+', pasada '+str(record['return_pass'])+' ('+record['motion_state']+'). Raíces activadas: '+(', '.join(record['structural_roots']) or 'ninguna')+'. Estado técnico: '+record['status']+'. Ubicación: '+record['location_basis']+'.')
+        for contact in record['contacts']:
+            identity=' Contacto obligatorio del retorno, sin geometría nueva.' if contact['automatic_identity_contact'] else ''
+            paragraphs.append('Activación en '+contact['layer']+': '+contact['source_point']+' '+contact['aspect']+' '+contact['target_point']+
+                ', orbe '+f"{contact['orb']:.6f}"+' grados, raíces '+', '.join(contact['root_refs'])+
+                ', grupo de dependencia '+contact['dependency_group']+'.'+identity)
         for e in record['event_correspondences']:
             delta=e['event_delta_hours']
             paragraphs.append('Evento '+e['event_id']+': '+e['status']+'. Desfase respecto del retorno: '+('no evaluable' if delta is None else f'{delta:.3f} horas')+'. Una pertenencia al ciclo vigente se distingue de la ventana de exactitud.')
     from .return_controls import annual_return_summary
     paragraphs.append('Recurrencia documental: '+str(len(result['recurrence']))+' raíces; unidades efectivas deduplicadas: '+str(len(result['dependency_graph']['effective_units']))+'. La independencia estadística no está establecida. Densidad anual descriptiva: '+str(annual_return_summary(result))+'.')
     paragraphs.append('Robustez: '+result['robustness']['execution_status']+'. Control nulo: '+result['null_model_result']['execution_status']+'. Su excedencia Monte Carlo es exploratoria y condicional a las referencias fijadas.')
+    for variant in result['robustness'].get('ablations',[]):
+        paragraphs.append('Ablación '+variant['id']+': '+str(variant['contact_count'])+' contactos; raíces conservadas: '+(', '.join(variant['root_refs']) or 'ninguna')+'.')
+    control=result['null_model_result']
+    if control.get('execution_status')=='COMPLETED_EXPLORATORY_CONTROL':
+        paragraphs.append('Control '+control['method']+', semilla '+str(control['seed'])+': '+str(control['completed_simulations'])+
+            ' réplicas, '+str(control['k'])+' excedencias; p_MC='+str(control['p_mc'])+'. No autoriza inferencia confirmatoria.')
+    elif control.get('reason'):
+        paragraphs.append('Control no evaluable: '+control['reason']+'.')
+    for negative in result['negative_results']:
+        paragraphs.append('Contraevidencia o cobertura negativa: '+negative['kind']+', ámbito '+negative['stage']+
+            ', referencia '+str(negative.get('return_id',negative.get('event_id',negative.get('clock_id','sin referencia'))))+
+            (', motivo '+negative['reason'] if negative.get('reason') else '')+'.')
     paragraphs.append('Se conservaron '+str(len(result['negative_results']))+' resultados negativos o no evaluables. Los overlays derivados y la conjunción obligatoria del planeta con su posición de referencia comparten dependencia; no prueban identidad metafísica, reciprocidad ni decisiones futuras.')
+    paragraphs.append('Interpretación: la correspondencia describe cuándo se activa una arquitectura previamente cualificada. El ciclo vigente, la proximidad al instante exacto y la coincidencia bajo fechas control permanecen explicaciones distintas. La atribución funcional procede del SSAR estructural y de sus fuentes; RRA no añade una doctrina de origen ni un significado afectivo independiente.')
     return '\n\n'.join(paragraphs)
 
 

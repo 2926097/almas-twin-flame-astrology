@@ -27,6 +27,13 @@ def request():
 def run(req=None,backend=None,roots=None,ssar=None):
     return run_return_activation(req or request(),backend=backend or SyntheticBackend(),canonical_roots=roots or ROOTS,ssar_structure=ssar)
 class ReturnsTests(unittest.TestCase):
+    def test_report_exposes_contacts_controls_and_negative_evidence(self):
+        from almas_tfa.return_activation import render_return_summary
+        req=request();req['events'][0]['event_datetime']='2020-01-30T00:00:00Z'
+        report=render_return_summary(run(req))
+        for text in ['Activación en NATAL','Contacto obligatorio','Ablación HALF_ORB','semilla 42',
+                     'activation_without_event','event_without_activation','Interpretación:']:
+            self.assertIn(text,report)
     def test_exact_wrap_and_replay(self):
         out=run();r=out['returns'][0]
         self.assertEqual(r['exact_return_time'],'2020-01-11T00:00:00Z');self.assertLessEqual(r['angular_error'],1e-5)
