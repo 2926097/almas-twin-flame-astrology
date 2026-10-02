@@ -1,5 +1,11 @@
 # Changelog
 
+## Desarrollo 1.25.0 · SSAR fase 5 — 2026-10-02
+
+Añade siete funciones exploratorias de Hekate, Persephone, Eris y las Moiras, MOIRAI_CLUSTER y dos complejos optativos con anclajes heredados, robustez y dos grupos efectivos. Eris conserva alternativas interpretativas y sólo aporta contexto a los complejos. Perséfone puede enlazar evidencia de fase 4 sin duplicarla. La procedencia nominal se verifica en catálogo técnico P3 y NASA P1; los antecedentes antiguos y las reglas propias E permanecen separados.
+
+Define un contrato independiente para inicio, duración, cierre, transición y discordia en futuros estudios: hechos deduplicados, preregistro, ventanas delimitadas y contradictores conocidos visibles aunque se omitan de referencias. No promueve los alcances temporal o documental SSAR ni integra M27. Incorpora cuatro schemas, fixture sintético, auditoría y 51 pruebas. La fuerza numérica permanece null y no cambia scoring, ontología, discriminadores, políticas anteriores o versión pública 1.24.1. Fases 6–10 y validación externa siguen pendientes.
+
 ## Desarrollo 1.25.0 · SSAR fase 4 — 2026-10-01
 
 Añade familia erótica Eros/Amor/Cupido, overlay de Afrodita a Venus y API optativa de díadas con contactos cruzados, anclajes core, perturbaciones, dos grupos efectivos y deduplicación. Eros–Psyche y Deméter–Perséfone tienen reglas ejecutables; Isis–Osiris conserva ambigüedad nominal NP4 y Shiva–Shakti conserva identidad/alias/variante doctrinal sin resolver. Se separan cuatro alcances sin estado global o score. La fuerza numérica queda null hasta definir y congelar una magnitud común.

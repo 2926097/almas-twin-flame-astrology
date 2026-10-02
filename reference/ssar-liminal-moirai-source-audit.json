@@ -1,0 +1,193 @@
+{
+  "audit_id": "ALMAS_SSAR_PHASE5_SOURCE_AUDIT_V1",
+  "consulted_on": "2026-10-02",
+  "scope": "PHASE5_LOCAL_PROFILE_ONLY",
+  "historic_audits_modified": false,
+  "full_book_read": false,
+  "original_naming_announcements_consulted": false,
+  "identities_requeried": false,
+  "identity_evidence_reused_from_phase1": true,
+  "nominal_sources": [
+    {
+      "point_id": "HEKATE",
+      "number": "100",
+      "spkid": "20000100",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P3",
+      "name_source": "Lutz D. Schmadel, Dictionary of Minor Planet Names, 5.ª edición, 2003",
+      "source_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "printed_page": 24,
+      "pdf_page_zero_based": 11,
+      "locator": "Entrada (100)",
+      "scope_note": "Referencia mítica explícita. La posible asociación con hekaton/cien se presenta como conjetura de Meeus, no motivo comprobado alternativo."
+    },
+    {
+      "point_id": "PERSEPHONE",
+      "number": "399",
+      "spkid": "20000399",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P3",
+      "name_source": "Lutz D. Schmadel, Dictionary of Minor Planet Names, 5.ª edición, 2003",
+      "source_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "printed_page": 48,
+      "pdf_page_zero_based": 35,
+      "locator": "Entrada (399)",
+      "scope_note": "Referencia mítica explícita; antecedente nominal ya documentado en fase 4."
+    },
+    {
+      "point_id": "ERIS",
+      "number": "136199",
+      "spkid": "20136199",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P1",
+      "name_source": "NASA Science",
+      "source_url": "https://science.nasa.gov/dwarf-planets/eris/",
+      "locator": "Namesake",
+      "scope_note": "Sección nominal; la discordia no prueba infidelidad o terceros. Planeta enano."
+    },
+    {
+      "point_id": "KLOTHO",
+      "number": "97",
+      "spkid": "20000097",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P3",
+      "name_source": "Lutz D. Schmadel, Dictionary of Minor Planet Names, 5.ª edición, 2003",
+      "source_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "printed_page": 24,
+      "pdf_page_zero_based": 11,
+      "locator": "Entrada (97)",
+      "scope_note": "Referencia mítica explícita. Se conserva historia de propuesta Clotho por Cherbourg; otras propuestas iniciales para 98/99 no se convierten en nombres adoptados."
+    },
+    {
+      "point_id": "LACHESIS",
+      "number": "120",
+      "spkid": "20000120",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P3",
+      "name_source": "Lutz D. Schmadel, Dictionary of Minor Planet Names, 5.ª edición, 2003",
+      "source_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "printed_page": 26,
+      "pdf_page_zero_based": 13,
+      "locator": "Entrada (120)",
+      "scope_note": "Referencia mítica explícita; no valida medición astrológica de duración."
+    },
+    {
+      "point_id": "ATROPOS",
+      "number": "273",
+      "spkid": "20000273",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P3",
+      "name_source": "Lutz D. Schmadel, Dictionary of Minor Planet Names, 5.ª edición, 2003",
+      "source_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "printed_page": 39,
+      "pdf_page_zero_based": 26,
+      "locator": "Entrada (273)",
+      "scope_note": "Referencia mítica explícita. La circunstancia histórica ligada a la muerte de Wilhelm I no cambia el referente mítico en una denominación personal."
+    },
+    {
+      "point_id": "MOIRA",
+      "number": "638",
+      "spkid": "20000638",
+      "identity_status": "VERIFIED",
+      "identity_priority": "P1",
+      "identity_receipt": "reference/ssar-provenance-audit-1.25-phase1.json",
+      "name_class": "NP1_MYTHIC_DIRECT",
+      "name_status": "VERIFIED",
+      "name_scope": "NAME_ORIGIN_ONLY",
+      "semantic_and_method_status": "E_PROJECT_HYPOTHESIS_NOT_VALIDATED",
+      "name_priority": "P3",
+      "name_source": "Lutz D. Schmadel, Dictionary of Minor Planet Names, 5.ª edición, 2003",
+      "source_url": "https://link.springer.com/content/pdf/10.1007%2F978-3-540-29925-7_32.pdf",
+      "printed_page": 63,
+      "pdf_page_zero_based": 50,
+      "locator": "Entrada (638)",
+      "scope_note": "Referencia mítica explícita; no valida reparto ontológico."
+    }
+  ],
+  "narrative_sources": [
+    {
+      "source_ref": "F5_HESIOD",
+      "author": "Hesíodo; traducción H. G. Evelyn-White, Loeb 57, 1914",
+      "url": "https://www.theoi.com/Text/HesiodTheogony.html",
+      "passages": [
+        "211–232",
+        "410–452",
+        "901–906"
+      ],
+      "epistemic_class": "C_DOCTRINE",
+      "scope": "Dos genealogías de Moiras conservadas; prerrogativas amplias de Hécate; antecedentes narrativos, sin eficacia astrológica."
+    },
+    {
+      "source_ref": "F5_WORKS",
+      "author": "Hesíodo; traducción H. G. Evelyn-White, Loeb 57, 1914",
+      "url": "https://www.theoi.com/Text/HesiodWorksDays.html",
+      "passages": [
+        "11–26"
+      ],
+      "epistemic_class": "C_DOCTRINE",
+      "scope": "Dos modalidades de Eris; no exclusividad destructiva."
+    },
+    {
+      "source_ref": "F4_HYMN",
+      "author": "Himno homérico; traducción Gregory Nagy",
+      "url": "https://chs.harvard.edu/primary-source/homeric-hymn-to-demeter-sb/",
+      "passages": [
+        "25–61",
+        "334–403",
+        "438–440",
+        "445–470"
+      ],
+      "epistemic_class": "C_DOCTRINE",
+      "scope": "Hécate escucha y acompaña; Perséfone desciende y retorna. Variante de traducción sin resolver; no relación romántica por defecto."
+    }
+  ],
+  "method": {
+    "epistemic_class": "E_PROJECT_HYPOTHESIS",
+    "source": "reference/ssar-liminal-moirai.md",
+    "external_validation_status": "NOT_PERFORMED"
+  },
+  "unvalidated": [
+    "COMMON_FROZEN_STRENGTH_MAGNITUDE",
+    "NUMERIC_MAXIMUM_AND_TIEBREAK",
+    "REAL_DOCUMENT_AUTHENTICATION",
+    "PREREGISTRATION_TIMESTAMP_AUTHENTICATION",
+    "M27_TEMPORAL_AND_SSAR_DOCUMENTARY_INTEGRATION",
+    "EXTERNAL_VALIDATION"
+  ]
+}

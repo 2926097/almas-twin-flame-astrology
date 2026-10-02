@@ -34,6 +34,9 @@ jobs:
       - name: Validar contrato público
         run: python scripts/validate_public_contract.py
 
+      - name: Reproducir fixture SSAR de liminalidad y Moiras
+        run: python scripts/validate_ssar_liminal_moirai.py
+
       - name: Comprobar referencia exacta SSAR en Python 3.12
         if: matrix.python-version == '3.12'
         run: python scripts/validate_ssar_baseline.py

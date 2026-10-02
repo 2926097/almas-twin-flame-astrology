@@ -2460,6 +2460,912 @@
         "discriminator_effect"
       ],
       "additionalProperties": false
+    },
+    "F5Observation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "point_id": {
+          "enum": [
+            "HEKATE",
+            "PERSEPHONE",
+            "ERIS",
+            "KLOTHO",
+            "LACHESIS",
+            "ATROPOS",
+            "MOIRA"
+          ]
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Geometry"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_anchor_search_complete": {
+          "type": "boolean"
+        },
+        "robustness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Robustness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subject_id": {
+          "enum": [
+            "A",
+            "B",
+            "RELATIONSHIP"
+          ]
+        },
+        "technique": {
+          "enum": [
+            "SYNASTRY",
+            "COMPOSITE",
+            "DAVISON"
+          ]
+        },
+        "evidence_key": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "point_id",
+        "geometry",
+        "core_root_refs",
+        "core_anchor_search_complete",
+        "robustness",
+        "subject_id",
+        "technique",
+        "evidence_key"
+      ],
+      "additionalProperties": false
+    },
+    "F5Selection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "enum": [
+            "LIMINAL_TRANSITION_COMPLEX",
+            "FATE_PROCESS_COMPLEX"
+          ]
+        },
+        "appearance_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "search_complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "appearance_refs",
+        "search_complete"
+      ],
+      "additionalProperties": false
+    },
+    "F5InheritedContact": {
+      "type": "object",
+      "properties": {
+        "point_id": {
+          "const": "PERSEPHONE"
+        },
+        "geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Geometry"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_anchor_search_complete": {
+          "type": "boolean"
+        },
+        "robustness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Robustness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subject_id": {
+          "enum": [
+            "A",
+            "B",
+            "RELATIONSHIP"
+          ]
+        },
+        "technique": {
+          "enum": [
+            "SYNASTRY",
+            "COMPOSITE",
+            "DAVISON"
+          ]
+        },
+        "evidence_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "upstream_layer": {
+          "const": "DEMETER_PERSEPHONE_SEPARATION_RETURN_COMPLEX"
+        }
+      },
+      "required": [
+        "point_id",
+        "geometry",
+        "core_root_refs",
+        "core_anchor_search_complete",
+        "robustness",
+        "subject_id",
+        "technique",
+        "evidence_key",
+        "appearance_ref",
+        "artifact_ref",
+        "upstream_layer"
+      ],
+      "additionalProperties": false
+    },
+    "F5Request": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5Observation"
+          }
+        },
+        "core_roots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Root"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "complexes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5Selection"
+          }
+        },
+        "existing_contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5InheritedContact"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "F5FunctionalNote": {
+      "type": "object",
+      "properties": {
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "function_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "interpretation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inferential_limit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "documentary_status": {
+          "const": "NOT_EVALUABLE"
+        }
+      },
+      "required": [
+        "appearance_ref",
+        "function_id",
+        "epistemic_class",
+        "interpretation",
+        "inferential_limit",
+        "source_refs",
+        "documentary_status"
+      ],
+      "additionalProperties": false
+    },
+    "F5Complex": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "appearance_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "context_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "component_coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F4Components"
+          }
+        },
+        "admissible_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "effective_group_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "core_root_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "qualified_complex": {
+          "type": "boolean"
+        },
+        "assessments": {
+          "$ref": "#/$defs/F4Assessments"
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "documentary_scope": {
+          "const": "STRUCTURAL"
+        },
+        "cluster_strength": {
+          "type": "null"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "inferential_limit": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "members",
+        "appearance_refs",
+        "context_refs",
+        "component_coverage",
+        "admissible_refs",
+        "effective_group_refs",
+        "core_root_refs",
+        "qualified_complex",
+        "assessments",
+        "blockers",
+        "epistemic_class",
+        "documentary_scope",
+        "cluster_strength",
+        "source_refs",
+        "inferential_limit"
+      ],
+      "additionalProperties": false
+    },
+    "F5ReusedContact": {
+      "type": "object",
+      "properties": {
+        "appearance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "upstream_layer": {
+          "const": "DEMETER_PERSEPHONE_SEPARATION_RETURN_COMPLEX"
+        },
+        "contributes_new_evidence": {
+          "const": false
+        }
+      },
+      "required": [
+        "appearance_ref",
+        "artifact_ref",
+        "upstream_layer",
+        "contributes_new_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "F5Result": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-liminal-moirai-1.0-development"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "catalog_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "catalog_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policy_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policy_status": {
+          "const": "DEVELOPMENT"
+        },
+        "ssar": {
+          "$ref": "#/$defs/Result"
+        },
+        "families": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F4Family"
+          }
+        },
+        "complexes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5Complex"
+          }
+        },
+        "functional_notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5FunctionalNote"
+          }
+        },
+        "shared_contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F4Shared"
+          }
+        },
+        "reused_contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/F5ReusedContact"
+          }
+        },
+        "completion": {
+          "enum": [
+            "NONE",
+            "PARTIAL"
+          ]
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        },
+        "structural_scoring_modified": {
+          "const": false
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "discriminator_effect": {
+          "const": "NONE"
+        },
+        "execution_status": {
+          "enum": [
+            "executed",
+            "not_run"
+          ]
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Coverage"
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "enabled",
+        "catalog_id",
+        "catalog_hash",
+        "policy_id",
+        "policy_status",
+        "ssar",
+        "families",
+        "complexes",
+        "functional_notes",
+        "shared_contacts",
+        "reused_contacts",
+        "completion",
+        "external_validation_status",
+        "structural_scoring_modified",
+        "ontology_effect",
+        "discriminator_effect",
+        "execution_status",
+        "coverage"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessStudyEvent": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "episode_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "START_EVENT",
+            "DURATION_INTERVAL",
+            "CLOSURE_EVENT",
+            "TRANSITION_EVENT",
+            "REOPENING_EVENT",
+            "DISCORD_EVENT"
+          ]
+        },
+        "start_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "precision_sufficient": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "verification_status": {
+          "enum": [
+            "VERIFIED",
+            "PENDING",
+            "DISPUTED"
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "fact_interpretation_separated": {
+          "type": "boolean"
+        },
+        "continuity_observed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "from_state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "to_state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "data_class": {
+          "enum": [
+            "DOCUMENT",
+            "OBSERVATION",
+            "SELF_REPORT",
+            "INTERPRETATION"
+          ]
+        }
+      },
+      "required": [
+        "event_id",
+        "fact_key",
+        "episode_id",
+        "subject_id",
+        "role",
+        "start_date",
+        "end_date",
+        "precision_sufficient",
+        "verification_status",
+        "source_refs",
+        "fact_interpretation_separated",
+        "continuity_observed",
+        "from_state",
+        "to_state",
+        "data_class"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessStudyClaim": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "INITIATION_OCCURRED",
+            "DURATION_WITHIN_BOUNDS",
+            "CLOSURE_PERSISTED_IN_WINDOW",
+            "TRANSITION_OCCURRED",
+            "DISCORD_FREE_WINDOW"
+          ]
+        },
+        "episode_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "window_start": {
+          "type": "string",
+          "minLength": 1
+        },
+        "window_end": {
+          "type": "string",
+          "minLength": 1
+        },
+        "as_of": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preregistered_before_chart_inspection": {
+          "type": "boolean"
+        },
+        "observation_coverage_complete": {
+          "type": "boolean"
+        },
+        "event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "minimum_days": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "maximum_days": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "episode_id",
+        "subject_id",
+        "window_start",
+        "window_end",
+        "as_of",
+        "preregistered_before_chart_inspection",
+        "observation_coverage_complete",
+        "event_refs",
+        "minimum_days",
+        "maximum_days"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessStudyRequest": {
+      "type": "object",
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProcessStudyEvent"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProcessStudyClaim"
+          }
+        }
+      },
+      "required": [
+        "events",
+        "claims"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessStudyFact": {
+      "type": "object",
+      "properties": {
+        "fact_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "conflict": {
+          "type": "boolean"
+        },
+        "admissible_event_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "fact_key",
+        "event_refs",
+        "conflict",
+        "admissible_event_ref"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessStudyClaimResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessment": {
+          "$ref": "#/$defs/Assessment"
+        },
+        "supporting_event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicting_event_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "unresolved_fact_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "duration_days": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "window_closed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "assessment",
+        "supporting_event_refs",
+        "contradicting_event_refs",
+        "unresolved_fact_keys",
+        "duration_days",
+        "window_closed"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessStudyResult": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "ssar-process-study-1.0-development"
+        },
+        "policy_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "integration_status": {
+          "const": "STANDALONE_STUDY_CONTRACT_NOT_M27"
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProcessStudyFact"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProcessStudyClaimResult"
+          }
+        },
+        "astrological_effect": {
+          "const": "NONE"
+        },
+        "documentary_correspondence_effect": {
+          "const": "NONE"
+        },
+        "ontology_effect": {
+          "const": "NONE"
+        },
+        "policy_status": {
+          "const": "DEVELOPMENT"
+        },
+        "epistemic_class": {
+          "const": "E_PROJECT_HYPOTHESIS"
+        },
+        "external_validation_status": {
+          "const": "NOT_PERFORMED"
+        }
+      },
+      "required": [
+        "schema_version",
+        "policy_id",
+        "policy_hash",
+        "integration_status",
+        "facts",
+        "claims",
+        "astrological_effect",
+        "documentary_correspondence_effect",
+        "ontology_effect",
+        "policy_status",
+        "epistemic_class",
+        "external_validation_status"
+      ],
+      "additionalProperties": false
     }
   }
 }

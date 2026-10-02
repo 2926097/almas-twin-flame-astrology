@@ -272,6 +272,17 @@
       "public_source_refs": []
     },
     {
+      "path": "examples/ssar-liminal-moirai.synthetic.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SSAR_LIMINAL_MOIRAI_AND_PROCESS_STUDY_DEVELOPMENT_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
       "path": "examples/surrender-vestal.synthetic.json",
       "classification": "SYNTHETIC",
       "purpose": "SYNTHETIC_SURRENDER_VESTAL_CONTROL",

@@ -1,0 +1,576 @@
+{
+  "catalog_id": "ALMAS_SSAR_LIMINAL_MOIRAI_CATALOG_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "sources": [
+    {
+      "id": "F5_PROJECT",
+      "author": "Proyecto ALMAS",
+      "work": "Liminalidad y Moiras: método exploratorio",
+      "locator": "reference/ssar-liminal-moirai.md",
+      "priority": "P4",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "claim_scopes": [
+        "SEMANTIC_BASIS",
+        "ASTROLOGICAL_METHOD"
+      ],
+      "date": "2026-10-02",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_HESIOD",
+      "author": "Hesíodo; traducción H. G. Evelyn-White",
+      "work": "Teogonía",
+      "locator": "211–232, 410–452 y 901–906; Loeb 57, 1914",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "claim_scopes": [
+        "SEMANTIC_BASIS"
+      ],
+      "date": "1914",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_WORKS",
+      "author": "Hesíodo; traducción H. G. Evelyn-White",
+      "work": "Trabajos y días",
+      "locator": "11–26: dos modalidades de Eris; Loeb 57, 1914",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "claim_scopes": [
+        "SEMANTIC_BASIS"
+      ],
+      "date": "1914",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F4_HYMN",
+      "author": "Himno homérico; traducción Gregory Nagy",
+      "work": "Himno a Deméter",
+      "date": null,
+      "locator": "versos 25–61, 334–403, 438–440 y 445–470; CHS Harvard",
+      "priority": "P1",
+      "epistemic_class": "C_DOCTRINE",
+      "verification_status": "VERIFIED",
+      "claim_scopes": [
+        "SEMANTIC_BASIS"
+      ]
+    },
+    {
+      "id": "F5_ID_HEKATE",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 100 HEKATE; SPKID 20000100",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_HEKATE",
+      "author": "Lutz D. Schmadel",
+      "work": "Dictionary of Minor Planet Names, 5.ª edición",
+      "locator": "Entrada (100), página impresa 24; DOI 10.1007/978-3-540-29925-7",
+      "priority": "P3",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": "2003",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_ID_PERSEPHONE",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 399 PERSEPHONE; SPKID 20000399",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_PERSEPHONE",
+      "author": "Lutz D. Schmadel",
+      "work": "Dictionary of Minor Planet Names, 5.ª edición",
+      "locator": "Entrada (399), página impresa 48; DOI 10.1007/978-3-540-29925-7",
+      "priority": "P3",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": "2003",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_ID_ERIS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 136199 ERIS; SPKID 20136199",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_ERIS",
+      "author": "NASA Science",
+      "work": "Eris, Namesake",
+      "locator": "Namesake",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_ID_KLOTHO",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 97 KLOTHO; SPKID 20000097",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_KLOTHO",
+      "author": "Lutz D. Schmadel",
+      "work": "Dictionary of Minor Planet Names, 5.ª edición",
+      "locator": "Entrada (97), página impresa 24; DOI 10.1007/978-3-540-29925-7",
+      "priority": "P3",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": "2003",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_ID_LACHESIS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 120 LACHESIS; SPKID 20000120",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_LACHESIS",
+      "author": "Lutz D. Schmadel",
+      "work": "Dictionary of Minor Planet Names, 5.ª edición",
+      "locator": "Entrada (120), página impresa 26; DOI 10.1007/978-3-540-29925-7",
+      "priority": "P3",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": "2003",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_ID_ATROPOS",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 273 ATROPOS; SPKID 20000273",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_ATROPOS",
+      "author": "Lutz D. Schmadel",
+      "work": "Dictionary of Minor Planet Names, 5.ª edición",
+      "locator": "Entrada (273), página impresa 39; DOI 10.1007/978-3-540-29925-7",
+      "priority": "P3",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": "2003",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_ID_MOIRA",
+      "author": "NASA/JPL Solar System Dynamics",
+      "work": "Small-Body Database",
+      "locator": "Auditoría fase 1: 638 MOIRA; SPKID 20000638",
+      "priority": "P1",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "IDENTITY"
+      ],
+      "date": null,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "id": "F5_NAME_MOIRA",
+      "author": "Lutz D. Schmadel",
+      "work": "Dictionary of Minor Planet Names, 5.ª edición",
+      "locator": "Entrada (638), página impresa 63; DOI 10.1007/978-3-540-29925-7",
+      "priority": "P3",
+      "epistemic_class": "A_DOCUMENTARY",
+      "claim_scopes": [
+        "NAME_ORIGIN"
+      ],
+      "date": "2003",
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "entries": [
+    {
+      "point_id": "HEKATE",
+      "number": "100",
+      "spkid": "20000100",
+      "identity_source_ref": "F5_ID_HEKATE",
+      "function_id": "LIMINAL_THRESHOLD_GUIDANCE",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Umbral y acompañamiento como motivos simbólicos.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_HEKATE"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F5_HESIOD",
+          "F4_HYMN"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "PERSEPHONE",
+      "number": "399",
+      "spkid": "20000399",
+      "identity_source_ref": "F5_ID_PERSEPHONE",
+      "function_id": "DESCENT_TRANSFORMATION_RETURN",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Descenso, transformación y retorno como motivos simbólicos.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_PERSEPHONE"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F4_HYMN"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "ERIS",
+      "number": "136199",
+      "spkid": "20136199",
+      "identity_source_ref": "F5_ID_ERIS",
+      "function_id": "DISCORD_EXCLUSION_RIVALRY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Discordia, exclusión y rivalidad como temas; conservar alternativas de competencia constructiva.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_ERIS"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F5_HESIOD",
+          "F5_WORKS"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "KLOTHO",
+      "number": "97",
+      "spkid": "20000097",
+      "identity_source_ref": "F5_ID_KLOTHO",
+      "function_id": "THREAD_INITIATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Inicio del hilo como metáfora de un proceso.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_KLOTHO"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "LACHESIS",
+      "number": "120",
+      "spkid": "20000120",
+      "identity_source_ref": "F5_ID_LACHESIS",
+      "function_id": "MEASURE_DURATION_ALLOCATION",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Medida, duración y asignación como temas simbólicos.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_LACHESIS"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "ATROPOS",
+      "number": "273",
+      "spkid": "20000273",
+      "identity_source_ref": "F5_ID_ATROPOS",
+      "function_id": "CUT_COMPLETION_IRREVERSIBILITY",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Corte y terminación como motivos; la irreversibilidad vivida requiere hechos y ventana delimitada.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_ATROPOS"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    },
+    {
+      "point_id": "MOIRA",
+      "number": "638",
+      "spkid": "20000638",
+      "identity_source_ref": "F5_ID_MOIRA",
+      "function_id": "FATE_ALLOTMENT_CONTEXT",
+      "epistemic_class": "E_PROJECT_HYPOTHESIS",
+      "interpretation": "Reparto y contexto del proceso como temas simbólicos.",
+      "inferential_limit": "No acredita guía externa, destino, fase vivida, tercera persona, retorno ni cierre irreversible.",
+      "provenance": {
+        "identity_status": "VERIFIED",
+        "basis": "NAME",
+        "verification_status": "VERIFIED",
+        "name_class": "NP1_MYTHIC_DIRECT",
+        "source_refs": [
+          "F5_NAME_MOIRA"
+        ],
+        "algorithm": null,
+        "conventions": null,
+        "inputs": [],
+        "variant": null,
+        "sect": null
+      },
+      "semantic_basis": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT",
+          "F5_HESIOD"
+        ],
+        "justification": "Función E del plan R2; los antecedentes narrativos no validan la regla astrológica.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      },
+      "method": {
+        "epistemic_class": "E_PROJECT_HYPOTHESIS",
+        "source_refs": [
+          "F5_PROJECT"
+        ],
+        "justification": "Contacto exploratorio, anclaje core y perturbaciones de posiciones suministradas.",
+        "policy_ref": "ALMAS_SSAR_LIMINAL_MOIRAI_DEVELOPMENT_V1"
+      }
+    }
+  ],
+  "families": [
+    {
+      "id": "MOIRAI_CLUSTER",
+      "members": [
+        "KLOTHO",
+        "LACHESIS",
+        "ATROPOS",
+        "MOIRA"
+      ]
+    }
+  ],
+  "complexes": [
+    {
+      "id": "LIMINAL_TRANSITION_COMPLEX",
+      "members": [
+        "HEKATE",
+        "PERSEPHONE"
+      ],
+      "context_points": [
+        "ERIS"
+      ],
+      "rule_id": "SSAR_F5_LIMINAL_TWO_GROUPS_V1"
+    },
+    {
+      "id": "FATE_PROCESS_COMPLEX",
+      "members": [
+        "KLOTHO",
+        "LACHESIS",
+        "ATROPOS",
+        "MOIRA"
+      ],
+      "context_points": [
+        "ERIS"
+      ],
+      "rule_id": "SSAR_F5_MOIRAI_TWO_GROUPS_V1"
+    }
+  ],
+  "complex_rule": {
+    "minimum_effective_groups": 2,
+    "minimum_qualified_significators": 1,
+    "require_all_components": true,
+    "cluster_strength": null,
+    "selection_policy": "NO_RANKING_WITHOUT_FROZEN_COMMON_MAGNITUDE"
+  }
+}
