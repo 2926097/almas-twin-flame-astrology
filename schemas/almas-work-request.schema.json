@@ -58,6 +58,9 @@
           "properties": {
             "schema_version": {"const": "1.0.0"},
             "policy_bundle_id": {"type": "string", "minLength": 1},
+            "preset_ref": {
+              "enum": ["ALMAS_RELATIONAL_ORB_BASELINE_V1", null]
+            },
             "aspect_policy": {"$ref": "aspect-policy.schema.json"},
             "declination_policy": {"type": "object"},
             "antiscia_policy": {"type": "object"},
