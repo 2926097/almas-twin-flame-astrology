@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/almas-work-request.schema.json",
+  "title": "ALMAS · Solicitud de trabajo del panel",
+  "type": "object",
+  "required": ["case_title", "request"],
+  "properties": {
+    "case_title": {"type": "string", "minLength": 1},
+    "research_question": {"type": ["string", "null"]},
+    "request": {
+      "type": "object",
+      "required": [
+        "format",
+        "public_version",
+        "type",
+        "analysis_profile",
+        "subjects",
+        "execution_state"
+      ],
+      "properties": {
+        "format": {"const": "ALMAS_WORK_REQUEST"},
+        "public_version": {"type": "string", "minLength": 1},
+        "type": {"const": "RELATIONAL"},
+        "analysis_profile": {
+          "enum": [
+            "FULL_MULTIDISCIPLINARY",
+            "FULL_ASTROLOGY",
+            "TEMPORAL",
+            "SOUL_CONTRACT"
+          ]
+        },
+        "subjects": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["id", "birth_date"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "display_name": {"type": ["string", "null"]},
+              "birth_date": {"type": "string", "format": "date"},
+              "birth_time": {"type": ["string", "null"]},
+              "timezone": {"type": ["string", "null"]},
+              "place": {"type": ["string", "null"]},
+              "latitude": {"type": ["number", "null"], "minimum": -90, "maximum": 90},
+              "longitude": {"type": ["number", "null"], "minimum": -180, "maximum": 180},
+              "time_reliability": {"enum": ["A", "B", "C", "D", null]},
+              "birth_time_source_class": {
+                "enum": ["DOCUMENTARY", "REPORTED", "RECTIFIED", "UNKNOWN", null]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "analysis_policies": {
+          "type": "object",
+          "properties": {
+            "schema_version": {"const": "1.0.0"},
+            "policy_bundle_id": {"type": "string", "minLength": 1},
+            "aspect_policy": {"$ref": "aspect-policy.schema.json"},
+            "declination_policy": {"type": "object"},
+            "antiscia_policy": {"type": "object"},
+            "composite_policy": {"type": "object"},
+            "davison_policy": {"type": "object"},
+            "relationship_chart_consonance_policy": {"type": "object"},
+            "draconic_policy": {"type": "object"},
+            "draconic_aspect_policy": {"$ref": "aspect-policy.schema.json"},
+            "lot_policy": {"type": "object"},
+            "secondary_symbolic_policy": {"type": "object"}
+          },
+          "additionalProperties": true
+        },
+        "situation_location": {"type": ["object", "null"]},
+        "research_question": {"type": ["string", "null"]},
+        "events": {"type": "array", "items": {"type": "object"}},
+        "execution_state": {"enum": ["REQUEST_ONLY", "READY_TO_EXECUTE", "EXECUTED"]},
+        "requirements": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "situation": {"type": ["object", "null"]},
+    "chronology": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}
