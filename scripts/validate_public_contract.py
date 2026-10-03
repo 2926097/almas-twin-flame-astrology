@@ -296,6 +296,7 @@ REQUIRED_FILES = [
     "src/almas_tfa/data/root-strength-policy.json",
     "src/almas_tfa/data/technique-dependency-registry.json",
     "src/almas_tfa/data/declared-orb-contract-policy.json",
+    "src/almas_tfa/data/relational-orb-baseline-policy.json",
     "src/almas_tfa/data/structural-loading-policy.json",
     "src/almas_tfa/data/production-astronomy-backend-policy.json",
     "src/almas_tfa/data/astronomy-golden-validation-policy.json",
