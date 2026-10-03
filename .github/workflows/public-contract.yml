@@ -24,6 +24,9 @@ jobs:
       - name: Validar contrato público ALMAS
         run: python scripts/validate_public_contract.py
 
+      - name: Validar puente ALMAS_WORK_REQUEST
+        run: python scripts/validate_work_request_bridge.py
+
       - name: Validar coherencia del piloto documental RRA
         run: python scripts/validate_rra_documentary_inventory.py
 
