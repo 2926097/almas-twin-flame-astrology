@@ -4,6 +4,10 @@ from copy import deepcopy
 from typing import Any, Mapping
 
 from .analysis_profiles import resolve_analysis_profile
+from .relational_policy_presets import (
+    RelationalPolicyPresetError,
+    resolve_relational_policy_preset,
+)
 from .structural_policies import validate_declared_aspect_policy
 
 
@@ -271,11 +275,41 @@ def assess_relational_work_request(
         profile["profile_id"],
         (),
     )
-    missing = [
-        key
-        for key in required_declared
-        if key not in analysis_policies
-    ]
+
+    policy_profile_id = request.get("analysis_policy_profile")
+    resolved_preset = None
+    if policy_profile_id is not None:
+        if not isinstance(policy_profile_id, str) or not policy_profile_id.strip():
+            raise RelationalWorkRequestError(
+                "analysis_policy_profile debe ser un identificador no vacío."
+            )
+        conflicting = sorted(
+            set(required_declared) & set(analysis_policies)
+        )
+        if conflicting:
+            raise RelationalWorkRequestError(
+                "No se puede combinar analysis_policy_profile con overrides "
+                "inline de políticas de orbe: "
+                + ", ".join(conflicting)
+                + "."
+            )
+        try:
+            resolved_preset = resolve_relational_policy_preset(
+                policy_profile_id,
+                analysis_profile=profile["profile_id"],
+            )
+        except RelationalPolicyPresetError as exc:
+            raise RelationalWorkRequestError(str(exc)) from exc
+
+    missing = (
+        []
+        if resolved_preset is not None
+        else [
+            key
+            for key in required_declared
+            if key not in analysis_policies
+        ]
+    )
 
     return {
         "adapter_id": ADAPTER_ID,
@@ -284,6 +318,21 @@ def assess_relational_work_request(
         "analysis_mode": profile["analysis_mode"],
         "ready_for_raw_input": not missing,
         "missing_declared_policies": missing,
+        "analysis_policy_profile": (
+            resolved_preset["preset_id"]
+            if resolved_preset is not None
+            else None
+        ),
+        "analysis_policy_fingerprint": (
+            resolved_preset["policy_fingerprint"]
+            if resolved_preset is not None
+            else None
+        ),
+        "policy_source": (
+            "EXPLICIT_PRESET"
+            if resolved_preset is not None
+            else "EXPLICIT_INLINE"
+        ),
         "fixed_policies_available": sorted(_FIXED_POLICIES),
         "implicit_orbs_allowed": False,
         "case_fitting_allowed": False,
@@ -326,17 +375,30 @@ def prepare_relational_raw_input(
     }
 
     declared_keys: list[str] = []
-    for name in _REQUIRED_DECLARED_POLICIES_BY_PROFILE.get(
-        assessment["profile_id"],
-        (),
-    ):
-        if name not in analysis_policies:
-            continue
-        raw[name] = _validate_declared_policy(
-            name,
-            analysis_policies[name],
-        )
-        declared_keys.append(name)
+    policy_profile_id = assessment.get("analysis_policy_profile")
+    if isinstance(policy_profile_id, str):
+        try:
+            preset = resolve_relational_policy_preset(
+                policy_profile_id,
+                analysis_profile=assessment["profile_id"],
+            )
+        except RelationalPolicyPresetError as exc:
+            raise RelationalWorkRequestError(str(exc)) from exc
+        for name, value in preset["policies"].items():
+            raw[name] = _validate_declared_policy(name, value)
+            declared_keys.append(name)
+    else:
+        for name in _REQUIRED_DECLARED_POLICIES_BY_PROFILE.get(
+            assessment["profile_id"],
+            (),
+        ):
+            if name not in analysis_policies:
+                continue
+            raw[name] = _validate_declared_policy(
+                name,
+                analysis_policies[name],
+            )
+            declared_keys.append(name)
 
     for name in _FIXED_POLICIES:
         raw[name] = _merge_fixed_policy(
@@ -355,6 +417,11 @@ def prepare_relational_raw_input(
         "source_execution_state": request.get("execution_state"),
         "public_version": expected_public_version,
         "analysis_profile": assessment["profile_id"],
+        "analysis_policy_profile": assessment.get("analysis_policy_profile"),
+        "analysis_policy_fingerprint": assessment.get(
+            "analysis_policy_fingerprint"
+        ),
+        "policy_source": assessment.get("policy_source"),
         "fixed_policies_injected": sorted(_FIXED_POLICIES),
         "declared_policy_keys": sorted(set(declared_keys)),
         "missing_declared_policies": list(
