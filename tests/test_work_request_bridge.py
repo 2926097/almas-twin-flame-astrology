@@ -173,6 +173,36 @@ class WorkRequestBridgeTests(unittest.TestCase):
         self.assertIn("draconic_policy", raw)
         self.assertIn("draconic_aspect_policy", raw)
 
+    def test_relchart_policy_without_nested_aspects_is_rejected(self):
+        payload = envelope()
+        policies = explicit_policies()
+        policies["relationship_chart_consonance_policy"] = {
+            "point_ids": ["SUN", "MOON"]
+        }
+        payload["request"]["analysis_policies"] = policies
+
+        result = assess_work_request(payload)
+        self.assertFalse(result["execution_ready"])
+        self.assertIn(
+            "relationship_chart_consonance_policy.aspect_policy es obligatorio.",
+            result["policy_errors"],
+        )
+
+    def test_normative_policy_override_is_rejected(self):
+        payload = envelope()
+        policies = explicit_policies()
+        policies["davison_policy"] = {
+            "time_midpoint": "LOCAL_TIME",
+            "geographic_midpoint": "SPHERICAL_GREAT_CIRCLE",
+        }
+        payload["request"]["analysis_policies"] = policies
+
+        result = assess_work_request(payload)
+        self.assertFalse(result["execution_ready"])
+        self.assertTrue(
+            any("davison_policy diverge" in item for item in result["policy_errors"])
+        )
+
     def test_negative_declination_orb_is_rejected(self):
         payload = envelope()
         policies = explicit_policies()
