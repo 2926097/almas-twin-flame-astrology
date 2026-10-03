@@ -34,14 +34,24 @@
           "local_time": null,
           "utc_instant": null,
           "place_assertion": "Sceaux",
-          "independent_replication_established": false
+          "independent_replication_established": false,
+          "adjudication_status": "EVENT_DATE_CONFLICT_PENDING_ADJUDICATION",
+          "resolved_event_date": null,
+          "alternative_date_assertions": [
+            {
+              "date": "1895-07-25",
+              "source_url": "https://fr.wikisource.org/wiki/Page:Curie_-_Pierre_Curie,_1924.djvu/52",
+              "source_locator": "Marie Curie, Pierre Curie, Payot 1924, cap. IV, p. 52; transcripción"
+            }
+          ]
         }
       ],
       "blockers": [
         "NATAL_TIME_NOT_DOCUMENTED_IN_EXAMINED_PASSAGES",
         "NEGATIVE_OBSERVATION_NOT_ESTABLISHED",
         "SOURCE_GENEALOGY_NOT_AUDITED",
-        "ORIGINAL_MARRIAGE_RECORD_NOT_READ"
+        "ORIGINAL_MARRIAGE_RECORD_NOT_READ",
+        "EVENT_DATE_CONFLICT_PENDING_ADJUDICATION"
       ]
     },
     {
@@ -277,5 +287,7 @@
     }
   ],
   "report_path": "docs/RRA_ARCHIVAL_FEASIBILITY_SCREEN.md",
-  "next_action": "INVENTORY_PRIMARY_RECORDS_AND_COVERAGE_BEFORE_SELECTING_CONTROLS"
+  "next_action": "INVENTORY_PRIMARY_RECORDS_AND_COVERAGE_BEFORE_SELECTING_CONTROLS",
+  "documentary_coverage_inventory": "validation/returns/documentary-coverage-inventory.json",
+  "published_primary_transcription_passages_read": 2
 }
