@@ -1,5 +1,9 @@
 # Changelog
 
+## Integración panel→pipeline y preset relacional — 2026-10-03
+
+Añade el contrato `ALMAS_WORK_REQUEST` y un puente fail-closed hacia `raw_input` para `FULL_ASTROLOGY`, con validación de versión, perfil, sujetos y políticas. Incorpora el preset opt-in `ALMAS_RELATIONAL_ORB_BASELINE_V1`: materializa orbes explícitos sin convertirlos en defaults implícitos, prohíbe overrides caso-a-caso y conserva `E_PROJECT_POLICY`, `NOT_PERFORMED` y perturbación Q5. Registra fuentes metodológicas para orb, paralelos y contactos dracónicos, manteniendo separados método documentado y decisiones cuantitativas del proyecto. No modifica scoring, índices, discriminadores, ontología ni reglas de validación externa.
+
 ## Integración de pendientes — 2026-10-03
 
 Integra F1–F5 de estrellas fijas/parans en informes personales: backend opcional Moira, política y canon trazados, minimización, router técnico, autoría y publicación B5. Incorpora runner descriptivo candidato RRA con cobertura, deduplicación y agregación por componentes. Conserva siete bloqueos externos y NOT_PERFORMED; no modifica índices ni políticas SSAR/RRA congeladas. Las ramas históricas cubiertas se cierran como sustituidas después de validar la integración.
