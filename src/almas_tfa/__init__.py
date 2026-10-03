@@ -69,6 +69,7 @@ from .reality_handlers import m29_viability_reciprocity
 from .report_gate_handlers import m30_report_gate, make_m30_report_gate_auto
 from .canonical_assembly import assemble_canonical_analysis, derive_canonical_coverage, load_canonical_assembly_policy
 from .analysis_profiles import load_analysis_profile_policy, profile_trace_assessment, resolve_analysis_profile
+from .relational_request_pipeline import RelationalWorkRequestError, assess_relational_work_request, prepare_relational_raw_input
 from .report_model_handlers import m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
@@ -198,6 +199,9 @@ __all__ = [
     "load_analysis_profile_policy",
     "resolve_analysis_profile",
     "profile_trace_assessment",
+    "RelationalWorkRequestError",
+    "assess_relational_work_request",
+    "prepare_relational_raw_input",
     "m31_report",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",
