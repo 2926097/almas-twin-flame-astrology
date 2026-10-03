@@ -97,3 +97,7 @@ El inventario registra ocho unidades o recursos y ninguna fecha conflictiva acti
 ## Operacionalización técnica del endpoint candidato
 
 El runner descriptivo de `scripts/run_rra_external_descriptive.py` valida ejecuciones RRA, excluye cartas EVENT, cuenta una vez cada fecha y conserva incertidumbre, resultados negativos y pérdidas de cobertura. Su medida agrega diferencias evento–control con igual peso por vínculo dentro de cada componente y después igual peso por componente evaluable. Las referencias de cobertura son declaraciones auditables, no autenticación automática. No ejecuta p-valores, intervalos confirmatorios ni promociones del motor. El recibo cambia a IMPLEMENTED_DESCRIPTIVE_CANDIDATE; permanece DRAFT_NOT_PREREGISTERED y NOT_PERFORMED para validación externa real. Véase [método y uso](RRA_EXTERNAL_RUNNER.md).
+
+## Expediente de ejecución y dictamen de cierre
+
+El [expediente de ejecución](RRA_EXTERNAL_EXECUTION_DOSSIER.md) concreta la evidencia necesaria para resolver cada uno de los siete requisitos, la recogida documental, el orden de congelación/registro/apertura y la diferencia entre preparación y resultado empírico. La revisión del 3-10-2026 acredita cero requisitos resueltos con la evidencia disponible, no un cierre de validación. El recibo conserva BLOCKED_EXTERNAL_EVIDENCE_REQUIRED, NOT_PERFORMED y holdout cerrado.

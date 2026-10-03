@@ -71,5 +71,20 @@
     }
   ],
   "runner_path": "scripts/run_rra_external_descriptive.py",
-  "runner_method_path": "docs/RRA_EXTERNAL_RUNNER.md"
+  "runner_method_path": "docs/RRA_EXTERNAL_RUNNER.md",
+  "execution_dossier_path": "docs/RRA_EXTERNAL_EXECUTION_DOSSIER.md",
+  "closure_assessment": {
+    "assessed_on": "2026-10-03",
+    "status": "BLOCKED_EXTERNAL_EVIDENCE_REQUIRED",
+    "requirements_total": 7,
+    "requirements_resolved": 0,
+    "empirical_execution_completed": false,
+    "documentary_preparation_is_validation": false,
+    "evidence_basis": [
+      "validation/returns/documentary-feasibility-screen.json",
+      "validation/returns/archival-feasibility-screen.json",
+      "validation/returns/documentary-coverage-inventory.json"
+    ],
+    "technical_baseline_commit": "a609b4c83189d014a15c21f305048bfd6603359f"
+  }
 }
