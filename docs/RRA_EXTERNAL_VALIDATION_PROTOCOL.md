@@ -83,3 +83,7 @@ Winkler, A. M.; Ridgway, G. R.; Webster, M. A.; Smith, S. M.; Nichols, T. E. (20
 ## Estado y siguiente acción
 
 La siguiente acción es el estudio de factibilidad documental, con fuentes y reglas de selección previas, sin abrir el holdout ni inspeccionar su astrología. Debe localizar una cohorte independiente utilizable y resolver los bloqueos del recibo. No se han incorporado casos reales ni se han creado resultados empíricos. La ejecución externa permanece **NOT_PERFORMED**.
+
+## Avance documental del 3 de octubre de 2026
+
+El [primer cribado de factibilidad](RRA_DOCUMENTARY_FEASIBILITY_SCREEN.md) ha examinado cuatro vínculos públicos en un panel de conveniencia institucional, sin calcular astrología. El [inventario bibliográfico y recibo](../validation/returns/documentary-feasibility-screen.json) conserva los bloqueos de precisión, observación y dependencia. Estos candidatos se reservan al piloto y quedan excluidos del holdout de esta evaluación; todavía no existe una cohorte confirmatoria admitida. El preregistro, runner e inferencia autorizada permanecen pendientes.

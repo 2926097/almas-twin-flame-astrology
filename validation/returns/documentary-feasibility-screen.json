@@ -1,0 +1,221 @@
+{
+  "schema_version": "rra-documentary-screen-0.1",
+  "classification": "PUBLIC_METADATA_ONLY",
+  "status": "DOCUMENTARY_PILOT_ONLY",
+  "screened_on": "2026-10-03",
+  "selection": "CONVENIENCE_INSTITUTIONAL_SOURCE_PANEL_NOT_EXHAUSTIVE_NOT_PREREGISTERED",
+  "pilot_candidates": [
+    {
+      "id": "P01",
+      "person_refs": [
+        "ELIZABETH_II",
+        "PHILIP"
+      ],
+      "person_component": "PERSON_COMPONENT_1",
+      "source_refs": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "blockers": [
+        "PARTNER_BIRTH_TIME_NOT_DOCUMENTED_IN_EXAMINED_CORPUS",
+        "CONTROLS_AND_OBSERVATION_NOT_AVAILABLE"
+      ]
+    },
+    {
+      "id": "P02",
+      "person_refs": [
+        "CHARLES_III",
+        "DIANA"
+      ],
+      "person_component": "PERSON_COMPONENT_2",
+      "source_refs": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "blockers": [
+        "PARTNER_BIRTH_TIME_NOT_DOCUMENTED_IN_EXAMINED_CORPUS",
+        "ANNOUNCEMENT_AND_SEPARATION_ONSET_DISTINCT",
+        "CONTROLS_AND_OBSERVATION_NOT_AVAILABLE"
+      ]
+    },
+    {
+      "id": "P03",
+      "person_refs": [
+        "CHARLES_III",
+        "CAMILLA"
+      ],
+      "person_component": "PERSON_COMPONENT_2",
+      "source_refs": [
+        "S04",
+        "S07"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "blockers": [
+        "PARTNER_BIRTH_TIME_NOT_DOCUMENTED_IN_EXAMINED_CORPUS",
+        "SHARED_PERSON_WITH_P02",
+        "CIVIL_AND_RELIGIOUS_ACTS_DISTINCT",
+        "CONTROLS_AND_OBSERVATION_NOT_AVAILABLE"
+      ]
+    },
+    {
+      "id": "P04",
+      "person_refs": [
+        "WILLIAM",
+        "CATHERINE"
+      ],
+      "person_component": "PERSON_COMPONENT_3",
+      "source_refs": [
+        "S08",
+        "S09",
+        "S10",
+        "S11"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "blockers": [
+        "PARTNER_BIRTH_TIME_NOT_DOCUMENTED_IN_EXAMINED_CORPUS",
+        "PRIVATE_ENGAGEMENT_AND_ANNOUNCEMENT_DISTINCT",
+        "CONTROLS_AND_OBSERVATION_NOT_AVAILABLE"
+      ]
+    }
+  ],
+  "candidate_count": 4,
+  "distinct_person_count": 7,
+  "person_graph_components": 3,
+  "statistical_independent_component_count": null,
+  "common_family_and_institutional_block": true,
+  "full_case_payloads_present": false,
+  "astrological_results_present": false,
+  "charts_computed": false,
+  "returns_computed": false,
+  "holdout_opened": false,
+  "real_validation_cases_admitted": 0,
+  "natal_time_institutional_assertions_available": 3,
+  "natal_times_not_documented_in_examined_corpus": 4,
+  "complete_negative_observation_periods_available": 0,
+  "source_registry": [
+    {
+      "id": "S01",
+      "url": "https://www.royal.uk/the-queens-early-life-and-education",
+      "publisher": "Royal Household",
+      "scope": "Nacimiento de Isabel II",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S02",
+      "url": "https://www.royal.uk/50-facts-about-duke-edinburgh",
+      "publisher": "Royal Household",
+      "scope": "Fecha y lugar natal de Felipe; sin hora en el pasaje",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S03",
+      "url": "https://www.royal.uk/70-facts-about-queen-and-duke-edinburghs-wedding",
+      "publisher": "Royal Household",
+      "scope": "Anuncio de compromiso y hora ceremonial",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S04",
+      "url": "https://www.royal.uk/the-king",
+      "publisher": "Royal Household",
+      "scope": "Nacimiento de Carlos; matrimonios y anuncio de separación",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S05",
+      "url": "https://www.royal.uk/diana-princess-wales",
+      "publisher": "Royal Household",
+      "scope": "Nacimiento sin hora; boda, anuncio de compromiso y divorcio",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S06",
+      "url": "https://hansard.parliament.uk/Commons/1992-12-09/debates/ecfacae4-f52c-461c-b253-d7c04a299735/PrinceAndPrincessOfWales",
+      "publisher": "UK Parliament",
+      "scope": "Hora de declaración parlamentaria, no del inicio de separación",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S07",
+      "url": "https://www.royal.uk/the-queen?os=v",
+      "publisher": "Royal Household",
+      "scope": "Nacimiento de Camilla sin hora; matrimonio civil",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S08",
+      "url": "https://www.royal.uk/the-prince-of-wales-0",
+      "publisher": "Royal Household",
+      "scope": "Hora natal declarada de Guillermo",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S09",
+      "url": "https://www.royal.uk/the-princess-of-wales",
+      "publisher": "Royal Household",
+      "scope": "Fecha y lugar natal de Catherine; sin hora",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S10",
+      "url": "https://www.royal.uk/wedding-prince-william-and-miss-catherine-middleton",
+      "publisher": "Royal Household",
+      "scope": "Boda; anuncio distinto de compromiso privado",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "S11",
+      "url": "https://www.gov.uk/government/news/royal-wedding-details-announced",
+      "publisher": "Foreign & Commonwealth Office",
+      "scope": "Fecha de publicación distinta de fecha anunciada",
+      "priority": "P1_DOCUMENTARY_SPECIFIC",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    }
+  ],
+  "external_validation_status": "NOT_PERFORMED",
+  "report_path": "docs/RRA_DOCUMENTARY_FEASIBILITY_SCREEN.md"
+}

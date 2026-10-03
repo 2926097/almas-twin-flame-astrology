@@ -32,5 +32,10 @@
     "https://help.osf.io/article/330-welcome-to-registrations",
     "https://pubmed.ncbi.nlm.nih.gov/24530839/"
   ],
-  "protocol_path": "docs/RRA_EXTERNAL_VALIDATION_PROTOCOL.md"
+  "protocol_path": "docs/RRA_EXTERNAL_VALIDATION_PROTOCOL.md",
+  "documentary_feasibility_status": "INITIAL_PILOT_SCREEN_COMPLETED_NO_HOLDOUT_COHORT_ADMITTED",
+  "documentary_feasibility_receipt": "validation/returns/documentary-feasibility-screen.json",
+  "pilot_candidate_count": 4,
+  "pilot_candidates_excluded_from_holdout": true,
+  "updated_on": "2026-10-03"
 }
