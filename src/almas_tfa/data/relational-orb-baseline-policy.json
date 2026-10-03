@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Ofrecer un preset relacional explícito y reproducible para FULL_ASTROLOGY sin convertir fixtures, tradición o uso contemporáneo en validación empírica.",
+  "explicit_opt_in_required": true,
+  "production_default": false,
+  "case_fitting_forbidden": true,
+  "external_validation_status": "NOT_PERFORMED",
+  "analysis_policies": {
+    "aspect_policy": {
+      "CONJUNCTION": {
+        "angle": 0,
+        "orb": 6
+      },
+      "OPPOSITION": {
+        "angle": 180,
+        "orb": 6
+      },
+      "SQUARE": {
+        "angle": 90,
+        "orb": 5
+      },
+      "TRINE": {
+        "angle": 120,
+        "orb": 5
+      },
+      "SEXTILE": {
+        "angle": 60,
+        "orb": 4
+      }
+    },
+    "declination_policy": {
+      "parallel_orb": 1,
+      "contra_parallel_orb": 1
+    },
+    "antiscia_policy": {
+      "antiscia_orb": 1,
+      "contra_antiscia_orb": 1
+    },
+    "relationship_chart_consonance_policy": {
+      "aspect_policy": {
+        "CONJUNCTION": {
+          "angle": 0,
+          "orb": 3
+        }
+      }
+    },
+    "draconic_aspect_policy": {
+      "CONJUNCTION": {
+        "angle": 0,
+        "orb": 3
+      },
+      "OPPOSITION": {
+        "angle": 180,
+        "orb": 3
+      }
+    }
+  },
+  "rationale": {
+    "tropical_major_aspects": {
+      "epistemic_class": "E_PROJECT_POLICY",
+      "source_ids": [
+        "astrodienst_aspect",
+        "astrodienst_orb"
+      ],
+      "statement": "Los cinco aspectos mayores y el concepto de orbe tienen soporte de método; los valores 6/6/5/5/4 son una baseline conservadora del proyecto y no una tabla universal derivada de una fuente.",
+      "validated": false
+    },
+    "declinations": {
+      "epistemic_class": "B_TECHNIQUE",
+      "source_ids": [
+        "boehrer_declination_other_dimension",
+        "astrodienst_parallel"
+      ],
+      "statement": "La baseline de 1 grado queda dentro del rango metodológico publicado para paralelos/contraparalelos y se mantiene sometida a perturbación Q5.",
+      "validated": false
+    },
+    "antiscia": {
+      "epistemic_class": "E_PROJECT_POLICY",
+      "source_ids": [
+        "firmicus_mathesis_2_29_antiscia"
+      ],
+      "statement": "Firmicus documenta la técnica pero no esta amplitud moderna. Un grado se adopta como baseline estricta del proyecto ante la divergencia histórica y contemporánea sobre orbes.",
+      "validated": false
+    },
+    "relationship_chart_consonance": {
+      "epistemic_class": "E_PROJECT_POLICY",
+      "source_ids": [],
+      "statement": "La conjunción homóloga compuesta-Davison a 3 grados es un criterio de trabajo del proyecto; M09 no define una puntuación global de consonancia y RELCHART cuenta como una única familia.",
+      "validated": false
+    },
+    "draconic_cross": {
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "source_ids": [
+        "blaquier_draconic_astrology_2017_2021",
+        "draconicchart_blaquier_aspects_2026"
+      ],
+      "statement": "El preset restringe M11 a conjunción/oposición con máximo 3 grados conforme al método contemporáneo documentado; esto no prueba vidas pasadas, contrato álmico ni twin flame.",
+      "validated": false
+    }
+  },
+  "robustness": {
+    "parameter_perturbation_policy_ref": "ALMAS_ROBUSTNESS_Q5_V1",
+    "orb_scale_factors": [
+      0.9,
+      0.95,
+      1.05,
+      1.1
+    ],
+    "baseline_is_not_validation": true
+  },
+  "invariants": {
+    "explicit_reference_required": true,
+    "implicit_orbs_forbidden": true,
+    "runtime_case_fitting_forbidden": true,
+    "preset_selection_does_not_add_score": true,
+    "source_count_does_not_add_weight": true,
+    "draconic_does_not_prove_ontology": true,
+    "null_rarity_is_not_metaphysical_probability": true
+  }
+}
