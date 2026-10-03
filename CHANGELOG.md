@@ -1,5 +1,9 @@
 # Changelog
 
+## Runner privado de solicitudes relacionales — 2026-10-03
+
+Añade `ALMAS_PRIVATE_RELATIONAL_RUNNER_V1` y `scripts/run_relational_work_request.py` para ejecutar localmente una envolvente del panel contra M00–M31 con `MoiraProductionBackend`, kernel, familia, SHA-256 y sistema de casas explícitos. Materializa assessment, raw input, traza, receipt y `canonical_analysis.json` sólo cuando el canonical existe realmente en la salida del pipeline. No publica el caso, no descarga efemérides, no geocodifica y declara `canonical_reconstructed_outside_pipeline=false`.
+
 ## Presets explícitos de política relacional — 2026-10-03
 
 Añade `ALMAS_RELATIONAL_POLICY_PRESET_REGISTRY_V1` y el preset optativo `ALMAS_RELATIONAL_STRICT_RESEARCH_V1`, siempre `E_PROJECT_POLICY`. La selección requiere `analysis_policy_profile` explícito y no admite overrides inline de orbes. La baseline usa 3.5° uniformes para aspectos mayores tropicales, 1° para declinaciones, 1° para antiscios, 1° para conjunción homóloga compuesta-Davison y conjunción/oposición 3° en cruces dracónicos. Conserva fuentes, limitaciones, `implicit_orbs_used=false`, `case_fitting_used=false` y perturbación posterior M25. No cambia scoring, thresholds, ontología ni discriminadores.
