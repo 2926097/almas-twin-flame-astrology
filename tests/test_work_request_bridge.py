@@ -173,6 +173,70 @@ class WorkRequestBridgeTests(unittest.TestCase):
         self.assertIn("draconic_policy", raw)
         self.assertIn("draconic_aspect_policy", raw)
 
+    def test_explicit_preset_ref_expands_to_reproducible_policies(self):
+        payload = envelope()
+        payload["request"]["analysis_policies"] = {
+            "schema_version": "1.0.0",
+            "policy_bundle_id": "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+            "preset_ref": "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+        }
+
+        assessment = assess_work_request(payload)
+        self.assertTrue(assessment["execution_ready"])
+        self.assertEqual(
+            assessment["preset_ref"],
+            "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+        )
+        self.assertEqual(
+            assessment["analysis_policies"]["aspect_policy"]["CONJUNCTION"]["orb"],
+            6,
+        )
+        self.assertEqual(
+            assessment["analysis_policies"]["declination_policy"]["parallel_orb"],
+            1.0,
+        )
+        self.assertEqual(
+            assessment["analysis_policies"]["antiscia_policy"]["antiscia_orb"],
+            1.0,
+        )
+        self.assertEqual(
+            assessment["analysis_policies"]["draconic_aspect_policy"],
+            {
+                "CONJUNCTION": {"angle": 0, "orb": 3},
+                "OPPOSITION": {"angle": 180, "orb": 3},
+            },
+        )
+
+        raw = build_raw_input_from_work_request(payload)
+        self.assertEqual(
+            raw["analysis_policy_bundle"]["preset_ref"],
+            "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+        )
+        self.assertEqual(
+            raw["analysis_policy_bundle"]["preset_epistemic_class"],
+            "E_PROJECT_POLICY",
+        )
+        self.assertEqual(
+            raw["analysis_policy_bundle"]["preset_external_validation_status"],
+            "NOT_PERFORMED",
+        )
+
+    def test_preset_ref_rejects_inline_orb_overrides(self):
+        payload = envelope()
+        payload["request"]["analysis_policies"] = {
+            "schema_version": "1.0.0",
+            "policy_bundle_id": "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+            "preset_ref": "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+            "aspect_policy": {
+                "CONJUNCTION": {"angle": 0, "orb": 9}
+            },
+        }
+        result = assess_work_request(payload)
+        self.assertFalse(result["execution_ready"])
+        self.assertTrue(
+            any("no admite overrides inline" in item for item in result["policy_errors"])
+        )
+
     def test_relchart_policy_without_nested_aspects_is_rejected(self):
         payload = envelope()
         policies = explicit_policies()
