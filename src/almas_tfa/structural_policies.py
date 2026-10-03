@@ -67,6 +67,17 @@ def load_structural_loading_policy() -> dict[str, Any]:
     return policy
 
 
+def load_relational_orb_baseline_policy() -> dict[str, Any]:
+    policy = _load_json("relational-orb-baseline-policy.json")
+    if policy.get("policy_id") != "ALMAS_RELATIONAL_ORB_BASELINE_V1":
+        raise ValueError("Baseline relacional de orbes desconocida.")
+    if policy.get("explicit_opt_in_required") is not True:
+        raise ValueError("La baseline relacional debe exigir opt-in explícito.")
+    if policy.get("production_default") is not False:
+        raise ValueError("La baseline relacional no puede ser default implícito.")
+    return policy
+
+
 def validate_declared_aspect_policy(
     aspect_policy: Mapping[str, Mapping[str, Any]],
     *,
