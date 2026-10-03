@@ -1,5 +1,9 @@
 # Changelog
 
+## Evolución del panel relacional — 2026-10-03
+
+Añade `ALMAS_RELATIONAL_WORK_REQUEST_ADAPTER_V1` para transformar la envolvente `ALMAS_WORK_REQUEST` del frontend en `raw_input` M00–M31. Materializa únicamente convenciones ya congeladas de compuesta, Davison y dracónica; exige políticas de orbes explícitas para sinastría, declinaciones, antiscios, consonancia relacional y cruces dracónicos. Incorpora assessment previo, trazabilidad `implicit_orbs_used=false`, schema, documentación y regresiones sintéticas. No cambia versión pública, scoring, pesos, thresholds, ontología, discriminadores ni backend astronómico.
+
 ## Integración de pendientes — 2026-10-03
 
 Integra F1–F5 de estrellas fijas/parans en informes personales: backend opcional Moira, política y canon trazados, minimización, router técnico, autoría y publicación B5. Incorpora runner descriptivo candidato RRA con cobertura, deduplicación y agregación por componentes. Conserva siete bloqueos externos y NOT_PERFORMED; no modifica índices ni políticas SSAR/RRA congeladas. Las ramas históricas cubiertas se cierran como sustituidas después de validar la integración.
