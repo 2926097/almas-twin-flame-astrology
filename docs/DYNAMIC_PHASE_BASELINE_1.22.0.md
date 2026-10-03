@@ -18,4 +18,4 @@ El fixture congela una muestra controlada del comportamiento, no todos los valor
 
 ## Regla para cambios posteriores
 
-Cualquier desviación de este snapshot exigirá identificar el campo afectado, el motivo técnico, la diferencia respecto de 1.21.0 y 1.22.0 y una aprobación metodológica documentada en el cambio. No se actualizará el fixture sólo para hacer pasar una prueba. Los casos José–Indira no intervienen en estos criterios. El siguiente paso permitido es diseñar el modelo de estados A/B/relación, sin inferencia automática.
+Cualquier desviación de este snapshot exigirá identificar el campo afectado, el motivo técnico, la diferencia respecto de 1.21.0 y 1.22.0 y una aprobación metodológica documentada en el cambio. No se actualizará el fixture sólo para hacer pasar una prueba. Los casos privados de desarrollo no intervienen en estos criterios. El siguiente paso permitido es diseñar el modelo de estados A/B/relación, sin inferencia automática.
