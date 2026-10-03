@@ -90,3 +90,44 @@ valida la salida canónica. Ninguna de esas capas sustituye a las demás.
 
 Las pruebas del puente utilizan exclusivamente sujetos sintéticos. No deben
 incorporarse casos privados a `tests/` ni a `examples/`.
+
+
+## Preset relacional explícito
+
+El puente admite el preset opt-in `ALMAS_RELATIONAL_ORB_BASELINE_V1`. No es
+un default del motor: el panel debe seleccionarlo expresamente mediante:
+
+```json
+{
+  "analysis_policies": {
+    "schema_version": "1.0.0",
+    "policy_bundle_id": "ALMAS_RELATIONAL_ORB_BASELINE_V1",
+    "preset_ref": "ALMAS_RELATIONAL_ORB_BASELINE_V1"
+  }
+}
+```
+
+La expansión materializa en el `raw_input` todos los valores numéricos, de
+modo que M03/M05/M06/M09/M11 siguen recibiendo políticas explícitas. Con
+`preset_ref` se prohíben overrides inline para evitar case fitting.
+
+La baseline fija:
+
+- tropical mayor: conjunción 6°, oposición 6°, cuadratura 5°, trígono 5°,
+  sextil 4°;
+- paralelo/contraparalelo: 1°;
+- antiscio/contra-antiscio: 1°;
+- consonancia compuesta↔Davison: conjunción 3°;
+- natal↔dracónica: conjunción y oposición 3°.
+
+La procedencia epistemológica no es homogénea. Los cinco valores tropicales,
+el grado de antiscios y los 3° de consonancia relacional son
+`E_PROJECT_POLICY`: son una baseline reproducible, no una tabla doctrinal ni
+una validación empírica. El grado de declinación está dentro de la recomendación
+metodológica documentada por Astrodienst y la restricción dracónica
+conjunción/oposición ≤3° sigue el método contemporáneo documentado y revisado
+por María Blaquier. Ninguna de estas fuentes añade score por existir.
+
+El preset conserva `external_validation_status=NOT_PERFORMED` y entra en la
+perturbación Q5 de orbes. La estabilidad frente a ±5–10 % de los orbes se
+evalúa después; la selección del preset nunca equivale a robustez demostrada.
