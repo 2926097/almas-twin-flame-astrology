@@ -33,9 +33,14 @@
     "https://pubmed.ncbi.nlm.nih.gov/24530839/"
   ],
   "protocol_path": "docs/RRA_EXTERNAL_VALIDATION_PROTOCOL.md",
-  "documentary_feasibility_status": "INITIAL_PILOT_SCREEN_COMPLETED_NO_HOLDOUT_COHORT_ADMITTED",
+  "documentary_feasibility_status": "TWO_PILOT_SCREENS_COMPLETED_NO_HOLDOUT_COHORT_ADMITTED",
   "documentary_feasibility_receipt": "validation/returns/documentary-feasibility-screen.json",
-  "pilot_candidate_count": 4,
+  "pilot_candidate_count": 7,
   "pilot_candidates_excluded_from_holdout": true,
-  "updated_on": "2026-10-03"
+  "updated_on": "2026-10-03",
+  "archival_feasibility_receipt": "validation/returns/archival-feasibility-screen.json",
+  "pilot_distinct_person_count": 13,
+  "pilot_person_graph_components": 6,
+  "statistical_independence_established": false,
+  "negative_observation_periods_verified": 0
 }
