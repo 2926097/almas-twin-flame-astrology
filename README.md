@@ -101,7 +101,11 @@ normaliza el request y falla cerrado cuando faltan contratos técnicos.
 La adaptación no introduce orbes implícitos. Las convenciones ya congeladas de
 compuesta, Davison y dracónica pueden completarse determinísticamente; los
 orbes de sinastría, declinaciones, antiscios, consonancia relacional y cruces
-dracónicos deben declararse en un `analysis_policies` versionado.
+dracónicos deben declararse en un `analysis_policies` versionado. El preset
+opt-in `ALMAS_RELATIONAL_ORB_BASELINE_V1` permite una baseline reproducible:
+su selección es explícita, sus valores se materializan en el `raw_input` y
+siguen siendo una política experimental del proyecto, no una validación
+empírica ni una regla doctrinal.
 
 Véase `docs/WORK_REQUEST_BRIDGE.md` y
 `schemas/almas-work-request.schema.json`.
