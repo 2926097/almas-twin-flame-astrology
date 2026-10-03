@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "ALMAS_RELATIONAL_POLICY_PRESET_REGISTRY_V1",
+  "status": "FROZEN_EXPERIMENTAL_BASELINE",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Ofrecer perfiles de política relacional seleccionables de forma explícita sin convertir convenciones de orbe en defaults implícitos del motor.",
+  "principles": {
+    "explicit_selection_required": true,
+    "implicit_orbs_forbidden": true,
+    "case_fitting_forbidden": true,
+    "inline_orb_overrides_with_preset_forbidden": true,
+    "robustness_perturbation_required_downstream": true,
+    "not_universal_astrological_standard": true,
+    "not_metaphysical_probability": true
+  },
+  "presets": {
+    "ALMAS_RELATIONAL_STRICT_RESEARCH_V1": {
+      "status": "EXPERIMENTAL",
+      "epistemic_class": "E_PROJECT_POLICY",
+      "analysis_profiles": [
+        "FULL_ASTROLOGY",
+        "FULL_MULTIDISCIPLINARY",
+        "TEMPORAL",
+        "SOUL_CONTRACT"
+      ],
+      "purpose": "Baseline estructural deliberadamente estrecha para investigación relacional, elegida antes de inspeccionar un caso y sometida a sensibilidad paramétrica en M25.",
+      "policies": {
+        "aspect_policy": {
+          "CONJUNCTION": {
+            "angle": 0,
+            "orb": 3.5
+          },
+          "OPPOSITION": {
+            "angle": 180,
+            "orb": 3.5
+          },
+          "SQUARE": {
+            "angle": 90,
+            "orb": 3.5
+          },
+          "TRINE": {
+            "angle": 120,
+            "orb": 3.5
+          },
+          "SEXTILE": {
+            "angle": 60,
+            "orb": 3.5
+          }
+        },
+        "declination_policy": {
+          "parallel_orb": 1,
+          "contra_parallel_orb": 1
+        },
+        "antiscia_policy": {
+          "antiscia_orb": 1,
+          "contra_antiscia_orb": 1
+        },
+        "relationship_chart_consonance_policy": {
+          "aspect_policy": {
+            "CONJUNCTION": {
+              "angle": 0,
+              "orb": 1
+            }
+          }
+        },
+        "draconic_aspect_policy": {
+          "CONJUNCTION": {
+            "angle": 0,
+            "orb": 3
+          },
+          "OPPOSITION": {
+            "angle": 180,
+            "orb": 3
+          }
+        }
+      },
+      "source_basis": [
+        {
+          "id": "ASTRODIENST_ORB_CONTEXT",
+          "priority": "P4_IDENTIFIED_METHOD",
+          "scope": "CONTEXT",
+          "supports": "Los orbes varían por escuela y factor; los aspectos mayores admiten orbes más amplios que los menores.",
+          "url": "https://www.astro.com/astrowiki/en/Orb",
+          "author": "Astrodienst",
+          "work": "Orb · Astrodienst Astrowiki",
+          "date": "accessed 2026-10-03",
+          "evidence_role": "B_TECHNIQUE",
+          "does_not_support": "No valida IEM, LG, twin-flame, origen compartido ni probabilidad metafísica."
+        },
+        {
+          "id": "DRACONICCHART_RELATIONAL_3_5",
+          "priority": "P5_EMIC",
+          "scope": "CONTEMPORARY_USAGE",
+          "supports": "Herramienta relacional contemporánea que lista aspectos cruzados mayores dentro de un orbe uniforme de 3.5 grados.",
+          "url": "https://draconicchart.com/celebrities/compare",
+          "author": "Astrologia MB LLC / DraconicChart",
+          "work": "Celebrity Synastry · Compare Two Famous Charts on One Wheel",
+          "date": "2026",
+          "evidence_role": "D_CONTEMPORARY_USAGE",
+          "does_not_support": "No valida IEM, LG, twin-flame, origen compartido ni probabilidad metafísica."
+        },
+        {
+          "id": "ASTRODIENST_PARALLEL",
+          "priority": "P4_IDENTIFIED_METHOD",
+          "scope": "TECHNIQUE",
+          "supports": "Astrodienst sitúa el orbe del paralelo en no más de 1 grado hasta aproximadamente 1.3 grados.",
+          "url": "https://www.astro.com/astrowiki/en/Parallel",
+          "author": "Astrodienst",
+          "work": "Parallel · Astrodienst Astrowiki",
+          "date": "accessed 2026-10-03",
+          "evidence_role": "B_TECHNIQUE",
+          "does_not_support": "No valida IEM, LG, twin-flame, origen compartido ni probabilidad metafísica."
+        },
+        {
+          "id": "CAFE_DECLINATION_SYNASTRY",
+          "priority": "P4_IDENTIFIED_METHOD",
+          "scope": "TECHNIQUE",
+          "supports": "Uso explícito de 1 grado para paralelos y contraparalelos en sinastría.",
+          "url": "https://cafeastrology.com/declinations_parallels.html",
+          "author": "Cafe Astrology",
+          "work": "Determining Parallels and Contra-Parallels in Synastry",
+          "date": "accessed 2026-10-03",
+          "evidence_role": "B_TECHNIQUE",
+          "does_not_support": "No valida IEM, LG, twin-flame, origen compartido ni probabilidad metafísica."
+        },
+        {
+          "id": "SMOOT_ANTISCIA_2020",
+          "priority": "P4_IDENTIFIED_METHOD",
+          "scope": "TECHNIQUE",
+          "supports": "Práctica contemporánea con antiscios estrechos: 2 grados aplicando y 1 grado separando; ALMAS adopta 1 grado simétrico como baseline conservadora porque M06 no modela aplicación/separación.",
+          "url": "https://www.astro.com/astrology/ivccn_article201222_e.htm",
+          "author": "Richard Smoot",
+          "work": "Exploring our Full Self – Working with the Antiscia",
+          "date": "2020-12-22",
+          "evidence_role": "B_TECHNIQUE",
+          "does_not_support": "No valida IEM, LG, twin-flame, origen compartido ni probabilidad metafísica."
+        },
+        {
+          "id": "BLAQUIER_DRACONIC_STRICT_2026",
+          "priority": "P4_IDENTIFIED_METHOD",
+          "scope": "TECHNIQUE",
+          "supports": "Método dracónico estricto: conjunción y oposición, hasta 3 grados.",
+          "url": "https://draconicchart.com/es/blog/aspectos-draconicos",
+          "author": "María Blaquier / DraconicChart",
+          "work": "Aspectos dracónicos: cómo se cruzan la carta dracónica y la natal",
+          "date": "2026-06-15",
+          "evidence_role": "B_TECHNIQUE",
+          "does_not_support": "No valida IEM, LG, twin-flame, origen compartido ni probabilidad metafísica."
+        }
+      ],
+      "project_choices": [
+        {
+          "field": "aspect_policy",
+          "choice": "3.5 grados uniformes para los cinco aspectos mayores",
+          "epistemic_class": "E_PROJECT_POLICY",
+          "rationale": "El schema estructural vigente es por aspecto y no por clase de punto; se adopta una ventana uniforme estrecha para minimizar inclusión y permitir comparación reproducible."
+        },
+        {
+          "field": "relationship_chart_consonance_policy",
+          "choice": "conjunción homóloga <= 1 grado",
+          "epistemic_class": "E_PROJECT_POLICY",
+          "rationale": "La consonancia compuesta-Davison busca repetición posicional del mismo punto, no una teoría general de aspectos entre cartas relacionales."
+        },
+        {
+          "field": "antiscia_policy",
+          "choice": "1 grado simétrico",
+          "epistemic_class": "E_PROJECT_POLICY",
+          "rationale": "M06 no distingue aplicación y separación; se conserva el límite más estrecho de la práctica citada."
+        }
+      ],
+      "limitations": [
+        "No es un estándar universal de astrología.",
+        "La ventana tropical uniforme sacrifica orbes diferenciados por luminaria, planeta, nodo o ángulo.",
+        "La regla dracónica se utiliza como técnica corroborativa y no como discriminador ontológico.",
+        "La consonancia RELCHART de 1 grado es una decisión de investigación del proyecto.",
+        "M25 debe evaluar sensibilidad a perturbaciones de parámetros; la elección del preset no elimina incertidumbre metodológica."
+      ]
+    }
+  }
+}

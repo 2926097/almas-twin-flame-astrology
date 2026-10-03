@@ -1,5 +1,9 @@
 # Changelog
 
+## Presets explícitos de política relacional — 2026-10-03
+
+Añade `ALMAS_RELATIONAL_POLICY_PRESET_REGISTRY_V1` y el preset optativo `ALMAS_RELATIONAL_STRICT_RESEARCH_V1`, siempre `E_PROJECT_POLICY`. La selección requiere `analysis_policy_profile` explícito y no admite overrides inline de orbes. La baseline usa 3.5° uniformes para aspectos mayores tropicales, 1° para declinaciones, 1° para antiscios, 1° para conjunción homóloga compuesta-Davison y conjunción/oposición 3° en cruces dracónicos. Conserva fuentes, limitaciones, `implicit_orbs_used=false`, `case_fitting_used=false` y perturbación posterior M25. No cambia scoring, thresholds, ontología ni discriminadores.
+
 ## Evolución del panel relacional — 2026-10-03
 
 Añade `ALMAS_RELATIONAL_WORK_REQUEST_ADAPTER_V1` para transformar la envolvente `ALMAS_WORK_REQUEST` del frontend en `raw_input` M00–M31. Materializa únicamente convenciones ya congeladas de compuesta, Davison y dracónica; exige políticas de orbes explícitas para sinastría, declinaciones, antiscios, consonancia relacional y cruces dracónicos. Incorpora assessment previo, trazabilidad `implicit_orbs_used=false`, schema, documentación y regresiones sintéticas. No cambia versión pública, scoring, pesos, thresholds, ontología, discriminadores ni backend astronómico.

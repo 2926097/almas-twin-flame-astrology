@@ -29,6 +29,12 @@
             "SOUL_CONTRACT"
           ]
         },
+        "analysis_policy_profile": {
+          "enum": [
+            "ALMAS_RELATIONAL_STRICT_RESEARCH_V1",
+            null
+          ]
+        },
         "subjects": {
           "type": "array",
           "minItems": 2,
