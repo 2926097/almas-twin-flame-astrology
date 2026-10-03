@@ -42,5 +42,8 @@
   "pilot_distinct_person_count": 13,
   "pilot_person_graph_components": 6,
   "statistical_independence_established": false,
-  "negative_observation_periods_verified": 0
+  "negative_observation_periods_verified": 0,
+  "documentary_coverage_inventory": "validation/returns/documentary-coverage-inventory.json",
+  "coverage_inventory_status": "PARTIAL_INVENTORY_NOT_CONTROL_READY",
+  "documentary_event_conflicts_pending": 1
 }
