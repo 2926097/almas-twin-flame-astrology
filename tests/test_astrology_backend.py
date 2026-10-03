@@ -41,18 +41,18 @@ class TestAstrologyBackendContract(unittest.TestCase):
         subjects = [
             {
                 "id": "A",
-                "birth_date": "1977-03-20",
-                "birth_time": "17:37",
-                "timezone": "Europe/Madrid",
-                "place": "Zaragoza, España",
+                "birth_date": "2001-02-03",
+                "birth_time": "09:17",
+                "timezone": "Europe/Paris",
+                "place": "Ciudad Sintética A",
                 "time_reliability": "A",
             },
             {
                 "id": "B",
-                "birth_date": "1980-01-01",
+                "birth_date": "2002-04-05",
                 "birth_time": None,
-                "timezone": "America/Santo_Domingo",
-                "place": "Santo Domingo, República Dominicana",
+                "timezone": "America/New_York",
+                "place": "Ciudad Sintética B",
                 "time_reliability": "D",
             },
         ]

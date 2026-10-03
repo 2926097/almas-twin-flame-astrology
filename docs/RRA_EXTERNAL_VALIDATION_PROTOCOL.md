@@ -16,7 +16,7 @@ La preparación del corpus documental se hará antes del cálculo astrológico d
 
 La muestra reservada se asignará por componentes conexos del grafo de personas y relaciones. Una persona compartida, dos vínculos de la misma persona o una cronología reutilizada no podrán situarse en particiones distintas. La deduplicación de `fact_key` no garantiza por sí sola independencia entre fuentes, personas o parejas.
 
-El caso José Luis–Indira, los casos de desarrollo y cualquier caso usado para fijar cuerpos, ventanas, criterios u orbes quedan fuera de esta validación. Los ejemplos sintéticos son comprobaciones del programa. Las etiquetas emic soulmate/twin-flame se ocultan durante selección y análisis y no funcionan como verdad de referencia.
+Los casos privados de desarrollo y cualquier caso usado para fijar cuerpos, ventanas, criterios u orbes quedan fuera de esta validación. Los ejemplos sintéticos son comprobaciones del programa. Las etiquetas emic soulmate/twin-flame se ocultan durante selección y análisis y no funcionan como verdad de referencia.
 
 No se propone un tamaño mínimo arbitrario como certificado de potencia. El número de componentes independientes, el efecto mínimo relevante, la tasa basal, la estructura de dependencia y la regla de parada deben justificarse antes de abrir la muestra reservada. Permanecen pendientes y bloquean el inicio confirmatorio.
 

@@ -71,6 +71,7 @@ from .canonical_assembly import assemble_canonical_analysis, derive_canonical_co
 from .analysis_profiles import load_analysis_profile_policy, profile_trace_assessment, resolve_analysis_profile
 from .relational_request_pipeline import RelationalWorkRequestError, assess_relational_work_request, prepare_relational_raw_input
 from .relational_policy_presets import RelationalPolicyPresetError, load_relational_policy_preset_registry, resolve_relational_policy_preset
+from .relational_execution import RelationalExecutionError, execute_relational_work_request
 from .report_model_handlers import m31_report
 from .orchestrator import (
     CanonicalOverwriteError,
@@ -206,6 +207,8 @@ __all__ = [
     "RelationalPolicyPresetError",
     "load_relational_policy_preset_registry",
     "resolve_relational_policy_preset",
+    "RelationalExecutionError",
+    "execute_relational_work_request",
     "m31_report",
     "MODEL_PILLARS",
     "SUPPORTED_THRESHOLDS",

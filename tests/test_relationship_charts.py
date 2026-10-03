@@ -97,19 +97,19 @@ class TestRelationshipCharts(unittest.TestCase):
         subjects = [
             {
                 "id": "A",
-                "birth_date": "1977-03-20",
-                "birth_time": "17:37",
-                "timezone": "Europe/Madrid",
-                "latitude": 41.65,
-                "longitude": -0.88,
+                "birth_date": "2001-02-03",
+                "birth_time": "09:17",
+                "timezone": "Europe/Paris",
+                "latitude": 40.0,
+                "longitude": -3.0,
             },
             {
                 "id": "B",
-                "birth_date": "1980-01-01",
+                "birth_date": "2002-04-05",
                 "birth_time": "12:00",
-                "timezone": "America/Santo_Domingo",
-                "latitude": 18.48,
-                "longitude": -69.91,
+                "timezone": "America/New_York",
+                "latitude": 10.0,
+                "longitude": 20.0,
             },
         ]
 
@@ -137,17 +137,17 @@ class TestRelationshipCharts(unittest.TestCase):
         subjects = [
             {
                 "id": "A",
-                "birth_date": "1977-03-20",
-                "birth_time": "17:37",
-                "timezone": "Europe/Madrid",
-                "place": "Zaragoza",
+                "birth_date": "2001-02-03",
+                "birth_time": "09:17",
+                "timezone": "Europe/Paris",
+                "place": "Ciudad Sintética A",
             },
             {
                 "id": "B",
-                "birth_date": "1980-01-01",
+                "birth_date": "2002-04-05",
                 "birth_time": "12:00",
-                "timezone": "Europe/Madrid",
-                "place": "Madrid",
+                "timezone": "Europe/Paris",
+                "place": "Ciudad Sintética B",
             },
         ]
 
