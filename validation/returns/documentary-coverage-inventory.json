@@ -3,81 +3,13 @@
   "status": "PARTIAL_INVENTORY_NOT_CONTROL_READY",
   "classification": "PUBLIC_DOCUMENTARY_METADATA",
   "candidate_ids": [
-    "P05",
     "P06",
-    "P07"
+    "P07",
+    "P08"
   ],
   "unit_count": 8,
   "exhaustive_inventory": false,
   "units": [
-    {
-      "unit_id": "C01",
-      "candidate_id": "P05",
-      "unit_type": "ARCHIVAL_CATALOG_RECORD",
-      "source_url": "https://curiotheque.musee.curie.fr/s/en/item/16854",
-      "title": "Ficha acta matrimonial Curie",
-      "locator": "MCP433",
-      "document_date_assertion": null,
-      "access_status": "CATALOG_READ_EXTERNAL_DOCUMENT_ACCESS_FAILED",
-      "retrieved_on": "2026-10-03",
-      "original_manuscript_read": false,
-      "facsimile_visually_verified": false,
-      "full_corpus_read": false,
-      "fact_claims": [
-        {
-          "fact_key": "CURIE_MARRIAGE_1895",
-          "date_assertion": "1895-07-26",
-          "claim_origin": "CATALOG_TITLE",
-          "resolution": "CONFLICT_PENDING"
-        }
-      ],
-      "negative_observation_supported": false,
-      "control_eligible": false,
-      "source_independence_established": false
-    },
-    {
-      "unit_id": "C02",
-      "candidate_id": "P05",
-      "unit_type": "PRIMARY_PUBLISHED_TESTIMONY_TRANSCRIPTION",
-      "source_url": "https://fr.wikisource.org/wiki/Page:Curie_-_Pierre_Curie,_1924.djvu/52",
-      "title": "Marie Curie, Pierre Curie, Payot 1924",
-      "locator": "capítulo IV, p. 52",
-      "document_date_assertion": "1924",
-      "access_status": "PAGINATED_TRANSCRIPTION_READ_IMAGE_LINK_OPENED_NOT_VISUALLY_VERIFIED",
-      "retrieved_on": "2026-10-03",
-      "original_manuscript_read": false,
-      "facsimile_visually_verified": false,
-      "full_corpus_read": false,
-      "fact_claims": [
-        {
-          "fact_key": "CURIE_MARRIAGE_1895",
-          "date_assertion": "1895-07-25",
-          "claim_origin": "RETROSPECTIVE_AUTHOR_TESTIMONY_IN_TRANSCRIPTION",
-          "resolution": "CONFLICT_PENDING"
-        }
-      ],
-      "negative_observation_supported": false,
-      "control_eligible": false,
-      "source_independence_established": false
-    },
-    {
-      "unit_id": "C03",
-      "candidate_id": "P05",
-      "unit_type": "PRIMARY_PUBLISHED_TESTIMONY_TRANSCRIPTION",
-      "source_url": "https://fr.wikisource.org/wiki/Page:Curie_-_Pierre_Curie,_1924.djvu/54",
-      "title": "Marie Curie, Pierre Curie, Payot 1924",
-      "locator": "capítulo IV, p. 54",
-      "document_date_assertion": "1924",
-      "access_status": "PAGINATED_TRANSCRIPTION_READ_IMAGE_LINK_OPENED_NOT_VISUALLY_VERIFIED",
-      "retrieved_on": "2026-10-03",
-      "original_manuscript_read": false,
-      "facsimile_visually_verified": false,
-      "full_corpus_read": false,
-      "fact_claims": [],
-      "negative_observation_supported": false,
-      "control_eligible": false,
-      "source_independence_established": false
-    },
     {
       "unit_id": "E01",
       "candidate_id": "P07",
@@ -176,44 +108,87 @@
       "negative_observation_supported": false,
       "control_eligible": false,
       "source_independence_established": false
-    }
-  ],
-  "event_conflicts": [
-    {
-      "fact_key": "CURIE_MARRIAGE_1895",
-      "candidate_id": "P05",
-      "unit_refs": [
-        "C01",
-        "C02"
-      ],
-      "asserted_dates": [
-        "1895-07-26",
-        "1895-07-25"
-      ],
-      "resolved_event_date": null,
-      "status": "EVENT_DATE_CONFLICT_PENDING_ADJUDICATION",
-      "decision": "REQUIRE_CIVIL_RECORD_AND_EDITION_COLLATION_BEFORE_TEMPORAL_EVALUATION"
-    }
-  ],
-  "access_failures": [
-    {
-      "url": "https://tinyurl.com/24wb5mpx",
-      "target": "CURIE_MARRIAGE_DOCUMENT",
-      "status": "OPEN_FAILED"
     },
     {
-      "url": "https://archives.sceaux.fr",
-      "target": "MUNICIPAL_ARCHIVE_PORTAL",
-      "status": "OPEN_FAILED"
+      "unit_id": "R01",
+      "candidate_id": "P08",
+      "unit_type": "CERTIFICATE_DESCRIPTION",
+      "source_url": "https://www.fdrlibrary.org/document-march",
+      "title": "Certificado matrimonial Franklin y Eleanor Roosevelt",
+      "locator": "Document of the Month — March",
+      "document_date_assertion": null,
+      "access_status": "HTML_DESCRIPTION_READ_FACSIMILE_LINK_OPENED_NOT_VISUALLY_CERTIFIED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "date_assertion": "1905-03-17",
+          "claim_origin": "INSTITUTIONAL_DOCUMENT_DESCRIPTION",
+          "resolution": "DAY_ASSERTION_NO_EXACT_TIME"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
     },
     {
-      "url": "https://www.sceaux.fr/fr/sceaux/les-archives-en-ligne/index.html",
-      "target": "HISTORICAL_MUNICIPAL_ARCHIVE_LINK",
-      "status": "OPEN_FAILED_418"
+      "unit_id": "R02",
+      "candidate_id": "P08",
+      "unit_type": "INSTITUTIONAL_BIOGRAPHY",
+      "source_url": "https://www.fdrlibrary.org/fdr-biography",
+      "title": "Biografía Franklin D. Roosevelt",
+      "locator": "The Early Years / Fast Facts",
+      "document_date_assertion": null,
+      "access_status": "HTML_BIOGRAPHICAL_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "date_assertion": "1905-03-17",
+          "claim_origin": "INSTITUTIONAL_BIOGRAPHY",
+          "resolution": "DAY_ASSERTION_NO_EXACT_TIME"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "R03",
+      "candidate_id": "P08",
+      "unit_type": "INSTITUTIONAL_BIOGRAPHY",
+      "source_url": "https://www.fdrlibrary.org/er-biography",
+      "title": "Biografía Eleanor Roosevelt",
+      "locator": "The Early Years / Fast Facts",
+      "document_date_assertion": null,
+      "access_status": "HTML_BIOGRAPHICAL_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "date_assertion": "1905-03-17",
+          "claim_origin": "INSTITUTIONAL_BIOGRAPHY",
+          "resolution": "DAY_ASSERTION_NO_EXACT_TIME"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
     }
   ],
+  "event_conflicts": [],
+  "access_failures": [],
   "original_manuscripts_read": 0,
-  "published_primary_transcription_passages_read": 2,
+  "published_primary_transcription_passages_read": 0,
   "independent_coder_count": 1,
   "negative_observation_periods_verified": 0,
   "controls_admitted": [],
@@ -221,14 +196,18 @@
   "confirmatory_execution_allowed": false,
   "external_validation_status": "NOT_PERFORMED",
   "report_path": "docs/RRA_DOCUMENTARY_COVERAGE_INVENTORY.md",
-  "source_routes": [
+  "source_routes": [],
+  "coherence_validator": "scripts/validate_rra_documentary_inventory.py",
+  "replacement_history": [
     {
-      "url": "https://archives.hauts-de-seine.fr/archive/resultats/etatcivil/n:92?type=etatcivil",
-      "publisher": "Archives départementales des Hauts-de-Seine",
-      "access": "HTML_FUND_DESCRIPTION_READ_SPECIFIC_RECORD_NOT_RETRIEVED",
-      "retrieved_on": "2026-10-03",
-      "original_record_retrieved": false
+      "retired_candidate_id": "P05",
+      "replacement_candidate_id": "P08",
+      "retired_status": "RETIRED_USER_REQUEST",
+      "reason": "Sustitución documental solicitada por el usuario antes de calcular resultados",
+      "replaced_on": "2026-10-03",
+      "retired_excluded_from_active_inventory": true,
+      "retired_holdout_eligible": false,
+      "astrological_results_seen": false
     }
-  ],
-  "coherence_validator": "scripts/validate_rra_documentary_inventory.py"
+  ]
 }
