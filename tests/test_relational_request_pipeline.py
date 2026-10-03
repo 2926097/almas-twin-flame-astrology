@@ -131,6 +131,52 @@ class RelationalRequestPipelineTests(unittest.TestCase):
             raw["request_adapter_trace"]["missing_declared_policies"]
         )
 
+    def test_explicit_policy_profile_materializes_required_orbs(self):
+        payload = work_request(include_policies=False)
+        payload["request"]["analysis_policy_profile"] = (
+            "ALMAS_RELATIONAL_STRICT_RESEARCH_V1"
+        )
+
+        assessment = assess_relational_work_request(payload)
+        self.assertTrue(assessment["ready_for_raw_input"])
+        self.assertEqual(
+            assessment["policy_source"],
+            "EXPLICIT_PRESET",
+        )
+
+        raw = prepare_relational_raw_input(payload)
+        self.assertEqual(raw["aspect_policy"]["CONJUNCTION"]["orb"], 3.5)
+        self.assertEqual(
+            raw["declination_policy"]["parallel_orb"],
+            1.0,
+        )
+        self.assertEqual(
+            raw["draconic_aspect_policy"]["CONJUNCTION"]["orb"],
+            3.0,
+        )
+        self.assertEqual(
+            raw["request_adapter_trace"]["analysis_policy_profile"],
+            "ALMAS_RELATIONAL_STRICT_RESEARCH_V1",
+        )
+        self.assertFalse(
+            raw["request_adapter_trace"]["implicit_orbs_used"]
+        )
+        self.assertEqual(
+            len(raw["request_adapter_trace"]["analysis_policy_fingerprint"]),
+            64,
+        )
+
+    def test_policy_profile_rejects_inline_orb_overrides(self):
+        payload = work_request()
+        payload["request"]["analysis_policy_profile"] = (
+            "ALMAS_RELATIONAL_STRICT_RESEARCH_V1"
+        )
+        with self.assertRaisesRegex(
+            RelationalWorkRequestError,
+            "No se puede combinar",
+        ):
+            prepare_relational_raw_input(payload)
+
     def test_fixed_policy_conflict_is_rejected(self):
         payload = work_request()
         payload["request"]["analysis_policies"]["davison_policy"] = {
