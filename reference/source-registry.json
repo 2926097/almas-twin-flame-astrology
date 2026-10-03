@@ -5625,7 +5625,159 @@
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ],
       "notes": "Preregistro heredado de F1; integración técnica en 2026-10-03, sin nueva lectura íntegra."
+    },
+    {
+      "id": "astrodienst_orb",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea",
+      "author": "Astrodienst",
+      "work": "Orb",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; verificación web 2026-10-03.",
+      "passage": "Definition and historical/modern discussion of orb",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Orb",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "definición del orbe como margen de inexactitud permitido para que un aspecto siga considerándose válido",
+        "documentación de que los orbes varían por práctica, planeta y tradición y no constituyen una constante universal"
+      ],
+      "does_not_support": [
+        "una tabla universal única de orbes para toda sinastría",
+        "los valores exactos 6/6/5/5/4 adoptados por la baseline experimental de ALMAS",
+        "que un orbe determinado valide por sí mismo una ontología relacional"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Orb': define el margen de desviación de un aspecto y explica el desarrollo histórico del concepto y su variación práctica.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Orb",
+      "evidence_scope": "METHOD_DESCRIPTION",
+      "source_id": "astrodienst_orb",
+      "historical_context": "Astrología occidental contemporánea con contextualización del concepto tradicional de orbe.",
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ],
+      "notes": "Incorporada para documentar el concepto de orbe; no legitima por sí sola los valores cuantitativos de la baseline ALMAS."
+    },
+    {
+      "id": "astrodienst_parallel",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología occidental contemporánea de declinaciones",
+      "author": "Astrodienst",
+      "work": "Parallel",
+      "date": null,
+      "date_note": "Astrodienst Astrowiki; verificación web 2026-10-03.",
+      "passage": "Definition; orb guidance",
+      "pages": null,
+      "doi": null,
+      "url": "https://www.astro.com/astrowiki/en/Parallel",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; no reproducir extensamente contenido protegido.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "RELATIONSHIP_ASTROLOGY"
+      ],
+      "supports": [
+        "definición de paralelo y contraparalelo por igualdad de distancia declinacional respecto del ecuador celeste",
+        "orientación metodológica de un orbe de no más de un grado a aproximadamente 1.3 grados para paralelos"
+      ],
+      "does_not_support": [
+        "que todo paralelo sea universalmente idéntico a una conjunción",
+        "que paralelos o contraparalelos demuestren ontología metafísica relacional",
+        "validación científica de la interpretación astrológica de la declinación"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Astrodienst Astrowiki, 'Parallel': define paralelo/contraparalelo y sitúa el orbe habitual alrededor de 1° con máximo aproximado de 1.3°.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.astro.com/astrowiki/en/Parallel",
+      "evidence_scope": "METHOD_DESCRIPTION",
+      "source_id": "astrodienst_parallel",
+      "historical_context": "Uso contemporáneo de declinaciones con referencia a literatura astrológica anterior.",
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ],
+      "notes": "Refuerza la elección técnica conservadora de 1° en la baseline; no añade peso estructural por existir."
+    },
+    {
+      "id": "draconicchart_blaquier_aspects_2026",
+      "priority": "P4_IDENTIFIED_METHOD",
+      "source_role": "IDENTIFIED_METHOD",
+      "tradition": "Astrología dracónica contemporánea",
+      "author": "Draconic Chart; revisión metodológica de María Blaquier",
+      "work": "Aspectos dracónicos: cómo se cruzan la carta dracónica y la natal",
+      "date": "2026-06-15",
+      "date_note": "Artículo metodológico publicado por Draconic Chart y marcado como revisado por María Blaquier.",
+      "passage": "Solo conjunciones y oposiciones; Orbes de hasta tres grados",
+      "pages": null,
+      "doi": null,
+      "url": "https://draconicchart.com/es/blog/aspectos-draconicos",
+      "download_url": null,
+      "license": null,
+      "rights_note": "Referencia metodológica web; las citas textuales de María Blaquier permanecen protegidas. ALMAS registra y parafrasea el método.",
+      "local_file": null,
+      "sha256": null,
+      "concepts": [
+        "DRACONIC_ASTROLOGY",
+        "DRACONIC_METHOD_MODERN"
+      ],
+      "supports": [
+        "en el método contemporáneo atribuido y revisado por María Blaquier se priorizan conjunciones y oposiciones natal-dracónica",
+        "el método declara un orbe máximo de tres grados para esos contactos",
+        "el artículo presenta la restricción como cautela metodológica de una técnica moderna todavía abierta a investigación"
+      ],
+      "does_not_support": [
+        "validación científica de la astrología dracónica",
+        "que un contacto dracónico pruebe una vida pasada concreta",
+        "que conjunción u oposición dracónica pruebe por sí sola alma gemela, contrato álmico o llama gemela"
+      ],
+      "translation_note": null,
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "Artículo de 15-06-2026 revisado por María Blaquier: secciones sobre conjunciones/oposiciones y orbe máximo de 3°.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://draconicchart.com/es/blog/aspectos-draconicos",
+      "evidence_scope": "METHOD_DESCRIPTION",
+      "source_id": "draconicchart_blaquier_aspects_2026",
+      "historical_context": "Uso contemporáneo de astrología dracónica; la propia presentación subraya el carácter joven y experimental de la técnica.",
+      "dependency_root": "blaquier_draconic_astrology_2017_2021",
+      "dependency_kind": "DOCUMENTED_INFLUENCE",
+      "inferential_ceiling": "PERSONAL_SYMBOLIC_CORRESPONDENCE",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ],
+      "notes": "Se usa para parametrización metodológica de M11; no convierte la capa dracónica en evidencia ontológica independiente."
     }
   ],
-  "registry_revision": "2026-10-03-fixed-stars-personal"
+  "registry_revision": "1.25.0-orb-baseline-2026-10-03"
 }
