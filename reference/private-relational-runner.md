@@ -1,1 +1,71 @@
-# Runner privado de solicitudes relacionales\n\n## Finalidad\n\n`ALMAS_PRIVATE_RELATIONAL_RUNNER_V1` cierra el trayecto operativo entre una\nsolicitud del panel y el pipeline M00-M31 sin publicar datos de una relación\nprivada.\n\nLa función de librería es\n`execute_relational_work_request(work_request, manifest, ...)`.\nEl entrypoint de repositorio es:\n\n`python scripts/run_relational_work_request.py REQUEST.json --output-dir ...`\n\n## Preflight sin astronomía\n\n`--assessment-only` ejecuta exclusivamente el assessment contractual. Puede\nusarse para que el frontend sepa si la solicitud contiene sujetos, perfil y\npolíticas suficientes antes de inicializar Moira.\n\n## Ejecución de producción\n\nLa ejecución real exige declarar:\n\n- `--kernel-path`;\n- `--kernel-sha256`;\n- `--kernel-family` (`DE430`, `DE440` o `DE441`);\n- `--house-system`.\n\nNo existe descarga automática, geocodificación ni autodetección silenciosa del\nkernel. El `MoiraProductionBackend` verifica la versión fijada y el SHA-256.\n\nEl runner usa el mismo backend para M02 y M08, llama a\n`configured_handlers(...)` y ejecuta el manifiesto normativo\n`manifests/analysis-pipeline-manifest.json`.\n\n## Salidas locales\n\nEl directorio indicado recibe:\n\n- `request_assessment.json`;\n- `raw_input.json`;\n- `orchestration_run.json`;\n- `execution_receipt.json`;\n- `canonical_analysis.json`, únicamente cuando existe en la salida canónica\n  del pipeline.\n\nEl runner nunca reconstruye un canonical alternativo. Si M30 no lo produce,\n`canonical_analysis.json` no se crea.\n\n## Privacidad\n\nEl runner no envía el caso a GitHub, no ejecuta network I/O propio y no publica\nfixtures. El archivo de solicitud y todas las salidas permanecen en las rutas\nlocales indicadas por el operador. La política general de publicación de ALMAS\nsigue prohibiendo reutilizar casos privados como ejemplos sintéticos.\n\n## Receipt\n\n`execution_receipt.json` conserva hash SHA-256 de la solicitud, perfil,\npreset de política, procedencia del backend, estado de todos los módulos,\nmódulos FAILED/NOT_EVALUABLE, estado M30 y fingerprint canónico cuando exista.\n\nEl receipt declara expresamente:\n\n`canonical_reconstructed_outside_pipeline=false`\n\n`network_io_requested_by_runner=false`\n\n`case_published_by_runner=false`\n
+# Runner privado de solicitudes relacionales
+
+## Finalidad
+
+`ALMAS_PRIVATE_RELATIONAL_RUNNER_V1` cierra el trayecto operativo entre una
+solicitud del panel y el pipeline M00-M31 sin publicar datos de una relación
+privada.
+
+La función de librería es
+`execute_relational_work_request(work_request, manifest, ...)`.
+El entrypoint de repositorio es:
+
+`python scripts/run_relational_work_request.py REQUEST.json --output-dir ...`
+
+## Preflight sin astronomía
+
+`--assessment-only` ejecuta exclusivamente el assessment contractual. Puede
+usarse para que el frontend sepa si la solicitud contiene sujetos, perfil y
+políticas suficientes antes de inicializar Moira.
+
+## Ejecución de producción
+
+La ejecución real exige declarar:
+
+- `--kernel-path`;
+- `--kernel-sha256`;
+- `--kernel-family` (`DE430`, `DE440` o `DE441`);
+- `--house-system`.
+
+No existe descarga automática, geocodificación ni autodetección silenciosa del
+kernel. El `MoiraProductionBackend` verifica la versión fijada y el SHA-256.
+
+El runner usa el mismo backend para M02 y M08, llama a
+`configured_handlers(...)` y ejecuta el manifiesto normativo
+`manifests/analysis-pipeline-manifest.json`.
+
+## Salidas locales
+
+El directorio indicado recibe:
+
+- `request_assessment.json`;
+- `raw_input.json`;
+- `orchestration_run.json`;
+- `execution_receipt.json`;
+- `canonical_analysis.json`, únicamente cuando existe en la salida canónica
+  del pipeline.
+
+El runner nunca reconstruye un canonical alternativo. Si M30 no lo produce,
+`canonical_analysis.json` no se crea.
+
+## Privacidad
+
+El runner no envía el caso a GitHub, no ejecuta network I/O propio y no publica
+fixtures. El archivo de solicitud y todas las salidas permanecen en las rutas
+locales indicadas por el operador. La política general de publicación de ALMAS
+sigue prohibiendo reutilizar casos privados como ejemplos sintéticos.
+
+## Receipt
+
+`execution_receipt.json` conserva hash SHA-256 de la solicitud, perfil,
+preset de política, fingerprint de política, procedencia del backend, estado
+de todos los módulos, módulos FAILED/NOT_EVALUABLE, estado M30 y fingerprint
+canónico cuando exista.
+
+El receipt declara expresamente:
+
+`canonical_reconstructed_outside_pipeline=false`
+
+`network_io_requested_by_runner=false`
+
+`case_published_by_runner=false`
