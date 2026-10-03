@@ -1,0 +1,219 @@
+{
+  "schema_version": "rra-documentary-coverage-0.1",
+  "status": "PARTIAL_INVENTORY_NOT_CONTROL_READY",
+  "classification": "PUBLIC_DOCUMENTARY_METADATA",
+  "candidate_ids": [
+    "P05",
+    "P06",
+    "P07"
+  ],
+  "unit_count": 8,
+  "exhaustive_inventory": false,
+  "units": [
+    {
+      "unit_id": "C01",
+      "candidate_id": "P05",
+      "unit_type": "ARCHIVAL_CATALOG_RECORD",
+      "source_url": "https://curiotheque.musee.curie.fr/s/en/item/16854",
+      "title": "Ficha acta matrimonial Curie",
+      "locator": "MCP433",
+      "document_date_assertion": null,
+      "access_status": "CATALOG_READ_EXTERNAL_DOCUMENT_ACCESS_FAILED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "CURIE_MARRIAGE_1895",
+          "date_assertion": "1895-07-26",
+          "claim_origin": "CATALOG_TITLE",
+          "resolution": "CONFLICT_PENDING"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "C02",
+      "candidate_id": "P05",
+      "unit_type": "PRIMARY_PUBLISHED_TESTIMONY_TRANSCRIPTION",
+      "source_url": "https://fr.wikisource.org/wiki/Page:Curie_-_Pierre_Curie,_1924.djvu/52",
+      "title": "Marie Curie, Pierre Curie, Payot 1924",
+      "locator": "capítulo IV, p. 52",
+      "document_date_assertion": "1924",
+      "access_status": "PAGINATED_TRANSCRIPTION_READ_IMAGE_LINK_OPENED_NOT_VISUALLY_VERIFIED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "CURIE_MARRIAGE_1895",
+          "date_assertion": "1895-07-25",
+          "claim_origin": "RETROSPECTIVE_AUTHOR_TESTIMONY_IN_TRANSCRIPTION",
+          "resolution": "CONFLICT_PENDING"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "C03",
+      "candidate_id": "P05",
+      "unit_type": "PRIMARY_PUBLISHED_TESTIMONY_TRANSCRIPTION",
+      "source_url": "https://fr.wikisource.org/wiki/Page:Curie_-_Pierre_Curie,_1924.djvu/54",
+      "title": "Marie Curie, Pierre Curie, Payot 1924",
+      "locator": "capítulo IV, p. 54",
+      "document_date_assertion": "1924",
+      "access_status": "PAGINATED_TRANSCRIPTION_READ_IMAGE_LINK_OPENED_NOT_VISUALLY_VERIFIED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "E01",
+      "candidate_id": "P07",
+      "unit_type": "EDITORIAL_METHOD",
+      "source_url": "https://www.einstein.caltech.edu/what-we-do/editorial-method",
+      "title": "Einstein Papers Project, Editorial Method",
+      "locator": "Selection; Establishment of Texts",
+      "document_date_assertion": null,
+      "access_status": "HTML_METHOD_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "E02",
+      "candidate_id": "P07",
+      "unit_type": "CORPUS_EDITORIAL_DESCRIPTION",
+      "source_url": "https://www.einstein.caltech.edu/what-we-do/published-volumes/volume-5",
+      "title": "The Swiss Years: Correspondence 1902–1914",
+      "locator": "Volumen 5",
+      "document_date_assertion": null,
+      "access_status": "EDITORIAL_DESCRIPTION_READ_VOLUME_NOT_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "E03",
+      "candidate_id": "P07",
+      "unit_type": "ACCESS_PORTAL",
+      "source_url": "https://einsteinpapers.press.princeton.edu/einstein-database/",
+      "title": "Einstein Portal",
+      "locator": null,
+      "document_date_assertion": null,
+      "access_status": "PUBLIC_LANDING_PAGE_READ_NO_CORPUS_ACCESS",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "K01",
+      "candidate_id": "P06",
+      "unit_type": "OBJECT_DESCRIPTION",
+      "source_url": "https://www.museofridakahlo.org.mx/frida/",
+      "title": "Relojes intervenidos de Frida Kahlo",
+      "locator": "entrada divorcio 1939, descripción de relojes",
+      "document_date_assertion": null,
+      "access_status": "INSTITUTIONAL_DESCRIPTION_READ_ORIGINAL_OBJECT_NOT_INSPECTED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "KAHLO_RIVERA_REMARRIAGE_1940",
+          "date_assertion": "1940-12-08",
+          "claim_origin": "OBJECT_INSCRIPTION_DESCRIBED_BY_MUSEUM",
+          "local_time_assertion": "a las once",
+          "utc_instant": null,
+          "resolution": "LEGAL_INSTANT_NOT_VERIFIED"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "K02",
+      "candidate_id": "P06",
+      "unit_type": "LETTER_DESCRIPTION",
+      "source_url": "https://artsandculture.google.com/story/ygWxUtETc0ZEKA?hl=en",
+      "title": "Frida Kahlo letter to Diego Rivera (1940)",
+      "locator": "Frida and Diego Rivera",
+      "document_date_assertion": "1940",
+      "access_status": "EXHIBIT_DESCRIPTION_READ_LETTER_NOT_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    }
+  ],
+  "event_conflicts": [
+    {
+      "fact_key": "CURIE_MARRIAGE_1895",
+      "candidate_id": "P05",
+      "unit_refs": [
+        "C01",
+        "C02"
+      ],
+      "asserted_dates": [
+        "1895-07-26",
+        "1895-07-25"
+      ],
+      "resolved_event_date": null,
+      "status": "EVENT_DATE_CONFLICT_PENDING_ADJUDICATION",
+      "decision": "REQUIRE_CIVIL_RECORD_AND_EDITION_COLLATION_BEFORE_TEMPORAL_EVALUATION"
+    }
+  ],
+  "access_failures": [
+    {
+      "url": "https://tinyurl.com/24wb5mpx",
+      "target": "CURIE_MARRIAGE_DOCUMENT",
+      "status": "OPEN_FAILED"
+    },
+    {
+      "url": "https://archives.sceaux.fr",
+      "target": "MUNICIPAL_ARCHIVE_PORTAL",
+      "status": "OPEN_FAILED"
+    }
+  ],
+  "original_manuscripts_read": 0,
+  "published_primary_transcription_passages_read": 2,
+  "independent_coder_count": 1,
+  "negative_observation_periods_verified": 0,
+  "controls_admitted": [],
+  "holdout_opened": false,
+  "confirmatory_execution_allowed": false,
+  "external_validation_status": "NOT_PERFORMED",
+  "report_path": "docs/RRA_DOCUMENTARY_COVERAGE_INVENTORY.md"
+}
