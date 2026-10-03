@@ -229,9 +229,15 @@ def _validate_policy_bundle(
         supplied = bundle.get(policy_name)
         if not isinstance(supplied, Mapping):
             continue
-        if dict(supplied) != dict(expected):
+        mismatched = [
+            key
+            for key, expected_value in expected.items()
+            if supplied.get(key) != expected_value
+        ]
+        if mismatched:
             raise WorkRequestError(
-                f"{policy_name} diverge de la convención normativa vigente."
+                f"{policy_name} diverge de la convención normativa vigente: "
+                + ", ".join(sorted(mismatched))
             )
 
 
@@ -274,6 +280,7 @@ def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
 
     profile = resolve_analysis_profile(request.get("analysis_profile"))
     required_modules = set(profile["required_modules"])
+    profile_supported = profile["profile_id"] == "FULL_ASTROLOGY"
 
     supplied_bundle = request.get("analysis_policies")
     bundle: dict[str, Any]
@@ -325,7 +332,16 @@ def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
                 "analysis_policies.policy_bundle_id es obligatorio."
             )
 
-    executable = not missing_policies and not policy_errors
+    if not profile_supported:
+        policy_errors.append(
+            "El puente relacional 1.0.0 sólo declara execution_ready para FULL_ASTROLOGY."
+        )
+
+    executable = (
+        profile_supported
+        and not missing_policies
+        and not policy_errors
+    )
 
     return {
         "public_version": installed_version,
@@ -333,6 +349,7 @@ def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
         "type": SUPPORTED_TYPE,
         "analysis_profile": profile["profile_id"],
         "analysis_mode": profile["analysis_mode"],
+        "bridge_profile_supported": profile_supported,
         "subjects": normalized_subjects,
         "analysis_policies": bundle,
         "required_modules": sorted(required_modules),
