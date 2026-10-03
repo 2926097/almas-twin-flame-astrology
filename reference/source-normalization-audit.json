@@ -2,18 +2,18 @@
   "audit_version": "1.1.0",
   "almas_version": "1.24.1",
   "date": "2026-10-03",
-  "sources_total": 111,
+  "sources_total": 114,
   "concepts_total": 144,
   "genealogy_edges_total": 93,
   "by_priority": {
     "P1_PRIMARY": 45,
     "P2_ACADEMIC": 12,
-    "P4_IDENTIFIED_METHOD": 49,
+    "P4_IDENTIFIED_METHOD": 52,
     "P3_HISTORICAL_TECHNICAL": 4,
     "P5_EMIC": 1
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 70,
+    "VERIFIED_PRIMARY": 73,
     "VERIFIED_METADATA": 41
   },
   "integrity": {
@@ -44,6 +44,7 @@
     "ALMAS 1.23 registra a Jean Meeus, Astronomical Algorithms §47.7, como referencia técnica del cálculo Mean Node; no añade scoring ni significado ontológico.",
     "ALMAS 1.24 incorpora siete fuentes comparadas y ocho conceptos. La descripción comercial de Demetra George permanece VERIFIED_METADATA; el artículo contemporáneo P5 se limita a evidencia emic. No se afirma validación externa de retirada vestal.",
     "1.24.1: nuevas fuentes con consulta explícita; metadatos no equivalen a texto. dependency_root agrupa conservadoramente, sin probar independencia ni añadir pesos.",
-    "Integra F1–F2 de estrellas fijas y parans como capacidad SUPPORT_ONLY; router conservado en SOURCE_GAP hasta validación de integración."
+    "Integra F1–F2 de estrellas fijas y parans como capacidad SUPPORT_ONLY; router conservado en SOURCE_GAP hasta validación de integración.",
+    "ALMAS 1.25 incorpora Astrodienst Orb/Parallel y una fuente metodológica revisada por María Blaquier para documentar la parametrización del preset relacional. Los valores tropicales y de antiscios siguen siendo E_PROJECT_POLICY; las fuentes no se convierten en validación externa ni peso estructural."
   ]
 }
