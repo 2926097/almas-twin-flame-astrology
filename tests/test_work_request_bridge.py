@@ -215,6 +215,18 @@ class WorkRequestBridgeTests(unittest.TestCase):
             any("no puede ser negativo" in item for item in result["policy_errors"])
         )
 
+    def test_other_profiles_fail_closed_in_bridge_v1(self):
+        payload = envelope()
+        payload["request"]["analysis_profile"] = "TEMPORAL"
+        payload["request"]["analysis_policies"] = explicit_policies()
+
+        result = assess_work_request(payload)
+        self.assertFalse(result["bridge_profile_supported"])
+        self.assertFalse(result["execution_ready"])
+        self.assertTrue(
+            any("sólo declara execution_ready para FULL_ASTROLOGY" in item for item in result["policy_errors"])
+        )
+
     def test_version_mismatch_is_rejected(self):
         payload = envelope()
         payload["request"]["public_version"] = "9.9.9"
