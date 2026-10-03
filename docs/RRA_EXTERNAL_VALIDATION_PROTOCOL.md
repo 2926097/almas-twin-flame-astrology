@@ -87,3 +87,7 @@ La siguiente acción es el estudio de factibilidad documental, con fuentes y reg
 ## Avance documental del 3 de octubre de 2026
 
 El [primer cribado de factibilidad](RRA_DOCUMENTARY_FEASIBILITY_SCREEN.md) ha examinado cuatro vínculos públicos en un panel de conveniencia institucional, sin calcular astrología. El [inventario bibliográfico y recibo](../validation/returns/documentary-feasibility-screen.json) conserva los bloqueos de precisión, observación y dependencia. Estos candidatos se reservan al piloto y quedan excluidos del holdout de esta evaluación; todavía no existe una cohorte confirmatoria admitida. El preregistro, runner e inferencia autorizada permanecen pendientes.
+
+## Ampliación archivística del piloto
+
+El [segundo cribado](RRA_ARCHIVAL_FEASIBILITY_SCREEN.md) añade tres vínculos de archivos científicos y artísticos, con [recibo de procedencia](../validation/returns/archival-feasibility-screen.json). El acumulado es de siete vínculos y trece personas; seis componentes topológicos no acreditan independencia estadística. La documentación incorpora una ficha de acta, cronologías y un fondo epistolar descrito, sin lectura de los originales ni observación negativa suficiente. La coincidencia de una segunda boda con un cumpleaños queda registrada para resolver el control calendario antes de evaluar. No se admite una cohorte ni se abre el holdout. La siguiente recuperación prioriza originales y un inventario de cobertura documental.
