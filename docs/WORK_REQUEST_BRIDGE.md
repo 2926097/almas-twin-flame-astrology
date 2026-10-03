@@ -19,8 +19,11 @@ del paquete. Una discrepancia falla cerrado antes de cualquier cálculo.
 ## Perfiles
 
 El adaptador resuelve `analysis_profile` mediante
-`ALMAS_ANALYSIS_PROFILES_V1`. Sólo exige políticas técnicas asociadas a
-módulos requeridos por el perfil seleccionado.
+`ALMAS_ANALYSIS_PROFILES_V1`. La revisión 1.0.0 del puente sólo declara
+`execution_ready=true` para `FULL_ASTROLOGY`, porque es el único perfil cuya
+frontera de entrada está completamente modelada aquí. `TEMPORAL`,
+`SOUL_CONTRACT` y `FULL_MULTIDISCIPLINARY` fallan cerrado hasta disponer de
+sus contratos de entrada completos.
 
 Para `FULL_ASTROLOGY`, las políticas estructurales relevantes son M03, M05,
 M06, M07, M08, M09, M10 y M11.
