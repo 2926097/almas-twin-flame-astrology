@@ -6,7 +6,10 @@ from math import isfinite
 from typing import Any, Mapping
 
 from .analysis_profiles import resolve_analysis_profile
-from .structural_policies import validate_declared_aspect_policy
+from .structural_policies import (
+    load_relational_orb_baseline_policy,
+    validate_declared_aspect_policy,
+)
 
 
 class WorkRequestError(ValueError):
@@ -17,6 +20,7 @@ PACKAGE_NAME = "almas-twin-flame-astrology"
 WORK_REQUEST_FORMAT = "ALMAS_WORK_REQUEST"
 SUPPORTED_TYPE = "RELATIONAL"
 POLICY_BUNDLE_SCHEMA_VERSION = "1.0.0"
+RELATIONAL_ORB_PRESET_ID = "ALMAS_RELATIONAL_ORB_BASELINE_V1"
 
 
 # Estas convenciones ya están fijadas por la implementación de producción.
@@ -166,6 +170,49 @@ def _validate_nonnegative_optional(
         )
 
 
+def _expand_policy_preset(bundle: Mapping[str, Any]) -> dict[str, Any]:
+    """Expande un preset sólo cuando el request lo selecciona explícitamente."""
+
+    out = deepcopy(dict(bundle))
+    preset_ref = out.get("preset_ref")
+    if preset_ref is None:
+        return out
+    if preset_ref != RELATIONAL_ORB_PRESET_ID:
+        raise WorkRequestError(
+            f"analysis_policies.preset_ref desconocido: {preset_ref!r}."
+        )
+    if out.get("policy_bundle_id") != preset_ref:
+        raise WorkRequestError(
+            "Con preset_ref, policy_bundle_id debe coincidir con el preset."
+        )
+
+    protected = set(MODULE_POLICY_REQUIREMENTS.values())
+    inline_overrides = sorted(protected & set(out))
+    if inline_overrides:
+        raise WorkRequestError(
+            "Un preset no admite overrides inline de políticas: "
+            + ", ".join(inline_overrides)
+        )
+
+    preset = load_relational_orb_baseline_policy()
+    policies = preset.get("analysis_policies")
+    if not isinstance(policies, Mapping):
+        raise WorkRequestError("El preset relacional no contiene analysis_policies.")
+
+    expanded = {
+        "schema_version": out.get("schema_version"),
+        "policy_bundle_id": out.get("policy_bundle_id"),
+        "preset_ref": preset_ref,
+        "preset_status": preset.get("status"),
+        "preset_epistemic_class": preset.get("epistemic_class"),
+        "preset_external_validation_status": preset.get(
+            "external_validation_status"
+        ),
+    }
+    expanded.update(deepcopy(dict(policies)))
+    return expanded
+
+
 def _validate_policy_bundle(
     bundle: Mapping[str, Any],
     required_modules: set[str],
@@ -293,6 +340,10 @@ def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
         bundle = deepcopy(
             dict(_mapping(supplied_bundle, "analysis_policies"))
         )
+        try:
+            bundle = _expand_policy_preset(bundle)
+        except WorkRequestError as exc:
+            bundle["_preset_error"] = str(exc)
 
     # Las convenciones de método congeladas sí pueden completarse
     # determinísticamente. Si el usuario suministra una variante distinta,
@@ -315,7 +366,11 @@ def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
     )
 
     policy_errors: list[str] = []
-    if bundle_header_valid:
+    preset_error = bundle.pop("_preset_error", None)
+    if isinstance(preset_error, str):
+        policy_errors.append(preset_error)
+
+    if bundle_header_valid and preset_error is None:
         try:
             _validate_policy_bundle(bundle, required_modules)
         except (ValueError, WorkRequestError) as exc:
@@ -358,6 +413,7 @@ def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
         "execution_ready": executable,
         "implicit_orbs_used": False,
         "case_fitting_used": False,
+        "preset_ref": bundle.get("preset_ref"),
     }
 
 
@@ -408,6 +464,12 @@ def build_raw_input_from_work_request(
     raw["analysis_policy_bundle"] = {
         "schema_version": bundle.get("schema_version"),
         "policy_bundle_id": bundle.get("policy_bundle_id"),
+        "preset_ref": bundle.get("preset_ref"),
+        "preset_status": bundle.get("preset_status"),
+        "preset_epistemic_class": bundle.get("preset_epistemic_class"),
+        "preset_external_validation_status": bundle.get(
+            "preset_external_validation_status"
+        ),
         "implicit_orbs_used": False,
         "case_fitting_used": False,
     }
