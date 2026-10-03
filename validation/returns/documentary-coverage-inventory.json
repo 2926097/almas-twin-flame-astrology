@@ -205,6 +205,11 @@
       "url": "https://archives.sceaux.fr",
       "target": "MUNICIPAL_ARCHIVE_PORTAL",
       "status": "OPEN_FAILED"
+    },
+    {
+      "url": "https://www.sceaux.fr/fr/sceaux/les-archives-en-ligne/index.html",
+      "target": "HISTORICAL_MUNICIPAL_ARCHIVE_LINK",
+      "status": "OPEN_FAILED_418"
     }
   ],
   "original_manuscripts_read": 0,
@@ -215,5 +220,15 @@
   "holdout_opened": false,
   "confirmatory_execution_allowed": false,
   "external_validation_status": "NOT_PERFORMED",
-  "report_path": "docs/RRA_DOCUMENTARY_COVERAGE_INVENTORY.md"
+  "report_path": "docs/RRA_DOCUMENTARY_COVERAGE_INVENTORY.md",
+  "source_routes": [
+    {
+      "url": "https://archives.hauts-de-seine.fr/archive/resultats/etatcivil/n:92?type=etatcivil",
+      "publisher": "Archives départementales des Hauts-de-Seine",
+      "access": "HTML_FUND_DESCRIPTION_READ_SPECIFIC_RECORD_NOT_RETRIEVED",
+      "retrieved_on": "2026-10-03",
+      "original_record_retrieved": false
+    }
+  ],
+  "coherence_validator": "scripts/validate_rra_documentary_inventory.py"
 }
