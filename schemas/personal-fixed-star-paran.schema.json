@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/personal-fixed-star-paran.schema.json",
+  "title": "ALMAS · Capa personal minimizada de estrellas y parans",
+  "type": "object",
+  "required": [
+    "subject_id",
+    "layer_id",
+    "schema_version",
+    "status",
+    "structural_role",
+    "policy_id",
+    "policy_fingerprint_sha256",
+    "method_source_ids",
+    "backend_id",
+    "backend_version",
+    "backend_provenance",
+    "canon",
+    "fixed_stars",
+    "parans",
+    "natal_angular_contacts"
+  ],
+  "properties": {
+    "subject_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "layer_id": {
+      "const": "FIXED_STARS_PARANS"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "const": "CALCULATED"
+    },
+    "structural_role": {
+      "const": "SUPPORT_ONLY"
+    },
+    "policy_id": {
+      "const": "ALMAS_FIXED_STAR_PARAN_POLICY_V1"
+    },
+    "policy_fingerprint_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "method_source_ids": {
+      "const": [
+        "brady_book_fixed_stars_1998",
+        "ptolemy_tetrabiblos_1_9_fixed_stars"
+      ]
+    },
+    "backend_id": {
+      "const": "MOIRA_JPL_SPK"
+    },
+    "backend_version": {
+      "const": "6.8.2"
+    },
+    "backend_provenance": {
+      "type": "object",
+      "required": [
+        "policy_id",
+        "adapter_id",
+        "backend_id",
+        "backend_version",
+        "provider_package",
+        "provider_version",
+        "kernel_filename",
+        "kernel_family",
+        "kernel_sha256",
+        "house_system",
+        "network_io_used",
+        "geocoding_used"
+      ],
+      "properties": {
+        "policy_id": {
+          "const": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1"
+        },
+        "adapter_id": {
+          "const": "ALMAS_MOIRA_JPL_SPK_V1"
+        },
+        "backend_id": {
+          "const": "MOIRA_JPL_SPK"
+        },
+        "backend_version": {
+          "const": "6.8.2"
+        },
+        "provider_package": {
+          "const": "moira-astro"
+        },
+        "provider_version": {
+          "const": "6.8.2"
+        },
+        "kernel_filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kernel_family": {
+          "enum": [
+            "DE430",
+            "DE440",
+            "DE441"
+          ]
+        },
+        "kernel_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "house_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "network_io_used": {
+          "const": false
+        },
+        "geocoding_used": {
+          "const": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "canon": {
+      "type": "object",
+      "required": [
+        "selection",
+        "returned_count",
+        "fingerprint_sha256",
+        "entries"
+      ],
+      "properties": {
+        "selection": {
+          "const": "ALL_AVAILABLE_ENGINE_CANON"
+        },
+        "returned_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fingerprint_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/canon_entry"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixed_stars": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/fixed_star"
+      }
+    },
+    "parans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/paran"
+      }
+    },
+    "natal_angular_contacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/angular_contact"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "circle": {
+      "enum": [
+        "Rising",
+        "Setting",
+        "Culminating",
+        "AntiCulminating"
+      ]
+    },
+    "canon_entry": {
+      "type": "object",
+      "required": [
+        "name",
+        "tiers",
+        "default_enabled"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tiers": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "default_enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixed_star": {
+      "type": "object",
+      "required": [
+        "name",
+        "nomenclature",
+        "longitude",
+        "latitude",
+        "magnitude",
+        "source",
+        "is_topocentric",
+        "computation_truth"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nomenclature": {},
+        "longitude": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "magnitude": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "is_topocentric": {
+          "type": "boolean"
+        },
+        "computation_truth": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "paran": {
+      "type": "object",
+      "required": [
+        "body1",
+        "body2",
+        "circle1",
+        "circle2",
+        "orb_min",
+        "signature"
+      ],
+      "properties": {
+        "body1": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body2": {
+          "type": "string",
+          "minLength": 1
+        },
+        "circle1": {
+          "$ref": "#/$defs/circle"
+        },
+        "circle2": {
+          "$ref": "#/$defs/circle"
+        },
+        "orb_min": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "signature": {
+          "type": "object",
+          "required": [
+            "body_family"
+          ],
+          "properties": {
+            "body_family": {
+              "const": "planet-star"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "angular_contact": {
+      "type": "object",
+      "required": [
+        "body",
+        "body_family",
+        "circle",
+        "delta_minutes",
+        "absolute_delta_minutes"
+      ],
+      "properties": {
+        "body": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body_family": {
+          "const": "star"
+        },
+        "circle": {
+          "$ref": "#/$defs/circle"
+        },
+        "delta_minutes": {
+          "type": "number"
+        },
+        "absolute_delta_minutes": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

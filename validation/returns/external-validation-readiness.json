@@ -12,8 +12,8 @@
   "real_cases": [],
   "cohort_sample_size": null,
   "independent_components": null,
-  "primary_endpoint_status": "CANDIDATE_NOT_OPERATIONALIZED",
-  "runner_status": "NOT_IMPLEMENTED",
+  "primary_endpoint_status": "OPERATIONALIZED_CANDIDATE_NOT_PREREGISTERED",
+  "runner_status": "IMPLEMENTED_DESCRIPTIVE_CANDIDATE",
   "exchangeability_status": "NOT_ESTABLISHED",
   "proposed_mc_simulations": 9999,
   "proposed_alpha": 0.05,
@@ -23,7 +23,6 @@
     "EVENT_CODING_AND_AGREEMENT_NOT_COMPLETED",
     "OBSERVATION_PERIODS_AND_CONTROL_STRATA_NOT_FROZEN",
     "PERSON_COMPONENT_SPLIT_NOT_POPULATED",
-    "PRIMARY_ENDPOINT_RUNNER_NOT_IMPLEMENTED",
     "SAMPLE_SIZE_AND_STOPPING_RULE_NOT_JUSTIFIED",
     "EXCHANGEABILITY_AND_MULTIPLICITY_PLAN_NOT_FINALIZED",
     "VERIFIABLE_PREREGISTRATION_NOT_COMPLETED"
@@ -70,5 +69,7 @@
       "retired_holdout_eligible": false,
       "astrological_results_seen": false
     }
-  ]
+  ],
+  "runner_path": "scripts/run_rra_external_descriptive.py",
+  "runner_method_path": "docs/RRA_EXTERNAL_RUNNER.md"
 }

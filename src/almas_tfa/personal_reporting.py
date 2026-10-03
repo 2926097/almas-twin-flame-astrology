@@ -273,6 +273,14 @@ def validate_personal_canonical(canonical: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(canonical.get("limitations"), list):
         blocking.append("LIMITATIONS_MUST_BE_ARRAY")
 
+    fixed = canonical.get("secondary_layers", {}).get("fixed_stars") if isinstance(canonical.get("secondary_layers", {}), Mapping) else None
+    if fixed is not None:
+        from .personal_fixed_stars import validate_personal_fixed_stars
+        try:
+            validate_personal_fixed_stars(fixed, subject_id=subject_id, provenance=natal.get("backend_provenance"))
+        except (ValueError, TypeError, KeyError, AttributeError) as exc:
+            blocking.append("INVALID_PERSONAL_FIXED_STARS:" + str(exc))
+
     from .surrender_vestal import validate_surrender_vestal_result
     vestal = canonical.get("surrender_vestal")
     if vestal is not None:

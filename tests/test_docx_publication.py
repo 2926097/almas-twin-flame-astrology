@@ -131,6 +131,38 @@ class DocxPublicationTests(unittest.TestCase):
             "bibliography": [],
         }
 
+    def test_personal_stars_narrative_is_published_in_b5_without_mutation(self):
+        from copy import deepcopy
+        from docx import Document
+        from test_personal_fixed_stars import Backend
+        from test_personal_request_pipeline import request
+        from test_personal_authored_report import authored
+        from almas_tfa.personal_request_pipeline import build_personal_report_context_from_request
+        from almas_tfa.personal_fixed_stars import render_personal_fixed_stars
+        from almas_tfa.personal_authored_report import validate_personal_authored_report_trace
+        payload = request(); payload["fixed_stars"] = {"enabled": True}
+        context = build_personal_report_context_from_request(payload, Backend())
+        canonical = context["personal_canonical_analysis"]
+        model = context["personal_report_document_model"]
+        before = deepcopy(canonical)
+        report = authored(canonical, model); report["bibliography"] = []
+        layer = canonical["secondary_layers"]["fixed_stars"]
+        section = next(s for s in report["sections"] if s["section_id"] == "P08_COMPLEMENTARY_LAYERS")
+        section.update(narrative=render_personal_fixed_stars(layer), canonical_paths_used=["secondary_layers"],
+                       epistemic_classes_used=["A_CALCULATED", "B_TECHNIQUE"], source_refs=layer["method_source_ids"])
+        for source_id in layer["method_source_ids"]:
+            report["bibliography"].append(dict(source_id=source_id, citation_label=source_id,
+                source_scope="METHOD", author=None, work=None, tradition=None, locator=None, url=None, verification_anchor=None))
+        validate_personal_authored_report_trace(report, model, canonical)
+        with TemporaryDirectory() as temp:
+            target = Path(temp) / "stars.docx"
+            receipt = build_personal_authored_report_docx(report, target)
+            texts = "\n".join(p.text for p in Document(str(target)).paragraphs)
+            self.assertIn("Brady", texts)
+            self.assertIn("SUPPORT_ONLY", texts)
+            self.assertEqual(receipt.profile_id, PERSONAL_PROFILE_ID)
+        self.assertEqual(canonical, before)
+
     def test_personal_docx_reuses_b5_renderer(self):
         from docx import Document
         from docx.shared import Mm

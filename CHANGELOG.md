@@ -1,5 +1,10 @@
 # Changelog
 
+## Integración de pendientes — 2026-10-03
+
+Integra F1–F5 de estrellas fijas/parans en informes personales: backend opcional Moira, política y canon trazados, minimización, router técnico, autoría y publicación B5. Incorpora runner descriptivo candidato RRA con cobertura, deduplicación y agregación por componentes. Conserva siete bloqueos externos y NOT_PERFORMED; no modifica índices ni políticas SSAR/RRA congeladas. Las ramas históricas cubiertas se cierran como sustituidas después de validar la integración.
+
+
 ## 1.25.0 R3 · RRA — 2026-10-02
 
 Añade retornos longitudinales exactos y todas las pasadas, cartas Moira por ubicación explícita, overlays anclados, intervalos de eventos, recurrencia deduplicada, controles nulos exploratorios y ocho ablaciones. Extiende opcionalmente `ssar.temporal_activation` sin modificar recursos SSAR congelados o índices. Integra solicitud explícita antes de M30, CLI, schemas, corpus y documentos de método. Corrige cancelación numérica del residual angular en contactos estacionarios. Contraste Moira/Skyfield para Sol, Luna y tres pasadas de Venus; validación relacional externa NOT_PERFORMED.

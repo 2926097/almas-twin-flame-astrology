@@ -319,6 +319,24 @@ def build_personal_canonical_from_request(
         "limitations": limitations,
     }
 
+    fixed = request.get("fixed_stars")
+    if fixed is not None:
+        if not isinstance(fixed, Mapping) or set(fixed) != {"enabled"} or type(fixed["enabled"]) is not bool:
+            raise PersonalRequestError("fixed_stars exige exclusivamente enabled booleano.")
+        if fixed["enabled"]:
+            from .personal_fixed_stars import calculate_personal_fixed_stars
+            canonical["secondary_layers"] = {"fixed_stars": calculate_personal_fixed_stars(
+                backend, natal_request, quality=quality, provenance=chart["backend_provenance"])}
+            from .corpus_doctrine import load_corpus_doctrine_policy
+            source_ids = canonical["secondary_layers"]["fixed_stars"]["method_source_ids"]
+            sources = {entry["id"]: entry for entry in load_corpus_doctrine_policy()["source_snapshots"]}
+            canonical["source_trace"] = [dict(source_id=source_id,
+                author=sources[source_id]["author"], work=sources[source_id]["work"],
+                url=sources[source_id]["url"], source_scope="METHOD", epistemic_class="B_TECHNIQUE",
+                verification_status=sources[source_id]["verification_status"],
+                verification_anchor=sources[source_id]["verification_anchor"]) for source_id in source_ids]
+
+
     chiron_request = request.get("chiron_process")
     if chiron_request is not None:
         if not isinstance(chiron_request, Mapping):

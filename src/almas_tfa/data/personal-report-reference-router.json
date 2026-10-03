@@ -163,13 +163,18 @@
       "gap_reason": null
     },
     "fixed_stars": {
-      "status": "SOURCE_GAP",
+      "status": "SUPPORTED",
       "epistemic_scope": [
         "B_TECHNIQUE"
       ],
-      "source_ids": [],
-      "internal_refs": [],
-      "gap_reason": "No existe todavía en source-registry una fuente metodológica preregistrada para estrellas fijas/parans en informes personales."
+      "source_ids": [
+        "brady_book_fixed_stars_1998",
+        "ptolemy_tetrabiblos_1_9_fixed_stars"
+      ],
+      "internal_refs": [
+        "reference/fixed-star-paran-method.md"
+      ],
+      "gap_reason": null
     },
     "asteroids": {
       "status": "SUPPORTED",

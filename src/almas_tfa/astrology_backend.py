@@ -60,6 +60,24 @@ class TransitAstrologyBackend(Protocol):
         ...
 
 
+class FixedStarParanBackend(Protocol):
+    """Capacidad opcional de estrellas fijas/parans del backend activo.
+
+    No forma parte de ``AstrologyBackend`` para conservar compatibilidad con
+    adaptadores que no implementen esta superficie secundaria.
+    """
+
+    backend_id: str
+    backend_version: str
+
+    def calculate_fixed_star_parans(
+        self,
+        request: NatalRequest,
+    ) -> Mapping[str, Any]:
+        """Devuelve resultados trazables con rol ``SUPPORT_ONLY``."""
+        ...
+
+
 def natal_request_from_subject(subject: Mapping[str, Any]) -> NatalRequest:
     """Normaliza un subject de raw-input sin inventar datos faltantes."""
 

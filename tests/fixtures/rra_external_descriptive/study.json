@@ -1,0 +1,60 @@
+{
+  "mode": "SYNTHETIC_TEST_ONLY",
+  "return_policy_hash": "3ef563388237f81a4b8af93d32f28e77c6cbf6c1d307a9b40879fb0263e5e134",
+  "cases": [
+    {
+      "case_id": "A",
+      "person_refs": [
+        "P1",
+        "P2"
+      ],
+      "component_id": "G1",
+      "execution_sha256": "abadd1e7a6a593720a76527b21b2e300fb56aee77a15fa6d7e3dc8335add75dd",
+      "observations": [
+        {
+          "observation_id": "E",
+          "kind": "EVENT",
+          "date_input": {
+            "event_id": "E",
+            "event_type": "SYNTHETIC",
+            "fact_statement": "Synthetic event",
+            "fact_key": "FACT",
+            "source_refs": [
+              "synthetic:event"
+            ],
+            "occurred": true,
+            "certainty": "DOCUMENTED",
+            "uncertainty_hours": 0,
+            "event_datetime": "2020-01-11T00:00:00Z"
+          },
+          "coverage_refs": [
+            "SYNTHETIC"
+          ],
+          "selection_stratum": "SYNTHETIC"
+        },
+        {
+          "observation_id": "C",
+          "kind": "CONTROL",
+          "date_input": {
+            "event_id": "C",
+            "event_type": "SYNTHETIC",
+            "fact_statement": "Synthetic event",
+            "fact_key": "CONTROL",
+            "source_refs": [
+              "synthetic:event"
+            ],
+            "occurred": true,
+            "certainty": "DOCUMENTED",
+            "uncertainty_hours": 0,
+            "event_datetime": "2020-01-25T00:00:00Z"
+          },
+          "coverage_refs": [
+            "SYNTHETIC"
+          ],
+          "selection_stratum": "SYNTHETIC"
+        }
+      ],
+      "execution_path": "execution.json"
+    }
+  ]
+}

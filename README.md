@@ -198,3 +198,9 @@ No se ha seleccionado todavía una licencia open source. Publicar el repositorio
 ## ALMAS 1.25.0 R3 · Retornos experimentales
 
 RRA calcula retornos y todas sus pasadas sobre raíces previas, con variantes de ubicación, eventos, dependencia, controles nulos y ablaciones. Conserva el núcleo y SSAR congelados. [Método y ejecución](reference/relational-return-activation.md), [corpus](docs/RRA_SOURCE_AUDIT.md), [auditoría](docs/RRA_BASE_AUDIT.md). Validación externa relacional pendiente.
+
+### Evoluciones cerradas de estrellas fijas y preparación RRA
+
+Los informes personales admiten `fixed_stars: {"enabled": true}` con hora A/B y backend Moira fijado. La capa secundaria minimizada y su narrativa técnica entran en P08, con fuentes de Brady y Ptolomeo y publicación B5. El cálculo conserva SUPPORT_ONLY. Véase `reference/fixed-star-paran-method.md`.
+
+El endpoint candidato de validación externa RRA se ejecuta con `scripts/run_rra_external_descriptive.py`; la demostración sintética está en `tests/fixtures/rra_external_descriptive`. Mantiene denominadores, incertidumbre y componentes sin emitir inferencia confirmatoria. La evaluación con cohorte independiente permanece NOT_PERFORMED. Véase `docs/RRA_EXTERNAL_RUNNER.md`.

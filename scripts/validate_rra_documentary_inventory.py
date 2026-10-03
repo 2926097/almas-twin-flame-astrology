@@ -126,7 +126,7 @@ def validate_bundle(bundle: dict, root: Path | None = None) -> None:
         require(state['negative_observation_periods_verified'] == 0, 'Observación negativa no acreditada')
         require(state['external_validation_status'] == 'NOT_PERFORMED', 'Validación externa no ejecutada')
     require(coverage['controls_admitted'] == [] and ready['real_cases'] == [], 'Admisión no autorizada por este contrato')
-    require(ready['engine_policy_modified'] is False and ready['runner_status'] == 'NOT_IMPLEMENTED',
+    require(ready['engine_policy_modified'] is False and ready['runner_status'] == 'IMPLEMENTED_DESCRIPTIVE_CANDIDATE',
             'El validador documental no sustituye al runner externo')
     if root is not None:
         for path in [coverage['report_path'], ready['protocol_path'], ready['documentary_coverage_inventory']]:
