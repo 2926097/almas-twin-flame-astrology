@@ -291,7 +291,8 @@ def _validate_policy_bundle(
 def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
     """Evalúa si un ALMAS_WORK_REQUEST puede convertirse en raw_input.
 
-    No calcula astrología y no completa orbes ausentes.
+    No calcula astrología. Sólo expande orbes cuando el request selecciona
+    explícitamente un preset versionado; nunca infiere valores desde el caso.
     """
 
     if envelope.get("case_title") is not None and not isinstance(
