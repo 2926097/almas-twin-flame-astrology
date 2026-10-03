@@ -1,0 +1,308 @@
+{
+  "schema_version": "rra-archival-screen-0.1",
+  "classification": "PUBLIC_METADATA_ONLY",
+  "status": "DOCUMENTARY_PILOT_ONLY",
+  "screened_on": "2026-10-03",
+  "selection": "CONVENIENCE_ARCHIVAL_PANEL_BEFORE_ASTROLOGICAL_CALCULATION_NOT_PREREGISTERED",
+  "prior_receipt": "validation/returns/documentary-feasibility-screen.json",
+  "pilot_candidates": [
+    {
+      "id": "P06",
+      "person_refs": [
+        "FRIDA_KAHLO",
+        "DIEGO_RIVERA"
+      ],
+      "person_component": "PERSON_COMPONENT_5",
+      "source_refs": [
+        "A04",
+        "A05",
+        "A06"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "natal_times_verified": 0,
+      "events": [
+        {
+          "fact_key": "KAHLO_RIVERA_MARRIAGE_1929",
+          "event_type": "MARRIAGE",
+          "date_assertion": "1929-08-21",
+          "precision": "DAY_ASSERTION",
+          "source_refs": [
+            "A04",
+            "A05"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": "Coyoacán",
+          "independent_replication_established": false
+        },
+        {
+          "fact_key": "KAHLO_RIVERA_DIVORCE_1939",
+          "event_type": "LEGAL_DIVORCE",
+          "date_assertion": "1939-11-06",
+          "precision": "DAY_ASSERTION",
+          "source_refs": [
+            "A04"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": null,
+          "independent_replication_established": false
+        },
+        {
+          "fact_key": "KAHLO_RIVERA_REMARRIAGE_1940",
+          "event_type": "REMARRIAGE",
+          "date_assertion": "1940-12-08",
+          "precision": "DAY_ASSERTION",
+          "source_refs": [
+            "A04",
+            "A05"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": "San Francisco",
+          "independent_replication_established": false
+        }
+      ],
+      "blockers": [
+        "NATAL_TIME_NOT_DOCUMENTED_IN_EXAMINED_PASSAGES",
+        "NEGATIVE_OBSERVATION_NOT_ESTABLISHED",
+        "SOURCE_GENEALOGY_NOT_AUDITED",
+        "CALENDAR_SELECTION_REMARRIAGE_ON_BIRTHDAY",
+        "ARTISTIC_CLOCK_TESTIMONY_NOT_LEGAL_INSTANT",
+        "CONFLICTING_INDEXED_INSTITUTIONAL_CHRONOLOGY"
+      ]
+    },
+    {
+      "id": "P07",
+      "person_refs": [
+        "ALBERT_EINSTEIN",
+        "MILEVA_MARIC"
+      ],
+      "person_component": "PERSON_COMPONENT_6",
+      "source_refs": [
+        "A07",
+        "A08",
+        "A09",
+        "A10"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "natal_times_verified": 0,
+      "events": [
+        {
+          "fact_key": "EINSTEIN_MARIC_MARRIAGE_1903",
+          "event_type": "MARRIAGE",
+          "date_assertion": "comienzos de enero de 1903",
+          "precision": "TEXTUAL_INTERVAL_NOT_NUMERICALLY_RESOLVED",
+          "source_refs": [
+            "A07"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": "Berna",
+          "independent_replication_established": false
+        },
+        {
+          "fact_key": "EINSTEIN_MARIC_DIVORCE_1919",
+          "event_type": "LEGAL_DIVORCE",
+          "date_assertion": "1919",
+          "precision": "YEAR_ASSERTION",
+          "source_refs": [
+            "A08"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": null,
+          "independent_replication_established": false
+        }
+      ],
+      "blockers": [
+        "NATAL_TIME_NOT_DOCUMENTED_IN_EXAMINED_PASSAGES",
+        "NEGATIVE_OBSERVATION_NOT_ESTABLISHED",
+        "SOURCE_GENEALOGY_NOT_AUDITED",
+        "EINSTEIN_BIRTH_NOT_VERIFIED_IN_SUBCORPUS",
+        "EVENT_DAY_NOT_RESOLVED",
+        "CORRESPONDENCE_VOLUME_NOT_READ"
+      ]
+    },
+    {
+      "id": "P08",
+      "person_refs": [
+        "FRANKLIN_D_ROOSEVELT",
+        "ELEANOR_ROOSEVELT"
+      ],
+      "person_component": "PERSON_COMPONENT_7",
+      "source_refs": [
+        "R01",
+        "R02",
+        "R03",
+        "R04"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "natal_times_verified": 0,
+      "events": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "event_type": "MARRIAGE",
+          "date_assertion": "1905-03-17",
+          "precision": "DAY_ASSERTION",
+          "source_refs": [
+            "R01",
+            "R02",
+            "R03"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": "Nueva York",
+          "independent_replication_established": false
+        }
+      ],
+      "blockers": [
+        "NATAL_TIME_NOT_DOCUMENTED_IN_EXAMINED_PASSAGES",
+        "NEGATIVE_OBSERVATION_NOT_ESTABLISHED",
+        "SOURCE_GENEALOGY_NOT_AUDITED",
+        "CERTIFICATE_FACSIMILE_COLLATION_NOT_CERTIFIED",
+        "CALENDAR_SELECTION_BY_PUBLIC_SCHEDULE"
+      ]
+    }
+  ],
+  "candidate_count": 3,
+  "distinct_person_count": 6,
+  "person_graph_components": 3,
+  "statistical_independent_component_count": null,
+  "cumulative_pilot_candidate_count": 7,
+  "cumulative_distinct_person_count": 13,
+  "cumulative_person_graph_components": 6,
+  "natal_times_verified": 0,
+  "complete_negative_observation_periods_available": 0,
+  "astrological_results_present": false,
+  "charts_computed": false,
+  "returns_computed": false,
+  "holdout_opened": false,
+  "real_validation_cases_admitted": 0,
+  "external_validation_status": "NOT_PERFORMED",
+  "original_documents_read": 0,
+  "independent_coder_count": 1,
+  "source_registry": [
+    {
+      "id": "A04",
+      "url": "https://www.museofridakahlo.org.mx/frida/",
+      "publisher": "Museo Frida Kahlo",
+      "priority": "P3_HISTORY_P1_OBJECT_METADATA",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "A05",
+      "url": "https://artsandculture.google.com/story/ygWxUtETc0ZEKA?hl=en",
+      "publisher": "Archives of American Art, Smithsonian Institution",
+      "priority": "P3_HISTORY_P1_COLLECTION_METADATA",
+      "access": "HTML_EXHIBIT_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "A06",
+      "url": "https://www.gob.mx/cultura/prensa/frida-kahlo-creadora-de-una-pintura-personal-y-metaforica",
+      "publisher": "Secretaría de Cultura",
+      "priority": "NOT_ADOPTED_DISCREPANCY_LEAD",
+      "access": "INDEXED_EXCERPT_ONLY_OPEN_403",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "A07",
+      "url": "https://www.einstein-bern.ch/einstein-and-bern/",
+      "publisher": "Einstein Haus Bern",
+      "priority": "P3_INSTITUTIONAL_HISTORY",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "A08",
+      "url": "https://hls-dhs-dss.ch/de/articles/042929/2009-08-04/",
+      "publisher": "Monika Bankowski-Züllig, HLS",
+      "priority": "P2_SIGNED_ACADEMIC_REFERENCE",
+      "access": "HTML_PASSAGE_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "A09",
+      "url": "https://www.einstein.caltech.edu/what-we-do/published-volumes/volume-5",
+      "publisher": "Einstein Papers Project, Caltech",
+      "priority": "P1_EDITORIAL_METADATA",
+      "access": "HTML_EDITORIAL_DESCRIPTION_READ_VOLUME_NOT_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "A10",
+      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/facts/",
+      "publisher": "NobelPrize.org",
+      "priority": "NOT_ADOPTED",
+      "access": "OPEN_FAILED",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R01",
+      "url": "https://www.fdrlibrary.org/document-march",
+      "publisher": "FDR Presidential Library & Museum",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ_IMAGE_LINK_OPENED_NOT_VISUALLY_CERTIFIED",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R02",
+      "url": "https://www.fdrlibrary.org/fdr-biography",
+      "publisher": "FDR Presidential Library & Museum",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R03",
+      "url": "https://www.fdrlibrary.org/er-biography",
+      "publisher": "FDR Presidential Library & Museum",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R04",
+      "url": "https://www.archives.nyc/blog/tag/Marriage%2Bcertificates",
+      "publisher": "NYC Department of Records & Information Services",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    }
+  ],
+  "report_path": "docs/RRA_ARCHIVAL_FEASIBILITY_SCREEN.md",
+  "next_action": "INVENTORY_PRIMARY_RECORDS_AND_COVERAGE_BEFORE_SELECTING_CONTROLS",
+  "documentary_coverage_inventory": "validation/returns/documentary-coverage-inventory.json",
+  "published_primary_transcription_passages_read": 0,
+  "replacement_history": [
+    {
+      "retired_candidate_id": "P05",
+      "replacement_candidate_id": "P08",
+      "retired_status": "RETIRED_USER_REQUEST",
+      "reason": "Sustitución documental solicitada por el usuario antes de calcular resultados",
+      "replaced_on": "2026-10-03",
+      "retired_excluded_from_active_inventory": true,
+      "retired_holdout_eligible": false,
+      "astrological_results_seen": false
+    }
+  ]
+}

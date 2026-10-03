@@ -147,14 +147,14 @@ class PersonalReferenceRouterTests(unittest.TestCase):
             for item in result["domains"]
         }
 
-        self.assertIn("fixed_stars", result["source_gaps"])
+        self.assertNotIn("fixed_stars", result["source_gaps"])
         self.assertEqual(
             domains["fixed_stars"]["status"],
-            "SOURCE_GAP",
+            "SUPPORTED",
         )
         self.assertEqual(
             domains["fixed_stars"]["source_ids"],
-            [],
+            ["brady_book_fixed_stars_1998", "ptolemy_tetrabiblos_1_9_fixed_stars"],
         )
 
     def test_enrichment_adds_trace_without_mutating_canonical(self):

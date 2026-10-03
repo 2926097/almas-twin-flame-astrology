@@ -1,0 +1,66 @@
+{
+  "schema_version": "rra-external-descriptive-0.1",
+  "study_hash": "b808cfa790e259ba794c0c84b041a12856f663865c7dd7600adab99683994488",
+  "mode": "SYNTHETIC_TEST_ONLY",
+  "cases": [
+    {
+      "case_id": "A",
+      "component_id": "G1",
+      "counts": {
+        "EVENT": {
+          "total": 1,
+          "evaluable": 1,
+          "positive": 1,
+          "missing": 0,
+          "rate": 1.0
+        },
+        "CONTROL": {
+          "total": 1,
+          "evaluable": 1,
+          "positive": 0,
+          "missing": 0,
+          "rate": 0.0
+        }
+      },
+      "difference": 1.0,
+      "observations": [
+        {
+          "observation_id": "E",
+          "kind": "EVENT",
+          "indicator": 1,
+          "reason": "EXACT_NON_TAUTOLOGICAL_CONTACT",
+          "return_refs": [
+            "SOLAR:PASS_1:UNKNOWN"
+          ]
+        },
+        {
+          "observation_id": "C",
+          "kind": "CONTROL",
+          "indicator": 0,
+          "reason": "NO_EXACT_ACTIVATION",
+          "return_refs": []
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "component_id": "G1",
+      "total_cases": 1,
+      "evaluable_cases": 1,
+      "difference": 1.0
+    }
+  ],
+  "total_components": 1,
+  "evaluable_components": 1,
+  "primary_difference": 1.0,
+  "aggregation": "EQUAL_CASE_WEIGHT_WITHIN_COMPONENT_THEN_EQUAL_COMPONENT_WEIGHT",
+  "missingness_rule": "EXCLUDE_UNEVALUABLE_KEEP_DENOMINATORS",
+  "confirmatory_inference_allowed": false,
+  "p_value": null,
+  "external_validation_status": "NOT_PERFORMED",
+  "ontology_effect": "NONE",
+  "provenance_authenticated": false,
+  "exchangeability_established": false,
+  "runner_scope": "CANDIDATE_ENDPOINT_DESCRIPTIVE_ONLY"
+}

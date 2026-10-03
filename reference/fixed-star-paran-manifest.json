@@ -1,0 +1,32 @@
+{
+  "manifest_id": "ALMAS_FIXED_STAR_PARAN_MANIFEST_V1",
+  "status": "PERSONAL_PIPELINE_IMPLEMENTED_SUPPORT_ONLY",
+  "policy_id": "ALMAS_FIXED_STAR_PARAN_POLICY_V1",
+  "policy_path": "src/almas_tfa/data/fixed-star-paran-policy.json",
+  "policy_schema_path": "schemas/fixed-star-paran-policy.schema.json",
+  "result_schema_path": "schemas/fixed-star-paran-result.schema.json",
+  "backend_class": "almas_tfa.production_astronomy.MoiraProductionBackend",
+  "capability_protocol": "almas_tfa.astrology_backend.FixedStarParanBackend",
+  "provider": {
+    "package": "moira-astro",
+    "version": "6.8.2",
+    "paran_surface": "moira.facade.find_parans",
+    "canon_surface": "moira.facade.list_paran_stars",
+    "fixed_star_surface": "Moira.fixed_star",
+    "angular_contact_surface": "moira.facade.natal_angular_contacts"
+  },
+  "source_ids": [
+    "brady_book_fixed_stars_1998",
+    "ptolemy_tetrabiblos_1_9_fixed_stars"
+  ],
+  "fixture_directory": "tests/fixtures/fixed_star_paran",
+  "router_domain_status": "SUPPORTED",
+  "structural_role": "SUPPORT_ONLY",
+  "forbidden_effects": [
+    "scoring",
+    "roots",
+    "discriminators",
+    "ontology"
+  ],
+  "personal_schema_path": "schemas/personal-fixed-star-paran.schema.json"
+}

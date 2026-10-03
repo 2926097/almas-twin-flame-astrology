@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/fixed-star-paran-policy.schema.json",
+  "title": "ALMAS · Política de estrellas fijas y parans",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy_id",
+    "status",
+    "concept_id",
+    "structural_role",
+    "method_source_ids",
+    "provider",
+    "star_canon",
+    "fixed_stars",
+    "parans",
+    "natal_angular_contacts",
+    "result_contract",
+    "failure_policy",
+    "inferential_firewall"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "policy_id": {
+      "const": "ALMAS_FIXED_STAR_PARAN_POLICY_V1"
+    },
+    "status": {
+      "const": "FROZEN_PREREGISTERED_EXECUTION_CONTRACT"
+    },
+    "epistemic_class": {
+      "const": "E_PROJECT_POLICY"
+    },
+    "concept_id": {
+      "const": "FIXED_STAR_ASTROLOGY"
+    },
+    "structural_role": {
+      "const": "SUPPORT_ONLY"
+    },
+    "method_source_ids": {
+      "const": [
+        "brady_book_fixed_stars_1998",
+        "ptolemy_tetrabiblos_1_9_fixed_stars"
+      ]
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "adapter_id",
+        "package",
+        "pinned_version",
+        "reuse_existing_backend"
+      ],
+      "properties": {
+        "adapter_id": {
+          "const": "ALMAS_MOIRA_JPL_SPK_V1"
+        },
+        "package": {
+          "const": "moira-astro"
+        },
+        "pinned_version": {
+          "const": "6.8.2"
+        },
+        "reuse_existing_backend": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "star_canon": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "selection",
+        "available_only",
+        "documented_memberships",
+        "runtime_canon_fingerprint_required"
+      ],
+      "properties": {
+        "provider_surface": {
+          "const": "PARAN_STAR_CANON"
+        },
+        "selection": {
+          "const": "ALL_AVAILABLE_ENGINE_CANON"
+        },
+        "available_only": {
+          "const": true
+        },
+        "documented_memberships": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "ROYAL",
+              "BEHENIAN",
+              "PTOLEMAIC"
+            ]
+          }
+        },
+        "runtime_canon_fingerprint_required": {
+          "const": true
+        },
+        "canon_order_not_semantic": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixed_stars": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "require_explicit_star_name",
+        "retained_fields",
+        "catalog_enrichment_is_context_only"
+      ],
+      "properties": {
+        "provider_surface": {"const": "Moira.fixed_star"},
+        "require_explicit_star_name": {"const": true},
+        "retained_fields": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        },
+        "catalog_enrichment_is_context_only": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "parans": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "policy_preset",
+        "orb_minutes",
+        "require_birth_time",
+        "require_numeric_coordinates",
+        "day_basis"
+      ],
+      "properties": {
+        "provider_surface": {"const": "moira.facade.find_parans"},
+        "policy_preset": {
+          "const": "star_planet_only"
+        },
+        "orb_minutes": {
+          "const": 4
+        },
+        "orb_origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "require_birth_time": {
+          "const": true
+        },
+        "require_numeric_coordinates": {
+          "const": true
+        },
+        "event_scope": {
+          "const": "BIRTH_DAY"
+        },
+        "day_basis": {"const": "UT_CALENDAR_DAY"},
+        "retained_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "natal_angular_contacts": {
+      "type": "object",
+      "required": [
+        "provider_surface",
+        "enabled",
+        "orb_minutes",
+        "semantic_boundary"
+      ],
+      "properties": {
+        "provider_surface": {
+          "const": "natal_angular_contacts"
+        },
+        "enabled": {
+          "const": true
+        },
+        "orb_minutes": {
+          "const": 2
+        },
+        "orb_origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "semantic_boundary": {
+          "const": "INDIVIDUAL_CROSSING_NEAR_BIRTH_MOMENT_NOT_TWO_BODY_PARAN"
+        }
+      },
+      "additionalProperties": false
+    },
+    "result_contract": {
+      "type": "object",
+      "required": [
+        "schema_path",
+        "schema_version",
+        "policy_fingerprint_algorithm",
+        "partial_success"
+      ],
+      "properties": {
+        "schema_path": {"const": "schemas/fixed-star-paran-result.schema.json"},
+        "schema_version": {"const": "1.0.0"},
+        "policy_fingerprint_algorithm": {"const": "SHA256_CANONICAL_JSON"},
+        "partial_success": {"const": "FORBIDDEN"}
+      },
+      "additionalProperties": false
+    },
+    "failure_policy": {
+      "type": "object",
+      "required": [
+        "untimed_birth",
+        "missing_coordinates",
+        "provider_surface_missing",
+        "empty_or_unavailable_canon",
+        "implicit_orb_fallback",
+        "hidden_geocoding",
+        "hidden_network_io"
+      ],
+      "properties": {
+        "untimed_birth": {"const": "NOT_EVALUABLE_PARANS_AND_ANGULAR_CONTACTS"},
+        "missing_coordinates": {"const": "NOT_EVALUABLE_PARANS_AND_ANGULAR_CONTACTS"},
+        "provider_surface_missing": {"const": "NOT_EVALUABLE"},
+        "empty_or_unavailable_canon": {"const": "NOT_EVALUABLE"},
+        "implicit_orb_fallback": {"const": "FORBIDDEN"},
+        "hidden_geocoding": {"const": "FORBIDDEN"},
+        "hidden_network_io": {"const": "FORBIDDEN"}
+      },
+      "additionalProperties": false
+    },
+    "inferential_firewall": {
+      "type": "object",
+      "required": [
+        "changes_scoring",
+        "creates_structural_root",
+        "creates_discriminator",
+        "changes_iem",
+        "changes_idd",
+        "changes_irc",
+        "changes_iat",
+        "changes_icc",
+        "changes_ice",
+        "changes_ontology",
+        "discriminating_power"
+      ],
+      "properties": {
+        "changes_scoring": {"const": false},
+        "creates_structural_root": {
+          "const": false
+        },
+        "creates_discriminator": {"const": false},
+        "changes_iem": {
+          "const": false
+        },
+        "changes_idd": {
+          "const": false
+        },
+        "changes_irc": {
+          "const": false
+        },
+        "changes_iat": {"const": false},
+        "changes_icc": {"const": false},
+        "changes_ice": {"const": false},
+        "changes_ontology": {
+          "const": false
+        },
+        "discriminating_power": {
+          "const": "SUPPORT_ONLY"
+        },
+        "temporal_or_star_presence_does_not_prove_metaphysical_claim": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

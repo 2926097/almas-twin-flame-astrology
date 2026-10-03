@@ -1,0 +1,75 @@
+{
+  "schema_version": "rra-external-readiness-0.1",
+  "protocol_id": "ALMAS_RRA_EXTERNAL_PROTOCOL_DRAFT_01",
+  "status": "DRAFT_NOT_PREREGISTERED",
+  "base_commit": "4615a5b20b56b5630ba9468fdd8fb43e673ac20f",
+  "epistemic_class": "E_PROJECT_DESIGN",
+  "engine_policy_modified": false,
+  "external_validation_status": "NOT_PERFORMED",
+  "confirmatory_execution_allowed": false,
+  "external_registration": null,
+  "holdout_opened": false,
+  "real_cases": [],
+  "cohort_sample_size": null,
+  "independent_components": null,
+  "primary_endpoint_status": "OPERATIONALIZED_CANDIDATE_NOT_PREREGISTERED",
+  "runner_status": "IMPLEMENTED_DESCRIPTIVE_CANDIDATE",
+  "exchangeability_status": "NOT_ESTABLISHED",
+  "proposed_mc_simulations": 9999,
+  "proposed_alpha": 0.05,
+  "proposal_is_engine_policy": false,
+  "blockers": [
+    "DOCUMENTARY_FEASIBILITY_COHORT_NOT_IDENTIFIED",
+    "EVENT_CODING_AND_AGREEMENT_NOT_COMPLETED",
+    "OBSERVATION_PERIODS_AND_CONTROL_STRATA_NOT_FROZEN",
+    "PERSON_COMPONENT_SPLIT_NOT_POPULATED",
+    "SAMPLE_SIZE_AND_STOPPING_RULE_NOT_JUSTIFIED",
+    "EXCHANGEABILITY_AND_MULTIPLICITY_PLAN_NOT_FINALIZED",
+    "VERIFIABLE_PREREGISTRATION_NOT_COMPLETED"
+  ],
+  "method_sources": [
+    "https://help.osf.io/article/330-welcome-to-registrations",
+    "https://pubmed.ncbi.nlm.nih.gov/24530839/"
+  ],
+  "protocol_path": "docs/RRA_EXTERNAL_VALIDATION_PROTOCOL.md",
+  "documentary_feasibility_status": "TWO_PILOT_SCREENS_COMPLETED_NO_HOLDOUT_COHORT_ADMITTED",
+  "documentary_feasibility_receipt": "validation/returns/documentary-feasibility-screen.json",
+  "pilot_candidate_count": 7,
+  "pilot_candidates_excluded_from_holdout": true,
+  "updated_on": "2026-10-03",
+  "archival_feasibility_receipt": "validation/returns/archival-feasibility-screen.json",
+  "pilot_distinct_person_count": 13,
+  "pilot_person_graph_components": 6,
+  "statistical_independence_established": false,
+  "negative_observation_periods_verified": 0,
+  "documentary_coverage_inventory": "validation/returns/documentary-coverage-inventory.json",
+  "coverage_inventory_status": "PARTIAL_INVENTORY_NOT_CONTROL_READY",
+  "documentary_event_conflicts_pending": 0,
+  "retired_pilot_candidate_ids": [
+    "P05"
+  ],
+  "pilot_candidate_ids": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P06",
+    "P07",
+    "P08"
+  ],
+  "total_historically_screened_candidates": 8,
+  "replacement_history": [
+    {
+      "retired_candidate_id": "P05",
+      "replacement_candidate_id": "P08",
+      "retired_status": "RETIRED_USER_REQUEST",
+      "reason": "Sustitución documental solicitada por el usuario antes de calcular resultados",
+      "replaced_on": "2026-10-03",
+      "retired_excluded_from_active_inventory": true,
+      "retired_holdout_eligible": false,
+      "astrological_results_seen": false
+    }
+  ],
+  "runner_path": "scripts/run_rra_external_descriptive.py",
+  "runner_method_path": "docs/RRA_EXTERNAL_RUNNER.md"
+}

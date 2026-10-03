@@ -1,0 +1,15 @@
+{
+  "status": "PASSED_PERSONAL_RUNTIME",
+  "epoch": "SYNTHETIC_TEST_ONLY",
+  "policy_sha256": "7f5e6c690013a1cce4077f50e33575d6b23d5a585671e6e1cba77bf5b1107704",
+  "kernel_sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+  "canon_sha256": "216ddfc9013ec5dff56fd1b63a4b8a539d7a37504b07a38e7d7832904e876411",
+  "stars": 51,
+  "parans": 62,
+  "angular_contacts": 0,
+  "canonical_sha256": "5721125cb2deb6aefcae662c84b3b1b15c688e2dfdbf1e4f9168be21188d96ca",
+  "narrative_sha256": "adb171e96acdf7dc8f4d112c72e54ed9daa4959c6460ff2e187d29b3b0cde8f8",
+  "personal_data_minimized": true,
+  "structural_role": "SUPPORT_ONLY",
+  "external_astrological_validation": "NOT_PERFORMED"
+}

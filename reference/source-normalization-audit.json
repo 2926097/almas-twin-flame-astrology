@@ -1,20 +1,20 @@
 {
   "audit_version": "1.1.0",
   "almas_version": "1.24.1",
-  "date": "2026-10-01",
-  "sources_total": 109,
-  "concepts_total": 143,
+  "date": "2026-10-03",
+  "sources_total": 111,
+  "concepts_total": 144,
   "genealogy_edges_total": 93,
   "by_priority": {
     "P1_PRIMARY": 45,
     "P2_ACADEMIC": 12,
-    "P4_IDENTIFIED_METHOD": 48,
-    "P3_HISTORICAL_TECHNICAL": 3,
+    "P4_IDENTIFIED_METHOD": 49,
+    "P3_HISTORICAL_TECHNICAL": 4,
     "P5_EMIC": 1
   },
   "by_verification": {
-    "VERIFIED_PRIMARY": 69,
-    "VERIFIED_METADATA": 40
+    "VERIFIED_PRIMARY": 70,
+    "VERIFIED_METADATA": 41
   },
   "integrity": {
     "unknown_concepts_from_sources": 0,
@@ -43,6 +43,7 @@
     "ALMAS 1.20 incorpora Astrodienst y Robert Hand como fuentes de método para TTRANSIT: planeta transitante → aspecto → factor natal. Estas fuentes sustentan cálculo e interpretación temporal, sin convertir activación en predicción factual ni evidencia ontológica.",
     "ALMAS 1.23 registra a Jean Meeus, Astronomical Algorithms §47.7, como referencia técnica del cálculo Mean Node; no añade scoring ni significado ontológico.",
     "ALMAS 1.24 incorpora siete fuentes comparadas y ocho conceptos. La descripción comercial de Demetra George permanece VERIFIED_METADATA; el artículo contemporáneo P5 se limita a evidencia emic. No se afirma validación externa de retirada vestal.",
-    "1.24.1: nuevas fuentes con consulta explícita; metadatos no equivalen a texto. dependency_root agrupa conservadoramente, sin probar independencia ni añadir pesos."
+    "1.24.1: nuevas fuentes con consulta explícita; metadatos no equivalen a texto. dependency_root agrupa conservadoramente, sin probar independencia ni añadir pesos.",
+    "Integra F1–F2 de estrellas fijas y parans como capacidad SUPPORT_ONLY; router conservado en SOURCE_GAP hasta validación de integración."
   ]
 }

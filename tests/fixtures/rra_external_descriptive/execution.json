@@ -1,0 +1,645 @@
+{
+  "schema_version": "rra-1.0",
+  "enabled": true,
+  "return_policy_id": "ALMAS_RRA_ACTIVATION_V1",
+  "return_policy_hash": "3ef563388237f81a4b8af93d32f28e77c6cbf6c1d307a9b40879fb0263e5e134",
+  "engine_version": "RRA_1.0",
+  "execution_status": "executed",
+  "input_hash": "64305430fa323b5d97cdeeb4c5433a1fbf533044bdd3332bf8a6f2d8b9ea9c1f",
+  "evaluation_input": {
+    "enabled": true,
+    "clocks": [
+      {
+        "id": "SOLAR",
+        "owner": "SYNTHETIC_A",
+        "returning_body": "SUN",
+        "reference_chart": "N",
+        "reference_point": "SUN",
+        "start": "2020-01-01T00:00:00Z",
+        "end": "2020-02-01T00:00:00Z",
+        "locations": [
+          {
+            "id": "UNKNOWN",
+            "basis": "unknown"
+          }
+        ],
+        "angular_reliability": false,
+        "birth_time_quality": "UNKNOWN"
+      }
+    ],
+    "charts": [
+      {
+        "id": "N",
+        "layer": "NATAL",
+        "source_ref": "synthetic:natal",
+        "points": [
+          {
+            "point_id": "SUN",
+            "longitude": 0,
+            "core_root_refs": [
+              "R1"
+            ]
+          },
+          {
+            "point_id": "MOON",
+            "longitude": 61,
+            "core_root_refs": [
+              "R1"
+            ]
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "E",
+        "event_type": "SYNTHETIC",
+        "fact_statement": "Synthetic event",
+        "fact_key": "FACT",
+        "source_refs": [
+          "synthetic:event"
+        ],
+        "occurred": true,
+        "certainty": "DOCUMENTED",
+        "uncertainty_hours": 0,
+        "event_datetime": "2020-01-11T00:00:00Z"
+      }
+    ],
+    "robustness": true,
+    "null_model": {
+      "method": "EVENT_DATE_SHIFT",
+      "seed": 42,
+      "simulations": 20
+    }
+  },
+  "root_input": [
+    {
+      "root_id": "R1",
+      "core_eligible": true,
+      "core_evidence_ids": [
+        "CORE"
+      ],
+      "point_ids": [
+        "SUN",
+        "MOON",
+        "VENUS"
+      ]
+    }
+  ],
+  "ssar_input": null,
+  "returns": [
+    {
+      "return_id": "SOLAR:PASS_1:UNKNOWN",
+      "clock_id": "SOLAR",
+      "owner": "SYNTHETIC_A",
+      "return_type": "NATAL_RETURN",
+      "returning_body": "SUN",
+      "reference_chart": "N",
+      "reference_longitude": 0,
+      "exact_return_time": "2020-01-11T00:00:00Z",
+      "return_pass": 1,
+      "motion_state": "DIRECT",
+      "angular_error": 0.0,
+      "solver": {
+        "status": "READY",
+        "solver": "BRACKETED_ROOTS_PLUS_STATIONARY_MINIMA",
+        "time_scale": "UTC",
+        "time_tolerance_seconds": 0.01,
+        "angular_tolerance_degrees": 1e-05,
+        "sampling_step_seconds": 21600.0,
+        "samples_evaluated": 126,
+        "window": {
+          "start": "2020-01-01T00:00:00+00:00",
+          "end": "2020-02-01T00:00:00+00:00"
+        },
+        "technique": "RRA",
+        "technique_variant": "LONGITUDE_RETURN",
+        "source_point": "SUN",
+        "target_point": "SUN",
+        "relation": "CONJUNCTION",
+        "dependency_group": "TRANSIT_EPHEMERIS",
+        "node_variant": null,
+        "epistemic_class": "B_TECHNIQUE",
+        "creates_structural_root": false,
+        "predicts_real_world_event": false,
+        "cycle_end": "2020-02-01T00:00:00Z",
+        "cycle_right_censored": true,
+        "target_uncertainty_degrees": null,
+        "birth_time_sensitivity": []
+      },
+      "location_variant": "UNKNOWN",
+      "location_basis": "unknown",
+      "return_chart": {
+        "positions": {
+          "SUN": {
+            "longitude": 0.0,
+            "speed": 1
+          },
+          "VENUS": {
+            "longitude": 60,
+            "speed": 0
+          },
+          "MOON": {
+            "longitude": 0.0,
+            "speed": 13
+          }
+        },
+        "angles": {},
+        "angular_status": "BLOCKED",
+        "location_basis": "unknown",
+        "backend_id": "SYNTHETIC_TEST_ONLY",
+        "backend_version": "1",
+        "backend_provenance": {
+          "fixture": "not-an-ephemeris"
+        }
+      },
+      "contacts": [
+        {
+          "id": "SOLAR:PASS_1:UNKNOWN:N:MOON:SUN:CONJUNCTION:R1",
+          "return_id": "SOLAR:PASS_1:UNKNOWN",
+          "chart_id": "N",
+          "layer": "NATAL",
+          "source_point": "MOON",
+          "target_point": "SUN",
+          "aspect": "CONJUNCTION",
+          "orb": 0.0,
+          "orb_limit": 1.0,
+          "root_refs": [
+            "R1"
+          ],
+          "dependency_group": "R1",
+          "automatic_identity_contact": false,
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "status": "SUPPORTED",
+          "scope": "CALCULATED_ROOT_ACTIVATION"
+        },
+        {
+          "id": "SOLAR:PASS_1:UNKNOWN:N:SUN:SUN:CONJUNCTION:R1",
+          "return_id": "SOLAR:PASS_1:UNKNOWN",
+          "chart_id": "N",
+          "layer": "NATAL",
+          "source_point": "SUN",
+          "target_point": "SUN",
+          "aspect": "CONJUNCTION",
+          "orb": 0.0,
+          "orb_limit": 1.0,
+          "root_refs": [
+            "R1"
+          ],
+          "dependency_group": "R1",
+          "automatic_identity_contact": true,
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "status": "SUPPORTED",
+          "scope": "CALCULATED_ROOT_ACTIVATION"
+        },
+        {
+          "id": "SOLAR:PASS_1:UNKNOWN:N:VENUS:SUN:SEXTILE:R1",
+          "return_id": "SOLAR:PASS_1:UNKNOWN",
+          "chart_id": "N",
+          "layer": "NATAL",
+          "source_point": "VENUS",
+          "target_point": "SUN",
+          "aspect": "SEXTILE",
+          "orb": 0.0,
+          "orb_limit": 1.0,
+          "root_refs": [
+            "R1"
+          ],
+          "dependency_group": "R1",
+          "automatic_identity_contact": false,
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "status": "SUPPORTED",
+          "scope": "CALCULATED_ROOT_ACTIVATION"
+        },
+        {
+          "id": "SOLAR:PASS_1:UNKNOWN:N:MOON:MOON:SEXTILE:R1",
+          "return_id": "SOLAR:PASS_1:UNKNOWN",
+          "chart_id": "N",
+          "layer": "NATAL",
+          "source_point": "MOON",
+          "target_point": "MOON",
+          "aspect": "SEXTILE",
+          "orb": 1.0,
+          "orb_limit": 1.0,
+          "root_refs": [
+            "R1"
+          ],
+          "dependency_group": "R1",
+          "automatic_identity_contact": false,
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "status": "SUPPORTED",
+          "scope": "CALCULATED_ROOT_ACTIVATION"
+        },
+        {
+          "id": "SOLAR:PASS_1:UNKNOWN:N:SUN:MOON:SEXTILE:R1",
+          "return_id": "SOLAR:PASS_1:UNKNOWN",
+          "chart_id": "N",
+          "layer": "NATAL",
+          "source_point": "SUN",
+          "target_point": "MOON",
+          "aspect": "SEXTILE",
+          "orb": 1.0,
+          "orb_limit": 1.0,
+          "root_refs": [
+            "R1"
+          ],
+          "dependency_group": "R1",
+          "automatic_identity_contact": false,
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "status": "SUPPORTED",
+          "scope": "CALCULATED_ROOT_ACTIVATION"
+        },
+        {
+          "id": "SOLAR:PASS_1:UNKNOWN:N:VENUS:MOON:CONJUNCTION:R1",
+          "return_id": "SOLAR:PASS_1:UNKNOWN",
+          "chart_id": "N",
+          "layer": "NATAL",
+          "source_point": "VENUS",
+          "target_point": "MOON",
+          "aspect": "CONJUNCTION",
+          "orb": 1.0,
+          "orb_limit": 1.0,
+          "root_refs": [
+            "R1"
+          ],
+          "dependency_group": "R1",
+          "automatic_identity_contact": false,
+          "epistemic_class": "E_PROJECT_HYPOTHESIS",
+          "status": "SUPPORTED",
+          "scope": "CALCULATED_ROOT_ACTIVATION"
+        }
+      ],
+      "excluded_contacts": [],
+      "event_correspondences": [
+        {
+          "event_id": "E",
+          "event_delta_hours": 0.0,
+          "delta_interval_hours": [
+            0.0,
+            0.0
+          ],
+          "within_exact_window": true,
+          "within_active_cycle": true,
+          "cycle_right_censored": true,
+          "status": "SUPPORTED",
+          "occurred": true,
+          "reason": "TECHNICAL_TEMPORAL_CORRESPONDENCE",
+          "correspondence_kind": "EXACT_RETURN_WINDOW"
+        }
+      ],
+      "structural_roots": [
+        "R1"
+      ],
+      "activation_depth": "R2",
+      "status": "SUPPORTED",
+      "doctrine_class": "B_TECHNIQUE",
+      "iat_eligible": false
+    }
+  ],
+  "coverage": [
+    {
+      "clock_id": "SOLAR",
+      "execution_status": "executed",
+      "return_pass_count": 1,
+      "sampling_step_seconds": 21600.0,
+      "search_window": {
+        "start": "2020-01-01T00:00:00+00:00",
+        "end": "2020-02-01T00:00:00+00:00"
+      }
+    }
+  ],
+  "negative_results": [],
+  "dependency_graph": {
+    "units": [
+      {
+        "id": "SOLAR:PASS_1:UNKNOWN:N:MOON:SUN:CONJUNCTION:R1",
+        "return_id": "SOLAR:PASS_1:UNKNOWN",
+        "root_refs": [
+          "R1"
+        ],
+        "dependency_group": "R1",
+        "contributes_new_geometry": true
+      },
+      {
+        "id": "SOLAR:PASS_1:UNKNOWN:N:SUN:SUN:CONJUNCTION:R1",
+        "return_id": "SOLAR:PASS_1:UNKNOWN",
+        "root_refs": [
+          "R1"
+        ],
+        "dependency_group": "R1",
+        "contributes_new_geometry": false
+      },
+      {
+        "id": "SOLAR:PASS_1:UNKNOWN:N:VENUS:SUN:SEXTILE:R1",
+        "return_id": "SOLAR:PASS_1:UNKNOWN",
+        "root_refs": [
+          "R1"
+        ],
+        "dependency_group": "R1",
+        "contributes_new_geometry": true
+      },
+      {
+        "id": "SOLAR:PASS_1:UNKNOWN:N:MOON:MOON:SEXTILE:R1",
+        "return_id": "SOLAR:PASS_1:UNKNOWN",
+        "root_refs": [
+          "R1"
+        ],
+        "dependency_group": "R1",
+        "contributes_new_geometry": true
+      },
+      {
+        "id": "SOLAR:PASS_1:UNKNOWN:N:SUN:MOON:SEXTILE:R1",
+        "return_id": "SOLAR:PASS_1:UNKNOWN",
+        "root_refs": [
+          "R1"
+        ],
+        "dependency_group": "R1",
+        "contributes_new_geometry": true
+      },
+      {
+        "id": "SOLAR:PASS_1:UNKNOWN:N:VENUS:MOON:CONJUNCTION:R1",
+        "return_id": "SOLAR:PASS_1:UNKNOWN",
+        "root_refs": [
+          "R1"
+        ],
+        "dependency_group": "R1",
+        "contributes_new_geometry": true
+      }
+    ],
+    "edges": [
+      {
+        "a": "SOLAR:PASS_1:UNKNOWN:N:MOON:SUN:CONJUNCTION:R1",
+        "b": "R1",
+        "relation": "RETURN_DERIVED_FROM_ROOT"
+      },
+      {
+        "a": "SOLAR:PASS_1:UNKNOWN:N:SUN:SUN:CONJUNCTION:R1",
+        "b": "R1",
+        "relation": "RETURN_DERIVED_FROM_ROOT"
+      },
+      {
+        "a": "SOLAR:PASS_1:UNKNOWN:N:VENUS:SUN:SEXTILE:R1",
+        "b": "R1",
+        "relation": "RETURN_DERIVED_FROM_ROOT"
+      },
+      {
+        "a": "SOLAR:PASS_1:UNKNOWN:N:MOON:MOON:SEXTILE:R1",
+        "b": "R1",
+        "relation": "RETURN_DERIVED_FROM_ROOT"
+      },
+      {
+        "a": "SOLAR:PASS_1:UNKNOWN:N:SUN:MOON:SEXTILE:R1",
+        "b": "R1",
+        "relation": "RETURN_DERIVED_FROM_ROOT"
+      },
+      {
+        "a": "SOLAR:PASS_1:UNKNOWN:N:VENUS:MOON:CONJUNCTION:R1",
+        "b": "R1",
+        "relation": "RETURN_DERIVED_FROM_ROOT"
+      }
+    ],
+    "effective_units": [
+      {
+        "dependency_group": "R1",
+        "fact_group_ref": "2145bd3694eeff614c70024aa6a8dbf51f95d18d4a1dff47f767f214a95f530f",
+        "contact_refs": [
+          "SOLAR:PASS_1:UNKNOWN:N:MOON:MOON:SEXTILE:R1",
+          "SOLAR:PASS_1:UNKNOWN:N:MOON:SUN:CONJUNCTION:R1",
+          "SOLAR:PASS_1:UNKNOWN:N:SUN:MOON:SEXTILE:R1",
+          "SOLAR:PASS_1:UNKNOWN:N:VENUS:MOON:CONJUNCTION:R1",
+          "SOLAR:PASS_1:UNKNOWN:N:VENUS:SUN:SEXTILE:R1"
+        ]
+      }
+    ],
+    "statistical_independence_established": false,
+    "structural_roots_created": false
+  },
+  "recurrence": [
+    {
+      "root_id": "R1",
+      "recurrence_count": 1,
+      "documentary_fact_group_refs": [
+        "2145bd3694eeff614c70024aa6a8dbf51f95d18d4a1dff47f767f214a95f530f"
+      ],
+      "event_refs": [
+        "E"
+      ],
+      "independent_event_count": null,
+      "independence_reason": "DOCUMENTARY_FACT_DEDUPLICATION_IS_NOT_SOURCE_INDEPENDENCE"
+    }
+  ],
+  "robustness": {
+    "execution_status": "executed",
+    "ablations": [
+      {
+        "id": "HALF_ORB",
+        "contact_count": 3,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_ANGLES",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_DRACONIC",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_RELATIONAL",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_SSAR",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_EVENT_CHARTS",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_RAPID_RETURNS",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      },
+      {
+        "id": "NO_SECONDARY_BODIES",
+        "contact_count": 6,
+        "root_refs": [
+          "R1"
+        ]
+      }
+    ],
+    "location_sensitivity": [
+      {
+        "clock_id": "SOLAR",
+        "variants": [
+          {
+            "id": "UNKNOWN",
+            "root_refs": [
+              "R1"
+            ]
+          }
+        ]
+      }
+    ],
+    "birth_time_sensitivity": "RECORDED_PER_RETURN_SOLVER",
+    "event_time_sensitivity": "INTERVAL_BOUNDARY_TESTED",
+    "scores_created": false
+  },
+  "null_model_result": {
+    "method": "EVENT_DATE_SHIFT",
+    "seed": 42,
+    "requested_simulations": 20,
+    "measure": "UNIQUE_DEPENDENCY_GROUP_DOCUMENTARY_FACT_EXACT_WINDOW",
+    "universe_hash": "998d584baafc852ab22087b00902aaf24a9201be88844919046fa688089ef013",
+    "multiplicity_rule": "ALL_DECLARED_CLOCKS_LOCATIONS_OVERLAYS_POINTS_ASPECTS_PASSES",
+    "exchangeability_status": "NOT_ESTABLISHED_FOR_REAL_POPULATION",
+    "confirmatory_inference_allowed": false,
+    "external_validation_status": "NOT_PERFORMED",
+    "metaphysical_probability": false,
+    "stopping_rule": "FIXED_BUDGET_NO_RESAMPLING_NO_EARLY_STOP",
+    "execution_status": "COMPLETED_EXPLORATORY_CONTROL",
+    "completed_simulations": 20,
+    "observed": 1,
+    "k": 8,
+    "p_mc": 0.42857142857142855,
+    "resolution": 0.047619047619047616,
+    "replicas": [
+      {
+        "index": 0,
+        "value": 0,
+        "event_input_hash": "8671967178505bd6961253ede8d6eeff2cfb9b87c8b5247acc8989ab22a8204c"
+      },
+      {
+        "index": 1,
+        "value": 0,
+        "event_input_hash": "829558c0bc9a12be0a7d09318338652a2d6b7210ec6085b788e4266f870fc30e"
+      },
+      {
+        "index": 2,
+        "value": 1,
+        "event_input_hash": "c26bb8c44bae78460cf2360efd26b7319fcfab7712f21e37753e135e4156903c"
+      },
+      {
+        "index": 3,
+        "value": 1,
+        "event_input_hash": "06491084e40233a0cf0f299ed988d2b04cd44356c9e5a6bce3ba77d1c2f55b24"
+      },
+      {
+        "index": 4,
+        "value": 0,
+        "event_input_hash": "2fe7c9abe88fbc3d82da2dbf19347fbbcee92898ee5cfabf7deba06b2ebcdbb8"
+      },
+      {
+        "index": 5,
+        "value": 0,
+        "event_input_hash": "b36e6d26d6c99d4f5424440974edf46ee9ebd010f2f174338e3765d0bcfc4000"
+      },
+      {
+        "index": 6,
+        "value": 0,
+        "event_input_hash": "7c2ee895ea0ab0ead456a9c4ce79febc1fc2c573f016cfe8f41695f0b12ea972"
+      },
+      {
+        "index": 7,
+        "value": 0,
+        "event_input_hash": "aebe498f2288e6d79c14bdc6a4e927a042687eaf3d786c2e909e56fc5d11a93f"
+      },
+      {
+        "index": 8,
+        "value": 1,
+        "event_input_hash": "f4618362c702663fcc3b60bc3d050c3183c8d6e594b4dc610fc26efef5e7ba14"
+      },
+      {
+        "index": 9,
+        "value": 0,
+        "event_input_hash": "314170587ad83d35c47f9b3867694ec48251fa81c2fcaefe5a80d1383190bec5"
+      },
+      {
+        "index": 10,
+        "value": 1,
+        "event_input_hash": "0da759abfd2df3c577b4c8132db0da7db9055db6da516b82e86ab800124d7542"
+      },
+      {
+        "index": 11,
+        "value": 1,
+        "event_input_hash": "8a07cd34a9b9cbc328c52768ba20b73e29570537c597f87ef91db18a4ddc6e67"
+      },
+      {
+        "index": 12,
+        "value": 0,
+        "event_input_hash": "1bb63767fa561b6ab39e0ae8e666e3c7b79ebe07aefaa1c88af35fb22ae61b7a"
+      },
+      {
+        "index": 13,
+        "value": 1,
+        "event_input_hash": "7a997f1249772323463293043f0c9ad98735c977e43085e5fa7417763fa0ff7d"
+      },
+      {
+        "index": 14,
+        "value": 0,
+        "event_input_hash": "31ce051e46a9fb7f2e091aaa78c27e2eeb317e851aaba21bb947e1be66f67b35"
+      },
+      {
+        "index": 15,
+        "value": 1,
+        "event_input_hash": "50f8495925fb8951b410a0d1f5b97d3df60f2c4490b33edfec33cd4fc19e5b81"
+      },
+      {
+        "index": 16,
+        "value": 1,
+        "event_input_hash": "a1f684b3f161ef259846012a59f990b07b6946625b7903f9347056e8d50df8da"
+      },
+      {
+        "index": 17,
+        "value": 0,
+        "event_input_hash": "2cd415c96225dd6f01e12b6a752667f93c437e79dc5474a26a458ab121713aa1"
+      },
+      {
+        "index": 18,
+        "value": 0,
+        "event_input_hash": "878df7d4f8920086e8b84c87adc6720118d36858fb1654682ab2ab2c37876778"
+      },
+      {
+        "index": 19,
+        "value": 0,
+        "event_input_hash": "35d81497f24b216496a0f2d7eedb7f203f8fe18cc0cca91e8b52a622513d21d6"
+      }
+    ],
+    "failures": [],
+    "null_variation": true,
+    "null_scope": "CONDITIONAL_EVENT_TIMING_WITH_FIXED_REFERENCE_ARCHITECTURE",
+    "distribution": "UNIFORM_COMMON_SEQUENCE_SHIFT",
+    "common_shift_support_seconds": [
+      -864000.0,
+      1814400.0
+    ],
+    "interpretation": "Excedencia bajo este control; no probabilidad de ontología. Una permutación sin variación es no informativa."
+  },
+  "calculation_hash": "b5eea50374d31d8224e799e74d6b89eac7a00ae7105ac6df015f9718c6261995",
+  "external_validation_status": "NOT_PERFORMED",
+  "structural_scoring_modified": false,
+  "ontology_effect": "NONE",
+  "discriminator_effect": "NONE",
+  "iat_modified": false,
+  "status_scope": "TECHNICAL_TEMPORAL_ACTIVATION"
+}

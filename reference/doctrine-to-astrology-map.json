@@ -1471,6 +1471,11 @@
       "concept_id": "EXTERNAL_ROMANTIC_REUNION",
       "coverage_state": "PROJECT_INTERNAL",
       "reason": "Concepto contextual o límite inferencial; no genera puntuación ni nueva técnica astrológica."
+    },
+    {
+      "concept_id": "FIXED_STAR_ASTROLOGY",
+      "coverage_state": "TECHNIQUE_CONTEXT_ONLY",
+      "reason": "Fuentes técnica moderna e histórica preregistradas; la operacionalización ejecutable está integrada como capa personal secundaria y no genera scoring ni inferencia ontológica."
     }
   ],
   "audit_summary": {
@@ -1479,7 +1484,7 @@
     "academic_or_method_context_sources": 5,
     "ontological_discriminators_validated": 0,
     "principle": "Technique/documentation can be verified while metaphysical ontology remains unvalidated; inferential ceilings are mandatory.",
-    "coverage_total": 143,
+    "coverage_total": 144,
     "note_1_14": "Fortuna/Espíritu y reglas de secta se registran como técnica/contexto histórico, no como validación ontológica.",
     "note_1_23": "El nodo lunar medio se añade como variable técnica de cálculo y comparación; no valida inferencias metafísicas.",
     "note_1_24_1": "Cobertura completa de 143 conceptos; límites doctrinales y correspondencias E separados."

@@ -23,3 +23,16 @@ jobs:
 
       - name: Validar contrato público ALMAS
         run: python scripts/validate_public_contract.py
+
+      - name: Validar coherencia del piloto documental RRA
+        run: python scripts/validate_rra_documentary_inventory.py
+
+      - name: Probar bloqueos documentales RRA
+        run: python -m unittest discover -s tests -p test_rra_documentary_inventory.py -v
+
+      - name: Probar endpoint descriptivo y capa personal secundaria
+        run: |
+          python -m pip install -e ".[schema-validation]"
+          python -m unittest discover -s tests -p test_return_external_evaluation.py -v
+          python -m unittest discover -s tests -p test_personal_fixed_stars.py -v
+          python scripts/run_rra_external_descriptive.py --study tests/fixtures/rra_external_descriptive/study.json --output /tmp/rra-descriptive.json

@@ -85,7 +85,12 @@
       "type": "object"
     },
     "secondary_layers": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "fixed_stars": {
+          "$ref": "personal-fixed-star-paran.schema.json"
+        }
+      }
     },
     "temporal": {
       "type": "object"

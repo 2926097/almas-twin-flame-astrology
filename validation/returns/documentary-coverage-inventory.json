@@ -1,0 +1,213 @@
+{
+  "schema_version": "rra-documentary-coverage-0.1",
+  "status": "PARTIAL_INVENTORY_NOT_CONTROL_READY",
+  "classification": "PUBLIC_DOCUMENTARY_METADATA",
+  "candidate_ids": [
+    "P06",
+    "P07",
+    "P08"
+  ],
+  "unit_count": 8,
+  "exhaustive_inventory": false,
+  "units": [
+    {
+      "unit_id": "E01",
+      "candidate_id": "P07",
+      "unit_type": "EDITORIAL_METHOD",
+      "source_url": "https://www.einstein.caltech.edu/what-we-do/editorial-method",
+      "title": "Einstein Papers Project, Editorial Method",
+      "locator": "Selection; Establishment of Texts",
+      "document_date_assertion": null,
+      "access_status": "HTML_METHOD_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "E02",
+      "candidate_id": "P07",
+      "unit_type": "CORPUS_EDITORIAL_DESCRIPTION",
+      "source_url": "https://www.einstein.caltech.edu/what-we-do/published-volumes/volume-5",
+      "title": "The Swiss Years: Correspondence 1902–1914",
+      "locator": "Volumen 5",
+      "document_date_assertion": null,
+      "access_status": "EDITORIAL_DESCRIPTION_READ_VOLUME_NOT_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "E03",
+      "candidate_id": "P07",
+      "unit_type": "ACCESS_PORTAL",
+      "source_url": "https://einsteinpapers.press.princeton.edu/einstein-database/",
+      "title": "Einstein Portal",
+      "locator": null,
+      "document_date_assertion": null,
+      "access_status": "PUBLIC_LANDING_PAGE_READ_NO_CORPUS_ACCESS",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "K01",
+      "candidate_id": "P06",
+      "unit_type": "OBJECT_DESCRIPTION",
+      "source_url": "https://www.museofridakahlo.org.mx/frida/",
+      "title": "Relojes intervenidos de Frida Kahlo",
+      "locator": "entrada divorcio 1939, descripción de relojes",
+      "document_date_assertion": null,
+      "access_status": "INSTITUTIONAL_DESCRIPTION_READ_ORIGINAL_OBJECT_NOT_INSPECTED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "KAHLO_RIVERA_REMARRIAGE_1940",
+          "date_assertion": "1940-12-08",
+          "claim_origin": "OBJECT_INSCRIPTION_DESCRIBED_BY_MUSEUM",
+          "local_time_assertion": "a las once",
+          "utc_instant": null,
+          "resolution": "LEGAL_INSTANT_NOT_VERIFIED"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "K02",
+      "candidate_id": "P06",
+      "unit_type": "LETTER_DESCRIPTION",
+      "source_url": "https://artsandculture.google.com/story/ygWxUtETc0ZEKA?hl=en",
+      "title": "Frida Kahlo letter to Diego Rivera (1940)",
+      "locator": "Frida and Diego Rivera",
+      "document_date_assertion": "1940",
+      "access_status": "EXHIBIT_DESCRIPTION_READ_LETTER_NOT_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "R01",
+      "candidate_id": "P08",
+      "unit_type": "CERTIFICATE_DESCRIPTION",
+      "source_url": "https://www.fdrlibrary.org/document-march",
+      "title": "Certificado matrimonial Franklin y Eleanor Roosevelt",
+      "locator": "Document of the Month — March",
+      "document_date_assertion": null,
+      "access_status": "HTML_DESCRIPTION_READ_FACSIMILE_LINK_OPENED_NOT_VISUALLY_CERTIFIED",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "date_assertion": "1905-03-17",
+          "claim_origin": "INSTITUTIONAL_DOCUMENT_DESCRIPTION",
+          "resolution": "DAY_ASSERTION_NO_EXACT_TIME"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "R02",
+      "candidate_id": "P08",
+      "unit_type": "INSTITUTIONAL_BIOGRAPHY",
+      "source_url": "https://www.fdrlibrary.org/fdr-biography",
+      "title": "Biografía Franklin D. Roosevelt",
+      "locator": "The Early Years / Fast Facts",
+      "document_date_assertion": null,
+      "access_status": "HTML_BIOGRAPHICAL_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "date_assertion": "1905-03-17",
+          "claim_origin": "INSTITUTIONAL_BIOGRAPHY",
+          "resolution": "DAY_ASSERTION_NO_EXACT_TIME"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    },
+    {
+      "unit_id": "R03",
+      "candidate_id": "P08",
+      "unit_type": "INSTITUTIONAL_BIOGRAPHY",
+      "source_url": "https://www.fdrlibrary.org/er-biography",
+      "title": "Biografía Eleanor Roosevelt",
+      "locator": "The Early Years / Fast Facts",
+      "document_date_assertion": null,
+      "access_status": "HTML_BIOGRAPHICAL_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "original_manuscript_read": false,
+      "facsimile_visually_verified": false,
+      "full_corpus_read": false,
+      "fact_claims": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "date_assertion": "1905-03-17",
+          "claim_origin": "INSTITUTIONAL_BIOGRAPHY",
+          "resolution": "DAY_ASSERTION_NO_EXACT_TIME"
+        }
+      ],
+      "negative_observation_supported": false,
+      "control_eligible": false,
+      "source_independence_established": false
+    }
+  ],
+  "event_conflicts": [],
+  "access_failures": [],
+  "original_manuscripts_read": 0,
+  "published_primary_transcription_passages_read": 0,
+  "independent_coder_count": 1,
+  "negative_observation_periods_verified": 0,
+  "controls_admitted": [],
+  "holdout_opened": false,
+  "confirmatory_execution_allowed": false,
+  "external_validation_status": "NOT_PERFORMED",
+  "report_path": "docs/RRA_DOCUMENTARY_COVERAGE_INVENTORY.md",
+  "source_routes": [],
+  "coherence_validator": "scripts/validate_rra_documentary_inventory.py",
+  "replacement_history": [
+    {
+      "retired_candidate_id": "P05",
+      "replacement_candidate_id": "P08",
+      "retired_status": "RETIRED_USER_REQUEST",
+      "reason": "Sustitución documental solicitada por el usuario antes de calcular resultados",
+      "replaced_on": "2026-10-03",
+      "retired_excluded_from_active_inventory": true,
+      "retired_holdout_eligible": false,
+      "astrological_results_seen": false
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "subject_id": "SYNTHETIC_SUBJECT",
+  "layer_id": "FIXED_STARS_PARANS",
+  "schema_version": "1.0.0",
+  "status": "CALCULATED",
+  "structural_role": "SUPPORT_ONLY",
+  "policy_id": "ALMAS_FIXED_STAR_PARAN_POLICY_V1",
+  "policy_fingerprint_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "method_source_ids": [
+    "brady_book_fixed_stars_1998",
+    "ptolemy_tetrabiblos_1_9_fixed_stars"
+  ],
+  "backend_id": "MOIRA_JPL_SPK",
+  "backend_version": "6.8.2",
+  "backend_provenance": {
+    "policy_id": "ALMAS_PRODUCTION_ASTRONOMY_BACKEND_V1",
+    "adapter_id": "ALMAS_MOIRA_JPL_SPK_V1",
+    "backend_id": "MOIRA_JPL_SPK",
+    "backend_version": "6.8.2",
+    "provider_package": "moira-astro",
+    "provider_version": "6.8.2",
+    "kernel_filename": "synthetic-kernel.bsp",
+    "kernel_family": "DE440",
+    "kernel_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "house_system": "PLACIDUS",
+    "network_io_used": false,
+    "geocoding_used": false
+  },
+  "canon": {
+    "selection": "ALL_AVAILABLE_ENGINE_CANON",
+    "returned_count": 1,
+    "fingerprint_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "entries": [
+      {"name": "Synthetic Star A", "tiers": ["synthetic"], "default_enabled": true}
+    ]
+  },
+  "fixed_stars": [
+    {
+      "name": "Synthetic Star A",
+      "nomenclature": "SYN-A",
+      "longitude": 123.0,
+      "latitude": 0.5,
+      "magnitude": 1.2,
+      "source": "SYNTHETIC_FIXTURE",
+      "is_topocentric": false,
+      "computation_truth": {"method": "synthetic", "epoch": "of-date"}
+    }
+  ],
+  "parans": [
+    {
+      "body1": "Sun",
+      "body2": "Synthetic Star A",
+      "circle1": "Culminating",
+      "circle2": "Rising",
+      "jd1": 2451544.7,
+      "jd2": 2451544.701,
+      "orb_min": 1.44,
+      "signature": {"body_family": "planet-star", "event_family": "mc-rise"}
+    }
+  ],
+  "natal_angular_contacts": [
+    {
+      "body": "Synthetic Star A",
+      "body_family": "star",
+      "circle": "Rising",
+      "crossing_jd": 2451545.2506944444,
+      "natal_jd": 2451545.25,
+      "delta_minutes": 1.0,
+      "absolute_delta_minutes": 1.0
+    }
+  ],
+  "metadata": {
+    "utc_instant": "2000-01-01T12:00:00+00:00",
+    "jd_utc": 2451545.25,
+    "jd_day_ut1": 2451544.5,
+    "natal_jd_ut1": 2451545.2501,
+    "latitude": 41.65,
+    "longitude": -0.88,
+    "paran_policy_preset": "star_planet_only",
+    "paran_orb_minutes": 4,
+    "angular_contact_orb_minutes": 2,
+    "network_io_used": false,
+    "geocoding_used": false,
+    "paran_day_basis": "UT_CALENDAR_DAY"
+  }
+}
