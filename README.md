@@ -90,6 +90,23 @@ Desde 1.23.0, el módulo personal `CHIRON_PROCESS` conserva True y Mean Node con
 
 Desde 1.24.1, `SURRENDER_VESTAL` distingue abstinencia declarada, retirada vestal y cuatro dimensiones de surrender. La conducta se evalúa sin exigir efemérides; la correspondencia simbólica exige raíces y convergencia temporal trazables, sin contar técnicas dependientes como confirmaciones. M27, canonical, gates e informes incorporan la extensión por sujeto. La política permanece exploratoria y no altera IEM, IAT ni origen. Contrato y fuentes: `reference/surrender-vestal-contract.md` y `reference/surrender-vestal-corpus.md`.
 
+
+## Integración del panel
+
+El panel puede enviar una envolvente `ALMAS_WORK_REQUEST` distinta del
+`raw_input` consumido por M00–M31. El adaptador
+`src/almas_tfa/work_request.py` valida versión, perfil, sujetos y políticas,
+normaliza el request y falla cerrado cuando faltan contratos técnicos.
+
+La adaptación no introduce orbes implícitos. Las convenciones ya congeladas de
+compuesta, Davison y dracónica pueden completarse determinísticamente; los
+orbes de sinastría, declinaciones, antiscios, consonancia relacional y cruces
+dracónicos deben declararse en un `analysis_policies` versionado.
+
+Véase `docs/WORK_REQUEST_BRIDGE.md` y
+`schemas/almas-work-request.schema.json`.
+
+
 ## Repositorio
 
 ```text
