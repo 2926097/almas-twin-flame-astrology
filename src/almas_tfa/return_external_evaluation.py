@@ -26,8 +26,11 @@ def exact_date_indicator(result, event):
     when = instant(event['event_datetime'], event.get('timezone'))
     # Cobertura de todo el universo, incluso cuando no hay retornos encontrados.
     for clock in result['evaluation_input']['clocks']:
-        if (when - timedelta(hours=uncertainty) < instant(clock['start']) or
-                when + timedelta(hours=uncertainty) > instant(clock['end'])):
+        window = policy['event-window']['exact_window_hours'].get(
+            clock['returning_body'], policy['event-window']['secondary_window_hours'])
+        margin = timedelta(hours=uncertainty + window)
+        if (when - margin < instant(clock['start']) or
+                when + margin > instant(clock['end'])):
             return dict(indicator=None, reason='OUTSIDE_COMMON_COVERAGE', return_refs=[])
     hits = []; ambiguous = False
     for record in result['returns']:

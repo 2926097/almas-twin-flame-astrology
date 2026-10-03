@@ -8,6 +8,8 @@ Dentro de cada vínculo se restan las tasas de eventos y controles evaluables. S
 
 Los controles son consultas técnicas de fechas, no afirmaciones de acontecimientos ocurridos. La igualdad del universo astronómico no justifica por sí sola intercambiabilidad. No se implementan p-valores, intervalos inferenciales, ajuste de multiplicidad ni potencia poblacional mientras no exista un diseño verificable. Sólo se aceptan modos SYNTHETIC_TEST_ONLY y DESCRIPTIVE_ONLY; FROZEN_CONFIRMATORY se rechaza. El estado de validación externa real sigue NOT_PERFORMED.
 
+La cobertura común exige además buscar el intervalo completo de cada ventana exacta alrededor de la fecha, incluida su incertidumbre. Cerca de los bordes de búsqueda no se declara cero aunque el solver no encuentre retornos: los retornos situados fuera del intervalo podrían seguir perteneciendo a la ventana del endpoint. Esta protección evita negativos artificiales por censura temporal.
+
 La demostración reproducible reside en `tests/fixtures/rra_external_descriptive`, sin personas reales. Ejecutar desde la raíz del repositorio:
 
 ```bash

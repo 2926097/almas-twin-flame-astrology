@@ -41,6 +41,14 @@ class ExternalEndpointTests(unittest.TestCase):
         event.update(event_datetime='2020-01-18T00:00:00Z', uncertainty_hours=1)
         self.assertIsNone(exact_date_indicator(self.result, event)['indicator'])
 
+    def test_search_edges_require_full_exact_window_even_without_returns(self):
+        result = deepcopy(self.result); result['returns'] = []
+        event = deepcopy(self.case['observations'][0]['date_input'])
+        event['event_datetime'] = '2020-01-02T00:00:00Z'
+        self.assertIsNone(exact_date_indicator(result, event)['indicator'])
+        event['event_datetime'] = '2020-01-10T00:00:00Z'
+        self.assertEqual(exact_date_indicator(result, event)['indicator'], 0)
+
     def test_contact_duplication_does_not_add_votes(self):
         event = self.case['observations'][0]['date_input']
         self.result['returns'] *= 3
