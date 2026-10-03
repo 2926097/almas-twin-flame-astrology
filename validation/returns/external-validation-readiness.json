@@ -86,5 +86,7 @@
       "validation/returns/documentary-coverage-inventory.json"
     ],
     "technical_baseline_commit": "a609b4c83189d014a15c21f305048bfd6603359f"
-  }
+  },
+  "replacement_cohort_search_path": "docs/RRA_REPLACEMENT_COHORT_SEARCH_2026_10_03.md",
+  "replacement_cohort_search_status": "NO_DROP_IN_ADMISSIBLE_COHORT_FOUND; ONE_CONDITIONAL_DOCUMENTARY_PILOT_CANDIDATE; ZERO_CASES_ADMITTED"
 }
