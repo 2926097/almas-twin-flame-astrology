@@ -45,5 +45,30 @@
   "negative_observation_periods_verified": 0,
   "documentary_coverage_inventory": "validation/returns/documentary-coverage-inventory.json",
   "coverage_inventory_status": "PARTIAL_INVENTORY_NOT_CONTROL_READY",
-  "documentary_event_conflicts_pending": 1
+  "documentary_event_conflicts_pending": 0,
+  "retired_pilot_candidate_ids": [
+    "P05"
+  ],
+  "pilot_candidate_ids": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P06",
+    "P07",
+    "P08"
+  ],
+  "total_historically_screened_candidates": 8,
+  "replacement_history": [
+    {
+      "retired_candidate_id": "P05",
+      "replacement_candidate_id": "P08",
+      "retired_status": "RETIRED_USER_REQUEST",
+      "reason": "Sustitución documental solicitada por el usuario antes de calcular resultados",
+      "replaced_on": "2026-10-03",
+      "retired_excluded_from_active_inventory": true,
+      "retired_holdout_eligible": false,
+      "astrological_results_seen": false
+    }
+  ]
 }
