@@ -193,8 +193,11 @@ def _validate_policy_bundle(
     relchart = bundle.get("relationship_chart_consonance_policy")
     if "M09" in required_modules and isinstance(relchart, Mapping):
         rel_aspects = relchart.get("aspect_policy")
-        if isinstance(rel_aspects, Mapping):
-            validate_declared_aspect_policy(rel_aspects)
+        if not isinstance(rel_aspects, Mapping) or not rel_aspects:
+            raise WorkRequestError(
+                "relationship_chart_consonance_policy.aspect_policy es obligatorio."
+            )
+        validate_declared_aspect_policy(rel_aspects)
 
     declination = bundle.get("declination_policy")
     if "M05" in required_modules and isinstance(declination, Mapping):
@@ -211,6 +214,25 @@ def _validate_policy_bundle(
             ("antiscia_orb", "contra_antiscia_orb"),
             "antiscia_policy",
         )
+
+    for policy_name, expected in NORMATIVE_DEFAULTS.items():
+        module_id = next(
+            (
+                module
+                for module, name in MODULE_POLICY_REQUIREMENTS.items()
+                if name == policy_name
+            ),
+            None,
+        )
+        if module_id not in required_modules:
+            continue
+        supplied = bundle.get(policy_name)
+        if not isinstance(supplied, Mapping):
+            continue
+        if dict(supplied) != dict(expected):
+            raise WorkRequestError(
+                f"{policy_name} diverge de la convención normativa vigente."
+            )
 
 
 def assess_work_request(envelope: Mapping[str, Any]) -> dict[str, Any]:
