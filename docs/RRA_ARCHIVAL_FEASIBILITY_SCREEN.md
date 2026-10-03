@@ -4,15 +4,17 @@ Consulta: 3 de octubre de 2026. Estado: **DOCUMENTARY_PILOT_ONLY**. Continuació
 
 ## Marco documental y alcance
 
-El marco elegido antes de cualquier cálculo es un panel de conveniencia de parejas históricas con documentación conservada por museos, asociaciones patrimoniales o proyectos de edición de correspondencia: Marie–Pierre Curie, Frida Kahlo–Diego Rivera y Albert Einstein–Mileva Marić. Amplía países y familias editoriales respecto del bloque de la Casa Real británica, pero conserva sesgo hacia personas célebres y archivos supervivientes. No representa una población de relaciones ni permite generalizar a vínculos privados. La selección es una decisión E del proyecto, no un muestreo aleatorio ni un preregistro.
+El marco elegido antes de cualquier cálculo es un panel de conveniencia de parejas históricas con documentación conservada por museos, asociaciones patrimoniales o proyectos de edición de correspondencia: Franklin–Eleanor Roosevelt, Frida Kahlo–Diego Rivera y Albert Einstein–Mileva Marić. Amplía países y familias editoriales respecto del bloque de la Casa Real británica, pero conserva sesgo hacia personas célebres y archivos supervivientes. No representa una población de relaciones ni permite generalizar a vínculos privados. La selección es una decisión E del proyecto, no un muestreo aleatorio ni un preregistro.
 
 Se examinan fichas, cronologías y descripciones de fondos. Encontrar un acta catalogada no acredita haber leído su imagen; encontrar una edición epistolar no acredita haber codificado todas sus cartas. Las afirmaciones históricas de un museo son fuentes secundarias aunque la institución custodie originales. La prioridad P1 se reserva aquí al documento original y a los metadatos que la entidad produce sobre su propio fondo; P3 identifica la reconstrucción histórica institucional y P2 la entrada académica firmada.
 
-## Marie y Pierre Curie
+## Franklin y Eleanor Roosevelt · Sustituto P08
 
-La Curiothèque del Musée Curie cataloga el acta matrimonial de Sceaux del 26 de julio de 1895, signatura MCP433, colección ACJC. Se ha leído la ficha; la imagen del acta y su enlace externo quedan pendientes. La cronología de la Association Curie et Joliot-Curie identifica nacimiento de Pierre el 15 de mayo de 1859 en París y de Maria Skłodowska el 7 de noviembre de 1867 en Varsovia. No se ha documentado hora natal en esos pasajes. La asociación y el catálogo comparten procedencia ACJC y no cuentan automáticamente como dos corroboraciones independientes.
+La Biblioteca Presidencial FDR presenta el certificado matrimonial y sitúa la boda el 17 de marzo de 1905 en Nueva York. Sus biografías identifican nacimiento de Franklin el 30 de enero de 1882 en Hyde Park y de Eleanor el 11 de octubre de 1884 en Nueva York, sin horas natales en los pasajes leídos. Se abrió el enlace al facsímil publicado, pero no se certifica cotejo visual integral ni lectura de manuscrito original. El archivo municipal de Nueva York identifica también la reproducción como certificado del Health Department. Las representaciones del mismo acto no son observaciones independientes.
 
-La fecha matrimonial es un hecho candidato con precisión de día. No se adopta hora ceremonial ni jurídica, reducción UTC o coordenadas. La consulta directa de la cronología del Musée Curie devolvió 403; su extracto indexado no sustituye la lectura de la página. La siguiente recuperación documental concreta es consultar el acta referenciada y localizar registros natales suficientes. Este vínculo queda P05, reservado al piloto y sin observación negativa acreditada.
+La biblioteca explica que la fecha se eligió para que Theodore Roosevelt pudiera asistir. Se registra esa selección por agenda pública para la futura planificación de controles. No se introduce hora de ceremonia, UTC o coordenadas. P08 queda reservado al piloto, sin observación negativa completa ni admisión confirmatoria.
+
+El anterior candidato P05 se retira por instrucción del usuario y se sustituye por P08 antes de cualquier cálculo. Se eliminan del inventario activo su acta, testimonios asociados y conflicto. La retirada queda en el historial de sustituciones; los commits anteriores conservan la procedencia histórica. P05 no vuelve al holdout por haber sido retirado. El panel conserva tres vínculos activos y el acumulado siete; se han cribado ocho vínculos a lo largo del trabajo.
 
 ## Frida Kahlo y Diego Rivera
 
@@ -34,15 +36,9 @@ Ningún archivo examinado admite hoy controles «sin acontecimiento» para el en
 
 Se propone como siguiente trabajo E, todavía sin activar inferencia, construir un inventario de cobertura por archivo y tipo de evento. Cada unidad conservará signatura, fecha documental, intervalo del hecho, emisor, destinatario, alcance de observación, lagunas y dependencia. Dos codificadores deberán revisar la misma definición y registrar discrepancias; este turno constituye una sola extracción y no acredita acuerdo intercodificador. No se seleccionarán controles mediante ausencia de noticias ni mediante inspección de aspectos.
 
-La ampliación logra diversidad documental, pero no resuelve la admisibilidad horaria o la cobertura negativa. No hay cohorte confirmatoria, runner ejecutado, tamaño justificado, intercambiabilidad establecida ni preregistro. Los siete vínculos del piloto quedan excluidos del holdout de esta evaluación. La ausencia de expedientes de estas tres parejas en la búsqueda local de examples, validation, tests y reference es un control limitado; no certifica ausencia de exposición histórica fuera de esos directorios. No se han inspeccionado cartas astrológicas, sinastrías, retornos ni puntuaciones.
+La ampliación logra diversidad documental, pero no resuelve la admisibilidad horaria o la cobertura negativa. No hay cohorte confirmatoria, runner ejecutado, tamaño justificado, intercambiabilidad establecida ni preregistro. Los siete vínculos del piloto quedan excluidos del holdout de esta evaluación. La ausencia de expedientes de los candidatos del cribado previo en la búsqueda local de examples, validation, tests y reference es un control limitado; no certifica ausencia de exposición histórica fuera de esos directorios. No se han inspeccionado cartas astrológicas, sinastrías, retornos ni puntuaciones.
 
 ## Registro de fuentes y accesos
-
-A01. Musée Curie, Curiothèque, «Acte de mariage de Pierre et Marie Curie, Sceaux, 26 juillet 1895», MCP433, colección ACJC; ficha HTML y metadatos leídos, imagen original pendiente. P1 para el registro archivístico: https://curiotheque.musee.curie.fr/s/en/item/16854.
-
-A02. Association Curie et Joliot-Curie, «De la naissance de Pierre Curie en 1859 au décès de Frédéric Joliot en 1958», apartados 1859–1875 y 1867–1882; fecha editorial no identificada, pasajes HTML leídos. P3 para la cronología histórica: https://curie-joliotcurie.fr/qui-sommes-nous/chronologie-de-la-famille-joliot-curie/.
-
-A03. Musée Curie, «Pierre et Marie Curie : chronologie»; búsqueda indexada disponible, lectura directa bloqueada por 403. No computa como lectura integral: https://musee.curie.fr/decouvrir/la-famille-curie/pierre-et-marie-curie-chronologie.
 
 A04. Museo Frida Kahlo, «Frida Kahlo: Vida y obra», entradas de nacimiento, bodas y divorcio; fecha editorial no identificada, pasajes HTML leídos. P3 para cronología, P1 para la descripción del objeto conservado; originales civiles pendientes: https://www.museofridakahlo.org.mx/frida/.
 
@@ -57,3 +53,11 @@ A08. Bankowski-Züllig, Monika, «Maric, Mileva», Historisches Lexikon der Schw
 A09. Einstein Papers Project, Caltech, «Volume 5 — The Swiss Years: Correspondence, 1902–1914», editores Klein, Kox y Schulmann; descripción editorial HTML leída, volumen no leído. P1 para alcance editorial del fondo: https://www.einstein.caltech.edu/what-we-do/published-volumes/volume-5.
 
 A10. NobelPrize.org, «Albert Einstein — Facts»; intento de apertura fallido, no usado para completar datos: https://www.nobelprize.org/prizes/physics/1921/einstein/facts/.
+
+R01. FDR Presidential Library & Museum, «Franklin and Eleanor’s Marriage Certificate», Document of the Month — March; HTML leído y enlace de imagen abierto, cotejo visual integral no certificado: https://www.fdrlibrary.org/document-march.
+
+R02. FDR Presidential Library & Museum, «FDR Biography», The Early Years y Fast Facts, HTML leído: https://www.fdrlibrary.org/fdr-biography.
+
+R03. FDR Presidential Library & Museum, «Eleanor Roosevelt Biography», The Early Years y Fast Facts, HTML leído: https://www.fdrlibrary.org/er-biography.
+
+R04. NYC Department of Records & Information Services, «Marriage certificates», apartado Health Department y descripción del certificado Roosevelt, HTML leído: https://www.archives.nyc/blog/tag/Marriage%2Bcertificates.
