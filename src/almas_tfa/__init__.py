@@ -223,3 +223,16 @@ __all__ = [
     "PipelineDefinitionError",
     "validate_pipeline_manifest",
 ]
+
+
+from .work_request import (
+    WorkRequestError,
+    assess_work_request,
+    build_raw_input_from_work_request,
+)
+
+__all__.extend([
+    "WorkRequestError",
+    "assess_work_request",
+    "build_raw_input_from_work_request",
+])
