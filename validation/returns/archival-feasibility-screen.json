@@ -7,54 +7,6 @@
   "prior_receipt": "validation/returns/documentary-feasibility-screen.json",
   "pilot_candidates": [
     {
-      "id": "P05",
-      "person_refs": [
-        "MARIE_CURIE",
-        "PIERRE_CURIE"
-      ],
-      "person_component": "PERSON_COMPONENT_4",
-      "source_refs": [
-        "A01",
-        "A02",
-        "A03"
-      ],
-      "status": "SCREENED_PILOT_ONLY",
-      "holdout_eligible": false,
-      "confirmatory_admission": false,
-      "natal_times_verified": 0,
-      "events": [
-        {
-          "fact_key": "CURIE_MARRIAGE_1895",
-          "event_type": "MARRIAGE",
-          "date_assertion": "1895-07-26",
-          "precision": "DAY_ASSERTION",
-          "source_refs": [
-            "A01"
-          ],
-          "local_time": null,
-          "utc_instant": null,
-          "place_assertion": "Sceaux",
-          "independent_replication_established": false,
-          "adjudication_status": "EVENT_DATE_CONFLICT_PENDING_ADJUDICATION",
-          "resolved_event_date": null,
-          "alternative_date_assertions": [
-            {
-              "date": "1895-07-25",
-              "source_url": "https://fr.wikisource.org/wiki/Page:Curie_-_Pierre_Curie,_1924.djvu/52",
-              "source_locator": "Marie Curie, Pierre Curie, Payot 1924, cap. IV, p. 52; transcripción"
-            }
-          ]
-        }
-      ],
-      "blockers": [
-        "NATAL_TIME_NOT_DOCUMENTED_IN_EXAMINED_PASSAGES",
-        "NEGATIVE_OBSERVATION_NOT_ESTABLISHED",
-        "SOURCE_GENEALOGY_NOT_AUDITED",
-        "ORIGINAL_MARRIAGE_RECORD_NOT_READ",
-        "EVENT_DATE_CONFLICT_PENDING_ADJUDICATION"
-      ]
-    },
-    {
       "id": "P06",
       "person_refs": [
         "FRIDA_KAHLO",
@@ -175,6 +127,48 @@
         "EVENT_DAY_NOT_RESOLVED",
         "CORRESPONDENCE_VOLUME_NOT_READ"
       ]
+    },
+    {
+      "id": "P08",
+      "person_refs": [
+        "FRANKLIN_D_ROOSEVELT",
+        "ELEANOR_ROOSEVELT"
+      ],
+      "person_component": "PERSON_COMPONENT_7",
+      "source_refs": [
+        "R01",
+        "R02",
+        "R03",
+        "R04"
+      ],
+      "status": "SCREENED_PILOT_ONLY",
+      "holdout_eligible": false,
+      "confirmatory_admission": false,
+      "natal_times_verified": 0,
+      "events": [
+        {
+          "fact_key": "ROOSEVELT_MARRIAGE_1905",
+          "event_type": "MARRIAGE",
+          "date_assertion": "1905-03-17",
+          "precision": "DAY_ASSERTION",
+          "source_refs": [
+            "R01",
+            "R02",
+            "R03"
+          ],
+          "local_time": null,
+          "utc_instant": null,
+          "place_assertion": "Nueva York",
+          "independent_replication_established": false
+        }
+      ],
+      "blockers": [
+        "NATAL_TIME_NOT_DOCUMENTED_IN_EXAMINED_PASSAGES",
+        "NEGATIVE_OBSERVATION_NOT_ESTABLISHED",
+        "SOURCE_GENEALOGY_NOT_AUDITED",
+        "CERTIFICATE_FACSIMILE_COLLATION_NOT_CERTIFIED",
+        "CALENDAR_SELECTION_BY_PUBLIC_SCHEDULE"
+      ]
     }
   ],
   "candidate_count": 3,
@@ -195,33 +189,6 @@
   "original_documents_read": 0,
   "independent_coder_count": 1,
   "source_registry": [
-    {
-      "id": "A01",
-      "url": "https://curiotheque.musee.curie.fr/s/en/item/16854",
-      "publisher": "Musée Curie",
-      "priority": "P1_ARCHIVAL_METADATA",
-      "access": "HTML_CATALOG_RECORD_READ_ORIGINAL_NOT_READ",
-      "retrieved_on": "2026-10-03",
-      "source_independence_established": false
-    },
-    {
-      "id": "A02",
-      "url": "https://curie-joliotcurie.fr/qui-sommes-nous/chronologie-de-la-famille-joliot-curie/",
-      "publisher": "Association Curie et Joliot-Curie",
-      "priority": "P3_INSTITUTIONAL_HISTORY",
-      "access": "HTML_PASSAGES_READ",
-      "retrieved_on": "2026-10-03",
-      "source_independence_established": false
-    },
-    {
-      "id": "A03",
-      "url": "https://musee.curie.fr/decouvrir/la-famille-curie/pierre-et-marie-curie-chronologie",
-      "publisher": "Musée Curie",
-      "priority": "NOT_ADOPTED",
-      "access": "INDEXED_EXCERPT_ONLY_OPEN_403",
-      "retrieved_on": "2026-10-03",
-      "source_independence_established": false
-    },
     {
       "id": "A04",
       "url": "https://www.museofridakahlo.org.mx/frida/",
@@ -284,10 +251,58 @@
       "access": "OPEN_FAILED",
       "retrieved_on": "2026-10-03",
       "source_independence_established": false
+    },
+    {
+      "id": "R01",
+      "url": "https://www.fdrlibrary.org/document-march",
+      "publisher": "FDR Presidential Library & Museum",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ_IMAGE_LINK_OPENED_NOT_VISUALLY_CERTIFIED",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R02",
+      "url": "https://www.fdrlibrary.org/fdr-biography",
+      "publisher": "FDR Presidential Library & Museum",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R03",
+      "url": "https://www.fdrlibrary.org/er-biography",
+      "publisher": "FDR Presidential Library & Museum",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
+    },
+    {
+      "id": "R04",
+      "url": "https://www.archives.nyc/blog/tag/Marriage%2Bcertificates",
+      "publisher": "NYC Department of Records & Information Services",
+      "priority": "P1_COLLECTION_METADATA_P3_HISTORY",
+      "access": "HTML_PASSAGES_READ",
+      "retrieved_on": "2026-10-03",
+      "source_independence_established": false
     }
   ],
   "report_path": "docs/RRA_ARCHIVAL_FEASIBILITY_SCREEN.md",
   "next_action": "INVENTORY_PRIMARY_RECORDS_AND_COVERAGE_BEFORE_SELECTING_CONTROLS",
   "documentary_coverage_inventory": "validation/returns/documentary-coverage-inventory.json",
-  "published_primary_transcription_passages_read": 2
+  "published_primary_transcription_passages_read": 0,
+  "replacement_history": [
+    {
+      "retired_candidate_id": "P05",
+      "replacement_candidate_id": "P08",
+      "retired_status": "RETIRED_USER_REQUEST",
+      "reason": "Sustitución documental solicitada por el usuario antes de calcular resultados",
+      "replaced_on": "2026-10-03",
+      "retired_excluded_from_active_inventory": true,
+      "retired_holdout_eligible": false,
+      "astrological_results_seen": false
+    }
+  ]
 }
