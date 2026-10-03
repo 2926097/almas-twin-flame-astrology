@@ -28,6 +28,16 @@ def validate_bundle(bundle: dict, root: Path | None = None) -> None:
     ids = [c['id'] for c in cases]
     require(len(set(ids)) == len(ids), 'Identificador de vínculo duplicado')
     known = set(ids)
+    history = archive.get('replacement_history', [])
+    require(history == coverage.get('replacement_history', []) == ready.get('replacement_history', []),
+            'Historial de sustituciones divergente')
+    for replacement in history:
+        require(replacement['retired_candidate_id'] not in known, 'Candidato retirado reintroducido')
+        require(replacement['replacement_candidate_id'] in known, 'Sustituto ausente del piloto')
+        require(replacement['retired_holdout_eligible'] is False and replacement['astrological_results_seen'] is False,
+                'Sustitución incompatible con exclusión del holdout o selección documental')
+    require(set(ready.get('retired_pilot_candidate_ids', [])) ==
+            {h['retired_candidate_id'] for h in history}, 'Registro de retirados incoherente')
     for panel in (first, archive):
         require(panel['status'] == 'DOCUMENTARY_PILOT_ONLY', 'Estado del piloto alterado')
         require(panel['candidate_count'] == len(panel['pilot_candidates']), 'Recuento de vínculos incorrecto')
