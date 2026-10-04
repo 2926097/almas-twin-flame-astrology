@@ -33,6 +33,12 @@ text = render_vedic_report(envelope)
 
 `attach_vedic` copia el objeto, conserva sus campos y rechaza sobrescrituras. `schemas/canonical-analysis.schema.json` admite el bloque opcional y `schemas/vedic.schema.json` restringe sus estados. Esta extensión no recalibra el pipeline M00–M31 ni añade raíces a M17. La proyección textual propia permite revisar la capa VED; no se incorpora automáticamente a los informes DOCX/PDF anteriores ni al frontend.
 
+## Auditoría metodológica de salida
+
+Cada sinastría incluye `methodological_readiness`, que separa rasgos enumerados, coincidencias según la regla declarada y paquetes de dependencia. El número de paquetes no se presenta como número de observaciones independientes: `independent_root_count` permanece nulo y `statistical_independence_demonstrated` es falso hasta contar con una unidad estadística y una evaluación específica de dependencia. Aṣṭakūṭa conserva su desglose por componente y publica perfil, tablas, excepciones, orientación, componentes puntuados y bloqueos de verificación; la puntuación matrimonial total continúa nula mientras el perfil no esté documentado y probado.
+
+IVED expone puertas explícitas de preregistro, calibración y validación externa, junto con los requisitos pendientes. `temporal_readiness` distingue `NOT_RUN` de una evaluación `DESCRIPTIVE_ONLY`, contabiliza eventos, resultados Vimśottarī y cartas de tránsito, y mantiene a cero las raíces temporales independientes. El informe debe decir expresamente cuándo no recibió eventos y, por tanto, no calculó activaciones. Una salida descriptiva nunca se redacta como predicción ni como puntuación de compatibilidad. Las condiciones de promoción y los límites de esta auditoría se detallan en [EVOLUCION_METODOLOGICA_R2.md](EVOLUCION_METODOLOGICA_R2.md).
+
 ## Procedencia y límites
 
 Las fórmulas técnicas documentadas se contrastan con Rao (2000), capítulo 4 para upagrahas, 6.2.9 para D9, 8.2 para kārakas, 9.2 para Arudhas, 16.2–16.3 para Vimśottarī y 28.8 para Sahamas. Se declara el perfil de siete regentes de Arudha, sin implementar las reglas de fuerza de corregentes. Las combinaciones relacionales y cruces D1/D9 son hipótesis E de ALMAS. Los datos deity/shakti/tattva no se completan por memoria ni mediante atribuciones sin pasaje.

@@ -39,6 +39,21 @@
     "events": {
       "type": "array"
     },
+    "temporal_readiness": {
+      "type": "object",
+      "required": ["status", "events_requested", "vimshottari_subject_results", "transit_events", "independent_temporal_roots", "event_prediction", "confirmatory_rule"],
+      "properties": {
+        "status": {"enum": ["NOT_RUN", "DESCRIPTIVE_ONLY"]},
+        "events_requested": {"type": "integer", "minimum": 0},
+        "vimshottari_subject_results": {"type": "integer", "minimum": 0},
+        "transit_events": {"type": "integer", "minimum": 0},
+        "independent_temporal_roots": {"const": 0},
+        "event_prediction": {"const": false},
+        "confirmatory_rule": {"const": "NOT_PREREGISTERED"},
+        "blockers": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
     "sensitivity": {
       "type": "array"
     },
@@ -67,6 +82,7 @@
     "charts",
     "synastry",
     "events",
+    "temporal_readiness",
     "sensitivity",
     "annual",
     "ablation",
@@ -276,6 +292,17 @@
             "value",
             "status"
           ]
+        },
+        "methodological_readiness": {
+          "type": "object",
+          "required": ["descriptive", "independence", "ashtakuta", "ived"],
+          "properties": {
+            "descriptive": {"type": "object", "required": ["feature_count", "match_count", "dependency_bundle_count", "match_rule", "bundle_rule"]},
+            "independence": {"type": "object", "required": ["status", "independent_root_count", "statistical_independence_demonstrated", "interpretation"], "properties": {"status": {"const": "NOT_ESTABLISHED"}, "independent_root_count": {"type": "null"}, "statistical_independence_demonstrated": {"const": false}}, "additionalProperties": true},
+            "ashtakuta": {"type": "object", "required": ["status", "total_score", "component_states", "verification"], "properties": {"status": {"const": "NOT_EVALUABLE"}, "total_score": {"type": "null"}}},
+            "ived": {"type": "object", "required": ["status", "value", "family_weights", "gates", "blockers"], "properties": {"status": {"const": "UNVALIDATED"}, "value": {"type": "null"}, "family_weights": {"type": "null"}, "gates": {"type": "object", "properties": {"preregistered": {"const": false}, "calibrated": {"const": false}, "external_validation": {"const": false}}, "required": ["preregistered", "calibrated", "external_validation"], "additionalProperties": false}, "blockers": {"type": "array", "items": {"type": "string"}}}}
+          },
+          "additionalProperties": false
         }
       }
     }

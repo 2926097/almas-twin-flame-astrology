@@ -12,7 +12,10 @@ def run_vedic_pipeline(request):
     out = dict(schema_version='ALMAS_VED_ENVELOPE_1', enabled=request['enabled'],
                canonical_effect=False, external_validation='NOT_PERFORMED',
                metaphysical_assessment='INSUFFICIENT', charts=[], synastry=None,
-               events=[], sensitivity=[], ablation=None, shapley=None, annual=[])
+               events=[], temporal_readiness=dict(status='NOT_RUN', events_requested=0,
+                   vimshottari_subject_results=0, transit_events=0, independent_temporal_roots=0,
+                   event_prediction=False, confirmatory_rule='NOT_PREREGISTERED'),
+               sensitivity=[], ablation=None, shapley=None, annual=[])
     if not request['enabled']:
         return out
     subjects = request.get('subjects', [])
@@ -31,6 +34,16 @@ def run_vedic_pipeline(request):
         transit = compute_vedic_chart(event, cfg) if {'latitude','longitude'} <= set(event) else None
         out['events'].append(dict(event_id=event['id'], **compute_vedic_event_activation(*charts, event,
             synastry=syn, transit_chart=transit)))
+    dasha_results = sum(1 for event in out['events'] for person in event['persons']
+                        if person.get('status') == 'IMPLEMENTED')
+    transit_events = sum(1 for event in out['events'] if event.get('transit_status') == 'IMPLEMENTED')
+    out['temporal_readiness'] = dict(
+        status='NOT_RUN' if not out['events'] else 'DESCRIPTIVE_ONLY',
+        events_requested=len(out['events']), vimshottari_subject_results=dasha_results,
+        transit_events=transit_events, independent_temporal_roots=0, event_prediction=False,
+        confirmatory_rule='NOT_PREREGISTERED',
+        blockers=(['SUPPLY_DATED_EVENTS_TO_COMPUTE_VIMSHOTTARI'] if not out['events'] else
+                  ['TEMPORAL_MATCHING_RULE_NOT_PREREGISTERED', 'NO_INDEPENDENT_TEMPORAL_ROOTS']))
     if request.get('sensitivity', False):
         out['sensitivity'] = [compute_sensitivity(s['birth'], cfg) for s in subjects]
     for annual in request.get('annual_charts', []):
@@ -78,16 +91,34 @@ def render_vedic_report(envelope):
             "(numeración Aries=1). Son posiciones por signo; no poseen longitud angular propia. "
             f"Calidad horaria declarada: {chart['confidence']['birth_time']}.")
     syn = envelope['synastry']
-    parts.append(f"La matriz contiene {len(syn['features'])} comparaciones descriptivas en D1/D9, "
-        f"con {syn['recurrence']['raw_matches']} coincidencias y "
-        f"{syn['recurrence']['dependency_bundles']} bundles de dependencia. Los bundles no acreditan raíces independientes. "
+    ready = syn['methodological_readiness']
+    counts = ready['descriptive']
+    parts.append(f"La matriz contiene {counts['feature_count']} rasgos descriptivos en D1/D9, "
+        f"{counts['match_count']} coincidencias según la regla declarada y "
+        f"{counts['dependency_bundle_count']} paquetes de dependencia. El número de raíces independientes es "
+        "desconocido: los paquetes deduplican entradas compartidas, pero no demuestran independencia estadística. "
         "Las coordenadas D9 son divisionales y sus cruces entre sujetos constituyen hipótesis ALMAS.")
-    parts.append(f"Se procesaron {len(envelope['events'])} eventos mediante Vimśottarī y, cuando se suministraron "
-        "coordenadas, contactos de tránsito anclados a la estructura. Estas activaciones no predicen decisiones ni hechos.")
+    comp = syn['compatibility']
+    ver = comp['verification']
+    parts.append(f"Aṣṭakūṭa: {comp['matrimonial_assessment']}; puntuación total {comp['total_score']}; "
+        f"componentes puntuados {ver['scored_components']}/8. Perfil doctrinal {ver['profile']}; "
+        "tablas, excepciones y orientación quedan sujetos a verificación. No se sustituye ningún dato ausente por cero.")
+    parts.append(f"IVED: {ready['ived']['status']}; valor {ready['ived']['value']}; pesos familiares "
+        f"{ready['ived']['family_weights']}. Requisitos pendientes: constructo observable, preregistro, "
+        "calibración en cohorte independiente y prueba de incremento fuera de muestra.")
+    tr = envelope.get('temporal_readiness', {})
+    if tr.get('status') == 'NOT_RUN':
+        parts.append("Temporalidad: no se suministraron eventos fechados; por tanto, esta ejecución no calculó "
+            "Vimśottarī de evento ni tránsitos. Para una ejecución futura se requieren eventos fechados y una "
+            "regla temporal preregistrada antes de interpretarlos.")
+    else:
+        parts.append(f"Temporalidad: se recibieron {tr['events_requested']} eventos; se calcularon "
+            f"{tr['vimshottari_subject_results']} resultados personales de Vimśottarī y "
+            f"{tr['transit_events']} cartas de tránsito. El estado es descriptivo; la regla confirmatoria "
+            "no está preregistrada y no se predicen decisiones ni hechos.")
     parts.append("La contraevidencia recoge relaciones por signo potencialmente conflictivas para revisión, "
-        "sin equipararlas a incompatibilidad factual. Aṣṭakūṭa completo permanece no evaluable sin tablas y excepciones verificadas. "
-        "IVED carece de valor escalar calibrado; los pesos canónicos permanecen en cero. La validación externa no se ha realizado "
-        "y la discriminación metafísica permanece INSUFFICIENT.")
+        "sin equipararlas a incompatibilidad factual. Los pesos canónicos permanecen en cero. La validación externa "
+        "no se ha realizado y la discriminación metafísica permanece INSUFFICIENT.")
     parts.append("Procedencia técnica: P. V. R. Narasimha Rao, Vedic Astrology: An Integrated Approach (2000), "
         "capítulos 4, 6, 8, 9, 16 y 28; efemérides Swiss Ephemeris/Moshier identificadas en cada carta. "
         "Se separan datos calculados, técnicas tradicionales y usos relacionales experimentales.")
