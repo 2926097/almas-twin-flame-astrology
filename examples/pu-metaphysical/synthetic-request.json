@@ -1,0 +1,189 @@
+{
+  "target": {
+    "subject_ids": [
+      "A",
+      "B"
+    ],
+    "canonical": {
+      "evidence": [
+        {
+          "root_id": "R1",
+          "core_eligible": true,
+          "strength": 0.9,
+          "dependency_families": [
+            "SYN"
+          ]
+        }
+      ],
+      "semantic_motifs": {
+        "policy_id": "ALMAS_SEMANTIC_MOTIF_V2",
+        "assignments": [
+          {
+            "root_id": "R1",
+            "primary_motif": "RELATIONAL_COHERENCE"
+          }
+        ]
+      },
+      "assembly": {
+        "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V2"
+      },
+      "natal_context": {
+        "subjects": {
+          "A": {},
+          "B": {}
+        }
+      },
+      "indices": {
+        "IRC": 90,
+        "ICC": 100
+      },
+      "astronomy_backend": {
+        "backend_id": "SYNTHETIC_TEST_ONLY"
+      }
+    },
+    "canonical_fingerprint": "bf9b1d7b2ac122a475180c6cd37bd1a2c5739f6ad190139534493af89e7e876d",
+    "protocol": {
+      "analysis_policy_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+      "house_system": "SYNTHETIC",
+      "time_quality": "SYNTHETIC_EQUIVALENT",
+      "signature_policy": "CORE_PRIMARY_MOTIF_MAX_V1"
+    }
+  },
+  "comparators": [
+    {
+      "subject_ids": [
+        "A",
+        "C"
+      ],
+      "canonical": {
+        "evidence": [
+          {
+            "root_id": "R1",
+            "core_eligible": true,
+            "strength": 0.2,
+            "dependency_families": [
+              "SYN"
+            ]
+          }
+        ],
+        "semantic_motifs": {
+          "policy_id": "ALMAS_SEMANTIC_MOTIF_V2",
+          "assignments": [
+            {
+              "root_id": "R1",
+              "primary_motif": "RELATIONAL_COHERENCE"
+            }
+          ]
+        },
+        "assembly": {
+          "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V2"
+        },
+        "natal_context": {
+          "subjects": {
+            "A": {},
+            "C": {}
+          }
+        },
+        "indices": {
+          "IRC": 90,
+          "ICC": 100
+        },
+        "astronomy_backend": {
+          "backend_id": "SYNTHETIC_TEST_ONLY"
+        }
+      },
+      "canonical_fingerprint": "e6f994609845c75ab0eadde4dc7212768a6a381762ea3de818f3f814ca304dc3",
+      "protocol": {
+        "analysis_policy_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+        "house_system": "SYNTHETIC",
+        "time_quality": "SYNTHETIC_EQUIVALENT",
+        "signature_policy": "CORE_PRIMARY_MOTIF_MAX_V1"
+      }
+    },
+    {
+      "subject_ids": [
+        "B",
+        "D"
+      ],
+      "canonical": {
+        "evidence": [
+          {
+            "root_id": "R1",
+            "core_eligible": true,
+            "strength": 0.3,
+            "dependency_families": [
+              "SYN"
+            ]
+          }
+        ],
+        "semantic_motifs": {
+          "policy_id": "ALMAS_SEMANTIC_MOTIF_V2",
+          "assignments": [
+            {
+              "root_id": "R1",
+              "primary_motif": "RELATIONAL_COHERENCE"
+            }
+          ]
+        },
+        "assembly": {
+          "policy_id": "ALMAS_CANONICAL_ASSEMBLY_V2"
+        },
+        "natal_context": {
+          "subjects": {
+            "B": {},
+            "D": {}
+          }
+        },
+        "indices": {
+          "IRC": 90,
+          "ICC": 100
+        },
+        "astronomy_backend": {
+          "backend_id": "SYNTHETIC_TEST_ONLY"
+        }
+      },
+      "canonical_fingerprint": "ec3832f2cfcd36690a0d1b483896c0167695718ff404f5035b0ec0fc2ffedfb7",
+      "protocol": {
+        "analysis_policy_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+        "house_system": "SYNTHETIC",
+        "time_quality": "SYNTHETIC_EQUIVALENT",
+        "signature_policy": "CORE_PRIMARY_MOTIF_MAX_V1"
+      }
+    }
+  ],
+  "comparison_policy": {
+    "template": {
+      "KARMIC_CONTINUITY": 0,
+      "WOUND_REPAIR": 0,
+      "IDENTITY_TRANSFORMATION": 0,
+      "TRANSFORMATION_POWER": 0,
+      "TRANSPERSONAL_FIELD": 0,
+      "EROTIC_POLARITY": 0,
+      "MIRROR_COMPLEMENTARITY": 0,
+      "RELATIONAL_COHERENCE": 0.9,
+      "STRUCTURAL_AFFINITY": 0
+    },
+    "weights": {
+      "KARMIC_CONTINUITY": 1,
+      "WOUND_REPAIR": 1,
+      "IDENTITY_TRANSFORMATION": 1,
+      "TRANSFORMATION_POWER": 1,
+      "TRANSPERSONAL_FIELD": 1,
+      "EROTIC_POLARITY": 1,
+      "MIRROR_COMPLEMENTARITY": 1,
+      "RELATIONAL_COHERENCE": 1,
+      "STRUCTURAL_AFFINITY": 1
+    },
+    "equivalence_margin": 0.02,
+    "minimum_irc": 0.7,
+    "selection_record_ref": "SYNTHETIC_SELECTION"
+  },
+  "source_refs": [
+    "pu_summit_soulmates_twin_flames"
+  ],
+  "preregistration": {
+    "status": "DECLARED_FROZEN",
+    "record_ref": "SYNTHETIC_PROTOCOL_NOT_AUTHENTICATED",
+    "comparison_fingerprint": "9593f50097e9867abc5b487aa190962e7ea72568bdaee6012a32ce5c7d369574"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "extension_id",
+    "status",
+    "PU_D",
+    "PU_R",
+    "PU_O",
+    "pu_score",
+    "pu_score_state",
+    "ontology_effect",
+    "production_scores_affected",
+    "request_fingerprint",
+    "validation_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "extension_id": {
+      "const": "ALMAS_PU_METAPHYSICAL_V1"
+    },
+    "status": {
+      "const": "FROZEN_EXPERIMENTAL"
+    },
+    "PU_D": {
+      "type": "object",
+      "required": [
+        "rows",
+        "citation_count_adds_weight",
+        "score"
+      ],
+      "properties": {
+        "rows": {
+          "type": "array"
+        },
+        "citation_count_adds_weight": {
+          "const": false
+        },
+        "score": {
+          "type": "null"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PU_R": {
+      "type": "object",
+      "required": [
+        "state",
+        "score"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "COMPATIBLE",
+            "INSUFFICIENT",
+            "CONTRADICTED",
+            "NOT_EVALUABLE"
+          ]
+        },
+        "score": {
+          "type": "null"
+        }
+      }
+    },
+    "PU_O": {
+      "type": "object",
+      "required": [
+        "state",
+        "reason",
+        "score"
+      ],
+      "properties": {
+        "state": {
+          "const": "NOT_EVALUABLE"
+        },
+        "reason": {
+          "const": "NO_INDEPENDENT_ORIGIN_CRITERION"
+        },
+        "score": {
+          "type": "null"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pu_score": {
+      "type": "null"
+    },
+    "pu_score_state": {
+      "const": "NOT_OPERATIONALIZED"
+    },
+    "ontology_effect": {
+      "const": "NONE"
+    },
+    "production_scores_affected": {
+      "const": false
+    },
+    "request_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "validation_status": {
+      "const": "NOT_PERFORMED"
+    }
+  },
+  "additionalProperties": false,
+  "title": "ALMAS · Resultado de singularidad metafísica"
+}

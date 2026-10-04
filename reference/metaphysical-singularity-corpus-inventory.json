@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0.0",
+  "corpus_revision": "PU_M_CORPUS_R1_2026_10_04",
+  "page_numbering": "pdf_page es ordinal 1-based; printed_page sólo se consigna cuando se ha identificado. Nunca se deduce una página por un desplazamiento global.",
+  "documents": [
+    {
+      "file": "01-krishnamurti-reader.pdf",
+      "pages": 259,
+      "text_chars": 488719,
+      "sha256": "4bb50a344a2051367a8eb78861faf393167a42e060d4a03ba709f45cd0f3099d",
+      "passage_refs": [
+        "pu_ug_rao_reader_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "UG_KRISHNAMURTI_RAO"
+    },
+    {
+      "file": "02-Watts-The-Book.pdf",
+      "pages": 119,
+      "text_chars": 250436,
+      "sha256": "5e1e3f3b23df97501216c3240a0b71a63d8e58c0f6c6bc5b84ed3ef0346d2149",
+      "passage_refs": [
+        "pu_watts_the_book_p01",
+        "pu_watts_the_book_p02"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "WATTS_THE_BOOK"
+    },
+    {
+      "file": "03-Edgar-Cayce-On-Reincarnation.pdf",
+      "pages": 292,
+      "text_chars": 0,
+      "sha256": "dd9115139fc4f198553a6267e987b0289f59d5277760ce64174e20696e37ae07",
+      "passage_refs": [
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_langley_cayce_reincarnation_p02"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "LANGLEY_CAYCE_REINCARNATION"
+    },
+    {
+      "file": "04-El-cuerpo-astral-y-los-universos-paralelos.pdf",
+      "pages": 331,
+      "text_chars": 363564,
+      "sha256": "6dc4b0b17dd5e2b9405d8b5df7ea8b57143e72e7eb7d1ea4f2fbf8570cf2ec2b",
+      "passage_refs": [
+        "pu_henriquez_cuerpo_astral_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "HENRIQUEZ_CUERPO_ASTRAL"
+    },
+    {
+      "file": "05-krishnamurti-el-arte-de-escuchar.pdf",
+      "pages": 148,
+      "text_chars": 812582,
+      "sha256": "875b7ff15d9f92e404a490454889c0958d8f3c94288934fa304a91cad6f0087c",
+      "passage_refs": [
+        "pu_jiddu_arte_escuchar_p01",
+        "pu_jiddu_arte_escuchar_p02"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "JIDDU_ARTE_ESCUCHAR"
+    },
+    {
+      "file": "06-el-libro-del-tabu-alan-watts.pdf",
+      "pages": 117,
+      "text_chars": 262271,
+      "sha256": "2ee9fa0cc298ea5dfbf4031535ec1ccdee7fcb4dc63247cd26cee12a9e658c9f",
+      "passage_refs": [],
+      "review_scope": "TEXT_EXTRACTED_NOT_CODED",
+      "dependency_group": "WATTS_THE_BOOK"
+    },
+    {
+      "file": "07-La_Cabala_El_Conocimiento_Completo.pdf",
+      "pages": 324,
+      "text_chars": 431918,
+      "sha256": "a420ca498f42eadaab0cd227e422f6660461e4bdff8e43c5c3a551c060d5252a",
+      "passage_refs": [
+        "pu_aranegui_conocimiento_p01",
+        "pu_aranegui_conocimiento_p02"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "ARANEGUI_CONOCIMIENTO"
+    },
+    {
+      "file": "08-El-Poder-Del-Ahora.pdf",
+      "pages": 226,
+      "text_chars": 390083,
+      "sha256": "20ac3f952dcb9586efbe022ee5cc6dd67d7e6d4d20d1f543b898bb0b08acd307",
+      "passage_refs": [
+        "pu_tolle_poder_ahora_p01",
+        "pu_tolle_poder_ahora_p02",
+        "pu_tolle_poder_ahora_p03"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "TOLLE_PODER_AHORA"
+    },
+    {
+      "file": "09-Dispenza_Joe_Deja_De_Ser_Tu.pdf",
+      "pages": 325,
+      "text_chars": 590217,
+      "sha256": "9a2c6b251464e21e83ce2ada6a223b9a3bd77063fce200e350bee848a116ea67",
+      "passage_refs": [
+        "pu_dispenza_deja_ser_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "DISPENZA_FRAMEWORK"
+    },
+    {
+      "file": "10-Autobiograf-a-de-un-yogi.pdf",
+      "pages": 289,
+      "text_chars": 1144318,
+      "sha256": "f55771ddab49c00b92c96566515f8606a45243106a6b848eb21d47095d66169a",
+      "passage_refs": [
+        "pu_yogananda_autobiografia_p01",
+        "pu_yogananda_autobiografia_p02"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "YOGANANDA_AUTOBIOGRAPHY"
+    },
+    {
+      "file": "11-SOBRENATURAL-Joe-Dispenza.pdf",
+      "pages": 501,
+      "text_chars": 815063,
+      "sha256": "125d72270253abc203ce72eec1a9232825f805a1e4b166c182ce56a2b7f5c4ca",
+      "passage_refs": [
+        "pu_dispenza_sobrenatural_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "DISPENZA_FRAMEWORK"
+    },
+    {
+      "file": "12-Libro-de-La-Sabiduria-tomo-II.pdf",
+      "pages": 218,
+      "text_chars": 0,
+      "sha256": "2230ef912463237d0f96abcb0d199684e5c6af736f0dda4740a033f70101331b",
+      "passage_refs": [
+        "pu_joseph_sabiduria_ii_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "JOSEPH_REVIVAL_WISDOM"
+    },
+    {
+      "file": "13-astrologia-cabalistica.pdf",
+      "pages": 112,
+      "text_chars": 182548,
+      "sha256": "bf5cf144698f8ed59921c0f4e65a54f956ed3391ec60c011fcf4df561a4f5ea4",
+      "passage_refs": [
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_berg_astrologia_cabalistica_p02"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "BERG_ASTROLOGIA"
+    },
+    {
+      "file": "14-Astrology-_Psychology-_and_the_Four_Elements_by_Stephen_Arroyo.pdf",
+      "pages": 208,
+      "text_chars": 408353,
+      "sha256": "187ac4ce1b994303e6c5f010227894c69e9d3c5f2c8f605dc1fec9b772068dec",
+      "passage_refs": [
+        "pu_arroyo_four_elements_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "ARROYO_FOUR_ELEMENTS"
+    },
+    {
+      "file": "15-Jung-s-Studies-in-Astrology-by-Liz-Greene.pdf",
+      "pages": 245,
+      "text_chars": 714852,
+      "sha256": "d585a849f3ce47a9b1e10ad8086e494067d7bcc17cd3d855561c0af42d16de86",
+      "passage_refs": [
+        "pu_greene_jung_astrology_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "GREENE_JUNG_ASTROLOGY"
+    },
+    {
+      "file": "16-Sepharial-Kabbalistic-Astrology-Walter-Gorn-Old-3-8c8df1fc6ccc76610a49abc40784c49e-Anna-s-Archive.pdf",
+      "pages": 50,
+      "text_chars": 0,
+      "sha256": "55eec1636d394bc455d559af0c78cfc4d35d9cedbd5e37f0909073ba2f385ed4",
+      "passage_refs": [
+        "pu_sepharial_kabalistic_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "SEPHARIAL_KABALISTIC"
+    },
+    {
+      "file": "17-Chris_Brennan_Hellenistic_Astrology_The_Study_of_Fate_and_Fortune.pdf",
+      "pages": 698,
+      "text_chars": 1725929,
+      "sha256": "5b4f673839b7fcff62c8bc9e74171df69e9af5cc9843205db6f65f7166cb2c00",
+      "passage_refs": [
+        "pu_brennan_hellenistic_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "BRENNAN_HELLENISTIC"
+    },
+    {
+      "file": "18-Kabbalistic-Astrology-by-Joel-C.-Dobin.pdf",
+      "pages": 298,
+      "text_chars": 0,
+      "sha256": "6e0bdda35b523ee136e7e84702c0197306b7fcd1489f29b21c5daeb3894a3be2",
+      "passage_refs": [
+        "pu_dobin_kabbalistic_p01"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "DOBIN_KABBALISTIC"
+    },
+    {
+      "file": "19-The-anatomy-of-fate-_-Kabbalistic-astrology-Halevi-Z-ev-ben-Shimon-London-England-1978-Rider-9780091326418-e00e89c366c83db4ffe10c14fc42a523-Anna-s-Archive.pdf",
+      "pages": 194,
+      "text_chars": 379566,
+      "sha256": "19fd6024758008293c9857492dd8ceb9ca39141738793148eb91f6d6f47e3074",
+      "passage_refs": [
+        "pu_kenton_anatomy_fate_p01",
+        "pu_kenton_anatomy_fate_p02",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "review_scope": "SELECTED_PASSAGES",
+      "dependency_group": "KENTON_HALEVI_ANATOMY"
+    }
+  ],
+  "pdf_distribution": false,
+  "independent_evidence_count_from_document_count": false
+}

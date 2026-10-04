@@ -1030,3 +1030,7 @@ Reconstrucción: `schemas/preincarnation-reconstruction.schema.json` v1.9.0.
 ## R3 · Activación relacional por retornos
 
 Para retornos solar, lunar o planetarios y overlays sobre arquitectura previa, leer `reference/relational-return-activation.md` y `docs/RRA_SOURCE_AUDIT.md`. La API está en `return_activation.py`; usar `almas-returns` para nueva ejecución con efemérides fijadas. RRA es experimental, no cambia índices u ontología y su validación externa permanece pendiente. No modificar las políticas SSAR congeladas para añadir la extensión.
+
+## PU-M · Singularidad metafísica experimental
+
+Para una evaluación explícita de valores metafísicos y especificidad diádica, consultar `reference/metaphysical-singularity-contract.md` y `docs/PU_METAPHYSICAL_SUITE.md`. Ejecutar la API lateral `assess_metaphysical_singularity` o su CLI con esquemas y políticas declaradas. PU_D distingue atribución doctrinal y correspondencia declarada; PU_R compara una firma congelada con comparadores reales de ambos sujetos; PU_O permanece NOT_EVALUABLE sin criterio independiente de origen. El proxy no implementa isomorfismo de grafos ni autentica preregistros. La extensión no modifica PU heredado, IEM, IRC ni ORIGIN; pu_score permanece null y la validación externa NOT_PERFORMED. Los borradores de corpus, rúbrica, cohorte, preregistro y promoción están completos como documentos de investigación, sin fingir datos ni firmas externas.

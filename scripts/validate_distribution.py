@@ -28,13 +28,17 @@ from almas_tfa.doctrinal_sequence_engine import evaluate_doctrinal_sequence
 from almas_tfa.phase_preregistration import verify_phase_preregistration
 from almas_tfa.vedic.pipeline import run_vedic_pipeline, attach_vedic
 from almas_tfa.vedic.reporting import build_vedic_report_model
+from almas_tfa.metaphysical_singularity import assess_metaphysical_singularity
 record=json.loads(resources.files('almas_tfa').joinpath('data','phase-preregistration-1.22.0.json').read_text())
 assert verify_phase_preregistration(record)['status']=='VERIFIED'
 assert evaluate_doctrinal_sequence('TF_PROPHET',[])['ontology_status']=='INSUFFICIENT'
 envelope=run_vedic_pipeline({'enabled':False})
 assert attach_vedic({'core':1},envelope)['core']==1
 assert build_vedic_report_model(envelope)['coverage']['status']=='COMPLETE'
-print('WHEEL_ISOLATED: PASS; doctrinal registry, frozen bytes, VED schema and reporting')
+pu=assess_metaphysical_singularity({})
+assert pu['PU_O']['state']=='NOT_EVALUABLE' and pu['pu_score'] is None
+assert pu['ontology_effect']=='NONE' and pu['production_scores_affected'] is False
+print('WHEEL_ISOLATED: PASS; doctrinal registry, frozen bytes, VED schema/reporting and PU-M')
 '''
         # The managed runtime exposes installed extras through explicit paths.
         # Retain those dependencies, but exclude every checkout/import path.
