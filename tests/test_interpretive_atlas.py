@@ -82,6 +82,21 @@ class TestInterpretiveAtlas(unittest.TestCase):
         self.assertEqual(data['speed'],0.)
         self.assertIs(data['retrograde'],False)
 
+    def test_maximum_definition_flag_rejects_non_booleans_in_direct_handlers(self):
+        for value in ("true", 0, 1, None, [], {}):
+            raw = {"maximum_definition_context": value}
+            for mid, handler in (
+                ("M04", m04_nodes_angles_houses_regencies),
+                ("M17", m17_independent_roots),
+            ):
+                context = ModuleContext(
+                    module_id=mid, module_name=mid, mode="FULL", raw_input=raw,
+                    canonical_snapshot={}, prior_results={},
+                )
+                with self.subTest(value=value, module=mid):
+                    with self.assertRaisesRegex(ValueError, "maximum_definition_context debe ser booleano"):
+                        handler(context)
+
     def test_atlas_schema(self):
         import jsonschema
         root=Path(__file__).resolve().parents[1]
