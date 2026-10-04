@@ -1,0 +1,113 @@
+{
+  "registry_id": "ALMAS_VED_SOURCE_ANCHORS_V1",
+  "author": "P. V. R. Narasimha Rao",
+  "work": "Vedic Astrology: An Integrated Approach",
+  "date": 2000,
+  "priority": "P4_IDENTIFIED_METHOD",
+  "url": "https://vedicastrologer.org/articles/vedic_astro_textbook.pdf",
+  "source_file_not_redistributed": true,
+  "entries": [
+    {
+      "id": "RAO_2000_1_3_6_TABLE_2",
+      "passage": "1.3.6, tabla 2",
+      "supports": "Nakṣatras, pādas y regentes Vimśottarī",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_6_2_9_EXAMPLE_16",
+      "passage": "6.2.9, ejemplo 16",
+      "supports": "Asignación parāśarī D9 por elemento",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_8_2_EXAMPLE_28",
+      "passage": "8.2, ejemplo 28, pp. 80–81",
+      "supports": "Chara Kārakas: ranking de ocho y Rahu inverso; sistema siete es variante declarada",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_9_2_SEVEN_LORDS_VARIANT",
+      "passage": "9.2, ejemplo 29, pp. 86–88",
+      "supports": "Arudha y excepción del resultado bruto; selección de siete regentes es variante ALMAS",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_4_2",
+      "passage": "4.2, ejemplo 6, pp. 41–42",
+      "supports": "Cinco upagrahas solares",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_4_3",
+      "passage": "4.3, tabla 10, pp. 42–44",
+      "supports": "Seis upagrahas temporales, centro Gulika/inicio Māndi",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_16_2_16_3",
+      "passage": "16.2–16.3, ejemplo 50, pp. 209–213",
+      "supports": "Saldo natal, año daśā y subdivisiones del período completo",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    },
+    {
+      "id": "RAO_2000_28_8",
+      "passage": "28.8.1, tabla 74, pp. 382–384",
+      "supports": "Sahamas, reversión nocturna y corrección del arco",
+      "verification": "TEXT_INSPECTED",
+      "does_not_support": [
+        "Discriminación ontológica",
+        "Validación empírica",
+        "Equivalencia entre tradición y sinastría experimental ALMAS"
+      ]
+    }
+  ],
+  "computational_source": {
+    "author": "Astrodienst",
+    "work": "Swiss Ephemeris Programmer’s Documentation",
+    "version": "2.10",
+    "url": "https://www.astro.com/ftp/swisseph/doc/swephprg.2.10.htm",
+    "priority": "P1_PRIMARY",
+    "scope": "INTERFACE_DOCUMENTATION"
+  },
+  "unverified_techniques": [
+    "BHRIGU_BINDU_HISTORICAL_GENEALOGY",
+    "ASHTAKOOTA_FULL_TABLES",
+    "PRANAPADA",
+    "YOGATARAS"
+  ]
+}

@@ -1055,6 +1055,9 @@
     },
     "ssar": {
       "$ref": "return-ssar-envelope.schema.json"
+    },
+    "vedic": {
+      "$ref": "vedic.schema.json"
     }
   },
   "additionalProperties": false,

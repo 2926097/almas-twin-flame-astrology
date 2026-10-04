@@ -1,0 +1,58 @@
+{
+  "fixture_id": "ALMAS_VED_DOCUMENTARY_V1",
+  "private_case_data": false,
+  "author": "P. V. R. Narasimha Rao",
+  "work": "Vedic Astrology: An Integrated Approach",
+  "date": 2000,
+  "reference_url": "https://vedicastrologer.org/articles/vedic_astro_textbook.pdf",
+  "angular_tolerance_deg": 1e-08,
+  "d9": {
+    "source": "6.2.9, ejemplo 16",
+    "input_deg": [
+      71,
+      229
+    ],
+    "expected_sign_zero_based": [
+      9,
+      8
+    ]
+  },
+  "arudha": {
+    "source": "9.2, ejemplo 29",
+    "lagna_deg": 150,
+    "positions_deg": {
+      "Sun": 330,
+      "Moon": 60,
+      "Mars": 0,
+      "Mercury": 330,
+      "Jupiter": 0,
+      "Venus": 330,
+      "Saturn": 0
+    },
+    "expected_signs_zero_based": [
+      2,
+      4,
+      5,
+      4,
+      0,
+      2,
+      1,
+      9,
+      9,
+      5,
+      1,
+      6
+    ]
+  },
+  "upagraha": {
+    "source": "4.2, ejemplo 6",
+    "sun_deg": 249.6,
+    "expected_dhuma_deg": 22.933333333333334
+  },
+  "vimshottari": {
+    "source": "16.2, ejemplo 50",
+    "moon_deg": 302.3833333333333,
+    "expected_balance_years": 2.24875,
+    "year_days": 360
+  }
+}

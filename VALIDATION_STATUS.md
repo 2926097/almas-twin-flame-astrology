@@ -1,6 +1,10 @@
 # Estado de validación
 
-**Versión pública:** 1.25.0
+**Versión pública:** 1.26.0
+
+## Release 1.26.0 · Jyotiṣa Relacional observacional
+
+El núcleo VED, sus cuatro capas D1/D9, Vimśottarī, eventos, sensibilidad y auditoría descriptiva son optativos; el efecto sobre scoring es cero. Aṣṭakūṭa completo, Prāṇapada, Yogatārās y el índice escalar IVED no se declaran implementados/validados. La verificación técnica no constituye validación empírica externa. 43 pruebas VED y batería local de 1.139 pruebas PASS, con cinco integraciones largas separadas y sin declaración de PASS íntegro. La publicación remota está pendiente. Resultados y alcance en `docs/RELEASE_AUDIT_1.26.0.md`.
 
 ## Release 1.25.0 · SSAR experimental
 

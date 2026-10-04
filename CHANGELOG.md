@@ -1,3 +1,7 @@
+# ALMAS 1.26.0 — Jyotiṣa Relacional
+
+Añade módulo VED, CLI, schema y envolvente optativa con nakṣatras/pādas, kārakas 7/8, Navāṃśa/Kārakāṃśa, doce Arudhas, Bindu, once upagrahas, Abhijit y Vimśottarī. Incluye sinastría D1/D9, eventos, sensibilidad, controles estratificados descriptivos, ablación y Shapley de cobertura, con cero impacto canónico. Vivāha Sahama anual requiere recibo del retorno. No se promueven capacidades científicas ni ontológicas; el alcance R1 documenta las técnicas bloqueadas.
+
 # Changelog
 
 ## Presets explícitos de política relacional — 2026-10-03

@@ -4842,9 +4842,19 @@ def main() -> int:
         "null_models",
         "assembly",
         "ssar",
+        "vedic",
     }
     if set(canonical_props) != expected_canonical_root_props:
         fail("canonical schema root surface diverges from M30 output contract")
+    if canonical_props.get("vedic", {}).get("$ref") != "vedic.schema.json":
+        fail("canonical VED must use the observational envelope contract")
+    if "vedic" in canonical_schema.get("required", []):
+        fail("legacy canonical analyses must remain valid without VED")
+    vedic_schema = load_json("schemas/vedic.schema.json")
+    if vedic_schema.get("properties", {}).get("canonical_effect", {}).get("const") is not False:
+        fail("VED cannot modify canonical scoring")
+    if vedic_schema.get("properties", {}).get("external_validation", {}).get("const") != "NOT_PERFORMED":
+        fail("VED cannot claim unperformed external validation")
     if canonical_props.get("dynamic_phases", {}).get("$ref") != "dynamic-phase-state.schema.json":
         fail("canonical dynamic phases must use the unassessed state contract")
     if "dynamic_phases" in set(canonical_schema.get("required", [])):
