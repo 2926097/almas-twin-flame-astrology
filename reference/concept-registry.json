@@ -1,6 +1,6 @@
 {
-  "registry_version": "1.4.0",
-  "almas_version": "1.24.1",
+  "registry_version": "1.5.0",
+  "almas_version": "1.26.0",
   "concepts": [
     {
       "id": "PREINCARNATIONAL_CHOICE",
@@ -211,7 +211,8 @@
         "SOULMATE",
         "KARMIC_RELATIONSHIP",
         "SPLIT_PRIMORDIAL_BEING",
-        "MONAD"
+        "MONAD",
+        "DIVINE_FLAME_TWIN_RAY_PROJECTION"
       ],
       "almas_use": "Modelo doctrinal de origen. Debe mantenerse separado de contrato, función y viabilidad.",
       "concept_class": "DOCTRINAL_ANALYTIC",
@@ -225,7 +226,8 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ]
+      ],
+      "semantic_architecture_ref": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
     },
     {
       "id": "SOULMATE_EXPERIENCE",
@@ -842,7 +844,7 @@
     {
       "id": "DUAL_SOUL_LITERARY_MODEL",
       "label_es": "modelo literario de alma dual",
-      "definition": "Motivo literario de un alma incompleta o media llama que busca una contraparte.",
+      "definition": "Motivo literario-esotérico de Corelli en el que el alma se describe como dual y se compara con «media llama» que busca la otra mitad; la comparación no equivale por sí misma a una doctrina literal de una sola alma escindida.",
       "primary_sources": [
         "corelli_romance_two_worlds_1886"
       ],
@@ -864,7 +866,14 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ]
+      ],
+      "semantic_architecture": {
+        "substrate": "SOUL_DESCRIBED_BY_FLAME_SIMILE",
+        "origin_operator": "DUALITY_EXPRESSED_AS_HALF_FLAME_SIMILE",
+        "resulting_units": "TWO_COUNTERPART_HALVES_IN_LITERARY_IMAGE",
+        "literal_split_claim": "NOT_ESTABLISHED",
+        "source_scope": "LITERARY_ESOTERIC_PRIMARY"
+      }
     },
     {
       "id": "THEOSOPHICAL_MONAD",
@@ -1247,8 +1256,12 @@
       "academic_sources": [],
       "method_sources": [],
       "historical_sources": [],
-      "not_equivalent_to": [],
-      "almas_use": "Concepto frontera usado para impedir equivalencias o inferencias excesivas. No añade evidencia por sí mismo.",
+      "not_equivalent_to": [
+        "DUAL_SOUL_LITERARY_MODEL",
+        "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
+      ],
+      "almas_use": "Concepto frontera de división literal de una entidad/alma. Corelli, Ballard y Summit no se absorben automáticamente aquí: sus operadores textuales son respectivamente símil de media llama, proyección de dos rayos y modelo white-fire de dos esferas.",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
       "forbidden_upgrades": [
         "DO_NOT_UPGRADE_TO_TWIN_FLAME",
@@ -3724,6 +3737,80 @@
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ]
+    },
+    {
+      "id": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "label_es": "proyección de dos rayos desde una Llama divina",
+      "definition": "Arquitectura doctrinal de la I AM Activity documentada en The Magic Presence (1935): una Almighty God Flame proyecta Two Rays y la Individualized Flame establece en cada Ray un Focal Point o Spark, formando el centro del cuerpo electrónico.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "ballard_magic_presence_1935_twin_rays"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "DUAL_SOUL_LITERARY_MODEL",
+        "SPLIT_SOUL",
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
+      ],
+      "almas_use": "Describe el operador doctrinal PROJECTION/EMANATION de Ballard. Sirve para genealogía y discriminación doctrinal; no clasifica por sí mismo una díada real.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ],
+      "semantic_architecture": {
+        "substrate": "ALMIGHTY_OR_INDIVIDUALIZED_GOD_FLAME",
+        "origin_operator": "PROJECTION_OF_TWO_RAYS",
+        "resulting_units": "TWO_RAYS_WITH_FOCAL_POINT_OR_SPARK",
+        "literal_split_claim": "NOT_REQUIRED_BY_ANCHOR_PASSAGE",
+        "source_scope": "DOCTRINAL_PRIMARY"
+      }
+    },
+    {
+      "id": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "label_es": "modelo de dos esferas del cuerpo de fuego blanco",
+      "definition": "Arquitectura doctrinal de Summit Lighthouse/Elizabeth Clare Prophet en la que las contrapartes twin flame proceden del mismo white-fire body u ovoide de fuego blanco; la exposición oficial describe el ovoide original dividido en dos esferas con polaridad complementaria.",
+      "concept_class": "DOCTRINAL_ANALYTIC",
+      "status": "DEFINED",
+      "primary_sources": [
+        "summit_lighthouse_soulmates_twin_flames",
+        "summit_lighthouse_glossary_twin_flame",
+        "prophet_twin_flames_qa_part1",
+        "summit_lighthouse_what_is_twin_flame"
+      ],
+      "academic_sources": [],
+      "method_sources": [],
+      "historical_sources": [],
+      "not_equivalent_to": [
+        "DUAL_SOUL_LITERARY_MODEL",
+        "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+        "SPLIT_SOUL",
+        "MONAD"
+      ],
+      "almas_use": "Subarquitectura doctrinal del TWIN_FLAME_ORIGIN de Summit. Distingue sustrato, operador y resultado sin convertir esa especificidad doctrinal en un diagnóstico astrológico.",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ],
+      "semantic_architecture": {
+        "substrate": "WHITE_FIRE_BODY_OR_OVOID",
+        "origin_operator": "DIVISION_OR_DIFFERENTIATION_INTO_TWO_SPHERES",
+        "resulting_units": "TWO_COUNTERPART_SPHERES_OR_I_AM_PRESENCES",
+        "polarity": "POSITIVE_MASCULINE_AND_NEGATIVE_FEMININE_IN_SOURCE",
+        "shared_blueprint": "EXPLICIT_IN_SUMMIT_CORPUS",
+        "source_scope": "DOCTRINAL_PRIMARY"
+      }
     }
   ]
 }
