@@ -413,6 +413,10 @@ def prepare_relational_raw_input(
 
     for name in _OPTIONAL_POLICY_KEYS:
         if name in analysis_policies:
+            if name == "maximum_definition_context" and not isinstance(analysis_policies[name], bool):
+                raise RelationalWorkRequestError(
+                    "analysis_policies.maximum_definition_context debe ser booleano."
+                )
             raw[name] = deepcopy(analysis_policies[name])
             declared_keys.append(name)
 
