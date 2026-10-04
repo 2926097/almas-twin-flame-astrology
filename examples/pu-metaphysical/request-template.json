@@ -1,0 +1,14 @@
+{
+  "source_refs": [
+    "pu_summit_soulmates_twin_flames"
+  ],
+  "model_ids": [
+    "TWIN_FLAME_MODEL",
+    "SOULMATE_MODEL"
+  ],
+  "value_observations": [],
+  "comparators": [],
+  "preregistration": {
+    "status": "DRAFT"
+  }
+}

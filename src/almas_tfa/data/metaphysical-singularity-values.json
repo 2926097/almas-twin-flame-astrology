@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "extension_id": "ALMAS_PU_METAPHYSICAL_V1",
+  "status": "FROZEN_EXPERIMENTAL",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "values": [
+    {
+      "id": "COUNTERPART_UNIQUENESS",
+      "label": "Unicidad de contraparte",
+      "candidate_ref": "OD01_PAIR_SPECIFICITY_NETWORK",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "SHARED_IDENTITY",
+      "label": "Identidad espiritual compartida",
+      "candidate_ref": "OD02_DYADIC_STRUCTURAL_ISOMORPHISM",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "PRIOR_UNITY",
+      "label": "Unidad anterior y diferenciación",
+      "candidate_ref": "OD05_PRIOR_UNITY_DIRECT",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "POLARITY",
+      "label": "Polaridad y complementariedad",
+      "candidate_ref": "OD03_BLINDED_DOCTRINAL_CODING",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "ACTIVATOR_SPECIFICITY",
+      "label": "Especificidad de activación",
+      "candidate_ref": "OD01_PAIR_SPECIFICITY_NETWORK",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "SPIRITUAL_PURPOSE",
+      "label": "Finalidad espiritual y servicio",
+      "candidate_ref": "OD03_BLINDED_DOCTRINAL_CODING",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "label": "No intercambiabilidad funcional",
+      "candidate_ref": "OD01_PAIR_SPECIFICITY_NETWORK",
+      "source_gap_allowed": true
+    },
+    {
+      "id": "INTEGRATION_AUTONOMY",
+      "label": "Integración y autonomía",
+      "candidate_ref": "OD03_BLINDED_DOCTRINAL_CODING",
+      "source_gap_allowed": true
+    }
+  ]
+}

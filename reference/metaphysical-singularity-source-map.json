@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "id": "pu_summit_soulmates_twin_flames",
+      "author": "The Summit Lighthouse / tradición de Elizabeth Clare Prophet",
+      "work": "Soulmates and Twin Flames",
+      "url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "passage": "Twin Flames; Soul Mates",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "SUMMIT_TWIN_FLAME_DOCTRINE",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "DOCTRINAL_DEFINITION",
+      "claims": [
+        {
+          "value_id": "COUNTERPART_UNIQUENESS",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "SHARED_IDENTITY",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "PRIOR_UNITY",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "POLARITY",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "SPIRITUAL_PURPOSE",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "COUNTERPART_UNIQUENESS",
+          "model_id": "SOULMATE_MODEL",
+          "requirement": "NOT_REQUIRED"
+        },
+        {
+          "value_id": "SPIRITUAL_PURPOSE",
+          "model_id": "SOULMATE_MODEL",
+          "requirement": "REQUIRED"
+        }
+      ]
+    }
+  ],
+  "source_gaps": [
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP"
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP"
+    }
+  ],
+  "citation_count_adds_weight": false
+}

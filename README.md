@@ -204,3 +204,7 @@ RRA calcula retornos y todas sus pasadas sobre raíces previas, con variantes de
 Los informes personales admiten `fixed_stars: {"enabled": true}` con hora A/B y backend Moira fijado. La capa secundaria minimizada y su narrativa técnica entran en P08, con fuentes de Brady y Ptolomeo y publicación B5. El cálculo conserva SUPPORT_ONLY. Véase `reference/fixed-star-paran-method.md`.
 
 El endpoint candidato de validación externa RRA se ejecuta con `scripts/run_rra_external_descriptive.py`; la demostración sintética está en `tests/fixtures/rra_external_descriptive`. Mantiene denominadores, incertidumbre y componentes sin emitir inferencia confirmatoria. La evaluación con cohorte independiente permanece NOT_PERFORMED. Véase `docs/RRA_EXTERNAL_RUNNER.md`.
+
+## Suite experimental de singularidad metafísica PU-M
+
+La [suite PU-M](docs/PU_METAPHYSICAL_SUITE.md) añade ocho valores metafísicos, atribución doctrinal trazable y comparación de especificidad relativa mediante una API/CLI lateral. Conserva PU heredado y los índices de producción. Requiere el extra `schema-validation` para validar contratos. La salida numérica permanece no operacionalizada y el origen único no evaluable; los [borradores](docs/pu-metaphysical/drafts) documentan corpus, preregistro, cohorte, observables, validación e informe. Hay un ejemplo sintético reproducible y pruebas de ausencia de efectos sobre el análisis original.

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_PU_METAPHYSICAL_V1",
+  "status": "FROZEN_EXPERIMENTAL",
+  "signature_policy": "CORE_PRIMARY_MOTIF_MAX_V1",
+  "feature_ids": [
+    "KARMIC_CONTINUITY",
+    "WOUND_REPAIR",
+    "IDENTITY_TRANSFORMATION",
+    "TRANSFORMATION_POWER",
+    "TRANSPERSONAL_FIELD",
+    "EROTIC_POLARITY",
+    "MIRROR_COMPLEMENTARITY",
+    "RELATIONAL_COHERENCE",
+    "STRUCTURAL_AFFINITY"
+  ],
+  "numeric_pu_state": "NOT_OPERATIONALIZED",
+  "ontological_origin_state": "NOT_EVALUABLE",
+  "production_scores_affected": false,
+  "validated": false,
+  "distance": "WEIGHTED_MEAN_ABSOLUTE_DISTANCE",
+  "weights_source": "EXPLICIT_INPUT",
+  "margin_source": "EXPLICIT_INPUT",
+  "minimum_irc_source": "EXPLICIT_INPUT",
+  "requires_preregistration_for_claim": true,
+  "requires_comparable_protocol": true
+}

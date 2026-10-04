@@ -1,0 +1,324 @@
+{
+  "schema_version": "1.0.0",
+  "extension_id": "ALMAS_PU_METAPHYSICAL_V1",
+  "status": "FROZEN_EXPERIMENTAL",
+  "PU_D": {
+    "rows": [
+      {
+        "value_id": "COUNTERPART_UNIQUENESS",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "COUNTERPART_UNIQUENESS",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "NOT_REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "SHARED_IDENTITY",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "SHARED_IDENTITY",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "PRIOR_UNITY",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "PRIOR_UNITY",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "POLARITY",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "POLARITY",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "ACTIVATOR_SPECIFICITY",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "ACTIVATOR_SPECIFICITY",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "SPIRITUAL_PURPOSE",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "SPIRITUAL_PURPOSE",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "SUPPORTED",
+        "requirement": "REQUIRED",
+        "source_refs": [
+          "pu_summit_soulmates_twin_flames"
+        ],
+        "dependency_groups": [
+          "SUMMIT_TWIN_FLAME_DOCTRINE"
+        ],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "INTEGRATION_AUTONOMY",
+        "model_id": "TWIN_FLAME_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      },
+      {
+        "value_id": "INTEGRATION_AUTONOMY",
+        "model_id": "SOULMATE_MODEL",
+        "doctrine_state": "NOT_EVALUABLE",
+        "requirement": "UNRESOLVED",
+        "source_refs": [],
+        "dependency_groups": [],
+        "case_correspondence": {
+          "status": "NOT_EVALUABLE"
+        },
+        "scope": "DOCTRINAL_ATTRIBUTION_AND_DECLARED_CORRESPONDENCE",
+        "origin_effect": "NONE"
+      }
+    ],
+    "citation_count_adds_weight": false,
+    "score": null
+  },
+  "PU_R": {
+    "state": "COMPATIBLE",
+    "scope": "RELATIVE_SPECIFICITY_IN_DECLARED_NETWORK",
+    "target_distance": 0.0,
+    "minimum_margin": 0.06666666666666668,
+    "equivalence_margin": 0.02,
+    "comparators": [
+      {
+        "canonical_fingerprint": "e6f994609845c75ab0eadde4dc7212768a6a381762ea3de818f3f814ca304dc3",
+        "subject_ids": [
+          "A",
+          "C"
+        ],
+        "shared_subject": "A",
+        "distance": 0.07777777777777778,
+        "margin_to_target": 0.07777777777777778
+      },
+      {
+        "canonical_fingerprint": "ec3832f2cfcd36690a0d1b483896c0167695718ff404f5035b0ec0fc2ffedfb7",
+        "subject_ids": [
+          "B",
+          "D"
+        ],
+        "shared_subject": "B",
+        "distance": 0.06666666666666668,
+        "margin_to_target": 0.06666666666666668
+      }
+    ],
+    "blockers": [],
+    "comparison_fingerprint": "9593f50097e9867abc5b487aa190962e7ea72568bdaee6012a32ce5c7d369574",
+    "preregistration_authenticated": false,
+    "minimum_irc": 70.0,
+    "target_signature": {
+      "policy_id": "CORE_PRIMARY_MOTIF_MAX_V1",
+      "features": {
+        "KARMIC_CONTINUITY": 0.0,
+        "WOUND_REPAIR": 0.0,
+        "IDENTITY_TRANSFORMATION": 0.0,
+        "TRANSFORMATION_POWER": 0.0,
+        "TRANSPERSONAL_FIELD": 0.0,
+        "EROTIC_POLARITY": 0.0,
+        "MIRROR_COMPLEMENTARITY": 0.0,
+        "RELATIONAL_COHERENCE": 0.9,
+        "STRUCTURAL_AFFINITY": 0.0
+      },
+      "root_refs": {
+        "KARMIC_CONTINUITY": [],
+        "WOUND_REPAIR": [],
+        "IDENTITY_TRANSFORMATION": [],
+        "TRANSFORMATION_POWER": [],
+        "TRANSPERSONAL_FIELD": [],
+        "EROTIC_POLARITY": [],
+        "MIRROR_COMPLEMENTARITY": [],
+        "RELATIONAL_COHERENCE": [
+          "R1"
+        ],
+        "STRUCTURAL_AFFINITY": []
+      },
+      "canonical_fingerprint": "bf9b1d7b2ac122a475180c6cd37bd1a2c5739f6ad190139534493af89e7e876d",
+      "feature_group": "DERIVED_CORE_GRAPH",
+      "independent_votes": false
+    },
+    "score": null,
+    "external_validation": "NOT_PERFORMED",
+    "origin_effect": "NONE"
+  },
+  "PU_O": {
+    "state": "NOT_EVALUABLE",
+    "reason": "NO_INDEPENDENT_ORIGIN_CRITERION",
+    "score": null
+  },
+  "pu_score": null,
+  "pu_score_state": "NOT_OPERATIONALIZED",
+  "ontology_effect": "NONE",
+  "production_scores_affected": false,
+  "request_fingerprint": "e67d2e247b0de80131a3e8e899e8b5aa37e3e6ed269bd2ccd74d99de3b667604",
+  "validation_status": "NOT_PERFORMED"
+}

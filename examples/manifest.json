@@ -369,6 +369,39 @@
       "reversible_from_private_case": false,
       "independently_verifiable": false,
       "public_source_refs": []
+    },
+    {
+      "path": "examples/pu-metaphysical/request-template.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/pu-metaphysical/synthetic-request.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
+    },
+    {
+      "path": "examples/pu-metaphysical/synthetic-result.json",
+      "classification": "SYNTHETIC",
+      "purpose": "SYNTHETIC_FIXTURE",
+      "contains_real_person_data": false,
+      "contains_nonpublic_material": false,
+      "derived_from_private_case": false,
+      "reversible_from_private_case": false,
+      "independently_verifiable": false,
+      "public_source_refs": []
     }
   ]
 }
