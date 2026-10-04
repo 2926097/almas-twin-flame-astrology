@@ -1,7 +1,7 @@
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
-version: 1.25.0
+version: 1.26.0
 author: Proyecto ALMAS
 metadata:
   public_release: true
@@ -51,6 +51,12 @@ Un complejo necesita anclaje core, al menos un significador cualificado y dos gr
 Distinguir geometría, interpretación funcional, activación temporal y correspondencia documental. La documental estructural no exige relojes; la temporal sí exige complejo previo, ventana concordante, dos grupos de relojes y observación suficiente. Una ventana abierta, falta de fuente o componente ausente conserva `NOT_EVALUABLE`; un contradicto evaluable puede preceder a otros faltantes. Un evento compartido no multiplica hechos. Un recibo con fecha declarada no autentica preregistro; un análisis retrospectivo sigue siendo retrospectivo.
 
 La política está `FROZEN_EXPERIMENTAL`, la métrica principal `NOT_OPERATIONALIZED` y la validación externa `NOT_PERFORMED`. Los controles sintéticos y las nueve ablaciones verifican comportamiento e invariancia, no eficacia empírica. No crear p-valores interpretativos, fuerza numérica, rankings, ontología, discriminadores, puntuación o cambios de umbral desde SSAR. Las hipótesis funcionales deben conservar alternativas, fuentes, bloqueos y límites. Para autoría usar `canonical_analysis.ssar` y la proyección `render_ssar_summary`; no recalcular astrología ni hechos durante el informe.
+
+## 0.8. Jyotiṣa Relacional 1.26.0
+
+Usar la extensión optativa `almas_tfa.vedic` y la CLI `almas-vedic` conforme a `docs/vedic/README.md` y `docs/vedic/PLAN_1.26.0_DEPURADO.md`. Mantener Lahiri/nodo medio/ocho kārakas como perfil inicial declarado; conservar alternativas y hora natal corregida según la entrada vigente. Diferenciar longitudes físicas D1, coordenadas divisionales D9 y puntos por signo AL/UL/A7/Kārakāṃśa. No asignar grados físicos a signos ni considerar AK/DK nuevas raíces. Preservar todos los índices y discriminadores anteriores al incorporar `canonical_analysis.vedic`. Redactar desde la envolvente ya calculada usando `render_vedic_report`.
+
+IVED escalar, Aṣṭakūṭa completo y validación externa permanecen sin evaluar/calibrar; Prāṇapada, Yogatārās y cruces védico–asteroides están aplazados en el alcance R1. No presentar esas técnicas como implementadas ni convertir la comparación interna Swiss en validación de dos motores independientes. Mantener INSUFFICIENT para origen metafísico desde VED y peso canónico cero.
 
 ## 1. Objetivo
 

@@ -19,7 +19,7 @@
       ],
       "properties": {
         "format": {"const": "ALMAS_WORK_REQUEST"},
-        "public_version": {"const": "1.25.0"},
+        "public_version": {"enum": ["1.25.0", "1.26.0"]},
         "type": {"const": "RELATIONAL"},
         "analysis_profile": {
           "enum": [

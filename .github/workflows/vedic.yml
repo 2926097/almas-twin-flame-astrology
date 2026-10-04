@@ -1,0 +1,29 @@
+name: Motor Jyotiṣa Relacional
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  vedic:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Instalar motor y validación
+        run: python -m pip install -e '.[astronomy-vedic,schema-validation]'
+      - name: Verificar cálculos y firewall
+        run: python -m unittest discover -s tests -p 'test_vedic.py' -v
+      - name: Reproducir ejemplo completo
+        run: python scripts/validate_vedic_runtime.py

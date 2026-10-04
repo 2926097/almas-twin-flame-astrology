@@ -1,6 +1,6 @@
 # ALMAS · Astrología Metafísica Relacional
 
-**Versión pública:** 1.25.0
+**Versión pública:** 1.26.0
 **Estado:** SSAR experimental integrado y política congelada; núcleo conservado y validación externa pendiente
 
 ALMAS es una única skill modular para investigar relaciones desde astrología relacional, ontología comparada, doctrina, reconstrucción preencarnatoria, validación y hermenéutica. No reduce un vínculo a una etiqueta única.
@@ -204,3 +204,7 @@ RRA calcula retornos y todas sus pasadas sobre raíces previas, con variantes de
 Los informes personales admiten `fixed_stars: {"enabled": true}` con hora A/B y backend Moira fijado. La capa secundaria minimizada y su narrativa técnica entran en P08, con fuentes de Brady y Ptolomeo y publicación B5. El cálculo conserva SUPPORT_ONLY. Véase `reference/fixed-star-paran-method.md`.
 
 El endpoint candidato de validación externa RRA se ejecuta con `scripts/run_rra_external_descriptive.py`; la demostración sintética está en `tests/fixtures/rra_external_descriptive`. Mantiene denominadores, incertidumbre y componentes sin emitir inferencia confirmatoria. La evaluación con cohorte independiente permanece NOT_PERFORMED. Véase `docs/RRA_EXTERNAL_RUNNER.md`.
+
+## Jyotiṣa Relacional 1.26.0
+
+Motor optativo VED con cálculo sideral, nakṣatras, kārakas, D9, AL/UL/A7, upagrahas y Vimśottarī. La CLI `almas-vedic` y la envolvente opcional mantienen los índices canónicos. El alcance R1 y las técnicas aún bloqueadas se documentan en [docs/vedic/README.md](docs/vedic/README.md). IVED no está calibrado y la validación externa permanece `NOT_PERFORMED`.

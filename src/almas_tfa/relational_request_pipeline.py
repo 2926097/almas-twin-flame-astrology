@@ -11,7 +11,7 @@ from .relational_policy_presets import (
 from .structural_policies import validate_declared_aspect_policy
 
 
-PUBLIC_VERSION = "1.25.0"
+PUBLIC_VERSION = "1.26.0"
 ADAPTER_ID = "ALMAS_RELATIONAL_WORK_REQUEST_ADAPTER_V1"
 
 _FIXED_POLICIES: dict[str, dict[str, Any]] = {
@@ -244,7 +244,11 @@ def assess_relational_work_request(
         raise RelationalWorkRequestError(
             "El adaptador sólo acepta execution_state=REQUEST_ONLY."
         )
-    if request.get("public_version") != expected_public_version:
+    compatible_versions = {expected_public_version}
+    # 1.26 añade una capa optativa: la envolvente de entrada 1.25 sigue válida.
+    if expected_public_version == "1.26.0":
+        compatible_versions.add("1.25.0")
+    if request.get("public_version") not in compatible_versions:
         raise RelationalWorkRequestError(
             "public_version incompatible: "
             f"esperado {expected_public_version}, recibido "

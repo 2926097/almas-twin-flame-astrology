@@ -1,0 +1,120 @@
+{
+  "registry_id": "ALMAS_VED_FEATURE_FAMILIES_V1",
+  "namespace": "VED",
+  "policy_state": "OBSERVATIONAL_ONLY",
+  "canonical_weights_locked_zero": true,
+  "families": [
+    {
+      "id": "VED.NAKSHATRA",
+      "definition": "Sectores de 27 nakṣatras y 108 pādas",
+      "doctrinal_class": "TRADITIONAL_JYOTISHA",
+      "source_refs": [
+        "RAO_2000_1_3_6_TABLE_2"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.KARAKA",
+      "definition": "Ranking de siete/ocho planetas y roles AK/DK",
+      "doctrinal_class": "TRADITIONAL_JYOTISHA",
+      "source_refs": [
+        "RAO_2000_8_2_EXAMPLE_28"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.VARGA",
+      "definition": "D9 y signo Kārakāṃśa; cruces interpersonales experimentales",
+      "doctrinal_class": "TRADITIONAL_JYOTISHA",
+      "source_refs": [
+        "RAO_2000_6_2_9_EXAMPLE_16"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.ARUDHA",
+      "definition": "Doce padas, AL/UL/A7 y segunda posición UL",
+      "doctrinal_class": "TRADITIONAL_JYOTISHA",
+      "source_refs": [
+        "RAO_2000_9_2_SEVEN_LORDS_VARIANT"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.BINDU",
+      "definition": "Midpoint Luna–Rahu con arco declarado",
+      "doctrinal_class": "MODERN_JYOTISHA",
+      "source_refs": [],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.UPAGRAHA",
+      "definition": "Cinco puntos solares y seis temporales",
+      "doctrinal_class": "TRADITIONAL_JYOTISHA",
+      "source_refs": [
+        "RAO_2000_4_2",
+        "RAO_2000_4_3"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.TIMING",
+      "definition": "Vimśottarī y contactos temporales anclados",
+      "doctrinal_class": "TRADITIONAL_JYOTISHA",
+      "source_refs": [
+        "RAO_2000_16_2_16_3"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.SAHAM",
+      "definition": "Vivāha Sahama condicionado a carta anual",
+      "doctrinal_class": "TAJIKA",
+      "source_refs": [
+        "RAO_2000_28_8"
+      ],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    },
+    {
+      "id": "VED.CROSS_FAMILY",
+      "definition": "Comparaciones por signo/longitud y recurrencia interpersonales",
+      "doctrinal_class": "EXPERIMENTAL_CROSS_SYSTEM",
+      "source_refs": [],
+      "default_weight": 0,
+      "validation_status": "UNIT_TESTED",
+      "empirical_validation": "NOT_PERFORMED",
+      "independent_astronomical_cross_verification": false
+    }
+  ],
+  "blocked": [
+    "ASHTAKOOTA_FULL",
+    "PRANAPADA",
+    "YOGATARAS",
+    "IVED_SCALAR",
+    "METAPHYSICAL_DISCRIMINATION"
+  ]
+}

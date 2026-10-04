@@ -83,6 +83,12 @@ def work_request(include_policies=True):
 
 
 class RelationalRequestPipelineTests(unittest.TestCase):
+    def test_current_version_and_legacy_optional_extension_inputs_are_accepted(self):
+        for version in ("1.25.0", "1.26.0"):
+            payload = work_request()
+            payload["request"]["public_version"] = version
+            self.assertTrue(assess_relational_work_request(payload)["ready_for_raw_input"])
+
     def test_complete_request_is_ready_and_flattens_policies(self):
         assessment = assess_relational_work_request(work_request())
         self.assertTrue(assessment["ready_for_raw_input"])

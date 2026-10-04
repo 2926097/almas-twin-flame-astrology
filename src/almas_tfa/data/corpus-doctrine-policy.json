@@ -1,6 +1,6 @@
 {
   "policy_id": "ALMAS_CORPUS_DOCTRINE_V1",
-  "target_almas_version": "1.25.0",
+  "target_almas_version": "1.26.0",
   "source_registry_ref": "reference/source-registry.json",
   "concept_registry_ref": "reference/concept-registry.json",
   "dependency_families": [
