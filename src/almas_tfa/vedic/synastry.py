@@ -58,7 +58,11 @@ def lunar_compatibility(a, b):
     return dict(components=components, lunar_sign_relation=list(sign_relation),
         moon_lords=[LORDS[ma['sign']], LORDS[mb['sign']]], total_score=None,
         matrimonial_assessment='NOT_EVALUABLE', metaphysical_assessment='INSUFFICIENT',
-        source_ref='ALMAS_EXPERIMENTAL_LUNAR_GEOMETRY', gender_roles_inferred=False)
+        source_ref='ALMAS_EXPERIMENTAL_LUNAR_GEOMETRY', gender_roles_inferred=False,
+        verification=dict(profile='UNSPECIFIED', source_tables_verified=False,
+            exceptions_verified=False, orientation_verified=False, scored_components=0,
+            blockers=['SELECT_PROFILE_AND_PRIMARY_SOURCE', 'VERIFY_ALL_COMPONENT_TABLES',
+                      'VERIFY_EXCEPTIONS_AND_ORIENTATION', 'ADD_BOUNDARY_AND_GOLDEN_TESTS']))
 
 
 def compute_vedic_synastry(a, b, *, orb_deg=3.0):
@@ -97,15 +101,33 @@ def compute_vedic_synastry(a, b, *, orb_deg=3.0):
                     epistemic_class='E_PROJECT_HYPOTHESIS', doctrinal_class='EXPERIMENTAL_CROSS_SYSTEM', default_weight=0))
     matched = [f for f in features if f['same_sign'] or f['angular_contacts_deg'] or f['same_nakshatra']]
     risk = [f['feature_id'] for f in features if set(f['sign_relation']) in ({6, 8}, {2, 12})]
+    bundle_count = len({f['root_dependency_id'] for f in matched})
+    compatibility = lunar_compatibility(a, b)
     return dict(schema_version='ALMAS_VED_SYNASTRY_1', configuration=a['configuration'],
         chart_hashes=[_fingerprint(a), _fingerprint(b)], features=features,
-        compatibility=lunar_compatibility(a, b), recurrence=dict(raw_matches=len(matched),
-            dependency_bundles=len({f['root_dependency_id'] for f in matched}),
+        compatibility=compatibility, recurrence=dict(raw_matches=len(matched),
+            dependency_bundles=bundle_count,
             independent_root_count=None, caution='COMMON_DERIVED_INPUTS_ARE_NOT_INDEPENDENT_EVIDENCE'),
+        methodological_readiness=dict(
+            descriptive=dict(feature_count=len(features), match_count=len(matched),
+                dependency_bundle_count=bundle_count,
+                match_rule=['same_sign', 'angular_contact_within_declared_orb', 'same_nakshatra'],
+                bundle_rule='unique_root_dependency_id; deduplicates declared shared inputs only'),
+            independence=dict(status='NOT_ESTABLISHED', independent_root_count=None,
+                statistical_independence_demonstrated=False,
+                interpretation='Dependency bundles are bookkeeping units, not independent observations.'),
+            ashtakuta=dict(status='NOT_EVALUABLE', total_score=None,
+                component_states={k:v['status'] for k,v in compatibility['components'].items()},
+                verification=compatibility['verification']),
+            ived=dict(status='UNVALIDATED', value=None, family_weights=None,
+                gates=dict(preregistered=False, calibrated=False, external_validation=False),
+                blockers=['DEFINE_OBSERVABLE_CONSTRUCT', 'PREREGISTER_FEATURES_AND_WEIGHTS',
+                    'CALIBRATE_ON_INDEPENDENT_COHORT', 'TEST_INCREMENT_OUT_OF_SAMPLE'])),
         counterevidence=dict(traditional_risk_relations=risk,
             assessment='NOT_EVALUABLE', absence_is_counterevidence_only_with_preregistered_rule=True),
         ived=dict(status='UNVALIDATED', value=None, family_weights=None,
-                  reason='NO_PREREGISTERED_CALIBRATION', descriptive_features=len(features)),
+                  reason='NO_PREREGISTERED_CALIBRATION', descriptive_features=len(features),
+                  gates=dict(preregistered=False, calibrated=False, external_validation=False)),
         canonical_effect=False, metaphysical_assessment='INSUFFICIENT')
 
 
