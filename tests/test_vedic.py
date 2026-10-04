@@ -206,6 +206,12 @@ class VedicSynastryTests(unittest.TestCase):
         self.assertEqual(r['metaphysical_assessment'],'INSUFFICIENT')
         self.assertIsNone(r['compatibility']['total_score'])
         self.assertFalse(r['canonical_effect'])
+        audit=r['methodological_readiness']
+        self.assertEqual(audit['independence']['status'],'NOT_ESTABLISHED')
+        self.assertIsNone(audit['independence']['independent_root_count'])
+        self.assertEqual(audit['ashtakuta']['status'],'NOT_EVALUABLE')
+        self.assertEqual(audit['ashtakuta']['total_score'],None)
+        self.assertEqual(audit['ived']['gates'],dict(preregistered=False,calibrated=False,external_validation=False))
 
     def test_incompatible_profiles_rejected(self):
         b=chart_from_sidereal(POS,configuration={'ayanamsha':'RAMAN'})
@@ -289,12 +295,27 @@ class VedicAstronomyTests(unittest.TestCase):
         r=run_vedic_pipeline(request)
         schema=json.loads((ROOT/'schemas/vedic.schema.json').read_text())
         jsonschema.Draft202012Validator(schema).validate(r)
+        self.assertEqual(r['temporal_readiness']['status'],'DESCRIPTIVE_ONLY')
+        self.assertGreater(r['temporal_readiness']['vimshottari_subject_results'],0)
+        self.assertIn('no está preregistrada',render_vedic_report(r))
         keys=[(x['person'],x['target_longitude'],x['transit'],x['angle']) for x in r['events'][0]['transit_contacts']]
         self.assertEqual(len(keys),len(set(keys)))
         self.assertIn('INSUFFICIENT',render_vedic_report(r))
         bad=copy.deepcopy(r);bad['synastry']['features'][0]['default_weight']=1
         with self.assertRaises(jsonschema.ValidationError): jsonschema.Draft202012Validator(schema).validate(bad)
         with self.assertRaises(ValueError): attach_vedic({},bad)
+
+    def test_report_distinguishes_unrun_temporality_from_zero_events(self):
+        import json
+        request=json.loads((ROOT/'examples/vedic-request.synthetic.json').read_text())
+        request['events']=[]
+        request['sensitivity']=False
+        result=run_vedic_pipeline(request)
+        self.assertEqual(result['temporal_readiness']['status'],'NOT_RUN')
+        self.assertEqual(result['temporal_readiness']['events_requested'],0)
+        report=render_vedic_report(result)
+        self.assertIn('no se suministraron eventos fechados',report)
+        self.assertIn('no calculó Vimśottarī de evento ni tránsitos',report)
 
     def test_event_transits_wrong_instant_rejected(self):
         c=compute_vedic_chart(RAW)
