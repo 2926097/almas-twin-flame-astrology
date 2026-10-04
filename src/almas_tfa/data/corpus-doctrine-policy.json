@@ -5657,8 +5657,8 @@
       "work": "The Magic Presence",
       "date": "1935",
       "date_note": "Primera edición: Saint Germain Press, Chicago, 1935; el ancla textual se verifica en una edición posterior publicada por Saint Germain Foundation/Press.",
-      "passage": "Explicación de los Rays; p. 96 en la edición digital consultada",
-      "pages": "96",
+      "passage": "Chapter IV, “Divine Romance”, pp. 90 and 96 in the 2011 Saint Germain Press printing",
+      "pages": "90, 96",
       "url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
       "download_url": null,
       "doi": null,
@@ -5668,9 +5668,9 @@
       "sha256": null,
       "translation_note": "Terminología inglesa preservada para distinguir Flame, Rays, Spark y Mighty I AM Presence.",
       "supports": [
+        "afirmación explícita de que Rex y Pearl son “Twin Rays” de la misma Divine Flame",
         "doctrina explícita en la que la Almighty God Flame proyecta Two Rays en la Pure Electronic Light",
-        "cada Ray recibe de la Individualized Flame un Focal Point o Spark que forma un Heart Center y el Electronic Body",
-        "arquitectura de emanación/proyección desde una Llama hacia dos Rayos, distinta de una mera metáfora literaria de afinidad"
+        "cada Ray recibe de la Individualized Flame un Focal Point o Spark que forma un Heart Center y el Electronic Body"
       ],
       "does_not_support": [
         "que Marie Corelli sea fuente directa de esta doctrina o que exista transmisión histórica Corelli→Ballard",
@@ -5681,8 +5681,8 @@
         "DIVINE_FLAME_TWIN_RAY_PROJECTION"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "verification_note": "El PDF oficial indexado por Saint Germain Foundation contiene el pasaje de p. 96 sobre la Almighty God Flame que projects Two Rays; la edición de 1935 está además identificada bibliográficamente.",
-      "verification_anchor": "The Magic Presence, p. 96: explicación de la Almighty God Flame que proyecta Two Rays y de la Individualized Flame que deposita un Focal Point/Spark en cada Ray.",
+      "verification_note": "Edición Saint Germain Press: ©1935, 1963 Saint Germain Foundation, 2011 printing. Cap. IV, pp. 90 y 96, verificado en la copia digital consultada.",
+      "verification_anchor": "The Magic Presence, ch. IV: p. 90 identifica “Twin Rays” procedentes de la misma Divine Flame; p. 96 explica que la Almighty God Flame proyecta Two Rays y que cada Ray recibe un Focal Point/Spark.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
       "evidence_scope": "DOCTRINAL_CLAIM",
