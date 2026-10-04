@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "extension_id": "ALMAS_PU_METAPHYSICAL_V1",
+  "external_validation": "NOT_PERFORMED",
+  "candidates": [
+    {
+      "id": "PU_RELATIVE_TEMPLATE_MARGIN",
+      "status": "L2_EXPERIMENTAL",
+      "observable": "Margen de distancia a una firma declarada frente al mejor comparador real de cada sujeto",
+      "falsifier": "Un comparador equivalente dentro del margen explícito",
+      "controls": [
+        "same_subject_real_pairs",
+        "matched_protocol",
+        "blind_labels",
+        "holdout_networks",
+        "ablation",
+        "time_sensitivity"
+      ],
+      "uses_astrology": true,
+      "scope": "RELATIVE_STRUCTURAL_SPECIFICITY",
+      "ontology_effect": "NONE"
+    },
+    {
+      "id": "PU_DOCTRINAL_MATRIX",
+      "status": "L2_EXPERIMENTAL",
+      "observable": "Requisitos por valor/modelo y correspondencias documentadas",
+      "falsifier": "Pasaje incompatible, atribución incorrecta o acuerdo insuficiente entre codificadores",
+      "controls": [
+        "blind_paraphrase",
+        "source_dependency",
+        "independent_coders"
+      ],
+      "uses_astrology": false,
+      "scope": "DOCTRINAL_ATTRIBUTION",
+      "ontology_effect": "NONE"
+    },
+    {
+      "id": "PU_UNIQUE_ORIGIN",
+      "status": "BLOCKED_NONOBSERVABLE",
+      "observable": null,
+      "falsifier": null,
+      "uses_astrology": false,
+      "scope": "ORIGIN",
+      "ontology_effect": "NONE",
+      "reopening_condition": "Observable independiente del supuesto doctrinal y de la astrología"
+    }
+  ]
+}

@@ -53,6 +53,10 @@ jobs:
         if: matrix.shard == 'core'
         run: python scripts/validate_source_catalogue.py
 
+      - name: Validar corpus PU-M
+        if: matrix.shard == 'core'
+        run: python scripts/validate_pu_metaphysical_corpus.py
+
       - name: Reproducir fixture SSAR de liminalidad y Moiras
         if: matrix.shard == 'core'
         run: python scripts/validate_ssar_liminal_moirai.py

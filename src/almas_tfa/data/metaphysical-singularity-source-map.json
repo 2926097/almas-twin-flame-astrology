@@ -1,0 +1,1514 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "id": "pu_summit_soulmates_twin_flames",
+      "author": "The Summit Lighthouse / tradición de Elizabeth Clare Prophet",
+      "work": "Soulmates and Twin Flames",
+      "url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "passage": "Twin Flames; Soul Mates",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "SUMMIT_TWIN_FLAME_DOCTRINE",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "DOCTRINAL_DEFINITION",
+      "claims": [
+        {
+          "value_id": "COUNTERPART_UNIQUENESS",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "SHARED_IDENTITY",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "PRIOR_UNITY",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "POLARITY",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "SPIRITUAL_PURPOSE",
+          "model_id": "TWIN_FLAME_MODEL",
+          "requirement": "REQUIRED"
+        },
+        {
+          "value_id": "COUNTERPART_UNIQUENESS",
+          "model_id": "SOULMATE_MODEL",
+          "requirement": "NOT_REQUIRED"
+        },
+        {
+          "value_id": "SPIRITUAL_PURPOSE",
+          "model_id": "SOULMATE_MODEL",
+          "requirement": "REQUIRED"
+        }
+      ]
+    },
+    {
+      "id": "pu_ug_rao_reader",
+      "author": "U. G. Krishnamurti; selección y edición de Mukunda Rao",
+      "work": "The Penguin U.G. Krishnamurti Reader",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Penguin India, 2007; edición digital 2013. No es Jiddu Krishnamurti.",
+      "passage": "PDF 66: Throwing Away the Crutches",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "UG_KRISHNAMURTI_RAO",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "01-krishnamurti-reader.pdf",
+        "sha256": "4bb50a344a2051367a8eb78861faf393167a42e060d4a03ba709f45cd0f3099d",
+        "page_count": 259,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_ug_rao_reader_p01",
+          "pdf_page": 66,
+          "printed_page": null,
+          "section": "Throwing Away the Crutches",
+          "excerpt": "there are no ‘others’ for me, and so there is no separation",
+          "excerpt_language": "en",
+          "excerpt_sha256": "4d3fe652de46177cd78deee558f51b9844c3c5129273c5d8fcd809f222450f4e",
+          "summary_es": "UG describe ausencia de separación y distingue la sensibilidad física de una interpretación emocional de la compasión.",
+          "value_links": [
+            "SHARED_IDENTITY",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Declaración filosófica del hablante; no define una pareja exclusiva ni prueba identidad entre dos almas.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_watts_the_book",
+      "author": "Alan Watts",
+      "work": "The Book: On the Taboo Against Knowing Who You Are",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Prefacio fechado enero de 1966; testigo inglés aportado.",
+      "passage": "PDF 9: Preface; PDF 21: Inside Information",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "WATTS_THE_BOOK",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "02-Watts-The-Book.pdf",
+        "sha256": "5e1e3f3b23df97501216c3240a0b71a63d8e58c0f6c6bc5b84ed3ef0346d2149",
+        "page_count": 119,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_watts_the_book_p01",
+          "pdf_page": 9,
+          "printed_page": null,
+          "section": "Preface",
+          "excerpt": "a separate ego enclosed in a bag of skin",
+          "excerpt_language": "en",
+          "excerpt_sha256": "6ed75db8594d92212080d57d190aadb786233b562e2f5b712cd149e24099ca0f",
+          "summary_es": "Watts presenta su tesis de crítica al ego separado como una adaptación occidental de intuiciones del Vedanta.",
+          "value_links": [
+            "SHARED_IDENTITY",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Interpretación de Watts; no atribuir automáticamente el mismo enunciado a todas las escuelas del Vedanta.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_watts_the_book_p02",
+          "pdf_page": 21,
+          "printed_page": null,
+          "section": "Inside Information",
+          "excerpt": "this is true of everyone and everything else",
+          "excerpt_language": "en",
+          "excerpt_sha256": "2c3547505291def59f2a7cffe93f182915c08bc87b733551bf9d72fac869621c",
+          "summary_es": "La identidad divina se extiende, en su exposición, a todos los seres; el alcance es universal.",
+          "value_links": [
+            "PRIOR_UNITY",
+            "COUNTERPART_UNIQUENESS"
+          ],
+          "interpretive_limit": "Unidad universal no establece una mónada exclusiva, una división de alma ni una contraparte única.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_langley_cayce_reincarnation",
+      "author": "Noel Langley; bajo la edición de Hugh Lynn Cayce",
+      "work": "Edgar Cayce on Reincarnation",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Warner Books; copyright ARE 1967. Narración de Langley sobre lecturas atribuidas a Cayce.",
+      "passage": "PDF 252: Chapter Sixteen: Group Karma; PDF 253: Group Karma: cambios de parentesco",
+      "priority": "P2_SECONDARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "LANGLEY_CAYCE_REINCARNATION",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "03-Edgar-Cayce-On-Reincarnation.pdf",
+        "sha256": "dd9115139fc4f198553a6267e987b0289f59d5277760ce64174e20696e37ae07",
+        "page_count": 292,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_langley_cayce_reincarnation_p01",
+          "pdf_page": 252,
+          "printed_page": "250",
+          "section": "Chapter Sixteen: Group Karma",
+          "excerpt": "series of Readings covering one soul-group",
+          "excerpt_language": "en",
+          "excerpt_sha256": "ba0a49ffc120485cc5420eec982b3eb3e2681fade7f6dce178f2b2fa27501959",
+          "summary_es": "Langley describe una serie de lecturas sobre un grupo de almas que incluye a numerosos miembros de una familia.",
+          "value_links": [
+            "COUNTERPART_UNIQUENESS",
+            "SPIRITUAL_PURPOSE"
+          ],
+          "interpretive_limit": "Verifica el uso explícito de soul-group en esta narración; no autentica las lecturas originales ni la reencarnación.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "OCR_AND_VISUAL_PAGE_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_langley_cayce_reincarnation_p02",
+          "pdf_page": 253,
+          "printed_page": "251",
+          "section": "Group Karma: cambios de parentesco",
+          "excerpt": "Her tavern keeper husband from Fort Dearborn",
+          "excerpt_language": "en",
+          "excerpt_sha256": "3b39746f247950c03c95e72cb9c5e05ab1d1e23496e60855869abc9182573d29",
+          "summary_es": "El relato atribuye a un hermano actual el papel de marido en otra vida y describe vínculos familiares múltiples.",
+          "value_links": [
+            "FUNCTIONAL_NONINTERCHANGEABILITY",
+            "ACTIVATOR_SPECIFICITY"
+          ],
+          "interpretive_limit": "Contraejemplo narrativo a equiparar repetición de vínculo con rol de pareja invariable; no es una medición ni una definición universal.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "OCR_AND_VISUAL_PAGE_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_henriquez_cuerpo_astral",
+      "author": "Natacha Henríquez Paneyko",
+      "work": "El cuerpo astral y los universos paralelos",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Segunda edición revisada y ampliada, octubre de 2013, según PDF p. 2.",
+      "passage": "PDF 308: Reflexión sobre dualidad y libre albedrío",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "dependency_group": "HENRIQUEZ_CUERPO_ASTRAL",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "04-El-cuerpo-astral-y-los-universos-paralelos.pdf",
+        "sha256": "6dc4b0b17dd5e2b9405d8b5df7ea8b57143e72e7eb7d1ea4f2fbf8570cf2ec2b",
+        "page_count": 331,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_henriquez_cuerpo_astral_p01",
+          "pdf_page": 308,
+          "printed_page": "308",
+          "section": "Reflexión sobre dualidad y libre albedrío",
+          "excerpt": "nadie puede ser obligado a nada",
+          "excerpt_language": "es",
+          "excerpt_sha256": "800e62996cc8ced5c59aadd4fa9940008c0a73afe40120769c69f2921f11ee4a",
+          "summary_es": "La autora afirma la pertenencia a Dios y la libertad de elección dentro de su narrativa de dualidad.",
+          "value_links": [
+            "PRIOR_UNITY",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Testimonio y elaboración espiritual contemporánea; no evidencia experimental ni criterio de contraparte única.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_jiddu_arte_escuchar",
+      "author": "Jiddu Krishnamurti",
+      "work": "El arte de escuchar, Obras completas, tomo I (1933–1934)",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Compilación española aportada; año editorial y traductor no confirmados.",
+      "passage": "PDF 7: Primera charla en Stresa; PDF 14: Anhelo, consuelo y discernimiento",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "JIDDU_ARTE_ESCUCHAR",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "05-krishnamurti-el-arte-de-escuchar.pdf",
+        "sha256": "875b7ff15d9f92e404a490454889c0958d8f3c94288934fa304a91cad6f0087c",
+        "page_count": 148,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_jiddu_arte_escuchar_p01",
+          "pdf_page": 7,
+          "printed_page": null,
+          "section": "Primera charla en Stresa",
+          "excerpt": "no puede ser realizada por intermedio de otra persona",
+          "excerpt_language": "es",
+          "excerpt_sha256": "fee84b2d9950aeb2bba09be04fdcf9466925359c472eaff25812cfd7497a4be7",
+          "summary_es": "Jiddu sostiene que la realización de la verdad no se obtiene por imitación o autoridad ajena.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Realización personal no es un criterio de origen metafísico ni de compatibilidad astrológica.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_jiddu_arte_escuchar_p02",
+          "pdf_page": 14,
+          "printed_page": null,
+          "section": "Anhelo, consuelo y discernimiento",
+          "excerpt": "aceptamos las cosas sin un verdadero discernimiento",
+          "excerpt_language": "es",
+          "excerpt_sha256": "c3944dc38f5acbcc9bfd8d925fe2eaaadb925d9fa825e1efb595df5b56130af6",
+          "summary_es": "Examina cómo el anhelo y la búsqueda de consuelo pueden determinar la aceptación de ideas sobre pérdida y continuidad.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "SHARED_IDENTITY"
+          ],
+          "interpretive_limit": "Explicación filosófica alternativa de la adhesión a creencias; no diagnóstico de los miembros del caso.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_aranegui_conocimiento",
+      "author": "Santiago Aranegui",
+      "work": "La Cábala: El conocimiento completo",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Impresión de abril de 1997, Miami, según PDF p. 4; síntesis moderna.",
+      "passage": "PDF 136: Deseo de recibir para compartir; PDF 150: Principios y Tikún",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "ARANEGUI_CONOCIMIENTO",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "07-La_Cabala_El_Conocimiento_Completo.pdf",
+        "sha256": "a420ca498f42eadaab0cd227e422f6660461e4bdff8e43c5c3a551c060d5252a",
+        "page_count": 324,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_aranegui_conocimiento_p01",
+          "pdf_page": 136,
+          "printed_page": "128",
+          "section": "Deseo de recibir para compartir",
+          "excerpt": "Deseo de Recibir para Compartir",
+          "excerpt_language": "es",
+          "excerpt_sha256": "5c5fbee055c4662029f026651e5ab03e46505bb343a1ffd652e367dce7d5b254",
+          "summary_es": "El autor sitúa la finalidad de las almas en transformar la recepción mediante el compartir.",
+          "value_links": [
+            "SPIRITUAL_PURPOSE",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Síntesis cabalística de Aranegui; no fuente primaria del Zóhar ni definición de zivug.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_aranegui_conocimiento_p02",
+          "pdf_page": 150,
+          "printed_page": "142",
+          "section": "Principios y Tikún",
+          "excerpt": "El Deseo de Impartir y el Deseo de Recibir",
+          "excerpt_language": "es",
+          "excerpt_sha256": "e324ddcf4f6b717b1d96b1e73b50c6366e2e13671497f879475a7948ed45167d",
+          "summary_es": "Vincula la armonización de impartir y recibir con el propósito de la creación y el retorno al Tikún.",
+          "value_links": [
+            "POLARITY",
+            "SPIRITUAL_PURPOSE"
+          ],
+          "interpretive_limit": "Los dos principios son cosmológicos; no establecen emparejamiento biográfico exclusivo.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_tolle_poder_ahora",
+      "author": "Eckhart Tolle",
+      "work": "El poder del ahora",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Testigo español aportado; edición y traducción no confirmadas.",
+      "passage": "PDF 153: La adicción y la búsqueda de la plenitud; PDF 156: De las relaciones adictivas a las relaciones iluminadas; PDF 157: Amor, unidad e intensidad",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "TOLLE_PODER_AHORA",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "08-El-Poder-Del-Ahora.pdf",
+        "sha256": "20ac3f952dcb9586efbe022ee5cc6dd67d7e6d4d20d1f543b898bb0b08acd307",
+        "page_count": 226,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_tolle_poder_ahora_p01",
+          "pdf_page": 153,
+          "printed_page": "153",
+          "section": "La adicción y la búsqueda de la plenitud",
+          "excerpt": "un retorno al estado de plenitud",
+          "excerpt_language": "es",
+          "excerpt_sha256": "f250318cdf167720b59f9fd513392ed4898da61ed2cc6f67896c01a21e415841",
+          "summary_es": "Interpreta la atracción entre polaridades como búsqueda espiritual de plenitud y distingue el atisbo sexual de una realización permanente.",
+          "value_links": [
+            "POLARITY",
+            "PRIOR_UNITY"
+          ],
+          "interpretive_limit": "La interpretación se refiere a la atracción en general, no identifica una contraparte exclusiva.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_tolle_poder_ahora_p02",
+          "pdf_page": 156,
+          "printed_page": null,
+          "section": "De las relaciones adictivas a las relaciones iluminadas",
+          "excerpt": "El amor es un estado del Ser",
+          "excerpt_language": "es",
+          "excerpt_sha256": "67ec924c11a448a02c98610e290666dfca1ede33b0ee41062b75a3e9b3f2615a",
+          "summary_es": "Propone presencia y aceptación frente a identificación y dependencia; contempla continuidad de la relación o separación.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "SPIRITUAL_PURPOSE"
+          ],
+          "interpretive_limit": "Propuesta espiritual del autor; no medida clínica ni prueba de destino de una pareja.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_tolle_poder_ahora_p03",
+          "pdf_page": 157,
+          "printed_page": null,
+          "section": "Amor, unidad e intensidad",
+          "excerpt": "No es exclusivo",
+          "excerpt_language": "es",
+          "excerpt_sha256": "ec519bf089f9ff5e3b34b6432edad530280ba789d070b9444860cefdfdd55fa9",
+          "summary_es": "Expone un amor universal cuya intensidad puede variar entre personas sin convertir el vínculo en único por origen.",
+          "value_links": [
+            "COUNTERPART_UNIQUENESS",
+            "FUNCTIONAL_NONINTERCHANGEABILITY"
+          ],
+          "interpretive_limit": "La no exclusividad pertenece a la definición de Tolle; no se traslada como requisito de otro modelo doctrinal.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_dispenza_deja_ser",
+      "author": "Joe Dispenza",
+      "work": "Deja de ser tú",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Testigo español aportado; datos editoriales no confirmados.",
+      "passage": "PDF 32: En el campo cuántico estamos conectados a todo",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "dependency_group": "DISPENZA_FRAMEWORK",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "09-Dispenza_Joe_Deja_De_Ser_Tu.pdf",
+        "sha256": "9a2c6b251464e21e83ce2ada6a223b9a3bd77063fce200e350bee848a116ea67",
+        "page_count": 325,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_dispenza_deja_ser_p01",
+          "pdf_page": 32,
+          "printed_page": null,
+          "section": "En el campo cuántico estamos conectados a todo",
+          "excerpt": "Tú, como todo el mundo",
+          "excerpt_language": "es",
+          "excerpt_sha256": "b5ae779917c969bc9ac2245b16ef80e81c3a786af6d72eaf038425839f84af04",
+          "summary_es": "Dispenza propone interconexión universal y una impronta energética individual en su interpretación del campo cuántico.",
+          "value_links": [
+            "SHARED_IDENTITY",
+            "PRIOR_UNITY"
+          ],
+          "interpretive_limit": "Verificación textual de su propuesta; no validación de la extrapolación física a personas ni de una díada exclusiva.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_yogananda_autobiografia",
+      "author": "Paramahansa Yogananda",
+      "work": "Autobiografía de un yogui",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Traducción española aportada; prólogo editorial refiere la segunda edición española.",
+      "passage": "PDF 88: Nota 16: Samadhi; PDF 238: Capítulo XLIII: La resurrección de Sri Yukteswar",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "YOGANANDA_AUTOBIOGRAPHY",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "10-Autobiograf-a-de-un-yogi.pdf",
+        "sha256": "f55771ddab49c00b92c96566515f8606a45243106a6b848eb21d47095d66169a",
+        "page_count": 289,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_yogananda_autobiografia_p01",
+          "pdf_page": 88,
+          "printed_page": "88",
+          "section": "Nota 16: Samadhi",
+          "excerpt": "unión perfecta del alma individualizada con el Espíritu Infinito",
+          "excerpt_language": "es",
+          "excerpt_sha256": "dd33845f3de146cec55e6d7ea5b207addf5175d5bd9a613f1eb58066ef289fbd",
+          "summary_es": "La nota define samadhi como unión del alma individual con el Espíritu Infinito.",
+          "value_links": [
+            "SHARED_IDENTITY",
+            "PRIOR_UNITY"
+          ],
+          "interpretive_limit": "Unión con el Espíritu no equivale a fusión exclusiva de dos almas.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_yogananda_autobiografia_p02",
+          "pdf_page": 238,
+          "printed_page": "238",
+          "section": "Capítulo XLIII: La resurrección de Sri Yukteswar",
+          "excerpt": "dotado inextinguiblemente de individualidad",
+          "excerpt_language": "es",
+          "excerpt_sha256": "925a80bc4eb8478f494285cc221edfb538ae0da45297bda817328032b8a34527",
+          "summary_es": "El diálogo atribuido al gurú mantiene individualidad y reconocimiento de seres en distintos planos.",
+          "value_links": [
+            "SHARED_IDENTITY",
+            "FUNCTIONAL_NONINTERCHANGEABILITY"
+          ],
+          "interpretive_limit": "Relato doctrinal de Yogananda; no observación independiente del plano astral ni autenticación del reconocimiento.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_dispenza_sobrenatural",
+      "author": "Joe Dispenza",
+      "work": "Sobrenatural",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Traducción de Victoria Simó Perales, primera edición marzo de 2018, según PDF p. 4.",
+      "passage": "PDF 16: Coherencia y retroalimentación",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "dependency_group": "DISPENZA_FRAMEWORK",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "11-SOBRENATURAL-Joe-Dispenza.pdf",
+        "sha256": "125d72270253abc203ce72eec1a9232825f805a1e4b166c182ce56a2b7f5c4ca",
+        "page_count": 501,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_dispenza_sobrenatural_p01",
+          "pdf_page": 16,
+          "printed_page": null,
+          "section": "Coherencia y retroalimentación",
+          "excerpt": "regular sus estados internos con independencia de las condiciones externas",
+          "excerpt_language": "es",
+          "excerpt_sha256": "d75c55d477d386992aff653bc9fd0e25589648906598ecb521ddd3cb3e94d54d",
+          "summary_es": "El autor describe entrenamiento de regulación interna y registro de respuestas de participantes; la exposición continúa en PDF p. 17.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "ACTIVATOR_SPECIFICITY"
+          ],
+          "interpretive_limit": "Afirmación del autor sobre sus talleres; los datos originales y las inferencias de influencia entre personas no se auditan aquí.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_joseph_sabiduria_ii",
+      "author": "Harry B. Joseph",
+      "work": "Libro de la sabiduría, volumen II",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Testigo español escaneado; atribución en PDF p. 3, traductor y fecha no confirmados.",
+      "passage": "PDF 134: Divino femenino y divino masculino",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "D_CONTEMPORARY_USAGE",
+      "dependency_group": "JOSEPH_REVIVAL_WISDOM",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "12-Libro-de-La-Sabiduria-tomo-II.pdf",
+        "sha256": "2230ef912463237d0f96abcb0d199684e5c6af736f0dda4740a033f70101331b",
+        "page_count": 218,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_joseph_sabiduria_ii_p01",
+          "pdf_page": 134,
+          "printed_page": "129",
+          "section": "Divino femenino y divino masculino",
+          "excerpt": "Son dos mitades de un todo",
+          "excerpt_language": "es",
+          "excerpt_sha256": "bba2c362ff039277e924daa643886fbcc3a2b953688f479fa7b202fb0bbd6d53",
+          "summary_es": "La página presenta complementariedad masculina y femenina y termina incluyendo ambas energías dentro de cada individuo.",
+          "value_links": [
+            "POLARITY",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Esquema esotérico contemporáneo; ni las correspondencias cerebrales ni una contraparte única quedan demostradas por este pasaje.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "OCR_AND_VISUAL_PAGE_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_berg_astrologia_cabalistica",
+      "author": "Philip S. Berg",
+      "work": "Astrología cabalística y el significado de nuestras vidas",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Traducción personal de Luis Lema Osores, según PDF p. 2; edición original no confirmada.",
+      "passage": "PDF 25: Propósito y vidas anteriores; PDF 27: Sección IV: evolución espiritual y libre albedrío",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "BERG_ASTROLOGIA",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "13-astrologia-cabalistica.pdf",
+        "sha256": "bf5cf144698f8ed59921c0f4e65a54f956ed3391ec60c011fcf4df561a4f5ea4",
+        "page_count": 112,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_berg_astrologia_cabalistica_p01",
+          "pdf_page": 25,
+          "printed_page": null,
+          "section": "Propósito y vidas anteriores",
+          "excerpt": "mejorar, compartir y convertirnos en la causa de nuestra propia plenitud",
+          "excerpt_language": "es",
+          "excerpt_sha256": "1043680f3c3c0f206a1f26afe22161183fc627ad40d2d1f108ff1810da4940eb",
+          "summary_es": "Berg relaciona la oportunidad natal, el compartir y la responsabilidad de las elecciones con su modelo espiritual.",
+          "value_links": [
+            "SPIRITUAL_PURPOSE",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Atribución a Berg en esta traducción; no establece identidad de raíz exclusiva ni una regla universal del judaísmo.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_berg_astrologia_cabalistica_p02",
+          "pdf_page": 27,
+          "printed_page": null,
+          "section": "Sección IV: evolución espiritual y libre albedrío",
+          "excerpt": "Las decisiones son nuestras",
+          "excerpt_language": "es",
+          "excerpt_sha256": "082e037cf507bd98cf0da6261adec173734b83518037e84133562425a1142568",
+          "summary_es": "Afirma que las elecciones presentes participan en el destino y rechaza un cierre determinista de las posibilidades.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "ACTIVATOR_SPECIFICITY"
+          ],
+          "interpretive_limit": "La oportunidad de elección no es una medida de especificidad de pareja; no se generaliza la descripción que hace de otras astrologías.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_arroyo_four_elements",
+      "author": "Stephen Arroyo",
+      "work": "Astrology, Psychology, and the Four Elements",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "CRCS Publications, copyright 1975, según PDF p. 6.",
+      "passage": "PDF 15: Prologue",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "B_TECHNIQUE",
+      "dependency_group": "ARROYO_FOUR_ELEMENTS",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "14-Astrology-_Psychology-_and_the_Four_Elements_by_Stephen_Arroyo.pdf",
+        "sha256": "187ac4ce1b994303e6c5f010227894c69e9d3c5f2c8f605dc1fec9b772068dec",
+        "page_count": 208,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_arroyo_four_elements_p01",
+          "pdf_page": 15,
+          "printed_page": null,
+          "section": "Prologue",
+          "excerpt": "everything returns to its source",
+          "excerpt_language": "en",
+          "excerpt_sha256": "7030ddad712a63c41d774b35396b985274b7b7db2493a58d47c4cc6ace372c58",
+          "summary_es": "Arroyo distingue tendencias natales y circunstancias, y propone trabajar con la expresión de energías en vez de culpar a la carta.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "SPIRITUAL_PURPOSE"
+          ],
+          "interpretive_limit": "Enfoque interpretativo del autor; no valida el núcleo numérico de ALMAS ni una ontología de pareja.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_greene_jung_astrology",
+      "author": "Liz Greene",
+      "work": "Jung’s Studies in Astrology: Prophecy, Magic, and the Qualities of Time",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Routledge, 2018; cita de Jung mediada por Greene.",
+      "passage": "PDF 44: Jung’s understanding of astrology",
+      "priority": "P2_SECONDARY",
+      "epistemic_class": "B_TECHNIQUE",
+      "dependency_group": "GREENE_JUNG_ASTROLOGY",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "15-Jung-s-Studies-in-Astrology-by-Liz-Greene.pdf",
+        "sha256": "d585a849f3ce47a9b1e10ad8086e494067d7bcc17cd3d855561c0af42d16de86",
+        "page_count": 245,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_greene_jung_astrology_p01",
+          "pdf_page": 44,
+          "printed_page": "31",
+          "section": "Jung’s understanding of astrology",
+          "excerpt": "a unique pattern of inter-relationships",
+          "excerpt_language": "en",
+          "excerpt_sha256": "8a090a21a42c59faa5edc38d09f2f7b64db9d8808e55c5a29ef9233cb5a3f829",
+          "summary_es": "Greene expone cómo Jung vinculaba el horóscopo con una configuración individual de arquetipos.",
+          "value_links": [
+            "SHARED_IDENTITY",
+            "FUNCTIONAL_NONINTERCHANGEABILITY"
+          ],
+          "interpretive_limit": "Un patrón individual único no prueba unicidad de una pareja; la cita de Jung se verifica aquí a través de Greene, no en la carta original.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_sepharial_kabalistic",
+      "author": "Sepharial (Walter Gorn Old)",
+      "work": "Your Fortune in Your Name, or Kabalistic Astrology",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Tercera edición; reimpresión Newcastle Publishing 1981. PDF p. 6 contiene pp. impresas 8–9.",
+      "passage": "PDF 6: Introduction",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "B_TECHNIQUE",
+      "dependency_group": "SEPHARIAL_KABALISTIC",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "16-Sepharial-Kabbalistic-Astrology-Walter-Gorn-Old-3-8c8df1fc6ccc76610a49abc40784c49e-Anna-s-Archive.pdf",
+        "sha256": "55eec1636d394bc455d559af0c78cfc4d35d9cedbd5e37f0909073ba2f385ed4",
+        "page_count": 50,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_sepharial_kabalistic_p01",
+          "pdf_page": 6,
+          "printed_page": "8",
+          "section": "Introduction",
+          "excerpt": "the numerical value of names",
+          "excerpt_language": "en",
+          "excerpt_sha256": "1971a948ac938575d80614a18452bfcd1cb589c6b17e9763e09000636b0097f3",
+          "summary_es": "Expone una astrología kabalística basada en nombres y números, e incorpora analogías entre denominación y destino.",
+          "value_links": [
+            "SHARED_IDENTITY"
+          ],
+          "interpretive_limit": "Método ocultista de Sepharial; no se equipara con astrología natal, halajá ni doctrina de zivug. Sus alegaciones de prueba no se validan aquí.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "OCR_AND_VISUAL_PAGE_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_brennan_hellenistic",
+      "author": "Chris Brennan",
+      "work": "Hellenistic Astrology: The Study of Fate and Fortune",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Testigo inglés aportado; citas de Valens a través de Brennan.",
+      "passage": "PDF 182: Chapter 6: The study of fate",
+      "priority": "P2_SECONDARY",
+      "epistemic_class": "B_TECHNIQUE",
+      "dependency_group": "BRENNAN_HELLENISTIC",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "17-Chris_Brennan_Hellenistic_Astrology_The_Study_of_Fate_and_Fortune.pdf",
+        "sha256": "5b4f673839b7fcff62c8bc9e74171df69e9af5cc9843205db6f65f7166cb2c00",
+        "page_count": 698,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_brennan_hellenistic_p01",
+          "pdf_page": 182,
+          "printed_page": "155",
+          "section": "Chapter 6: The study of fate",
+          "excerpt": "through their own self-mastery",
+          "excerpt_language": "en",
+          "excerpt_sha256": "94b81cdbd2c96a70d8636ee32ef91b270fb49f08924bb0afc885ba1b1f8fee80",
+          "summary_es": "Reproduce a Valens sobre anticipación, ecuanimidad y dominio de sí dentro de una finalidad filosófica de la astrología.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "SPIRITUAL_PURPOSE"
+          ],
+          "interpretive_limit": "Testimonio histórico mediado por Brennan; no se ha cotejado la edición original de Valens ni se formula un discriminador de pareja.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_dobin_kabbalistic",
+      "author": "Joel C. Dobin",
+      "work": "Kabbalistic Astrology: The Sacred Tradition of the Hebrew Sages",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Testigo inglés escaneado; apéndice 7. Edición concreta no confirmada.",
+      "passage": "PDF 264: Appendix 7: Astrology and Kabbalah",
+      "priority": "P2_SECONDARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "DOBIN_KABBALISTIC",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "18-Kabbalistic-Astrology-by-Joel-C.-Dobin.pdf",
+        "sha256": "6e0bdda35b523ee136e7e84702c0197306b7fcd1489f29b21c5daeb3894a3be2",
+        "page_count": 298,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_dobin_kabbalistic_p01",
+          "pdf_page": 264,
+          "printed_page": "252",
+          "section": "Appendix 7: Astrology and Kabbalah",
+          "excerpt": "the search for an experience of direct contact with God",
+          "excerpt_language": "en",
+          "excerpt_sha256": "16e7b411a0eec2894be50a16ca7cbd86a9988dea84d6752852e9a3116d72f7df",
+          "summary_es": "Dobin recoge una definición de misticismo atribuida a Moshe Idel como búsqueda de contacto directo con Dios.",
+          "value_links": [
+            "SPIRITUAL_PURPOSE",
+            "SHARED_IDENTITY"
+          ],
+          "interpretive_limit": "Definición citada por Dobin, no comprobada en la obra original de Idel; contacto con Dios no define zivug ni una raíz monádica de pareja.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "OCR_AND_VISUAL_PAGE_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    },
+    {
+      "id": "pu_kenton_anatomy_fate",
+      "author": "Warren Kenton (Z’ev ben Shimon Halevi)",
+      "work": "The Anatomy of Fate: Kabbalistic Astrology",
+      "url": null,
+      "publication_date": null,
+      "accessed_date": "2026-10-04",
+      "edition_note": "Rider & Company, primera publicación 1978, según PDF pp. 4–5; figura Warren Kenton en portada interior.",
+      "passage": "PDF 29: Macrocosmos: fuente y opuestos; PDF 32: Macrocosmos: creación y separación; PDF 159: Ejemplo de relación y decisión consciente",
+      "priority": "P1_PRIMARY",
+      "epistemic_class": "C_DOCTRINE",
+      "dependency_group": "KENTON_HALEVI_ANATOMY",
+      "verification": "PASSAGE_VERIFIED",
+      "scope": "VERIFIED_CONTEXT_PASSAGES",
+      "claims": [],
+      "document": {
+        "filename": "19-The-anatomy-of-fate-_-Kabbalistic-astrology-Halevi-Z-ev-ben-Shimon-London-England-1978-Rider-9780091326418-e00e89c366c83db4ffe10c14fc42a523-Anna-s-Archive.pdf",
+        "sha256": "19fd6024758008293c9857492dd8ceb9ca39141738793148eb91f6d6f47e3074",
+        "page_count": 194,
+        "availability": "USER_PROVIDED_NOT_DISTRIBUTED"
+      },
+      "passages": [
+        {
+          "id": "pu_kenton_anatomy_fate_p01",
+          "pdf_page": 29,
+          "printed_page": "28",
+          "section": "Macrocosmos: fuente y opuestos",
+          "excerpt": "All that come into Existence is rooted in the One Source",
+          "excerpt_language": "en",
+          "excerpt_sha256": "cb6554069210db52bf73a599ca20d3fba976c16859724ff446e563cd3514072a",
+          "summary_es": "La unidad de origen se formula para todo lo existente; el mismo contexto introduce principios activos y pasivos.",
+          "value_links": [
+            "PRIOR_UNITY",
+            "POLARITY"
+          ],
+          "interpretive_limit": "Origen universal no es un origen común exclusivo de dos personas; este pasaje no define mónadas individuales ni zivug.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_kenton_anatomy_fate_p02",
+          "pdf_page": 32,
+          "printed_page": "31",
+          "section": "Macrocosmos: creación y separación",
+          "excerpt": "the first level of separation",
+          "excerpt_language": "en",
+          "excerpt_sha256": "52aca21653ba78c942a386ad9bcfb09b7a98b82bcdb7778c575fb2fb4df2cc16",
+          "summary_es": "En su esquema de mundos, la Creación introduce separación, contraste y elección.",
+          "value_links": [
+            "PRIOR_UNITY",
+            "INTEGRATION_AUTONOMY"
+          ],
+          "interpretive_limit": "Separación cosmológica no implica que un alma se partiera en dos sujetos.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        },
+        {
+          "id": "pu_kenton_anatomy_fate_p03",
+          "pdf_page": 159,
+          "printed_page": "158",
+          "section": "Ejemplo de relación y decisión consciente",
+          "excerpt": "a correctly carried out separation",
+          "excerpt_language": "en",
+          "excerpt_sha256": "e40ed994b0dc1fb5aed29479583f84279b70eff425e4933b76dfd474dd874ebf",
+          "summary_es": "El ejemplo vincula autoconocimiento y decisión con una evolución relacional hacia intimidad o separación.",
+          "value_links": [
+            "INTEGRATION_AUTONOMY",
+            "SPIRITUAL_PURPOSE"
+          ],
+          "interpretive_limit": "Ejemplo interpretativo del autor; no impone desenlace al caso ni valida predicciones.",
+          "verification": "PASSAGE_VERIFIED",
+          "verification_method": "PDF_TEXT_AND_CONTEXT_REVIEW",
+          "verbatim_extent": "SHORT_CONTIGUOUS_EXCERPT",
+          "origin_effect": "NONE"
+        }
+      ],
+      "model_requirements_inferred": false
+    }
+  ],
+  "source_gaps": [
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_tolle_poder_ahora_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_tolle_poder_ahora_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_tolle_poder_ahora_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "COUNTERPART_UNIQUENESS",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_tolle_poder_ahora_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01",
+        "pu_sepharial_kabalistic_p01",
+        "pu_dobin_kabbalistic_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01",
+        "pu_sepharial_kabalistic_p01",
+        "pu_dobin_kabbalistic_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01",
+        "pu_sepharial_kabalistic_p01",
+        "pu_dobin_kabbalistic_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SHARED_IDENTITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01",
+        "pu_sepharial_kabalistic_p01",
+        "pu_dobin_kabbalistic_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_tolle_poder_ahora_p01",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_kenton_anatomy_fate_p01",
+        "pu_kenton_anatomy_fate_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_tolle_poder_ahora_p01",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_kenton_anatomy_fate_p01",
+        "pu_kenton_anatomy_fate_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_tolle_poder_ahora_p01",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_kenton_anatomy_fate_p01",
+        "pu_kenton_anatomy_fate_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "PRIOR_UNITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_watts_the_book_p02",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_tolle_poder_ahora_p01",
+        "pu_dispenza_deja_ser_p01",
+        "pu_yogananda_autobiografia_p01",
+        "pu_kenton_anatomy_fate_p01",
+        "pu_kenton_anatomy_fate_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_kenton_anatomy_fate_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_kenton_anatomy_fate_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_kenton_anatomy_fate_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "POLARITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_kenton_anatomy_fate_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_berg_astrologia_cabalistica_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_berg_astrologia_cabalistica_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_berg_astrologia_cabalistica_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "ACTIVATOR_SPECIFICITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_berg_astrologia_cabalistica_p02"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_aranegui_conocimiento_p01",
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p02",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_dobin_kabbalistic_p01",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_aranegui_conocimiento_p01",
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p02",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_dobin_kabbalistic_p01",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_aranegui_conocimiento_p01",
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p02",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_dobin_kabbalistic_p01",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "SPIRITUAL_PURPOSE",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p01",
+        "pu_aranegui_conocimiento_p01",
+        "pu_aranegui_conocimiento_p02",
+        "pu_tolle_poder_ahora_p02",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_dobin_kabbalistic_p01",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_tolle_poder_ahora_p03",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_tolle_poder_ahora_p03",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_tolle_poder_ahora_p03",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "FUNCTIONAL_NONINTERCHANGEABILITY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_langley_cayce_reincarnation_p02",
+        "pu_tolle_poder_ahora_p03",
+        "pu_yogananda_autobiografia_p02",
+        "pu_greene_jung_astrology_p01"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "SOUL_FAMILY_GROUP",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_jiddu_arte_escuchar_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_aranegui_conocimiento_p01",
+        "pu_tolle_poder_ahora_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_berg_astrologia_cabalistica_p02",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_kenton_anatomy_fate_p02",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "MONADIC_COMMON_SOURCE",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_jiddu_arte_escuchar_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_aranegui_conocimiento_p01",
+        "pu_tolle_poder_ahora_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_berg_astrologia_cabalistica_p02",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_kenton_anatomy_fate_p02",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "SPLIT_SOUL",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_jiddu_arte_escuchar_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_aranegui_conocimiento_p01",
+        "pu_tolle_poder_ahora_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_berg_astrologia_cabalistica_p02",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_kenton_anatomy_fate_p02",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    },
+    {
+      "value_id": "INTEGRATION_AUTONOMY",
+      "model_id": "ZIVUG",
+      "state": "SOURCE_GAP",
+      "related_passage_refs": [
+        "pu_ug_rao_reader_p01",
+        "pu_watts_the_book_p01",
+        "pu_henriquez_cuerpo_astral_p01",
+        "pu_jiddu_arte_escuchar_p01",
+        "pu_jiddu_arte_escuchar_p02",
+        "pu_aranegui_conocimiento_p01",
+        "pu_tolle_poder_ahora_p02",
+        "pu_dispenza_sobrenatural_p01",
+        "pu_joseph_sabiduria_ii_p01",
+        "pu_berg_astrologia_cabalistica_p01",
+        "pu_berg_astrologia_cabalistica_p02",
+        "pu_arroyo_four_elements_p01",
+        "pu_brennan_hellenistic_p01",
+        "pu_kenton_anatomy_fate_p02",
+        "pu_kenton_anatomy_fate_p03"
+      ],
+      "gap_reason": "Falta pasaje que establezca este requisito para este modelo concreto; los contextos relacionados no bastan."
+    }
+  ],
+  "citation_count_adds_weight": false,
+  "corpus_revision": "PU_M_CORPUS_R1_2026_10_04",
+  "passage_verification_means": "El texto y su contexto se comprobaron en el testigo aportado; no se verifican ontología, datos originales o citas indirectas fuera de ese testigo.",
+  "context_passages_do_not_set_model_requirements": true
+}
