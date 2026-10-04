@@ -1,6 +1,6 @@
 {
-  "registry_version": "0.1.0",
-  "target_almas_version": "1.15.0",
+  "registry_version": "0.2.0",
+  "target_almas_version": "1.26.0",
   "status": "EXPERIMENTAL_DOCTRINAL_LAYER",
   "purpose": "Comparar SOULMATE_MODEL, MONADIC_ORIGIN, SPLIT_SOUL y TWIN_FLAME_MODEL sin promover diferencias doctrinales a discriminadores ontológicos validados.",
   "epistemic_rule": "C_DOCTRINE describe lo que una fuente afirma; E_PROJECT_HYPOTHESIS define cómo ALMAS compara modelos. L1 doctrinal no equivale a L2 operacional ni a L3 validado.",
@@ -59,7 +59,7 @@
     },
     {
       "id": "SPLIT_SOUL",
-      "scope_note": "Modelo operacional ALMAS: dos sujetos proceden de una unidad previa que se divide. Los textos antiguos/literarios son comparanda, no una doctrina moderna unificada.",
+      "scope_note": "Modelo operacional ALMAS de división literal de una unidad previa. Platón y Brihadaranyaka son comparanda; Corelli queda fuera de este soporte directo porque su texto usa un símil de media llama para describir dualidad.",
       "source_basis": [
         {
           "source_id": "plato_symposium_aristophanes",
@@ -68,21 +68,17 @@
         {
           "source_id": "brihadaranyaka_1_4_3",
           "role": "COSMOGONIC_COMPARANDUM"
-        },
-        {
-          "source_id": "corelli_romance_two_worlds_1886",
-          "role": "LITERARY_ESOTERIC_GENEALOGY"
         }
       ],
       "documented_claims": [
         "Platón, en el discurso de Aristófanes, presenta seres humanos primordiales divididos y orientados a recuperar su integridad.",
-        "Brihadaranyaka Upanishad 1.4.3 aporta un motivo cosmogónico de división del yo primordial.",
-        "La literatura esotérica victoriana aporta motivos posteriores de twin soul/twin-flame."
+        "Brihadaranyaka Upanishad 1.4.3 aporta un motivo cosmogónico de división del yo primordial."
       ],
       "not_established": [
         "continuidad doctrinal directa entre Platón, Upanishad, Corelli y New Age",
         "una taxonomía moderna universal de split-soul",
-        "criterio astrológico diagnóstico"
+        "criterio astrológico diagnóstico",
+        "que el símil de media llama de Corelli constituya división literal de una sola alma"
       ],
       "genealogy_status": "PROJECT_MODEL_WITH_COMPARATIVE_ANTECEDENTS"
     },
@@ -101,6 +97,10 @@
         {
           "source_id": "prophet_twin_flames_qa_part1",
           "role": "DIRECT_PRIMARY_DOCTRINE"
+        },
+        {
+          "source_id": "summit_lighthouse_what_is_twin_flame",
+          "role": "DIRECT_PRIMARY_DOCTRINE"
         }
       ],
       "documented_claims": [
@@ -114,9 +114,11 @@
       "not_established": [
         "validación científica u ontológica externa",
         "criterio astrológico diagnóstico",
-        "derivación histórica directa desde Platón, Blavatsky o Corelli"
+        "derivación histórica directa desde Platón, Blavatsky o Corelli",
+        "identidad automática con Twin Rays de Ballard o con el símil Twin-Flame de Corelli"
       ],
-      "genealogy_status": "DIRECT_MODERN_DOCTRINE"
+      "genealogy_status": "DIRECT_MODERN_DOCTRINE",
+      "architecture_ref": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
     }
   ],
   "candidate_discriminators": [
@@ -312,5 +314,40 @@
       "validated_separability": "NO_L3"
     }
   ],
-  "global_conclusion": "El corpus permite separar doctrinas mejor de lo que permite clasificar casos. Actualmente no existe L3 validado para distinguir ontológicamente los cuatro modelos en una pareja concreta; la salida específica permanece limitada por identificabilidad."
+  "global_conclusion": "El corpus permite separar doctrinas mejor de lo que permite clasificar casos. Actualmente no existe L3 validado para distinguir ontológicamente los cuatro modelos en una pareja concreta; la salida específica permanece limitada por identificabilidad. La ampliación 2026-10-04 discrimina la arquitectura textual de la llama (símil, proyección, dos esferas) sin crear un criterio L3 para atribuir una arquitectura a una pareja real.",
+  "origin_architectures": [
+    {
+      "architecture_id": "CORELLI_HALF_FLAME_SIMILE",
+      "concept_id": "DUAL_SOUL_LITERARY_MODEL",
+      "source_ids": [
+        "corelli_romance_two_worlds_1886"
+      ],
+      "operator": "SIMILE_OF_DUALITY",
+      "doctrinal_resolution": "SUPPORTED_AS_LITERARY_ATTRIBUTION",
+      "case_resolution": "NOT_ONTOLOGICALLY_DISCRIMINATING"
+    },
+    {
+      "architecture_id": "BALLARD_TWIN_RAY_PROJECTION",
+      "concept_id": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "source_ids": [
+        "ballard_magic_presence_1935_twin_rays"
+      ],
+      "operator": "PROJECTION_OF_TWO_RAYS",
+      "doctrinal_resolution": "SUPPORTED_AS_DIRECT_DOCTRINE",
+      "case_resolution": "NOT_ONTOLOGICALLY_DISCRIMINATING"
+    },
+    {
+      "architecture_id": "SUMMIT_WHITE_FIRE_DUAL_SPHERE",
+      "concept_id": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "source_ids": [
+        "summit_lighthouse_soulmates_twin_flames",
+        "summit_lighthouse_glossary_twin_flame",
+        "prophet_twin_flames_qa_part1",
+        "summit_lighthouse_what_is_twin_flame"
+      ],
+      "operator": "DIVISION_OR_DIFFERENTIATION_INTO_TWO_SPHERES",
+      "doctrinal_resolution": "SUPPORTED_AS_DIRECT_DOCTRINE",
+      "case_resolution": "NOT_ONTOLOGICALLY_DISCRIMINATING"
+    }
+  ]
 }
