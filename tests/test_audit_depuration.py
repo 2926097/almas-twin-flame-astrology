@@ -52,7 +52,10 @@ class AuditDepurationTests(unittest.TestCase):
                    lambda r:r['synastry']['chart_hashes'].__setitem__(0,'0'*64),
                    lambda r:r['temporal_readiness'].update(events_requested=1),
                    lambda r:r['synastry']['methodological_readiness']['descriptive'].update(feature_count=-1),
-                   lambda r:r['charts'][0].update(canonical_effect=True)]
+                   lambda r:r['charts'][0].update(canonical_effect=True),
+                   lambda r:r.update(sensitivity=[{}]),
+                   lambda r:r['charts'][0].update(confidence={}),
+                   lambda r:r['charts'][0]['d1']['Sun'].update(longitude=True)]
         for change in mutations:
             bad=copy.deepcopy(e);change(bad)
             with self.assertRaises(ValueError):attach_vedic({},bad)
@@ -120,4 +123,3 @@ class AuditDepurationTests(unittest.TestCase):
         broken=copy.deepcopy(e);broken['events'][0]['persons'][0]['periods']['antara']['end']='2000-01-01T00:00:00Z'
         with self.assertRaises(ValueError):attach_vedic({},broken)
         self.assertIn(event['persons'][0]['periods']['maha']['start'],render_vedic_report(e))
-

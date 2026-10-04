@@ -7,6 +7,7 @@ from collections.abc import Mapping
 from .chart import settings
 from .synastry import _fingerprint, _objects
 from .timing import instant
+from .geometry import sign_of
 
 
 def _finite(value):
@@ -56,7 +57,13 @@ def _validate_consistency(e):
         if settings(chart['configuration']) != chart['configuration']:
             raise ValueError('Configuración VED incompleta.')
         for layer in ('D1', 'D9'):
-            _objects(chart, layer)
+            for point in _objects(chart, layer).values():
+                sign = point['sign']
+                if isinstance(sign, bool) or not isinstance(sign, int) or not 0 <= sign < 12:
+                    raise ValueError('Signo VED mal tipado o fuera de rango.')
+                lon = point['longitude']
+                if lon is not None and (isinstance(lon, bool) or not isinstance(lon, (int, float)) or not 0 <= lon < 360 or sign_of(lon) != sign):
+                    raise ValueError('Longitud VED inválida o incoherente con su signo.')
     syn = e['synastry']
     if a['configuration'] != b['configuration'] or syn['configuration'] != a['configuration']:
         raise ValueError('Configuraciones VED incoherentes.')
@@ -108,4 +115,3 @@ def _validate_consistency(e):
                 raise ValueError('Referencias de dependencia VED no resolubles.')
     if ready['vimshottari_subject_results'] != dasha_count or ready['transit_events'] != transit_count:
         raise ValueError('Recuentos temporales VED incoherentes.')
-

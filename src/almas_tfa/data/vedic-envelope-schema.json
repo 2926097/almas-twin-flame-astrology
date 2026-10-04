@@ -91,7 +91,43 @@
       "additionalProperties": false
     },
     "sensitivity": {
-      "type": "array"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "const": "IMPLEMENTED"
+          },
+          "baseline": {
+            "type": "object"
+          },
+          "runs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/sensitivity_run"
+            }
+          },
+          "ayanamsha_state": {
+            "enum": [
+              "AYANAMSHA_SENSITIVE",
+              "AYANAMSHA_STABLE"
+            ]
+          },
+          "time_state": {
+            "enum": [
+              "SENSITIVE",
+              "SAMPLED_STABLE"
+            ]
+          }
+        },
+        "required": [
+          "status",
+          "baseline",
+          "runs",
+          "ayanamsha_state",
+          "time_state"
+        ]
+      }
     },
     "annual": {
       "type": "array",
@@ -113,11 +149,31 @@
               },
               "context": {
                 "const": "ANNUAL"
+              },
+              "longitude": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMaximum": 360
+              },
+              "day_or_night": {
+                "enum": [
+                  "DAY",
+                  "NIGHT"
+                ]
+              },
+              "correction_deg": {
+                "enum": [
+                  0,
+                  30
+                ]
               }
             },
             "required": [
               "default_weight",
-              "context"
+              "context",
+              "longitude",
+              "day_or_night",
+              "correction_deg"
             ]
           }
         },
@@ -211,13 +267,55 @@
           ]
         },
         "d1": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "Sun",
+            "Moon",
+            "Mars",
+            "Mercury",
+            "Jupiter",
+            "Venus",
+            "Saturn",
+            "Rahu",
+            "Ketu",
+            "Lagna"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/position"
+          }
         },
         "d9": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "Sun",
+            "Moon",
+            "Mars",
+            "Mercury",
+            "Jupiter",
+            "Venus",
+            "Saturn",
+            "Rahu",
+            "Ketu",
+            "Lagna"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/divisional_position"
+          }
         },
         "karakas": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "roles": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "roles"
+          ]
         },
         "karakamsha": {
           "type": "object"
@@ -232,7 +330,16 @@
           "type": "object"
         },
         "confidence": {
-          "type": "object"
+          "type": "object",
+          "properties": {
+            "birth_time": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "birth_time"
+          ]
         },
         "metaphysical_assessment": {
           "const": "INSUFFICIENT"
@@ -636,11 +743,83 @@
                   "IMPLEMENTED",
                   "NOT_EVALUABLE"
                 ]
+              },
+              "periods": {
+                "type": "object",
+                "properties": {
+                  "maha": {
+                    "$ref": "#/$defs/period"
+                  },
+                  "antara": {
+                    "$ref": "#/$defs/period"
+                  },
+                  "pratyantara": {
+                    "$ref": "#/$defs/period"
+                  },
+                  "year_days": {
+                    "enum": [
+                      360,
+                      365.2425,
+                      365.25636
+                    ]
+                  }
+                },
+                "required": [
+                  "maha",
+                  "antara",
+                  "pratyantara",
+                  "year_days"
+                ]
+              },
+              "active_significators": {
+                "type": "object",
+                "properties": {
+                  "maha": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "antara": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "pratyantara": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "maha",
+                  "antara",
+                  "pratyantara"
+                ]
               }
             },
             "required": [
               "person",
               "status"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "IMPLEMENTED"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "periods",
+                    "active_significators"
+                  ]
+                }
+              }
             ]
           }
         },
@@ -733,6 +912,151 @@
         "assessment",
         "confirmatory_temporal_rule",
         "structural_anchor_count"
+      ]
+    },
+    "nakshatra": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 27
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pada": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "index",
+        "name",
+        "pada"
+      ]
+    },
+    "position": {
+      "type": "object",
+      "properties": {
+        "longitude": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        "sign": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11
+        },
+        "nakshatra": {
+          "$ref": "#/$defs/nakshatra"
+        }
+      },
+      "required": [
+        "longitude",
+        "sign",
+        "nakshatra"
+      ]
+    },
+    "divisional_position": {
+      "type": "object",
+      "properties": {
+        "sign": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11
+        }
+      },
+      "required": [
+        "sign"
+      ]
+    },
+    "sensitivity_run": {
+      "type": "object",
+      "properties": {
+        "axis": {
+          "enum": [
+            "AYANAMSHA",
+            "BIRTH_TIME"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value_minutes": {
+          "type": "number"
+        },
+        "changed_families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "stable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "axis",
+        "changed_families",
+        "stable"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "axis": {
+                "const": "AYANAMSHA"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "axis": {
+                "const": "BIRTH_TIME"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value_minutes"
+            ]
+          }
+        }
+      ]
+    },
+    "period": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "minLength": 1
+        },
+        "end": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lord": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "lord"
       ]
     }
   }
