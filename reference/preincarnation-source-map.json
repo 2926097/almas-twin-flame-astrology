@@ -1,5 +1,5 @@
 {
-  "map_version": "1.0.0",
+  "map_version": "1.1.0",
   "purpose": "Mapear las etapas de reconstrucción preencarnatoria con entradas del registro de fuentes sin tratar las tradiciones como equivalentes.",
   "stages": {
     "ORIGIN": {
@@ -8,13 +8,17 @@
         "vital_shaar_hagilgulim_20_zivug",
         "vital_shaar_hagilgulim_39_soul_roots",
         "blavatsky_secret_doctrine_monads",
-        "summit_lighthouse_soulmates_twin_flames"
+        "summit_lighthouse_soulmates_twin_flames",
+        "ballard_magic_presence_1935_twin_rays",
+        "summit_lighthouse_glossary_twin_flame",
+        "summit_lighthouse_what_is_twin_flame",
+        "prophet_twin_flames_qa_part1"
       ],
       "comparative": [
         "plato_symposium_aristophanes",
         "corelli_romance_two_worlds_1886"
       ],
-      "note": "Las fuentes sustentan modelos distintos; no existe equivalencia automática."
+      "note": "Las fuentes sustentan modelos y subarquitecturas distintas. Corelli (1886) documenta el símil de media llama/Twin-Flame; Ballard (1935) proyecta Two Rays desde una God Flame; Summit formula white-fire body/ovoid y dos esferas. No existe equivalencia automática ni transmisión histórica presumida."
     },
     "AGREEMENT_MOTIVE": {
       "primary": [
