@@ -2,11 +2,10 @@
 from __future__ import annotations
 import json
 from datetime import date, datetime, timezone
-from pathlib import Path
+from importlib import resources
 from typing import Any, Mapping
 
-_ROOT = Path(__file__).resolve().parents[2]
-_REGISTRY_PATH = _ROOT / "reference" / "doctrinal-sequence-models.json"
+_REGISTRY_PATH = resources.files("almas_tfa").joinpath("data", "doctrinal-sequence-models.json")
 _REGISTRY = json.loads(_REGISTRY_PATH.read_text(encoding="utf-8"))
 _MODELS = {model["model_id"]: model for model in _REGISTRY["models"]}
 

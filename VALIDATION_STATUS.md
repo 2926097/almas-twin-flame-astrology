@@ -2,7 +2,11 @@
 
 **Versión pública:** 1.26.0
 
-## Release 1.26.0 · Jyotiṣa Relacional observacional
+## Estado actual de depuración · 4 octubre 2026
+
+El censo reproducible actual comprende **1.162 tests**, **111 fuentes** (70 `VERIFIED_PRIMARY`, 41 `VERIFIED_METADATA`), **144 conceptos** y **93 relaciones**. Los estados de releases siguientes son históricos y no sustituyen una comprobación del SHA actual. Los recibos y capas de verificación se generan con `scripts/build_validation_snapshot.py`; una batería interrumpida o incompleta permanece `NOT_FULLY_VERIFIED`. El catálogo adjunto añade trazabilidad de 19 archivos/18 obras sin incorporarlos automáticamente al registro canónico. Véanse `docs/AUDIT_DEPURATION_2026_10_04.md` y `docs/ATTACHED_SOURCE_REVIEW_2026_10_04.md`.
+
+## Registro histórico · Release 1.26.0 · Jyotiṣa Relacional observacional
 
 El núcleo VED, sus cuatro capas D1/D9, Vimśottarī, eventos, sensibilidad y auditoría descriptiva son optativos; el efecto sobre scoring es cero. Aṣṭakūṭa completo, Prāṇapada, Yogatārās y el índice escalar IVED no se declaran implementados/validados. La verificación técnica no constituye validación empírica externa. 43 pruebas VED y batería local de 1.139 pruebas PASS, con cinco integraciones largas separadas y sin declaración de PASS íntegro. La publicación remota está pendiente. Resultados y alcance en `docs/RELEASE_AUDIT_1.26.0.md`.
 
@@ -148,7 +152,7 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 | Genealogía de discriminadores | OD01–OD07 trazados documentalmente |
 | Aislamiento de casos privados | `ALMAS_PUBLIC_DATA_ISOLATION_V1` + manifests exhaustivos |
 | CLI de pilares precomputados | Publicada y probada unitariamente |
-| Corpus doctrinal/técnico | 77 fuentes / 98 conceptos / 73 relaciones |
+| Corpus doctrinal/técnico | 111 fuentes / 144 conceptos / 93 relaciones; catálogo adjunto separado |
 | Fixtures sintéticos | Publicados |
 | Casos privados | Excluidos |
 | Casos públicos verificables | Admitidos sólo en `public_cases/` |

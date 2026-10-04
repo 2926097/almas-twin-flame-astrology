@@ -1,0 +1,597 @@
+{
+  "schema_version": "ALMAS_ATTACHED_SOURCE_CATALOGUE_V1",
+  "catalogue_date": "2026-10-04",
+  "scope": "Identidades bibliográficas y un pasaje seleccionado por archivo; no revisión íntegra de las doctrinas.",
+  "pdf_page_convention": "Índice físico PDF 1-based; no usar desplazamientos de pdftotext como número de página.",
+  "files": 19,
+  "work_dependency_families": 18,
+  "scanned_pdf_pages_ocr": 858,
+  "rights": "Sólo metadatos y paráfrasis; no se redistribuyen PDF ni textos completos.",
+  "runtime_integration": "CATALOGUE_ONLY; no promoción automática del registro canónico ni del router.",
+  "entries": [
+    {
+      "id": "attached_01",
+      "file": "01-krishnamurti-reader.pdf",
+      "sha256": "4bb50a344a2051367a8eb78861faf393167a42e060d4a03ba709f45cd0f3099d",
+      "pdf_page_count": 259,
+      "author": "Uppaluri Gopala (U.G.) Krishnamurti",
+      "title": "The Penguin U.G. Krishnamurti Reader",
+      "contributor": "Mukunda Rao (editor)",
+      "edition_note": "Penguin India 2007; digital 2013",
+      "identity_pdf_pages": [
+        4,
+        259
+      ],
+      "dependency_family": "ug_reader",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 15,
+        "printed_page": null,
+        "extracted_text_sha256": "cc6a88ce0e30d4c7651c8fa03bd418c1eca4c07929b677416b9ec87a36d3f17e",
+        "visual_check": false,
+        "paraphrase": "La introducción editorial presenta la crítica de U.G. a la equiparación de su estado natural con categorías tradicionales."
+      },
+      "inferential_limit": "No es Jiddu Krishnamurti; la introducción es de Rao.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_02",
+      "file": "02-Watts-The-Book.pdf",
+      "sha256": "5e1e3f3b23df97501216c3240a0b71a63d8e58c0f6c6bc5b84ed3ef0346d2149",
+      "pdf_page_count": 119,
+      "author": "Alan Watts",
+      "title": "The Book: On the Taboo Against Knowing Who You Are",
+      "contributor": null,
+      "edition_note": "1966; Abacus 1973, reimpresiones 1976/1977",
+      "identity_pdf_pages": [
+        2,
+        4
+      ],
+      "dependency_family": "watts_the_book",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 9,
+        "printed_page": null,
+        "extracted_text_sha256": "c2da19138feac2f657a0fba80d4ad7cea519af25306b85f681cf3f1b9cbe1e4c",
+        "visual_check": false,
+        "paraphrase": "El prefacio critica el yo separado y declara una adaptación occidental moderna de Vedanta."
+      },
+      "inferential_limit": "No es un manual primario de Vedanta ni prueba de ontología relacional.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_03",
+      "file": "03-Edgar-Cayce-On-Reincarnation.pdf",
+      "sha256": "dd9115139fc4f198553a6267e987b0289f59d5277760ce64174e20696e37ae07",
+      "pdf_page_count": 292,
+      "author": "Noel Langley",
+      "title": "Edgar Cayce on Reincarnation",
+      "contributor": "Hugh Lynn Cayce (editor)",
+      "edition_note": "Warner 1967",
+      "identity_pdf_pages": [
+        5,
+        6
+      ],
+      "dependency_family": "langley_cayce",
+      "extraction": "OCR_ENG",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 249,
+        "printed_page": "247",
+        "extracted_text_sha256": "611e92ecc68a516b4204d36ba131bc1b44f6827e8e50dde152f555945f0540f8",
+        "visual_check": true,
+        "paraphrase": "El capítulo de karma grupal narra supuestos vínculos de vidas anteriores."
+      },
+      "inferential_limit": "Edgar Cayce figura en el título; el autor es Langley. El relato no verifica identidades pasadas.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_04",
+      "file": "04-El-cuerpo-astral-y-los-universos-paralelos.pdf",
+      "sha256": "6dc4b0b17dd5e2b9405d8b5df7ea8b57143e72e7eb7d1ea4f2fbf8570cf2ec2b",
+      "pdf_page_count": 331,
+      "author": "Natacha Henríquez Paneyko",
+      "title": "El cuerpo astral y los universos paralelos",
+      "contributor": null,
+      "edition_note": "Segunda edición revisada 2013; primera 2011",
+      "identity_pdf_pages": [
+        2
+      ],
+      "dependency_family": "henriquez_astral",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 60,
+        "printed_page": "60",
+        "extracted_text_sha256": "92002ec3dddabb51ca4f2e909c5b8b2ccf3be39b62c16ddc4522d0bfca16303c",
+        "visual_check": false,
+        "paraphrase": "La autora narra un pacto de reencuentro atribuido a vidas anteriores entre Ana Emilia y Rodrigo."
+      },
+      "inferential_limit": "Narrativa espiritual atribuida; no constituye evidencia histórica ni diagnóstico para otra pareja.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_05",
+      "file": "05-krishnamurti-el-arte-de-escuchar.pdf",
+      "sha256": "875b7ff15d9f92e404a490454889c0958d8f3c94288934fa304a91cad6f0087c",
+      "pdf_page_count": 148,
+      "author": "Jiddu Krishnamurti",
+      "title": "El arte de escuchar: Obras completas, volumen I, 1933–1934",
+      "contributor": "Armando Clavier (traductor)",
+      "edition_note": "Kier 1994; original 1991",
+      "identity_pdf_pages": [
+        1,
+        2,
+        3
+      ],
+      "dependency_family": "jiddu_listening",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 9,
+        "printed_page": null,
+        "extracted_text_sha256": "57d87b88faa83b7c1e716d057e4b36a06ac712a406208e2b5fa67b0dce606ec3",
+        "visual_check": false,
+        "paraphrase": "El pasaje cuestiona la autoridad exterior y la autoridad interior como obstáculos a la comprensión libre."
+      },
+      "inferential_limit": "No atribuir esta obra a U.G. Krishnamurti ni igualar sus doctrinas.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_06",
+      "file": "06-el-libro-del-tabu-alan-watts.pdf",
+      "sha256": "2ee9fa0cc298ea5dfbf4031535ec1ccdee7fcb4dc63247cd26cee12a9e658c9f",
+      "pdf_page_count": 117,
+      "author": "Alan Watts",
+      "title": "El libro del tabú",
+      "contributor": "Rolando Hanglin (traductor)",
+      "edition_note": "Edición digital 2020; obra original 1966",
+      "identity_pdf_pages": [
+        1,
+        2
+      ],
+      "dependency_family": "watts_the_book",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 6,
+        "printed_page": null,
+        "extracted_text_sha256": "0b513e804f8e9eae98b40d8fb81fb27cd278b392dd664e2846d1498d02abd563",
+        "visual_check": false,
+        "paraphrase": "El prefacio traduce la exploración del tabú sobre la identidad y la sensación del yo separado."
+      },
+      "inferential_limit": "Traducción de la misma obra que el archivo 02; no es corroboración independiente.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_07",
+      "file": "07-La_Cabala_El_Conocimiento_Completo.pdf",
+      "sha256": "a420ca498f42eadaab0cd227e422f6660461e4bdff8e43c5c3a551c060d5252a",
+      "pdf_page_count": 324,
+      "author": "Santiago Aranegui",
+      "title": "La Cábala: El conocimiento completo",
+      "contributor": null,
+      "edition_note": "Miami, abril 1997",
+      "identity_pdf_pages": [
+        3,
+        4
+      ],
+      "dependency_family": "aranegui_kabbalah",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 62,
+        "printed_page": null,
+        "extracted_text_sha256": "7cdf5f729d03e45dc135c00cbf0e3f5b27c74c49751303f175ead13e21a8ae4e",
+        "visual_check": false,
+        "paraphrase": "El autor expone retornos sucesivos del alma para terminar lo empezado y atribuye una continuidad a figuras religiosas."
+      },
+      "inferential_limit": "Síntesis moderna del autor; no verifica atribuciones históricas ni representa toda la tradición judía.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_08",
+      "file": "08-El-Poder-Del-Ahora.pdf",
+      "sha256": "20ac3f952dcb9586efbe022ee5cc6dd67d7e6d4d20d1f543b898bb0b08acd307",
+      "pdf_page_count": 226,
+      "author": "Eckhart Tolle",
+      "title": "El poder del ahora: Un camino hacia la realización espiritual",
+      "contributor": "Margarita Matarranz (traductora)",
+      "edition_note": "Grijalbo; fecha de esta edición no verificada",
+      "identity_pdf_pages": [
+        2
+      ],
+      "dependency_family": "tolle_now",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 32,
+        "printed_page": null,
+        "extracted_text_sha256": "59aef285dffdff4e627836f683d57e408fd25b12f3a2ce2851de3df040ec8cd7",
+        "visual_check": false,
+        "paraphrase": "El pasaje propone observar emociones y contactar con su manifestación corporal en el presente."
+      },
+      "inferential_limit": "Propuesta espiritual contemporánea; no diagnóstico clínico ni ontología de pareja.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_09",
+      "file": "09-Dispenza_Joe_Deja_De_Ser_Tu.pdf",
+      "sha256": "9a2c6b251464e21e83ce2ada6a223b9a3bd77063fce200e350bee848a116ea67",
+      "pdf_page_count": 325,
+      "author": "Joe Dispenza",
+      "title": "Deja de ser tú: La mente crea la realidad",
+      "contributor": null,
+      "edition_note": "Fecha de esta edición no verificada",
+      "identity_pdf_pages": [
+        2
+      ],
+      "dependency_family": "dispenza_habit",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 61,
+        "printed_page": null,
+        "extracted_text_sha256": "a9d9211a6802d69d5002075f75c0487b425afc09a76258dd315ee4708d134403",
+        "visual_check": false,
+        "paraphrase": "El autor vincula la repetición de pensamientos, conductas y sentimientos con hábitos e identidad."
+      },
+      "inferential_limit": "Se registra la propuesta del autor; el pasaje no valida sus afirmaciones neurocientíficas.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_10",
+      "file": "10-Autobiograf-a-de-un-yogi.pdf",
+      "sha256": "f55771ddab49c00b92c96566515f8606a45243106a6b848eb21d47095d66169a",
+      "pdf_page_count": 289,
+      "author": "Paramahansa Yogananda",
+      "title": "Autobiografía de un yogui",
+      "contributor": "J. M. Cuarón (traductor)",
+      "edition_note": "Self-Realization Fellowship; fecha de esta edición no verificada",
+      "identity_pdf_pages": [
+        1,
+        2
+      ],
+      "dependency_family": "yogananda_autobiography",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 235,
+        "printed_page": "235",
+        "extracted_text_sha256": "4b2ee23f566e92e63740fe7a30dee35cdee3c7a378419787d36fe88def88070f",
+        "visual_check": false,
+        "paraphrase": "El capítulo XLIII atribuye a Sri Yukteswar una cosmología de cuerpos físicos, astrales y causales."
+      },
+      "inferential_limit": "Diálogo dentro de una narración espiritual; no comprobación empírica de esos cuerpos.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_11",
+      "file": "11-SOBRENATURAL-Joe-Dispenza.pdf",
+      "sha256": "125d72270253abc203ce72eec1a9232825f805a1e4b166c182ce56a2b7f5c4ca",
+      "pdf_page_count": 501,
+      "author": "Joe Dispenza",
+      "title": "Sobrenatural: Gente corriente haciendo cosas extraordinarias",
+      "contributor": "Victoria Simó Perales (traductora)",
+      "edition_note": "Urano, marzo 2018",
+      "identity_pdf_pages": [
+        3
+      ],
+      "dependency_family": "dispenza_supernatural",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 62,
+        "printed_page": null,
+        "extracted_text_sha256": "b2309f0fd288dd67e076320914a70832f4033630a4e18adc9daed7a720c43607",
+        "visual_check": false,
+        "paraphrase": "El capítulo sobre el instante presente propone trascender la identidad habitual y abrir posibilidades."
+      },
+      "inferential_limit": "No elevar la terminología cuántica o corporal del autor a ciencia verificada.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_12",
+      "file": "12-Libro-de-La-Sabiduria-tomo-II.pdf",
+      "sha256": "2230ef912463237d0f96abcb0d199684e5c6af736f0dda4740a033f70101331b",
+      "pdf_page_count": 218,
+      "author": "Harry B. Joseph",
+      "title": "Libro de la Sabiduría, volumen II",
+      "contributor": null,
+      "edition_note": "Revival of Wisdom; fecha de esta edición no verificada",
+      "identity_pdf_pages": [
+        2,
+        3
+      ],
+      "dependency_family": "joseph_wisdom_ii",
+      "extraction": "OCR_ENG",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 6,
+        "printed_page": null,
+        "extracted_text_sha256": "f2baee7dfd11956f3c324938a61c9965d90396e930dfdc34ba5504bf0eb0b0f6",
+        "visual_check": true,
+        "paraphrase": "La introducción presenta una lectura alegórica de la Biblia como mapa de conciencia y anatomía con astrología y numerología."
+      },
+      "inferential_limit": "Síntesis moderna de Joseph; no fuente antigua ni historiografía bíblica verificada.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_13",
+      "file": "13-astrologia-cabalistica.pdf",
+      "sha256": "bf5cf144698f8ed59921c0f4e65a54f956ed3391ec60c011fcf4df561a4f5ea4",
+      "pdf_page_count": 112,
+      "author": "Philip S. Berg",
+      "title": "Astrología cabalística y el significado de nuestras vidas",
+      "contributor": "Luis Lema Osores (traducción para uso personal)",
+      "edition_note": "Fecha de esta edición no verificada",
+      "identity_pdf_pages": [
+        1
+      ],
+      "dependency_family": "berg_astrology",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 20,
+        "printed_page": null,
+        "extracted_text_sha256": "fcd830bd7ffc17597b469c4d2fa4157f3a36081e495362f562caf1dbedcbff47",
+        "visual_check": false,
+        "paraphrase": "El autor describe recibir para compartir y la transformación del deseo en relación con la Luz."
+      },
+      "inferential_limit": "Enseñanza del autor y su escuela; no generalizar al conjunto del judaísmo.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_14",
+      "file": "14-Astrology-_Psychology-_and_the_Four_Elements_by_Stephen_Arroyo.pdf",
+      "sha256": "187ac4ce1b994303e6c5f010227894c69e9d3c5f2c8f605dc1fec9b772068dec",
+      "pdf_page_count": 208,
+      "author": "Stephen Arroyo",
+      "title": "Astrology, Psychology & the Four Elements",
+      "contributor": null,
+      "edition_note": "CRCS 1975",
+      "identity_pdf_pages": [
+        6
+      ],
+      "dependency_family": "arroyo_elements",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 16,
+        "printed_page": null,
+        "extracted_text_sha256": "6abef2cfb852838da4b5dff56b60b02b7baa3e03ea7c7ec9dafab38bc2067eb1",
+        "visual_check": false,
+        "paraphrase": "La introducción propone comprender factores básicos y evita reducir la totalidad de la carta a un solo factor."
+      },
+      "inferential_limit": "Método astrológico identificado; el lenguaje de energía no demuestra mecanismos físicos.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_15",
+      "file": "15-Jung-s-Studies-in-Astrology-by-Liz-Greene.pdf",
+      "sha256": "d585a849f3ce47a9b1e10ad8086e494067d7bcc17cd3d855561c0af42d16de86",
+      "pdf_page_count": 245,
+      "author": "Liz Greene",
+      "title": "Jung’s Studies in Astrology: Prophecy, Magic, and the Qualities of Time",
+      "contributor": null,
+      "edition_note": "Routledge 2018",
+      "identity_pdf_pages": [
+        5
+      ],
+      "dependency_family": "greene_jung",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 30,
+        "printed_page": "17",
+        "extracted_text_sha256": "f8673375b1677dba730cb8994dc9a1cb7e7de6bb3a7c4ab0824cdd3765f24069",
+        "visual_check": false,
+        "paraphrase": "Greene examina la comprensión simbólica de la astrología en Jung y su correspondencia con Fordham."
+      },
+      "inferential_limit": "Estudio secundario de Greene; separar su análisis de las citas de Jung. No prueba eficacia estadística.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_16",
+      "file": "16-Sepharial-Kabbalistic-Astrology-Walter-Gorn-Old-3-8c8df1fc6ccc76610a49abc40784c49e-Anna-s-Archive.pdf",
+      "sha256": "55eec1636d394bc455d559af0c78cfc4d35d9cedbd5e37f0909073ba2f385ed4",
+      "pdf_page_count": 50,
+      "author": "Sepharial (Walter Gorn Old)",
+      "title": "Your Fortune in Your Name; or, Kabalistic Astrology",
+      "contributor": null,
+      "edition_note": "Newcastle, tercera edición 1981",
+      "identity_pdf_pages": [
+        2,
+        3
+      ],
+      "dependency_family": "sepharial_name",
+      "extraction": "OCR_ENG",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 5,
+        "printed_page": "7",
+        "extracted_text_sha256": "37cfbe20838749966a2c32ff25a96e26d3ff8b9bea257b0c315900a94d9d6813",
+        "visual_check": true,
+        "paraphrase": "La introducción explica un método de nombres y números relacionado por el autor con astrología y mantram."
+      },
+      "inferential_limit": "Método onomástico/numerológico; no confundir con medición astronómica ni con toda la Cábala judía.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_17",
+      "file": "17-Chris_Brennan_Hellenistic_Astrology_The_Study_of_Fate_and_Fortune.pdf",
+      "sha256": "5b4f673839b7fcff62c8bc9e74171df69e9af5cc9843205db6f65f7166cb2c00",
+      "pdf_page_count": 698,
+      "author": "Chris Brennan",
+      "title": "Hellenistic Astrology: The Study of Fate and Fortune",
+      "contributor": null,
+      "edition_note": "Amor Fati, primera edición 10 febrero 2017",
+      "identity_pdf_pages": [
+        3
+      ],
+      "dependency_family": "brennan_hellenistic",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 189,
+        "printed_page": "162",
+        "extracted_text_sha256": "3676c3194af7ecd6fd9d24613925f02dd9ccb3236766d2a37d139be3783448f9",
+        "visual_check": false,
+        "paraphrase": "El capítulo de cuestiones filosóficas diferencia causalidad, presagios y variantes de determinismo en autores antiguos."
+      },
+      "inferential_limit": "Tipología histórica; no implica fatalidad relacional ni validación de una técnica.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_18",
+      "file": "18-Kabbalistic-Astrology-by-Joel-C.-Dobin.pdf",
+      "sha256": "6e0bdda35b523ee136e7e84702c0197306b7fcd1489f29b21c5daeb3894a3be2",
+      "pdf_page_count": 298,
+      "author": "Rabbi Joel C. Dobin",
+      "title": "Kabbalistic Astrology: The Sacred Tradition of the Hebrew Sages",
+      "contributor": null,
+      "edition_note": "Inner Traditions 1999; copyright 1977/1999",
+      "identity_pdf_pages": [
+        7,
+        8
+      ],
+      "dependency_family": "dobin_kabbalistic",
+      "extraction": "OCR_ENG",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 202,
+        "printed_page": "190",
+        "extracted_text_sha256": "4732ef6357630be7773985b72e51edf7b25d0755940accea93022efed101e3a8",
+        "visual_check": true,
+        "paraphrase": "Dobin interpreta las objeciones rabínicas al fatalismo y defiende el libre albedrío."
+      },
+      "inferential_limit": "Interpretación moderna de Dobin; las referencias talmúdicas no se verifican aquí contra su texto primario.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    },
+    {
+      "id": "attached_19",
+      "file": "19-The-anatomy-of-fate-_-Kabbalistic-astrology-Halevi-Z-ev-ben-Shimon-London-England-1978-Rider-9780091326418-e00e89c366c83db4ffe10c14fc42a523-Anna-s-Archive.pdf",
+      "sha256": "19fd6024758008293c9857492dd8ceb9ca39141738793148eb91f6d6f47e3074",
+      "pdf_page_count": 194,
+      "author": "Warren Kenton (Z’ev ben Shimon Halevi)",
+      "title": "The Anatomy of Fate: Kabbalistic Astrology",
+      "contributor": null,
+      "edition_note": "Rider 1978",
+      "identity_pdf_pages": [
+        4,
+        5
+      ],
+      "dependency_family": "halevi_fate",
+      "extraction": "NATIVE_TEXT",
+      "verification_status": "SELECTED_PASSAGE_VERIFIED",
+      "full_text_doctrinal_review": false,
+      "passage": {
+        "pdf_page": 63,
+        "printed_page": "62",
+        "extracted_text_sha256": "470d7a5f373264b55b226bdfff1c86ddc7373c0e562d6e6d110dd091c15cbcb4",
+        "visual_check": false,
+        "paraphrase": "El autor expone una cosmología de espíritus, almas y cuerpos y una división masculina/femenina de Adam."
+      },
+      "inferential_limit": "Exposición moderna atribuida; no prueba ontológica ni discriminador exclusivo de llamas gemelas.",
+      "canonical_effect": false,
+      "external_validation": "NOT_PERFORMED",
+      "ontological_discrimination": "INSUFFICIENT"
+    }
+  ],
+  "existing_registry_locator_gaps": [
+    {
+      "source_id": "steiner_karmic_relationships_1924",
+      "registry_status": "VERIFIED_PRIMARY",
+      "locator_status": "LOCATOR_MISSING",
+      "action": "Identificar edición y pasaje antes de ampliar el uso inferencial."
+    },
+    {
+      "source_id": "hanegraaff_new_age_religion_1996",
+      "registry_status": "VERIFIED_METADATA",
+      "locator_status": "LOCATOR_MISSING",
+      "action": "Identificar edición y pasaje antes de ampliar el uso inferencial."
+    },
+    {
+      "source_id": "mackay_twin_soul_1887",
+      "registry_status": "VERIFIED_METADATA",
+      "locator_status": "LOCATOR_MISSING",
+      "action": "Identificar edición y pasaje antes de ampliar el uso inferencial."
+    },
+    {
+      "source_id": "dobson_turner_twin_souls_2025",
+      "registry_status": "VERIFIED_METADATA",
+      "locator_status": "LOCATOR_MISSING",
+      "action": "Identificar edición y pasaje antes de ampliar el uso inferencial."
+    },
+    {
+      "source_id": "vital_sefer_etz_chaim",
+      "registry_status": "VERIFIED_METADATA",
+      "locator_status": "LOCATOR_MISSING",
+      "action": "Identificar edición y pasaje antes de ampliar el uso inferencial."
+    },
+    {
+      "source_id": "vital_pri_etz_chaim",
+      "registry_status": "VERIFIED_METADATA",
+      "locator_status": "LOCATOR_MISSING",
+      "action": "Identificar edición y pasaje antes de ampliar el uso inferencial."
+    }
+  ],
+  "canonical_effect": false,
+  "external_validation": "NOT_PERFORMED"
+}

@@ -7,11 +7,12 @@ from .synastry import compute_vedic_synastry
 from .timing import compute_vimshottari
 from .pipeline import run_vedic_pipeline, render_vedic_report
 from .validation import compute_sensitivity, validate_corpus
+from .reporting import build_vedic_report_model
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog='almas-vedic', description='Motor Jyotiṣa Relacional observacional')
-    parser.add_argument('command', choices=('chart','synastry','timing','events','pipeline','sensitivity','validate','report'))
+    parser.add_argument('command', choices=('chart','synastry','timing','events','pipeline','sensitivity','validate','report','report-canonical','report-model'))
     parser.add_argument('input', type=Path, help='Entrada JSON; consultar docs/vedic/README.md')
     parser.add_argument('--at', help='Instante ISO con offset para timing')
     parser.add_argument('-o','--output', type=Path)
@@ -19,7 +20,10 @@ def main(argv=None):
     try:
         data = json.loads(args.input.read_text(encoding='utf-8'))
         cfg = data.get('configuration')
-        if args.command == 'chart':
+        if args.command in ('report-canonical','report-model'):
+            envelope = data.get('vedic', data)
+            result = render_vedic_report(envelope) if args.command == 'report-canonical' else build_vedic_report_model(envelope)
+        elif args.command == 'chart':
             result = compute_vedic_chart(data.get('birth',data), cfg)
         elif args.command == 'synastry':
             result = compute_vedic_synastry(*[compute_vedic_chart(s['birth'],cfg) for s in data['subjects']])

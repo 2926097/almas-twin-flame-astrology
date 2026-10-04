@@ -1,5 +1,7 @@
 __pycache__/
 *.pyc
+build/
+*.egg-info/
 .env
 .DS_Store
 

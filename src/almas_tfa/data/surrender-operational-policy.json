@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "ALMAS_SURRENDER_OPERATIONAL_POLICY_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "status": "FROZEN_BEFORE_CASE_APPLICATION",
+  "candidate_rule": {
+    "minimum_supported_components": 2,
+    "must_include_one_of": ["boundary_assertion", "behavioral_decentering"],
+    "output_status": "COMPATIBLE",
+    "interpretation": "Candidato conductual provisional, nunca conclusión metafísica."
+  },
+  "stabilized_rule": {
+    "all_components_required": true,
+    "minimum_observation_days": 30,
+    "preregistration_required": true,
+    "counterevidence_allowed": false,
+    "output_status": "SUPPORTED"
+  },
+  "components": {
+    "cessation_of_pursuit": {
+      "prior_pursuit_attempts_minimum": 2,
+      "documented_contact_opportunity_required": true,
+      "complete_contact_record_required": true,
+      "post_window_pursuit_allowed": false
+    },
+    "boundary_assertion": {
+      "direct_actor_statement_or_act_required": true,
+      "at_least_one_fact_reference_required": true
+    },
+    "behavioral_decentering": {
+      "distinct_activity_domains_minimum": 2,
+      "minimum_span_days": 30,
+      "must_be_independent_of_other_actor_response": true,
+      "private_motive_inference_forbidden": true
+    }
+  },
+  "counterevidence_kinds": [
+    "CONTINUED_PURSUIT",
+    "EXPLICIT_STRATEGIC_SILENCE_TO_PROVOKE_RESPONSE",
+    "REPEATED_CONFLICT_REOPENING",
+    "OUTCOME_BARGAINING",
+    "CONTROL_ATTEMPT"
+  ],
+  "limits": [
+    "Silence, dolor, ruptura, ausencia de contacto, bloqueo o declaración verbal aislada no equivalen por sí solos a surrender.",
+    "La intención estratégica solo se registra cuando el propio actor la declara documentalmente; no se infiere de silencio o retirada.",
+    "SUPPORTED califica el cumplimiento de esta definición operacional del proyecto, no prueba una fase doctrinal twin-flame.",
+    "Los 30 días son una ventana convencional preregistrada del proyecto, no un umbral psicológico validado externamente."
+  ]
+}

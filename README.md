@@ -208,3 +208,5 @@ El endpoint candidato de validación externa RRA se ejecuta con `scripts/run_rra
 ## Jyotiṣa Relacional 1.26.0
 
 Motor optativo VED con cálculo sideral, nakṣatras, kārakas, D9, AL/UL/A7, upagrahas y Vimśottarī. La CLI `almas-vedic` y la envolvente opcional mantienen los índices canónicos. El alcance R1 y las técnicas aún bloqueadas se documentan en [docs/vedic/README.md](docs/vedic/README.md). IVED no está calibrado y la validación externa permanece `NOT_PERFORMED`.
+
+La depuración posterior a la auditoría de 4 octubre 2026 corrige los recursos del wheel, refuerza las fronteras VED y ofrece `report-canonical`/`report-model` para una proyección íntegra desde datos calculados. El estado verificable y los límites están en [AUDIT_DEPURATION_2026_10_04.md](docs/AUDIT_DEPURATION_2026_10_04.md); el catálogo de fuentes adjuntas conserva las diferencias de autoría, edición y dependencia sin alterar scoring.

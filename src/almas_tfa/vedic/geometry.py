@@ -18,6 +18,14 @@ def longitude(value):
     return value % 360.0
 
 
+def validate_orb(value):
+    """One explicit finite numeric degree contract for both temporal and natal use."""
+    longitude(value)  # Reject bool, strings, NaN and infinity before comparisons.
+    if not 0 <= value <= 5:
+        raise ValueError('Orbe exploratorio fuera de [0, 5] grados.')
+    return value
+
+
 def sign_of(value):
     return int(longitude(value) // 30)
 
