@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "ALMAS_DYNAMIC_PHASE_VOCABULARY_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "status": "OPERATIONAL_DRAFT_FROZEN",
+  "purpose": "Definir de forma falsable un vocabulario de estados descriptivos para la futura evaluación documental y conductual; no confirma una ontología espiritual ni prescribe una secuencia universal.",
+  "contemporary_usage": {
+    "status": "HETEROGENEOUS_EMIC_USAGE",
+    "summary": "En usos contemporáneos de twin flame circulan secuencias distintas que incluyen reconocimiento, crisis, runner/chaser, surrender y reunion. El número, orden, obligatoriedad y significado de las fases varía entre autores y comunidades. Este uso no constituye doctrina histórica común, validación empírica ni fuente de criterios conductuales de ALMAS.",
+    "sources": [
+      {
+        "priority": "P5",
+        "source_id": "TFC_STAGES_2026",
+        "author": "Twin Flame Collective",
+        "work": "Twin Flame Stages",
+        "date": "consulta 2026-09-29; fecha de publicación no indicada",
+        "url": "https://twinflamecollective.com/twin-flame-stages/",
+        "use": "Evidencia emic de una secuencia contemporánea que agrupa reconocimiento, awakening, crisis, runner/chaser, surrender y unión.",
+        "limit": "Fuente comunitaria de una corriente; no prueba que las fases sean universales ni que las categorías sean ontológicamente verdaderas."
+      },
+      {
+        "priority": "P5",
+        "source_id": "TFC_FORUM_STAGES_2026",
+        "author": "Participantes del foro Twin Flame Collective",
+        "work": "Steps or Stages of Twin Flames?",
+        "date": "consulta 2026-09-29; hilo iniciado 2025 según la página",
+        "url": "https://forum.twinflamecollective.com/t/steps-or-stages-of-twin-flames/1019",
+        "use": "Evidencia emic de desacuerdo sobre la obligatoriedad y secuencia de las etapas.",
+        "limit": "Conversación comunitaria no representativa y sin control metodológico."
+      },
+      {
+        "priority": "P4",
+        "source_id": "MNT_TWIN_FLAME_2024",
+        "author": "Medical News Today; artículo revisado editorialmente",
+        "work": "What is the meaning of twin flame and is it toxic?",
+        "date": "publicado 2024 según resultado consultado; consulta 2026-09-29",
+        "url": "https://www.medicalnewstoday.com/articles/twin-flame-meaning",
+        "use": "Fuente secundaria para registrar circulación del motivo runner/chaser en explicaciones contemporáneas y la necesidad de alternativas relacionales ordinarias.",
+        "limit": "No se usa como validación de fases, diagnóstico de una relación individual ni autoridad doctrinal."
+      }
+    ]
+  },
+  "global_rules": [
+    "Cada fase describe una configuración documental o conductual delimitada; no describe esencia, destino, sentimiento privado ni estado clínico.",
+    "Solo se evalúan hechos fechados, palabras textuales contextualizadas, actos observables y fuentes identificables. La inferencia de motivos, miedo, ego, despertar interno o deseo de reunión está excluida.",
+    "Una fase de ACTOR solo se atribuye a la persona cuya conducta o declaración documentada la sustenta; no se transfiere al otro actor ni a la relación.",
+    "Una fase RELATIONAL requiere hechos de interacción entre las partes; no se deriva sumando dos estados individuales.",
+    "Los estados son descriptivos y no forman una secuencia necesaria. La posibilidad de un estado posterior no autoriza a anticiparlo.",
+    "Una etiqueta espiritual, astrológica o de comunidad no cuenta como evidencia de fase. La temporalidad astrológica no asigna fase.",
+    "La evidencia incompleta, unilateral o ambigua mantiene NOT_EVALUABLE o INSUFFICIENT según el contrato que se defina en pasos posteriores."
+  ],
+  "phases": [
+    {
+      "id": "recognition",
+      "label_es": "reconocimiento",
+      "scope": ["RELATION", "ACTOR"],
+      "definition": "Registro de que uno o ambos actores identifican explícitamente la conexión o el encuentro como significativo. El rótulo describe la atribución expresada, no acredita reconocimiento de almas ni reciprocidad.",
+      "entry_criteria": ["Existe declaración atribuible a un actor que nombra reconocimiento, familiaridad o significado del encuentro; o un registro mutuo explícito."],
+      "exclusions": ["Intensidad, déjà vu, sincronicidad, atracción, carta astrológica o interpretación posterior sin declaración atribuible."],
+      "required_evidence": ["Cita o registro contemporáneo con autor, fecha y contexto; identificar si es unilateral o mutuo."],
+      "counterevidence": ["La declaración fue negada, corregida o atribuida a otra conexión; fuente descontextualizada o identidad no verificable."],
+      "possible_relations": {"may_precede": ["activation"], "may_follow": [], "non_implications": ["bilateral_reengagement", "reunion", "reciprocity"]}
+    },
+    {
+      "id": "activation",
+      "label_es": "activación",
+      "scope": ["RELATION", "ACTOR"],
+      "definition": "Cambio observable en atención, contacto o conducta asociado temporalmente a un acontecimiento identificable. No presupone causa espiritual ni activación psíquica del otro actor.",
+      "entry_criteria": ["Cambio fechado respecto de una línea base documental o acontecimiento registrado."],
+      "exclusions": ["Tránsito o progresión astrológica por sí solos; sensaciones privadas sin registro del propio actor; atribución causal retrospectiva."],
+      "required_evidence": ["Conducta o declaración fechada, actor identificado y contexto previo suficiente para describir el cambio."],
+      "counterevidence": ["La conducta precede al supuesto acontecimiento; patrón equivalente previo; cronología incompatible."],
+      "possible_relations": {"may_precede": ["polarization", "crisis_mirror"], "may_follow": ["recognition"], "non_implications": ["awakening_candidate", "reciprocity", "reunion"]}
+    },
+    {
+      "id": "polarization",
+      "label_es": "polarización",
+      "scope": ["RELATION"],
+      "definition": "Diferencia documentada entre posiciones, necesidades declaradas o decisiones de los actores que organiza una interacción en polos contrapuestos. No asigna roles espirituales fijos.",
+      "entry_criteria": ["Hay al menos dos posiciones o decisiones explícitas incompatibles o tensionadas en una interacción identificable."],
+      "exclusions": ["Suposición de que un actor encarna la divina femenina o masculina; estilos inferidos; diferencias no relacionadas con la interacción."],
+      "required_evidence": ["Declaraciones o actos de ambas partes cuando estén disponibles; indicar asimetría de fuentes."],
+      "counterevidence": ["Las posiciones son compatibles, atribuidas erróneamente o ya no vigentes."],
+      "possible_relations": {"may_precede": ["crisis_mirror", "boundary_assertion"], "may_follow": ["activation"], "non_implications": ["pursuit_withdrawal", "surrender_candidate"]}
+    },
+    {
+      "id": "crisis_mirror",
+      "label_es": "crisis o espejo",
+      "scope": ["RELATION"],
+      "definition": "Conflicto o ruptura de expectativas cuya interacción hace explícito un patrón, desacuerdo o límite relacional. “Espejo” es una metáfora descriptiva, no un mecanismo causal o espiritual comprobado.",
+      "entry_criteria": ["Conflicto o quiebre documentado y al menos un patrón relacional observable descrito sin atribuir motivos."],
+      "exclusions": ["Dolor de una sola parte sin interacción documentada; crisis vital individual; afirmar que el otro refleja una herida inconsciente."],
+      "required_evidence": ["Cronología de intercambio o decisión, conducta concreta y fuente documental."],
+      "counterevidence": ["Desacuerdo puntual sin patrón o interrupción de interacción; resumen posterior no corroborado."],
+      "possible_relations": {"may_precede": ["boundary_assertion", "separation_or_suspension", "closure"], "may_follow": ["activation", "polarization"], "non_implications": ["awakening_candidate", "surrender_candidate", "reunion"]}
+    },
+    {
+      "id": "pursuit_withdrawal",
+      "label_es": "persecución y retirada",
+      "scope": ["RELATION"],
+      "definition": "Patrón de interacción en el que, dentro de un periodo delimitado, una parte aumenta intentos de contacto o resolución y la otra reduce, aplaza o termina el contacto. No explica por qué actúa cada cual.",
+      "entry_criteria": ["Se documentan actos repetidos de búsqueda de contacto por un actor y actos observables de retirada por el otro, en secuencia temporal."],
+      "exclusions": ["Un único mensaje y una demora; límites de seguridad o logística sin evidencia de patrón; llamar “runner/chaser” a personas como identidad estable."],
+      "required_evidence": ["Mensajes o actos fechados de ambos lados, periodo definido y registro de oportunidades reales de contacto."],
+      "counterevidence": ["No hubo intentos repetidos; el supuesto alejamiento fue acordado o circunstancial; ambas conductas no se solapan temporalmente."],
+      "possible_relations": {"may_precede": ["boundary_assertion", "separation_or_suspension", "closure"], "may_follow": ["polarization", "crisis_mirror"], "non_implications": ["twin_flame_model", "surrender_candidate", "future_reunion"]}
+    },
+    {
+      "id": "boundary_assertion",
+      "label_es": "afirmación de límite",
+      "scope": ["ACTOR"],
+      "definition": "Un actor comunica o ejecuta un límite identificable sobre contacto, disponibilidad, trato o participación. Es un acto situado; no prueba una transformación interior.",
+      "entry_criteria": ["Declaración o acción atribuible que especifica un límite o una condición de interacción."],
+      "exclusions": ["Enfado sin límite identificable; silencio interpretado; límite atribuido al otro actor por terceros."],
+      "required_evidence": ["Texto o acto fechado, ámbito del límite y destinatario/contexto."],
+      "counterevidence": ["La persona aclara que no era un límite; acto incompatible inmediato; registro no atribuible."],
+      "possible_relations": {"may_precede": ["separation_or_suspension", "surrender_candidate", "closure"], "may_follow": ["polarization", "crisis_mirror", "pursuit_withdrawal"], "non_implications": ["surrender_stabilized", "awakening_candidate"]}
+    },
+    {
+      "id": "separation_or_suspension",
+      "label_es": "separación o suspensión",
+      "scope": ["RELATION"],
+      "definition": "Interrupción, reducción o suspensión explícita del vínculo o de una modalidad de contacto durante un intervalo. El rótulo no presupone temporalidad, destino ni reunión posterior.",
+      "entry_criteria": ["Ruptura, pausa, cese o ausencia de contacto delimitable por documentos o cronología observada."],
+      "exclusions": ["Una respuesta tardía aislada; afirmar que la distancia es una fase necesaria twin flame."],
+      "required_evidence": ["Acto o declaración de interrupción, fechas de referencia y distinguir acuerdo bilateral de decisión unilateral."],
+      "counterevidence": ["Contacto sostenido en la misma modalidad; pausa terminada; fechas o actor de la decisión incorrectos."],
+      "possible_relations": {"may_precede": ["bilateral_reengagement", "reunion", "closure"], "may_follow": ["boundary_assertion", "crisis_mirror", "pursuit_withdrawal"], "non_implications": ["surrender_candidate", "reunion", "destined_return"]}
+    },
+    {
+      "id": "surrender_candidate",
+      "label_es": "candidato a surrender",
+      "scope": ["ACTOR"],
+      "definition": "Etiqueta provisional del proyecto para explorar una posible reducción sostenida del control sobre el resultado relacional por parte de un actor. Aún no tiene criterios suficientes para recibir estado confirmatorio; se operacionalizará en el Paso 6.",
+      "entry_criteria": ["Solo puede proponerse provisionalmente a partir de actos del propio actor compatibles con cesar la persecución, afirmar límites y descentralizar conductualmente el vínculo; cada componente requiere evidencia propia."],
+      "exclusions": ["Silencio, dolor, ruptura, bloqueo, ausencia de contacto o frase aislada; no atribuir surrender a quien no lo declara ni muestra en conducta."],
+      "required_evidence": ["Conducta fechada del actor, secuencia y contexto; evaluación de contraevidencia antes de cualquier promoción."],
+      "counterevidence": ["Persecución continuada, retirada estratégica para provocar respuesta, reapertura repetida del conflicto, negociación coercitiva o intento de control."],
+      "possible_relations": {"may_precede": ["individual_restructuring", "integration_candidate"], "may_follow": ["boundary_assertion", "separation_or_suspension"], "non_implications": ["awakening del otro actor", "causalidad", "reunión"]}
+    },
+    {
+      "id": "surrender_stabilized",
+      "label_es": "surrender estabilizado",
+      "scope": ["ACTOR"],
+      "definition": "Estado provisional que solo podrá considerarse si los componentes de surrender que se definan en el Paso 6 persisten a lo largo de un periodo prerregistrado y no aparece conducta contradictoria relevante.",
+      "entry_criteria": ["Pendiente: exige cumplir la definición y duración mínima que se congelen en el Paso 6; esta entrada no autoriza aún su cálculo."],
+      "exclusions": ["Episodio aislado, declaración verbal sin correspondencia conductual o periodo de observación insuficiente."],
+      "required_evidence": ["Serie temporal de conducta del actor y revisión explícita de contraevidencia durante el periodo prerregistrado."],
+      "counterevidence": ["Cualquiera de los falsificadores que el Paso 6 declare incompatibles durante la ventana de evaluación."],
+      "possible_relations": {"may_precede": ["individual_restructuring", "integration_candidate", "closure"], "may_follow": ["surrender_candidate"], "non_implications": ["despertar del otro", "reciprocidad", "reunión"]}
+    },
+    {
+      "id": "individual_restructuring",
+      "label_es": "reorganización individual",
+      "scope": ["ACTOR"],
+      "definition": "Cambio biográfico o conductual referido por el propio actor y observado en decisiones o hábitos a lo largo del tiempo, sin atribuirlo automáticamente al vínculo.",
+      "entry_criteria": ["El actor identifica un patrón previo y documenta cambios posteriores en conducta, decisiones o prioridades."],
+      "exclusions": ["Interpretación de terceros sobre la vida interior; cambio de una sola conducta; explicación astrológica sin hechos."],
+      "required_evidence": ["Relato atribuible o documento biográfico, patrón anterior identificable y evidencia fechada del cambio."],
+      "counterevidence": ["No hay línea base; conducta posterior reproduce el patrón anterior; el actor niega el cambio atribuido."],
+      "possible_relations": {"may_precede": ["awakening_candidate", "integration_candidate", "closure"], "may_follow": ["surrender_candidate", "surrender_stabilized", "crisis_mirror"], "non_implications": ["cambio causado por el vínculo", "reunión"]}
+    },
+    {
+      "id": "awakening_candidate",
+      "label_es": "candidato a awakening",
+      "scope": ["ACTOR"],
+      "definition": "Hipótesis descriptiva provisional de revisión explícita del propio patrón vital por el actor. El término procede de usos espirituales contemporáneos; ALMAS lo restringe a una alegación biográfica revisable y no a una verdad metafísica.",
+      "entry_criteria": ["Se requiere evidencia biográfica de reencuadre explícito, reconocimiento del patrón previo y cambio conductual sostenido; la reinteracción voluntaria y la congruencia entre palabras y actos aportan evidencia adicional, según el Paso 7."],
+      "exclusions": ["Tránsitos, sueños, sensaciones, intensidad, publicación espiritual genérica o interpretación del observador."],
+      "required_evidence": ["Declaraciones en primera persona con fecha/contexto y actos posteriores congruentes; especificación de lo que no se conoce."],
+      "counterevidence": ["Ausencia de reconocimiento del patrón; acciones persistentes incompatibles con el cambio alegado; evidencia solo astrológica."],
+      "possible_relations": {"may_precede": ["integration_candidate", "bilateral_reengagement"], "may_follow": ["individual_restructuring"], "non_implications": ["despertar del otro actor", "twin_flame probado", "reunión"]}
+    },
+    {
+      "id": "integration_candidate",
+      "label_es": "candidato a integración",
+      "scope": ["RELATION", "ACTOR"],
+      "definition": "Hipótesis provisional de que cambios o límites previamente observados se mantienen de forma congruente dentro de la vida individual o de la interacción. No equivale a unión espiritual ni a restauración romántica.",
+      "entry_criteria": ["Existen conductas nuevas repetidas y congruentes en el ámbito evaluado, con continuidad suficiente y sin inferir estados internos."],
+      "exclusions": ["Una reconciliación aislada, lenguaje de ascensión/hieros gamos o cumplimiento de predicciones simbólicas."],
+      "required_evidence": ["Actos observables repetidos y cronología adecuada; si es relacional, actos de ambas partes."],
+      "counterevidence": ["Retorno del patrón previo; incongruencia persistente entre palabras y acciones; ausencia de observación suficiente."],
+      "possible_relations": {"may_precede": ["service", "closure"], "may_follow": ["individual_restructuring", "awakening_candidate", "bilateral_reengagement"], "non_implications": ["reunion", "unión metafísica", "misión predestinada"]}
+    },
+    {
+      "id": "bilateral_reengagement",
+      "label_es": "reanudación bilateral del contacto",
+      "scope": ["RELATION"],
+      "definition": "Reanudación verificable de una interacción en la que ambos actores participan voluntariamente durante un intervalo. No define por sí misma naturaleza romántica, compromiso ni calidad del vínculo.",
+      "entry_criteria": ["Hay acciones de contacto iniciadas o respondidas voluntariamente por ambos actores después de un periodo identificable de interrupción."],
+      "exclusions": ["Un mensaje no contestado, contacto impuesto por trámite, respuesta logística única o contacto inferido de visualizaciones/redes."],
+      "required_evidence": ["Intercambios fechados atribuibles a ambos actores y contexto del consentimiento/voluntariedad observable."],
+      "counterevidence": ["Solo un actor contacta; el otro rechaza, no responde o declara que no desea reanudar."],
+      "possible_relations": {"may_precede": ["reunion", "closure"], "may_follow": ["separation_or_suspension", "awakening_candidate"], "non_implications": ["reconciliación", "romance", "surrender", "estabilidad"]}
+    },
+    {
+      "id": "reunion",
+      "label_es": "reunión o reencuentro",
+      "scope": ["RELATION"],
+      "definition": "Reanudación explícita y sostenida de una modalidad de vínculo previamente interrumpida, acordada por ambas partes. En este vocabulario el término se usa en sentido interpersonal verificable, no como unión metafísica.",
+      "entry_criteria": ["Existe acuerdo bilateral explícito sobre reanudar la modalidad de relación y conducta congruente durante una ventana que deberá prerregistrarse."],
+      "exclusions": ["Encuentro presencial aislado, sexo, cordialidad, contacto bilateral breve o afirmación de una sola parte."],
+      "required_evidence": ["Acuerdo/documentación de ambas partes, modalidad definida y evidencia temporal congruente."],
+      "counterevidence": ["Rechazo o desacuerdo de una parte, ausencia de acuerdo, nueva interrupción antes de cumplir la ventana."],
+      "possible_relations": {"may_precede": ["service", "closure"], "may_follow": ["bilateral_reengagement"], "non_implications": ["unión de almas", "permanencia", "matrimonio", "misión compartida"]}
+    },
+    {
+      "id": "service",
+      "label_es": "servicio compartido o individual",
+      "scope": ["RELATION", "ACTOR"],
+      "definition": "Actividad de servicio identificable realizada por un actor o conjuntamente y declarada como propósito por quienes participan. La actividad puede existir sin vínculo romántico ni mandato espiritual.",
+      "entry_criteria": ["Acción concreta de ayuda, trabajo o servicio documentada; atribuir intención solo cuando quien actúa la declara."],
+      "exclusions": ["Inferir misión compartida de sincronicidades o astrología; atribuir servicio a quien no participa."],
+      "required_evidence": ["Descripción verificable de actividad, participantes y, para el propósito, declaración atribuible."],
+      "counterevidence": ["No existe acción compartida; participación atribuida incorrectamente; actividad cesada o rechazada."],
+      "possible_relations": {"may_precede": ["closure"], "may_follow": ["integration_candidate", "reunion"], "non_implications": ["misión predestinada", "unión espiritual", "reciprocidad afectiva"]}
+    },
+    {
+      "id": "closure",
+      "label_es": "cierre",
+      "scope": ["RELATION", "ACTOR"],
+      "definition": "Declaración o conducta observable de finalizar una modalidad de contacto o participación. Puede ser unilateral o bilateral y no exige resolución emocional interna.",
+      "entry_criteria": ["Declaración atribuible de término o conducta consistente con terminar la interacción, delimitada temporalmente."],
+      "exclusions": ["Bloqueo, silencio o distancia aislada interpretados como cierre definitivo; atribuir aceptación interna al otro."],
+      "required_evidence": ["Declaración/acto fechado, sujeto que decide, alcance y evidencia posterior disponible."],
+      "counterevidence": ["La persona declara que la pausa es temporal; reanudación congruente con la modalidad previa; alcance distinto del supuesto."],
+      "possible_relations": {"may_precede": [], "may_follow": ["crisis_mirror", "separation_or_suspension", "boundary_assertion", "integration_candidate", "reunion"], "non_implications": ["cierre emocional", "irreversibilidad", "desamor", "futuro contacto"]}
+    },
+    {
+      "id": "indeterminate",
+      "label_es": "indeterminada",
+      "scope": ["RELATION", "ACTOR"],
+      "definition": "La evidencia disponible no permite asignar una fase del vocabulario con el nivel definido, o las hipótesis competidoras no pueden distinguirse.",
+      "entry_criteria": ["Faltan datos esenciales, las fuentes se contradicen o varias descripciones siguen siendo igualmente compatibles."],
+      "exclusions": ["Usarla como fase sustantiva o como sinónimo de ruptura, latencia o bloqueo."],
+      "required_evidence": ["Inventario de datos disponibles, faltantes, contradicciones y alternativas no distinguibles."],
+      "counterevidence": ["Evidencia posterior suficiente para una fase delimitada bajo reglas prerregistradas; no elimina la incertidumbre histórica."],
+      "possible_relations": {"may_precede": ["any_phase_after_new_evidence"], "may_follow": ["any_phase"], "non_implications": ["cualquier diagnóstico ontológico"]}
+    }
+  ],
+  "sequence_policy": {
+    "mandatory_order": false,
+    "missing_phases_may_be_inferred": false,
+    "state_transition_is_automatic": false,
+    "temporal_astrology_assigns_phase": false,
+    "causal_interpretation_from_order": "UNESTABLISHED",
+    "development_case_may_change_definitions": false
+  }
+}

@@ -4,6 +4,7 @@ from .chart import compute_vedic_chart
 from .synastry import compute_vedic_synastry, compute_vedic_event_activation
 from .validation import group_ablation, descriptive_shapley, compute_sensitivity
 from .geometry import compute_vivaha_saham
+from .contracts import validate_vedic_envelope
 
 
 def run_vedic_pipeline(request):
@@ -17,7 +18,7 @@ def run_vedic_pipeline(request):
                    event_prediction=False, confirmatory_rule='NOT_PREREGISTERED'),
                sensitivity=[], ablation=None, shapley=None, annual=[])
     if not request['enabled']:
-        return out
+        return validate_vedic_envelope(out)
     subjects = request.get('subjects', [])
     if len(subjects) != 2 or subjects[0]['id'] == subjects[1]['id']:
         raise ValueError('Se requieren exactamente dos sujetos diferentes.')
@@ -57,10 +58,11 @@ def run_vedic_pipeline(request):
         saham = compute_vivaha_saham(p['Venus']['longitude'], p['Saturn']['longitude'], p['Lagna']['longitude'],
                                      is_day=chart['solar_context']['is_day'], annual_context=True)
         out['annual'].append(dict(return_source_ref=annual['return_source_ref'], chart=chart, vivaha_saham=saham))
-    return out
+    return validate_vedic_envelope(out)
 
 
 def attach_vedic(canonical, envelope):
+    validate_vedic_envelope(envelope)
     if 'vedic' in canonical:
         raise ValueError('El bloque VED existente no puede sobrescribirse silenciosamente.')
     if envelope.get('canonical_effect') is not False or envelope.get('schema_version') != 'ALMAS_VED_ENVELOPE_1':
@@ -78,6 +80,7 @@ def attach_vedic(canonical, envelope):
 
 
 def render_vedic_report(envelope):
+    validate_vedic_envelope(envelope)
     if not envelope['enabled']:
         return 'Jyotiṣa Relacional permanece desactivado.\n'
     cfg = envelope['charts'][0]['configuration']
@@ -122,4 +125,5 @@ def render_vedic_report(envelope):
     parts.append("Procedencia técnica: P. V. R. Narasimha Rao, Vedic Astrology: An Integrated Approach (2000), "
         "capítulos 4, 6, 8, 9, 16 y 28; efemérides Swiss Ephemeris/Moshier identificadas en cada carta. "
         "Se separan datos calculados, técnicas tradicionales y usos relacionales experimentales.")
-    return '\n\n'.join(parts) + '\n'
+    from .reporting import render_vedic_details
+    return '\n\n'.join(parts) + '\n\n' + render_vedic_details(envelope)

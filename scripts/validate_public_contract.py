@@ -5360,6 +5360,15 @@ def main() -> int:
     if len(corpus_source_trace(["petach_einayim_sotah_2a_2", "vital_shaar_hagilgulim_20_zivug"])["dependency_groups"]) != 1:
         fail("Lurianic corpus duplicated dependent roots")
 
+    # Runtime copies must be byte-identical to the normative frozen resources.
+    for name in ("doctrinal-sequence-models.json", "dynamic-phase-vocabulary.json",
+                 "surrender-operational-policy.json", "awakening-operational-policy.json",
+                 "phase-preregistration-1.22.0.json"):
+        if (ROOT / "reference" / name).read_bytes() != (ROOT / "src/almas_tfa/data" / name).read_bytes():
+            fail(f"packaged frozen phase artifact drift: {name}")
+    if (ROOT / "schemas/vedic.schema.json").read_bytes() != (ROOT / "src/almas_tfa/data/vedic-envelope-schema.json").read_bytes():
+        fail("packaged VED schema drift")
+
     print("ALMAS public contract validation: PASS")
     print(f"Astrology package: {version}")
     print(f"Contract module: {contract_module_version}")

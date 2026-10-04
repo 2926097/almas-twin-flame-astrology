@@ -1,7 +1,7 @@
 """Features descriptivas, dependencias y temporalidad anclada a estructura."""
 from hashlib import sha256
 import json
-from .geometry import longitude, sign_of, compute_nakshatra, LORDS
+from .geometry import longitude, sign_of, compute_nakshatra, LORDS, validate_orb
 from .timing import compute_vimshottari, instant
 
 
@@ -66,9 +66,7 @@ def lunar_compatibility(a, b):
 
 
 def compute_vedic_synastry(a, b, *, orb_deg=3.0):
-    longitude(orb_deg)
-    if not 0 <= orb_deg <= 5:
-        raise ValueError('Orbe exploratorio fuera de [0, 5] grados.')
+    validate_orb(orb_deg)
     if a['configuration'] != b['configuration']:
         raise ValueError('Perfiles védicos incompatibles: comparar sólo con configuración idéntica.')
     features = []
@@ -136,8 +134,7 @@ def compute_vedic_event_activation(a, b, event, *, synastry=None, transit_chart=
     structure = synastry or compute_vedic_synastry(a, b)
     if structure['chart_hashes'] != [_fingerprint(a), _fingerprint(b)]:
         raise ValueError('La estructura temporal no corresponde a las cartas recibidas.')
-    if not 0 <= orb_deg <= 5:
-        raise ValueError('Orbe de activación inválido.')
+    validate_orb(orb_deg)
     if transit_chart is not None:
         if transit_chart['configuration'] != a['configuration']:
             raise ValueError('Tránsitos con configuración incompatible.')

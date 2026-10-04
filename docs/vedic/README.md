@@ -10,6 +10,8 @@ Instalar el extra opcional y ejecutar el ejemplo sintético:
 python -m pip install -e '.[astronomy-vedic,schema-validation]'
 almas-vedic pipeline examples/vedic-request.synthetic.json -o vedic-result.json
 almas-vedic report examples/vedic-request.synthetic.json -o vedic-report.md
+almas-vedic report-canonical vedic-result.json -o vedic-report.md
+almas-vedic report-model vedic-result.json -o vedic-report-model.json
 almas-vedic chart person.json
 almas-vedic timing person.json --at 2026-10-08T12:00:00-04:00
 almas-vedic sensitivity person.json
@@ -32,6 +34,10 @@ text = render_vedic_report(envelope)
 ```
 
 `attach_vedic` copia el objeto, conserva sus campos y rechaza sobrescrituras. `schemas/canonical-analysis.schema.json` admite el bloque opcional y `schemas/vedic.schema.json` restringe sus estados. Esta extensión no recalibra el pipeline M00–M31 ni añade raíces a M17. La proyección textual propia permite revisar la capa VED; no se incorpora automáticamente a los informes DOCX/PDF anteriores ni al frontend.
+
+Las fronteras de pipeline, attach y reporting requieren `schema-validation`, también para una envolvente desactivada. Rechazan estructuras incompletas, números no finitos, configuraciones incompatibles, hashes de cartas distintos, IDs duplicados, referencias inexistentes, recuentos incoherentes y períodos que no contienen el evento o no están anidados. Los orbes de sinastría y eventos rechazan booleanos. El validador comprueba integridad contractual; no recalcula ni certifica la astronomía declarada.
+
+`report-canonical` y `report-model` aceptan la envolvente o un objeto con campo `vedic`; no necesitan efemérides para redactar. El modelo `ALMAS_VED_REPORT_V1` conserva todas las features, incluidas las no coincidentes, con su ruta al dato, endpoints, capas, signos, geometría, dependencia y límites de interpretación. Expone cobertura de entrada/salida y fingerprint canónico. D9 se presenta como coordenada divisional simbólica; Arudhas por signo no reciben una longitud física inventada. Casas, velocidades y otros campos ausentes permanecen explícitamente ausentes. Los eventos conservan fechas, intervalos de daśā, contactos y referencias estructurales. Similaridad, complementariedad y espejo son hipótesis E; no diagnostican identidad de alma ni reciprocidad.
 
 ## Auditoría metodológica de salida
 

@@ -2,9 +2,9 @@
 from __future__ import annotations
 import hashlib
 from pathlib import Path
+from importlib import resources
 from typing import Any, Mapping
 
-ROOT = Path(__file__).resolve().parents[2]
 REQUIRED_ARTIFACTS = {
     "reference/dynamic-phase-vocabulary.json",
     "reference/surrender-operational-policy.json",
@@ -27,13 +27,15 @@ def verify_phase_preregistration(record: Mapping[str, Any], root: Path | None = 
     paths = [item.get("path") for item in artifacts if isinstance(item, Mapping)]
     if len(paths) != len(artifacts) or set(paths) != REQUIRED_ARTIFACTS or len(paths) != len(set(paths)):
         raise ValueError("frozen_artifacts must contain exactly the registered policy artifacts.")
-    base = root or ROOT
     verified = []
     for item in artifacts:
         path = Path(item["path"])
         if path.is_absolute() or ".." in path.parts:
             raise ValueError("frozen artifact path must remain within the repository.")
-        target = base / path
+        # Default verification uses the exact frozen bytes distributed in the
+        # wheel. An explicit root audits a caller-supplied repository instead.
+        target = (Path(root) / path if root is not None else
+                  resources.files("almas_tfa").joinpath("data", path.name))
         if not target.is_file():
             raise ValueError(f"frozen artifact is missing: {item['path']}")
         actual = hashlib.sha256(target.read_bytes()).hexdigest()

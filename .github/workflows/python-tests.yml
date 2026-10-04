@@ -12,10 +12,12 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.10", "3.12"]
+        shard: [core, full-pipeline, returns]
     steps:
       - name: Obtener repositorio
         uses: actions/checkout@v4
@@ -26,23 +28,43 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Instalar paquete
-        run: python -m pip install -e ".[schema-validation]"
+        run: python -m pip install -e ".[schema-validation]" "setuptools>=68" wheel
+
+      - name: Verificar distribución wheel aislada
+        if: matrix.shard == 'core'
+        run: python scripts/validate_distribution.py
 
       - name: Ejecutar tests del núcleo
-        run: python -m unittest discover -s tests -p "test_*.py" -v
+        run: python scripts/run_test_shard.py --shard ${{ matrix.shard }} --receipt /tmp/test-receipt.json
+
+      - name: Conservar recibo de pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-receipt-${{ matrix.python-version }}-${{ matrix.shard }}
+          path: /tmp/test-receipt.json
+          if-no-files-found: warn
 
       - name: Validar contrato público
+        if: matrix.shard == 'core'
         run: python scripts/validate_public_contract.py
 
+      - name: Validar catálogo de fuentes adjuntas
+        if: matrix.shard == 'core'
+        run: python scripts/validate_source_catalogue.py
+
       - name: Reproducir fixture SSAR de liminalidad y Moiras
+        if: matrix.shard == 'core'
         run: python scripts/validate_ssar_liminal_moirai.py
 
       - name: Reproducir fixture SSAR de puntos calculados
+        if: matrix.shard == 'core'
         run: python scripts/validate_ssar_calculated_points.py
 
       - name: Comprobar referencia exacta SSAR en Python 3.12
-        if: matrix.python-version == '3.12'
+        if: matrix.python-version == '3.12' && matrix.shard == 'core'
         run: python scripts/validate_ssar_baseline.py
 
       - name: Reproducir SSAR experimental congelado
+        if: matrix.shard == 'core'
         run: python scripts/validate_ssar_release.py

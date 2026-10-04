@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "ALMAS_DOCTRINAL_SEQUENCE_MODELS_V1",
+  "epistemic_class": "E_PROJECT_HYPOTHESIS",
+  "status": "FROZEN_BEFORE_CASE_APPLICATION",
+  "policy": {
+    "purpose": "Comparar secuencias explícitas y analogías delimitadas sin convertir coincidencia narrativa en evidencia ontológica.",
+    "sequence_evidence_must_be_documentary": true,
+    "model_definitions_frozen_before_case": true,
+    "causality_from_sequence": "UNESTABLISHED",
+    "ontology_inference_permitted": false
+  },
+  "models": [
+    {
+      "model_id": "TF_PROPHET",
+      "label_es": "Doctrina de twin flames de Summit Lighthouse / Elizabeth Clare Prophet",
+      "provenance": {"epistemic_class": "C_DOCTRINAL_PRIMARY", "source_id": "prophet_twin_flames_qa_part1", "author": "Elizabeth Clare Prophet", "work": "Soul Mates and Twin Flames: Q and A Part 1", "date": null, "url": "https://summitlighthouse.org/soul-mates-twin-flames-1/", "priority": "P1_PRIMARY", "scope": "Acredita lo que esta tradición enseña sobre origen de twin flames; no ofrece una secuencia conductual biográfica validada.", "access_status": "VERIFIED_IN_PROJECT_SOURCE_REGISTRY"},
+      "expected_sequence": [],
+      "sequence_status": "NO_SOURCE_SEQUENCE_SPECIFIED",
+      "required_evidence": ["Pasajes de fuente primaria delimitados para cualquier afirmación atribuida al modelo.", "Para examinar una fase, evidencia documental fechada que cumpla por separado el contrato conductual de ALMAS."],
+      "incompatible_evidence": ["Atribuir a Prophet etapas o un orden runner/chaser que el pasaje citado no establece.", "Tratar una coincidencia de fases como prueba de origen twin-flame."],
+      "alternatives": ["TF_RUNNER_CHASER", "KARMIC_CATALYTIC", "ORDINARY_RELATIONAL_CRISIS"],
+      "cannot_prove": ["La identidad ontológica de una pareja concreta.", "Una secuencia obligatoria de fases conductuales.", "Causalidad, reciprocidad, consentimiento o resultado futuro."],
+      "mapping_status": "DOCTRINAL_ATTRIBUTION_ONLY"
+    },
+    {
+      "model_id": "TF_RUNNER_CHASER",
+      "label_es": "Secuencia contemporánea emic runner/chaser",
+      "provenance": {"epistemic_class": "D_CONTEMPORARY_USAGE", "source_id": "TFC_STAGES_2026", "author": "Twin Flame Collective", "work": "Twin Flame Stages", "date": "fecha de publicación no indicada; consultado 2026-09-29", "url": "https://twinflamecollective.com/twin-flame-stages/", "priority": "P5_EMIC", "scope": "Un ejemplo comunitario contemporáneo de narrativa por etapas; existe variación y desacuerdo dentro del uso contemporáneo.", "access_status": "VERIFIED_IN_PHASE_VOCABULARY_REGISTRY"},
+      "expected_sequence": ["recognition", "crisis_mirror", "pursuit_withdrawal", "surrender_stabilized", "reunion"],
+      "sequence_status": "EMIC_SEQUENCE_HYPOTHESIS",
+      "required_evidence": ["Fases conductuales individualmente documentadas conforme al vocabulario ALMAS.", "Fechas ordenables y referencias de evidencia independientes para cada fase.", "Secuencia completa definida antes de inspeccionar el caso."],
+      "incompatible_evidence": ["Orden observado incompatible con la secuencia predefinida.", "Fase inferida solo por silencio, ausencia de contacto, sufrimiento, autoetiqueta o astrología.", "Evidencia de reunión unilateral o sin consentimiento bilateral."],
+      "alternatives": ["ORDINARY_RELATIONAL_CRISIS", "JUNGIAN_INDIVIDUATION_ANALOGY", "KARMIC_CATALYTIC"],
+      "cannot_prove": ["Una identidad twin-flame.", "La causa espiritual del contacto o retirada.", "Amor oculto, reciprocidad, unión futura ni obligación de perseguir."],
+      "mapping_status": "CONTEMPORARY_EMIC_SEQUENCE"
+    },
+    {
+      "model_id": "TF_DF_DM_SURRENDER",
+      "label_es": "Hipótesis de proyecto DF/DM y surrender",
+      "provenance": {"epistemic_class": "E_PROJECT_HYPOTHESIS", "source_id": "ALMAS_STEP_6_7_POLICY", "author": "Proyecto ALMAS", "work": "Políticas operacionales de surrender y awakening, pasos 6–7", "date": "2026-09-29", "url": "reference/surrender-operational-policy.json", "priority": "P6_PROJECT", "scope": "Modelo exploratorio del proyecto, no doctrina de una fuente religiosa o comunidad atribuida.", "access_status": "INTERNAL_VERSIONED_POLICY"},
+      "expected_sequence": ["boundary_assertion", "surrender_candidate", "surrender_stabilized", "awakening_candidate", "bilateral_reengagement"],
+      "sequence_status": "PROJECT_HYPOTHESIS",
+      "required_evidence": ["Evaluación independiente por actor de cada criterio conductual de surrender y awakening.", "Reanudación bilateral documentada y voluntaria para la fase relacional.", "Secuencia preregistrada; sin rellenar fases ausentes."],
+      "incompatible_evidence": ["Ausencia de evidencia directa para cualquiera de las fases requeridas.", "Contraevidencia operacional de surrender o awakening.", "Usar el orden temporal como explicación causal."],
+      "alternatives": ["TF_RUNNER_CHASER", "ORDINARY_RELATIONAL_CRISIS", "JUNGIAN_INDIVIDUATION_ANALOGY"],
+      "cannot_prove": ["DF/DM como esencia, sexo, género o rol permanente.", "Awakening por astrología.", "Que surrender cause awakening o reengagement.", "Origen twin-flame o reunión futura."],
+      "mapping_status": "PROJECT_HYPOTHESIS"
+    },
+    {
+      "model_id": "KARMIC_CATALYTIC",
+      "label_es": "Alternativa de vínculo catalítico con cierre",
+      "provenance": {"epistemic_class": "E_PROJECT_HYPOTHESIS", "source_id": "ALMAS_KARMIC_CATALYTIC_COMPARATOR", "author": "Proyecto ALMAS", "work": "Comparador exploratorio no ontológico", "date": "2026-09-29", "url": "reference/doctrinal-sequence-models.json", "priority": "P6_PROJECT", "scope": "Alternativa de comparación; no atribuye karma o vida pasada como hecho.", "access_status": "INTERNAL_VERSIONED_POLICY"},
+      "expected_sequence": ["crisis_mirror", "individual_restructuring", "closure"],
+      "sequence_status": "PROJECT_HYPOTHESIS",
+      "required_evidence": ["Conflicto documentado, cambios biográficos individuales y cierre verificable, cada uno con fecha y fuente."],
+      "incompatible_evidence": ["Afirmar karma o vidas pasadas sin una fuente doctrinal explícita y sin marcar el alcance.", "Llamar cierre a silencio o bloqueo aislado."],
+      "alternatives": ["ORDINARY_RELATIONAL_CRISIS", "TF_RUNNER_CHASER", "JUNGIAN_INDIVIDUATION_ANALOGY"],
+      "cannot_prove": ["Una deuda kármica factual.", "Una vida pasada compartida.", "Origen o destino twin-flame."],
+      "mapping_status": "PROJECT_HYPOTHESIS"
+    },
+    {
+      "model_id": "JUNGIAN_INDIVIDUATION_ANALOGY",
+      "label_es": "Analogía con individuación junguiana",
+      "provenance": {"epistemic_class": "C_PSYCHOLOGICAL_PRIMARY_PLUS_E_MAPPING", "source_id": "JUNG_CW7_TWO_ESSAYS", "author": "C. G. Jung", "work": "Two Essays on Analytical Psychology, Collected Works 7", "date": "edición consultada según registro bibliográfico", "url": "https://www.jstor.org/stable/j.ctt5hhr7s", "priority": "P1_PRIMARY", "scope": "La fuente trata desarrollo/individuación psicológica; la correspondencia con fases ALMAS es analogía E del proyecto, no secuencia relacional postulada por Jung.", "access_status": "BIBLIOGRAPHIC_SOURCE_VERIFIED_MAPPING_PROJECT_DEFINED"},
+      "expected_sequence": ["crisis_mirror", "individual_restructuring", "integration_candidate"],
+      "sequence_status": "ANALOGICAL_MAPPING_HYPOTHESIS",
+      "required_evidence": ["Cambio intrapersonal biográfico del propio actor documentado en más de un momento.", "No atribuir al otro actor contenido inconsciente no expresado."],
+      "incompatible_evidence": ["Convertir metáfora de espejo en mecanismo causal.", "Tratar individuación como fase twin-flame o garantía de integración diádica."],
+      "alternatives": ["ORDINARY_RELATIONAL_CRISIS", "TF_RUNNER_CHASER", "KARMIC_CATALYTIC"],
+      "cannot_prove": ["Una pareja destinada o una mitad del alma.", "Reciprocidad o unión mística de dos personas.", "Que una crisis haya causado desarrollo psicológico."],
+      "mapping_status": "ANALOGICAL_MAPPING"
+    },
+    {
+      "model_id": "MYSTICAL_UNION_ANALOGY",
+      "label_es": "Analogía mística de unión alma-Dios",
+      "provenance": {"epistemic_class": "C_MYSTICAL_PRIMARY_PLUS_E_BOUNDARY", "source_id": "TERESA_INTERIOR_CASTLE", "author": "Teresa de Jesús", "work": "Castillo interior / Las moradas", "date": "1577", "url": "https://teresavila.com/escrito/castillo-interior/", "priority": "P1_PRIMARY", "scope": "La unión descrita en esta obra es unión mística del alma con Dios; no es una secuencia de pareja romántica.", "access_status": "PRIMARY_TEXT_CATALOGUED"},
+      "expected_sequence": [],
+      "sequence_status": "NOT_COMPARABLE_TO_DYADIC_PHASE_SEQUENCE",
+      "required_evidence": ["Citas o localizadores de la obra y atribución fiel de la relación alma-Dios."],
+      "incompatible_evidence": ["Mapear moradas como etapas de una pareja twin-flame.", "Usar unión mística para afirmar reciprocidad humana o reunión romántica."],
+      "alternatives": ["JUNGIAN_INDIVIDUATION_ANALOGY", "ORDINARY_RELATIONAL_CRISIS"],
+      "cannot_prove": ["Unión entre dos personas humanas.", "Una pareja twin-flame, reciprocidad o resultado relacional."],
+      "mapping_status": "ANALOGY_EXPLICITLY_NON_EQUIVALENT"
+    },
+    {
+      "model_id": "ORDINARY_RELATIONAL_CRISIS",
+      "label_es": "Crisis relacional ordinaria y adaptación tras ruptura",
+      "provenance": {"epistemic_class": "B_EMPIRICAL_RESEARCH_PLUS_E_LIMIT", "source_id": "DAILEY_POST_DISSOLUTION_MODEL_2026", "author": "Dailey et al.", "work": "A Preliminary Test of the Comprehensive Model of Post-Dissolution Distress", "date": "2026", "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/pere.70085", "priority": "P2_EMPIRICAL", "scope": "Prueba preliminar longitudinal de malestar tras ruptura; no valida fases universales ni diagnostica casos individuales.", "access_status": "PUBLISHED_ARTICLE_RECORD_VERIFIED"},
+      "expected_sequence": [],
+      "sequence_status": "NO_FIXED_PHASE_SEQUENCE_IN_SOURCE",
+      "required_evidence": ["Hechos relacionales y biográficos observables; temporalidad de la ruptura y medidas pertinentes definidas por el protocolo."],
+      "incompatible_evidence": ["Convertir el curso promedio en destino individual.", "Suponer que el malestar prueba una clase metafísica del vínculo."],
+      "alternatives": ["TF_RUNNER_CHASER", "JUNGIAN_INDIVIDUATION_ANALOGY", "KARMIC_CATALYTIC"],
+      "cannot_prove": ["Identidad twin-flame ni causa metafísica.", "Una secuencia universal para todas las relaciones.", "Que la adaptación posterior sea causada por una fase espiritual."],
+      "mapping_status": "EMPIRICAL_ALTERNATIVE_NO_DYADIC_PHASE_SEQUENCE"
+    }
+  ]
+}
