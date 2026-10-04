@@ -255,6 +255,9 @@
     },
     "promotion_reporting": {
       "$ref": "discriminator-promotion-reporting.schema.json"
+    },
+    "interpretive_atlas": {
+      "$ref": "interpretive-atlas.schema.json"
     }
   },
   "allOf": [

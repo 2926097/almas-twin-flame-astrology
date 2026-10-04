@@ -78,7 +78,7 @@ def _concrete_point(point_id: Any) -> str:
     return CONCRETE_POINT_ALIASES.get(value, value)
 
 
-def _concrete_contact(member: Mapping[str, Any]) -> dict[str, Any] | None:
+def _concrete_contact(member: Mapping[str, Any], *, preserve_geometry: bool = False) -> dict[str, Any] | None:
     """Conserva el contacto original como contexto hermenéutico, no como nueva raíz."""
 
     contact = member.get("contact")
@@ -118,6 +118,12 @@ def _concrete_contact(member: Mapping[str, Any]) -> dict[str, Any] | None:
         "layer_a": str(contact.get("layer_a") or "").strip(),
         "layer_b": str(contact.get("layer_b") or "").strip(),
         "exactness": float(exactness) if exactness is not None else None,
+        **{key: contact[key] for key in (
+            "longitude_a", "longitude_b", "declination_a", "declination_b", "transformed_longitude",
+            "angle", "orb", "orb_limit", "separation", "distance",
+            "applying", "separating", "phase", "node_variant",
+            "calculation_method", "source_ref",
+        ) if preserve_geometry and key in contact},
     }
 
 
@@ -324,7 +330,7 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
         concrete_contacts = [
             concrete
             for member in members
-            for concrete in [_concrete_contact(member)]
+            for concrete in [_concrete_contact(member, preserve_geometry=context.raw_input.get("maximum_definition_context") is True)]
             if concrete is not None
         ]
         concrete_contacts.sort(

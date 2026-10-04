@@ -12,6 +12,8 @@ La secuencia interpretativa preferente es:
 
 La metodología cuantitativa interviene para graduar confianza, independencia y estabilidad. No ocupa el centro narrativo salvo que el usuario solicite una auditoría técnica.
 
+Aplicar además [extracción y definición completa](maximum-definition-hermeneutics.md) y consumir el atlas de referencias del modelo documental para controlar cobertura, contexto y lagunas sin recalcular ni inflar evidencia.
+
 ## Arquitectura antes que etiqueta
 
 Antes de valorar AF, KA, AG, LG o cualquier categoría multiaxial, la lectura debe poder explicar en lenguaje ordinario qué clase de vínculo describen las cartas.

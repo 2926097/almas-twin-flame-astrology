@@ -196,6 +196,102 @@
                   ],
                   "minimum": 0,
                   "maximum": 1
+                },
+                "longitude_a": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "longitude_b": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "declination_a": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "declination_b": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "angle": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "orb": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "orb_limit": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "separation": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "distance": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "applying": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "separating": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "phase": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "node_variant": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "calculation_method": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "source_ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "transformed_longitude": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": false

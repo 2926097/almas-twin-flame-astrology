@@ -8,11 +8,11 @@ metadata:
   tags: [astrology, relationships, esotericism, metaphysics, hermeneutics, research, validation]
 ---
 
-# ALMAS · Astrología Metafísica Relacional v1.25.0
+# ALMAS · Astrología Metafísica Relacional v1.26.0
 
 ## 0. Estado de la release pública
 
-Ésta es la release pública `1.25.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
+Ésta es la release pública `1.26.0` del motor ALMAS de astrología metafísica relacional. La distribución en GitHub prioriza reglas generalizadas, contratos de implementación reutilizables, procedencia de fuentes públicas y ejemplos sintéticos. Los casos reales sólo pueden incorporarse cuando sus datos subyacentes ya son públicos e independientemente verificables y la procedencia queda registrada.
 
 La release 1.14.0 conserva el cierre cuantitativo Q1–Q7 de 1.13.0 y añade una segunda capa de identidad: `root_key` permanece geométrica y `motif_id` representa recurrencia semántica multitécnica. PX y PS se derivan ahora del grafo de motivos, M21 atribuye IEM_pre sobre unidades canónicas de evidencia, M23 publica una curva horaria R5/R15/R30/R60/R120 aun sin rating documentado, M13 dispone de una baseline histórica Fortuna/Espíritu y M30 evalúa completitud relativa al perfil solicitado.
 
@@ -33,6 +33,10 @@ La release 1.23.0 añade el `Chiron–Nodal Integration Engine` como extensión 
 La release 1.24.0 añade surrender, retirada vestal y celibato relacional como extensión descriptiva exploratoria. Consultar [contrato](reference/surrender-vestal-contract.md) y [corpus comparado](reference/surrender-vestal-corpus.md) antes de usarla. Evaluar por sujeto y ventana; separar estado del proceso y respaldo, conducta documentada y corroboración simbólica. No importar clasificaciones preliminares de casos, no exigir astrología para evaluar conducta y no usar celibato o Vesta para elevar origen. Conservar IEM e IAT sin cambios; no inferir fase bilateral, sexualidad ajena ni reunión.
 
 La release 1.24.1 amplía el corpus y añade límites doctrinales ejecutables. Consultar [ampliación doctrinal](reference/corpus-doctrine-expansion.md) para atribución por pasaje, nueve lecturas íntegras pendientes, contra-doctrinas, familias conservadoras de dependencia y trazabilidad personal. Usar `assess_corpus_claim` con alcance explícito: SUPPORTED/CONTRADICTED doctrinales no confirman ni excluyen ontología de un caso. No contar citas como raíces astrológicas ni sustituir L3.
+
+### Definición completa de posiciones y contactos
+
+Aplicar [extracción y definición interpretativa completa](reference/maximum-definition-hermeneutics.md) en toda lectura natal, relacional, temporal y VED, en chat o documento. En ejecuciones nuevas destinadas a definición extensa, declarar `maximum_definition_context: true` para preservar geometría y movimiento sin alterar outputs históricos desactivados. Consumir `interpretive_atlas` del modelo personal/relacional o construirlo desde el canónico con `scripts/build_interpretive_atlas.py`. Desarrollar función, modo, escenario, geometría y alternativa de los factores seleccionados; conservar polos concretos y dependencia. No rellenar lagunas con técnicas o significados no documentados. El atlas controla cobertura editorial, no score ni ontología.
 
 ### Enfoque de investigación metafísica
 

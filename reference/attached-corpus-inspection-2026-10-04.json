@@ -1,0 +1,159 @@
+{
+  "scope": "Inventario preliminar; no promoción de fuentes ni citas. No incorpora PDF ni reproduce su texto.",
+  "files": [
+    {
+      "file": "01-krishnamurti-reader.pdf",
+      "sha256": "4bb50a344a2051367a8eb78861faf393167a42e060d4a03ba709f45cd0f3099d",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 806,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false,
+      "identity_note": "Portada y contenidos identifican U. G. Krishnamurti; edición de Mukunda Rao. No atribuir a J. Krishnamurti."
+    },
+    {
+      "file": "02-Watts-The-Book.pdf",
+      "sha256": "5e1e3f3b23df97501216c3240a0b71a63d8e58c0f6c6bc5b84ed3ef0346d2149",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 2199,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "03-Edgar-Cayce-On-Reincarnation.pdf",
+      "sha256": "dd9115139fc4f198553a6267e987b0289f59d5277760ce64174e20696e37ae07",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 0,
+      "status": "OCR_REQUIRED_OR_HEADER_WITHOUT_TEXT",
+      "full_passage_verification": false
+    },
+    {
+      "file": "04-El-cuerpo-astral-y-los-universos-paralelos.pdf",
+      "sha256": "6dc4b0b17dd5e2b9405d8b5df7ea8b57143e72e7eb7d1ea4f2fbf8570cf2ec2b",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 4113,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "05-krishnamurti-el-arte-de-escuchar.pdf",
+      "sha256": "875b7ff15d9f92e404a490454889c0958d8f3c94288934fa304a91cad6f0087c",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 27794,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false,
+      "identity_note": "Portada identifica J. Krishnamurti, Obras completas, tomo I, El arte de escuchar."
+    },
+    {
+      "file": "06-el-libro-del-tabu-alan-watts.pdf",
+      "sha256": "2ee9fa0cc298ea5dfbf4031535ec1ccdee7fcb4dc63247cd26cee12a9e658c9f",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 7533,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "07-La_Cabala_El_Conocimiento_Completo.pdf",
+      "sha256": "a420ca498f42eadaab0cd227e422f6660461e4bdff8e43c5c3a551c060d5252a",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 6142,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "08-El-Poder-Del-Ahora.pdf",
+      "sha256": "20ac3f952dcb9586efbe022ee5cc6dd67d7e6d4d20d1f543b898bb0b08acd307",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 8444,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "09-Dispenza_Joe_Deja_De_Ser_Tu.pdf",
+      "sha256": "9a2c6b251464e21e83ce2ada6a223b9a3bd77063fce200e350bee848a116ea67",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 10649,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "10-Autobiograf-a-de-un-yogi.pdf",
+      "sha256": "f55771ddab49c00b92c96566515f8606a45243106a6b848eb21d47095d66169a",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 13263,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "11-SOBRENATURAL-Joe-Dispenza.pdf",
+      "sha256": "125d72270253abc203ce72eec1a9232825f805a1e4b166c182ce56a2b7f5c4ca",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 7308,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "12-Libro-de-La-Sabiduria-tomo-II.pdf",
+      "sha256": "2230ef912463237d0f96abcb0d199684e5c6af736f0dda4740a033f70101331b",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 0,
+      "status": "OCR_REQUIRED_OR_HEADER_WITHOUT_TEXT",
+      "full_passage_verification": false
+    },
+    {
+      "file": "13-astrologia-cabalistica.pdf",
+      "sha256": "bf5cf144698f8ed59921c0f4e65a54f956ed3391ec60c011fcf4df561a4f5ea4",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 5167,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "14-Astrology-_Psychology-_and_the_Four_Elements_by_Stephen_Arroyo.pdf",
+      "sha256": "187ac4ce1b994303e6c5f010227894c69e9d3c5f2c8f605dc1fec9b772068dec",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 7158,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "15-Jung-s-Studies-in-Astrology-by-Liz-Greene.pdf",
+      "sha256": "d585a849f3ce47a9b1e10ad8086e494067d7bcc17cd3d855561c0af42d16de86",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 8302,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "16-Sepharial-Kabbalistic-Astrology-Walter-Gorn-Old-3-8c8df1fc6ccc76610a49abc40784c49e-Anna-s-Archive.pdf",
+      "sha256": "55eec1636d394bc455d559af0c78cfc4d35d9cedbd5e37f0909073ba2f385ed4",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 0,
+      "status": "OCR_REQUIRED_OR_HEADER_WITHOUT_TEXT",
+      "full_passage_verification": false
+    },
+    {
+      "file": "17-Chris_Brennan_Hellenistic_Astrology_The_Study_of_Fate_and_Fortune.pdf",
+      "sha256": "5b4f673839b7fcff62c8bc9e74171df69e9af5cc9843205db6f65f7166cb2c00",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 5278,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    },
+    {
+      "file": "18-Kabbalistic-Astrology-by-Joel-C.-Dobin.pdf",
+      "sha256": "6e0bdda35b523ee136e7e84702c0197306b7fcd1489f29b21c5daeb3894a3be2",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 0,
+      "status": "OCR_REQUIRED_OR_HEADER_WITHOUT_TEXT",
+      "full_passage_verification": false
+    },
+    {
+      "file": "19-The-anatomy-of-fate-_-Kabbalistic-astrology-Halevi-Z-ev-ben-Shimon-London-England-1978-Rider-9780091326418-e00e89c366c83db4ffe10c14fc42a523-Anna-s-Archive.pdf",
+      "sha256": "19fd6024758008293c9857492dd8ceb9ca39141738793148eb91f6d6f47e3074",
+      "inspection_scope": "PDF_PAGES_1_TO_8_TEXT_LAYER_ONLY",
+      "text_chars_first_8_pages": 2115,
+      "status": "HEADER_INSPECTED_NOT_FULLY_VERIFIED",
+      "full_passage_verification": false
+    }
+  ]
+}

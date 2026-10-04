@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .interpretive_atlas import build_interpretive_atlas
+
 from hashlib import sha256
 import json
 from typing import Any, Mapping
@@ -361,6 +363,7 @@ def m31_report(context: ModuleContext) -> ModuleResult:
         "canonical_fingerprint": current_fingerprint,
         "canonical_fingerprint_verified": True,
         "promotion_reporting": promotion_reporting,
+        "interpretive_atlas": build_interpretive_atlas(canonical),
         "sections": sections,
         "section_counts": section_counts,
         "section_order_fixed": True,

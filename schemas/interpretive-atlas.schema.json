@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/interpretive-atlas.schema.json",
+  "title": "ALMAS · Atlas de referencias interpretativas",
+  "type": "object",
+  "properties": {
+    "atlas_version": {
+      "const": "ALMAS_INTERPRETIVE_ATLAS_V1"
+    },
+    "canonical_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "available_routes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_routes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "leaf_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "data_ref",
+          "field_refs",
+          "missing_dimensions",
+          "natal_substrate_refs"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "position",
+              "contact"
+            ]
+          },
+          "data_ref": {
+            "type": "string"
+          },
+          "field_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missing_dimensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "natal_substrate_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "canonical_values_embedded": {
+      "const": false
+    },
+    "canonical_values_mutated": {
+      "const": false
+    },
+    "creates_additional_evidence": {
+      "const": false
+    },
+    "semantic_interpretation_generated": {
+      "const": false
+    }
+  },
+  "required": [
+    "atlas_version",
+    "canonical_fingerprint",
+    "available_routes",
+    "missing_routes",
+    "leaf_refs",
+    "entries",
+    "canonical_values_embedded",
+    "canonical_values_mutated",
+    "creates_additional_evidence",
+    "semantic_interpretation_generated"
+  ],
+  "additionalProperties": false
+}
