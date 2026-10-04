@@ -167,6 +167,10 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
                 "longitude": longitude,
                 **sign_data,
                 "point_type": data.get("point_type"),
+                **{key: data[key] for key in (
+                    "latitude", "declination", "speed", "retrograde",
+                    "node_variant", "nodal_axis_id", "calculation_method", "time_scale",
+                ) if context.raw_input.get("maximum_definition_context") is True and key in data},
             }
             if data.get("point_type") == "NODE":
                 nodes[point_id] = point_signs[point_id]

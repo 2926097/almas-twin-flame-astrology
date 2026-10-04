@@ -3,10 +3,22 @@
   "$id": "https://example.invalid/almas/relational-work-request.schema.json",
   "title": "ALMAS · Envolvente relacional del panel",
   "type": "object",
-  "required": ["request"],
+  "required": [
+    "request"
+  ],
   "properties": {
-    "case_title": {"type": ["string", "null"]},
-    "research_question": {"type": ["string", "null"]},
+    "case_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "research_question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "request": {
       "type": "object",
       "required": [
@@ -18,9 +30,18 @@
         "execution_state"
       ],
       "properties": {
-        "format": {"const": "ALMAS_WORK_REQUEST"},
-        "public_version": {"enum": ["1.25.0", "1.26.0"]},
-        "type": {"const": "RELATIONAL"},
+        "format": {
+          "const": "ALMAS_WORK_REQUEST"
+        },
+        "public_version": {
+          "enum": [
+            "1.25.0",
+            "1.26.0"
+          ]
+        },
+        "type": {
+          "const": "RELATIONAL"
+        },
         "analysis_profile": {
           "enum": [
             "FULL_MULTIDISCIPLINARY",
@@ -49,15 +70,56 @@
               "time_reliability"
             ],
             "properties": {
-              "id": {"type": "string", "minLength": 1},
-              "display_name": {"type": ["string", "null"]},
-              "birth_date": {"type": "string", "format": "date"},
-              "birth_time": {"type": ["string", "null"]},
-              "timezone": {"type": ["string", "null"]},
-              "place": {"type": ["string", "null"]},
-              "latitude": {"type": "number", "minimum": -90, "maximum": 90},
-              "longitude": {"type": "number", "minimum": -180, "maximum": 180},
-              "time_reliability": {"enum": ["A", "B", "C", "D"]},
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "display_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "birth_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "birth_time": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "timezone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "place": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "latitude": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              },
+              "longitude": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+              },
+              "time_reliability": {
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
               "birth_time_source_class": {
                 "enum": [
                   "DOCUMENTARY",
@@ -73,7 +135,9 @@
         },
         "events": {
           "type": "array",
-          "items": {"type": "object"}
+          "items": {
+            "type": "object"
+          }
         },
         "analysis_policies": {
           "type": "object",
@@ -110,21 +174,48 @@
             },
             "secondary_symbolic_policy": {
               "type": "object"
+            },
+            "maximum_definition_context": {
+              "type": "boolean"
             }
           },
           "additionalProperties": false
         },
-        "execution_state": {"const": "REQUEST_ONLY"},
-        "research_question": {"type": ["string", "null"]},
-        "situation_location": {"type": ["object", "null"]},
-        "requirements": {"type": ["string", "null"]}
+        "execution_state": {
+          "const": "REQUEST_ONLY"
+        },
+        "research_question": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "situation_location": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "requirements": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
       "additionalProperties": true
     },
-    "situation": {"type": ["object", "null"]},
+    "situation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
     "chronology": {
       "type": "array",
-      "items": {"type": "object"}
+      "items": {
+        "type": "object"
+      }
     }
   },
   "additionalProperties": true

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .interpretive_atlas import build_interpretive_atlas
+
 from hashlib import sha256
 import json
 from typing import Any, Mapping, Sequence
@@ -501,6 +503,7 @@ def build_personal_report_document_model(
         "canonical_fingerprint": current,
         "canonical_fingerprint_verified": True,
         "reference_domains": route_personal_reference_domains(canonical),
+        "interpretive_atlas": build_interpretive_atlas(canonical),
         "sections": sections,
         "publication_contract": {
             "profile_family": "ALMAS_B5",
