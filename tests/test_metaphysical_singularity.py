@@ -134,6 +134,18 @@ class MetaphysicalSingularityTests(unittest.TestCase):
         for name in ['values','source-map']:
             p=f'metaphysical-singularity-{name}.json'
             self.assertEqual(json.loads((ROOT/'reference'/p).read_text()),json.loads((ROOT/'src/almas_tfa/data'/p).read_text()))
+    def test_all_verified_contexts_preserve_model_requirements(self):
+        sources=json.loads((ROOT/'reference/metaphysical-singularity-source-map.json').read_text())['sources']
+        models=['TWIN_FLAME_MODEL','SOULMATE_MODEL','SOUL_FAMILY_GROUP','MONADIC_COMMON_SOURCE','SPLIT_SOUL','ZIVUG']
+        baseline=assess_metaphysical_singularity({'model_ids':models,'source_refs':[sources[0]['id']]})
+        expanded=assess_metaphysical_singularity({'model_ids':models,'source_refs':[s['id'] for s in sources]})
+        for key in ['PU_D','PU_R','PU_O','pu_score','ontology_effect','production_scores_affected']:
+            self.assertEqual(baseline[key],expanded[key])
+    def test_contemporary_books_do_not_become_ontology_or_case_evidence(self):
+        r=assess_metaphysical_singularity({'source_refs':['pu_dispenza_deja_ser','pu_dispenza_sobrenatural','pu_joseph_sabiduria_ii']})
+        self.assertTrue(all(x['doctrine_state']=='NOT_EVALUABLE' and x['case_correspondence']['status']=='NOT_EVALUABLE' for x in r['PU_D']['rows']))
+        self.assertEqual(r['PU_O']['state'],'NOT_EVALUABLE')
+        self.assertIsNone(r['pu_score'])
     def test_cli_and_reproducibility(self):
         with tempfile.TemporaryDirectory() as tmp:
             inp=Path(tmp)/'input.json';out=Path(tmp)/'output.json';inp.write_text(json.dumps(request()))
