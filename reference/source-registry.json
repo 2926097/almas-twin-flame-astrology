@@ -215,7 +215,8 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "concepts": [
-        "TWIN_FLAME_ORIGIN"
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
@@ -266,7 +267,8 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "concepts": [
-        "TWIN_FLAME_ORIGIN"
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
@@ -722,7 +724,8 @@
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "concepts": [
-        "TWIN_FLAME_ORIGIN"
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
@@ -1795,7 +1798,8 @@
         "equivalencia con zivug luriano, Mónada teosófica o uso literario victoriano de twin flame"
       ],
       "concepts": [
-        "TWIN_FLAME_ORIGIN"
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
       "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
@@ -5625,7 +5629,59 @@
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ],
       "notes": "Preregistro heredado de F1; integración técnica en 2026-10-03, sin nueva lectura íntegra."
+    },
+    {
+      "id": "ballard_magic_presence_1935_twin_rays",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "I AM Activity / Saint Germain Foundation",
+      "author": "Godfré Ray King (Guy W. Ballard)",
+      "work": "The Magic Presence",
+      "date": "1935",
+      "date_note": "Primera edición: Saint Germain Press, Chicago, 1935; el ancla textual se verifica en una edición posterior publicada por Saint Germain Foundation/Press.",
+      "passage": "Explicación de los Rays; p. 96 en la edición digital consultada",
+      "pages": "96",
+      "url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
+      "download_url": null,
+      "doi": null,
+      "license": null,
+      "rights_note": "Fuente primaria doctrinal; citar brevemente y respetar los derechos de la edición de Saint Germain Press/Foundation.",
+      "local_file": null,
+      "sha256": null,
+      "translation_note": "Terminología inglesa preservada para distinguir Flame, Rays, Spark y Mighty I AM Presence.",
+      "supports": [
+        "doctrina explícita en la que la Almighty God Flame proyecta Two Rays en la Pure Electronic Light",
+        "cada Ray recibe de la Individualized Flame un Focal Point o Spark que forma un Heart Center y el Electronic Body",
+        "arquitectura de emanación/proyección desde una Llama hacia dos Rayos, distinta de una mera metáfora literaria de afinidad"
+      ],
+      "does_not_support": [
+        "que Marie Corelli sea fuente directa de esta doctrina o que exista transmisión histórica Corelli→Ballard",
+        "que proyección de dos Rayos sea idéntica a división literal de una sola alma o al modelo posterior del white-fire body de Summit Lighthouse",
+        "un criterio astrológico capaz de identificar una pareja concreta como Twin Rays o twin flames"
+      ],
+      "concepts": [
+        "DIVINE_FLAME_TWIN_RAY_PROJECTION"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_note": "El PDF oficial indexado por Saint Germain Foundation contiene el pasaje de p. 96 sobre la Almighty God Flame que projects Two Rays; la edición de 1935 está además identificada bibliográficamente.",
+      "verification_anchor": "The Magic Presence, p. 96: explicación de la Almighty God Flame que proyecta Two Rays y de la Individualized Flame que deposita un Focal Point/Spark en cada Ray.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
+      "evidence_scope": "DOCTRINAL_CLAIM",
+      "source_id": "ballard_magic_presence_1935_twin_rays",
+      "historical_context": "I AM Activity / Ascended Master Teachings, Estados Unidos, década de 1930.",
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ],
+      "notes": "P1 para describir la doctrina interna de Ballard. No prueba la ontología ni autoriza a convertir el motivo Twin Rays en un subtipo confirmado de una relación real."
     }
   ],
-  "registry_revision": "2026-10-03-fixed-stars-personal"
+  "registry_revision": "2026-10-04-twin-flame-flame-genealogy"
 }
