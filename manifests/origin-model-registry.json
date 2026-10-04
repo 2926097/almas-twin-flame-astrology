@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.2.0",
+  "registry_version": "1.3.0",
   "models": [
     {
       "id": "INDEPENDENT_SOULS",
@@ -100,22 +100,23 @@
     },
     {
       "id": "SPLIT_SOUL",
-      "source_class": "LITERARY_COMPARATIVE",
+      "source_class": "PROJECT_BOUNDARY_WITH_COMPARATIVE_ANTECEDENTS",
       "source_ids": [
-        "plato_symposium_aristophanes",
-        "corelli_romance_two_worlds_1886"
+        "plato_symposium_aristophanes"
       ],
       "essential_signature": {
-        "origin_relation": "division_of_one"
+        "origin_relation": "literal_division_of_one_entity",
+        "literal_split_required": true
       },
       "pair_uniqueness": "model_dependent",
       "astrological_discriminator_status": "NOT_VALIDATED",
       "max_resolution_claim": "O3_UNIQUE_DYADIC",
       "axis": "ORIGIN",
       "concept_ids": [
-        "SPLIT_PRIMORDIAL_BEING",
-        "TWIN_FLAME_LITERARY_GENEALOGY"
-      ]
+        "SPLIT_SOUL",
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "architecture_note": "Corelli se excluye como soporte directo: «half a flame» funciona como símil literario de dualidad; Ballard usa proyección; Summit usa white-fire body/two spheres."
     },
     {
       "id": "TWIN_SOUL",
@@ -151,14 +152,17 @@
         "pair_uniqueness": "exclusive",
         "polarity": "masculine_feminine",
         "shared_blueprint": "explicit",
-        "shared_task": "explicit"
+        "shared_task": "explicit",
+        "origin_architecture": "white_fire_body_dual_sphere_model"
       },
       "astrological_discriminator_status": "NOT_VALIDATED",
       "max_resolution_claim": "O3_UNIQUE_DYADIC",
       "axis": "ORIGIN",
       "concept_ids": [
-        "TWIN_FLAME_ORIGIN"
-      ]
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
+      ],
+      "architecture_note": "TWIN_FLAME_MODEL conserva como doctrina directa la formulación Summit. La arquitectura Twin Rays de Ballard se registra como vecina, no como sinónimo automático."
     }
   ],
   "discriminators": [
@@ -254,6 +258,68 @@
       "kind": "ASTROLOGICAL",
       "status": "NOT_VALIDATED",
       "resolution_level": "O3_UNIQUE_DYADIC"
+    },
+    {
+      "id": "D_ORIGIN_SUBSTRATE",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_ORIGIN_OPERATOR",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_METAPHOR_VS_LITERAL",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D_PROJECTION_VS_DIVISION",
+      "kind": "DOCTRINAL",
+      "status": "DOCUMENTED"
     }
-  ]
+  ],
+  "origin_architectures": [
+    {
+      "id": "DUAL_SOUL_HALF_FLAME_SIMILE",
+      "concept_id": "DUAL_SOUL_LITERARY_MODEL",
+      "source_ids": [
+        "corelli_romance_two_worlds_1886"
+      ],
+      "substrate": "SOUL_WITH_FLAME_SIMILE",
+      "operator": "DUALITY_AS_HALF_FLAME_SIMILE",
+      "output": "COUNTERPART_HALF_IN_LITERARY_IMAGE",
+      "doctrinal_status": "LITERARY_ESOTERIC_GENEALOGY",
+      "case_level_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "concept_id": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "source_ids": [
+        "ballard_magic_presence_1935_twin_rays"
+      ],
+      "substrate": "ALMIGHTY_OR_INDIVIDUALIZED_GOD_FLAME",
+      "operator": "PROJECTS_TWO_RAYS",
+      "output": "TWO_RAYS_WITH_SPARK_OR_FOCAL_POINT",
+      "doctrinal_status": "DIRECT_DOCTRINE",
+      "case_level_discriminator_status": "NOT_VALIDATED"
+    },
+    {
+      "id": "WHITE_FIRE_BODY_DUAL_SPHERE",
+      "concept_id": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "source_ids": [
+        "summit_lighthouse_soulmates_twin_flames",
+        "summit_lighthouse_glossary_twin_flame",
+        "prophet_twin_flames_qa_part1",
+        "summit_lighthouse_what_is_twin_flame"
+      ],
+      "substrate": "WHITE_FIRE_BODY_OR_OVOID",
+      "operator": "DIVISION_OR_DIFFERENTIATION_INTO_TWO_SPHERES",
+      "output": "TWO_COUNTERPART_SPHERES_OR_I_AM_PRESENCES",
+      "doctrinal_status": "DIRECT_DOCTRINE",
+      "case_level_discriminator_status": "NOT_VALIDATED"
+    }
+  ],
+  "architecture_rule": "Las diferencias de sustrato u operador están SUPPORTED como atribuciones doctrinales cuando la fuente lo permite, pero no elevan una díada real por encima de COMPATIBLE/INSUFFICIENT sin discriminador independiente validado."
 }
