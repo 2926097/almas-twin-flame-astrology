@@ -268,6 +268,9 @@ def m17_independent_roots(context: ModuleContext) -> ModuleResult:
     """M17: agrupa evidencia deduplicada en raíces estructurales conservadoras."""
 
     dedup = context.canonical_snapshot.get("deduplicated_evidence")
+    if "maximum_definition_context" in context.raw_input and not isinstance(context.raw_input["maximum_definition_context"], bool):
+        raise ValueError("maximum_definition_context debe ser booleano.")
+
     if not isinstance(dedup, Mapping):
         return not_evaluable_result("M17", "Falta la salida de M16.")
 
