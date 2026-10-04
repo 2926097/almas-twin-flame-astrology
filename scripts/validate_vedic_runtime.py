@@ -22,6 +22,10 @@ def main():
     assert len(result['sensitivity'])==2
     assert result['events'][0]['temporal_independent_root_count']==0
     assert 'INSUFFICIENT' in render_vedic_report(result)
+    assert result['synastry']['methodological_readiness']['independence']['status'] == 'NOT_ESTABLISHED'
+    assert result['synastry']['methodological_readiness']['ashtakuta']['status'] == 'NOT_EVALUABLE'
+    assert result['synastry']['methodological_readiness']['ived']['status'] == 'UNVALIDATED'
+    assert result['temporal_readiness']['status'] == 'DESCRIPTIVE_ONLY'
     print('VED: PASS; cartas, cuatro capas D1/D9, eventos, sensibilidad, schema y delta canónico cero. Validación externa NOT_PERFORMED.')
 
 
