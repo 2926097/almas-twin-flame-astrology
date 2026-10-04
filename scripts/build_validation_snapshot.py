@@ -9,6 +9,7 @@ import platform
 import subprocess
 import sys
 import unittest
+from run_test_shard import worktree_digest
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
@@ -30,7 +31,9 @@ def main():
     known={t.id() for t in tests};receipts=[json.loads(p.read_text()) for p in args.receipt]
     executed={row['test_id'] for r in receipts for row in r.get('timings',[])}
     revision=subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,capture_output=True,text=True,check=True).stdout.strip()
-    matching=all(r.get('commit')==revision and r.get('executed')==len(r.get('timings',[])) for r in receipts)
+    matching=all(r.get('commit')==revision and r.get('worktree_unchanged') is True
+                 and r.get('worktree_digest')==worktree_digest()
+                 and r.get('executed')==len(r.get('timings',[])) for r in receipts)
     dirty=bool(subprocess.run(['git','status','--porcelain'],cwd=ROOT,capture_output=True,text=True,check=True).stdout)
     result=dict(schema_version='ALMAS_VALIDATION_SNAPSHOT_V1',generated_at=datetime.now(timezone.utc).isoformat(),
                 version=(ROOT/'VERSION').read_text().strip(),python=platform.python_version(),

@@ -4,7 +4,7 @@
 
 ## Estado actual de depuración · 4 octubre 2026
 
-El censo reproducible actual comprende **1.162 tests**, **111 fuentes** (70 `VERIFIED_PRIMARY`, 41 `VERIFIED_METADATA`), **144 conceptos** y **93 relaciones**. Los estados de releases siguientes son históricos y no sustituyen una comprobación del SHA actual. Los recibos y capas de verificación se generan con `scripts/build_validation_snapshot.py`; una batería interrumpida o incompleta permanece `NOT_FULLY_VERIFIED`. El catálogo adjunto añade trazabilidad de 19 archivos/18 obras sin incorporarlos automáticamente al registro canónico. Véanse `docs/AUDIT_DEPURATION_2026_10_04.md` y `docs/ATTACHED_SOURCE_REVIEW_2026_10_04.md`.
+El censo reproducible actual comprende **1.162 tests**, **111 fuentes** (70 `VERIFIED_PRIMARY`, 41 `VERIFIED_METADATA`), **144 conceptos** y **93 relaciones**. La regresión local terminó 1.162 tests en 723,994 s, sin errores ni skips; la verificación exacta del código final se atribuye a los recibos de CI, con SHA y digest del worktree. Los estados de releases siguientes son históricos y no sustituyen una comprobación del SHA actual. Los recibos y capas de verificación se generan con `scripts/build_validation_snapshot.py`; una batería interrumpida o incompleta permanece `NOT_FULLY_VERIFIED`. El catálogo adjunto añade trazabilidad de 19 archivos/18 obras sin incorporarlos automáticamente al registro canónico. Véanse `docs/AUDIT_DEPURATION_2026_10_04.md` y `docs/ATTACHED_SOURCE_REVIEW_2026_10_04.md`.
 
 ## Registro histórico · Release 1.26.0 · Jyotiṣa Relacional observacional
 

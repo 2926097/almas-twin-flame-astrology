@@ -2,6 +2,7 @@
 """Exhaustive disjoint test shards, timings and terminal receipts for CI."""
 import argparse
 import faulthandler
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -17,6 +18,17 @@ INTEGRATIONS={
     'test_full_pipeline.TestFullPipelineSynthetic.test_m00_m31_complete_with_explicit_inputs',
     'test_return_activation.ReturnsTests.test_complete_pipeline_preserves_core_and_report_gate',
 }
+
+
+def worktree_digest():
+    paths=subprocess.run(['git','ls-files','-co','--exclude-standard'],cwd=ROOT,capture_output=True,text=True,check=True).stdout.splitlines()
+    digest=hashlib.sha256()
+    for name in sorted(set(paths)):
+        path=ROOT/name
+        digest.update(name.encode()+b'\0')
+        digest.update(path.read_bytes() if path.is_file() else b'<deleted>')
+        digest.update(b'\0')
+    return digest.hexdigest()
 
 
 def flatten(suite):
@@ -42,6 +54,8 @@ def main():
     parser.add_argument('--receipt',type=Path,required=True)
     parser.add_argument('--diagnostic-interval',type=int,default=0)
     args=parser.parse_args()
+    revision=subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,capture_output=True,text=True,check=True).stdout.strip()
+    initial_digest=worktree_digest()
     faulthandler.enable()
     # A periodic stack is diagnostic only; it never converts a slow test to PASS.
     if args.diagnostic_interval:
@@ -56,18 +70,19 @@ def main():
     started=time.monotonic()
     result=unittest.TextTestRunner(verbosity=2,resultclass=TimedResult).run(unittest.TestSuite(selected))
     faulthandler.cancel_dump_traceback_later()
-    revision=subprocess.run(['git','rev-parse','HEAD'],cwd=ROOT,capture_output=True,text=True,check=True).stdout.strip()
+    final_digest=worktree_digest()
     receipt=dict(schema_version='ALMAS_TEST_RECEIPT_V1',commit=revision,python=platform.python_version(),
+                 worktree_digest=initial_digest,worktree_unchanged=initial_digest==final_digest,
                  shard=args.shard,discovered=len(tests),selected=len(selected),executed=result.testsRun,
                  deselected_test_ids=[t.id() for t in tests if t not in selected],
                  failures=[t.id() for t,_ in result.failures],errors=[t.id() for t,_ in result.errors],
                  skipped=[{'test_id':t.id(),'reason':reason} for t,reason in result.skipped],
                  seconds=round(time.monotonic()-started,6),timings=result.timings,
-                 status='PASS' if result.wasSuccessful() else 'FAIL',
+                 status='PASS' if result.wasSuccessful() and initial_digest==final_digest else 'FAIL',
                  metaphysical_validation=False)
     args.receipt.parent.mkdir(parents=True,exist_ok=True)
     args.receipt.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    return 0 if result.wasSuccessful() else 1
+    return 0 if receipt['status']=='PASS' else 1
 
 
 if __name__=='__main__':raise SystemExit(main())
