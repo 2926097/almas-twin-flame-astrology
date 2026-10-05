@@ -212,6 +212,18 @@ class RelationalRequestPipelineTests(unittest.TestCase):
         with self.assertRaises(RelationalWorkRequestError):
             prepare_relational_raw_input(payload)
 
+    def test_maximum_definition_context_requires_a_boolean(self):
+        for value in ("true", 0, 1, None, [], {}):
+            payload = work_request()
+            payload["request"]["analysis_policies"]["maximum_definition_context"] = value
+            with self.subTest(value=value):
+                with self.assertRaisesRegex(
+                    RelationalWorkRequestError,
+                    "maximum_definition_context debe ser booleano",
+                ):
+                    prepare_relational_raw_input(payload)
+
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 import unittest
 
 from almas_tfa.personal_reporting import (
@@ -168,6 +170,19 @@ class PersonalReportingTests(unittest.TestCase):
             model["publication_contract"]["adapter_status"],
             "READY",
         )
+
+    def test_report_model_schemas_require_interpretive_atlas(self):
+        root = Path(__file__).resolve().parents[1]
+        model = build_personal_report_document_model(canonical())
+        self.assertIn("interpretive_atlas", model)
+        for filename in (
+            "report-document-model.schema.json",
+            "personal-report-document-model.schema.json",
+        ):
+            schema = json.loads((root / "schemas" / filename).read_text(encoding="utf-8"))
+            with self.subTest(schema=filename):
+                self.assertIn("interpretive_atlas", schema["properties"])
+                self.assertIn("interpretive_atlas", schema["required"])
 
     def test_model_rejects_blocked_canonical(self):
         data = canonical()

@@ -129,6 +129,9 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
     """
 
     natal = context.canonical_snapshot.get("natal")
+    if "maximum_definition_context" in context.raw_input and not isinstance(context.raw_input["maximum_definition_context"], bool):
+        raise ValueError("maximum_definition_context debe ser booleano.")
+
     if not isinstance(natal, Mapping):
         return not_evaluable_result(
             "M04",

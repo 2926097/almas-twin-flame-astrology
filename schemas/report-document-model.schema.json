@@ -14,6 +14,7 @@
     "canonical_source",
     "canonical_fingerprint",
     "canonical_fingerprint_verified",
+    "interpretive_atlas",
     "promotion_reporting",
     "sections",
     "section_counts",

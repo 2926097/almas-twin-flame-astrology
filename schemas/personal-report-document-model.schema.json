@@ -13,6 +13,7 @@
     "canonical_source",
     "canonical_fingerprint",
     "canonical_fingerprint_verified",
+    "interpretive_atlas",
     "reference_domains",
     "sections",
     "publication_contract",
