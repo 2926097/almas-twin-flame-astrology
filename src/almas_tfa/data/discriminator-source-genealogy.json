@@ -293,10 +293,10 @@
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ],
-      "verification_anchor": "Project Gutenberg eBook #4394, Heliobas dialogue: explicit Twin-Flame usage and the comparison of a soul to half a flame seeking its other half.",
-      "verification_anchor_type": "EXACT_PASSAGE",
-      "verification_anchor_url": "https://www.gutenberg.org/files/4394/4394-h/4394-h.htm",
-      "evidence_scope": "DOCTRINAL_CLAIM"
+      "verification_anchor": null,
+      "verification_anchor_type": null,
+      "verification_anchor_url": null,
+      "evidence_scope": null
     },
     {
       "id": "ballard_magic_presence_1935_twin_rays",
