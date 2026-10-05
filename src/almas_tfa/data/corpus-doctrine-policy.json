@@ -6131,6 +6131,18 @@
       "source_id": "summit_lighthouse_glossary_twin_flame",
       "polarity": "SUPPORTS",
       "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "source_id": "summit_lighthouse_soulmates_twin_flames",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
+    },
+    {
+      "concept_id": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "source_id": "prophet_twin_flames_qa_part1",
+      "polarity": "SUPPORTS",
+      "epistemic_class": "C_DOCTRINE"
     }
   ],
   "forbidden_upgrades": [
