@@ -24,36 +24,18 @@
       "work": "Symposium",
       "passage": "189c-193d",
       "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
-      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
-      "supports": [
-        "mito de Aristófanes sobre seres humanos originalmente íntegros, divididos y orientados a la reunión",
-        "antecedente histórico de imágenes posteriores de pareja escindida"
-      ],
-      "does_not_support": [
-        "identidad con la doctrina moderna de llamas gemelas",
-        "reglas diagnósticas astrológicas"
-      ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Filosofía griega clásica",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "date": null,
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "Symposium 189c-193d, Aristophanes' speech: myth of primordial humans divided and seeking reunion.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "plato_symposium_aristophanes",
-      "historical_context": "Classical Greek text; commonly dated to the 4th century BCE",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -63,8 +45,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "brihadaranyaka_1_4_3",
@@ -73,37 +54,18 @@
       "work": "Brihadaranyaka Upanishad",
       "passage": "1.4.3",
       "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
-      "url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
-      "supports": [
-        "pasaje cosmogónico en el que un yo primordial se divide en marido y mujer",
-        "análogo comparativo para motivos de división/reunión"
-      ],
-      "does_not_support": [
-        "una taxonomía moderna de llamas gemelas",
-        "una única contraparte romántica para toda persona contemporánea",
-        "verificación astrológica"
-      ],
-      "translation_note": "Max Müller, The Upanishads, Part II, Sacred Books of the East vol. XV, Oxford, Clarendon Press, 1884. Passage 1.4.3 cross-checked against Sanskrit/transliteration in modern text repositories.",
       "source_role": "DOCTRINAL_PRIMARY",
       "verification_status": "VERIFIED_PRIMARY",
       "tradition": "Tradición hindú upanishádica",
       "concepts": [
         "SPLIT_PRIMORDIAL_BEING"
       ],
-      "rights_note": "Max Müller's 1884 English translation is public-domain material; verify platform-specific reuse terms for scans/transcriptions.",
       "date": null,
       "pages": null,
-      "doi": null,
-      "download_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
-      "license": null,
-      "local_file": null,
-      "sha256": null,
       "verification_anchor": "Brihadaranyaka Upanishad 1.4.3 in Max Müller's 1884 translation: primordial self dividing into husband and wife.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "brihadaranyaka_1_4_3",
-      "historical_context": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -113,8 +75,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "blavatsky_secret_doctrine_monads",
@@ -123,13 +84,6 @@
       "work": "The Secret Doctrine, Volume I",
       "passage": "p. 170, 'Additional Facts and Explanations Concerning the Globes and the Monads'",
       "date": "1888",
-      "url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
-      "supports": [
-        "uso teosófico de la terminología Mónada dentro de una doctrina evolutiva/cosmológica"
-      ],
-      "does_not_support": [
-        "equivalencia automática entre la Mónada teosófica y una pareja romántica de llamas gemelas"
-      ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Teosofía",
       "concepts": [
@@ -137,21 +91,12 @@
         "THEOSOPHICAL_MONAD"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "date_note": null,
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "The Secret Doctrine, vol. I, section 'Additional Facts and Explanations Concerning the Globes and the Monads', around p. 170 in the cited edition.",
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "blavatsky_secret_doctrine_monads",
-      "historical_context": "Teosofía",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -161,8 +106,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "bailey_esoteric_psychology_soul",
@@ -170,14 +114,6 @@
       "author": "Alice A. Bailey",
       "work": "Esoteric Psychology, Volume I",
       "passage": "Chapter II, Question 1: What is the soul?",
-      "url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
-      "supports": [
-        "exposición esotérica diferenciada de espíritu, alma, personalidad y forma encarnada",
-        "ontología comparativa del alma"
-      ],
-      "does_not_support": [
-        "atribución automática a Bailey de una doctrina romántica canónica de llamas gemelas"
-      ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
       "concepts": [
@@ -186,22 +122,13 @@
         "MONAD_SOUL_PERSONALITY"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "date": null,
       "date_note": null,
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "Esoteric Psychology, Volume I, Section One, Chapter II, Question 1: 'What is the soul?'",
       "verification_anchor_type": "CHAPTER",
       "verification_anchor_url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "bailey_esoteric_psychology_soul",
-      "historical_context": "Esoterismo de Alice Bailey / Lucis Trust",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -211,23 +138,13 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "summit_lighthouse_soulmates_twin_flames",
       "priority": "P1_PRIMARY",
       "author": "The Summit Lighthouse / Elizabeth Clare Prophet tradition",
       "work": "Soulmates and Twin Flames",
-      "url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
-      "supports": [
-        "distinción moderna explícita entre llamas gemelas, almas gemelas y relaciones kármicas",
-        "doctrina según la cual las llamas gemelas fueron creadas juntas en un único ovoide ígneo y diferenciadas en polaridad masculina/femenina"
-      ],
-      "does_not_support": [
-        "validación científica de la doctrina",
-        "prueba astrológica de que una pareja concreta pertenezca a la categoría"
-      ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "concepts": [
@@ -235,24 +152,14 @@
         "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
       "date": null,
       "date_note": null,
       "passage": "Sections 'Twin Flames', 'Soul Mates', and 'Karmic Relationship'",
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "Official doctrinal differentiation among twin flames, soul mates and karmic relationships; twin flames are described as created together in a single fiery ovoid.",
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "summit_lighthouse_soulmates_twin_flames",
-      "historical_context": "Summit Lighthouse / Church Universal and Triumphant",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -262,8 +169,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "summit_lighthouse_glossary_twin_flame",
@@ -271,15 +177,6 @@
       "author": "The Summit Lighthouse",
       "work": "Glossary",
       "passage": "Twin flame",
-      "url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
-      "supports": [
-        "definición organizacional de llama gemela como contraparte masculina o femenina concebida del mismo cuerpo de fuego blanco",
-        "referencias bibliográficas a materiales de Summit Lighthouse de 1978, 1985 y posteriores"
-      ],
-      "does_not_support": [
-        "prioridad histórica sobre todos los usos anteriores del lenguaje twin-flame",
-        "criterios diagnósticos astrológicos"
-      ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "concepts": [
@@ -287,23 +184,13 @@
         "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
       "date": null,
       "date_note": null,
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "Glossary entry 'Twin flame'.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "summit_lighthouse_glossary_twin_flame",
-      "historical_context": "Summit Lighthouse / Church Universal and Triumphant",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -313,8 +200,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "stokke_spiritual_love_relations_2021",
@@ -323,17 +209,6 @@
       "work": "Exploring the transpersonal phenomena of spiritual love relations",
       "date": "2021",
       "pages": "130-144",
-      "doi": "10.1080/20440243.2021.1955454",
-      "url": "https://hdl.handle.net/11250/2994583",
-      "license": "CC BY-NC-ND 4.0",
-      "supports": [
-        "documentación empírica de experiencias reportadas en relaciones que los participantes denominan almas gemelas",
-        "motivos reportados que incluyen reconocimiento instantáneo, sincronicidad, transformación e integración arquetípica"
-      ],
-      "does_not_support": [
-        "verificación objetiva de la ontología soulmate",
-        "criterios diagnósticos de llamas gemelas o contrato álmico"
-      ],
       "source_role": "ACADEMIC_ANALYSIS",
       "tradition": "Estudio académico de la espiritualidad contemporánea",
       "concepts": [
@@ -344,20 +219,12 @@
         "TWIN_FLAME_EMIC_USAGE"
       ],
       "verification_status": "VERIFIED_METADATA",
-      "rights_note": "Use according to stated license: CC BY-NC-ND 4.0.",
-      "verification_note": "Peer-reviewed open-access study verified; convenience sample of 140 naturally occurring responses in a New Age Facebook group. It documents reported phenomena and explicitly does not provide population-level prevalence or ontological verification.",
       "date_note": null,
       "passage": "Abstract; study of 140 responses, pp. 130-144",
-      "download_url": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "Open-access abstract identifies a naturalistic observation study of 140 responses in a New Age Facebook group concerning self-described soulmate experiences.",
       "verification_anchor_type": "ABSTRACT",
       "verification_anchor_url": "https://www.tandfonline.com/doi/pdf/10.1080/20440243.2021.1955454",
       "evidence_scope": "PHENOMENOLOGY",
-      "source_id": "stokke_spiritual_love_relations_2021",
-      "historical_context": "Estudio académico de la espiritualidad contemporánea",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -367,23 +234,13 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "prophet_twin_flames_qa_part1",
       "priority": "P1_PRIMARY",
       "author": "Elizabeth Clare Prophet",
       "work": "Soul Mates and Twin Flames: Q and A Part 1",
-      "url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
-      "supports": [
-        "doctrina moderna explícita de llamas gemelas originadas en un único ovoide de fuego blanco",
-        "diferenciación explícita entre llamas gemelas, almas gemelas y relaciones kármicas"
-      ],
-      "does_not_support": [
-        "validación científica",
-        "prueba astrológica de una pareja concreta"
-      ],
       "source_role": "DOCTRINAL_PRIMARY",
       "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "concepts": [
@@ -391,24 +248,14 @@
         "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
-      "verification_note": "Official Summit Lighthouse material verified as explicit modern twin-flame doctrine; treat as doctrine of this movement, not as the historical origin of the expression.",
       "date": null,
       "date_note": null,
       "passage": null,
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
       "verification_anchor": "Soul Mates and Twin Flames: Q and A Part 1; official sections defining twin flames, soul mates and karmic relationships.",
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "prophet_twin_flames_qa_part1",
-      "historical_context": "Summit Lighthouse / Church Universal and Triumphant",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -418,8 +265,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      ]
     },
     {
       "id": "corelli_romance_two_worlds_1886",
@@ -428,40 +274,15 @@
       "author": "Marie Corelli",
       "work": "A Romance of Two Worlds",
       "date": "1886",
-      "url": "https://www.gutenberg.org/ebooks/4394",
-      "passages": [
-        "Twin Flame / Twin-Flame passages around Gutenberg text lines 285 and 1283-1287",
-        "Twin Soul passages around lines 1819 and 1844"
-      ],
-      "supports": [
-        "uso literario documentado en 1886 de las expresiones exactas Twin Flame, Twin-Flame, Twin-Flames y Twin Soul",
-        "modelo literario de un alma incompleta como media llama que busca una contraparte",
-        "imaginería de afinidad espiritual y reunión post mortem"
-      ],
-      "does_not_support": [
-        "doctrina institucional",
-        "prioridad histórica sobre cualquier uso anterior posible sin ampliar la investigación de corpus",
-        "criterios diagnósticos astrológicos"
-      ],
       "tradition": "Ficción esotérica victoriana",
       "concepts": [
         "TWIN_FLAME_LITERARY_GENEALOGY",
         "DUAL_SOUL_LITERARY_MODEL"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "rights_note": "Use quotations and reproductions according to the rights status of the specific edition/translation.",
       "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
-      "verification_note": "Project Gutenberg text verifies explicit 'Twin-Flame' language and a literary half-flame/counterpart model in A Romance of Two Worlds.",
       "date_note": null,
       "pages": null,
-      "doi": null,
-      "download_url": null,
-      "license": null,
-      "local_file": null,
-      "sha256": null,
-      "translation_note": null,
-      "source_id": "corelli_romance_two_worlds_1886",
-      "historical_context": "Ficción esotérica victoriana",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -472,7 +293,10 @@
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
       ],
-      "notes": "Campos heredados conservados; no reconsultada íntegramente en 1.24.1."
+      "verification_anchor": "Project Gutenberg eBook #4394, Heliobas dialogue: explicit Twin-Flame usage and the comparison of a soul to half a flame seeking its other half.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.gutenberg.org/files/4394/4394-h/4394-h.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM"
     },
     {
       "id": "ballard_magic_presence_1935_twin_rays",
@@ -485,35 +309,14 @@
       "date_note": "Primera edición: Saint Germain Press, Chicago, 1935; el ancla textual se verifica en una edición posterior publicada por Saint Germain Foundation/Press.",
       "passage": "Chapter IV, “Divine Romance”, pp. 90 and 96 in the 2011 Saint Germain Press printing",
       "pages": "90, 96",
-      "url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
-      "download_url": null,
-      "doi": null,
-      "license": null,
-      "rights_note": "Fuente primaria doctrinal; citar brevemente y respetar los derechos de la edición de Saint Germain Press/Foundation.",
-      "local_file": null,
-      "sha256": null,
-      "translation_note": "Terminología inglesa preservada para distinguir Flame, Rays, Spark y Mighty I AM Presence.",
-      "supports": [
-        "afirmación explícita de que Rex y Pearl son “Twin Rays” de la misma Divine Flame",
-        "doctrina explícita en la que la Almighty God Flame proyecta Two Rays en la Pure Electronic Light",
-        "cada Ray recibe de la Individualized Flame un Focal Point o Spark que forma un Heart Center y el Electronic Body"
-      ],
-      "does_not_support": [
-        "que Marie Corelli sea fuente directa de esta doctrina o que exista transmisión histórica Corelli→Ballard",
-        "que proyección de dos Rayos sea idéntica a división literal de una sola alma o al modelo posterior del white-fire body de Summit Lighthouse",
-        "un criterio astrológico capaz de identificar una pareja concreta como Twin Rays o twin flames"
-      ],
       "concepts": [
         "DIVINE_FLAME_TWIN_RAY_PROJECTION"
       ],
       "verification_status": "VERIFIED_PRIMARY",
-      "verification_note": "Edición Saint Germain Press: ©1935, 1963 Saint Germain Foundation, 2011 printing. Cap. IV, pp. 90 y 96, verificado en la copia digital consultada.",
       "verification_anchor": "The Magic Presence, ch. IV: p. 90 identifica “Twin Rays” procedentes de la misma Divine Flame; p. 96 explica que la Almighty God Flame proyecta Two Rays y que cada Ray recibe un Focal Point/Spark.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "source_id": "ballard_magic_presence_1935_twin_rays",
-      "historical_context": "I AM Activity / Ascended Master Teachings, Estados Unidos, década de 1930.",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -523,8 +326,7 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ],
-      "notes": "P1 para describir la doctrina interna de Ballard. No prueba la ontología ni autoriza a convertir el motivo Twin Rays en un subtipo confirmado de una relación real."
+      ]
     }
   ],
   "records": [
