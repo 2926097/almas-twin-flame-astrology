@@ -30,17 +30,24 @@ class TwinFlameFlameGenealogyTests(unittest.TestCase):
         self.assertEqual(case["ontology_effect"], "NONE")
 
     def test_summit_white_fire_architecture_is_direct_doctrine_only(self):
-        source = "summit_lighthouse_what_is_twin_flame"
-        doctrinal = assess_corpus_claim(
-            "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL", [source]
-        )
-        self.assertEqual(doctrinal["status"], "SUPPORTED")
-        case = assess_corpus_claim(
-            "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
-            [source],
-            scope="CASE_ONTOLOGY",
-        )
-        self.assertEqual(case["status"], "INSUFFICIENT")
+        sources = [
+            "summit_lighthouse_soulmates_twin_flames",
+            "summit_lighthouse_glossary_twin_flame",
+            "prophet_twin_flames_qa_part1",
+            "summit_lighthouse_what_is_twin_flame",
+        ]
+        for source in sources:
+            with self.subTest(source=source):
+                doctrinal = assess_corpus_claim(
+                    "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL", [source]
+                )
+                self.assertEqual(doctrinal["status"], "SUPPORTED")
+                case = assess_corpus_claim(
+                    "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+                    [source],
+                    scope="CASE_ONTOLOGY",
+                )
+                self.assertEqual(case["status"], "INSUFFICIENT")
 
     def test_corelli_does_not_support_literal_split_soul(self):
         claim = assess_corpus_claim(
