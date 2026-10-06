@@ -146,6 +146,7 @@ def main() -> int:
         )
         print("ALMAS canonical_analysis.json: CREATED")
     else:
+        (args.output_dir / "canonical_analysis.json").unlink(missing_ok=True)
         print("ALMAS canonical_analysis.json: NOT_CREATED")
 
     receipt = result["execution_receipt"]
