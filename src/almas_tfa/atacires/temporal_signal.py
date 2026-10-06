@@ -8,12 +8,17 @@ def to_temporal_signals(result, subject_id, roots):
     if len(roots)>10000:raise ValueError("Límite de raíces excedido.")
     signals=[]
     passes=defaultdict(int)
+    roots_by_endpoint=defaultdict(list)
+    for root in roots:
+        if not isinstance(root,dict) or not isinstance(root.get('root_key'),str) or not root.get('root_id'):
+            continue
+        for endpoint in root['root_key'].split('|')[:2]:
+            roots_by_endpoint[endpoint].append(root)
     for index,event in enumerate(result['events']):
         signature=(event['source_point'],event['target_point'],event['oriented_aspect_deg'])
         passes[signature]+=1
         endpoint=f"{subject_id}:{AXIS_GROUPS.get(event['source_point'], event['source_point'])}"
-        matched=[r for r in roots if isinstance(r,dict) and isinstance(r.get('root_key'),str)
-                 and endpoint in r['root_key'].split('|')[:2] and r.get('root_id')]
+        matched=roots_by_endpoint.get(endpoint,[])
         # Cada vínculo se conserva; no convierte varias raíces en varias evidencias temporales.
         for root in matched or [None]:
             root_id=root['root_id'] if root else None
