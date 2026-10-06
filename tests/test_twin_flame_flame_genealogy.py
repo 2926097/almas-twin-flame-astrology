@@ -1,4 +1,5 @@
 import json
+from copy import deepcopy
 from pathlib import Path
 import unittest
 
@@ -10,6 +11,20 @@ ROOT = Path(__file__).resolve().parents[1]
 class TwinFlameFlameGenealogyTests(unittest.TestCase):
     def _json(self, path):
         return json.loads((ROOT / path).read_text(encoding="utf-8"))
+
+    def test_discriminator_source_snapshots_validate_and_reject_schema_drift(self):
+        from jsonschema import Draft202012Validator, ValidationError
+
+        data = self._json("src/almas_tfa/data/discriminator-source-genealogy.json")
+        schema = self._json("schemas/discriminator-source-genealogy.schema.json")
+        validator = Draft202012Validator(schema)
+        validator.validate(data)
+
+        invalid = deepcopy(data)
+        snapshot = invalid["records"][0]["sources"][0]
+        snapshot["url"] = "https://example.invalid/unmodeled-field"
+        with self.assertRaises(ValidationError):
+            validator.validate(invalid)
 
     def test_ballard_direct_doctrine_supported_but_case_ontology_not_promoted(self):
         source = "ballard_magic_presence_1935_twin_rays"
