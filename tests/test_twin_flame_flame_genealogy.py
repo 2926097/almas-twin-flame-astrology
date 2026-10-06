@@ -21,7 +21,7 @@ class TwinFlameFlameGenealogyTests(unittest.TestCase):
         validator.validate(data)
 
         invalid = deepcopy(data)
-        snapshot = invalid["records"][0]["sources"][0]
+        snapshot = invalid["records"][0]["source_usage"][0]
         snapshot["url"] = "https://example.invalid/unmodeled-field"
         with self.assertRaises(ValidationError):
             validator.validate(invalid)
