@@ -13,7 +13,10 @@ def _estimated_work(data):
     significators=set(data['significators'])
     aspects=set(data['aspects_deg'])
     branches=sum(1 if aspect in (0,180) else 2 for aspect in aspects)
-    return len(promissors)*len(significators)*branches
+    pairs=len(promissors)*len(significators)
+    if data.get('include_self',False) is False:
+        pairs-=len(promissors&significators)
+    return pairs*branches
 
 def calculate_uniform_cycle(request: UniformCycleRequest, *, executed_at=None):
     if not isinstance(request,UniformCycleRequest):raise ValueError('Usar solicitud del adaptador canónico.')
