@@ -1,0 +1,70 @@
+{
+  "policy_id": "ALMAS_PAIR_IDENTITY_VALIDATION_V1",
+  "policy_version": "1.0.0",
+  "status": "FROZEN_EXPERIMENTAL_PROTOCOL",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "purpose": "Separar fenotipo relacional tipo twin-flame de identidad específica de díada mediante validación ciega, adversarial y fuera de muestra.",
+  "target_claim": "DECLARED_MATCHED_DYAD_DISCRIMINATION",
+  "primary_positive_stratum": "DECLARED_MATCHED_DYAD",
+  "primary_hard_negative_stratum": "CROSS_DYAD_OPPOSITE_POLARITY",
+  "secondary_negative_strata": [
+    "CROSS_DYAD_SAME_POLARITY_DF",
+    "CROSS_DYAD_SAME_POLARITY_DM",
+    "ORDINARY_CONTROL"
+  ],
+  "sample_targets": {
+    "development_dyads": 40,
+    "external_holdout_dyads": 120,
+    "independent_replication_dyads": 120,
+    "zero_error_negative_floor_for_wilson_95_upper_le_0_05": 73
+  },
+  "confirmatory_gate": {
+    "source_policy": "ALMAS_DISCRIMINANT_VALIDATION_V1",
+    "minimums": {
+      "sensitivity_ci95_lower": 0.60,
+      "specificity_ci95_lower": 0.90,
+      "balanced_accuracy": 0.75,
+      "false_specificity_ci95_upper": 0.05
+    },
+    "auc_is_diagnostic_not_a_standalone_promotion_gate": true,
+    "primary_hard_negative_only": true
+  },
+  "blinding": {
+    "source_policy": "ALMAS_BLINDING_LEAKAGE_V1",
+    "custodian_separates_blinded_pairs_from_sealed_truth": true,
+    "subject_ids_must_be_pseudonymous": true,
+    "truth_reveal_after_structural_output_freeze": true,
+    "labels_must_not_enter_structural_pipeline": true
+  },
+  "matrix": {
+    "declared_matched": "DF_i-DM_i",
+    "cross_opposite": "DF_i-DM_j; i!=j",
+    "cross_same_df": "DF_i-DF_j; i!=j",
+    "cross_same_dm": "DM_i-DM_j; i!=j",
+    "cross_opposite_is_primary_because_it_controls_for_polarity": true
+  },
+  "development_firewall": {
+    "known_or_rule_forming_cases_are_development_only": true,
+    "subject_overlap_across_development_holdout_replication_forbidden": true,
+    "post_holdout_threshold_tuning_forbidden": true,
+    "real_private_holdouts_in_public_repo_forbidden": true
+  },
+  "interpretive_firewall": {
+    "declared_match_is_documentary_not_metaphysical_truth": true,
+    "df_dm_are_documentary_emic_roles_not_astrologically_inferred": true,
+    "tf_phenotype_is_not_pair_identity": true,
+    "operational_pass_does_not_validate_twin_flame_ontology": true,
+    "l3_promotion_is_not_automatic": true,
+    "metaphysical_probability": false
+  },
+  "required_followup_for_any_future_l3": [
+    "EXTERNAL_HOLDOUT",
+    "INDEPENDENT_REPLICATION",
+    "ALMAS_BLINDING_LEAKAGE_V1",
+    "ALMAS_DISCRIMINANT_VALIDATION_V1",
+    "ASTROLOGY_INDEPENDENCE_AUDIT",
+    "NEGATIVE_CONTROLS",
+    "ABLATION",
+    "BIRTH_TIME_SENSITIVITY"
+  ]
+}
