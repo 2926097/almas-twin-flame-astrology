@@ -1,0 +1,17 @@
+{
+  "baseline_commit": "c938e0d0032f6940eebb0e26373c051e473eeb81",
+  "historical_m26": {
+    "p50_ms": 0.009074,
+    "p95_ms": 0.009805,
+    "p99_ms": 0.025557,
+    "iterations": 10000
+  },
+  "new_m26_feature_off": {
+    "p50_ms": 0.010275,
+    "p95_ms": 0.010886,
+    "p99_ms": 0.026579,
+    "iterations": 10000
+  },
+  "p95_ratio": 1.1102498725140235,
+  "semantic_identity": true
+}

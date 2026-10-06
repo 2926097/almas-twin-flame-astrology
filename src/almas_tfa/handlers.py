@@ -14,6 +14,7 @@ from .core import (
     score_model,
     supported_gate,
 )
+from .integrations.atacires_temporal import make_atacires_temporal_handler
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
 from .quantitative_contracts import MODELS, validate_ice_by_model
 from .pillar_attribution import derive_pillars_from_roots, load_root_pillar_policy
@@ -460,7 +461,7 @@ def default_handlers():
         "M23": m23_time_sensitivity,
         "M24": m24_null_models,
         "M25": m25_robustness,
-        "M26": m26_temporal_activation,
+        "M26": make_atacires_temporal_handler(m26_temporal_activation),
         "M27": m27_dated_events,
         "M28": m28_doctrine_hermeneutics,
         "M29": m29_viability_reciprocity,
@@ -479,9 +480,9 @@ def configured_handlers(*, astrology_backend=None, davison_backend=None):
     handlers = default_handlers()
     if astrology_backend is not None:
         handlers["M02"] = make_m02_natal(astrology_backend)
-        handlers["M26"] = make_m26_temporal_activation_auto(
+        handlers["M26"] = make_atacires_temporal_handler(make_m26_temporal_activation_auto(
             astrology_backend
-        )
+        ))
     if davison_backend is not None:
         handlers["M08"] = make_m08_davison(davison_backend)
     if astrology_backend is not None and davison_backend is not None:

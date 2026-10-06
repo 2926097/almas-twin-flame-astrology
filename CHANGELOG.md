@@ -1,5 +1,10 @@
 # Revisión de autoría pendiente de release · base 1.26.0
 
+## En desarrollo · Integración experimental de Atacires
+
+Núcleo determinista de ciclos uniformes en modo sombra, adaptador desde cartas canónicas, provenance, contactos analíticos y enlaces de extremo a raíces preexistentes. La opción está desactivada por defecto; las salidas conservan índices y ontología. Se incorporan pruebas originales, diferenciales, contratos, límites, robustez de muestras recalculadas y shard de CI. Plan y límites: `docs/architecture/ATACIRES_PLAN_R1.md` y `docs/validation/ATACIRES_VALIDATION_STATUS.md`. No se migra MCP ni se añade backend Swiss.
+
+
 Preservación de movimiento y declinación natal en M04 y geometría original en contactos M17. Atlas referencial común para informes personales/relacionales y uso independiente VED, con auditoría de cobertura editorial, JSON Pointer y control de fingerprint. Protocolo de definición completa y corrección de encabezados públicos desactualizados. Sin cambios en scoring, independencia ni clasificación.
 
 ## Evolución experimental · validación ciega de identidad diádica — 2026-10-06

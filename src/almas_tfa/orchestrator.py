@@ -175,6 +175,30 @@ class Orchestrator:
         )
 
     @staticmethod
+    def _is_m26_shadow_update(result: ModuleResult) -> bool:
+        if result.module_id != "M26" or result.status is not ExecutionStatus.NOT_EVALUABLE:
+            return False
+        if set(result.canonical_updates) != {"atacires_shadow"}:
+            return False
+        shadow = result.canonical_updates.get("atacires_shadow")
+        if not isinstance(shadow, Mapping):
+            return False
+        signals = shadow.get("signals")
+        return (
+            shadow.get("mode") == "SHADOW"
+            and shadow.get("scoring_enabled") is False
+            and isinstance(signals, list)
+            and all(
+                isinstance(signal, Mapping)
+                and signal.get("execution_mode") == "SHADOW"
+                and signal.get("iat_eligible") is False
+                and signal.get("creates_structural_root") is False
+                and signal.get("predicts_real_world_event") is False
+                for signal in signals
+            )
+        )
+
+    @staticmethod
     def _validate_result(module_id: str, result: ModuleResult) -> None:
         if not isinstance(result, ModuleResult):
             raise TypeError(
@@ -187,6 +211,7 @@ class Orchestrator:
         if (
             result.status is not ExecutionStatus.COMPLETED
             and result.canonical_updates
+            and not Orchestrator._is_m26_shadow_update(result)
         ):
             raise ValueError(
                 f"{module_id}: sólo COMPLETED puede escribir estado canónico."
@@ -200,7 +225,10 @@ class Orchestrator:
         canonical: dict[str, Any],
         ownership: dict[str, str],
     ) -> None:
-        if result.status is not ExecutionStatus.COMPLETED:
+        if (
+            result.status is not ExecutionStatus.COMPLETED
+            and not Orchestrator._is_m26_shadow_update(result)
+        ):
             return
 
         for namespace, value in result.canonical_updates.items():

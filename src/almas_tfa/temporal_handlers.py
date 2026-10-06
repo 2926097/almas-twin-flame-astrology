@@ -453,8 +453,15 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
         k = ACTIVATION_COEFFICIENTS[activation_class]
         effective_strength = strength * k
 
+        provenance = raw.get("provenance")
+        atacires_shadow = (
+            raw.get("execution_mode") == "SHADOW"
+            or (isinstance(provenance, Mapping)
+                and str(provenance.get("engine_revision", "")).startswith("ALMAS_UNIFORM_CYCLE_"))
+        )
         iat_eligible = (
-            anchored
+            not atacires_shadow
+            and anchored
             and preregistered
             and traceability_complete
             and status not in {"EXPLORATORY", "UNANCHORED"}
@@ -493,17 +500,23 @@ def m26_temporal_activation(context: ModuleContext) -> ModuleResult:
                 "creates_structural_root": False,
                 "predicts_real_world_event": False,
                 **kinematic_metadata,
+                **({"execution_mode": "SHADOW"} if atacires_shadow else {}),
             }
         )
 
     groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    shadow_excluded: list[dict[str, Any]] = []
     for signal in normalized:
+        if signal.get("execution_mode") == "SHADOW":
+            shadow_excluded.append({**signal, "suppressed_by": None,
+                                    "suppression_reason": "SHADOW_MODE_NO_AGGREGATION"})
+            continue
         root_key = signal["root_id"] or "UNANCHORED"
         key = f"{root_key}|{signal['temporal_family']}"
         groups[key].append(signal)
 
     selected: list[dict[str, Any]] = []
-    suppressed: list[dict[str, Any]] = []
+    suppressed: list[dict[str, Any]] = list(shadow_excluded)
     for key in sorted(groups):
         members = groups[key]
         members.sort(

@@ -30,4 +30,4 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 [tool.setuptools.package-data]
-almas_tfa = ["data/*.json"]
+almas_tfa = ["data/*.json", "atacires/LICENSE.txt"]

@@ -38,7 +38,11 @@ assert build_vedic_report_model(envelope)['coverage']['status']=='COMPLETE'
 pu=assess_metaphysical_singularity({})
 assert pu['PU_O']['state']=='NOT_EVALUABLE' and pu['pu_score'] is None
 assert pu['ontology_effect']=='NONE' and pu['production_scores_affected'] is False
-print('WHEEL_ISOLATED: PASS; doctrinal registry, frozen bytes, VED schema/reporting and PU-M')
+from almas_tfa.atacires.adapters import build_uniform_cycle_request
+from almas_tfa.atacires.api import calculate_uniform_cycle
+assert resources.files('almas_tfa').joinpath('atacires','LICENSE.txt').is_file()
+assert callable(build_uniform_cycle_request) and callable(calculate_uniform_cycle)
+print('WHEEL_ISOLATED: PASS; doctrinal registry, frozen bytes, VED schema/reporting, PU-M and Atacires/MIT')
 '''
         # The managed runtime exposes installed extras through explicit paths.
         # Retain those dependencies, but exclude every checkout/import path.

@@ -1,0 +1,10 @@
+{
+  "repository": "2926097/Atacires-mcp",
+  "commit": "d0d3a4bcf315708a4bf6f7e40cf2873732819b61",
+  "engine_sha256": "3b8910d392d3367f59d305bc550462feda89c862793a1e31e1267e58fba40176",
+  "reference_sha256": "e5428100752ac20e5bab4cfc82940f7653bc988fb3840a5397b069d82210f5cd",
+  "license": "MIT",
+  "oracle_scope": "TESTS_ONLY",
+  "mathematics_changed": false,
+  "golden_source": "references/reference-cases.json: analytic geometry; no personal birth data"
+}

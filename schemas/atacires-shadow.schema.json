@@ -1,0 +1,594 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/atacires-shadow.schema.json",
+  "title": "ALMAS · Atacires en modo sombra sin puntuación",
+  "type": "object",
+  "required": [
+    "status",
+    "mode",
+    "scoring_enabled",
+    "signals",
+    "calculations",
+    "diagnostics"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "mode": {
+      "const": "SHADOW"
+    },
+    "scoring_enabled": {
+      "const": false
+    },
+    "signals": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "required": [
+          "signal_id",
+          "source_subject",
+          "source_point",
+          "target_point",
+          "technique_variant",
+          "exact_datetime",
+          "window_start_utc",
+          "window_end_utc",
+          "root_id",
+          "anchored",
+          "layer",
+          "temporal_family",
+          "technique",
+          "dependency_group",
+          "dependency_cluster",
+          "activation_class",
+          "window_status",
+          "provenance",
+          "pass_number",
+          "aspect_deg",
+          "oriented_aspect_deg",
+          "orb",
+          "angular_residual_deg",
+          "preregistered",
+          "iat_eligible",
+          "creates_structural_root",
+          "predicts_real_world_event",
+          "execution_mode"
+        ],
+        "properties": {
+          "signal_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_subject": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_point": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_point": {
+            "type": "string",
+            "minLength": 1
+          },
+          "technique_variant": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exact_datetime": {
+            "type": "string",
+            "minLength": 1
+          },
+          "window_start_utc": {
+            "type": "string",
+            "minLength": 1
+          },
+          "window_end_utc": {
+            "type": "string",
+            "minLength": 1
+          },
+          "root_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "anchored": {
+            "type": "boolean"
+          },
+          "layer": {
+            "const": "TEMPORAL"
+          },
+          "temporal_family": {
+            "const": "TATACIR"
+          },
+          "technique": {
+            "const": "UNIFORM_CYCLE"
+          },
+          "dependency_group": {
+            "const": "ATACIR_FAMILY"
+          },
+          "dependency_cluster": {
+            "const": "SLOW_SYMBOLIC_DIRECTIONS"
+          },
+          "activation_class": {
+            "enum": [
+              "ENDPOINT_ACTIVATION",
+              "UNANCHORED"
+            ]
+          },
+          "window_status": {
+            "enum": [
+              "EXPLORATORY",
+              "UNANCHORED"
+            ]
+          },
+          "provenance": {
+            "type": "object",
+            "required": [
+              "backend_id",
+              "backend_version",
+              "zodiac",
+              "timezone_id",
+              "birth_utc",
+              "time_reliability",
+              "coordinate_source",
+              "technique_id",
+              "technique_version",
+              "engine_revision",
+              "timescale",
+              "executed_at",
+              "chart_fingerprint",
+              "subject_fingerprint",
+              "input_fingerprint",
+              "output_fingerprint",
+              "backend_provenance",
+              "house_system",
+              "coordinates",
+              "natal_uncertainty",
+              "node_variants",
+              "parameters",
+              "upstream_commit",
+              "ephemeris_used"
+            ],
+            "properties": {
+              "backend_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "backend_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zodiac": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timezone_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "birth_utc": {
+                "type": "string",
+                "minLength": 1
+              },
+              "time_reliability": {
+                "type": "string",
+                "minLength": 1
+              },
+              "coordinate_source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "technique_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "technique_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "engine_revision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timescale": {
+                "type": "string",
+                "minLength": 1
+              },
+              "executed_at": {
+                "type": "string",
+                "minLength": 1
+              },
+              "chart_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "subject_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "input_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "backend_provenance": {
+                "type": "object",
+                "minProperties": 1
+              },
+              "house_system": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "coordinates": {
+                "type": "object",
+                "required": [
+                  "latitude",
+                  "longitude"
+                ],
+                "properties": {
+                  "latitude": {
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90
+                  },
+                  "longitude": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180
+                  }
+                },
+                "additionalProperties": false
+              },
+              "natal_uncertainty": {
+                "const": "EXACT_INPUT"
+              },
+              "node_variants": {
+                "type": "object"
+              },
+              "parameters": {
+                "type": "object"
+              },
+              "upstream_commit": {
+                "const": "d0d3a4bcf315708a4bf6f7e40cf2873732819b61"
+              },
+              "ephemeris_used": {
+                "const": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "pass_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "aspect_deg": {
+            "type": "number"
+          },
+          "oriented_aspect_deg": {
+            "type": "number"
+          },
+          "orb": {
+            "type": "number"
+          },
+          "angular_residual_deg": {
+            "type": "number"
+          },
+          "preregistered": {
+            "const": false
+          },
+          "iat_eligible": {
+            "const": false
+          },
+          "creates_structural_root": {
+            "const": false
+          },
+          "predicts_real_world_event": {
+            "const": false
+          },
+          "node_variant": {
+            "enum": [
+              "TRUE",
+              "MEAN"
+            ]
+          },
+          "nodal_axis_id": {
+            "const": "LUNAR_NODE_AXIS"
+          },
+          "execution_mode": {
+            "const": "SHADOW"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "technique_family",
+          "technique",
+          "events",
+          "calculation",
+          "directed_positions_start",
+          "directed_positions_end",
+          "warnings",
+          "provenance"
+        ],
+        "properties": {
+          "technique_family": {
+            "const": "TATACIR"
+          },
+          "technique": {
+            "const": "UNIFORM_CYCLE"
+          },
+          "events": {
+            "type": "array",
+            "maxItems": 10000,
+            "items": {
+              "type": "object",
+              "required": [
+                "source_point",
+                "target_point",
+                "exact_datetime",
+                "exact_datetime_local",
+                "window_start_utc",
+                "window_end_utc",
+                "aspect_deg",
+                "oriented_aspect_deg",
+                "angular_residual_deg",
+                "window_half_days"
+              ],
+              "properties": {
+                "source_point": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target_point": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "exact_datetime": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "exact_datetime_local": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "window_start_utc": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "window_end_utc": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "aspect_deg": {
+                  "type": "number"
+                },
+                "oriented_aspect_deg": {
+                  "type": "number"
+                },
+                "angular_residual_deg": {
+                  "type": "number"
+                },
+                "window_half_days": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "calculation": {
+            "type": "object"
+          },
+          "directed_positions_start": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "directed_positions_end": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "provenance": {
+            "type": "object",
+            "required": [
+              "backend_id",
+              "backend_version",
+              "zodiac",
+              "timezone_id",
+              "birth_utc",
+              "time_reliability",
+              "coordinate_source",
+              "technique_id",
+              "technique_version",
+              "engine_revision",
+              "timescale",
+              "executed_at",
+              "chart_fingerprint",
+              "subject_fingerprint",
+              "input_fingerprint",
+              "output_fingerprint",
+              "backend_provenance",
+              "house_system",
+              "coordinates",
+              "natal_uncertainty",
+              "node_variants",
+              "parameters",
+              "upstream_commit",
+              "ephemeris_used"
+            ],
+            "properties": {
+              "backend_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "backend_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zodiac": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timezone_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "birth_utc": {
+                "type": "string",
+                "minLength": 1
+              },
+              "time_reliability": {
+                "type": "string",
+                "minLength": 1
+              },
+              "coordinate_source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "technique_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "technique_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "engine_revision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timescale": {
+                "type": "string",
+                "minLength": 1
+              },
+              "executed_at": {
+                "type": "string",
+                "minLength": 1
+              },
+              "chart_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "subject_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "input_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_fingerprint": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "backend_provenance": {
+                "type": "object",
+                "minProperties": 1
+              },
+              "house_system": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "coordinates": {
+                "type": "object",
+                "required": [
+                  "latitude",
+                  "longitude"
+                ],
+                "properties": {
+                  "latitude": {
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90
+                  },
+                  "longitude": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180
+                  }
+                },
+                "additionalProperties": false
+              },
+              "natal_uncertainty": {
+                "const": "EXACT_INPUT"
+              },
+              "node_variants": {
+                "type": "object"
+              },
+              "parameters": {
+                "type": "object"
+              },
+              "upstream_commit": {
+                "const": "d0d3a4bcf315708a4bf6f7e40cf2873732819b61"
+              },
+              "ephemeris_used": {
+                "const": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "ATACIRES_INPUT_NOT_EVALUABLE"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "NOT_EVALUABLE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "signals": {
+            "maxItems": 0
+          },
+          "calculations": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}
