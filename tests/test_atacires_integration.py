@@ -261,6 +261,13 @@ class BoundaryTests(unittest.TestCase):
         a=calculate_uniform_cycle(request());a['events']=[]
         result=assess_robustness([a,a],max_spread_seconds=60,sampling_ref='GRID')
         self.assertEqual(result['classification'],'NOT_EVALUABLE')
+    def test_mixed_empty_contact_grid_is_sensitive_independent_of_order(self):
+        populated=calculate_uniform_cycle(request());empty=deepcopy(populated);empty['events']=[]
+        forward=assess_robustness([empty,populated],max_spread_seconds=60,sampling_ref='GRID')
+        reverse=assess_robustness([populated,empty],max_spread_seconds=60,sampling_ref='GRID')
+        self.assertEqual(forward['classification'],'SENSITIVE')
+        self.assertEqual(reverse['classification'],'SENSITIVE')
+        self.assertFalse(forward['contact_presence_stable'])
 
 class ReviewRegressionTests(unittest.TestCase):
     def test_axis_contact_links_existing_canonical_root(self):
