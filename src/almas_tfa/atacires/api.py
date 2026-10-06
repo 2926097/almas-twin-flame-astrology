@@ -28,10 +28,9 @@ def calculate_uniform_cycle(request: UniformCycleRequest, *, executed_at=None):
     result={'technique_family':'TATACIR','technique':'UNIFORM_CYCLE','events':events,
             'calculation':out['calculation'],'directed_positions_start':out['directed_positions_start'],
             'directed_positions_end':out['directed_positions_end'],'warnings':out['warnings']}
-    effective={**data,'aspects_deg':out['calculation']['aspects_deg'],
-               'start_utc':out['input']['start_utc'],'end_utc':out['input']['end_utc'],
-               'promissors':list(dict.fromkeys(data['promissors'])),
-               'significators':list(dict.fromkeys(data['significators']))}
+    effective={**data,**out['input'],**out['calculation'],
+               'promissors':sorted(set(data['promissors'])),
+               'significators':sorted(set(data['significators']))}
     provenance={**source,'technique_id':'UNIFORM_CYCLE','technique_version':out['engine_version'],
                 'engine_revision':ENGINE_REVISION,'upstream_commit':UPSTREAM_SHA,
                 'parameters':out['calculation'],'timescale':out['calculation']['timescale'],

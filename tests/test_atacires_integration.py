@@ -98,6 +98,11 @@ class AdapterTests(unittest.TestCase):
         r1=calculate_uniform_cycle(build_uniform_cycle_request(chart(),subject(),a))
         r2=calculate_uniform_cycle(build_uniform_cycle_request(chart(),subject(),b))
         self.assertEqual(r1['provenance']['input_fingerprint'],r2['provenance']['input_fingerprint'])
+    def test_equivalent_numeric_inputs_share_signal_fingerprint(self):
+        integer=calculate_uniform_cycle(build_uniform_cycle_request(chart(),subject(),settings(cycle_years=1)))
+        floating=calculate_uniform_cycle(build_uniform_cycle_request(chart(),subject(),settings(cycle_years=1.0)))
+        self.assertEqual(integer['events'],floating['events'])
+        self.assertEqual(integer['provenance']['input_fingerprint'],floating['provenance']['input_fingerprint'])
     def test_request_is_snapshot(self):
         c=chart();s=settings();r=build_uniform_cycle_request(c,subject(),s)
         c['positions']['SUN']['longitude']=42;s['cycle_years']=60
