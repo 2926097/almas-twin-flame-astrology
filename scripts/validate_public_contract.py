@@ -78,6 +78,14 @@ REQUIRED_FILES = [
     "docs/ASTROLOGICAL_DISCRIMINATOR_INDEPENDENCE.md",
     "docs/DISCRIMINANT_VALIDATION_POLICY.md",
     "docs/BLINDING_LEAKAGE_POLICY.md",
+    "docs/PAIR_IDENTITY_BLIND_VALIDATION_PROTOCOL.md",
+    "src/almas_tfa/pair_identity_validation.py",
+    "src/almas_tfa/data/pair-identity-validation-policy.json",
+    "schemas/pair-identity-validation-output.schema.json",
+    "manifests/pair-identity-validation-manifest.json",
+    "scripts/validate_pair_identity_protocol.py",
+    "tests/test_pair_identity_validation.py",
+    ".github/workflows/pair-identity-validation.yml",
     "docs/PROMOTION_STATE_MACHINE.md",
     "docs/DISCRIMINATOR_PROMOTION_REPORTING.md",
     "docs/DISCRIMINATOR_SOURCE_GENEALOGY.md",
@@ -645,6 +653,15 @@ def main() -> int:
     )
     blinding_leakage_policy = load_json(
         "src/almas_tfa/data/blinding-leakage-policy.json"
+    )
+    pair_identity_validation_policy = load_json(
+        "src/almas_tfa/data/pair-identity-validation-policy.json"
+    )
+    pair_identity_validation_schema = load_json(
+        "schemas/pair-identity-validation-output.schema.json"
+    )
+    pair_identity_validation_manifest = load_json(
+        "manifests/pair-identity-validation-manifest.json"
     )
     promotion_state_machine_policy = load_json(
         "src/almas_tfa/data/promotion-state-machine-policy.json"
@@ -1523,6 +1540,38 @@ def main() -> int:
         fail("structural blinding stage changed")
     if blinding_leakage_policy.get("late_reveal_stage") != "STEP_B_DOCUMENTARY_REVEAL":
         fail("late reveal stage changed")
+
+    if pair_identity_validation_policy.get("policy_id") != "ALMAS_PAIR_IDENTITY_VALIDATION_V1":
+        fail("pair identity validation policy id changed")
+    if pair_identity_validation_policy.get("epistemic_class") != "E_PROJECT_POLICY":
+        fail("pair identity validation must remain E_PROJECT_POLICY")
+    if pair_identity_validation_policy.get("primary_hard_negative_stratum") != "CROSS_DYAD_OPPOSITE_POLARITY":
+        fail("pair identity primary hard negative must control for DF/DM polarity")
+    pair_firewall = pair_identity_validation_policy.get("interpretive_firewall", {})
+    for key in (
+        "declared_match_is_documentary_not_metaphysical_truth",
+        "df_dm_are_documentary_emic_roles_not_astrologically_inferred",
+        "tf_phenotype_is_not_pair_identity",
+        "operational_pass_does_not_validate_twin_flame_ontology",
+        "l3_promotion_is_not_automatic",
+    ):
+        if pair_firewall.get(key) is not True:
+            fail(f"pair identity firewall invariant failed: {key}")
+    if pair_firewall.get("metaphysical_probability") is not False:
+        fail("pair identity validation must forbid metaphysical probability")
+    if pair_identity_validation_manifest.get("status") != "INFRASTRUCTURE_ONLY_NO_EMPIRICAL_HOLDOUT":
+        fail("pair identity manifest must not claim an empirical holdout")
+    if pair_identity_validation_manifest.get("real_cohorts") != []:
+        fail("pair identity public manifest must not contain real cohorts")
+    if pair_identity_validation_manifest.get("l3_validated_discriminator_present") is not False:
+        fail("pair identity infrastructure must not create L3")
+    if pair_identity_validation_schema.get("properties", {}).get("policy_id", {}).get("const") != "ALMAS_PAIR_IDENTITY_VALIDATION_V1":
+        fail("pair identity schema policy id changed")
+    gate_schema = pair_identity_validation_schema.get("properties", {}).get("confirmatory_gate", {}).get("properties", {})
+    if gate_schema.get("l3_promotion_authorized", {}).get("const") is not False:
+        fail("pair identity schema must forbid automatic L3 promotion")
+    if gate_schema.get("ontology_activation", {}).get("const") is not False:
+        fail("pair identity schema must forbid ontology activation")
 
     required_zero_counts = set(
         blinding_leakage_policy.get("required_zero_counts", [])
