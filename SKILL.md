@@ -62,6 +62,24 @@ Usar la extensión optativa `almas_tfa.vedic` y la CLI `almas-vedic` conforme a 
 
 IVED escalar, Aṣṭakūṭa completo y validación externa permanecen sin evaluar/calibrar; Prāṇapada, Yogatārās y cruces védico–asteroides están aplazados en el alcance R1. No presentar esas técnicas como implementadas ni convertir la comparación interna Swiss en validación de dos motores independientes. Mantener INSUFFICIENT para origen metafísico desde VED y peso canónico cero.
 
+## 0.9. Validación ciega de identidad diádica
+
+Aplicar `ALMAS_PAIR_IDENTITY_VALIDATION_V1` cuando el objetivo sea distinguir **pertenencia a un fenotipo/proceso twin-flame-like** de **correspondencia específica entre dos individuos**.
+
+La desigualdad `TF-PHENOTYPE != TF-PAIR-IDENTITY` es una hipótesis operacional E del proyecto. No es doctrina primaria ni demostración metafísica.
+
+La etiqueta positiva es `DECLARED_MATCHED_DYAD`: correspondencia declarada y documentada antes del análisis. Nunca denominarla ground truth metafísica. DF/DM son roles declarados de uso contemporáneo; no inferirlos desde la carta.
+
+El hard negative confirmatorio debe ser `CROSS_DYAD_OPPOSITE_POLARITY`: `DF_i-DM_j` con `i!=j`. Los pares `DF_i-DF_j` y `DM_i-DM_j` son controles secundarios. Un clasificador que sólo reconozca polaridad debe fracasar frente al hard negative DF-DM incorrecto.
+
+Separar sujetos antes de crear cross-pairs; cero solapamiento entre development, holdout y replicación. Los casos ya examinados, interpretados o usados para diseñar reglas son `DEVELOPMENT_ONLY` y no pueden reciclarse como holdout.
+
+El custodio genera `blinded_pairs` HMAC opacos y conserva `sealed_truth` fuera del pipeline estructural hasta el reveal. Exigir `ALMAS_BLINDING_LEAKAGE_V1`, fingerprints pre/post idénticos y threshold/fórmula congelados antes del holdout.
+
+El gate operacional reutiliza Wilson 95 %, sensibilidad, especificidad, balanced accuracy y FALSE_SPECIFICITY_RATE. ROC-AUC es diagnóstica y no autoriza promoción por sí sola. Ejecutar además null de correspondencia, WITHIN_YEAR, AB0-AB8 y R5/R15/R30/R60/R120 antes de considerar una futura promoción.
+
+Todo resultado conserva `l3_promotion_authorized=false`, `ontology_activation=false`, `declared_match_is_metaphysical_ground_truth=false` y `metaphysical_probability=false`. Un resultado positivo valida, como máximo, discriminación operacional de una etiqueta documental dentro de la cohorte evaluada.
+
 ## 1. Objetivo
 
 Estudiar una relación mediante una arquitectura multicapa reproducible que combine astronomía/astrología, validación estructural, activación temporal, doctrina comparada y síntesis hermenéutica.

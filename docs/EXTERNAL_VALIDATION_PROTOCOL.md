@@ -591,3 +591,20 @@ SHA-256 de V1, V2, S7, V4, revelado, S8, cierre y chain head final. Mantiene
 V5 cierra el procedimiento operativo de validación; no sustituye la ejecución
 de un holdout externo real ni constituye validación científica de una ontología
 metafísica.
+
+
+## 25. Validación ciega de identidad diádica
+
+La política `ALMAS_PAIR_IDENTITY_VALIDATION_V1` especializa este protocolo para una pregunta operacional distinta de la ontología: si un score congelado puede identificar la **díada declarada correcta** frente a emparejamientos incorrectos dentro de la misma población.
+
+La comparación primaria no es DF-DF frente a DF-DM. El hard negative confirmatorio es `DF_i-DM_j, i!=j`, porque mantiene la polaridad declarada y controla el atajo de aprender sólo DF/DM. Los pares DF-DF y DM-DM permanecen controles secundarios.
+
+El custodio documental construye una matriz ciega mediante identificadores HMAC. La fase estructural recibe sólo `pair_id` y sujetos pseudónimos; estrato, correspondencia declarada y polaridad quedan en `sealed_truth` hasta el reveal. La salida estructural debe congelarse antes de revelar truth y permanecer invariante después.
+
+La etiqueta `DECLARED_MATCHED_DYAD` es documental/emic. No es ground truth metafísica. Por ello un `PASS_OPERATIONAL_GATE` no autoriza `TWIN_FLAME_MODEL`, `SPLIT_SOUL`, `MONADIC_COMMON_SOURCE` ni cualquier otra ontología.
+
+El desarrollo, holdout y replicación se separan por **persona**, no por fila de pares. Los cross-pairs se construyen sólo después de la partición. Cualquier persona repetida entre particiones constituye leakage y bloquea la evaluación confirmatoria.
+
+Objetivos de diseño: 40 díadas para desarrollo, 120 para holdout externo y 120 para replicación independiente. Son objetivos operativos; la suficiencia estadística se evalúa mediante los intervalos Wilson y los gates congelados. Con cero falsos positivos, 73 negativos es el suelo matemático para que el CI95 superior de FALSE_SPECIFICITY_RATE sea <=0,05.
+
+La ruta pública mantiene sólo protocolo, código, schemas, fixtures sintéticos y métricas agregadas. Los datos privados de nacimiento, identidades y truth sellado no entran en Git.

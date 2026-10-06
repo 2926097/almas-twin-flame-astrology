@@ -90,6 +90,14 @@ Desde 1.23.0, el módulo personal `CHIRON_PROCESS` conserva True y Mean Node con
 
 Desde 1.24.1, `SURRENDER_VESTAL` distingue abstinencia declarada, retirada vestal y cuatro dimensiones de surrender. La conducta se evalúa sin exigir efemérides; la correspondencia simbólica exige raíces y convergencia temporal trazables, sin contar técnicas dependientes como confirmaciones. M27, canonical, gates e informes incorporan la extensión por sujeto. La política permanece exploratoria y no altera IEM, IAT ni origen. Contrato y fuentes: `reference/surrender-vestal-contract.md` y `reference/surrender-vestal-corpus.md`.
 
+## Validación ciega de identidad diádica
+
+ALMAS incorpora una capa experimental de validación de **pair identity** sin modificar el scoring productivo. La hipótesis de trabajo `TF-PHENOTYPE != TF-PAIR-IDENTITY` se registra como `E_PROJECT_POLICY`: una arquitectura intensa o twin-flame-like no demuestra que dos personas concretas sean su contraparte exclusiva.
+
+El protocolo `ALMAS_PAIR_IDENTITY_VALIDATION_V1` usa como positivo la díada **declarada y documentada** y como hard negative primario `DF_i-DM_j, i!=j`. Ese control mantiene la polaridad DF/DM y obliga a discriminar identidad de compañero, no sólo polaridad. DF/DM son roles emic declarados; ALMAS no los infiere desde astrología.
+
+El constructor ciego separa `blinded_pairs` de `sealed_truth`, exige separación total de sujetos entre desarrollo/holdout/replicación y conserva los casos conocidos como `DEVELOPMENT_ONLY`. Un `PASS_OPERATIONAL_GATE` no activa L3, no modifica ontología y no convierte la etiqueta documental en verdad metafísica. Véase `docs/PAIR_IDENTITY_BLIND_VALIDATION_PROTOCOL.md`.
+
 ## Repositorio
 
 ```text

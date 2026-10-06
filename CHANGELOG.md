@@ -2,6 +2,12 @@
 
 Preservación de movimiento y declinación natal en M04 y geometría original en contactos M17. Atlas referencial común para informes personales/relacionales y uso independiente VED, con auditoría de cobertura editorial, JSON Pointer y control de fingerprint. Protocolo de definición completa y corrección de encabezados públicos desactualizados. Sin cambios en scoring, independencia ni clasificación.
 
+## Evolución experimental · validación ciega de identidad diádica — 2026-10-06
+
+Añade `ALMAS_PAIR_IDENTITY_VALIDATION_V1` para separar fenotipo twin-flame-like de identidad específica de díada. Implementa constructor custodio HMAC con `blinded_pairs` y `sealed_truth`, hard negative primario `DF_i-DM_j`, controles same-polarity, firewall de particiones sin solapamiento y evaluación post-reveal con Wilson 95 %, balanced accuracy, FALSE_SPECIFICITY_RATE, ROC-AUC diagnóstica y concordancia pareada.
+
+La capa no infiere DF/DM desde astrología: los roles son declarados/documentales. No incorpora casos privados al repositorio, no activa un candidato de scoring, no modifica IEM/IDD/IRC/ICC/ICE/PX/PS/PU, no promueve L3 y no convierte la correspondencia declarada en verdad metafísica. El estado empírico permanece `INFRASTRUCTURE_ONLY_NO_EMPIRICAL_HOLDOUT`.
+
 # ALMAS 1.26.0 — Jyotiṣa Relacional
 
 Añade módulo VED, CLI, schema y envolvente optativa con nakṣatras/pādas, kārakas 7/8, Navāṃśa/Kārakāṃśa, doce Arudhas, Bindu, once upagrahas, Abhijit y Vimśottarī. Incluye sinastría D1/D9, eventos, sensibilidad, controles estratificados descriptivos, ablación y Shapley de cobertura, con cero impacto canónico. Vivāha Sahama anual requiere recibo del retorno. No se promueven capacidades científicas ni ontológicas; el alcance R1 documenta las técnicas bloqueadas.

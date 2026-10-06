@@ -1,0 +1,44 @@
+{
+  "manifest_version": "1.0.0",
+  "policy_id": "ALMAS_PAIR_IDENTITY_VALIDATION_V1",
+  "status": "INFRASTRUCTURE_ONLY_NO_EMPIRICAL_HOLDOUT",
+  "epistemic_class": "E_PROJECT_POLICY",
+  "target_claim": "DECLARED_MATCHED_DYAD_DISCRIMINATION",
+  "program_targets": {
+    "development_dyads": 40,
+    "external_holdout_dyads": 120,
+    "independent_replication_dyads": 120
+  },
+  "required_strata": [
+    "DECLARED_MATCHED_DYAD",
+    "CROSS_DYAD_OPPOSITE_POLARITY"
+  ],
+  "secondary_strata": [
+    "CROSS_DYAD_SAME_POLARITY_DF",
+    "CROSS_DYAD_SAME_POLARITY_DM",
+    "ORDINARY_CONTROL"
+  ],
+  "primary_hard_negative_reason": "DF_i-DM_j mantiene la combinación DF-DM y obliga a discriminar identidad de compañero en lugar de aprender sólo polaridad.",
+  "split_rules": {
+    "development_holdout_subject_overlap": 0,
+    "development_replication_subject_overlap": 0,
+    "holdout_replication_subject_overlap": 0,
+    "cross_pairs_created_after_split": true
+  },
+  "blinding": {
+    "structural_stage": "STEP_A_BLINDED",
+    "truth_stage": "STEP_B_DOCUMENTARY_REVEAL",
+    "sealed_truth_outside_structural_pipeline": true,
+    "post_reveal_structural_invariance_required": true
+  },
+  "public_repository_rules": {
+    "private_holdout_rows_allowed": false,
+    "private_birth_data_allowed": false,
+    "sealed_truth_allowed": false,
+    "aggregate_metrics_allowed": true,
+    "synthetic_fixtures_allowed": true
+  },
+  "real_cohorts": [],
+  "metaphysical_ground_truth": false,
+  "l3_validated_discriminator_present": false
+}

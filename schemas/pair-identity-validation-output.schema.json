@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/pair-identity-validation-output.schema.json",
+  "title": "ALMAS · Validación ciega de identidad diádica",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "evaluation_scope",
+    "primary_positive_stratum",
+    "primary_hard_negative_stratum",
+    "threshold",
+    "score_direction",
+    "metrics_by_negative_stratum",
+    "paired_query_diagnostics",
+    "confirmatory_gate",
+    "tf_phenotype_equals_pair_identity",
+    "declared_match_is_metaphysical_ground_truth",
+    "metaphysical_probability"
+  ],
+  "properties": {
+    "policy_id": {
+      "const": "ALMAS_PAIR_IDENTITY_VALIDATION_V1"
+    },
+    "evaluation_scope": {
+      "const": "DECLARED_MATCHED_DYAD_DISCRIMINATION"
+    },
+    "primary_positive_stratum": {
+      "const": "DECLARED_MATCHED_DYAD"
+    },
+    "primary_hard_negative_stratum": {
+      "const": "CROSS_DYAD_OPPOSITE_POLARITY"
+    },
+    "threshold": {
+      "type": "number"
+    },
+    "score_direction": {
+      "const": "HIGHER_IS_MORE_MATCHED"
+    },
+    "metrics_by_negative_stratum": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "positive_count",
+          "negative_count",
+          "tp",
+          "tn",
+          "fp",
+          "fn",
+          "sensitivity",
+          "specificity",
+          "balanced_accuracy",
+          "sensitivity_ci95",
+          "specificity_ci95",
+          "false_specificity_rate",
+          "false_specificity_ci95_upper",
+          "roc_auc"
+        ],
+        "properties": {
+          "positive_count": {"type": "integer", "minimum": 1},
+          "negative_count": {"type": "integer", "minimum": 1},
+          "tp": {"type": "integer", "minimum": 0},
+          "tn": {"type": "integer", "minimum": 0},
+          "fp": {"type": "integer", "minimum": 0},
+          "fn": {"type": "integer", "minimum": 0},
+          "sensitivity": {"type": "number", "minimum": 0, "maximum": 1},
+          "specificity": {"type": "number", "minimum": 0, "maximum": 1},
+          "balanced_accuracy": {"type": "number", "minimum": 0, "maximum": 1},
+          "sensitivity_ci95": {
+            "type": "array",
+            "prefixItems": [
+              {"type": "number", "minimum": 0, "maximum": 1},
+              {"type": "number", "minimum": 0, "maximum": 1}
+            ],
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "specificity_ci95": {
+            "type": "array",
+            "prefixItems": [
+              {"type": "number", "minimum": 0, "maximum": 1},
+              {"type": "number", "minimum": 0, "maximum": 1}
+            ],
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "false_specificity_rate": {"type": "number", "minimum": 0, "maximum": 1},
+          "false_specificity_ci95_upper": {"type": "number", "minimum": 0, "maximum": 1},
+          "roc_auc": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "paired_query_diagnostics": {
+      "type": "object",
+      "required": [
+        "complete_query_count",
+        "true_pair_wins",
+        "ties",
+        "paired_concordance"
+      ],
+      "properties": {
+        "complete_query_count": {"type": "integer", "minimum": 0},
+        "true_pair_wins": {"type": "integer", "minimum": 0},
+        "ties": {"type": "integer", "minimum": 0},
+        "paired_concordance": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "confirmatory_gate": {
+      "type": "object",
+      "required": [
+        "state",
+        "passed",
+        "primary_hard_negative_only",
+        "replication_required",
+        "l3_promotion_authorized",
+        "ontology_activation"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "PASS_OPERATIONAL_GATE",
+            "FAIL_OPERATIONAL_GATE"
+          ]
+        },
+        "passed": {"type": "boolean"},
+        "primary_hard_negative_only": {"const": true},
+        "replication_required": {"const": true},
+        "l3_promotion_authorized": {"const": false},
+        "ontology_activation": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "tf_phenotype_equals_pair_identity": {"const": false},
+    "declared_match_is_metaphysical_ground_truth": {"const": false},
+    "metaphysical_probability": {"const": false}
+  },
+  "additionalProperties": false
+}

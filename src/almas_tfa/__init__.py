@@ -59,6 +59,7 @@ from .holdout_open import evaluate_holdout_open, load_holdout_open_gate_policy
 from .validation_ledger import append_validation_event, audit_validation_ledger, initialize_validation_ledger, load_validation_execution_ledger_policy
 from .validation_continuity import evaluate_px_v3_promotion_with_continuity, evaluate_validation_continuity, load_validation_continuity_gate_policy
 from .validation_closure import build_documentary_reveal_record, close_validation_cycle, load_validation_closure_release_audit_policy, record_documentary_reveal
+from .pair_identity_validation import build_blinded_pair_identity_matrix, evaluate_pair_identity_holdout, load_pair_identity_validation_policy, validate_partition_disjointness
 from .robustness_index_handlers import m25_robustness, make_m25_robustness
 from .robustness_quantification import derive_q5_robustness_components, load_q5_robustness_policy
 from .temporal_handlers import m26_temporal_activation, m27_dated_events
@@ -181,6 +182,10 @@ __all__ = [
     "build_documentary_reveal_record",
     "record_documentary_reveal",
     "close_validation_cycle",
+    "load_pair_identity_validation_policy",
+    "build_blinded_pair_identity_matrix",
+    "evaluate_pair_identity_holdout",
+    "validate_partition_disjointness",
     "wilson_interval",
     "m25_robustness",
     "make_m25_robustness",
