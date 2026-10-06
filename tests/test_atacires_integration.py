@@ -284,6 +284,14 @@ class ReviewRegressionTests(unittest.TestCase):
         result=make_atacires_temporal_handler(m26_temporal_activation,enabled=True)(context).canonical_updates['atacires_shadow']
         self.assertEqual(result['signals'][0]['root_id'],'R-AXIS')
 
+    def test_target_endpoint_can_anchor_existing_root(self):
+        context=ctx()
+        context.canonical_snapshot['independent_roots']['roots']=[{'root_id':'R-TARGET','root_key':'A:MOON|B:SUN|CONJUNCTION'}]
+        result=make_atacires_temporal_handler(m26_temporal_activation,enabled=True)(context).canonical_updates['atacires_shadow']
+        anchored=[signal for signal in result['signals'] if signal['target_point']=='MOON']
+        self.assertTrue(anchored)
+        self.assertTrue(all(signal['root_id']=='R-TARGET' for signal in anchored))
+
     def test_mean_node_contact_links_existing_canonical_axis_root(self):
         context=ctx();chart_data=context.canonical_snapshot['natal']['charts']['A']
         chart_data['positions']['MEAN_NORTH_NODE']={'longitude':0.,'node_variant':'MEAN','nodal_axis_id':'LUNAR_NODE_AXIS'}

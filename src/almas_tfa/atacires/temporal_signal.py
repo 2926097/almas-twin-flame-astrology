@@ -17,8 +17,11 @@ def to_temporal_signals(result, subject_id, roots):
     for index,event in enumerate(result['events']):
         signature=(event['source_point'],event['target_point'],event['oriented_aspect_deg'])
         passes[signature]+=1
-        endpoint=f"{subject_id}:{AXIS_GROUPS.get(event['source_point'], event['source_point'])}"
-        matched=roots_by_endpoint.get(endpoint,[])
+        endpoints={f"{subject_id}:{AXIS_GROUPS.get(event[point], event[point])}"
+                   for point in ('source_point','target_point')}
+        matched_by_id={root['root_id']:root for endpoint in endpoints
+                       for root in roots_by_endpoint.get(endpoint,[])}
+        matched=list(matched_by_id.values())
         # Cada vínculo se conserva; no convierte varias raíces en varias evidencias temporales.
         for root in matched or [None]:
             root_id=root['root_id'] if root else None
