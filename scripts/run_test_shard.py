@@ -50,7 +50,7 @@ class TimedResult(unittest.TextTestResult):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--shard',choices=['core','full-pipeline','returns','all'],default='all')
+    parser.add_argument('--shard',choices=['core','atacires-core','full-pipeline','returns','all'],default='all')
     parser.add_argument('--receipt',type=Path,required=True)
     parser.add_argument('--diagnostic-interval',type=int,default=0)
     args=parser.parse_args()
@@ -65,7 +65,8 @@ def main():
     if not INTEGRATIONS<=ids:raise RuntimeError('Integration shard registry no longer matches discovery')
     target={'full-pipeline':sorted(INTEGRATIONS)[0],'returns':sorted(INTEGRATIONS)[1]}
     selected=[t for t in tests if args.shard=='all' or
-              (args.shard=='core' and t.id() not in INTEGRATIONS) or
+              (args.shard=='core' and t.id() not in INTEGRATIONS and not t.id().startswith('test_atacires_')) or
+              (args.shard=='atacires-core' and t.id().startswith('test_atacires_')) or
               (args.shard in target and t.id()==target[args.shard])]
     started=time.monotonic()
     result=unittest.TextTestRunner(verbosity=2,resultclass=TimedResult).run(unittest.TestSuite(selected))

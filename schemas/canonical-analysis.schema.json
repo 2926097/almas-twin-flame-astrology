@@ -483,6 +483,9 @@
         },
         "events": {
           "$ref": "documentary-event-output.schema.json"
+        },
+        "atacires_shadow": {
+          "$ref": "atacires-shadow.schema.json"
         }
       },
       "additionalProperties": false

@@ -420,6 +420,12 @@ def prepare_relational_raw_input(
             raw[name] = deepcopy(analysis_policies[name])
             declared_keys.append(name)
 
+    if "atacires_requests" in request:
+        requests = request["atacires_requests"]
+        if not isinstance(requests, list) or not 1 <= len(requests) <= 16:
+            raise RelationalWorkRequestError("atacires_requests requiere de 1 a 16 solicitudes.")
+        raw["atacires_requests"] = deepcopy(requests)
+
     raw["request_adapter_trace"] = {
         "adapter_id": ADAPTER_ID,
         "source_format": "ALMAS_WORK_REQUEST",

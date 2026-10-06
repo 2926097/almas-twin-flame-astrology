@@ -644,6 +644,9 @@ def assemble_canonical_analysis(
     if isinstance(canonical.get("documentary_events"), Mapping):
         temporal["events"] = canonical["documentary_events"]
 
+    if isinstance(canonical.get("atacires_shadow"), Mapping):
+        temporal["atacires_shadow"] = canonical["atacires_shadow"]
+
     assembled = {
         "schema_version": "1.0.0",
         "analysis_mode": profile["analysis_mode"],

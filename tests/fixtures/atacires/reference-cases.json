@@ -1,0 +1,193 @@
+[
+  {
+    "id": "rotation_01",
+    "kind": "rotation",
+    "longitude": 42.5,
+    "age_years": 17.25,
+    "cycle_years": 60,
+    "direction": "direct",
+    "expected_longitude": 146
+  },
+  {
+    "id": "rotation_02",
+    "kind": "rotation",
+    "longitude": 350,
+    "age_years": 2,
+    "cycle_years": 60,
+    "direction": "direct",
+    "expected_longitude": 2
+  },
+  {
+    "id": "rotation_03",
+    "kind": "rotation",
+    "longitude": 10,
+    "age_years": 2,
+    "cycle_years": 60,
+    "direction": "converse",
+    "expected_longitude": 358
+  },
+  {
+    "id": "rotation_04",
+    "kind": "rotation",
+    "longitude": 0,
+    "age_years": 1,
+    "cycle_years": 360,
+    "direction": "direct",
+    "expected_longitude": 1
+  },
+  {
+    "id": "rotation_05",
+    "kind": "rotation",
+    "longitude": 0,
+    "age_years": 1,
+    "cycle_years": 12,
+    "direction": "direct",
+    "expected_longitude": 30
+  },
+  {
+    "id": "rotation_06",
+    "kind": "rotation",
+    "longitude": 90,
+    "age_years": 1,
+    "cycle_years": 1,
+    "direction": "direct",
+    "expected_longitude": 90
+  },
+  {
+    "id": "rotation_07",
+    "kind": "rotation",
+    "longitude": 100,
+    "age_years": 5,
+    "cycle_years": 60,
+    "direction": "direct",
+    "expected_longitude": 130
+  },
+  {
+    "id": "rotation_08",
+    "kind": "rotation",
+    "longitude": 100,
+    "age_years": 5,
+    "cycle_years": 60,
+    "direction": "converse",
+    "expected_longitude": 70
+  },
+  {
+    "id": "rotation_09",
+    "kind": "rotation",
+    "longitude": 359,
+    "age_years": 1,
+    "cycle_years": 360,
+    "direction": "direct",
+    "expected_longitude": 0
+  },
+  {
+    "id": "rotation_10",
+    "kind": "rotation",
+    "longitude": 5,
+    "age_years": 1,
+    "cycle_years": 360,
+    "direction": "converse",
+    "expected_longitude": 4
+  },
+  {
+    "id": "contact_01",
+    "kind": "contact",
+    "p": 0,
+    "s": 90,
+    "cycle_years": 1,
+    "direction": "direct",
+    "expected_first_days": 90,
+    "year_days": 360
+  },
+  {
+    "id": "contact_02",
+    "kind": "contact",
+    "p": 90,
+    "s": 0,
+    "cycle_years": 1,
+    "direction": "converse",
+    "expected_first_days": 90,
+    "year_days": 360
+  },
+  {
+    "id": "contact_03",
+    "kind": "contact",
+    "p": 350,
+    "s": 10,
+    "cycle_years": 1,
+    "direction": "direct",
+    "expected_first_days": 20,
+    "year_days": 360
+  },
+  {
+    "id": "contact_04",
+    "kind": "contact",
+    "p": 10,
+    "s": 350,
+    "cycle_years": 1,
+    "direction": "converse",
+    "expected_first_days": 20,
+    "year_days": 360
+  },
+  {
+    "id": "contact_05",
+    "kind": "contact",
+    "p": 10,
+    "s": 12,
+    "cycle_years": 60,
+    "direction": "direct",
+    "expected_first_days": 120,
+    "year_days": 360
+  },
+  {
+    "id": "contact_06",
+    "kind": "contact",
+    "p": 12,
+    "s": 10,
+    "cycle_years": 60,
+    "direction": "converse",
+    "expected_first_days": 120,
+    "year_days": 360
+  },
+  {
+    "id": "contact_07",
+    "kind": "contact",
+    "p": 0,
+    "s": 1,
+    "cycle_years": 360,
+    "direction": "direct",
+    "expected_first_days": 360,
+    "year_days": 360
+  },
+  {
+    "id": "contact_08",
+    "kind": "contact",
+    "p": 1,
+    "s": 0,
+    "cycle_years": 360,
+    "direction": "converse",
+    "expected_first_days": 360,
+    "year_days": 360
+  },
+  {
+    "id": "contact_09",
+    "kind": "contact",
+    "p": 30,
+    "s": 60,
+    "cycle_years": 12,
+    "direction": "direct",
+    "expected_first_days": 360,
+    "year_days": 360
+  },
+  {
+    "id": "contact_10",
+    "kind": "contact",
+    "p": 60,
+    "s": 30,
+    "cycle_years": 12,
+    "direction": "converse",
+    "expected_first_days": 360,
+    "year_days": 360
+  }
+]
+

@@ -1,0 +1,41 @@
+{
+  "python": "3.12.14",
+  "core": {
+    "small": {
+      "p50_ms": 0.152161,
+      "p95_ms": 0.211003,
+      "p99_ms": 0.343601,
+      "iterations": 200
+    },
+    "medium": {
+      "p50_ms": 20.285289,
+      "p95_ms": 32.142422,
+      "p99_ms": 38.066828,
+      "iterations": 200
+    }
+  },
+  "peak_memory_bytes": 1625614,
+  "m26_baseline": {
+    "p50_ms": 0.0095245,
+    "p95_ms": 0.010065,
+    "p99_ms": 0.022834,
+    "iterations": 2000
+  },
+  "m26_feature_off": {
+    "p50_ms": 0.010025,
+    "p95_ms": 0.010325,
+    "p99_ms": 0.023575,
+    "iterations": 2000
+  },
+  "feature_off_p95_ratio": 1.025832091405862,
+  "method": "fixed synthetic geometry; ns timer; same process; no ephemeris",
+  "limits": {
+    "max_points": 100,
+    "max_aspects": 20,
+    "max_events_per_request": 10000,
+    "max_requests": 16,
+    "max_signals_total": 10000,
+    "max_combinations": 40000
+  },
+  "metaphysical_validation": false
+}

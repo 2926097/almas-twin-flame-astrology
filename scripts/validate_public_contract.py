@@ -4938,12 +4938,15 @@ def main() -> int:
     if temporal_schema.get("additionalProperties") is not False:
         fail("canonical temporal wrapper must reject undeclared fields")
     temporal_props = temporal_schema.get("properties", {})
-    if set(temporal_props) != {"activation", "events"}:
-        fail("canonical temporal wrapper must expose exactly activation/events")
+    if set(temporal_props) != {"activation", "events", "atacires_shadow"}:
+        fail("canonical temporal wrapper must expose activation/events and optional atacires_shadow")
     if temporal_props.get("activation", {}).get("$ref") != "temporal-activation-output.schema.json":
         fail("canonical temporal.activation must compose M26 output schema")
     if temporal_props.get("events", {}).get("$ref") != "documentary-event-output.schema.json":
         fail("canonical temporal.events must compose M27 output schema")
+
+    if temporal_props.get("atacires_shadow", {}).get("$ref") != "atacires-shadow.schema.json":
+        fail("canonical atacires shadow must compose its unscored schema")
 
     pairwise_schema = canonical_props.get("pairwise_idd", {})
     pairwise_item = pairwise_schema.get("additionalProperties", {})
