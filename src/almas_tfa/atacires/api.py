@@ -8,13 +8,20 @@ ENGINE_REVISION='ALMAS_UNIFORM_CYCLE_1'
 UPSTREAM_SHA='d0d3a4bcf315708a4bf6f7e40cf2873732819b61'
 MAX_COMBINATIONS=40000
 
+def _estimated_work(data):
+    promissors=set(data['promissors'])
+    significators=set(data['significators'])
+    aspects=set(data['aspects_deg'])
+    branches=sum(1 if aspect in (0,180) else 2 for aspect in aspects)
+    return len(promissors)*len(significators)*branches
+
 def calculate_uniform_cycle(request: UniformCycleRequest, *, executed_at=None):
     if not isinstance(request,UniformCycleRequest):raise ValueError('Usar solicitud del adaptador canónico.')
     data=request.engine_payload();source=request.source()
     try:
         # Límite de trabajo independiente del límite de eventos del algoritmo.
         if isinstance(data.get('promissors'),list) and isinstance(data.get('significators'),list) and isinstance(data.get('aspects_deg'),list):
-            if len(data['promissors'])*len(data['significators'])*len(data['aspects_deg'])*2 > MAX_COMBINATIONS:
+            if _estimated_work(data)>MAX_COMBINATIONS:
                 raise InputError('WORK_LIMIT_EXCEEDED','Reducir selectores o aspectos.')
         out=calculate(data)
     except OverflowError as exc:

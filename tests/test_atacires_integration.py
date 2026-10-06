@@ -103,6 +103,11 @@ class AdapterTests(unittest.TestCase):
         floating=calculate_uniform_cycle(build_uniform_cycle_request(chart(),subject(),settings(cycle_years=1.0)))
         self.assertEqual(integer['events'],floating['events'])
         self.assertEqual(integer['provenance']['input_fingerprint'],floating['provenance']['input_fingerprint'])
+    def test_work_limit_counts_orientation_branches_after_deduplication(self):
+        from almas_tfa.atacires.api import _estimated_work
+        selectors=[f'P{i}' for i in range(100)]
+        self.assertEqual(_estimated_work({'promissors':selectors,'significators':selectors,'aspects_deg':[0,60,180]}),40000)
+        self.assertEqual(_estimated_work({'promissors':selectors+selectors,'significators':selectors,'aspects_deg':[0,60,180,60]}),40000)
     def test_request_is_snapshot(self):
         c=chart();s=settings();r=build_uniform_cycle_request(c,subject(),s)
         c['positions']['SUN']['longitude']=42;s['cycle_years']=60
