@@ -13,7 +13,8 @@ from almas_tfa.atacires.provenance import fingerprint_payload
 from almas_tfa.atacires.robustness import assess_robustness
 from almas_tfa.integrations.atacires_temporal import make_atacires_temporal_handler
 from almas_tfa.handlers import configured_handlers, default_handlers
-from almas_tfa.module_contract import ModuleContext
+from almas_tfa.module_contract import ExecutionStatus, ModuleContext
+from almas_tfa.orchestrator import Orchestrator
 from almas_tfa.temporal_handlers import m26_temporal_activation
 from almas_tfa.canonical_assembly import assemble_canonical_analysis
 from test_canonical_assembly import canonical_base, prior_all
@@ -199,6 +200,16 @@ class RobustnessTests(unittest.TestCase):
     def test_missing_contact_is_sensitive(self):
         a=calculate_uniform_cycle(request());b=deepcopy(a);b['events']=[]
         self.assertEqual(assess_robustness([a,b],max_spread_seconds=60,sampling_ref='GRID-V1')['classification'],'SENSITIVE')
+    def test_same_contacts_reordered_across_samples_remain_robust(self):
+        a=calculate_uniform_cycle(request())
+        self.assertGreaterEqual(len(a['events']),2)
+        a['events'][0]['aspect_deg']=0.;a['events'][0]['oriented_aspect_deg']=0.
+        a['events'][1]['aspect_deg']=60.;a['events'][1]['oriented_aspect_deg']=60.
+        b=deepcopy(a);b['events'].reverse()
+        result=assess_robustness([a,b],max_spread_seconds=60,sampling_ref='GRID-V1')
+        self.assertEqual(result['classification'],'ROBUST')
+        self.assertTrue(result['contact_presence_stable'])
+        self.assertEqual(result['maximum_spread_seconds'],0.)
     def test_empty_or_unpreregistered_samples_rejected(self):
         for samples,ref in (([],'GRID'),([calculate_uniform_cycle(request())],'')):
             with self.assertRaises(ValueError):assess_robustness(samples,max_spread_seconds=60,sampling_ref=ref)
@@ -227,6 +238,15 @@ class WorkRequestTests(unittest.TestCase):
         self.assertEqual(shadow['signals'][0]['nodal_axis_id'],'LUNAR_NODE_AXIS')
 
 class BoundaryTests(unittest.TestCase):
+    def test_shadow_sidecar_is_published_without_promoting_base_m26_status(self):
+        context=ctx({'temporal_signals':[]})
+        manifest={'mode':'FULL','modules':[{'id':f'M{i:02d}','name':f'module_{i:02d}'} for i in range(32)]}
+        run=Orchestrator({'M26':make_atacires_temporal_handler(m26_temporal_activation,enabled=True)}).run(
+            context.raw_input,manifest,initial_canonical=context.canonical_snapshot)
+        self.assertEqual(run.results['M26'].status,ExecutionStatus.NOT_EVALUABLE)
+        self.assertIn('atacires_shadow',run.canonical)
+        self.assertEqual(run.canonical['atacires_shadow']['status'],'COMPLETED')
+
     def test_signals_cannot_reenter_m26_scoring_when_client_sets_preregistered(self):
         context=ctx();shadow=make_atacires_temporal_handler(m26_temporal_activation,enabled=True)(context).canonical_updates['atacires_shadow']
         signal=deepcopy(shadow['signals'][0]);signal.update(preregistered=True,strength=1.,structural_family='SYN',exactitude_orb=0.,preregistered_window_rule='ATTEMPT',window_status='CURRENT_ACTIVE',technique_variant='C360')
@@ -251,6 +271,30 @@ class ReviewRegressionTests(unittest.TestCase):
         context.raw_input['atacires_requests'][0]['settings']['promissors']=['ASC']
         result=make_atacires_temporal_handler(m26_temporal_activation,enabled=True)(context).canonical_updates['atacires_shadow']
         self.assertEqual(result['signals'][0]['root_id'],'R-AXIS')
+
+    def test_mean_node_contact_links_existing_canonical_axis_root(self):
+        context=ctx();chart_data=context.canonical_snapshot['natal']['charts']['A']
+        chart_data['positions']['MEAN_NORTH_NODE']={'longitude':0.,'node_variant':'MEAN','nodal_axis_id':'LUNAR_NODE_AXIS'}
+        context.canonical_snapshot['independent_roots']['roots']=[{'root_id':'R-MEAN-AXIS','root_key':'A:AXIS_NODES|B:MOON|CONJUNCTION'}]
+        context.raw_input['atacires_requests'][0]['settings']['promissors']=['MEAN_NORTH_NODE']
+        result=make_atacires_temporal_handler(m26_temporal_activation,enabled=True)(context).canonical_updates['atacires_shadow']
+        self.assertEqual(result['signals'][0]['root_id'],'R-MEAN-AXIS')
+        self.assertTrue(result['signals'][0]['anchored'])
+
+    def test_root_endpoints_are_indexed_once_for_all_events(self):
+        from almas_tfa.atacires.temporal_signal import to_temporal_signals
+        class CountingRoots(list):
+            iterations=0
+            def __iter__(self):
+                self.iterations+=1
+                return super().__iter__()
+        calculated=calculate_uniform_cycle(request())
+        event=calculated['events'][0]
+        calculated['events']=[deepcopy(event) for _ in range(8)]
+        roots=CountingRoots([{'root_id':'R-SUN-MOON','root_key':'A:SUN|B:MOON|CONJUNCTION'}])
+        to_temporal_signals(calculated,'A',roots)
+        self.assertEqual(roots.iterations,1)
+
     def test_shadow_does_not_suppress_existing_scored_atacir(self):
         context=ctx();s=dict(signal_id='LIVE',root_id='R0001',temporal_family='TATACIR',activation_class='DIRECT_REPETITION',strength=.7,window_status='CURRENT_ACTIVE',preregistered=True,structural_family='SYN',exactitude_orb=0.,preregistered_window_rule='REGISTERED',technique_variant='C360')
         policy=dict(preregistration_ref='REGISTERED',window_scope_ref='REGISTERED',formula='WEIGHTED_MEAN_EFFECTIVE_STRENGTH',family_weights={'TATACIR':1.},root_weights={'R0001':1.})

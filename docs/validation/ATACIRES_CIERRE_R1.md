@@ -4,7 +4,7 @@ El núcleo experimental de ciclos uniformes queda implementado, depurado y acept
 
 ## Decisiones de alcance
 
-El plan original se depuró antes de ejecutar y se consolidó en cuatro tareas R1. Se fijaron cuatro decisiones: las observaciones SHADOW quedan fuera del IAT y sus componentes; M26 conserva su payload y estado históricos y expone el diagnóstico en un espacio separado; los contactos corresponden a una única carta natal canónica y activan extremos de raíces preexistentes, conservando los huérfanos; las tareas originales 14–16 quedan DEFERRED hasta satisfacer sus contratos y gates. La segunda técnica, la migración MCP y un nuevo proveedor Swiss no se presentan como implementados. ALMAS conserva la autoridad de sus motores históricos y consume posiciones natales ya calculadas.
+El plan original se depuró antes de ejecutar y se consolidó en cuatro tareas R1. Se fijaron cuatro decisiones: las observaciones SHADOW quedan fuera del IAT y sus componentes; M26 conserva su payload y estado históricos y expone el diagnóstico en un espacio separado; los contactos corresponden a una única carta natal canónica y activan extremos de raíces preexistentes, conservando los huérfanos; las tareas originales 14–16 quedan DEFERRED hasta satisfacer sus contratos y gates. Para publicar el namespace cuando M26 base sea NOT_EVALUABLE, el orquestador admite únicamente el sidecar `atacires_shadow` con `mode=SHADOW`, `scoring_enabled=false` y señales no elegibles, sin cambiar el estado operativo original de M26. La segunda técnica, la migración MCP y un nuevo proveedor Swiss no se presentan como implementados. ALMAS conserva la autoridad de sus motores históricos y consume posiciones natales ya calculadas.
 
 ## Revisión y corrección
 
