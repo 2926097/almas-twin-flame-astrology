@@ -21,7 +21,15 @@ class DevelopmentCaseAssessmentTests(unittest.TestCase):
         self.assertEqual(RECORD["observed_facts"], [])
         self.assertFalse(RECORD["source_artifacts_in_repository"])
         self.assertFalse(RECORD["case_specific_tuning"])
-        self.assertFalse(any("José" in key or "Indira" in key for key in RECORD))
+        serialized = json.dumps(RECORD, ensure_ascii=False).lower()
+        for forbidden_key in (
+            "display_name",
+            "birth_date",
+            "birth_time",
+            "latitude",
+            "longitude",
+        ):
+            self.assertNotIn(forbidden_key, serialized)
 
 if __name__ == "__main__":
     unittest.main()
