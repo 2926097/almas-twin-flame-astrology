@@ -15,3 +15,11 @@
 13. SOUL_ROOT no implica MONAD.
 14. TIKKUN no implica REUNION_ROMANTICA.
 15. PREINCARNATIONAL_TRIAL no implica MISSION_PREINCARNATIONAL.
+
+16. Corelli 1886 puede sostener `DUAL_SOUL_LITERARY_MODEL` y genealogía `Twin-Flame`, pero no `SPLIT_SOUL` literal por inferencia automática.
+17. `DIVINE_FLAME_TWIN_RAY_PROJECTION` exige la fuente Ballard y conserva operador `PROJECTION`.
+18. `WHITE_FIRE_BODY_DUAL_SPHERE_MODEL` exige fuente Summit y conserva operador `DIVISION_OR_DIFFERENTIATION`.
+19. `SIMILE`, `PROJECTION` y `DIVISION_OR_DIFFERENTIATION` no son sinónimos.
+20. La cronología Corelli→Ballard→Summit no constituye por sí misma transmisión doctrinal.
+21. Una diferencia doctrinal SUPPORTED no es un discriminador ontológico de caso.
+

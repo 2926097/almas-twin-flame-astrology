@@ -88,11 +88,12 @@ Por tanto, `monadic pair` permanece como hipótesis contemporánea/proyecto mien
 
 Modelo en el que dos sujetos proceden de una unidad que se divide.
 
-Antecedentes:
-- mito de Aristófanes en Platón como antecedente filosófico-literario;
-- Marie Corelli como formulación literario-esotérica de media llama que busca la otra mitad.
+Antecedentes comparativos:
+- mito de Aristófanes en Platón como antecedente filosófico-literario de división.
 
-No asumir continuidad doctrinal directa entre ambos.
+Marie Corelli ya no se usa como soporte directo de SPLIT_SOUL: su formulación de 1886 afirma dualidad del alma y usa el símil “like half a flame”. ALMAS la registra en `DUAL_SOUL_LITERARY_MODEL`, no como prueba textual de una sola alma literalmente partida.
+
+No asumir continuidad doctrinal directa entre Platón, Corelli ni doctrinas posteriores.
 
 ### O7 · TWIN_SOUL
 
@@ -101,6 +102,20 @@ Categoría histórica/literaria y esotérica asociada a la expresión `twin soul
 Corelli y `The Twin Soul` (1887) documentan circulación victoriana del vocabulario.
 
 Requiere investigación independiente para determinar cuándo pasa de motivo literario a doctrina esotérica sistemática.
+
+### Subarquitecturas doctrinales de la «llama»
+
+Estas subarquitecturas no sustituyen los modelos O0–O8; precisan el **operador de origen** cuando una fuente lo define.
+
+**CORELLI_HALF_FLAME_SIMILE**: alma dual expresada como “media llama”; operador textual = símil. No elevar a SPLIT_SOUL literal.
+
+**BALLARD_TWIN_RAY_PROJECTION**: Almighty/Individualized God Flame → Two Rays → Focal Point/Spark en cada Ray; operador = proyección/emanación. Concepto: `DIVINE_FLAME_TWIN_RAY_PROJECTION`.
+
+**SUMMIT_WHITE_FIRE_DUAL_SPHERE**: white-fire body/fiery ovoid → dos esferas/contrapartes; operador = división/diferenciación. Concepto: `WHITE_FIRE_BODY_DUAL_SPHERE_MODEL`.
+
+Discriminadores doctrinales: `D_ORIGIN_SUBSTRATE`, `D_ORIGIN_OPERATOR`, `D_METAPHOR_VS_LITERAL`, `D_PROJECTION_VS_DIVISION`.
+
+Estos D_* pueden separar **textos y doctrinas**. No separan por sí solos la ontología de una díada. No existe un A_* validado que identifique si una pareja real corresponde a uno de estos operadores.
 
 ### O8 · TWIN_FLAME_MODEL
 

@@ -1,6 +1,6 @@
 {
-  "registry_version": "2.0.0",
-  "almas_version": "1.11.0",
+  "registry_version": "2.1.0",
+  "almas_version": "1.26.0",
   "principle": "Ejes independientes; ningún eje determina automáticamente otro.",
   "states": [
     "SUPPORTED",
@@ -25,7 +25,35 @@
         "INDETERMINATE"
       ],
       "source_registry": "manifests/origin-model-registry.json",
-      "rule": "El origen no debe inferirse únicamente desde contrato, intensidad, misión o fenomenología."
+      "rule": "El origen no debe inferirse únicamente desde contrato, intensidad, misión o fenomenología.",
+      "concept_ids": [
+        "DUAL_SOUL_LITERARY_MODEL",
+        "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+        "TWIN_FLAME_ORIGIN",
+        "SPLIT_SOUL"
+      ],
+      "architecture_subtypes": [
+        {
+          "id": "DUAL_SOUL_HALF_FLAME_SIMILE",
+          "concept_id": "DUAL_SOUL_LITERARY_MODEL",
+          "operator": "SIMILE_DUALITY",
+          "source_tradition": "Corelli 1886 / ficción esotérica victoriana"
+        },
+        {
+          "id": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+          "concept_id": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+          "operator": "PROJECTION",
+          "source_tradition": "I AM Activity / Ballard 1935"
+        },
+        {
+          "id": "WHITE_FIRE_BODY_DUAL_SPHERE",
+          "concept_id": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+          "operator": "DIVISION_OR_DIFFERENTIATION",
+          "source_tradition": "Summit Lighthouse / Prophet"
+        }
+      ],
+      "architecture_rule": "No colapsar símil, proyección y división/diferenciación. Si un caso no puede distinguir subarquitecturas con un criterio independiente validado, conservar SHARED_ORIGIN_UNDIFFERENTIATED/INSUFFICIENT."
     },
     {
       "id": "PREINCARNATION_CONTRACT",

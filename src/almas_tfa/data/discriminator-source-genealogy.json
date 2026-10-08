@@ -20,22 +20,22 @@
     {
       "id": "plato_symposium_aristophanes",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Filosofía griega clásica",
       "author": "Plato",
       "work": "Symposium",
-      "date": null,
-      "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
       "passage": "189c-193d",
-      "pages": null,
+      "date_note": "Classical Greek text; commonly dated to the 4th century BCE",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Filosofía griega clásica",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
       "verification_status": "VERIFIED_PRIMARY",
+      "date": null,
+      "pages": null,
       "verification_anchor": "Symposium 189c-193d, Aristophanes' speech: myth of primordial humans divided and seeking reunion.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0174%3Atext%3DSym.%3Asection%3D189c",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "concepts": [
-        "SPLIT_PRIMORDIAL_BEING"
-      ],
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -50,22 +50,22 @@
     {
       "id": "brihadaranyaka_1_4_3",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Tradición hindú upanishádica",
       "author": "Brihadaranyaka Upanishad",
       "work": "Brihadaranyaka Upanishad",
-      "date": null,
-      "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
       "passage": "1.4.3",
-      "pages": null,
+      "date_note": "Ancient Upanishadic text; ALMAS uses Max Müller's 1884 public-domain English translation as the verification edition.",
+      "source_role": "DOCTRINAL_PRIMARY",
       "verification_status": "VERIFIED_PRIMARY",
+      "tradition": "Tradición hindú upanishádica",
+      "concepts": [
+        "SPLIT_PRIMORDIAL_BEING"
+      ],
+      "date": null,
+      "pages": null,
       "verification_anchor": "Brihadaranyaka Upanishad 1.4.3 in Max Müller's 1884 translation: primordial self dividing into husband and wife.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_15",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "concepts": [
-        "SPLIT_PRIMORDIAL_BEING"
-      ],
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -80,23 +80,23 @@
     {
       "id": "blavatsky_secret_doctrine_monads",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Teosofía",
       "author": "H. P. Blavatsky",
       "work": "The Secret Doctrine, Volume I",
-      "date": "1888",
-      "date_note": null,
       "passage": "p. 170, 'Additional Facts and Explanations Concerning the Globes and the Monads'",
-      "pages": null,
-      "verification_status": "VERIFIED_PRIMARY",
-      "verification_anchor": "The Secret Doctrine, vol. I, section 'Additional Facts and Explanations Concerning the Globes and the Monads', around p. 170 in the cited edition.",
-      "verification_anchor_type": "SECTION",
-      "verification_anchor_url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
-      "evidence_scope": "DOCTRINAL_CLAIM",
+      "date": "1888",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Teosofía",
       "concepts": [
         "MONAD",
         "THEOSOPHICAL_MONAD"
       ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "date_note": null,
+      "pages": null,
+      "verification_anchor": "The Secret Doctrine, vol. I, section 'Additional Facts and Explanations Concerning the Globes and the Monads', around p. 170 in the cited edition.",
+      "verification_anchor_type": "SECTION",
+      "verification_anchor_url": "https://www.theosociety.org/pasadena/sd/sd1-1-09.htm",
+      "evidence_scope": "DOCTRINAL_CLAIM",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -111,24 +111,24 @@
     {
       "id": "bailey_esoteric_psychology_soul",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
       "author": "Alice A. Bailey",
       "work": "Esoteric Psychology, Volume I",
-      "date": null,
-      "date_note": null,
       "passage": "Chapter II, Question 1: What is the soul?",
-      "pages": null,
-      "verification_status": "VERIFIED_PRIMARY",
-      "verification_anchor": "Esoteric Psychology, Volume I, Section One, Chapter II, Question 1: 'What is the soul?'",
-      "verification_anchor_type": "CHAPTER",
-      "verification_anchor_url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
-      "evidence_scope": "DOCTRINAL_CLAIM",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Esoterismo de Alice Bailey / Lucis Trust",
       "concepts": [
         "SOUL_ONTOLOGY_BAILEY",
         "SOUL_PERSONALITY_RELATION",
         "MONAD_SOUL_PERSONALITY"
       ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "date": null,
+      "date_note": null,
+      "pages": null,
+      "verification_anchor": "Esoteric Psychology, Volume I, Section One, Chapter II, Question 1: 'What is the soul?'",
+      "verification_anchor_type": "CHAPTER",
+      "verification_anchor_url": "https://www.lucistrust.org/online_books/esoteric_psychology_volume_i/section_one_chapter_ii_certain_questions_and_their_answers/question_1_what_is_the_soul_can_we_define_it_what_is_its_nature_part1",
+      "evidence_scope": "DOCTRINAL_CLAIM",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -143,22 +143,23 @@
     {
       "id": "summit_lighthouse_soulmates_twin_flames",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "author": "The Summit Lighthouse / Elizabeth Clare Prophet tradition",
       "work": "Soulmates and Twin Flames",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
       "date": null,
       "date_note": null,
       "passage": "Sections 'Twin Flames', 'Soul Mates', and 'Karmic Relationship'",
       "pages": null,
-      "verification_status": "VERIFIED_PRIMARY",
       "verification_anchor": "Official doctrinal differentiation among twin flames, soul mates and karmic relationships; twin flames are described as created together in a single fiery ovoid.",
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://summitlighthouse.org/soulmates-and-twin-flames/",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "concepts": [
-        "TWIN_FLAME_ORIGIN"
-      ],
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -173,22 +174,57 @@
     {
       "id": "summit_lighthouse_glossary_twin_flame",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "author": "The Summit Lighthouse",
       "work": "Glossary",
+      "passage": "Twin flame",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
       "date": null,
       "date_note": null,
-      "passage": "Twin flame",
       "pages": null,
-      "verification_status": "VERIFIED_PRIMARY",
       "verification_anchor": "Glossary entry 'Twin flame'.",
       "verification_anchor_type": "EXACT_PASSAGE",
       "verification_anchor_url": "https://pearls.tsl.org/1970pows/GLOSSARY.html",
       "evidence_scope": "DOCTRINAL_CLAIM",
+      "dependency_root": null,
+      "dependency_kind": "UNRESOLVED",
+      "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
+      "forbidden_upgrades": [
+        "DO_NOT_UPGRADE_TO_TWIN_FLAME",
+        "DO_NOT_INFER_BILATERAL_CONTRACT",
+        "DO_NOT_INFER_RECIPROCITY",
+        "DO_NOT_INFER_REUNION",
+        "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
+      ]
+    },
+    {
+      "id": "stokke_spiritual_love_relations_2021",
+      "priority": "P2_ACADEMIC",
+      "author": "Christian Stokke",
+      "work": "Exploring the transpersonal phenomena of spiritual love relations",
+      "date": "2021",
+      "pages": "130-144",
+      "source_role": "ACADEMIC_ANALYSIS",
+      "tradition": "Estudio académico de la espiritualidad contemporánea",
       "concepts": [
-        "TWIN_FLAME_ORIGIN"
+        "SOULMATE_EXPERIENCE",
+        "RECOGNITION_PHENOMENOLOGY",
+        "SYNCHRONICITY_REPORT",
+        "TRANSFORMATION_REPORT",
+        "TWIN_FLAME_EMIC_USAGE"
       ],
+      "verification_status": "VERIFIED_METADATA",
+      "date_note": null,
+      "passage": "Abstract; study of 140 responses, pp. 130-144",
+      "verification_anchor": "Open-access abstract identifies a naturalistic observation study of 140 responses in a New Age Facebook group concerning self-described soulmate experiences.",
+      "verification_anchor_type": "ABSTRACT",
+      "verification_anchor_url": "https://www.tandfonline.com/doi/pdf/10.1080/20440243.2021.1955454",
+      "evidence_scope": "PHENOMENOLOGY",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -203,22 +239,23 @@
     {
       "id": "prophet_twin_flames_qa_part1",
       "priority": "P1_PRIMARY",
-      "source_role": "DOCTRINAL_PRIMARY",
-      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
       "author": "Elizabeth Clare Prophet",
       "work": "Soul Mates and Twin Flames: Q and A Part 1",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "Summit Lighthouse / Church Universal and Triumphant",
+      "concepts": [
+        "TWIN_FLAME_ORIGIN",
+        "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL"
+      ],
+      "verification_status": "VERIFIED_PRIMARY",
       "date": null,
       "date_note": null,
       "passage": null,
       "pages": null,
-      "verification_status": "VERIFIED_PRIMARY",
       "verification_anchor": "Soul Mates and Twin Flames: Q and A Part 1; official sections defining twin flames, soul mates and karmic relationships.",
       "verification_anchor_type": "SECTION",
       "verification_anchor_url": "https://summitlighthouse.org/soul-mates-twin-flames-1/",
       "evidence_scope": "DOCTRINAL_CLAIM",
-      "concepts": [
-        "TWIN_FLAME_ORIGIN"
-      ],
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -234,22 +271,18 @@
       "id": "corelli_romance_two_worlds_1886",
       "priority": "P1_PRIMARY",
       "source_role": "LITERARY_ESOTERIC_PRIMARY",
-      "tradition": "Ficción esotérica victoriana",
       "author": "Marie Corelli",
       "work": "A Romance of Two Worlds",
       "date": "1886",
-      "date_note": null,
-      "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
-      "pages": null,
-      "verification_status": "VERIFIED_PRIMARY",
-      "verification_anchor": null,
-      "verification_anchor_type": null,
-      "verification_anchor_url": null,
-      "evidence_scope": null,
+      "tradition": "Ficción esotérica victoriana",
       "concepts": [
         "TWIN_FLAME_LITERARY_GENEALOGY",
         "DUAL_SOUL_LITERARY_MODEL"
       ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "passage": "Twin-Flame passage in the Heliobas dialogue; Project Gutenberg eBook #4394",
+      "date_note": null,
+      "pages": null,
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -259,31 +292,31 @@
         "DO_NOT_INFER_RECIPROCITY",
         "DO_NOT_INFER_REUNION",
         "DO_NOT_INFER_LITERAL_PAST_LIFE_IDENTITY"
-      ]
+      ],
+      "verification_anchor": null,
+      "verification_anchor_type": null,
+      "verification_anchor_url": null,
+      "evidence_scope": null
     },
     {
-      "id": "stokke_spiritual_love_relations_2021",
-      "priority": "P2_ACADEMIC",
-      "source_role": "ACADEMIC_ANALYSIS",
-      "tradition": "Estudio académico de la espiritualidad contemporánea",
-      "author": "Christian Stokke",
-      "work": "Exploring the transpersonal phenomena of spiritual love relations",
-      "date": "2021",
-      "date_note": null,
-      "passage": "Abstract; study of 140 responses, pp. 130-144",
-      "pages": "130-144",
-      "verification_status": "VERIFIED_METADATA",
-      "verification_anchor": "Open-access abstract identifies a naturalistic observation study of 140 responses in a New Age Facebook group concerning self-described soulmate experiences.",
-      "verification_anchor_type": "ABSTRACT",
-      "verification_anchor_url": "https://www.tandfonline.com/doi/pdf/10.1080/20440243.2021.1955454",
-      "evidence_scope": "PHENOMENOLOGY",
+      "id": "ballard_magic_presence_1935_twin_rays",
+      "priority": "P1_PRIMARY",
+      "source_role": "DOCTRINAL_PRIMARY",
+      "tradition": "I AM Activity / Saint Germain Foundation",
+      "author": "Godfré Ray King (Guy W. Ballard)",
+      "work": "The Magic Presence",
+      "date": "1935",
+      "date_note": "Primera edición: Saint Germain Press, Chicago, 1935; el ancla textual se verifica en una edición posterior publicada por Saint Germain Foundation/Press.",
+      "passage": "Chapter IV, “Divine Romance”, pp. 90 and 96 in the 2011 Saint Germain Press printing",
+      "pages": "90, 96",
       "concepts": [
-        "SOULMATE_EXPERIENCE",
-        "RECOGNITION_PHENOMENOLOGY",
-        "SYNCHRONICITY_REPORT",
-        "TRANSFORMATION_REPORT",
-        "TWIN_FLAME_EMIC_USAGE"
+        "DIVINE_FLAME_TWIN_RAY_PROJECTION"
       ],
+      "verification_status": "VERIFIED_PRIMARY",
+      "verification_anchor": "The Magic Presence, ch. IV: p. 90 identifica “Twin Rays” procedentes de la misma Divine Flame; p. 96 explica que la Almighty God Flame proyecta Two Rays y que cada Ray recibe un Focal Point/Spark.",
+      "verification_anchor_type": "EXACT_PASSAGE",
+      "verification_anchor_url": "https://www.saintgermainfoundation.com/sites/default/files/%5Bdate%3Acustom%3AY%5D-%5Bdate%3Acustom%3Am%5D/sg1002_Vol-02-MagicPresence_0.pdf",
+      "evidence_scope": "DOCTRINAL_CLAIM",
       "dependency_root": null,
       "dependency_kind": "UNRESOLVED",
       "inferential_ceiling": "NOT_ONTOLOGICAL_DISCRIMINATOR",
@@ -641,6 +674,25 @@
           ],
           "direct_case_evidence": false,
           "ontological_validation": false
+        },
+        {
+          "source_id": "ballard_magic_presence_1935_twin_rays",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "DIVINE_FLAME_TWIN_RAY_PROJECTION"
+          ],
+          "support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
         }
       ],
       "required_genealogy_edges": [
@@ -973,6 +1025,25 @@
           "concept_refs": [
             "TWIN_FLAME_LITERARY_GENEALOGY",
             "DUAL_SOUL_LITERARY_MODEL"
+          ],
+          "support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "does_not_support_indexes": [
+            0,
+            1,
+            2
+          ],
+          "direct_case_evidence": false,
+          "ontological_validation": false
+        },
+        {
+          "source_id": "ballard_magic_presence_1935_twin_rays",
+          "relation": "DIRECT_DOCTRINAL_BASIS",
+          "concept_refs": [
+            "DIVINE_FLAME_TWIN_RAY_PROJECTION"
           ],
           "support_indexes": [
             0,

@@ -150,6 +150,16 @@ Evaluar de forma independiente:
 ### ORIGIN
 `INDEPENDENT_SOULS`, `SOUL_FAMILY_GROUP`, `RELATED_SOUL_ROOTS`, `SHARED_ORIGIN_UNDIFFERENTIATED`, `MONADIC_COMMON_SOURCE`, `SPLIT_SOUL`, `TWIN_SOUL`, `TWIN_FLAME_MODEL`, `INDETERMINATE`.
 
+#### Arquitectura doctrinal subordinada de ORIGIN
+
+Cuando la pregunta afecte al significado histórico o metafísico de «llama», no colapsar las fuentes bajo `SPLIT_SOUL`. Resolver primero `reference/twin-flame-genealogy-matrix.md` y registrar, cuando proceda, una subarquitectura:
+
+- `DUAL_SOUL_HALF_FLAME_SIMILE`: Corelli (1886), alma dual descrita mediante el símil de media llama.
+- `DIVINE_FLAME_TWIN_RAY_PROJECTION`: Ballard / I AM Activity (1935), Twin Rays de una misma Divine Flame y proyección de Two Rays.
+- `WHITE_FIRE_BODY_DUAL_SPHERE`: Summit Lighthouse / Prophet, mismo white-fire body/ovoid y dos esferas/contrapartes.
+
+Aplicar los discriminadores doctrinales `D_ORIGIN_SUBSTRATE`, `D_ORIGIN_OPERATOR`, `D_METAPHOR_VS_LITERAL` y `D_PROJECTION_VS_DIVISION`. Éstos discriminan **formulaciones de fuentes**, no ontologías de casos. `SIMILE ≠ PROJECTION ≠ DIVISION/DIFFERENTIATION`. No asumir transmisión Corelli→Ballard→Prophet sin evidencia histórica específica. Ninguna subarquitectura añade puntuación, modifica índices ni autoriza `SUPPORTED` para el origen de una pareja sin discriminador independiente validado; si las hipótesis sobreviven juntas, usar `SHARED_ORIGIN_UNDIFFERENTIATED / INSUFFICIENT`.
+
 ### PREINCARNATION_CONTRACT
 `NONE_DETECTED`, `INDIVIDUAL_PREINCARNATIONAL_CHOICE`, `MISSION_PREINCARNATIONAL`, `BILATERAL_SOUL_CONTRACT`, `MULTIPARTY_SOUL_PLAN`, `INDETERMINATE`.
 

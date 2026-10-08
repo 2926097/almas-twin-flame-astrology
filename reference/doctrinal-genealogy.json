@@ -1,6 +1,6 @@
 {
-  "genealogy_version": "1.2.0",
-  "almas_version": "1.24.1",
+  "genealogy_version": "1.3.0",
+  "almas_version": "1.26.0",
   "edges": [
     {
       "from": "SPLIT_PRIMORDIAL_BEING",
@@ -652,6 +652,55 @@
       "relation": "PROJECT_OPERATIONALIZATION",
       "status": "E_PROJECT_HYPOTHESIS",
       "note": "Síntesis comparativa ALMAS, no término identificado literalmente en el pasaje de Jung."
+    },
+    {
+      "from": "TWIN_FLAME_LITERARY_GENEALOGY",
+      "to": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "relation": "TERMINOLOGICAL_ANTECEDENT_NOT_DOCTRINAL_IDENTITY",
+      "status": "INSUFFICIENT",
+      "note": "Corelli documenta Twin-Flame en 1886 y precede cronológicamente a Ballard, pero ALMAS no ha documentado una transmisión doctrinal directa Corelli→I AM Activity."
+    },
+    {
+      "from": "DUAL_SOUL_LITERARY_MODEL",
+      "to": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "relation": "COMPARATIVE_ANTECEDENT_ONLY",
+      "status": "COMPATIBLE",
+      "note": "La imagen corelliana de media llama y la proyección ballardiana de dos Rays comparten imaginería ígnea/dual, pero usan operadores ontológicos distintos y no se presume filiación."
+    },
+    {
+      "from": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "to": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "relation": "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+      "status": "COMPATIBLE",
+      "note": "Ambas arquitecturas pertenecen al esoterismo moderno de Maestros Ascendidos y usan fuego/polaridad, pero Ballard formula proyección de dos Rays y Summit formula procedencia desde un white-fire body/ovoid con dos esferas; la identidad doctrinal no se presume."
+    },
+    {
+      "from": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "DOCTRINAL_SPECIALIZATION",
+      "status": "SUPPORTED",
+      "note": "Las fuentes oficiales de Summit especifican el TWIN_FLAME_ORIGIN mediante el mismo white-fire body/ovoid, dos contrapartes/esferas, polaridad y blueprint compartido."
+    },
+    {
+      "from": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "to": "TWIN_FLAME_ORIGIN",
+      "relation": "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+      "status": "COMPATIBLE",
+      "note": "Twin Rays de Ballard es una arquitectura vecina e históricamente anterior al modelo Summit, pero ALMAS no la trata como definición idéntica de TWIN_FLAME_ORIGIN."
+    },
+    {
+      "from": "DIVINE_FLAME_TWIN_RAY_PROJECTION",
+      "to": "SPLIT_SOUL",
+      "relation": "NON_EQUIVALENT",
+      "status": "SUPPORTED",
+      "note": "El pasaje ballardiano anclado usa proyección de Rays desde una Flame; no establece que una sola alma sea literalmente partida en dos."
+    },
+    {
+      "from": "WHITE_FIRE_BODY_DUAL_SPHERE_MODEL",
+      "to": "SPLIT_SOUL",
+      "relation": "DOCTRINAL_NEIGHBOR_NOT_IDENTITY",
+      "status": "SUPPORTED",
+      "note": "Dividir/diferenciar un white-fire body en dos esferas en la doctrina Summit no autoriza a reescribir la doctrina como una sola alma literalmente cortada en dos."
     }
   ]
 }

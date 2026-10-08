@@ -23,3 +23,10 @@
 20. Un discriminador doctrinal explícito no se trata automáticamente como discriminador astrológico.
 21. Toda salida debe indicar resolution_level y why_not_more_specific.
 22. A_UNIQUE_DYADIC_ORIGIN permanece NOT_VALIDATED hasta una validación preregistrada independiente.
+
+- Corelli no puede crear `SPLIT_SOUL` por el mero símil “half a flame”.
+- Ballard `Twin Rays` se registra como subarquitectura doctrinal de proyección, no como nuevo modelo productivo.
+- Summit `white-fire body` se registra como subarquitectura del `TWIN_FLAME_MODEL`, no como sinónimo de alma literalmente escindida.
+- Si no existe criterio L3 independiente para separar las subarquitecturas en una díada real, el fallback permanece `SHARED_ORIGIN_UNDIFFERENTIATED / INSUFFICIENT`.
+- Los discriminadores `D_ORIGIN_SUBSTRATE`, `D_ORIGIN_OPERATOR`, `D_METAPHOR_VS_LITERAL` y `D_PROJECTION_VS_DIVISION` son doctrinales; no reemplazan A_*.
+

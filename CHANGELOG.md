@@ -1,3 +1,9 @@
+# Genealogía profunda de «llama» · 2026-10-04
+
+Separa tres arquitecturas que antes podían quedar parcialmente colapsadas: Corelli (1886) como dualidad del alma expresada mediante el símil `half a flame`; Ballard / I AM Activity (1935) como `Almighty God Flame → Two Rays`; y Summit Lighthouse como `white-fire body/ovoid → two spheres`. Añade la fuente P1 de *The Magic Presence*, dos conceptos canónicos, siete aristas genealógicas, subarquitecturas en ORIGIN y cuatro discriminadores doctrinales de sustrato/operador.
+
+Corrige una inconsistencia previa: Corelli deja de figurar como soporte directo de `SPLIT_SOUL` en los registros de origen y discriminación doctrinal. La actualización no añade un modelo ontológico productivo, no crea un A_* validado, no altera IEM/IDD/IRC/IAT/ICC/ICE, PX/PS/PU ni convierte rareza o afinidad en probabilidad metafísica.
+
 # Revisión de autoría pendiente de release · base 1.26.0
 
 ## En desarrollo · Integración experimental de Atacires

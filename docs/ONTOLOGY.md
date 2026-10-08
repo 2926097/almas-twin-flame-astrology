@@ -14,6 +14,18 @@ Modelos: almas independientes, familia/grupo, raíces relacionadas, origen compa
 
 El origen se evalúa con el motor diferencial específico. No se deduce de contrato, misión, intensidad, sincronías o reconocimiento.
 
+### Subarquitectura doctrinal del origen
+
+Dentro de ORIGIN, ALMAS registra ahora un descriptor subordinado de **arquitectura de origen** para no confundir modelos que comparten lenguaje de fuego:
+
+- `DUAL_SOUL_HALF_FLAME_SIMILE`: Corelli (1886), dualidad del alma expresada mediante el símil “half a flame”; no equivale a división literal de una sola alma.
+- `DIVINE_FLAME_TWIN_RAY_PROJECTION`: Ballard / I AM Activity (1935), una God Flame proyecta Two Rays; operador = proyección/emanación.
+- `WHITE_FIRE_BODY_DUAL_SPHERE`: Summit Lighthouse / Prophet, un white-fire body/ovoid da lugar a dos esferas/contrapartes; operador = división o diferenciación según el pasaje.
+
+Esta subarquitectura describe **qué afirma una fuente**. No es un nuevo eje independiente ni un nuevo score. Una atribución doctrinal puede ser SUPPORTED, pero la atribución de esa arquitectura a una pareja real sigue limitada por la ausencia de un discriminador ontológico validado. Cuando las alternativas no pueden separarse, se conserva `SHARED_ORIGIN_UNDIFFERENTIATED / INSUFFICIENT`.
+
+Regla de operador: `SIMILE ≠ PROJECTION ≠ DIVISION/DIFFERENTIATION`.
+
 ## 2. CONTRATO PREENCARNATORIO
 
 Pregunta si existe compatibilidad con una elección, misión, plan o acuerdo anterior al nacimiento.

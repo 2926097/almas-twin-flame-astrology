@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "doctrinal_discriminators": [
     {
       "id": "D_PAIR_UNIQUENESS",
@@ -36,6 +36,22 @@
     {
       "id": "D_TIKKUN",
       "meaning": "Rectification is constitutive of the relationship model."
+    },
+    {
+      "id": "D_ORIGIN_SUBSTRATE",
+      "meaning": "La fuente distingue qué entidad originaria se postula: alma, Llama divina, white-fire body/ovoid u otra."
+    },
+    {
+      "id": "D_ORIGIN_OPERATOR",
+      "meaning": "La fuente distingue el operador de origen: símil de dualidad, proyección/emanación, división/diferenciación u otro."
+    },
+    {
+      "id": "D_METAPHOR_VS_LITERAL",
+      "meaning": "Distingue lenguaje comparativo/metafórico de una afirmación doctrinal literal sobre el proceso de origen."
+    },
+    {
+      "id": "D_PROJECTION_VS_DIVISION",
+      "meaning": "Distingue proyectar dos Rays desde una fuente de dividir/diferenciar una unidad en dos contrapartes."
     }
   ],
   "astrology_discriminators": [
