@@ -2,9 +2,16 @@
 
 **Versión pública:** 1.26.0
 
-## Estado actual de depuración · 4 octubre 2026
+## Corte histórico de depuración · 4 octubre 2026
 
 El censo reproducible actual comprende **1.162 tests**, **111 fuentes** (70 `VERIFIED_PRIMARY`, 41 `VERIFIED_METADATA`), **144 conceptos** y **93 relaciones**. La regresión local terminó 1.162 tests en 723,994 s, sin errores ni skips; la verificación exacta del código final se atribuye a los recibos de CI, con SHA y digest del worktree. Los estados de releases siguientes son históricos y no sustituyen una comprobación del SHA actual. Los recibos y capas de verificación se generan con `scripts/build_validation_snapshot.py`; una batería interrumpida o incompleta permanece `NOT_FULLY_VERIFIED`. El catálogo adjunto añade trazabilidad de 19 archivos/18 obras sin incorporarlos automáticamente al registro canónico. Véanse `docs/AUDIT_DEPURATION_2026_10_04.md` y `docs/ATTACHED_SOURCE_REVIEW_2026_10_04.md`.
+
+
+## Estado verificado de main · 8 octubre 2026
+
+El commit `484d0a236e007d1c51e0986a2a94f644a1f85b26` terminó la regresión remota en el workflow `Núcleo Python` (run `37737947819`) con resultado global **success**. Se conservaron los ocho recibos, uno por combinación de Python 3.10/3.12 y shard. Para cada versión, los shards son disjuntos: `core` ejecutó 1.211 pruebas (21 skips opcionales declarados), `atacires-core` 108, `full-pipeline` 1 y `returns` 1; unión de 1.321 pruebas por versión, cero fallos y cero errores. Los contratos públicos, el catálogo de fuentes, el corpus PU-M y la reproducción SSAR 1.25.0 también terminaron en PASS en este run.
+
+Este resultado acredita regresión técnica del SHA citado, no validez empírica externa ni promoción ontológica. Atacires permanece en SHADOW y desactivado por defecto; la validación externa SSAR/RRA y de identidad diádica conserva sus estados documentados, sin promoción por el resultado de CI.
 
 ## Registro histórico · Release 1.26.0 · Jyotiṣa Relacional observacional
 
