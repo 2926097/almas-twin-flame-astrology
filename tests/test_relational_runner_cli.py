@@ -6,7 +6,16 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from scripts import run_relational_work_request as runner
+import importlib.util
+
+RUNNER_PATH = Path(__file__).resolve().parents[1] / "scripts" / "run_relational_work_request.py"
+RUNNER_SPEC = importlib.util.spec_from_file_location(
+    "run_relational_work_request", RUNNER_PATH
+)
+if RUNNER_SPEC is None or RUNNER_SPEC.loader is None:
+    raise RuntimeError("No se pudo cargar el CLI de runner por ruta.")
+runner = importlib.util.module_from_spec(RUNNER_SPEC)
+RUNNER_SPEC.loader.exec_module(runner)
 
 
 class RelationalRunnerCliTests(unittest.TestCase):
