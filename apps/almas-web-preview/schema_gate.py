@@ -38,7 +38,16 @@ def _refs(value: object):
             yield from _refs(item)
 
 
-def build_validator(repo_root: Path) -> Draft202012Validator:
+def build_validator(
+    repo_root: Path, schema_name: str = SCHEMA_NAME
+) -> Draft202012Validator:
+    """Construct an offline validator for one pinned ALMAS reporting contract."""
+    if schema_name not in {
+        "canonical-analysis.schema.json",
+        "report-gate-output.schema.json",
+        "report-document-model.schema.json",
+    }:
+        raise ValueError("Schema not authorized for sandbox validation")
     schema_dir = repo_root / "schemas"
     if not schema_dir.is_dir():
         raise FileNotFoundError("ALMAS schemas/ directory not found")
@@ -72,7 +81,7 @@ def build_validator(repo_root: Path) -> Draft202012Validator:
         registry = registry.with_resource(
             uri, Resource.from_contents(document, default_specification=DRAFT202012)
         )
-    target_id = SCHEMA_BASE + SCHEMA_NAME
+    target_id = SCHEMA_BASE + schema_name
     if target_id not in documents:
         raise FileNotFoundError("The authoritative canonical schema is unavailable")
     checked: set[str] = set()
