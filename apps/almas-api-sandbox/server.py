@@ -47,7 +47,7 @@ def dispatch(method: str, target: str, authorization: str | None, expected_key: 
     if method != "GET":
         return 405, {"error": "METHOD_NOT_ALLOWED"}
     parts = urlsplit(target)
-    if parts.query or parts.fragment:
+    if parts.query or parts.fragment or parts.scheme or parts.netloc:
         return 404, {"error": "NOT_FOUND"}
     if parts.path == "/_health":
         return 200, {"status": "ok", "scope": "synthetic_only"}
