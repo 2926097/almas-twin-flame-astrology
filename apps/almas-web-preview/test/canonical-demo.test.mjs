@@ -23,8 +23,8 @@ const reply = () => ({
   json(payload){this.body=payload;return this},
 });
 const setEnv = () => {
-  process.env.ALMAS_ENGINE_URL="https://almas-engine-synthetic-preview.onrender.com";
-  process.env.ALMAS_API_SHARED_SECRET="x".repeat(64);
+  process.env.ALMAS_CANONICAL_GATE_URL="https://almas-engine-synthetic-preview.onrender.com";
+  process.env.ALMAS_CANONICAL_GATE_SECRET="x".repeat(64);
 };
 async function withFetch(implementation, fn) {
   const existing=globalThis.fetch;
@@ -38,11 +38,11 @@ test("reject non-GET without reaching Render",async()=>{
   });
 });
 test("reject missing secret fail closed",async()=>{
-  setEnv();delete process.env.ALMAS_API_SHARED_SECRET;
+  setEnv();delete process.env.ALMAS_CANONICAL_GATE_SECRET;
   const r=reply();await handler({method:"GET"},r);assert.equal(r.code,503);
 });
 test("reject SSRF or query in configured URL",async()=>{
-  setEnv();process.env.ALMAS_ENGINE_URL="https://localhost:8443/?user=1";
+  setEnv();process.env.ALMAS_CANONICAL_GATE_URL="https://localhost:8443/?user=1";
   const r=reply();await handler({method:"GET"},r);assert.equal(r.code,503);
 });
 test("forward only fixed GET route, and strip all extra payload",async()=>{
