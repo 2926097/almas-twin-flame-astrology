@@ -37,21 +37,30 @@ module.exports = async function handler(req, res) {
     const wire = await upstream.text();
     if (wire.length > 65536) return reply(502, { error: "INVALID_ENGINE_RESPONSE" });
     const body = JSON.parse(wire);
+    const expectedSections = [
+      "S01_SYNTHESIS", "S02_DATA_METHOD", "S03_NUMERIC_ONTOLOGY",
+      "S04_STRUCTURE", "S05_RELATIONAL", "S06_DIFFERENTIAL",
+      "S07_TEMPORAL", "S08_ROBUSTNESS", "S09_DOCTRINE",
+      "S10_FINAL_SYNTHESIS", "S11_SOURCES_APPENDICES", "S12_PHASE_DYNAMICS"
+    ];
     if (!body || body.kind !== "ALMAS_SYNTHETIC_CANONICAL_GATE_V1" ||
       body.synthetic !== true || body.schema_validation !== "PASS" ||
       body.canonical_returned !== false || body.m30_executed !== true ||
       body.m31_executed !== true ||
       !/^[0-9a-f]{64}$/.test(body.canonical_fingerprint) ||
-      !["READY", "PARTIAL"].includes(body.m30?.state) ||
+      body.m30?.state !== "PARTIAL" ||
+      body.m30?.execution_trace_state !== "UNAVAILABLE" ||
       body.m30?.reportable !== true || body.m30?.canonical_values_mutated !== false ||
       body.m31?.canonical_fingerprint_verified !== true ||
       body.m31?.canonical_values_embedded !== false ||
       body.m31?.prose_generated !== false ||
       body.m31?.report_state !== body.m30.state ||
       !Array.isArray(body.m31?.section_ids) ||
-      body.m31.section_ids.length !== 12 ||
-      !body.m31.section_ids.every(x => typeof x === "string" && /^S\d\d_[A-Z_]+$/.test(x)) ||
+      body.m31.section_ids.length !== expectedSections.length ||
+      !body.m31.section_ids.every((x, i) => x === expectedSections[i]) ||
       !Array.isArray(body.m30?.degradation_reasons) ||
+      body.m30.degradation_reasons.length > 30 ||
+      !body.m30.degradation_reasons.includes("EXECUTION_TRACE_UNAVAILABLE") ||
       !body.m30.degradation_reasons.every(x => typeof x === "string")) {
       return reply(502, { error: "INVALID_ENGINE_RESPONSE" });
     }
@@ -66,7 +75,7 @@ module.exports = async function handler(req, res) {
         state: body.m30.state,
         reportable: true,
         canonical_values_mutated: false,
-        degradation_reasons: body.m30.degradation_reasons.slice(0, 30)
+        degradation_reasons: body.m30.degradation_reasons
       },
       m31: {
         report_state: body.m31.report_state,
