@@ -30,3 +30,10 @@ PYTHONPATH=src python -m unittest discover -s apps/almas-api-sandbox -p test_ser
 ```
 
 La CLI canónica offline y la API sintética son superficies **distintas**. El resultado `PRECOMPUTED_PILLARS` de la API **no** supera ni sustituye la validación `canonical_analysis` y M30/M31.
+
+## Synthetic canonical M30/M31 demonstration
+
+A separate, fixed read-only endpoint `/api/canonical-demo` is available
+for **synthetic-only** schema + M30/M31 checks. The browser import remains local
+and does not use this route. Deploy `api/canonical-demo.js` with the existing
+static assets and `vercel.json`. See `CANONICAL_GATE_DEMO.md`.
