@@ -6,6 +6,7 @@ from typing import Any, Mapping
 
 from .astrology_geometry import house_for_longitude, normalize_longitude, zodiac_sign
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .positional_hermeneutics import build_position_profile
 from .relational_handlers import _chart_points
 
 
@@ -226,6 +227,54 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
                 "formula": dict(formula),
                 "sect": sect_by_subject.get(subject_id),
             }
+
+            # Los lotes calculados en M13 también son puntos virtuales con
+            # posición. Añadimos el contexto editorial sólo bajo el mismo
+            # interruptor de definición completa que usa M04.
+            if context.raw_input.get("maximum_definition_context") is True:
+                lot_positions = dict(points)
+                lot_positions[lot_id] = {
+                    "longitude": longitude,
+                    "point_type": "LOT",
+                    "calculation_method": "FORMULA",
+                }
+                provenance = chart.get("backend_provenance")
+                house_system = (
+                    provenance.get("house_system")
+                    if isinstance(provenance, Mapping)
+                    else chart.get("house_system")
+                )
+                profile = build_position_profile(
+                    point_id=lot_id,
+                    point_type="LOT",
+                    longitude=longitude,
+                    house=house,
+                    positions=lot_positions,
+                    house_system=house_system,
+                    rulership_policy=context.raw_input.get("rulership_policy"),
+                    rulership_policy_id=context.raw_input.get("rulership_policy_id"),
+                    rulership_policy_source_refs=context.raw_input.get("rulership_policy_source_refs", []),
+                    decan_rulership_policy=context.raw_input.get("decan_rulership_policy"),
+                    calculation_method="FORMULA",
+                    zodiac=chart.get("zodiac"),
+                )
+                flat_profile = {
+                    **profile["position"],
+                    **{key: value for key, value in profile.items() if key != "position"},
+                }
+                def pointer_token(value: str) -> str:
+                    return value.replace("~", "~0").replace("/", "~1")
+
+                for ruler_group in (flat_profile["decan"], flat_profile["sign_rulers"]):
+                    ruler_group["ruler_profile_refs"] = [
+                        "/natal_context/subjects/"
+                        + pointer_token(str(subject_id))
+                        + "/position_profiles/"
+                        + pointer_token(ruler)
+                        for ruler in ruler_group.get("rulers", [])
+                        if ruler in points
+                    ]
+                subject_lots[lot_id]["position_profile"] = flat_profile
 
         output["subjects"][str(subject_id)] = subject_lots
 

@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 17013)
+Total output lines: 1064
+
 ---
 name: almas-twin-flame-astrology
 description: Skill multidisciplinar reproducible de astrología relacional para análisis diferencial de vínculos del alma, modelos de llamas gemelas, vínculos kármicos y almas gemelas, validación estructural/temporal, comparación doctrinal, hermenéutica e informes canónicos.
@@ -36,7 +39,7 @@ La release 1.24.1 amplía el corpus y añade límites doctrinales ejecutables. C
 
 ### Definición completa de posiciones y contactos
 
-Aplicar [extracción y definición interpretativa completa](reference/maximum-definition-hermeneutics.md) en toda lectura natal, relacional, temporal y VED, en chat o documento. En ejecuciones nuevas destinadas a definición extensa, declarar `maximum_definition_context: true` para preservar geometría y movimiento sin alterar outputs históricos desactivados. Consumir `interpretive_atlas` del modelo personal/relacional o construirlo desde el canónico con `scripts/build_interpretive_atlas.py`. Desarrollar función, modo, escenario, geometría y alternativa de los factores seleccionados; conservar polos concretos y dependencia. No rellenar lagunas con técnicas o significados no documentados. El atlas controla cobertura editorial, no score ni ontología.
+Aplicar [extracción y definición interpretativa completa](reference/maximum-definition-hermeneutics.md) y [hermenéutica posicional de factores](reference/positional-factor-hermeneutics.md) en toda lectura natal, relacional, temporal y VED, en chat o documento. En ejecuciones nuevas destinadas a definición extensa, declarar `maximum_definition_context: true` para emitir perfiles M04 de todos los puntos con longitud disponibles en las cartas natales y añadir fichas a los lotes virtuales que M13 haya calculado: signo, grado, sector de decanato, casa con su procedencia, regencias declaradas, cadenas de dispositores y estado de movimiento. Se pueden cargar `load_hellenistic_domicile_rulership_policy()` y `load_hellenistic_chaldean_decan_policy()` desde `almas_tfa.positional_hermeneutics`; son variantes explícitas, no defaults universales. La interpretación de retrogradación exige doctrina y referencia explícitas; `NOT_AUTHORED` no debe completarse con una regla genérica. Consumir `interpretive_atlas` del modelo personal/relacional o construirlo desde el canónico con `scripts/build_interpretive_atlas.py`. Desarrollar función, modo, escenario, geometría y alternativa de los factores seleccionados; conservar polos concretos y dependencia. No rellenar lagunas con técnicas o significados no documentados. El atlas controla cobertura editorial, no score ni ontología.
 
 ### Enfoque de investigación metafísica
 
@@ -335,144 +338,7 @@ Los IEM son independientes y no suman 100.
 
 `IDD` = **Índice de Discriminación Diagnóstica**. `IDE` puede aparecer como alias histórico de `IDD`.
 
-Usar atribución Shapley sobre `IEM_pre` para estimar qué raíces independientes distinguen modelos. Desde 1.22.0, **sólo las raíces independientes son jugadores Shapley**. PX y PS son interacciones derivadas: se recalculan desde las raíces presentes en cada coalición y su efecto marginal se reparte entre las raíces fuente. Un motivo semántico nunca entra como jugador adicional. Se prefiere la atribución exacta para conjuntos pequeños; para conjuntos mayores se usa aproximación determinista por permutaciones con control de convergencia.
-
-Normalizar las contribuciones primarias por modelo y comparar distribuciones mediante divergencia Jensen–Shannon. Una forma práctica 0–100 es:
-
-`IDD(m,n) = 100 × sqrt(JSD_base2(p_m, p_n))`.
-
-Bandas interpretativas:
-- `<15`: solapamiento sustancial;
-- `15–29`: distinción transicional;
-- `30–49`: distinción material;
-- `>=50`: distinción muy marcada.
-
-IDD mide separación de arquitecturas de evidencia, no verdad metafísica.
-
-## 13. Robustez — IRC
-
-`IRC` = **Índice de Robustez de la Clasificación**.
-
-Los componentes aplicables pueden incluir robustez frente a hora natal, ablación de capas, perturbación de parámetros, estabilidad de IDD y discriminadores validados cuando existan.
-
-M23 separa una curva diagnóstica `R5/R15/R30/R60/R120` del componente agregado `BIRTH_TIME`. La curva puede calcularse sin rating A/B/C/D si existen hora, zona y localización. El componente único sólo entra en IRC cuando la fiabilidad horaria está documentada. Si la arquitectura depende de puntos horarios y no existe ese componente, el gate canónico impide elevar un modelo a `SUPPORTED`.
-
-Para la familia de perturbación X:
-
-`R_X = exp(-delta90/20) × sqrt(G)`
-
-donde `G` es la fracción que preserva las bandas interpretativas preregistradas.
-
-`G_j = min(R_i)` para todos los componentes pertenecientes al mismo grupo de dependencia `j`.
-
-`IRC = 100 × geometric_mean(G_j)` sobre grupos de dependencia distintos.
-
-`R_min = min(applicable R_i)` sobre todos los componentes individuales.
-
-La política 1.22 agrupa `ABLATION` y `PARAMETER_PERTURBATION` en `STRUCTURAL_PERTURBATION`, `IDD_STABILITY` y `VALIDATED_DISCRIMINATOR` en `DIAGNOSTIC_STABILITY`, y mantiene `BIRTH_TIME` en `TIME_INPUT`. El mínimo intragrupo impide que varias medidas correlacionadas reciban votos independientes.
-
-## 14. Activación temporal — IAT
-
-`IAT` = **Índice de Activación Temporal**.
-
-Una señal temporal contribuye sólo cuando está anclada a una raíz estructural preexistente.
-
-Clases:
-- repetición directa: K=1.00;
-- activación de raíz relacional: K=0.90;
-- activación de endpoint: K=0.70;
-- no anclada: K=0.
-
-Familias temporales primarias:
-- `TPROG`: progresiones secundarias;
-- `TDIR`: arco solar y familia dirigida relacionada;
-- `TTRANSIT`: tránsitos;
-- `TECLIPSE`: eclipses bajo reglas declaradas;
-- `TREL`: compuesta o Davison progresada/dirigida.
-
-Dentro de una raíz/familia conservar la señal más fuerte. Agregar familias temporales y raíces independientes mediante pesos preregistrados. IAT nunca modifica IEM.
-
-`TTRANSIT` dispone de método documental explícito mediante `astrodienst_transit` y `hand_planets_in_transit_2002`. Para esta familia aplicar `reference/transit-method.md`: `factor en tránsito → aspecto mayor → factor objetivo ya calculado → raíz existente → ventana`. Este contrato no se extiende a TPROG, TDIR, TECLIPSE, TREL o TATACIR sin sus propias fuentes y reglas.
-
-Para autoría de S07 aplicar `reference/temporal-activation-hermeneutics.md`. La secuencia obligatoria es `raíz → clase de activación → ventana → proceso simbólico → evento documentado si existe`. `effective_strength` e IAT calibran concentración temporal, no probabilidad de un hecho. `PROSPECTIVE_ACTIVATION` nunca autoriza a predecir contacto, reunión, separación, reconciliación, decisión, consentimiento o cierre. Las familias temporales identifican procedencia técnica; no asignarles significados psicológicos específicos sin una fuente de método registrada.
-
-## 15. Cobertura — ICC
-
-`ICC` = **Índice de Cobertura Canónica**.
-
-Dominios conscientes de dependencia:
-1. base natal;
-2. sinastría/nodos;
-3. ángulos/casas/regencias;
-4. simetrías;
-5. cartas relacionales;
-6. capas dracónicas;
-7. lotes/capa simbólica secundaria.
-
-La calidad q de cada dominio puede ser 1 completa, 0.5 degradada, 0 no evaluable.
-
-`ICC = 100 × sum(q) / 7`.
-
-La cobertura temporal y documental puede informarse separadamente como `ICC_T` e `ICC_D`.
-
-## 16. Contraevidencia — ICE
-
-`ICE` = **Índice de Contraevidencia Estructural**.
-
-ICE mide contradicciones explícitas o incompatibilidades estructurales. No penaliza datos ausentes y no debe contar dos veces la misma contradicción a través de capas dependientes.
-
-M20 admite dos procedencias trazables. Un `ice_by_model` precomputado completo conserva estado `PRECOMPUTED`. Si no existe ICE precomputado, sólo puede derivarse un ICE autónomo cuando la entrada declara `counterevidence_complete=true`; en ese caso todas las contradicciones retenidas requieren severidad finita `s ∈ [0,1]`. Primero se deduplica por modelo + familia de dependencia + `contradiction_key`; después, una misma `contradiction_key` presente en varias familias conserva la severidad máxima. Para contradicciones semánticamente distintas:
-
-`ICE_model = 100 × (1 - Π_k (1 - s_k))`.
-
-Esta agregación es un operador de saturación acotado definido por ALMAS, no una probabilidad. Si no existe declaración explícita de completitud, ICE permanece `NOT_CALCULATED`; una lista parcial jamás implica ausencia de contraevidencia. Las contradicciones esenciales mantienen además su gate categórico separado y no reciben una penalización numérica adicional por el hecho de ser esenciales.
-
-## 17. Gate de soporte estructural
-
-Un modelo sólo puede marcarse `SUPPORTED` cuando se cumplen todos los mínimos preregistrados, incluidos IEM suficiente, fuerza de núcleo, cobertura, robustez, resiliencia mínima a perturbaciones, evaluabilidad de pilares esenciales y ausencia de contradicción esencial.
-
-Los umbrales públicos vigentes, heredados desde v1.0.0, son:
-- `IEM_final >= 75`;
-- `CORE >= 0.65`;
-- `ICC >= 80`;
-- `IRC >= 70`;
-- `R_min >= 0.50`;
-- ausencia de contradicción esencial;
-- pilares esenciales evaluables.
-
-Es soporte estructural dentro del modelo, no prueba metafísica.
-
-## 18. Registro de discriminadores
-
-Un discriminador binario sólo puede utilizarse cuando está preregistrado y validado. Si dos ontologías candidatas siguen siendo observacionalmente equivalentes con la evidencia disponible, devolver `INSUFFICIENT`.
-
-No convertir transformación, misión, espejo, recurrencia dracónica, asteroides o un IEM LG superior en discriminadores ontológicos salvo que exista una regla validada.
-
-## 19. Modelos nulos y rareza
-
-Congelar el conjunto de características, política de orbes, conjunto de eventos y modelo nulo antes de la inspección confirmatoria.
-
-Los modelos nulos aceptables pueden incluir `matched-age`, `within-year`, `matched-age-clock`, `ephemeris-date`, `pair-shuffle`, `event-date-shift` o nulos específicos de ciclo/técnica.
-
-Usar Monte Carlo e intervalos de Wilson cuando proceda. Informar la rareza sólo como frecuencia estructural bajo el nulo declarado.
-
-## 20. Doctrina y hermenéutica comparada
-
-No fusionar tradiciones como si fueran equivalentes.
-
-Para cada comparación doctrinal identificar:
-1. procedencia;
-2. fuente primaria o mejor autoridad disponible;
-3. significado histórico;
-4. uso contemporáneo;
-5. qué **no** establece la fuente;
-6. si la correspondencia es doctrina o hipótesis del proyecto.
-
-Los corpus relevantes pueden incluir Platonismo/Neoplatonismo, Cábala, misticismo cristiano, sufismo, tradiciones hindúes/Vedanta/Tantra, budismo cuando proceda, espiritismo, Teosofía, Alice Bailey, I AM Activity, Summit Lighthouse, New Age y estudios académicos del esoterismo.
-
-Ejemplos de no equivalencia:
-- El discurso de Aristófanes en el *Banquete* de Platón es un antecedente, no idéntico a la doctrina moderna de llamas gemelas.
-- Plotino no establece por sí solo una contraparte única escindida.
+Usar atribución Shapley sobre `IEM_pre` para estimar qué raíces independientes distinguen modelos. Desde 1.22.0, **sólo las raíces independient…2013 tokens truncated…a.
 - Zivug/gilgul/tikkun cabalísticos son comparanda, no llamas gemelas modernas por defecto.
 - El matrimonio místico cristiano se formula principalmente en lenguaje alma–Dios.
 - El lenguaje sufí amante/Amado no debe reinterpretarse automáticamente como modelo diádico moderno del alma.

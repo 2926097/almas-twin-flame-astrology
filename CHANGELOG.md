@@ -13,6 +13,10 @@ Núcleo determinista de ciclos uniformes en modo sombra, adaptador desde cartas 
 
 Preservación de movimiento y declinación natal en M04 y geometría original en contactos M17. Atlas referencial común para informes personales/relacionales y uso independiente VED, con auditoría de cobertura editorial, JSON Pointer y control de fingerprint. Protocolo de definición completa y corrección de encabezados públicos desactualizados. Sin cambios en scoring, independencia ni clasificación.
 
+## Desarrollo · perfiles posicionales trazables
+
+Extiende M04 bajo `maximum_definition_context` con perfiles para los puntos con longitud presentes en las cartas natales y añade la misma ficha a los lotes virtuales calculados por M13: signo/grado, tercio geométrico de decanato, casa y su sistema cuando consta, regentes sólo desde políticas declaradas, cadenas de dispositores con ciclos/ramas, y estado de movimiento por tipo. Añade políticas cargables y con fuente para domicilios helenísticos y faces helenísticas en orden caldeo, ambas optativas y explícitas; admite otras variantes mediante política declarada. Retrogradación y estación no generan semántica automática; la guía distingue los testimonios helenísticos disponibles y exige atribución al informar. Añade schemas, atlas de cobertura, guía hermenéutica y pruebas. Los outputs históricos quedan iguales con la opción desactivada; no cambia scoring, índices, independencia, discriminadores u ontología.
+
 ## Evolución experimental · validación ciega de identidad diádica — 2026-10-06
 
 Añade `ALMAS_PAIR_IDENTITY_VALIDATION_V1` para separar fenotipo twin-flame-like de identidad específica de díada. Implementa constructor custodio HMAC con `blinded_pairs` y `sealed_truth`, hard negative primario `DF_i-DM_j`, controles same-polarity, firewall de particiones sin solapamiento y evaluación post-reveal con Wilson 95 %, balanced accuracy, FALSE_SPECIFICITY_RATE, ROC-AUC diagnóstica y concordancia pareada.

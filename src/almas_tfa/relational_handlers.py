@@ -8,6 +8,7 @@ from .astrology_geometry import (
     zodiac_sign,
 )
 from .module_contract import ExecutionStatus, ModuleContext, ModuleResult, not_evaluable_result
+from .positional_hermeneutics import build_position_profile
 
 
 def _chart_points(chart: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
@@ -148,6 +149,20 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
     rulership_policy = context.raw_input.get("rulership_policy")
     if rulership_policy is not None and not isinstance(rulership_policy, Mapping):
         raise ValueError("rulership_policy debe ser un objeto cuando se declara.")
+    decan_rulership_policy = context.raw_input.get("decan_rulership_policy")
+    if decan_rulership_policy is not None and not isinstance(decan_rulership_policy, Mapping):
+        raise ValueError("decan_rulership_policy debe ser un objeto cuando se declara.")
+    rulership_policy_id = context.raw_input.get("rulership_policy_id")
+    if rulership_policy_id is not None and (
+        not isinstance(rulership_policy_id, str) or not rulership_policy_id.strip()
+    ):
+        raise ValueError("rulership_policy_id debe ser una cadena no vacía.")
+    rulership_policy_source_refs = context.raw_input.get("rulership_policy_source_refs", [])
+    if (
+        not isinstance(rulership_policy_source_refs, list)
+        or any(not isinstance(item, str) or not item.strip() for item in rulership_policy_source_refs)
+    ):
+        raise ValueError("rulership_policy_source_refs debe ser una lista de referencias no vacías.")
 
     output: dict[str, Any] = {
         "subjects": {},
@@ -191,6 +206,7 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
         cusp_context: dict[str, Any] = {}
         placements: dict[str, Any] = {}
         regencies: dict[str, Any] = {}
+        position_profiles: dict[str, Any] = {}
 
         if isinstance(houses, Mapping) and all(str(i) in houses for i in range(1, 13)):
             for i in range(1, 13):
@@ -234,7 +250,50 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
                 f"{subject_id}: no se declaró rulership_policy; no se asignan regencias."
             )
 
-        output["subjects"][str(subject_id)] = {
+        if context.raw_input.get("maximum_definition_context") is True:
+            provenance = chart.get("backend_provenance")
+            house_system = (
+                provenance.get("house_system")
+                if isinstance(provenance, Mapping)
+                else chart.get("house_system")
+            )
+            for point_id, data in sorted(points.items()):
+                profile = build_position_profile(
+                    point_id=point_id,
+                    point_type=data.get("point_type"),
+                    longitude=float(data["longitude"]),
+                    house=placements.get(point_id, {}).get("house"),
+                    house_system=house_system,
+                    positions=points,
+                    rulership_policy=rulership_policy,
+                    rulership_policy_id=rulership_policy_id,
+                    rulership_policy_source_refs=rulership_policy_source_refs,
+                    decan_rulership_policy=decan_rulership_policy,
+                    retrograde=data.get("retrograde"),
+                    speed=data.get("speed"),
+                    calculation_method=data.get("calculation_method"),
+                    zodiac=chart.get("zodiac"),
+                )
+                position_profiles[point_id] = {
+                    **profile["position"],
+                    **{key: value for key, value in profile.items() if key != "position"},
+                }
+            def pointer_token(value: str) -> str:
+                return value.replace("~", "~0").replace("/", "~1")
+
+            for profile in position_profiles.values():
+                for ruler_group in (profile["decan"], profile["sign_rulers"]):
+                    rulers = ruler_group.get("rulers", [])
+                    ruler_group["ruler_profile_refs"] = [
+                        "/natal_context/subjects/"
+                        + pointer_token(str(subject_id))
+                        + "/position_profiles/"
+                        + pointer_token(ruler)
+                        for ruler in rulers
+                        if ruler in position_profiles
+                    ]
+
+        subject_output = {
             "timed": bool(chart.get("timed")),
             "point_signs": point_signs,
             "nodes": nodes,
@@ -243,6 +302,9 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
             "house_placements": placements,
             "rulerships": regencies,
         }
+        if context.raw_input.get("maximum_definition_context") is True:
+            subject_output["position_profiles"] = position_profiles
+        output["subjects"][str(subject_id)] = subject_output
 
     subject_ids = [str(subject_id) for subject_id in charts]
     for source_id in subject_ids:

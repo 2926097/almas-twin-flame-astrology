@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/almas/decan-rulership-policy.schema.json",
+  "title": "ALMAS · Política explícita de regentes de decanato",
+  "type": "object",
+  "required": ["policy_id", "rulers_by_sign"],
+  "properties": {
+    "policy_id": {"type": "string", "minLength": 1},
+    "tradition": {"type": "string", "minLength": 1},
+    "method_summary": {"type": "string", "minLength": 1},
+    "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "rulers_by_sign": {
+      "type": "object",
+      "propertyNames": {
+        "enum": ["ARIES", "TAURUS", "GEMINI", "CANCER", "LEO", "VIRGO", "LIBRA", "SCORPIO", "SAGITTARIUS", "CAPRICORN", "AQUARIUS", "PISCES"]
+      },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "additionalProperties": false
+}
