@@ -17,3 +17,8 @@ jobs:
         run: |
           node --version
           node --test apps/almas-web-preview/test/validator.test.mjs
+      - name: Offline canonical Draft 2020-12 schema gate
+        run: |
+          python3 -m venv /tmp/almas-web-schema-venv
+          /tmp/almas-web-schema-venv/bin/python -m pip install --disable-pip-version-check jsonschema==4.26.0
+          /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
