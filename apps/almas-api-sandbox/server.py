@@ -42,7 +42,7 @@ def compute_synthetic():
     }
 
 
-def dispatch(method: str, target: str, authorization: str | None, expected_key: str, engine=compute_synthetic):
+def dispatch(method: str, target: str, authorization: str | None, expected_key: str, engine=compute_synthetic, canonical_engine=None):
     """Return (HTTP status, JSON payload). No user data is accepted."""
     if method != "GET":
         return 405, {"error": "METHOD_NOT_ALLOWED"}
@@ -51,13 +51,18 @@ def dispatch(method: str, target: str, authorization: str | None, expected_key: 
         return 404, {"error": "NOT_FOUND"}
     if parts.path == "/_health":
         return 200, {"status": "ok", "scope": "synthetic_only"}
-    if parts.path != "/v1/synthetic":
+    if parts.path not in ("/v1/synthetic", "/v1/canonical-demo"):
         return 404, {"error": "NOT_FOUND"}
     if not expected_key or len(expected_key) < 32:
         return 503, {"error": "SERVICE_NOT_CONFIGURED"}
     supplied = authorization or ""
     if not hmac.compare_digest(supplied.encode("utf-8"), ("Bearer " + expected_key).encode("utf-8")):
         return 401, {"error": "UNAUTHORIZED"}
+    if parts.path == "/v1/canonical-demo":
+        if canonical_engine is None:
+            from canonical_demo import evaluate_synthetic_canonical
+            canonical_engine = evaluate_synthetic_canonical
+        return 200, canonical_engine()
     return 200, engine()
 
 
