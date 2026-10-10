@@ -61,7 +61,7 @@ Un modelo parcial no puede ocultar limitaciones para producir una narrativa apar
 
 ## 5. Secciones
 
-M31 define exactamente once secciones y un orden fijo:
+M31 define exactamente doce secciones y un orden fijo:
 
 1. S01_SYNTHESIS — Síntesis ejecutiva.
 2. S02_DATA_METHOD — Calidad de datos y método.
@@ -74,6 +74,16 @@ M31 define exactamente once secciones y un orden fijo:
 9. S09_DOCTRINE — Doctrina comparada y corpus.
 10. S10_FINAL_SYNTHESIS — Síntesis final.
 11. S11_SOURCES_APPENDICES — Fuentes y anexos.
+12. S12_PHASE_DYNAMICS — Dinámica temporal y evolución de fases.
+
+La sección **S12_PHASE_DYNAMICS** requiere las rutas `dynamic_phases`,
+`phase_transitions` y `causal_firewall`; registra, cuando existen,
+`surrender_vestal`, `actor_states`, `doctrinal_sequences`,
+`temporal_sequence_graph`, `temporal_layers`, `root_recurrence`,
+`preregistered_predictions`, `counterevidence`, `temporal`
+y `limitations` como rutas opcionales. La lectura separa los hechos
+documentados de la doctrina, conserva la contraevidencia y no atribuye
+causalidad ni identificación ontológica sin los requisitos correspondientes.
 
 Cada sección declara:
 
