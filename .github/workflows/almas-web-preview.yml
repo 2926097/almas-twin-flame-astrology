@@ -4,10 +4,12 @@ on:
     branches: [main]
     paths:
       - 'apps/almas-web-preview/**'
+      - 'apps/almas-api-sandbox/**'
       - '.github/workflows/almas-web-preview.yml'
   pull_request:
     paths:
       - 'apps/almas-web-preview/**'
+      - 'apps/almas-api-sandbox/**'
       - '.github/workflows/almas-web-preview.yml'
 permissions:
   contents: read
@@ -21,9 +23,12 @@ jobs:
       - name: Run browser-contract preflight tests (not full schema validation)
         run: |
           node --version
-          node --test apps/almas-web-preview/test/validator.test.mjs
+          node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs
       - name: Offline canonical Draft 2020-12 schema gate
         run: |
           python3 -m venv /tmp/almas-web-schema-venv
           /tmp/almas-web-schema-venv/bin/python -m pip install --disable-pip-version-check jsonschema==4.26.0
           PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
+      - name: Authenticated synthetic-only Python API and core regression
+        run: |
+          PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-api-sandbox -p 'test_server.py' -v
