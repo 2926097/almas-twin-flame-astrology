@@ -9,8 +9,8 @@ module.exports = async function handler(req, res) {
     res.setHeader("Allow", "GET");
     return reply(405, { error: "METHOD_NOT_ALLOWED" });
   }
-  const endpoint = process.env.ALMAS_ENGINE_URL;
-  const secret = process.env.ALMAS_API_SHARED_SECRET;
+  const endpoint = process.env.ALMAS_CANONICAL_GATE_URL;
+  const secret = process.env.ALMAS_CANONICAL_GATE_SECRET;
   if (!endpoint || !secret || secret.length < 32) {
     return reply(503, { error: "DEMO_NOT_CONFIGURED" });
   }
