@@ -8,11 +8,11 @@ const valid = {
   synthetic: true, schema_validation: "PASS", canonical_returned: false,
   m30_executed: true, m31_executed: true,
   canonical_fingerprint: "a".repeat(64),
-  m30: {state:"PARTIAL",reportable:true,canonical_values_mutated:false,
+  m30: {state:"PARTIAL",reportable:true,canonical_values_mutated:false,execution_trace_state:"UNAVAILABLE",
     degradation_reasons:["EXECUTION_TRACE_UNAVAILABLE"]},
   m31: {report_state:"PARTIAL",canonical_fingerprint_verified:true,
     canonical_values_embedded:false,prose_generated:false,
-    section_ids: Array.from({length:12},(_,i)=>"S"+String(i+1).padStart(2,"0")+"_SYNTHETIC")},
+    section_ids: ["S01_SYNTHESIS","S02_DATA_METHOD","S03_NUMERIC_ONTOLOGY","S04_STRUCTURE","S05_RELATIONAL","S06_DIFFERENTIAL","S07_TEMPORAL","S08_ROBUSTNESS","S09_DOCTRINE","S10_FINAL_SYNTHESIS","S11_SOURCES_APPENDICES","S12_PHASE_DYNAMICS"]},
   canonical_analysis: {positions:"SHOULD_NOT_LEAK"},
   secret: "NEVER_COPY"
 };
@@ -77,5 +77,28 @@ test("upstream errors never expose response body",async()=>{
   setEnv();await withFetch(async()=>({ok:false,status:403,text:async()=>"private"}),async()=>{
     const r=reply();await handler({method:"GET"},r);
     assert.equal(r.code,503);assert.ok(!JSON.stringify(r.body).includes("private"))
+  });
+});
+
+test("reject unexpected section identity even if count is twelve",async()=>{
+  setEnv();
+  const modified=structuredClone(valid);modified.m31.section_ids[11]="S12_INVENTED";
+  await withFetch(async()=>({ok:true,text:async()=>JSON.stringify(modified)}),async()=>{
+    const r=reply();await handler({method:"GET"},r);assert.equal(r.code,502)
+  });
+});
+test("reject READY without source trace for this synthetic-only fixture",async()=>{
+  setEnv();
+  const modified=structuredClone(valid);
+  modified.m30.state="READY";modified.m31.report_state="READY";
+  await withFetch(async()=>({ok:true,text:async()=>JSON.stringify(modified)}),async()=>{
+    const r=reply();await handler({method:"GET"},r);assert.equal(r.code,502)
+  });
+});
+test("reject hidden M30 degradation reasons",async()=>{
+  setEnv();
+  const modified=structuredClone(valid);modified.m30.degradation_reasons=[];
+  await withFetch(async()=>({ok:true,text:async()=>JSON.stringify(modified)}),async()=>{
+    const r=reply();await handler({method:"GET"},r);assert.equal(r.code,502)
   });
 });
