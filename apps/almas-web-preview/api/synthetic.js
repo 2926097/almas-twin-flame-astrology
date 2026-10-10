@@ -39,7 +39,7 @@ module.exports = async function handler(req, res) {
       },
       redirect: "error",
       cache: "no-store",
-      signal: AbortSignal.timeout(12000)
+      signal: AbortSignal.timeout(45000)
     });
     if (!upstream.ok) return reply(503, { error: "ENGINE_UNAVAILABLE" });
     const body = await upstream.text();
