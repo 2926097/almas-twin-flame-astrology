@@ -22,7 +22,7 @@ from server import Handler, dispatch
 from schema_gate import build_validator, validate_document
 from test_canonical_schema_validation import valid_canonical_analysis
 from almas_tfa.report_gate_handlers import m30_report_gate
-from almas_tfa.report_model_handlers import m31_report
+from almas_tfa.report_model_handlers import m31_report, SECTION_SPECS
 
 TEST_KEY = "synthetic_test_key_64_characters_long_only_for_tests_no_prod_1234567890"
 
@@ -41,7 +41,7 @@ class SyntheticCanonicalDemoTests(unittest.TestCase):
         self.assertTrue(result["m31"]["canonical_fingerprint_verified"])
         self.assertFalse(result["m31"]["canonical_values_embedded"])
         self.assertFalse(result["m31"]["prose_generated"])
-        self.assertEqual(len(result["m31"]["section_ids"]), 11)
+        self.assertEqual(result["m31"]["section_ids"], [s["section_id"] for s in SECTION_SPECS])
         self.assertTrue(result["m30"]["reportable"])
         self.assertEqual(len(result["canonical_fingerprint"]), 64)
 
