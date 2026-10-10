@@ -2,9 +2,22 @@
 
 **Versión pública:** 1.26.0
 
-## Estado actual de depuración · 4 octubre 2026
+## Corte histórico de depuración · 4 octubre 2026
 
 El censo reproducible actual comprende **1.162 tests**, **111 fuentes** (70 `VERIFIED_PRIMARY`, 41 `VERIFIED_METADATA`), **144 conceptos** y **93 relaciones**. La regresión local terminó 1.162 tests en 723,994 s, sin errores ni skips; la verificación exacta del código final se atribuye a los recibos de CI, con SHA y digest del worktree. Los estados de releases siguientes son históricos y no sustituyen una comprobación del SHA actual. Los recibos y capas de verificación se generan con `scripts/build_validation_snapshot.py`; una batería interrumpida o incompleta permanece `NOT_FULLY_VERIFIED`. El catálogo adjunto añade trazabilidad de 19 archivos/18 obras sin incorporarlos automáticamente al registro canónico. Véanse `docs/AUDIT_DEPURATION_2026_10_04.md` y `docs/ATTACHED_SOURCE_REVIEW_2026_10_04.md`.
+
+
+## Corte histórico verificado de main · 8 octubre 2026
+
+El commit `484d0a236e007d1c51e0986a2a94f644a1f85b26` terminó la regresión remota en el workflow `Núcleo Python` (run `37737947819`) con resultado global **success**. Se conservaron los ocho recibos, uno por combinación de Python 3.10/3.12 y shard. Para cada versión, los shards son disjuntos: `core` ejecutó 1.211 pruebas (21 skips opcionales declarados), `atacires-core` 108, `full-pipeline` 1 y `returns` 1; unión de 1.321 pruebas por versión, cero fallos y cero errores. Los contratos públicos, el catálogo de fuentes, el corpus PU-M y la reproducción SSAR 1.25.0 también terminaron en PASS en este run.
+
+Este resultado acredita regresión técnica del SHA citado, no validez empírica externa ni promoción ontológica. Atacires permanece en SHADOW y desactivado por defecto; la validación externa SSAR/RRA y de identidad diádica conserva sus estados documentados, sin promoción por el resultado de CI.
+
+## Estado verificado de main · 8 octubre 2026 · SHA actual
+
+El commit `9046d9473beaa35297c582f312a125b1bb42af6c` terminó el workflow `Núcleo Python` (run `37741950146`) con resultado global **success**. Se conservaron los ocho recibos para Python 3.10/3.12 y los shards `core`, `atacires-core`, `full-pipeline` y `returns`. Por versión: `core` ejecutó 1.223 tests (21 skips opcionales), `atacires-core` 108, `full-pipeline` 1 y `returns` 1; total de 1.333, cero fallos y cero errores. IDs de recibo: 3.10 core `11534178884`, atacires `11534475086`, pipeline `11534103287`, returns `11533974197`; 3.12 core `11534658489`, atacires `11533224457`, pipeline `11534355383`, returns `11534172634`.
+
+Contrato público, backend astronómico, Jyotiṣa Relacional, Pair Identity, SSAR 1.25.0, catálogo de fuentes, corpus PU-M y validaciones SSAR terminaron en PASS para este SHA. El resultado acredita regresión técnica de este commit; no acredita validación empírica externa ni promoción ontológica. Atacires sigue en SHADOW y desactivado por defecto.
 
 ## Registro histórico · Release 1.26.0 · Jyotiṣa Relacional observacional
 
@@ -159,7 +172,7 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 
 ## Pruebas automatizadas
 
-La suite Python contiene **574 tests deterministas**, incluidos módulos aislados, firewalls metodológicos, Q1–Q7, S1–S9 y una ejecución sintética completa M00–M31 sin shims cuantitativos manuales.
+El dato de **574 tests deterministas** corresponde al cierre histórico 1.20. Para la regresión actual, véanse arriba el SHA, el run y los conteos verificables de los ocho shards.
 
 El workflow `Núcleo Python` ejecuta:
 
