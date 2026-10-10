@@ -9,6 +9,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from urllib.parse import urljoin
 
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
@@ -58,6 +59,19 @@ def build_validator(repo_root: Path) -> Draft202012Validator:
             # Aliases resolve to files already bundled locally; never retrieve HTTP.
             documents[declared_id] = document
             registry = registry.with_resource(declared_id, resource)
+    # SSAR schemas reference an in-repository definition file one level above
+    # the public schemas directory. Register bundled data as local-only resources.
+    data_dir = repo_root / "src" / "almas_tfa" / "data"
+    for path in sorted(data_dir.glob("*.json")):
+        document = _load_json(path)
+        if not isinstance(document, dict):
+            continue
+        reference = "../" + path.relative_to(repo_root).as_posix()
+        uri = urljoin(SCHEMA_BASE, reference)
+        documents[uri] = document
+        registry = registry.with_resource(
+            uri, Resource.from_contents(document, default_specification=DRAFT202012)
+        )
     target_id = SCHEMA_BASE + SCHEMA_NAME
     if target_id not in documents:
         raise FileNotFoundError("The authoritative canonical schema is unavailable")
@@ -76,7 +90,7 @@ def build_validator(repo_root: Path) -> Draft202012Validator:
             external = ref.partition("#")[0]
             if not external:
                 continue
-            absolute = external if "://" in external else SCHEMA_BASE + external
+            absolute = urljoin(uri, external)
             if absolute not in documents:
                 raise ValueError("Unbundled schema dependency")
             pending.append(absolute)
