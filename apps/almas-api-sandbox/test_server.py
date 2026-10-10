@@ -4,13 +4,18 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import http.client
+import os
+import threading
+from unittest.mock import patch
 import sys
 import unittest
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO / "apps" / "almas-api-sandbox"))
-from server import EXPECTED_KIND, FIXTURE, compute_synthetic, dispatch  # noqa: E402
+from server import EXPECTED_KIND, FIXTURE, Handler, compute_synthetic, dispatch  # noqa: E402
+from http.server import ThreadingHTTPServer
 from almas_tfa.analysis import analyze_precomputed  # noqa: E402
 
 KEY = "test_only_valid_64_character_key_that_is_never_a_deployment_secret_1234"
@@ -62,6 +67,41 @@ class SandboxApiTests(unittest.TestCase):
         self.assertEqual(body["m30_executed"], False)
         self.assertEqual(copy_fixture, fixture)
         self.assertEqual(hashlib.sha256(before_bytes).hexdigest(), hashlib.sha256(FIXTURE.read_bytes()).hexdigest())
+
+    def test_real_local_http_roundtrip(self):
+        with patch.dict(os.environ, {"ALMAS_API_SHARED_SECRET": KEY}):
+            server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+            worker = threading.Thread(target=server.serve_forever, daemon=True)
+            worker.start()
+            try:
+                client = http.client.HTTPConnection("127.0.0.1", server.server_address[1], timeout=5)
+                client.request("GET", "/v1/synthetic")
+                response = client.getresponse()
+                self.assertEqual(response.status, 401)
+                self.assertEqual(response.getheader("Cache-Control"), "no-store, max-age=0")
+                response.read()
+                client.close()
+
+                client = http.client.HTTPConnection("127.0.0.1", server.server_address[1], timeout=5)
+                client.request("GET", "/v1/synthetic", headers={"Authorization": "Bearer " + KEY})
+                response = client.getresponse()
+                self.assertEqual(response.status, 200)
+                self.assertEqual(response.getheader("X-Content-Type-Options"), "nosniff")
+                doc = json.loads(response.read())
+                client.close()
+                self.assertEqual(doc["kind"], EXPECTED_KIND)
+                self.assertEqual(doc["engine_result"]["input_mode"], "PRECOMPUTED_PILLARS")
+
+                client = http.client.HTTPConnection("127.0.0.1", server.server_address[1], timeout=5)
+                client.request("POST", "/v1/synthetic", headers={"Authorization": "Bearer " + KEY})
+                response = client.getresponse()
+                self.assertEqual(response.status, 405)
+                response.read()
+                client.close()
+            finally:
+                server.shutdown()
+                server.server_close()
+                worker.join(timeout=5)
 
     def test_no_private_labels_in_demo(self):
         doc = json.dumps(compute_synthetic(), ensure_ascii=False)
