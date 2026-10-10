@@ -1,0 +1,19 @@
+name: ALMAS Web · prueba aislada
+on:
+  pull_request:
+    paths:
+      - 'apps/almas-web-preview/**'
+      - '.github/workflows/almas-web-preview.yml'
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run browser-contract preflight tests (not full schema validation)
+        run: |
+          node --version
+          node --test apps/almas-web-preview/test/validator.test.mjs
