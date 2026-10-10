@@ -39,3 +39,14 @@ There is **no automatic promotion or deployment to production**, and no connecti
 Atacires SHADOW/NO-GO. A user-facing analysis API requires a separate security
 review, schema validation, subject consent/retention controls, and explicitly
 versioned M30/M31 gate tests before development may start.
+
+## Canonical gate synthetic route (separate from precomputed pillars)
+
+The additional `GET /v1/canonical-demo` route is protected by the **same**
+server-side Bearer credential but returns only the synthetic canonical validation
+and M30/M31 status summary. It does **not** accept or reveal canonical input.
+See `../almas-web-preview/CANONICAL_GATE_DEMO.md`.
+
+The distinct canonical gate preview service must use `pip install -e '.[schema-validation]'`
+for Python `jsonschema==4.26.0`, keep `autoDeploy=no`, and must not
+alter the existing Render precomputed-pillars service.
