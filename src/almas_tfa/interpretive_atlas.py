@@ -16,6 +16,7 @@ ROUTES = (
 PRIVATE_KEYS = {"metadata", "raw_input", "birth", "birth_date", "birth_time", "birthplace", "coordinates"}
 DIMENSIONS = {
     "position": ("longitude", "sign", "degree_in_sign", "house", "declination", "speed", "retrograde"),
+    "position_profile": ("longitude", "sign", "degree_in_sign", "house", "house_system", "decan", "sign_rulers", "dispositor_chains", "motion"),
     "contact": ("subject_a", "point_a", "subject_b", "point_b", "relation_id", "orb", "orb_limit", "layer_a", "layer_b"),
 }
 
@@ -53,7 +54,9 @@ def build_interpretive_atlas(canonical: Mapping[str, Any]) -> dict[str, Any]:
     def walk(value: Any, path: str) -> None:
         if isinstance(value, Mapping):
             kind = None
-            if ("point_a" in value and "point_b" in value) or ("object_a" in value and "object_b" in value):
+            if "point_id" in value and all(key in value for key in ("decan", "sign_rulers", "dispositor_chains", "motion")):
+                kind = "position_profile"
+            elif ("point_a" in value and "point_b" in value) or ("object_a" in value and "object_b" in value):
                 kind = "contact"
             elif any(key in value for key in ("longitude", "sign", "degree_in_sign")):
                 kind = "position"

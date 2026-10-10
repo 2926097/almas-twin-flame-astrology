@@ -64,6 +64,8 @@ _REQUIRED_DECLARED_POLICIES_BY_PROFILE: dict[str, tuple[str, ...]] = {
 
 _OPTIONAL_POLICY_KEYS = (
     "rulership_policy",
+    "rulership_policy_id",
+    "decan_rulership_policy",
     "maximum_definition_context",
     "lot_policy",
     "secondary_symbolic_policy",

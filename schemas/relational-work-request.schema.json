@@ -169,6 +169,13 @@
             "rulership_policy": {
               "type": "object"
             },
+            "rulership_policy_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "decan_rulership_policy": {
+              "$ref": "decan-rulership-policy.schema.json"
+            },
             "lot_policy": {
               "type": "object"
             },

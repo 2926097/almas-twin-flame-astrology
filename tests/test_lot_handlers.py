@@ -1,4 +1,6 @@
 import unittest
+import json
+from pathlib import Path
 
 from almas_tfa.lot_handlers import m13_lots
 from almas_tfa.module_contract import ExecutionStatus, ModuleContext
@@ -82,6 +84,33 @@ class TestLots(unittest.TestCase):
         self.assertIsNone(
             lots["A"]["FORTUNE"]["corroborating_source_ref"]
         )
+
+    def test_calculated_virtual_point_gets_position_profile_when_enabled(self):
+        context = ModuleContext(
+            module_id="M13", module_name="lots", mode="FULL",
+            raw_input={
+                "maximum_definition_context": True,
+                "lot_policy": {
+                    "sect_by_subject": {"A": "DAY", "B": "DAY"},
+                    "lots": [{
+                        "id": "FORTUNE", "source_ref": "SRC_TEST",
+                        "formula": {"base": "ASC", "add": ["MOON"], "subtract": ["SUN"]},
+                    }],
+                },
+                "rulership_policy": {"LEO": ["SUN"]},
+            },
+            canonical_snapshot=self.canonical, prior_results={},
+        )
+        lots = m13_lots(context).canonical_updates["lots"]["subjects"]["A"]
+        profile = lots["FORTUNE"]["position_profile"]
+        self.assertEqual(profile["point_type"], "LOT")
+        self.assertEqual(profile["sign"], "LEO")
+        self.assertEqual(profile["sign_rulers"]["rulers"], ["SUN"])
+        self.assertEqual(profile["motion"]["state"], "NOT_EVALUABLE")
+        self.assertEqual(profile["motion"]["interpretation_state"], "NOT_AUTHORED")
+        from jsonschema import Draft202012Validator
+        schema = json.loads((Path(__file__).resolve().parents[1] / "schemas/positional-hermeneutics.schema.json").read_text())
+        Draft202012Validator(schema).validate(profile)
 
     def test_default_policy_resolves_fortune_and_spirit_from_house_sect(self):
         canonical = {

@@ -1,4 +1,8 @@
 import unittest
+import json
+from pathlib import Path
+from jsonschema import Draft202012Validator
+from referencing import Registry, Resource
 
 from almas_tfa.relational_request_pipeline import (
     RelationalWorkRequestError,
@@ -107,6 +111,31 @@ class RelationalRequestPipelineTests(unittest.TestCase):
             "NORTH_NODE_TO_ZERO",
         )
         self.assertFalse(raw["request_adapter_trace"]["implicit_orbs_used"])
+
+    def test_positional_policy_extensions_are_preserved(self):
+        payload = work_request()
+        payload["request"]["analysis_policies"].update({
+            "rulership_policy_id": "HELLENISTIC_WHOLE_SIGN_V1",
+            "rulership_policy": {"TAURUS": ["VENUS"]},
+            "decan_rulership_policy": {
+                "policy_id": "CHALDEAN_FACES_V1",
+                "rulers_by_sign": {"TAURUS": ["MERCURY", "MOON", "SATURN"]},
+            },
+            "maximum_definition_context": True,
+        })
+        raw = prepare_relational_raw_input(payload)
+        self.assertEqual(raw["rulership_policy_id"], "HELLENISTIC_WHOLE_SIGN_V1")
+        self.assertEqual(raw["decan_rulership_policy"]["policy_id"], "CHALDEAN_FACES_V1")
+        self.assertTrue(raw["maximum_definition_context"])
+
+        schema_dir = Path(__file__).resolve().parents[1] / "schemas"
+        registry = Registry()
+        for path in schema_dir.glob("*.schema.json"):
+            schema = json.loads(path.read_text(encoding="utf-8"))
+            if schema.get("$id"):
+                registry = registry.with_resource(schema["$id"], Resource.from_contents(schema))
+        request_schema = json.loads((schema_dir / "relational-work-request.schema.json").read_text(encoding="utf-8"))
+        Draft202012Validator(request_schema, registry=registry).validate(payload)
 
     def test_missing_declared_orbs_fail_closed(self):
         assessment = assess_relational_work_request(

@@ -44,6 +44,7 @@
           "kind": {
             "enum": [
               "position",
+              "position_profile",
               "contact"
             ]
           },
