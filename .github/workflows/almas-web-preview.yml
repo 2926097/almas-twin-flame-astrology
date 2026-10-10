@@ -1,5 +1,10 @@
 name: ALMAS Web · prueba aislada
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/almas-web-preview/**'
+      - '.github/workflows/almas-web-preview.yml'
   pull_request:
     paths:
       - 'apps/almas-web-preview/**'
@@ -21,4 +26,4 @@ jobs:
         run: |
           python3 -m venv /tmp/almas-web-schema-venv
           /tmp/almas-web-schema-venv/bin/python -m pip install --disable-pip-version-check jsonschema==4.26.0
-          /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
+          PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
