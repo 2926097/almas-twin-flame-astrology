@@ -49,7 +49,7 @@ module.exports = async function handler(req, res) {
       body.m31?.prose_generated !== false ||
       body.m31?.report_state !== body.m30.state ||
       !Array.isArray(body.m31?.section_ids) ||
-      body.m31.section_ids.length !== 11 ||
+      body.m31.section_ids.length !== 12 ||
       !body.m31.section_ids.every(x => typeof x === "string" && /^S\d\d_[A-Z_]+$/.test(x)) ||
       !Array.isArray(body.m30?.degradation_reasons) ||
       !body.m30.degradation_reasons.every(x => typeof x === "string")) {
