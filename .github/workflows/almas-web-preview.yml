@@ -37,7 +37,7 @@ jobs:
       - name: Run browser-contract preflight tests (not full schema validation)
         run: |
           node --version
-          node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs apps/almas-web-preview/test/canonical-demo.test.mjs
+          node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs apps/almas-web-preview/test/canonical-demo.test.mjs apps/almas-web-preview/test/local-inspection.test.mjs
       - name: Offline canonical Draft 2020-12 schema gate
         run: |
           python3 -m venv /tmp/almas-web-schema-venv
