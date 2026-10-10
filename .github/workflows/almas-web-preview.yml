@@ -6,11 +6,25 @@ on:
       - 'apps/almas-web-preview/**'
       - 'apps/almas-api-sandbox/**'
       - '.github/workflows/almas-web-preview.yml'
+      # The web gate imports the engine, canonical schemas, synthetic fixtures,
+      # and package dependencies. Re-run it when any of those contracts change.
+      - 'src/almas_tfa/**'
+      - 'schemas/**'
+      - 'tests/**'
+      - 'examples/**'
+      - 'pyproject.toml'
   pull_request:
     paths:
       - 'apps/almas-web-preview/**'
       - 'apps/almas-api-sandbox/**'
       - '.github/workflows/almas-web-preview.yml'
+      # The web gate imports the engine, canonical schemas, synthetic fixtures,
+      # and package dependencies. Re-run it when any of those contracts change.
+      - 'src/almas_tfa/**'
+      - 'schemas/**'
+      - 'tests/**'
+      - 'examples/**'
+      - 'pyproject.toml'
 permissions:
   contents: read
 jobs:
