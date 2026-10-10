@@ -12,7 +12,7 @@ const valid = {
     degradation_reasons:["EXECUTION_TRACE_UNAVAILABLE"]},
   m31: {report_state:"PARTIAL",canonical_fingerprint_verified:true,
     canonical_values_embedded:false,prose_generated:false,
-    section_ids: Array.from({length:11},(_,i)=>"S"+String(i+1).padStart(2,"0")+"_SYNTHETIC")},
+    section_ids: Array.from({length:12},(_,i)=>"S"+String(i+1).padStart(2,"0")+"_SYNTHETIC")},
   canonical_analysis: {positions:"SHOULD_NOT_LEAK"},
   secret: "NEVER_COPY"
 };
