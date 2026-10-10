@@ -1,6 +1,10 @@
 import unittest
 
-from almas_tfa.positional_hermeneutics import build_position_profile
+from almas_tfa.positional_hermeneutics import (
+    build_position_profile,
+    load_hellenistic_chaldean_decan_policy,
+    load_hellenistic_domicile_rulership_policy,
+)
 from almas_tfa.module_contract import ModuleContext
 from almas_tfa.relational_handlers import m04_nodes_angles_houses_regencies
 from almas_tfa.interpretive_atlas import build_interpretive_atlas
@@ -33,9 +37,12 @@ class TestPositionalHermeneutics(unittest.TestCase):
         detailed_context = run({
             "maximum_definition_context": True,
             "rulership_policy": {"TAURUS": ["VENUS"], "SCORPIO": ["MARS"]},
+            "rulership_policy_id": "HELLENISTIC_DOMICILES_TEST_V1",
+            "rulership_policy_source_refs": ["Brennan2017:232-237"],
             "decan_rulership_policy": {
                 "policy_id": "CHALDEAN_FACES_TEST_V1",
                 "rulers_by_sign": {"TAURUS": ["MERCURY", "MOON", "SATURN"]},
+                "source_refs": ["Brennan2017:279-282"],
             },
         })
         self.assertNotIn("position_profiles", default_context["subjects"]["A"])
@@ -45,6 +52,8 @@ class TestPositionalHermeneutics(unittest.TestCase):
         self.assertEqual(sun["house"], 2)
         self.assertEqual(sun["house_state"], "SYSTEM_UNSPECIFIED")
         self.assertEqual(sun["sign_rulers"]["rulers"], ["VENUS"])
+        self.assertEqual(sun["sign_rulers"]["source_refs"], ["Brennan2017:232-237"])
+        self.assertEqual(sun["decan"]["ruler_source_refs"], ["Brennan2017:279-282"])
         self.assertEqual(sun["sign_rulers"]["ruler_profile_refs"], [
             "/natal_context/subjects/A/position_profiles/VENUS"
         ])
@@ -69,6 +78,7 @@ class TestPositionalHermeneutics(unittest.TestCase):
             "policy_id": "TEST_FACES_V1",
             "rulers_by_sign": {"TAURUS": ["MERCURY", "MOON", "SATURN"]},
         }, policy_schema)
+        jsonschema.validate(load_hellenistic_chaldean_decan_policy(), policy_schema)
 
     def test_derives_sign_house_decan_and_declared_decan_ruler(self):
         profile = build_position_profile(
@@ -93,6 +103,16 @@ class TestPositionalHermeneutics(unittest.TestCase):
         self.assertEqual(profile["sign_rulers"]["rulers"], ["VENUS"])
         self.assertEqual(profile["motion"]["state"], "DIRECT")
         self.assertEqual(profile["motion"]["interpretation_state"], "NOT_AUTHORED")
+
+    def test_packaged_traditional_policies_are_explicit_and_provenanced(self):
+        domiciles = load_hellenistic_domicile_rulership_policy()
+        faces = load_hellenistic_chaldean_decan_policy()
+        self.assertEqual(domiciles["rulers_by_sign"]["TAURUS"], ["VENUS"])
+        self.assertEqual(domiciles["source_refs"], ["Brennan2017:232-237"])
+        self.assertEqual(faces["rulers_by_sign"]["TAURUS"], ["MERCURY", "MOON", "SATURN"])
+        self.assertEqual(faces["source_refs"], ["Brennan2017:279-282"])
+        self.assertEqual(faces["tradition"], "HELLENISTIC_CHALDEAN_FACES_HISTORICAL_VARIANT")
+        self.assertEqual(faces["rulers_by_sign"]["ARIES"], ["MARS", "SUN", "VENUS"])
 
     def test_traces_dispositor_chain_and_stops_at_self_dispositor(self):
         positions = {

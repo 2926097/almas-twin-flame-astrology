@@ -112,6 +112,26 @@ class TestLots(unittest.TestCase):
         schema = json.loads((Path(__file__).resolve().parents[1] / "schemas/positional-hermeneutics.schema.json").read_text())
         Draft202012Validator(schema).validate(profile)
 
+    def test_positional_schema_accepts_legacy_profiles_without_provenance_fields(self):
+        context = ModuleContext(
+            module_id="M13", module_name="lots", mode="FULL",
+            raw_input={
+                "maximum_definition_context": True,
+                "lot_policy": {"sect_by_subject": {"A": "DAY", "B": "DAY"}, "lots": [{
+                    "id": "FORTUNE", "source_ref": "SRC_TEST",
+                    "formula": {"base": "ASC", "add": ["MOON"], "subtract": ["SUN"]},
+                }]},
+                "rulership_policy": {"LEO": ["SUN"]},
+            },
+            canonical_snapshot=self.canonical, prior_results={},
+        )
+        profile = m13_lots(context).canonical_updates["lots"]["subjects"]["A"]["FORTUNE"]["position_profile"]
+        profile["decan"].pop("ruler_source_refs")
+        profile["sign_rulers"].pop("source_refs")
+        from jsonschema import Draft202012Validator
+        schema = json.loads((Path(__file__).resolve().parents[1] / "schemas/positional-hermeneutics.schema.json").read_text())
+        Draft202012Validator(schema).validate(profile)
+
     def test_default_policy_resolves_fortune_and_spirit_from_house_sect(self):
         canonical = {
             **self.canonical,

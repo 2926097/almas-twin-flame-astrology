@@ -173,6 +173,10 @@
               "type": "string",
               "minLength": 1
             },
+            "rulership_policy_source_refs": {
+              "type": "array",
+              "items": {"type": "string", "minLength": 1}
+            },
             "decan_rulership_policy": {
               "$ref": "decan-rulership-policy.schema.json"
             },

@@ -25,6 +25,7 @@
         "system_id": {"const": "SIGN_TEN_DEGREE_SEGMENTS_V1"},
         "rulers": {"type": "array", "items": {"type": "string"}},
         "ruler_policy_id": {"type": ["string", "null"]},
+        "ruler_source_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
         "ruler_state": {"enum": ["DECLARED", "NOT_DECLARED"]},
         "ruler_profile_refs": {"type": "array", "items": {"type": "string"}}
       },
@@ -36,6 +37,7 @@
       "properties": {
         "rulers": {"type": "array", "items": {"type": "string"}},
         "policy_id": {"type": ["string", "null"]},
+        "source_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
         "state": {"enum": ["DECLARED", "NOT_DECLARED"]},
         "ruler_profile_refs": {"type": "array", "items": {"type": "string"}}
       },

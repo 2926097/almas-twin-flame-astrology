@@ -157,6 +157,12 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
         not isinstance(rulership_policy_id, str) or not rulership_policy_id.strip()
     ):
         raise ValueError("rulership_policy_id debe ser una cadena no vacía.")
+    rulership_policy_source_refs = context.raw_input.get("rulership_policy_source_refs", [])
+    if (
+        not isinstance(rulership_policy_source_refs, list)
+        or any(not isinstance(item, str) or not item.strip() for item in rulership_policy_source_refs)
+    ):
+        raise ValueError("rulership_policy_source_refs debe ser una lista de referencias no vacías.")
 
     output: dict[str, Any] = {
         "subjects": {},
@@ -261,6 +267,7 @@ def m04_nodes_angles_houses_regencies(context: ModuleContext) -> ModuleResult:
                     positions=points,
                     rulership_policy=rulership_policy,
                     rulership_policy_id=rulership_policy_id,
+                    rulership_policy_source_refs=rulership_policy_source_refs,
                     decan_rulership_policy=decan_rulership_policy,
                     retrograde=data.get("retrograde"),
                     speed=data.get("speed"),

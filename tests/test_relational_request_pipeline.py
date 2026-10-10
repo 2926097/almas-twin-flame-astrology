@@ -116,6 +116,7 @@ class RelationalRequestPipelineTests(unittest.TestCase):
         payload = work_request()
         payload["request"]["analysis_policies"].update({
             "rulership_policy_id": "HELLENISTIC_WHOLE_SIGN_V1",
+            "rulership_policy_source_refs": ["Brennan2017:232-237"],
             "rulership_policy": {"TAURUS": ["VENUS"]},
             "decan_rulership_policy": {
                 "policy_id": "CHALDEAN_FACES_V1",
@@ -125,6 +126,7 @@ class RelationalRequestPipelineTests(unittest.TestCase):
         })
         raw = prepare_relational_raw_input(payload)
         self.assertEqual(raw["rulership_policy_id"], "HELLENISTIC_WHOLE_SIGN_V1")
+        self.assertEqual(raw["rulership_policy_source_refs"], ["Brennan2017:232-237"])
         self.assertEqual(raw["decan_rulership_policy"]["policy_id"], "CHALDEAN_FACES_V1")
         self.assertTrue(raw["maximum_definition_context"])
 

@@ -1,0 +1,20 @@
+{
+  "policy_id": "ALMAS_HELLENISTIC_DOMICILES_V1",
+  "tradition": "HELLENISTIC_CLASSICAL",
+  "method_summary": "Domicile rulers of the seven visible planets; outer planets are not assigned co-rulership in this policy.",
+  "source_refs": ["Brennan2017:232-237"],
+  "rulers_by_sign": {
+    "ARIES": ["MARS"],
+    "TAURUS": ["VENUS"],
+    "GEMINI": ["MERCURY"],
+    "CANCER": ["MOON"],
+    "LEO": ["SUN"],
+    "VIRGO": ["MERCURY"],
+    "LIBRA": ["VENUS"],
+    "SCORPIO": ["MARS"],
+    "SAGITTARIUS": ["JUPITER"],
+    "CAPRICORN": ["SATURN"],
+    "AQUARIUS": ["SATURN"],
+    "PISCES": ["JUPITER"]
+  }
+}

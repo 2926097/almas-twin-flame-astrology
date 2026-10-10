@@ -253,6 +253,7 @@ def m13_lots(context: ModuleContext) -> ModuleResult:
                     house_system=house_system,
                     rulership_policy=context.raw_input.get("rulership_policy"),
                     rulership_policy_id=context.raw_input.get("rulership_policy_id"),
+                    rulership_policy_source_refs=context.raw_input.get("rulership_policy_source_refs", []),
                     decan_rulership_policy=context.raw_input.get("decan_rulership_policy"),
                     calculation_method="FORMULA",
                     zodiac=chart.get("zodiac"),

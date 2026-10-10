@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
+from importlib import resources
+import json
 from typing import Any
 
 from .astrology_geometry import SIGNS, zodiac_sign
@@ -10,6 +12,24 @@ _MOVING_TYPES = {"LUMINARY", "PLANET", "ASTEROID", "NODE"}
 _MAX_DISPOSITOR_DEPTH = 16
 _MAX_DISPOSITOR_BRANCHES = 512
 _MAX_RULERS_PER_SIGN = 3
+
+_POLICY_PACKAGE = "almas_tfa"
+
+
+def _load_position_policy(resource_name: str) -> dict[str, Any]:
+    resource = resources.files(_POLICY_PACKAGE).joinpath("data", resource_name)
+    with resource.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def load_hellenistic_domicile_rulership_policy() -> dict[str, Any]:
+    """Cargar domicilios clásicos declarados y sus referencias documentales."""
+    return _load_position_policy("hellenistic-domicile-rulership-v1.json")
+
+
+def load_hellenistic_chaldean_decan_policy() -> dict[str, Any]:
+    """Cargar la variante histórica de faces en orden caldeo, sin activarla."""
+    return _load_position_policy("hellenistic-chaldean-decan-rulership-v1.json")
 
 
 def _rulers_for_sign(policy: Mapping[str, Any] | None, sign: str) -> list[str]:
@@ -27,9 +47,11 @@ def _rulers_for_sign(policy: Mapping[str, Any] | None, sign: str) -> list[str]:
     raise ValueError(f"{sign}: regencia debe ser string o lista de strings.")
 
 
-def _validate_decan_policy(policy: Mapping[str, Any] | None) -> tuple[str | None, Mapping[str, Any] | None]:
+def _validate_decan_policy(
+    policy: Mapping[str, Any] | None,
+) -> tuple[str | None, Mapping[str, Any] | None, list[str]]:
     if policy is None:
-        return None, None
+        return None, None, []
     policy_id = policy.get("policy_id")
     rulers = policy.get("rulers_by_sign")
     if not isinstance(policy_id, str) or not policy_id.strip():
@@ -46,7 +68,13 @@ def _validate_decan_policy(policy: Mapping[str, Any] | None) -> tuple[str | None
             or any(not isinstance(item, str) or not item.strip() for item in values)
         ):
             raise ValueError(f"{sign}: deben declararse tres regentes de decanato.")
-    return policy_id.strip(), rulers
+    source_refs = policy.get("source_refs", [])
+    if (
+        not isinstance(source_refs, list)
+        or any(not isinstance(item, str) or not item.strip() for item in source_refs)
+    ):
+        raise ValueError("decan_rulership_policy.source_refs debe ser una lista de referencias no vacías.")
+    return policy_id.strip(), rulers, list(dict.fromkeys(item.strip() for item in source_refs))
 
 
 def _dispositor_chains(
@@ -140,6 +168,7 @@ def build_position_profile(
     house_system: str | None = None,
     rulership_policy: Mapping[str, Any] | None = None,
     rulership_policy_id: str | None = None,
+    rulership_policy_source_refs: Sequence[str] | None = None,
     decan_rulership_policy: Mapping[str, Any] | None = None,
     retrograde: bool | None = None,
     speed: float | None = None,
@@ -162,7 +191,7 @@ def build_position_profile(
         lon %= 360.0
     pos = zodiac_sign(lon)
     decan_number = min(int(pos["degree_in_sign"] // 10.0) + 1, 3)
-    decan_policy_id, decan_rulers_by_sign = _validate_decan_policy(decan_rulership_policy)
+    decan_policy_id, decan_rulers_by_sign, decan_source_refs = _validate_decan_policy(decan_rulership_policy)
     declared_decan_rulers: list[str] = []
     if decan_rulers_by_sign is not None:
         sign_rulers = decan_rulers_by_sign.get(pos["sign"])
@@ -170,6 +199,15 @@ def build_position_profile(
             declared_decan_rulers = [sign_rulers[decan_number - 1]]
 
     sign_rulers = _rulers_for_sign(rulership_policy, pos["sign"])
+    if rulership_policy_source_refs is None:
+        sign_source_refs: list[str] = []
+    elif (
+        isinstance(rulership_policy_source_refs, (str, bytes))
+        or any(not isinstance(item, str) or not item.strip() for item in rulership_policy_source_refs)
+    ):
+        raise ValueError("rulership_policy_source_refs debe contener referencias no vacías.")
+    else:
+        sign_source_refs = list(dict.fromkeys(item.strip() for item in rulership_policy_source_refs))
     position_info = {
         **pos,
         "longitude": lon,
@@ -192,11 +230,13 @@ def build_position_profile(
             "system_id": "SIGN_TEN_DEGREE_SEGMENTS_V1",
             "rulers": declared_decan_rulers,
             "ruler_policy_id": decan_policy_id,
+            "ruler_source_refs": decan_source_refs,
             "ruler_state": "DECLARED" if declared_decan_rulers else "NOT_DECLARED",
         },
         "sign_rulers": {
             "rulers": sign_rulers,
             "policy_id": rulership_policy_id,
+            "source_refs": sign_source_refs,
             "state": "DECLARED" if sign_rulers else "NOT_DECLARED",
         },
         "dispositor_chains": _dispositor_chains(point_id, positions, rulership_policy),

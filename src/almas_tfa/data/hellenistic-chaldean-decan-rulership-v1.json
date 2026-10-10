@@ -1,0 +1,20 @@
+{
+  "policy_id": "ALMAS_HELLENISTIC_CHALDEAN_FACES_V1",
+  "tradition": "HELLENISTIC_CHALDEAN_FACES_HISTORICAL_VARIANT",
+  "method_summary": "Begins with Mars for the first Aries face, then cycles through planets in descending Chaldean order across successive 10-degree sign segments.",
+  "source_refs": ["Brennan2017:279-282"],
+  "rulers_by_sign": {
+    "ARIES": ["MARS", "SUN", "VENUS"],
+    "TAURUS": ["MERCURY", "MOON", "SATURN"],
+    "GEMINI": ["JUPITER", "MARS", "SUN"],
+    "CANCER": ["VENUS", "MERCURY", "MOON"],
+    "LEO": ["SATURN", "JUPITER", "MARS"],
+    "VIRGO": ["SUN", "VENUS", "MERCURY"],
+    "LIBRA": ["MOON", "SATURN", "JUPITER"],
+    "SCORPIO": ["MARS", "SUN", "VENUS"],
+    "SAGITTARIUS": ["MERCURY", "MOON", "SATURN"],
+    "CAPRICORN": ["JUPITER", "MARS", "SUN"],
+    "AQUARIUS": ["VENUS", "MERCURY", "MOON"],
+    "PISCES": ["SATURN", "JUPITER", "MARS"]
+  }
+}
