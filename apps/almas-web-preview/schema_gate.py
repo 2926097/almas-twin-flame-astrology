@@ -47,13 +47,17 @@ def build_validator(repo_root: Path) -> Draft202012Validator:
         document = _load_json(path)
         if not isinstance(document, dict):
             raise ValueError("Invalid schema document: " + path.name)
-        uri = document.get("$id", SCHEMA_BASE + path.name)
-        if not isinstance(uri, str) or not uri.startswith(SCHEMA_BASE):
-            raise ValueError("Invalid or external schema identifier: " + path.name)
+        uri = SCHEMA_BASE + path.name
+        declared_id = document.get("$id")
+        if declared_id is not None and (not isinstance(declared_id, str) or not declared_id):
+            raise ValueError("Malformed schema identifier: " + path.name)
+        resource = Resource.from_contents(document, default_specification=DRAFT202012)
         documents[uri] = document
-        registry = registry.with_resource(
-            uri, Resource.from_contents(document, default_specification=DRAFT202012)
-        )
+        registry = registry.with_resource(uri, resource)
+        if declared_id and declared_id != uri:
+            # Aliases resolve to files already bundled locally; never retrieve HTTP.
+            documents[declared_id] = document
+            registry = registry.with_resource(declared_id, resource)
     target_id = SCHEMA_BASE + SCHEMA_NAME
     if target_id not in documents:
         raise FileNotFoundError("The authoritative canonical schema is unavailable")
