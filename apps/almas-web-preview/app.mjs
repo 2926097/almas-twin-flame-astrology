@@ -45,3 +45,47 @@ $("runDemo").addEventListener("click", async () => {
     button.disabled = false;
   }
 });
+
+/* Entirely synthetic M30/M31 demonstration; no uploaded canonical is sent. */
+$("runCanonicalDemo").addEventListener("click", async () => {
+  const button = $("runCanonicalDemo");
+  button.disabled = true;
+  $("canonicalDemoStatus").textContent = "Verificando esquema, M30 y M31 de un fixture público sintético…";
+  $("canonicalDemoResult").hidden = true;
+  try {
+    const response = await fetch("/api/canonical-demo", {
+      method: "GET", cache: "no-store", credentials: "same-origin",
+      headers: { Accept: "application/json" }
+    });
+    if (!response.ok) throw new Error("No se pudo comprobar el servicio M30/M31 (" + response.status + ").");
+    const data = await response.json();
+    if (data.kind !== "ALMAS_SYNTHETIC_CANONICAL_GATE_V1" ||
+        data.synthetic !== true || data.schema_validation !== "PASS" ||
+        data.canonical_returned !== false ||
+        !["READY","PARTIAL"].includes(data.m30?.state) ||
+        data.m31?.canonical_fingerprint_verified !== true) {
+      throw new Error("El servicio no entregó una validación sintética reconocida.");
+    }
+    const lines = [
+      "Esquema canónico Draft 2020-12: PASS",
+      "M30, estado técnico: " + data.m30.state,
+      "M30, reportable: " + String(data.m30.reportable),
+      "M31, fingerprint verificado: " + String(data.m31.canonical_fingerprint_verified),
+      "M31, secciones: " + String(data.m31.section_ids?.length),
+      "Huella SHA-256: " + data.canonical_fingerprint,
+      "Degradaciones: " + (data.m30.degradation_reasons?.join(", ") || "Ninguna"),
+      "",
+      "Caso sintético. No se analizaron datos personales.",
+      "No equivale a validez empírica ni metafísica."
+    ];
+    $("canonicalDemoResult").textContent = lines.join("\n");
+    $("canonicalDemoResult").hidden = false;
+    $("canonicalDemoStatus").textContent = "Esquema, M30 y M31 verificados sobre un caso sintético.";
+    $("canonicalDemoStatus").className = "ok";
+  } catch (err) {
+    $("canonicalDemoStatus").textContent = err?.message || "Servicio de prueba no disponible.";
+    $("canonicalDemoStatus").className = "error";
+  } finally {
+    button.disabled = false;
+  }
+});
