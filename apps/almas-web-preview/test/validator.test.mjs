@@ -1,0 +1,11 @@
+import test from "node:test";import assert from "node:assert/strict";import {structuralPreflight,formatOriginal} from "../validator.mjs";
+const model=()=>({iem:10,state:"INSUFFICIENT",core:.1,support:null,iem_pre:10,iem_final:null,ice:null,ice_state:"NOT_EVALUABLE",supported_gate:false,birth_time_gate_required:false,birth_time_gate_satisfied:false});
+const fixture=()=>({schema_version:"1.0.0",analysis_mode:"FULL",analysis_profile:"FULL_ASTROLOGY",profile_policy_id:"ALMAS_ANALYSIS_PROFILES_V1",astronomy_backend:{state:"NOT_AVAILABLE",backend_id:null,backend_version:null,provenance_state:"NOT_AVAILABLE",provenance:null},evidence:[],models:{AF:model(),KA:model(),AG:model(),LG:model()},indices:{IDD:null,IAT:null,ICC:null,IRC:null,ICE:null},pairwise_idd:{},coverage:{},robustness:{},counterevidence:[],counterevidence_state:{ice_evaluable:false},ontology:{},doctrine:[],temporal:{},limitations:[],assembly:{}});
+test("preflight baseline conserva íntegro el objeto",()=>{const a=fixture(),before=structuredClone(a);assert.equal(structuralPreflight(a).ok,true);assert.deepEqual(a,before)});
+test("null no equivale a cero",()=>{assert.equal(formatOriginal(null),"No evaluable");assert.equal(formatOriginal(0),"0")});
+test("índice fuera de rango",()=>{const a=fixture();a.indices.IDD=110;assert.equal(structuralPreflight(a).ok,false)});
+test("cambio de scoring bloqueado por gate de ICE",()=>{const a=fixture();a.models.LG.supported_gate=true;assert.equal(structuralPreflight(a).ok,false)});
+test("rechaza campos extra de ontología productiva",()=>{const a=fixture();a.productive_atacires_promotion=true;assert.equal(structuralPreflight(a).ok,false)});
+test("atacires shadow descriptivo no muta resultados",()=>{const a=fixture();a.temporal.atacires_shadow={status:"SHADOW"};const b=structuredClone(a);assert.equal(structuralPreflight(a).ok,true);assert.deepEqual(a,b)});
+test("exige campos de modelo",()=>{const a=fixture();delete a.models.AG.ice_state;assert.equal(structuralPreflight(a).ok,false)});
+test("no permite modelo desconocido",()=>{const a=fixture();a.models.LG.state="VERIFIED_TWIN";assert.equal(structuralPreflight(a).ok,false)});
