@@ -1,0 +1,29 @@
+name: ALMAS Web · prueba aislada
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/almas-web-preview/**'
+      - '.github/workflows/almas-web-preview.yml'
+  pull_request:
+    paths:
+      - 'apps/almas-web-preview/**'
+      - '.github/workflows/almas-web-preview.yml'
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run browser-contract preflight tests (not full schema validation)
+        run: |
+          node --version
+          node --test apps/almas-web-preview/test/validator.test.mjs
+      - name: Offline canonical Draft 2020-12 schema gate
+        run: |
+          python3 -m venv /tmp/almas-web-schema-venv
+          /tmp/almas-web-schema-venv/bin/python -m pip install --disable-pip-version-check jsonschema==4.26.0
+          PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
