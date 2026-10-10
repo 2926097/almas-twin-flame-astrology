@@ -3,6 +3,9 @@
   "functions": {
     "api/synthetic.js": {
       "maxDuration": 60
+    },
+    "api/canonical-demo.js": {
+      "maxDuration": 60
     }
   }
 }
