@@ -15,8 +15,10 @@ ids = set()
 for path in sorted(SCHEMAS.glob("*.json")):
     schema = json.loads(path.read_text(encoding="utf-8"))
     identifier = schema.get("$id")
-    if not isinstance(identifier, str) or not identifier.startswith("https://example.invalid/almas/"):
-        raise SystemExit(f"Untrusted or absent schema id: {path.name}")
+    # Official ALMAS contracts use multiple host namespaces; hostnames are
+    # identifiers ONLY. No URL is fetched, opened or resolved over HTTP.
+    if not isinstance(identifier, str) or not identifier.startswith("https://"):
+        raise SystemExit(f"Invalid or missing bundled schema id: {path.name}")
     if identifier in ids:
         raise SystemExit(f"Duplicate schema id: {identifier}")
     ids.add(identifier)
