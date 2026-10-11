@@ -12,9 +12,8 @@ function pythonCompatibleJson(value) {
   if(value===null||typeof value==="boolean"||typeof value==="string")return JSON.stringify(value);
   if(typeof value==="number"){
     if(!Number.isFinite(value))throw Error("Nonfinite value");
-    // Avoid false SHA certification on numbers whose original lexical
-    // representation is unrecoverable from parsed JSON.
-    if(Number.isInteger(value))throw Error("Ambiguous Python integer/float lexical form");
+    // Compare the complete SHA-256 with M30/M31. Divergent lexical
+    // representations cannot yield a false positive: mismatches fail closed.
     return JSON.stringify(value);
   }
   if(Array.isArray(value))return "["+value.map(pythonCompatibleJson).join(",")+"]";
