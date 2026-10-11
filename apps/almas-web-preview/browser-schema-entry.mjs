@@ -1,11 +1,14 @@
 /** Full schema validator compiled locally from official checked-in ALMAS schemas. */
 import Ajv2020 from "ajv/dist/2020.js";
 import registry from "./schema-registry.generated.mjs";
-const ROOT_ID = "https://example.invalid/almas/canonical-analysis.schema.json";
-let compiled = null;
-export function validateCanonicalFull(document) {
+const BASE = "https://example.invalid/almas/";
+const ALLOWED = new Set(["canonical-analysis.schema.json","report-gate-output.schema.json","report-document-model.schema.json"]);
+let ajvInstance = null;
+const compiled = new Map();
+export function validateAlmasFull(document, schemaName) {
   try {
-    if (compiled === null) {
+    if (!ALLOWED.has(schemaName)) throw Error("Schema not authorized");
+    if (ajvInstance === null) {
       const ajv = new Ajv2020({
         allErrors: true, strict: false, validateFormats: false,
         coerceTypes: false, removeAdditional: false, useDefaults: false,
@@ -13,15 +16,19 @@ export function validateCanonicalFull(document) {
       });
       // All $refs resolve against the bundled in-repo registry, not the network.
       for (const schema of registry) ajv.addSchema(schema);
-      const validator = ajv.getSchema(ROOT_ID);
-      if (typeof validator !== "function") throw Error("No canonical root schema");
-      compiled = validator;
+      ajvInstance = ajv;
     }
-    const passed = compiled(document);
+    let validator = compiled.get(schemaName);
+    if (!validator) {
+      validator = ajvInstance.getSchema(BASE + schemaName);
+      if (typeof validator !== "function") throw Error("Root schema unavailable");
+      compiled.set(schemaName, validator);
+    }
+    const passed = validator(document);
     return {
       ok: passed === true, kind: "JSON_SCHEMA_DRAFT_2020_12",
       schemaCount: registry.length,
-      errors: passed ? [] : (compiled.errors || []).slice(0, 30).map(x => ({
+      errors: passed ? [] : (validator.errors || []).slice(0, 30).map(x => ({
         path: String(x.instancePath || "$"), keyword: String(x.keyword),
         // No parameter values or source data are returned from validation.
         message: String(x.message || "Schema constraint failed")
@@ -33,3 +40,4 @@ export function validateCanonicalFull(document) {
       errors: [{path:"$",keyword:"engine",message:"Offline schema registry or compiler unavailable"}]};
   }
 }
+\nexport const validateCanonicalFull = document => validateAlmasFull(document, "canonical-analysis.schema.json");\n
