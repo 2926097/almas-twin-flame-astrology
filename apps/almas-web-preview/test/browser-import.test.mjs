@@ -15,6 +15,7 @@ class FakeElement {
   }
   addEventListener(type, fn) { this.listeners[type] = fn; }
   setAttribute(name, value) { this[name] = String(value); }
+  removeAttribute(name) { delete this[name]; }
   replaceChildren() { this.children = []; }
   appendChild(child) { this.children.push(child); return child; }
   append(...children) { this.children.push(...children); }
@@ -49,7 +50,7 @@ test("imported asset list includes every static module and both fixed API functi
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
   for (const path of [
     "index.html", "app.mjs", "validator.mjs", "local-inspection.mjs",
-    "evidence-graph.mjs", "astrology-view.mjs", "report-view.mjs", "json-lexical-digest.mjs",
+    "evidence-graph.mjs", "astrology-view.mjs", "report-view.mjs", "json-lexical-digest.mjs", "birth-request.mjs", "birth-intake.mjs",
     "api/synthetic.js", "api/canonical-demo.js", "vercel.json"
   ]) {
     assert.ok(readme.includes("`" + path + "`"), "missing documented asset " + path);
@@ -132,4 +133,44 @@ test("a canonical with duplicate JSON keys is rejected before rendering",async()
   assert.equal(el("results").hidden,true);
   assert.equal(el("exportDocument").disabled,true);
   clear();
+});
+
+test("birth intake produces a browser-only request, invalidates changes and erases local fields",async()=>{
+  const sample={
+    A:{Id:"A",Name:"Synthetic A",Date:"2000-02-29",Time:"05:30",Zone:"Europe/Madrid",Place:"Synthetic",
+      Lat:"41",Lon:"-1",Quality:"A",Source:"DOCUMENTARY"},
+    B:{Id:"B",Name:"Synthetic B",Date:"2001-04-05",Time:"09:15",Zone:"America/New_York",Place:"Synthetic",
+      Lat:"40",Lon:"-73",Quality:"B",Source:"REPORTED"}
+  };
+  for(const letter of ["A","B"])for(const [suffix,value] of Object.entries(sample[letter]))
+    el("birth"+letter+suffix).value=value;
+  el("birthProfile").value="FULL_ASTROLOGY";
+  el("birthPreset").value="ALMAS_RELATIONAL_STRICT_RESEARCH_V1";
+  const oldCreate=URL.createObjectURL,oldRevoke=URL.revokeObjectURL,oldFetch=globalThis.fetch;
+  let blob=null,revoked=0,networkCalls=0;
+  URL.createObjectURL=file=>{blob=file;return "blob:synthetic-local-contract"};
+  URL.revokeObjectURL=()=>{revoked++};
+  globalThis.fetch=()=>{networkCalls++;throw Error("PERSONAL_DATA_CANNOT_BE_SENT")};
+  try{
+    el("birthPrepare").listeners.click();
+    assert.equal(el("birthDownload").hidden,false);
+    assert.equal(el("birthStatus").className,"ok");
+    const payload=JSON.parse(await blob.text());
+    assert.equal(payload.request.subjects.length,2);
+    assert.equal(payload.request.subjects[0].birth_time,"05:30");
+    assert.equal(payload.request.subjects[1].timezone,"America/New_York");
+    assert.equal(payload.request.execution_state,"REQUEST_ONLY");
+    assert.equal(networkCalls,0);
+    el("birthADate").value="2000-03-01";
+    el("birthADate").listeners.input();
+    assert.equal(el("birthDownload").hidden,true);
+    assert.equal(revoked,1);
+    el("birthErase").listeners.click();
+    assert.equal(el("birthAId").value,"");
+    assert.equal(el("birthBTime").value,"");
+    assert.equal(el("birthPreset").value,"");
+    assert.equal(networkCalls,0);
+  }finally{
+    URL.createObjectURL=oldCreate;URL.revokeObjectURL=oldRevoke;globalThis.fetch=oldFetch;
+  }
 });
