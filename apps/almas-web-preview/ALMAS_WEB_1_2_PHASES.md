@@ -6,7 +6,7 @@ ni habilitación de análisis privados.
 
 | Fase | Componente | Contrato de aceptación |
 |---|---|---|
-| 1. JSON Schema Draft 2020-12 completo | `build_schema_registry.py`, `browser-schema-entry.mjs` | empaquetar los esquemas oficiales del checkout, resolver $ref sin llamadas de red, validar canonical, M30 y M31, rechazar datos inválidos; no mostrar datos antes de validar |
+| 1. JSON Schema Draft 2020-12 completo | `build_schema_registry.py`, `browser-schema-entry.mjs` | empaquetar la clausura transitiva de esquemas canónico/M30/M31, resolver $ref sin llamadas de red, validar canonical, M30 y M31, rechazar datos inválidos; no mostrar datos antes de validar |
 | 2. Grafo documental M17 | `evidence-graph.mjs` | nodos y enlaces solo desde IDs y familias declaradas, tope de nodos, sin inferir independencia de contactos |
 | 3. Vista astrológica | `astrology-view.mjs` | mostrar posiciones, longitudes, casa, signo, regente, decanato y retrogradación **solo cuando figuren** en canonical; indicar ausencias de carta compuesta, Davison, védica, dracónica y otras modalidades |
 | 4. Modelo declarativo M30/M31 | `report-view.mjs` | importar outputs oficiales en el navegador, validar tres schemas, estados compatibles y SHA-256 canónico; exportar HTML local solo con todos los gates cumplidos; 12 secciones, no fabricar narrativa |
@@ -26,7 +26,7 @@ PYTHONPATH=src:tests python -m unittest discover -s apps/almas-api-sandbox -p 't
 ```
 
 El validador AJV se empaqueta en `full-schema-validator.mjs` con un registro
-generado desde **todos** los JSON Schema oficiales, sin resolver URLs
+generado desde la **clausura transitiva** de referencias JSON Schema oficiales requeridas por canonical/M30/M31, sin resolver URLs
 externas. El fichero compilado se genera en el build; **no** se debe
 desplegar un `app.mjs` que lo invoque sin incluirlo. Si faltan
 esquemas, la importación falla cerrada.
