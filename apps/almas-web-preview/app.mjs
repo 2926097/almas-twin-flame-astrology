@@ -2,7 +2,7 @@ import {structuralPreflight,formatOriginal} from "./validator.mjs";
 import {selectRootRows,selectCounterRows,selectLimitations,displayValue} from "./local-inspection.mjs";
 import {buildEvidenceGraph,renderEvidenceGraph} from "./evidence-graph.mjs";
 import {chartAvailability,selectChartMode,drawNatalWheel,describePlacement} from "./astrology-view.mjs";
-import {assessReportTriplet,createLocalReportHtml} from "./report-view.mjs";
+import {assessReportTriplet,createLocalReportHtml,parseContractJsonStrict} from "./report-view.mjs";
 import {digestCanonicalRaw} from "./json-lexical-digest.mjs";
 
 async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
@@ -75,7 +75,7 @@ $("verifyDocument").addEventListener("click",async()=>{
     for(const file of [a,b])if(file.size>maxBytes||!/\.json$/i.test(file.name))throw Error("Archivo incompatible o mayor de 5 MB");
     const [m30,m31]=await Promise.all([a.text(),b.text()]);
     if(token!==loadEpoch||reportToken!==reportEpoch)return;
-    const gate=JSON.parse(m30),model=JSON.parse(m31);
+    const gate=parseContractJsonStrict(m30),model=parseContractJsonStrict(m31);
     const check=await assessReportTriplet(loadedCanonical,gate,model,{digest:()=>digestCanonicalRaw(loadedCanonicalRaw),validate:(d,name)=>{
       // The pinned validator module is imported once prior to the assessment.
       return globalSchemaValidator(d,name);
