@@ -16,7 +16,8 @@ const printable=x=>x===null||x===undefined?"No disponible":String(x);
 export function chartAvailability(canonical){
   return types.map(([key,label])=>{
     const value=canonical?.[key];
-    const present=value!==undefined&&value!==null&&
+    const present=key==="draconic_context" ? Object.keys(record(value?.individual?.charts)).length>0 :
+      value!==undefined&&value!==null&&
       (typeof value!=="object"||Object.keys(value).length>0);
     return {key,label,state:present?"DECLARED":"NOT_AVAILABLE"};
   }).concat([
@@ -137,8 +138,31 @@ export function selectVedicChart(canonical,division="d1",index=0){
   return {available:points.length>0,subject:"védica "+division.toUpperCase()+" ["+index+"]",timed:false,points,houses:[],
     reason:points.length?null:"Sin posiciones védicas "+division.toUpperCase()+" en canonical"};
 }
+/** M10 draconic points precomputed in canonical, without recomputing nodal offsets. */
+export function selectDraconicChart(canonical,subjectId){
+  const charts=record(canonical?.draconic_context?.individual?.charts);
+  const ids=Object.keys(charts).sort();
+  const selected=ids.includes(subjectId)?subjectId:ids[0]||null;
+  if(!selected)return {available:false,subject:null,points:[],houses:[],
+    reason:"No hay carta dracónica calculada en canonical"};
+  const chart=record(charts[selected]);
+  const positions=record(chart.positions),cusps=record(chart.houses);
+  const points=Object.entries(positions).sort((a,b)=>a[0].localeCompare(b[0])).map(([name,item])=>{
+    const v=record(item),longitude=numeric(v.longitude);
+    return {name,sign:text(v.sign),house:null,decan:null,ruler:null,retrograde:null,
+      longitude:longitude!==null&&longitude>=0&&longitude<360?longitude:null,
+      origin:"draconic_context.individual.charts["+selected+"].positions."+name};
+  });
+  const houses=Object.entries(cusps).map(([house,value])=>({
+    house:Number(house),longitude:numeric(value)})).filter(x=>
+      Number.isInteger(x.house)&&x.house>=1&&x.house<=12&&
+      x.longitude!==null&&x.longitude>=0&&x.longitude<360);
+  return {available:points.length>0,subject:selected,timed:houses.length===12,
+    points,houses,reason:points.length?null:"Carta dracónica sin puntos"};
+}
 export function selectChartMode(canonical,mode,subjectId){
   if(mode==="composite"||mode==="davison")return selectRelationshipChart(canonical,mode);
+  if(mode==="draconic")return selectDraconicChart(canonical,subjectId);
   if(mode==="vedic-d1")return selectVedicChart(canonical,"d1");
   if(mode==="vedic-d9")return selectVedicChart(canonical,"d9");
   return selectNatalChart(canonical,subjectId);
