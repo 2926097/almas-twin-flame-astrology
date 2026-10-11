@@ -5,7 +5,7 @@ import {fileURLToPath} from "node:url";
 import {validateCanonicalFull,validateAlmasFull} from "../full-schema-validator.mjs";
 const repo=fileURLToPath(new URL("../../../",import.meta.url));
 function officialSynthetic(){
-  const wire=execFileSync("python3",["-c",
+  const wire=execFileSync(process.env.ALMA_PYTHON || "python3",["-c",
     "import json;from test_canonical_schema_validation import valid_canonical_analysis;print(json.dumps(valid_canonical_analysis(),ensure_ascii=False))"
   ],{cwd:repo,env:{...process.env,PYTHONPATH:"src:tests"},encoding:"utf8"});
   return JSON.parse(wire);
