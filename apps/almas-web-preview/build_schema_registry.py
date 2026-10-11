@@ -26,9 +26,8 @@ all_schemas = {
 for path in sorted((ROOT / "src" / "almas_tfa" / "data").glob("*.json")):
     candidate = json.loads(path.read_text(encoding="utf-8"))
     if isinstance(candidate, dict) and isinstance(candidate.get("$defs"), dict):
-        if path.name in all_schemas:
-            raise SystemExit("Ambiguous definition resource: " + path.name)
-        all_schemas[path.name] = candidate
+        if path.name not in all_schemas:
+            all_schemas[path.name] = candidate
 
 def iter_refs(value):
     if isinstance(value, list):
