@@ -8,7 +8,7 @@ Comprobación local (Node 20+):
 node --test apps/almas-web-preview/test/validator.test.mjs
 ```
 
-Desplegar `index.html`, `app.mjs`, `validator.mjs`, `api/synthetic.js` y `vercel.json` únicamente a la aplicación Vercel aislada con Vercel Authentication activada. Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md` y los tests.
+Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `validator.mjs`, `local-inspection.mjs`, `api/synthetic.js`, `api/canonical-demo.js` y `vercel.json`, únicamente a la aplicación Vercel aislada con Vercel Authentication activada. **No omitir `local-inspection.mjs`: `app.mjs` lo importa estáticamente y su ausencia impediría cargar toda la interfaz.** Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md`, `CANONICAL_GATE_DEMO.md`, `LOCAL_EVIDENCE_VIEWER.md` y los tests.
 
 ## Validación exhaustiva fuera del navegador
 
