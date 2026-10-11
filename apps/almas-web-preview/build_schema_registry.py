@@ -17,8 +17,13 @@ for path in sorted(SCHEMAS.glob("*.json")):
     identifier = schema.get("$id")
     # Official ALMAS contracts use multiple host namespaces; hostnames are
     # identifiers ONLY. No URL is fetched, opened or resolved over HTTP.
+    if identifier is None:
+        # Some official Draft 2020-12 files omit $id. Give the in-memory
+        # copy a stable local identifier at the same base as canonical.
+        identifier = "https://example.invalid/almas/" + path.name
+        schema["$id"] = identifier
     if not isinstance(identifier, str) or not identifier.startswith("https://"):
-        raise SystemExit(f"Invalid or missing bundled schema id: {path.name}")
+        raise SystemExit(f"Invalid bundled schema id: {path.name}")
     if identifier in ids:
         raise SystemExit(f"Duplicate schema id: {identifier}")
     ids.add(identifier)
