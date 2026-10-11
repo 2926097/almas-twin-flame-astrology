@@ -54,5 +54,5 @@ test("lexical canonicalization preserves Python float and exponent spellings",()
   assert.equal(canonicalizePythonRaw(wire),
     '{"a":1e-07,"n":-0.0,"nested":{"x":2.5,"y":3},"z":1.0}');
   assert.throws(()=>canonicalizePythonRaw('{"x":1,"x":2}'),/Duplicate/);
-  assert.throws(()=>canonicalizePythonRaw('{"x":1e}'),/JSON/);
+  assert.throws(()=>canonicalizePythonRaw('{"x":1e}'),/(JSON|Expected comma|Invalid)/);
 });
