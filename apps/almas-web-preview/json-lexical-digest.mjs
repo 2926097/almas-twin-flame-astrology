@@ -40,8 +40,9 @@ export function canonicalizePythonRaw(raw){
       const end=object?'}':']',list=[],keys=new Set();
       if(raw[i]===end){i++;return {t:object?"o":"a",v:list}}
       while(true){
+        skip();
         let key=null;
-        if(object){skip();key=parseString();if(keys.has(key))throw Error("Duplicate JSON key");
+        if(object){key=parseString();if(keys.has(key))throw Error("Duplicate JSON key");
           keys.add(key);skip();if(raw[i++]!==':')throw Error("Expected colon")}
         const value=parse(depth+1);list.push(object?[key,value]:value);skip();
         const next=raw[i++];
