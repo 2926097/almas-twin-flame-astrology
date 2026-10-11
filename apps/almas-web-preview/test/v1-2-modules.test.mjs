@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {buildEvidenceGraph} from "../evidence-graph.mjs";
 import {chartAvailability,selectNatalChart,selectRelationshipChart,selectVedicChart,selectDraconicChart,describePlacement} from "../astrology-view.mjs";
-import {assessReportTriplet,createLocalReportHtml,SECTION_IDS} from "../report-view.mjs";
+import {assessReportTriplet,createLocalReportHtml,SECTION_IDS,parseContractJsonStrict} from "../report-view.mjs";
 
 test("dependency graph edges derive only from explicit canonical roots",()=>{
   const c={
@@ -135,4 +135,13 @@ test("Draconic M10 coordinates remain exactly as declared, without nodal recalcu
   assert.equal(first.points[0].origin,"draconic_context.individual.charts[PersonA].positions.Sun");
   assert.equal(first.houses[0].longitude,10.25);
   assert.equal(selectDraconicChart({},"PersonA").available,false);
+});
+
+
+test("strict M30/M31 parser rejects duplicate keys, including nested keys",()=>{
+  assert.deepEqual(parseContractJsonStrict('{"state":"PARTIAL","reportable":true}'),
+    {state:"PARTIAL",reportable:true});
+  assert.throws(()=>parseContractJsonStrict('{"reportable":true,"reportable":false}'),/Duplicate JSON key/);
+  assert.throws(()=>parseContractJsonStrict('{"sections":[{"order":1,"order":2}]}'),/Duplicate JSON key/);
+  assert.throws(()=>parseContractJsonStrict('{"state":"READY",}'));
 });
