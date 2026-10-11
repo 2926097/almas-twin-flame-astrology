@@ -20,8 +20,10 @@ export function chartAvailability(canonical){
       (typeof value!=="object"||Object.keys(value).length>0);
     return {key,label,state:present?"DECLARED":"NOT_AVAILABLE"};
   }).concat([
-    {key:"composite",label:"Carta compuesta",state:"NOT_AVAILABLE"},
-    {key:"davison",label:"Davison",state:"NOT_AVAILABLE"}
+    {key:"composite",label:"Carta compuesta",
+      state:Object.keys(record(canonical?.relationship_field?.composite?.positions)).length?"DECLARED":"NOT_AVAILABLE"},
+    {key:"davison",label:"Davison",
+      state:Object.keys(record(canonical?.relationship_field?.davison?.positions)).length?"DECLARED":"NOT_AVAILABLE"}
   ]);
 }
 export function selectNatalChart(canonical,subjectId){
@@ -101,4 +103,43 @@ export function describePlacement(point){
     retrograde:point.retrograde===null?"No disponible":point.retrograde?"Sí":"No",
     longitude:point.longitude===null?"No disponible":point.longitude+"°"
   };
+}
+
+/** Exact positions from canonical relationship_field — never calculate a new chart. */
+export function selectRelationshipChart(canonical,mode){
+  if(!["composite","davison"].includes(mode))return {available:false,reason:"Modalidad no admitida",points:[],houses:[]};
+  const source=record(canonical?.relationship_field?.[mode]);
+  const positions=record(source.positions);
+  const points=Object.entries(positions).sort((a,b)=>a[0].localeCompare(b[0])).map(([name,p])=>{
+    const value=record(p),longitude=numeric(value.longitude);
+    return {
+      name,sign:text(value.sign),longitude:longitude!==null&&longitude>=0&&longitude<360?longitude:null,
+      house:mode==="davison"?Number.isInteger(source.house_placements?.[name])?source.house_placements[name]:null:null,
+      decan:null,ruler:null,retrograde:null,origin:"relationship_field."+mode+".positions."+name
+    };
+  });
+  const houses=mode==="davison"?Object.entries(record(source.house_cusps)).map(([house,val])=>{
+    const value=record(val),longitude=numeric(value.longitude),number=Number(house);
+    return {house:number,longitude:longitude!==null&&longitude>=0&&longitude<360?longitude:null};
+  }).filter(x=>Number.isInteger(x.house)&&x.house>=1&&x.house<=12):[];
+  return {available:points.length>0,subject:mode,timed:mode==="davison"&&houses.length>0,points,houses,
+    reason:points.length?null:"Sin posiciones de "+mode+" en el canonical"};
+}
+export function selectVedicChart(canonical,division="d1",index=0){
+  if(!["d1","d9"].includes(division))return {available:false,points:[],houses:[],reason:"División no admitida"};
+  const source=Array.isArray(canonical?.vedic?.charts)?canonical.vedic.charts[index]:null;
+  const positions=record(source?.[division]);
+  const points=Object.entries(positions).sort((a,b)=>a[0].localeCompare(b[0])).map(([name,item])=>{
+    const v=record(item),longitude=numeric(v.longitude),sign=Number.isInteger(v.sign)&&v.sign>=0&&v.sign<=11?zodiac[v.sign]:null;
+    return {name,sign,house:null,longitude:longitude!==null&&longitude>=0&&longitude<360?longitude:null,
+      decan:null,ruler:null,retrograde:null,origin:"vedic.charts["+index+"]."+division+"."+name};
+  });
+  return {available:points.length>0,subject:"védica "+division.toUpperCase()+" ["+index+"]",timed:false,points,houses:[],
+    reason:points.length?null:"Sin posiciones védicas "+division.toUpperCase()+" en canonical"};
+}
+export function selectChartMode(canonical,mode,subjectId){
+  if(mode==="composite"||mode==="davison")return selectRelationshipChart(canonical,mode);
+  if(mode==="vedic-d1")return selectVedicChart(canonical,"d1");
+  if(mode==="vedic-d9")return selectVedicChart(canonical,"d9");
+  return selectNatalChart(canonical,subjectId);
 }
