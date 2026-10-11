@@ -14,6 +14,7 @@ class FakeElement {
     this.className = ""; this.hidden = true; this.disabled = false;
   }
   addEventListener(type, fn) { this.listeners[type] = fn; }
+  setAttribute(name, value) { this[name] = String(value); }
   replaceChildren() { this.children = []; }
   appendChild(child) { this.children.push(child); return child; }
   append(...children) { this.children.push(...children); }
@@ -25,7 +26,8 @@ function el(id) {
 }
 globalThis.document = {
   getElementById: el,
-  createElement: type => new FakeElement(type)
+  createElement: type => new FakeElement(type),
+  createElementNS: (_ns, type) => new FakeElement(type)
 };
 await import("../app.mjs");
 
