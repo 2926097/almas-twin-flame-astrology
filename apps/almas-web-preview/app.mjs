@@ -69,7 +69,7 @@ $("verifyDocument").addEventListener("click",async()=>{
   try{
     const a=$("m30File").files?.[0],b=$("m31File").files?.[0];
     if(!a||!b)throw Error("Se requieren ambas salidas oficiales: M30 y M31.");
-    for(const file of [a,b])if(file.size>maxBytes||!/\\.json$/i.test(file.name))throw Error("Archivo incompatible o mayor de 5 MB");
+    for(const file of [a,b])if(file.size>maxBytes||!/\.json$/i.test(file.name))throw Error("Archivo incompatible o mayor de 5 MB");
     const [m30,m31]=await Promise.all([a.text(),b.text()]);
     if(token!==loadEpoch)return;
     const gate=JSON.parse(m30),model=JSON.parse(m31);
