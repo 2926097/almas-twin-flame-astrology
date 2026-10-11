@@ -1,7 +1,17 @@
+import {canonicalizePythonRaw} from "./json-lexical-digest.mjs";
 /** Trust boundary: local canonical, local M30 and local M31. No POST, storage or AI.
  * Cross-check fingerprints with a conservative Python-json-compatible encoder.
  * Divergent numeric lexical conventions FAIL CLOSED instead of approximating.
  */
+/** Parse local M30/M31 inputs without the duplicate-key ambiguity of JSON.parse.
+ * The same bounded lexical parser is used for the canonical SHA-256 gate.
+ * A redundant property in the incoming M30 or M31 file is a hard failure.
+ */
+export function parseContractJsonStrict(raw) {
+  canonicalizePythonRaw(raw);
+  return JSON.parse(raw);
+}
+
 const isObject=v=>v!==null&&typeof v==="object"&&!Array.isArray(v);
 export const SECTION_IDS=[
 "S01_SYNTHESIS","S02_DATA_METHOD","S03_NUMERIC_ONTOLOGY","S04_STRUCTURE",
