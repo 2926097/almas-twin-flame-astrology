@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {buildEvidenceGraph} from "../evidence-graph.mjs";
-import {chartAvailability,selectNatalChart,describePlacement} from "../astrology-view.mjs";
+import {chartAvailability,selectNatalChart,selectRelationshipChart,selectVedicChart,describePlacement} from "../astrology-view.mjs";
 import {assessReportTriplet,createLocalReportHtml,SECTION_IDS} from "../report-view.mjs";
 
 test("dependency graph edges derive only from explicit canonical roots",()=>{
@@ -101,4 +101,28 @@ test("blocked M30 cannot be promoted by a model reporting READY",async()=>{
   const result=await assessReportTriplet({},b,validModel,{validate:good,digest:hash});
   assert.equal(result.ok,false);
   assert.equal(result.state,"BLOCKED");
+});
+
+test("composite and Davison use actual relationship_field positions without adding houses",()=>{
+  const c={relationship_field:{
+    composite:{positions:{Sun:{longitude:34.2,sign:"TAURUS"}}},
+    davison:{positions:{Moon:{longitude:120.2,sign:"LEO"}},house_placements:{Moon:4},house_cusps:{}}
+  }};
+  const modes=chartAvailability(c);
+  assert.equal(modes.find(x=>x.key==="composite").state,"DECLARED");
+  assert.equal(modes.find(x=>x.key==="davison").state,"DECLARED");
+  const composite=selectRelationshipChart(c,"composite");
+  assert.equal(composite.points[0].longitude,34.2);
+  assert.equal(composite.points[0].house,null);
+  const davison=selectRelationshipChart(c,"davison");
+  assert.equal(davison.points[0].house,4);
+  assert.equal(davison.points[0].longitude,120.2);
+});
+test("Vedic D1/D9 display only provided sidereal positions without external validation claim",()=>{
+  const c={vedic:{charts:[{d1:{Moon:{longitude:48.5,sign:1}},d9:{Moon:{longitude:210.5,sign:7}}}]}};
+  const d1=selectVedicChart(c,"d1"),d9=selectVedicChart(c,"d9");
+  assert.equal(d1.points[0].sign,"Tauro");
+  assert.equal(d9.points[0].longitude,210.5);
+  assert.equal(d9.points[0].retrograde,null);
+  assert.equal(selectVedicChart(c,"d7").available,false);
 });
