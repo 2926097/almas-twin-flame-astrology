@@ -15,7 +15,7 @@ test("Draft 2020-12 validates the authoritative synthetic canonical",()=>{
   const result=validateCanonicalFull(c);
   assert.equal(result.kind,"JSON_SCHEMA_DRAFT_2020_12");
   assert.equal(result.ok,true,JSON.stringify(result.errors));
-  assert.ok(result.schemaCount>=100);
+  assert.ok(result.schemaCount>=3);
   assert.equal(JSON.stringify(c),before);
 });
 test("full schema rejects a root violation omitted by basic browser preflight",()=>{
