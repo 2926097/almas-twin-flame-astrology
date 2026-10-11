@@ -4,6 +4,9 @@ import {buildEvidenceGraph,renderEvidenceGraph} from "./evidence-graph.mjs";
 import {chartAvailability,selectChartMode,drawNatalWheel,describePlacement} from "./astrology-view.mjs";
 import {assessReportTriplet,createLocalReportHtml,parseContractJsonStrict} from "./report-view.mjs";
 import {digestCanonicalRaw} from "./json-lexical-digest.mjs";
+import {registerBirthIntake} from "./birth-intake.mjs";
+
+registerBirthIntake();
 
 async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
   try {
