@@ -1,0 +1,16 @@
+{
+  "name": "almas-web-local-schema",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 build_schema_registry.py && esbuild browser-schema-entry.mjs --bundle --format=esm --platform=browser --target=es2022 --outfile=full-schema-validator.mjs --minify",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "ajv": "8.17.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}
