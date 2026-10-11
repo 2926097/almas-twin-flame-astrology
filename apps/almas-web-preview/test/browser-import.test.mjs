@@ -75,7 +75,8 @@ test("a stale rejection cannot overwrite a newly rendered canonical", async () =
   let fail;
   const pending = new Promise((_, reject) => { fail = reject; });
   const old = selectFile({ name: "old.json", size: 20, text: () => pending });
-  const newData = JSON.stringify(canonical());
+  const currentCanonical = canonical();
+  const newData = JSON.stringify(currentCanonical);
   await selectFile({ name: "fresh.json", size: newData.length, text: async () => newData });
   assert.equal(el("status").className, "ok");
   assert.equal(el("results").hidden, false);
@@ -85,7 +86,7 @@ test("a stale rejection cannot overwrite a newly rendered canonical", async () =
   assert.equal(el("status").className, "ok");
   assert.equal(el("status").textContent, prior);
   assert.equal(el("results").hidden, false);
-  assert.match(el("rootCount").textContent, /Se muestran 0 de 0 raíces coincidentes/);
+  assert.match(el("rootCount").textContent, new RegExp("Se muestran " + currentCanonical.evidence.length + " de " + currentCanonical.evidence.length + " raíces coincidentes"));
   clear();
 });
 
