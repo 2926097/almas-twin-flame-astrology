@@ -30,7 +30,7 @@ globalThis.document = {
 await import("../app.mjs");
 
 function canonical() {
-  const wire=execFileSync("python3",["-c",
+  const wire=execFileSync(process.env.ALMA_PYTHON || "python3",["-c",
     "import json;from test_canonical_schema_validation import valid_canonical_analysis;print(json.dumps(valid_canonical_analysis(),ensure_ascii=False))"
   ],{cwd:root,encoding:"utf8",env:{...process.env,PYTHONPATH:"src:tests"}});
   return JSON.parse(wire);
