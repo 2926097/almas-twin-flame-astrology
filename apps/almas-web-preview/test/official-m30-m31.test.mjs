@@ -4,6 +4,7 @@ import {execFileSync} from "node:child_process";
 import {fileURLToPath} from "node:url";
 import {validateAlmasFull} from "../full-schema-validator.mjs";
 import {assessReportTriplet} from "../report-view.mjs";
+import {canonicalizePythonRaw,digestCanonicalRaw} from "../json-lexical-digest.mjs";
 
 const root=fileURLToPath(new URL("../../../",import.meta.url));
 function officialTriplet(){
@@ -18,7 +19,8 @@ function officialTriplet(){
     "gate=dict(gate_run.payload)",
     "model=dict(m31_report(_ctx('M31',{},",
     "  {'canonical_analysis':canonical,'report_gate':gate})).payload)",
-    "print(json.dumps({'canonical':canonical,'m30':gate,'m31':model},ensure_ascii=False,default=str))"
+    "raw=json.dumps(canonical,ensure_ascii=False,sort_keys=True,separators=(\',\',\':\'),default=str)",
+    "print(json.dumps({'canonical':canonical,'canonicalRaw':raw,'m30':gate,'m31':model},ensure_ascii=False,default=str))"
   ].join("\n");
   const wire=execFileSync(process.env.ALMA_PYTHON||"python3",["-c",code],{
     cwd:root,env:{...process.env,PYTHONPATH:"src:tests:apps/almas-api-sandbox"},
@@ -37,12 +39,20 @@ test("real Python canonical M30/M31 outputs validate against fully bundled Draft
   }
 });
 test("full local gate evaluates real synthetic M30 and M31 without mutation",async()=>{
-  const {canonical,m30,m31}=officialTriplet();
+  const {canonical,m30,m31,canonicalRaw}=officialTriplet();
   const before=JSON.stringify(canonical);
-  const evaluated=await assessReportTriplet(canonical,m30,m31,{validate:validateAlmasFull});
+  const evaluated=await assessReportTriplet(canonical,m30,m31,{validate:validateAlmasFull,digest:()=>digestCanonicalRaw(canonicalRaw)});
   assert.equal(evaluated.ok,true,evaluated.reason);
   assert.equal(evaluated.state,"PARTIAL");
   assert.equal(evaluated.sections.length,12);
   assert.equal(JSON.stringify(canonical),before);
   assert.equal(m30.canonical_fingerprint,m31.canonical_fingerprint);
+});
+
+test("lexical canonicalization preserves Python float and exponent spellings",()=>{
+  const wire='{"z":1.0,"a":1e-07,"n":-0.0,"nested":{"y":3,"x":2.5}}';
+  assert.equal(canonicalizePythonRaw(wire),
+    '{"a":1e-07,"n":-0.0,"nested":{"x":2.5,"y":3},"z":1.0}');
+  assert.throws(()=>canonicalizePythonRaw('{"x":1,"x":2}'),/Duplicate/);
+  assert.throws(()=>canonicalizePythonRaw('{"x":1e}'),/JSON/);
 });
