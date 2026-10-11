@@ -18,6 +18,7 @@ ASSETS=(
     "astrology-view.mjs",
     "report-view.mjs",
     "json-lexical-digest.mjs",
+    "json-lexical-digest.mjs",
     "full-schema-validator.mjs",
 )
 for filename in ASSETS:
