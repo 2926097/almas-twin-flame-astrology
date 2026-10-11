@@ -37,6 +37,7 @@ esquemas, la importación falla cerrada.
   No se prometen efemérides, posiciones védicas, antiscios, decanatos ni
   cartas compuestas no declaradas. Para generarlas, ALMAS debe aportar
   salidas canónicas con esquemas y procedencia verificable.
+- La verificación SHA-256 conserva los literales numéricos originales del archivo JSON local (por ejemplo, 1.0 frente a 1), y ordena las claves para reproducir el digest Python; el tokenizador rechaza claves duplicadas y estructuras inválidas.
 - La huella M30 usa la serialización Python del objeto canónico. El
   navegador compara SHA-256 de una serialización con claves ordenadas;
   si existen diferencias de formato numérico, **bloquea** la
