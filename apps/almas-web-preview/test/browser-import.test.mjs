@@ -85,7 +85,7 @@ test("a stale rejection cannot overwrite a newly rendered canonical", async () =
   assert.equal(el("status").className, "ok");
   assert.equal(el("status").textContent, prior);
   assert.equal(el("results").hidden, false);
-  assert.equal(el("rootCount").textContent.includes("0 raíces"), true);
+  assert.match(el("rootCount").textContent, /Se muestran 0 de 0 raíces coincidentes/);
   clear();
 });
 
