@@ -10,6 +10,19 @@ node --test apps/almas-web-preview/test/validator.test.mjs
 
 Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `validator.mjs`, `local-inspection.mjs`, `evidence-graph.mjs`, `astrology-view.mjs`, `report-view.mjs`, `json-lexical-digest.mjs`, `full-schema-validator.mjs` (generado durante build), `api/synthetic.js`, `api/canonical-demo.js` y `vercel.json`, únicamente a la aplicación Vercel aislada con Vercel Authentication activada. **No omitir `local-inspection.mjs`: `app.mjs` lo importa estáticamente y su ausencia impediría cargar toda la interfaz.** Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md`, `CANONICAL_GATE_DEMO.md`, `LOCAL_EVIDENCE_VIEWER.md` y los tests.
 
+## ALMAS 1.3 · nuevo formulario de dos nacimientos (captura local)
+
+El visor incorpora un **formulario local de dos nacimientos** y exportación de
+`ALMAS_WORK_REQUEST` con versión 1.26.0 y preset experimental elegido
+explícitamente. **No calcula todavía las cartas, índices ni narrativas desde
+el navegador:** para ejecutar el motor se descarga el fichero a un equipo
+privado y se utiliza el runner Python oficial con un kernel JPL verificado.
+Ver `ALMAS_WEB_1_3_ROADMAP.md`. En esta etapa no se añade POST remoto y
+Atacires permanece en SHADOW/NO-GO.
+
+Los assets `birth-request.mjs` y `birth-intake.mjs` son parte obligatoria
+del manifiesto estático. Se prueban junto con el adaptador Python oficial.
+
 ## Validación exhaustiva fuera del navegador
 
 `schema_gate.py` usa `jsonschema==4.26.0`, Draft 2020-12 y el registro local de esquemas oficiales de este repositorio. Resuelve referencias desde el checkout, sin red, no cambia el canonical y produce errores sin imprimir valores de los datos de entrada. Su veredicto `SCHEMA_VALID` acredita exclusivamente conformidad con el **JSON Schema oficial**, nunca un gate M30/M31, regresión del motor ni validación empírica.
