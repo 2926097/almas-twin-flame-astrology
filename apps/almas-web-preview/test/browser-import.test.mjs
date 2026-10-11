@@ -49,6 +49,7 @@ test("imported asset list includes every static module and both fixed API functi
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
   for (const path of [
     "index.html", "app.mjs", "validator.mjs", "local-inspection.mjs",
+    "evidence-graph.mjs", "astrology-view.mjs", "report-view.mjs", "json-lexical-digest.mjs",
     "api/synthetic.js", "api/canonical-demo.js", "vercel.json"
   ]) {
     assert.ok(readme.includes("`" + path + "`"), "missing documented asset " + path);
