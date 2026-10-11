@@ -44,7 +44,7 @@ jobs:
           test -s full-schema-validator.mjs
       - name: Execute complete browser module and privacy invariance regressions
         run: |
-          ALMA_PYTHON=/tmp/almas-web-schema-venv/bin/python node --test apps/almas-web-preview/test/full-validation.test.mjs apps/almas-web-preview/test/v1-2-modules.test.mjs
+          ALMA_PYTHON=/tmp/almas-web-schema-venv/bin/python node --test apps/almas-web-preview/test/full-validation.test.mjs apps/almas-web-preview/test/v1-2-modules.test.mjs apps/almas-web-preview/test/official-m30-m31.test.mjs
       - name: Run browser-contract preflight tests (not full schema validation)
         run: |
           node --version
