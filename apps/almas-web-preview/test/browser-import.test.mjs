@@ -100,3 +100,23 @@ test("a fresh rejection is still shown as an error", async () => {
   assert.match(el("status").textContent, /CURRENT_READ_FAILED/);
   clear();
 });
+
+test("a changed M30 selection invalidates an in-flight stale report verification",async()=>{
+  clear();
+  const input=JSON.stringify(canonical());
+  await selectFile({name:"canonical.json",size:input.length,text:async()=>input});
+  assert.equal(el("status").className,"ok");
+  let finishOld;
+  const pending=new Promise(resolve=>{finishOld=resolve});
+  el("m30File").files=[{name:"m30.json",size:100,text:()=>pending}];
+  el("m31File").files=[{name:"m31.json",size:100,text:async()=>JSON.stringify({})}];
+  const inflight=el("verifyDocument").listeners.click();
+  el("m30File").files=[{name:"different-m30.json",size:100,text:async()=>JSON.stringify({})}];
+  el("m30File").listeners.change();
+  assert.equal(el("reportStatus").textContent,"Sin validar.");
+  finishOld(JSON.stringify({state:"PARTIAL"}));
+  await inflight;
+  assert.equal(el("reportStatus").textContent,"Sin validar.");
+  assert.equal(el("exportDocument").disabled,true);
+  clear();
+});
