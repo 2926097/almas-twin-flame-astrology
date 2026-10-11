@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {buildEvidenceGraph} from "../evidence-graph.mjs";
-import {chartAvailability,selectNatalChart,selectRelationshipChart,selectVedicChart,describePlacement} from "../astrology-view.mjs";
+import {chartAvailability,selectNatalChart,selectRelationshipChart,selectVedicChart,selectDraconicChart,describePlacement} from "../astrology-view.mjs";
 import {assessReportTriplet,createLocalReportHtml,SECTION_IDS} from "../report-view.mjs";
 
 test("dependency graph edges derive only from explicit canonical roots",()=>{
@@ -125,4 +125,14 @@ test("Vedic D1/D9 display only provided sidereal positions without external vali
   assert.equal(d9.points[0].longitude,210.5);
   assert.equal(d9.points[0].retrograde,null);
   assert.equal(selectVedicChart(c,"d7").available,false);
+});
+
+test("Draconic M10 coordinates remain exactly as declared, without nodal recalculation",()=>{
+  const c={draconic_context:{individual:{charts:{PersonA:{positions:{Sun:{longitude:23.5,sign:"ARIES",source_longitude:173.5}},houses:{"1":10.25}}}}}};
+  const first=selectDraconicChart(c,"PersonA");
+  assert.equal(first.available,true);
+  assert.equal(first.points[0].longitude,23.5);
+  assert.equal(first.points[0].origin,"draconic_context.individual.charts[PersonA].positions.Sun");
+  assert.equal(first.houses[0].longitude,10.25);
+  assert.equal(selectDraconicChart({},"PersonA").available,false);
 });
