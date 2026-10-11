@@ -16,7 +16,7 @@ async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
 const $=id=>document.getElementById(id),maxBytes=5*1024*1024;
 let loadedCanonical=null,loadEpoch=0;
 const LOCAL_PAGE_SIZE=80;
-let verifiedReport=null;
+let verifiedReport=null,reportEpoch=0;
 
 function renderAdvanced(){
   if(!loadedCanonical)return;
@@ -55,6 +55,7 @@ function renderSelectedNatal(){
 $("natalSubject").addEventListener("change",renderSelectedNatal);
 $("chartMode").addEventListener("change",renderSelectedNatal);
 function resetReport(){
+  reportEpoch++;
   verifiedReport=null;
   $("exportDocument").disabled=true;
   $("reportStatus").textContent="Sin validar.";
@@ -63,7 +64,7 @@ function resetReport(){
 for(const id of ["m30File","m31File"])$(id).addEventListener("change",resetReport);
 $("verifyDocument").addEventListener("click",async()=>{
   resetReport();
-  const token=loadEpoch;
+  const token=loadEpoch,reportToken=reportEpoch;
   if(!loadedCanonical){
     $("reportStatus").textContent="Primero importa un canonical válido.";return;
   }
@@ -72,13 +73,13 @@ $("verifyDocument").addEventListener("click",async()=>{
     if(!a||!b)throw Error("Se requieren ambas salidas oficiales: M30 y M31.");
     for(const file of [a,b])if(file.size>maxBytes||!/\.json$/i.test(file.name))throw Error("Archivo incompatible o mayor de 5 MB");
     const [m30,m31]=await Promise.all([a.text(),b.text()]);
-    if(token!==loadEpoch)return;
+    if(token!==loadEpoch||reportToken!==reportEpoch)return;
     const gate=JSON.parse(m30),model=JSON.parse(m31);
     const check=await assessReportTriplet(loadedCanonical,gate,model,{validate:(d,name)=>{
       // The pinned validator module is imported once prior to the assessment.
       return globalSchemaValidator(d,name);
     }});
-    if(token!==loadEpoch)return;
+    if(token!==loadEpoch||reportToken!==reportEpoch)return;
     if(!check.ok)throw Error(check.reason);
     verifiedReport=check;
     $("reportStatus").textContent="M30/M31 "+check.state+
@@ -90,7 +91,7 @@ $("verifyDocument").addEventListener("click",async()=>{
         (section.requiredMissing.length?" · faltan "+section.requiredMissing.join(", "):"");
       $("reportSections").appendChild(p);
     }
-  }catch(e){if(token!==loadEpoch)return;$("reportStatus").textContent="BLOQUEADO: "+(e.message||"Error al verificar salidas");}
+  }catch(e){if(token!==loadEpoch||reportToken!==reportEpoch)return;$("reportStatus").textContent="BLOQUEADO: "+(e.message||"Error al verificar salidas");}
 });
 let globalSchemaValidator=()=>({ok:false});
 async function ensureValidatorLoaded(){
