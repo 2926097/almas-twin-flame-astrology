@@ -3,6 +3,7 @@ import {selectRootRows,selectCounterRows,selectLimitations,displayValue} from ".
 import {buildEvidenceGraph,renderEvidenceGraph} from "./evidence-graph.mjs";
 import {chartAvailability,selectChartMode,drawNatalWheel,describePlacement} from "./astrology-view.mjs";
 import {assessReportTriplet,createLocalReportHtml} from "./report-view.mjs";
+import {digestCanonicalRaw} from "./json-lexical-digest.mjs";
 
 async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
   try {
@@ -14,7 +15,7 @@ async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
 }
 
 const $=id=>document.getElementById(id),maxBytes=5*1024*1024;
-let loadedCanonical=null,loadEpoch=0;
+let loadedCanonical=null,loadedCanonicalRaw=null,loadEpoch=0;
 const LOCAL_PAGE_SIZE=80;
 let verifiedReport=null,reportEpoch=0;
 
@@ -75,7 +76,7 @@ $("verifyDocument").addEventListener("click",async()=>{
     const [m30,m31]=await Promise.all([a.text(),b.text()]);
     if(token!==loadEpoch||reportToken!==reportEpoch)return;
     const gate=JSON.parse(m30),model=JSON.parse(m31);
-    const check=await assessReportTriplet(loadedCanonical,gate,model,{validate:(d,name)=>{
+    const check=await assessReportTriplet(loadedCanonical,gate,model,{digest:()=>digestCanonicalRaw(loadedCanonicalRaw),validate:(d,name)=>{
       // The pinned validator module is imported once prior to the assessment.
       return globalSchemaValidator(d,name);
     }});
@@ -129,10 +130,10 @@ function renderLocalEvidence(){
 for(const id of ["rootState","counterModel"])$(id).addEventListener("change",renderLocalEvidence);
 $("rootQuery").addEventListener("input",renderLocalEvidence);
 function cell(parent,title,value){const box=document.createElement("div");box.className="card";const a=document.createElement("small");a.textContent=title;const b=document.createElement("div");b.className="value";b.textContent=formatOriginal(value);box.append(a,b);$(parent).append(box)}
-function clear(){loadEpoch++;loadedCanonical=null;resetReport();$("m30File").value="";$("m31File").value="";$("chartMode").value="natal";$("natalSubject").replaceChildren();$("astroRows").replaceChildren();$("natalWheel").replaceChildren();$("graphSvg").replaceChildren();for(const id of ["graphSummary","graphDetail","chartSummary","chartAvailability"])$(id).textContent="";for(const id of ["context","indices","models","audit","rootRows","counterRows","limitationRows"])$(id).replaceChildren();$("rootState").value="ALL";$("rootQuery").value="";$("counterModel").value="ALL";for(const id of ["rootCount","counterCount","limitationCount"])$(id).textContent="";$("results").hidden=true;$("status").textContent="No se ha seleccionado archivo.";$("status").className=""}
+function clear(){loadEpoch++;loadedCanonical=null;loadedCanonicalRaw=null;resetReport();$("m30File").value="";$("m31File").value="";$("chartMode").value="natal";$("natalSubject").replaceChildren();$("astroRows").replaceChildren();$("natalWheel").replaceChildren();$("graphSvg").replaceChildren();for(const id of ["graphSummary","graphDetail","chartSummary","chartAvailability"])$(id).textContent="";for(const id of ["context","indices","models","audit","rootRows","counterRows","limitationRows"])$(id).replaceChildren();$("rootState").value="ALL";$("rootQuery").value="";$("counterModel").value="ALL";for(const id of ["rootCount","counterCount","limitationCount"])$(id).textContent="";$("results").hidden=true;$("status").textContent="No se ha seleccionado archivo.";$("status").className=""}
 function show(d){cell("context","Schema",d.schema_version);cell("context","Perfil",d.analysis_profile);cell("context","Modo",d.analysis_mode);cell("context","Backend astronómico",d.astronomy_backend.state);for(const id of ["IDD","IAT","ICC","IRC","ICE"])cell("indices",id,d.indices[id]);for(const id of ["AF","KA","AG","LG"]){const m=d.models[id],tr=document.createElement("tr");for(const v of [id,m.state,m.iem,m.ice,m.supported_gate]){const td=document.createElement("td");td.textContent=formatOriginal(v);tr.append(td)}$("models").append(tr)}cell("audit","Raíces declaradas (no independientes por definición)",d.evidence.length);cell("audit","Contraevidencias",d.counterevidence.length);cell("audit","Limitaciones",d.limitations.length);cell("audit","ICE evaluable",d.counterevidence_state.ice_evaluable);cell("audit","Atacires SHADOW",d.temporal.atacires_shadow===undefined?"No presente":"Presente, sin promoción");loadedCanonical=d;renderLocalEvidence();renderAdvanced();$("results").hidden=false}
 $("clear").addEventListener("click",()=>{$("file").value="";clear()});
-$("file").addEventListener("change",async()=>{const f=$("file").files?.[0];clear();if(!f)return;const token=loadEpoch;try{if(f.size>maxBytes)throw Error("El archivo supera 5 MB");if(!/\.json$/i.test(f.name))throw Error("Se requiere extensión .json");const raw=await f.text();if(token!==loadEpoch)return;const d=JSON.parse(raw),gate=structuralPreflight(d);if(!gate.ok)throw Error(gate.errors.slice(0,5).map(e=>e.path+": "+e.reason).join("; "));await ensureValidatorLoaded();const full=await fullSchemaValidate(d);if(token!==loadEpoch)return;if(!full.ok)throw Error("JSON Schema oficial: "+(full.errors?.slice(0,3).map(e=>e.path+" "+e.message).join("; ")||"fallo"));show(d);$("status").textContent="JSON Schema Draft 2020-12 local: PASS. No sustituye M30/M31.";$("status").className="ok"}catch(e){if(token!==loadEpoch)return;$("status").textContent="Archivo rechazado: "+(e.message||"error");$("status").className="error"}});
+$("file").addEventListener("change",async()=>{const f=$("file").files?.[0];clear();if(!f)return;const token=loadEpoch;try{if(f.size>maxBytes)throw Error("El archivo supera 5 MB");if(!/\.json$/i.test(f.name))throw Error("Se requiere extensión .json");const raw=await f.text();if(token!==loadEpoch)return;const d=JSON.parse(raw),gate=structuralPreflight(d);if(!gate.ok)throw Error(gate.errors.slice(0,5).map(e=>e.path+": "+e.reason).join("; "));await ensureValidatorLoaded();const full=await fullSchemaValidate(d);if(token!==loadEpoch)return;if(!full.ok)throw Error("JSON Schema oficial: "+(full.errors?.slice(0,3).map(e=>e.path+" "+e.message).join("; ")||"fallo"));show(d);loadedCanonicalRaw=raw;$("status").textContent="JSON Schema Draft 2020-12 local: PASS. No sustituye M30/M31.";$("status").className="ok"}catch(e){if(token!==loadEpoch)return;$("status").textContent="Archivo rechazado: "+(e.message||"error");$("status").className="error"}});
 
 /* Optional synthetic engine connectivity test. No local JSON or natal data is transmitted. */
 $("runDemo").addEventListener("click", async () => {
