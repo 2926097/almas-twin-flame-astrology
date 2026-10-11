@@ -11,6 +11,11 @@ from urllib.parse import urlparse
 APP = Path(__file__).resolve().parent
 ROOT = APP.parents[1]
 SCHEMAS = ROOT / "schemas"
+if not SCHEMAS.is_dir():
+    SCHEMAS = APP / "schemas"
+DATA = ROOT / "src" / "almas_tfa" / "data"
+if not DATA.is_dir():
+    DATA = APP / "src" / "almas_tfa" / "data"
 BASE = "https://example.invalid/almas/"
 ROOT_NAMES = (
     "canonical-analysis.schema.json",
@@ -23,7 +28,7 @@ all_schemas = {
 }
 # Some official schemas reference the SSAR $defs contract outside schemas/.
 # Include only definition-bearing JSON resources, not arbitrary data tables.
-for path in sorted((ROOT / "src" / "almas_tfa" / "data").glob("*.json")):
+for path in sorted(DATA.glob("*.json")):
     candidate = json.loads(path.read_text(encoding="utf-8"))
     if isinstance(candidate, dict) and isinstance(candidate.get("$defs"), dict):
         if path.name not in all_schemas:
