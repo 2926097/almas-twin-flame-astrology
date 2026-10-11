@@ -34,14 +34,23 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
+      - name: Build offline Draft 2020-12 browser validator from the official checked-in schemas
+        run: |
+          cd apps/almas-web-preview
+          npm install --no-audit --no-fund
+          npm run build
+          python3 -m venv /tmp/almas-web-schema-venv
+          /tmp/almas-web-schema-venv/bin/python -m pip install --disable-pip-version-check jsonschema==4.26.0
+          test -s full-schema-validator.mjs
+      - name: Execute complete browser module and privacy invariance regressions
+        run: |
+          ALMA_PYTHON=/tmp/almas-web-schema-venv/bin/python node --test apps/almas-web-preview/test/full-validation.test.mjs apps/almas-web-preview/test/v1-2-modules.test.mjs apps/almas-web-preview/test/official-m30-m31.test.mjs
       - name: Run browser-contract preflight tests (not full schema validation)
         run: |
           node --version
-          node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs apps/almas-web-preview/test/canonical-demo.test.mjs apps/almas-web-preview/test/local-inspection.test.mjs apps/almas-web-preview/test/browser-import.test.mjs
+          ALMA_PYTHON=/tmp/almas-web-schema-venv/bin/python node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs apps/almas-web-preview/test/canonical-demo.test.mjs apps/almas-web-preview/test/local-inspection.test.mjs apps/almas-web-preview/test/browser-import.test.mjs apps/almas-web-preview/test/full-validation.test.mjs apps/almas-web-preview/test/v1-2-modules.test.mjs
       - name: Offline canonical Draft 2020-12 schema gate
         run: |
-          python3 -m venv /tmp/almas-web-schema-venv
-          /tmp/almas-web-schema-venv/bin/python -m pip install --disable-pip-version-check jsonschema==4.26.0
           PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
       - name: Authenticated synthetic-only Python API and core regression
         run: |

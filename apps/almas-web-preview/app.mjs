@@ -1,8 +1,114 @@
 import {structuralPreflight,formatOriginal} from "./validator.mjs";
 import {selectRootRows,selectCounterRows,selectLimitations,displayValue} from "./local-inspection.mjs";
+import {buildEvidenceGraph,renderEvidenceGraph} from "./evidence-graph.mjs";
+import {chartAvailability,selectChartMode,drawNatalWheel,describePlacement} from "./astrology-view.mjs";
+import {assessReportTriplet,createLocalReportHtml,parseContractJsonStrict} from "./report-view.mjs";
+import {digestCanonicalRaw} from "./json-lexical-digest.mjs";
+
+async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
+  try {
+    const mod=await import("./full-schema-validator.mjs");
+    return mod.validateAlmasFull(doc,name);
+  } catch {
+    return {ok:false,kind:"SCHEMA_ENGINE_UNAVAILABLE",errors:[{path:"$",message:"Validador integral local no compilado. No se admite el archivo."}]};
+  }
+}
+
 const $=id=>document.getElementById(id),maxBytes=5*1024*1024;
-let loadedCanonical=null,loadEpoch=0;
+let loadedCanonical=null,loadedCanonicalRaw=null,loadEpoch=0;
 const LOCAL_PAGE_SIZE=80;
+let verifiedReport=null,reportEpoch=0;
+
+function renderAdvanced(){
+  if(!loadedCanonical)return;
+  const graph=buildEvidenceGraph(loadedCanonical);
+  $("graphSummary").textContent=graph.nodes.length+" nodos · "+graph.edges.length+" enlaces documentales."+
+    (graph.truncated?" Visualización limitada.":"")+
+    " Raíces originales: "+graph.sourceRootCount+". No equivalen a observaciones independientes.";
+  renderEvidenceGraph($("graphSvg"),graph,$("graphDetail"));
+
+  const modes=chartAvailability(loadedCanonical);
+  $("chartAvailability").textContent=modes.map(m=>m.label+": "+(m.state==="DECLARED"?"declarada":"sin dato canónico")).join(" · ");
+  const subjects=Object.keys(loadedCanonical.natal_context?.subjects||{}).sort();
+  const selector=$("natalSubject");
+  selector.replaceChildren();
+  for(const id of subjects){
+    const option=document.createElement("option");option.value=id;option.textContent=id;selector.appendChild(option);
+  }
+  renderSelectedNatal();
+}
+
+function renderSelectedNatal(){
+  $("astroRows").replaceChildren();$("natalWheel").replaceChildren();
+  if(!loadedCanonical)return;
+  const chart=selectChartMode(loadedCanonical,$("chartMode").value,$("natalSubject").value);
+  if(!chart.available){$("chartSummary").textContent=chart.reason;return}
+  $("chartSummary").textContent="Sujeto "+chart.subject+" · "+(chart.timed?"Datos cronometrados declarados":"Sin hora certificada")+
+    " · "+chart.points.length+" puntos documentados.";
+  const visual=drawNatalWheel($("natalWheel"),chart);
+  $("chartSummary").textContent+=" Longitudes representables: "+visual.renderedPoints+
+    ". Sin coordenada: "+visual.missingCoordinates+".";
+  for(const p of chart.points){
+    const row=describePlacement(p);
+    appendRow("astroRows",[row.name,row.sign,row.house,row.decan,row.ruler,row.retrograde,row.longitude]);
+  }
+}
+$("natalSubject").addEventListener("change",renderSelectedNatal);
+$("chartMode").addEventListener("change",renderSelectedNatal);
+function resetReport(){
+  reportEpoch++;
+  verifiedReport=null;
+  $("exportDocument").disabled=true;
+  $("reportStatus").textContent="Sin validar.";
+  $("reportSections").replaceChildren();
+}
+for(const id of ["m30File","m31File"])$(id).addEventListener("change",resetReport);
+$("verifyDocument").addEventListener("click",async()=>{
+  resetReport();
+  const token=loadEpoch,reportToken=reportEpoch;
+  if(!loadedCanonical){
+    $("reportStatus").textContent="Primero importa un canonical válido.";return;
+  }
+  try{
+    const a=$("m30File").files?.[0],b=$("m31File").files?.[0];
+    if(!a||!b)throw Error("Se requieren ambas salidas oficiales: M30 y M31.");
+    for(const file of [a,b])if(file.size>maxBytes||!/\.json$/i.test(file.name))throw Error("Archivo incompatible o mayor de 5 MB");
+    const [m30,m31]=await Promise.all([a.text(),b.text()]);
+    if(token!==loadEpoch||reportToken!==reportEpoch)return;
+    const gate=parseContractJsonStrict(m30),model=parseContractJsonStrict(m31);
+    const check=await assessReportTriplet(loadedCanonical,gate,model,{digest:()=>digestCanonicalRaw(loadedCanonicalRaw),validate:(d,name)=>{
+      // The pinned validator module is imported once prior to the assessment.
+      return globalSchemaValidator(d,name);
+    }});
+    if(token!==loadEpoch||reportToken!==reportEpoch)return;
+    if(!check.ok)throw Error(check.reason);
+    verifiedReport=check;
+    $("reportStatus").textContent="M30/M31 "+check.state+
+      " · huella validada · documento declarativo, sin narrativa generada.";
+    $("exportDocument").disabled=false;
+    for(const section of check.sections){
+      const p=document.createElement("p");
+      p.textContent=section.id+" — "+section.title+" · "+section.state+
+        (section.requiredMissing.length?" · faltan "+section.requiredMissing.join(", "):"");
+      $("reportSections").appendChild(p);
+    }
+  }catch(e){if(token!==loadEpoch||reportToken!==reportEpoch)return;$("reportStatus").textContent="BLOQUEADO: "+(e.message||"Error al verificar salidas");}
+});
+let globalSchemaValidator=()=>({ok:false});
+async function ensureValidatorLoaded(){
+  const module=await import("./full-schema-validator.mjs");
+  if(typeof module.validateAlmasFull!=="function")throw Error("Validador sin contrato");
+  globalSchemaValidator=module.validateAlmasFull;
+}
+$("exportDocument").addEventListener("click",()=>{
+  if(!verifiedReport?.ok||$("exportDocument").disabled)return;
+  const html=createLocalReportHtml(verifiedReport);
+  const url=URL.createObjectURL(new Blob([html],{type:"text/html;charset=utf-8"}));
+  const link=document.createElement("a");link.href=url;link.download="almas-m31-modelo-local.html";
+  document.body.appendChild(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+
 function appendRow(parent, values) {
   const row=document.createElement("tr");
   for(const value of values){const td=document.createElement("td");td.textContent=displayValue(value);row.appendChild(td)}
@@ -24,10 +130,10 @@ function renderLocalEvidence(){
 for(const id of ["rootState","counterModel"])$(id).addEventListener("change",renderLocalEvidence);
 $("rootQuery").addEventListener("input",renderLocalEvidence);
 function cell(parent,title,value){const box=document.createElement("div");box.className="card";const a=document.createElement("small");a.textContent=title;const b=document.createElement("div");b.className="value";b.textContent=formatOriginal(value);box.append(a,b);$(parent).append(box)}
-function clear(){loadEpoch++;loadedCanonical=null;for(const id of ["context","indices","models","audit","rootRows","counterRows","limitationRows"])$(id).replaceChildren();$("rootState").value="ALL";$("rootQuery").value="";$("counterModel").value="ALL";for(const id of ["rootCount","counterCount","limitationCount"])$(id).textContent="";$("results").hidden=true;$("status").textContent="No se ha seleccionado archivo.";$("status").className=""}
-function show(d){cell("context","Schema",d.schema_version);cell("context","Perfil",d.analysis_profile);cell("context","Modo",d.analysis_mode);cell("context","Backend astronómico",d.astronomy_backend.state);for(const id of ["IDD","IAT","ICC","IRC","ICE"])cell("indices",id,d.indices[id]);for(const id of ["AF","KA","AG","LG"]){const m=d.models[id],tr=document.createElement("tr");for(const v of [id,m.state,m.iem,m.ice,m.supported_gate]){const td=document.createElement("td");td.textContent=formatOriginal(v);tr.append(td)}$("models").append(tr)}cell("audit","Raíces declaradas (no independientes por definición)",d.evidence.length);cell("audit","Contraevidencias",d.counterevidence.length);cell("audit","Limitaciones",d.limitations.length);cell("audit","ICE evaluable",d.counterevidence_state.ice_evaluable);cell("audit","Atacires SHADOW",d.temporal.atacires_shadow===undefined?"No presente":"Presente, sin promoción");loadedCanonical=d;renderLocalEvidence();$("results").hidden=false}
+function clear(){loadEpoch++;loadedCanonical=null;loadedCanonicalRaw=null;resetReport();$("m30File").value="";$("m31File").value="";$("chartMode").value="natal";$("natalSubject").replaceChildren();$("astroRows").replaceChildren();$("natalWheel").replaceChildren();$("graphSvg").replaceChildren();for(const id of ["graphSummary","graphDetail","chartSummary","chartAvailability"])$(id).textContent="";for(const id of ["context","indices","models","audit","rootRows","counterRows","limitationRows"])$(id).replaceChildren();$("rootState").value="ALL";$("rootQuery").value="";$("counterModel").value="ALL";for(const id of ["rootCount","counterCount","limitationCount"])$(id).textContent="";$("results").hidden=true;$("status").textContent="No se ha seleccionado archivo.";$("status").className=""}
+function show(d){cell("context","Schema",d.schema_version);cell("context","Perfil",d.analysis_profile);cell("context","Modo",d.analysis_mode);cell("context","Backend astronómico",d.astronomy_backend.state);for(const id of ["IDD","IAT","ICC","IRC","ICE"])cell("indices",id,d.indices[id]);for(const id of ["AF","KA","AG","LG"]){const m=d.models[id],tr=document.createElement("tr");for(const v of [id,m.state,m.iem,m.ice,m.supported_gate]){const td=document.createElement("td");td.textContent=formatOriginal(v);tr.append(td)}$("models").append(tr)}cell("audit","Raíces declaradas (no independientes por definición)",d.evidence.length);cell("audit","Contraevidencias",d.counterevidence.length);cell("audit","Limitaciones",d.limitations.length);cell("audit","ICE evaluable",d.counterevidence_state.ice_evaluable);cell("audit","Atacires SHADOW",d.temporal.atacires_shadow===undefined?"No presente":"Presente, sin promoción");loadedCanonical=d;renderLocalEvidence();renderAdvanced();$("results").hidden=false}
 $("clear").addEventListener("click",()=>{$("file").value="";clear()});
-$("file").addEventListener("change",async()=>{const f=$("file").files?.[0];clear();if(!f)return;const token=loadEpoch;try{if(f.size>maxBytes)throw Error("El archivo supera 5 MB");if(!/\.json$/i.test(f.name))throw Error("Se requiere extensión .json");const raw=await f.text();if(token!==loadEpoch)return;const d=JSON.parse(raw),gate=structuralPreflight(d);if(!gate.ok)throw Error(gate.errors.slice(0,5).map(e=>e.path+": "+e.reason).join("; "));show(d);$("status").textContent="Estructura preliminar admisible. NO es validación integral ni informe M30.";$("status").className="ok"}catch(e){if(token!==loadEpoch)return;$("status").textContent="Archivo rechazado: "+(e.message||"error");$("status").className="error"}});
+$("file").addEventListener("change",async()=>{const f=$("file").files?.[0];clear();if(!f)return;const token=loadEpoch;try{if(f.size>maxBytes)throw Error("El archivo supera 5 MB");if(!/\.json$/i.test(f.name))throw Error("Se requiere extensión .json");const raw=await f.text();if(token!==loadEpoch)return;const d=parseContractJsonStrict(raw),gate=structuralPreflight(d);if(!gate.ok)throw Error(gate.errors.slice(0,5).map(e=>e.path+": "+e.reason).join("; "));await ensureValidatorLoaded();const full=await fullSchemaValidate(d);if(token!==loadEpoch)return;if(!full.ok)throw Error("JSON Schema oficial: "+(full.errors?.slice(0,3).map(e=>e.path+" "+e.message).join("; ")||"fallo"));show(d);loadedCanonicalRaw=raw;$("status").textContent="JSON Schema Draft 2020-12 local: PASS. No sustituye M30/M31.";$("status").className="ok"}catch(e){if(token!==loadEpoch)return;$("status").textContent="Archivo rechazado: "+(e.message||"error");$("status").className="error"}});
 
 /* Optional synthetic engine connectivity test. No local JSON or natal data is transmitted. */
 $("runDemo").addEventListener("click", async () => {

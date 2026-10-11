@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, accessSync } from "node:fs";
+import {execFileSync} from "node:child_process";
+import {fileURLToPath} from "node:url";
+const root = fileURLToPath(new URL("../../../", import.meta.url));
 
 // Minimal DOM for testing the actual imported app.mjs event handlers.
 // This is a contract test, not a browser/PW visual certification.
@@ -11,6 +14,7 @@ class FakeElement {
     this.className = ""; this.hidden = true; this.disabled = false;
   }
   addEventListener(type, fn) { this.listeners[type] = fn; }
+  setAttribute(name, value) { this[name] = String(value); }
   replaceChildren() { this.children = []; }
   appendChild(child) { this.children.push(child); return child; }
   append(...children) { this.children.push(...children); }
@@ -22,28 +26,17 @@ function el(id) {
 }
 globalThis.document = {
   getElementById: el,
-  createElement: type => new FakeElement(type)
+  createElement: type => new FakeElement(type),
+  createElementNS: (_ns, type) => new FakeElement(type)
 };
 await import("../app.mjs");
 
-const model = () => ({
-  iem: 10, state: "INSUFFICIENT", core: 0.1, support: null, iem_pre: 10,
-  iem_final: null, ice: null, ice_state: "NOT_EVALUABLE", supported_gate: false,
-  birth_time_gate_required: false, birth_time_gate_satisfied: false
-});
-const canonical = () => ({
-  schema_version: "1.0.0", analysis_mode: "FULL", analysis_profile: "FULL_ASTROLOGY",
-  profile_policy_id: "ALMAS_ANALYSIS_PROFILES_V1",
-  astronomy_backend: {
-    state: "NOT_AVAILABLE", backend_id: null, backend_version: null,
-    provenance_state: "NOT_AVAILABLE", provenance: null
-  },
-  evidence: [], models: { AF: model(), KA: model(), AG: model(), LG: model() },
-  indices: { IDD: null, IAT: null, ICC: null, IRC: null, ICE: null },
-  pairwise_idd: {}, coverage: {}, robustness: {}, counterevidence: [],
-  counterevidence_state: { ice_evaluable: false }, ontology: {},
-  doctrine: [], temporal: {}, limitations: [], assembly: {}
-});
+function canonical() {
+  const wire=execFileSync(process.env.ALMA_PYTHON || "python3",["-c",
+    "import json;from test_canonical_schema_validation import valid_canonical_analysis;print(json.dumps(valid_canonical_analysis(),ensure_ascii=False))"
+  ],{cwd:root,encoding:"utf8",env:{...process.env,PYTHONPATH:"src:tests"}});
+  return JSON.parse(wire);
+}
 function selectFile(file) {
   el("file").files = [file];
   return el("file").listeners.change();
@@ -56,6 +49,7 @@ test("imported asset list includes every static module and both fixed API functi
   const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
   for (const path of [
     "index.html", "app.mjs", "validator.mjs", "local-inspection.mjs",
+    "evidence-graph.mjs", "astrology-view.mjs", "report-view.mjs", "json-lexical-digest.mjs",
     "api/synthetic.js", "api/canonical-demo.js", "vercel.json"
   ]) {
     assert.ok(readme.includes("`" + path + "`"), "missing documented asset " + path);
@@ -82,7 +76,8 @@ test("a stale rejection cannot overwrite a newly rendered canonical", async () =
   let fail;
   const pending = new Promise((_, reject) => { fail = reject; });
   const old = selectFile({ name: "old.json", size: 20, text: () => pending });
-  const newData = JSON.stringify(canonical());
+  const currentCanonical = canonical();
+  const newData = JSON.stringify(currentCanonical);
   await selectFile({ name: "fresh.json", size: newData.length, text: async () => newData });
   assert.equal(el("status").className, "ok");
   assert.equal(el("results").hidden, false);
@@ -92,7 +87,7 @@ test("a stale rejection cannot overwrite a newly rendered canonical", async () =
   assert.equal(el("status").className, "ok");
   assert.equal(el("status").textContent, prior);
   assert.equal(el("results").hidden, false);
-  assert.equal(el("rootCount").textContent.includes("0 raíces"), true);
+  assert.match(el("rootCount").textContent, new RegExp("Se muestran " + currentCanonical.evidence.length + " de " + currentCanonical.evidence.length + " raíces coincidentes"));
   clear();
 });
 
@@ -104,5 +99,37 @@ test("a fresh rejection is still shown as an error", async () => {
   });
   assert.equal(el("status").className, "error");
   assert.match(el("status").textContent, /CURRENT_READ_FAILED/);
+  clear();
+});
+
+test("a changed M30 selection invalidates an in-flight stale report verification",async()=>{
+  clear();
+  const input=JSON.stringify(canonical());
+  await selectFile({name:"canonical.json",size:input.length,text:async()=>input});
+  assert.equal(el("status").className,"ok");
+  let finishOld;
+  const pending=new Promise(resolve=>{finishOld=resolve});
+  el("m30File").files=[{name:"m30.json",size:100,text:()=>pending}];
+  el("m31File").files=[{name:"m31.json",size:100,text:async()=>JSON.stringify({})}];
+  const inflight=el("verifyDocument").listeners.click();
+  el("m30File").files=[{name:"different-m30.json",size:100,text:async()=>JSON.stringify({})}];
+  el("m30File").listeners.change();
+  assert.equal(el("reportStatus").textContent,"Sin validar.");
+  finishOld(JSON.stringify({state:"PARTIAL"}));
+  await inflight;
+  assert.equal(el("reportStatus").textContent,"Sin validar.");
+  assert.equal(el("exportDocument").disabled,true);
+  clear();
+});
+
+test("a canonical with duplicate JSON keys is rejected before rendering",async()=>{
+  clear();
+  const legitimate=JSON.stringify(canonical());
+  const repeated='{"canonical_duplicate_guard":1,"canonical_duplicate_guard":2,'+legitimate.slice(1);
+  await selectFile({name:"ambiguous-canonical.json",size:Buffer.byteLength(repeated),text:async()=>repeated});
+  assert.equal(el("status").className,"error");
+  assert.match(el("status").textContent,/Duplicate JSON key/);
+  assert.equal(el("results").hidden,true);
+  assert.equal(el("exportDocument").disabled,true);
   clear();
 });
