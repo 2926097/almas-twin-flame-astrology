@@ -121,3 +121,15 @@ test("a changed M30 selection invalidates an in-flight stale report verification
   assert.equal(el("exportDocument").disabled,true);
   clear();
 });
+
+test("a canonical with duplicate JSON keys is rejected before rendering",async()=>{
+  clear();
+  const legitimate=JSON.stringify(canonical());
+  const repeated='{"canonical_duplicate_guard":1,"canonical_duplicate_guard":2,'+legitimate.slice(1);
+  await selectFile({name:"ambiguous-canonical.json",size:Buffer.byteLength(repeated),text:async()=>repeated});
+  assert.equal(el("status").className,"error");
+  assert.match(el("status").textContent,/Duplicate JSON key/);
+  assert.equal(el("results").hidden,true);
+  assert.equal(el("exportDocument").disabled,true);
+  clear();
+});
