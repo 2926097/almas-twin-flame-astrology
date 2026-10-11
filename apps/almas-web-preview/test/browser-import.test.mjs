@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, accessSync } from "node:fs";
+import {execFileSync} from "node:child_process";
+import {fileURLToPath} from "node:url";
+const root = fileURLToPath(new URL("../../../", import.meta.url));
 
 // Minimal DOM for testing the actual imported app.mjs event handlers.
 // This is a contract test, not a browser/PW visual certification.
@@ -26,24 +29,12 @@ globalThis.document = {
 };
 await import("../app.mjs");
 
-const model = () => ({
-  iem: 10, state: "INSUFFICIENT", core: 0.1, support: null, iem_pre: 10,
-  iem_final: null, ice: null, ice_state: "NOT_EVALUABLE", supported_gate: false,
-  birth_time_gate_required: false, birth_time_gate_satisfied: false
-});
-const canonical = () => ({
-  schema_version: "1.0.0", analysis_mode: "FULL", analysis_profile: "FULL_ASTROLOGY",
-  profile_policy_id: "ALMAS_ANALYSIS_PROFILES_V1",
-  astronomy_backend: {
-    state: "NOT_AVAILABLE", backend_id: null, backend_version: null,
-    provenance_state: "NOT_AVAILABLE", provenance: null
-  },
-  evidence: [], models: { AF: model(), KA: model(), AG: model(), LG: model() },
-  indices: { IDD: null, IAT: null, ICC: null, IRC: null, ICE: null },
-  pairwise_idd: {}, coverage: {}, robustness: {}, counterevidence: [],
-  counterevidence_state: { ice_evaluable: false }, ontology: {},
-  doctrine: [], temporal: {}, limitations: [], assembly: {}
-});
+function canonical() {
+  const wire=execFileSync("python3",["-c",
+    "import json;from test_canonical_schema_validation import valid_canonical_analysis;print(json.dumps(valid_canonical_analysis(),ensure_ascii=False))"
+  ],{cwd:root,encoding:"utf8",env:{...process.env,PYTHONPATH:"src:tests"}});
+  return JSON.parse(wire);
+}
 function selectFile(file) {
   el("file").files = [file];
   return el("file").listeners.change();
