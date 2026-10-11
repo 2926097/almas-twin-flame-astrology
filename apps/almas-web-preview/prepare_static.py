@@ -12,6 +12,8 @@ PUBLIC.mkdir(exist_ok=True)
 ASSETS=(
     "index.html",
     "app.mjs",
+    "birth-request.mjs",
+    "birth-ui.mjs",
     "validator.mjs",
     "local-inspection.mjs",
     "evidence-graph.mjs",
