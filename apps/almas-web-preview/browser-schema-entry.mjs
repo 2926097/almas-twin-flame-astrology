@@ -40,4 +40,5 @@ export function validateAlmasFull(document, schemaName) {
       errors: [{path:"$",keyword:"engine",message:"Offline schema registry or compiler unavailable"}]};
   }
 }
-\nexport const validateCanonicalFull = document => validateAlmasFull(document, "canonical-analysis.schema.json");\n
+
+export const validateCanonicalFull = document => validateAlmasFull(document, "canonical-analysis.schema.json");
