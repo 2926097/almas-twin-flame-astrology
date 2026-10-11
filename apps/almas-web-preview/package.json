@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "python3 build_schema_registry.py && esbuild browser-schema-entry.mjs --bundle --format=esm --platform=browser --target=es2022 --outfile=full-schema-validator.mjs --minify",
+    "build": "python3 build_schema_registry.py && esbuild browser-schema-entry.mjs --bundle --format=esm --platform=browser --target=es2022 --outfile=full-schema-validator.mjs --minify && python3 prepare_static.py",
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
