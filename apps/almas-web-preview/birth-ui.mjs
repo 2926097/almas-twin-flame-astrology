@@ -1,9 +1,16 @@
 import {buildTwoBirthRequest,describeTwoBirthReadiness,PROFILES} from "./birth-request.mjs";
+import {buildCitySearchUrl,normalizeCityResults,createCitySelection} from "./birth-geocoding.mjs";
 const $=id=>document.getElementById(id);
+const cityPickers=new Map();
 function readSubject(prefix){
  const field=name=>$(prefix+name).value;
+ const city=cityPickers.get(prefix)?.current();
+ if(!city)throw new TypeError((prefix==="birthA"?"Persona A":"Persona B")+
+  ": busca y selecciona una ciudad de nacimiento de la lista.");
+ // The values still feed the existing coordinate-based adapter, invisibly to the user.
  return {display_name:field("Name"),birth_date:field("Date"),birth_time:field("Time"),
- time_reliability:field("Quality"),timezone:field("Zone"),latitude:field("Lat"),longitude:field("Lon")};
+ time_reliability:field("Quality"),timezone:city.timezone,
+ latitude:city.latitude,longitude:city.longitude};
 }
 function collectRequest(){
  return buildTwoBirthRequest(readSubject("birthA"),readSubject("birthB"),{profile:$("birthProfile").value});
@@ -28,6 +35,75 @@ if(form){
   $("birthLocalResult").textContent="";
  };
  form.addEventListener("input",reset);form.addEventListener("change",reset);
+ // Never geocode on typing or page load. Only a click (or Enter) sends the city string.
+ function installCityPicker(prefix){
+  const input=$(prefix+"City"),search=$(prefix+"CitySearch"),
+    results=$(prefix+"CityResults"),message=$(prefix+"CityStatus");
+  const selection=createCitySelection();
+  let serial=0,controller=null;
+  function erase(){
+   serial++;controller?.abort();controller=null;selection.clear();
+   $(prefix+"Zone").value="";$(prefix+"Lat").value="";$(prefix+"Lon").value="";
+   results.replaceChildren();
+   message.textContent="Busca y selecciona una localidad de la lista.";
+   reset();
+  }
+  input.addEventListener("input",erase);
+  input.addEventListener("keydown",event=>{
+   if(event.key==="Enter"){event.preventDefault();search.click();}
+  });
+  search.addEventListener("click",async()=>{
+   serial++;const token=serial;
+   controller?.abort();controller=null;selection.clear();
+   $(prefix+"Zone").value="";$(prefix+"Lat").value="";$(prefix+"Lon").value="";
+   results.replaceChildren();reset();
+   let url;
+   try{url=buildCitySearchUrl(input.value);}
+   catch{message.textContent="Introduce al menos dos letras de la ciudad.";return;}
+   search.disabled=true;
+   message.textContent="Buscando localidades; solo se envía el nombre de la ciudad…";
+   const abort=new AbortController();controller=abort;
+   try{
+    const response=await fetch(url,{method:"GET",mode:"cors",credentials:"omit",
+      cache:"no-store",referrerPolicy:"no-referrer",signal:abort.signal,
+      headers:{"Accept":"application/json"}});
+    if(!response.ok)throw Error("SEARCH_FAILED");
+    const data=await response.json();
+    if(token!==serial)return;
+    const options=normalizeCityResults(data);
+    if(!options.length){
+     message.textContent="No hay coincidencias. Prueba con ciudad, provincia o país.";
+     return;
+    }
+    message.textContent="Selecciona la localidad correcta entre "+options.length+" coincidencias.";
+    for(const option of options){
+     const item=document.createElement("button");item.type="button";
+     item.textContent=option.label;item.setAttribute("aria-label","Elegir "+option.label);
+     item.addEventListener("click",()=>{
+      if(token!==serial)return;
+      selection.choose(option);input.value=option.label;
+      $(prefix+"Zone").value=option.timezone;
+      $(prefix+"Lat").value=String(option.latitude);
+      $(prefix+"Lon").value=String(option.longitude);
+      results.replaceChildren();
+      message.textContent="Localidad seleccionada: "+option.label+
+       " · zona IANA: "+option.timezone+". Comprueba su correspondencia histórica.";
+      serial++;reset();
+     });
+     results.appendChild(item);
+    }
+   }catch(err){
+    if(token!==serial||err?.name==="AbortError")return;
+    message.textContent="Búsqueda no disponible. Vuelve a intentar; no se ha seleccionado una ciudad.";
+   }finally{
+    if(token===serial){search.disabled=false;controller=null;}
+    else search.disabled=false;
+   }
+  });
+  return {current:()=>selection.current(input.value)};
+ }
+ for(const prefix of ["birthA","birthB"])cityPickers.set(prefix,installCityPicker(prefix));
+
  form.addEventListener("submit",event=>{
   event.preventDefault();reset();
   try{
