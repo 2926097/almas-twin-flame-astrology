@@ -72,9 +72,11 @@ if(form){
      (data.m31?" · secciones M31: "+data.m31.sections?.length:"")+
      ". Interpretación autoral todavía NO_GENERADA; los índices proceden únicamente del motor.";
    if(data.canonical_analysis){
-    const {ingestCanonicalLocal}=await import("./app.mjs");
+    const {ingestCanonicalLocal,ingestOfficialLocalReport}=await import("./app.mjs");
     const accepted=await ingestCanonicalLocal(JSON.stringify(data.canonical_analysis));
     if(!accepted)throw Error("CANONICAL_REJECTED_BY_BROWSER_VALIDATOR");
+    const reportAccepted=await ingestOfficialLocalReport(data.m30,data.m31);
+    $("birthLocalResult").textContent+=" · M30/M31 navegador: "+(reportAccepted?"PASS, HTML disponible":"BLOQUEADO, consulta detalle del informe");
     $("birthBundleDownload").disabled=false;
     $("birthBundleDownload").onclick=()=>downloadJson("almas-local-results.json",{
       canonical_analysis:data.canonical_analysis,m30:data.m30,m31:data.m31,
