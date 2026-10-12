@@ -2,9 +2,10 @@
 // GeoNames-backed Open-Meteo results are not a source of natal time accuracy.
 const ENDPOINT="https://geocoding-api.open-meteo.com/v1/search";
 export function buildCitySearchUrl(raw){
-  if(typeof raw!=="string")throw new TypeError("CITY_QUERY_INVALID");
+  if(typeof raw!=="string"||/[\x00-\x1f\x7f]/.test(raw))
+    throw new TypeError("CITY_QUERY_INVALID");
   const query=raw.trim().replace(/\s+/g," ");
-  if(query.length<2||query.length>100||/[\x00-\x1f\x7f]/.test(query))
+  if(query.length<2||query.length>100)
     throw new TypeError("CITY_QUERY_INVALID");
   const params=new URLSearchParams({name:query,count:"10",language:"es",format:"json"});
   return ENDPOINT+"?"+params.toString();
