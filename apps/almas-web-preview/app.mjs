@@ -218,3 +218,60 @@ $("runCanonicalDemo").addEventListener("click", async () => {
     button.disabled = false;
   }
 });
+
+/** Load output from the strictly local Python runner through the same schema gates. */
+export async function ingestCanonicalLocal(raw){
+ clear();
+ const token=loadEpoch;
+ try{
+  if(typeof raw!=="string"||new TextEncoder().encode(raw).length>maxBytes)
+    throw Error("Respuesta canónica inválida o mayor de 5 MB");
+  const d=parseContractJsonStrict(raw),gate=structuralPreflight(d);
+  if(!gate.ok)throw Error(gate.errors.slice(0,5).map(e=>e.path+": "+e.reason).join("; "));
+  await ensureValidatorLoaded();
+  const full=await fullSchemaValidate(d);
+  if(token!==loadEpoch)return false;
+  if(!full.ok)throw Error("JSON Schema oficial: "+(full.errors?.slice(0,3).map(e=>e.path+" "+e.message).join("; ")||"fallo"));
+  show(d);loadedCanonicalRaw=raw;
+  $("status").textContent="Canónico calculado localmente: JSON Schema Draft 2020-12 PASS.";
+  $("status").className="ok";
+  return true;
+ }catch(error){
+  if(token===loadEpoch){
+   $("status").textContent="Resultado local rechazado: "+(error.message||"error");
+   $("status").className="error";
+  }
+  return false;
+ }
+}
+
+/** M30/M31 from the loopback engine must pass the same browser triple-document gate. */
+export async function ingestOfficialLocalReport(gate,model){
+ resetReport();
+ if(!loadedCanonical||!loadedCanonicalRaw)return false;
+ const token=loadEpoch,rt=reportEpoch;
+ try{
+  await ensureValidatorLoaded();
+  const check=await assessReportTriplet(loadedCanonical,gate,model,{
+   digest:()=>digestCanonicalRaw(loadedCanonicalRaw),
+   validate:(d,name)=>globalSchemaValidator(d,name)
+  });
+  if(token!==loadEpoch||rt!==reportEpoch)return false;
+  if(!check.ok)throw Error(check.reason);
+  verifiedReport=check;
+  $("exportDocument").disabled=false;
+  $("reportStatus").textContent="M30/M31 locales "+check.state+
+    " · huella canónica verificada · documento declarativo sin narrativa.";
+  for(const section of check.sections){
+   const p=document.createElement("p");p.textContent=section.id+" — "+section.title+" · "+section.state;
+   $("reportSections").appendChild(p);
+  }
+  return true;
+ }catch(error){
+  if(token===loadEpoch&&rt===reportEpoch){
+   $("reportStatus").textContent="BLOQUEADO: "+(error.message||"Documento incompatible");
+   $("exportDocument").disabled=true;
+  }
+  return false;
+ }
+}
