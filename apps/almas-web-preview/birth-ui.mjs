@@ -14,7 +14,7 @@ function downloadJson(name,obj){
  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 const form=$("birthIntakeForm"),download=$("birthDownload"),status=$("birthIntakeStatus");
-let localCSRF=null;
+let localCSRF=null,inputEpoch=0;
 if(form){
  for(const profile of PROFILES){
   const option=document.createElement("option");option.value=profile;option.textContent=profile;
@@ -22,6 +22,7 @@ if(form){
  }
  $("birthProfile").value="FULL_MULTIDISCIPLINARY";
  const reset=()=>{
+  inputEpoch++;
   download.disabled=true;download.onclick=null;status.textContent="Sin solicitud validada.";
   $("birthBundleDownload").disabled=true;$("birthBundleDownload").onclick=null;
   $("birthLocalResult").textContent="";
@@ -55,7 +56,7 @@ if(form){
   calculate.disabled=true;
   $("birthLocalResult").textContent="";
   try{
-   const request=collectRequest();
+   const request=collectRequest(),epoch=inputEpoch;
    status.textContent="Ejecutando M00–M31 en el equipo local. Ningún dato se envía a Vercel.";
    const res=await fetch("/local/analyze",{
      method:"POST",cache:"no-store",credentials:"same-origin",
@@ -63,6 +64,7 @@ if(form){
      body:JSON.stringify(request)
    });
    const data=await res.json();
+   if(epoch!==inputEpoch)return; // never render obsolete pairs after edits
    if(!res.ok)throw Error(data.error||"LOCAL_ENGINE_UNAVAILABLE");
    const modules=Object.entries(data.module_statuses||{});
    const ready=modules.filter(([,v])=>v==="COMPLETED").length;
