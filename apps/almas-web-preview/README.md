@@ -8,7 +8,18 @@ Comprobación local (Node 20+):
 node --test apps/almas-web-preview/test/validator.test.mjs
 ```
 
-Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `validator.mjs`, `local-inspection.mjs`, `evidence-graph.mjs`, `astrology-view.mjs`, `report-view.mjs`, `json-lexical-digest.mjs`, `full-schema-validator.mjs` (generado durante build), `api/synthetic.js`, `api/canonical-demo.js` y `vercel.json`, únicamente a la aplicación Vercel aislada con Vercel Authentication activada. **No omitir `local-inspection.mjs`: `app.mjs` lo importa estáticamente y su ausencia impediría cargar toda la interfaz.** Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md`, `CANONICAL_GATE_DEMO.md`, `LOCAL_EVIDENCE_VIEWER.md` y los tests.
+Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `birth-request.mjs`, `birth-ui.mjs`, `validator.mjs`, `local-inspection.mjs`, `evidence-graph.mjs`, `astrology-view.mjs`, `report-view.mjs`, `json-lexical-digest.mjs`, `full-schema-validator.mjs` (generado durante build), `api/synthetic.js`, `api/canonical-demo.js` y `vercel.json`, únicamente a la aplicación Vercel aislada con Vercel Authentication activada. **No omitir `local-inspection.mjs`: `app.mjs` lo importa estáticamente y su ausencia impediría cargar toda la interfaz.** Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md`, `CANONICAL_GATE_DEMO.md`, `LOCAL_EVIDENCE_VIEWER.md` y los tests.
+
+
+## ALMAS Web 1.3 — dos nacimientos y motor integral local
+
+La Preview de Vercel **no admite datos natales para cálculo remoto**. Ahora incluye un formulario de dos nacimientos que genera localmente `ALMAS_WORK_REQUEST` v1.26.0, sin solicitar detalles extra ni inferir coordenadas. El botón `Calcular M00–M31 en este equipo` está oculto fuera de `http://127.0.0.1` y solo se habilita tras una comprobación positiva del servicio local.
+
+Para calcular con posiciones e índices del motor real se necesita el programa separado `local_engine_server.py`, que se ejecuta en el ordenador del usuario y requiere un kernel Moira/JPL instalado y verificado. No se publica en Vercel, no acepta conexiones no locales ni transmite datos personales a Render. Requiere pulsar `Calcular` expresamente.
+
+El servidor usa el adaptador y orquestador oficiales, verifica los schemas y SHA de `canonical_analysis`, M30 y M31, devuelve el atlas descriptivo sin autoría, y el navegador vuelve a validarlos antes de permitir el modelo HTML imprimible. Los índices salen del núcleo, nunca se recalculan en JavaScript. **El HTML M31 es declarativo, no un informe narrativo autoral**, y estados no evaluables no se convierten en puntuaciones. La producción privada, el procesamiento multiusuario y la autoría DOCX/PDF permanecen NO-GO.
+
+Instrucciones detalladas, dependencias exactas y pruebas: [ALMAS_WEB_1_3_INTEGRAL_ROADMAP.md](ALMAS_WEB_1_3_INTEGRAL_ROADMAP.md). Prueba adicional: `PYTHONPATH=src:tests python -m unittest discover -s apps/almas-web-preview -p 'test_local_engine_server.py' -v`.
 
 ## Validación exhaustiva fuera del navegador
 
