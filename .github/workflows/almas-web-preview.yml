@@ -48,10 +48,13 @@ jobs:
       - name: Run browser-contract preflight tests (not full schema validation)
         run: |
           node --version
-          ALMA_PYTHON=/tmp/almas-web-schema-venv/bin/python node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs apps/almas-web-preview/test/canonical-demo.test.mjs apps/almas-web-preview/test/local-inspection.test.mjs apps/almas-web-preview/test/browser-import.test.mjs apps/almas-web-preview/test/full-validation.test.mjs apps/almas-web-preview/test/v1-2-modules.test.mjs
+          ALMA_PYTHON=/tmp/almas-web-schema-venv/bin/python node --test apps/almas-web-preview/test/validator.test.mjs apps/almas-web-preview/test/proxy.test.mjs apps/almas-web-preview/test/canonical-demo.test.mjs apps/almas-web-preview/test/local-inspection.test.mjs apps/almas-web-preview/test/browser-import.test.mjs apps/almas-web-preview/test/full-validation.test.mjs apps/almas-web-preview/test/v1-2-modules.test.mjs apps/almas-web-preview/test/birth-request.test.mjs
       - name: Offline canonical Draft 2020-12 schema gate
         run: |
           PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview/test -p 'test_schema_gate.py' -v
+      - name: Loopback-only private engine, DST, CSRF, M30/M31 contract regression
+        run: |
+          PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview -p 'test_local_engine_server.py' -v
       - name: Authenticated synthetic-only Python API and core regression
         run: |
           PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-api-sandbox -p 'test_*.py' -v
