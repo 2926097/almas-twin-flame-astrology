@@ -1,8 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {buildTwoBirthRequest,describeTwoBirthReadiness,POLICY_PRESET} from "../birth-request.mjs";
-const a={display_name:"Sujeto A",birth_date:"1977-03-20",birth_time:"17:45",time_reliability:"A",timezone:"Europe/Madrid",latitude:41.65,longitude:-0.89};
-const b={display_name:"Sujeto B",birth_date:"1991-05-23",birth_time:"04:15",time_reliability:"B",timezone:"America/Santo_Domingo",latitude:18.45,longitude:-69.3};
+const a={display_name:"Sujeto A",birth_date:"1988-06-17",birth_time:"13:20",time_reliability:"A",timezone:"Europe/Madrid",latitude:40.4168,longitude:-3.7038};
+const b={display_name:"Sujeto B",birth_date:"1990-11-06",birth_time:"09:10",time_reliability:"B",timezone:"America/Chicago",latitude:41.8781,longitude:-87.6298};
 test("two births map to frozen relational adapter request without inferred orbs",()=>{
  const request=buildTwoBirthRequest(a,b);
  assert.equal(request.format,"ALMAS_WORK_REQUEST");
@@ -11,7 +11,7 @@ test("two births map to frozen relational adapter request without inferred orbs"
  assert.equal(request.public_version,"1.26.0");
  assert.equal(request.analysis_policy_profile,POLICY_PRESET);
  assert.equal(request.subjects.length,2);
- assert.equal(request.subjects[0].birth_time,"17:45");
+ assert.equal(request.subjects[0].birth_time,"13:20");
  assert.deepEqual(request.events,[]);
  assert.equal(Object.hasOwn(request,"atacires_requests"),false);
  assert.equal(Object.hasOwn(request,"analysis_policies"),false);
