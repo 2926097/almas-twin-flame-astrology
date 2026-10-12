@@ -55,6 +55,9 @@ jobs:
       - name: Loopback-only private engine, DST, CSRF, M30/M31 contract regression
         run: |
           PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview -p 'test_local_engine_server.py' -v
+      - name: Verify offline local astronomy runtime preflight
+        run: |
+          PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-web-preview -p 'test_local_astronomy_preflight.py' -v
       - name: Authenticated synthetic-only Python API and core regression
         run: |
           PYTHONPATH=src:tests /tmp/almas-web-schema-venv/bin/python -m unittest discover -s apps/almas-api-sandbox -p 'test_*.py' -v
