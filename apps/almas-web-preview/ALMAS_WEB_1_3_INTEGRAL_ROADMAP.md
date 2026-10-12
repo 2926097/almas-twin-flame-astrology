@@ -2,7 +2,7 @@
 
 ## Implementación real
 
-El panel de dos nacimientos captura fecha, hora local opcional, calidad A/B/C/D, zona IANA (comprobación de **formato**, no verificación del calendario DST en el navegador), latitud y longitud explícitas. Validación fail-closed de fecha y rangos; no hay geocodificación implícita. Construye un **ALMAS_WORK_REQUEST** con `format=ALMAS_WORK_REQUEST`, `type=RELATIONAL`, `execution_state=REQUEST_ONLY`, `public_version=1.26.0`, dos sujetos A/B, perfil seleccionado y preset explícito `ALMAS_RELATIONAL_STRICT_RESEARCH_V1`. No infiere órbitas, nodos, posiciones ni cartas; no incluye `atacires_requests`.
+El panel de dos nacimientos captura fecha, hora local opcional y calidad A/B/C/D. La interfaz pide **ciudad de nacimiento**, muestra coincidencias con provincia/región y país y solo tras una selección explícita obtiene latitud, longitud WGS84 y zona IANA en campos ocultos. El servicio de Open-Meteo se consulta solo al pulsar Buscar ciudad, enviando únicamente la cadena buscada; nunca nombres, fechas, horas o el análisis. La zona civil histórica sigue validándose en el servidor Python local (DST ambiguo/inexistente). No hay geocodificación automática sin consentimiento operativo. Construye un **ALMAS_WORK_REQUEST** con `format=ALMAS_WORK_REQUEST`, `type=RELATIONAL`, `execution_state=REQUEST_ONLY`, `public_version=1.26.0`, dos sujetos A/B, perfil seleccionado y preset explícito `ALMAS_RELATIONAL_STRICT_RESEARCH_V1`. No infiere órbitas, nodos, posiciones ni cartas; no incluye `atacires_requests`.
 
 El JSON puede exportarse localmente. Esta fase **no ejecuta** el backend, ni calcula cartas o índices ni fabrica narrativas. No envía datos al servidor; los endpoints sintéticos existentes permanecen invariables. Integración aislada en `apps/almas-web-preview`, sin modificar `src/`, `schemas/`, índices, scoring u ontología.
 
@@ -64,3 +64,13 @@ Abrir `http://127.0.0.1:8765/` **en el mismo equipo**. No abrir una puerta/firew
 ### Gates que permanecen
 
 **NO-GO producción privada**, no autenticación multiusuario ni nube personal; no publicación automática ni DOCX/PDF narrativo; Atacires permanece SHADOW/NO-GO; todos los índices continúan calculados únicamente por el núcleo. El modelo M31 es declarativo y no constituye interpretación autoral exhaustiva ni identificación ontológica de almas.
+
+
+## Incremento de interfaz — ciudad de nacimiento (búsqueda explícita)
+
+- `birth-geocoding.mjs`: consulta de nombres globales a Open-Meteo/GeoNames (GET `name`, `count`, `language`, `format`); los resultados de usuario requieren ID único, latitud y longitud finitas, zona horaria IANA no vacía y localidad/país. No se selecciona un resultado por defecto.
+- `birth-ui.mjs`: campos visibles de ciudad A/B y búsqueda con botón, selección confirmada, eliminación de coordenadas visibles. Cambios de texto o búsqueda distinta invalidan una selección anterior y sus resultados/exportaciones; se ignoran respuestas antiguas.
+- La zona IANA y las coordenadas siguen consumiéndose por el adaptador relacional Python original, sin alterar el contrato, índices o motor. Solo el nombre de ciudad buscado abandona el navegador cuando el usuario busca; el catálogo de Open-Meteo tiene límites de cobertura/precisión y la API gratuita está restringida a uso no comercial. Atribución CC BY 4.0 visible.
+- En el servidor privado loopback, la CSP permite exclusivamente `connect-src 'self' https://geocoding-api.open-meteo.com`. Vercel no publica análisis natales ni endpoints personales. Si falta localidad, región, país o zona válida, la interfaz bloquea el análisis en lugar de inventar coordenadas.
+
+Pruebas: `node --test apps/almas-web-preview/test/birth-geocoding.test.mjs apps/almas-web-preview/test/birth-city-ui.test.mjs`. Integradas a la suite web en GitHub Actions.
