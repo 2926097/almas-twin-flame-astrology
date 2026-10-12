@@ -144,8 +144,9 @@ def render_docx(authored: Mapping[str, Any], output: Path) -> str:
     doc.add_heading("ALMAS · Informe editorial local",level=0)
     doc.add_paragraph("Documento interpretativo redactado y verificado contra M30/M31. "
         "No demuestra científicamente hipótesis metafísicas.")
-    doc.add_paragraph("Estado: "+authored["report_state"]+
-        " · Huella canónica: "+authored["canonical_fingerprint"])
+    doc.add_paragraph("Estado: "+authored["report_state"]+" · Huella canónica SHA-256:")
+    fp_run=doc.add_paragraph().add_run(authored["canonical_fingerprint"])
+    fp_run.font.name="Liberation Mono";fp_run.font.size=Pt(7)
     for chapter in authored["sections"]:
         doc.add_heading(chapter["title"],level=1)
         if chapter["narrative"]:
