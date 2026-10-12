@@ -29,7 +29,7 @@ SUBJECT_KEYS = frozenset(("id", "display_name", "birth_date", "birth_time",
 ALLOWED_ASSETS = frozenset(("index.html", "app.mjs", "validator.mjs",
     "local-inspection.mjs", "evidence-graph.mjs", "astrology-view.mjs",
     "report-view.mjs", "json-lexical-digest.mjs", "full-schema-validator.mjs",
-    "birth-request.mjs", "birth-ui.mjs"))
+    "birth-request.mjs", "birth-ui.mjs", "birth-geocoding.mjs"))
 MAX_REQUEST_BYTES = 64 * 1024
 
 
@@ -214,7 +214,8 @@ class LocalHandler(BaseHTTPRequestHandler):
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("Content-Security-Policy",
             "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';"
-            " connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'")
+            " connect-src 'self' https://geocoding-api.open-meteo.com;"
+            " object-src 'none'; base-uri 'none'; frame-ancestors 'none'")
         self.send_header("Referrer-Policy", "no-referrer")
         self.end_headers()
 
