@@ -18,10 +18,10 @@ from local_engine_server import (  # noqa: E402
     LocalEngineServer, process_locally, strict_object_pairs, validate_request,
 )
 
-A = dict(id="A", birth_date="1977-03-20", birth_time="17:45",
-    time_reliability="A", timezone="Europe/Madrid", latitude=41.65, longitude=-0.89)
-B = dict(id="B", birth_date="1991-05-23", birth_time="04:15",
-    time_reliability="B", timezone="America/Santo_Domingo", latitude=18.45, longitude=-69.3)
+A = dict(id="A", birth_date="1988-06-17", birth_time="13:20",
+    time_reliability="A", timezone="Europe/Madrid", latitude=40.4168, longitude=-3.7038)
+B = dict(id="B", birth_date="1990-11-06", birth_time="09:10",
+    time_reliability="B", timezone="America/Chicago", latitude=41.8781, longitude=-87.6298)
 
 def request():
     return dict(format="ALMAS_WORK_REQUEST", type="RELATIONAL",
