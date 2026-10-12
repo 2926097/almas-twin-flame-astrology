@@ -1,0 +1,57 @@
+name: ALMAS Web · dos nacimientos sintéticos con kernel real
+on:
+  pull_request:
+    paths:
+      - 'scripts/validate_web_local_synthetic_e2e.py'
+      - '.github/workflows/almas-web-synthetic-e2e.yml'
+      - 'apps/almas-web-preview/local_engine_server.py'
+      - 'apps/almas-web-preview/local_astronomy_preflight.py'
+      - 'src/almas_tfa/**'
+      - 'schemas/**'
+      - 'manifests/**'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/validate_web_local_synthetic_e2e.py'
+      - '.github/workflows/almas-web-synthetic-e2e.yml'
+      - 'apps/almas-web-preview/local_engine_server.py'
+      - 'apps/almas-web-preview/local_astronomy_preflight.py'
+      - 'src/almas_tfa/**'
+      - 'schemas/**'
+      - 'manifests/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-full-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      DE440S_URL: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp
+      DE440S_SHA256: c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Install pinned ALMAS astronomy runtime and schema validator
+        run: python -m pip install --disable-pip-version-check -e '.[astronomy-moira,astronomy-validation,schema-validation]'
+      - name: Fetch public JPL kernel (no natal input)
+        run: curl --fail --location --retry 5 --retry-all-errors --retry-delay 5 "$DE440S_URL" --output /tmp/almas-de440s.bsp
+      - name: Verify preregistered SHA-256
+        run: echo "$DE440S_SHA256  /tmp/almas-de440s.bsp" | sha256sum --check -
+      - name: Run synthetic two-birth M00-M31 through private local contract (no server)
+        run: |
+          PYTHONPATH=src python scripts/validate_web_local_synthetic_e2e.py \
+            --kernel /tmp/almas-de440s.bsp \
+            --sha256 "$DE440S_SHA256" \
+            --receipt /tmp/almas-web-synthetic-e2e-status.json
+      - name: Upload status-only evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: almas-web-synthetic-e2e-status
+          path: /tmp/almas-web-synthetic-e2e-status.json
+          if-no-files-found: warn
