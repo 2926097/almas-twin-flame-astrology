@@ -60,6 +60,25 @@ class EditorialTwelveTests(unittest.TestCase):
         mod=deepcopy(self.model);mod["canonical_fingerprint"]="f"*64
         with self.assertRaisesRegex(EditorialGateError,"M30_M31_INTEGRITY_INVALID"):
             make_scaffold(self.canonical,self.gate,mod)
+    def test_pdf_is_preflighted_in_b5_and_keeps_fingerprint(self):
+        from shutil import which
+        from local_editorial_12 import render_pdf_from_docx
+        if not which("soffice"):
+            self.fail("LibreOffice is required for the PDF integration gate")
+        authored=self.fill()
+        validate_authored(self.canonical,self.gate,self.model,authored)
+        with tempfile.TemporaryDirectory() as td:
+            docx_path=Path(td)/"synthetic.docx"
+            pdf_path=Path(td)/"synthetic.pdf"
+            render_docx(authored,docx_path)
+            receipt=render_pdf_from_docx(docx_path,pdf_path,
+                fingerprint=authored["canonical_fingerprint"],
+                section_titles=[x["title"] for x in authored["sections"]])
+            self.assertTrue(receipt["preflight_passed"])
+            self.assertEqual(len(receipt["pdf_sha256"]),64)
+            self.assertGreater(receipt["pages"],0)
+            self.assertGreater(pdf_path.stat().st_size,1000)
+
     def test_docx_is_written_locally_in_b5_without_original_canonical(self):
         try:
             from docx import Document
