@@ -24,3 +24,43 @@ npm test
 ```
 
 **Contrato:** habilitar cálculo y almacenamiento privado requiere un gate separado y revisión técnica, no basta con completar un formulario. La capacidad actual es creación de solicitudes, no cálculo automático.
+
+## Incremento integrado — servicio local M00–M31 (fase 2)
+
+Implementado `local_engine_server.py` como **programa independiente** que se ejecuta en el ordenador del usuario y solo escucha en `127.0.0.1`. La aplicación Vercel sigue siendo exclusivamente sintética; el botón de cálculo **solo aparece** si se obtiene una capacidad válida del servicio local desde `http://127.0.0.1`, nunca en HTTPS público. La llamada privada requiere acción humana, `Host` y `Origin` de loopback idénticos, token CSRF efímero por proceso y JSON de menos de 64 KiB. Rechaza duplicados de claves y entradas libres, horarios DST inexistentes o ambiguos, coordenadas no finitas, solicitudes Atacires, eventos no autorizados y overrides del preset.
+
+El servidor invoca el `execute_relational_work_request` **original**, con el manifiesto M00–M31 y `MoiraProductionBackend` configurado por parámetros **locales**: archivo de efemérides, SHA-256 esperado, familia DE430/DE440/DE441 y sistema de casas. No descarga kernels, no ejecuta tareas LLM y no almacena nombres, fechas, coordenadas ni resultados en archivos/logs/analytics. El cálculo completo **requiere** los paquetes `moira-astro==6.8.2`, `jsonschema==4.26.0` y un kernel verificado. Sin estos requisitos no hay fallback aproximado.
+
+Cuando el pipeline entrega canónico oficial, se comprueban los tres esquemas, los SHA-256 de M30 y M31, los estados de reportabilidad y la ausencia de mutación del canónico. El navegador revalida la estructura canónica, presenta las posiciones e índices calculados, verifica de nuevo M30/M31 antes de permitir el HTML declarativo y deja exportar un JSON local de resultados **solo mediante pulsación expresa**. Ningún dato natal se envía al backend sintético remoto. Las opciones de publicación DOCX/PDF y la narrativa de autoría siguen bloqueadas si falta autoría trazable.
+
+### Instalación y ejecución en un equipo privado
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -e '.[astronomy-moira,schema-validation]'
+cd apps/almas-web-preview
+npm install --no-audit --no-fund
+npm run build
+cd ../..
+PYTHONPATH=src .venv/bin/python apps/almas-web-preview/local_engine_server.py \
+  --kernel-path /RUTA/LOCAL/DE440.bsp \
+  --kernel-sha256 SHA256_HEXADECIMAL_64_CARACTERES \
+  --kernel-family DE440 \
+  --house-system PLACIDUS \
+  --port 8765
+```
+
+Abrir `http://127.0.0.1:8765/` **en el mismo equipo**. No abrir una puerta/firewall pública, túnel, reverse proxy o modo host `0.0.0.0`: el servicio lo rechaza por diseño. El proceso local no es un despliegue online para usuarios independientes. La aplicación de Vercel continúa en modo preview sin datos personales.
+
+### Pruebas que bloquean la fusión
+
+- `node --test apps/almas-web-preview/test/birth-request.test.mjs`
+- `PYTHONPATH=src:tests python -m unittest discover -s apps/almas-web-preview -p 'test_local_engine_server.py' -v`
+- `npm run build`, suite completa aislada, seis workflows remotos en PASS en **el mismo SHA**
+- Contraste con `run_relational_work_request.py` y manifest de producción sin modificar scoring ni ontología
+- Certificación de cálculo de astronomía con kernel SHA certificado y caso sintético autorizado **pendiente** de ejecutar en entorno completo
+
+### Gates que permanecen
+
+**NO-GO producción privada**, no autenticación multiusuario ni nube personal; no publicación automática ni DOCX/PDF narrativo; Atacires permanece SHADOW/NO-GO; todos los índices continúan calculados únicamente por el núcleo. El modelo M31 es declarativo y no constituye interpretación autoral exhaustiva ni identificación ontológica de almas.
