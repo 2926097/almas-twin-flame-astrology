@@ -293,9 +293,20 @@ def main() -> int:
     parser.add_argument("--kernel-family", choices=("DE430", "DE440", "DE441"), required=True)
     parser.add_argument("--house-system", required=True)
     parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--preflight-only", action="store_true",
+        help="Check kernel SHA, provider version and Placidus policy without starting the server")
     args = parser.parse_args()
     if not 1024 <= args.port <= 65535:
         parser.error("port must be 1024..65535")
+    from local_astronomy_preflight import assess_local_astronomy_runtime, LocalAstronomyNotReady
+    try:
+        receipt = assess_local_astronomy_runtime(args.kernel_path, args.kernel_sha256,
+            args.kernel_family, args.house_system)
+    except LocalAstronomyNotReady as exc:
+        parser.error("Private astronomy runtime NOT READY: " + str(exc))
+    if args.preflight_only:
+        print(json.dumps(receipt, ensure_ascii=False, sort_keys=True))
+        return 0
     if not STATIC.joinpath("index.html").is_file():
         parser.error("Run 'npm run build' in apps/almas-web-preview first")
     from almas_tfa.production_astronomy import MoiraBackendConfig, MoiraProductionBackend
