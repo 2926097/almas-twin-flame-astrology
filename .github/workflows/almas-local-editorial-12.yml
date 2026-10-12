@@ -35,4 +35,5 @@ jobs:
       - name: Validate 12-section traceability and produce synthetic DOCX + PDF
         run: PYTHONPATH=src python -m unittest discover -s apps/almas-web-preview -p 'test_local_editorial_12.py' -v
       - name: Confirm no personal artifacts were uploaded
-        run: echo 'NO_GIT_ACTION_ARTIFACTS: synthetic files stay in temporary directories'
+        run: |
+          echo 'NO_GIT_ACTION_ARTIFACTS: synthetic files stay in temporary directories'
