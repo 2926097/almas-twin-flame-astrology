@@ -55,8 +55,9 @@ if(form){
      globalThis.location?.protocol!=="http:"||!localCSRF)return;
   calculate.disabled=true;
   $("birthLocalResult").textContent="";
+  const epoch=inputEpoch;
   try{
-   const request=collectRequest(),epoch=inputEpoch;
+   const request=collectRequest();
    status.textContent="Ejecutando M00–M31 en el equipo local. Ningún dato se envía a Vercel.";
    const res=await fetch("/local/analyze",{
      method:"POST",cache:"no-store",credentials:"same-origin",
@@ -75,6 +76,7 @@ if(form){
      ". Interpretación autoral todavía NO_GENERADA; los índices proceden únicamente del motor.";
    if(data.canonical_analysis){
     const {ingestCanonicalLocal,ingestOfficialLocalReport}=await import("./app.mjs");
+    if(epoch!==inputEpoch)return;
     const accepted=await ingestCanonicalLocal(JSON.stringify(data.canonical_analysis));
     if(!accepted)throw Error("CANONICAL_REJECTED_BY_BROWSER_VALIDATOR");
     const reportAccepted=await ingestOfficialLocalReport(data.m30,data.m31);
@@ -90,6 +92,7 @@ if(form){
     "Cálculo local terminado y canónico validado en el navegador. M30/M31 conservan estado "+data.state+".":
     "Pipeline local "+data.state+": no se fabricó un análisis canónico.";
   }catch(e){
+    if(epoch!==inputEpoch)return;
     status.textContent="Cálculo local BLOQUEADO: "+(e.message||"Error no especificado");
   }finally{calculate.disabled=false}
  });
