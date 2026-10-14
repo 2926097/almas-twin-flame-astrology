@@ -15,6 +15,7 @@ ASSETS=(
     "birth-request.mjs",
     "birth-ui.mjs",
     "birth-geocoding.mjs",
+    "symbolic-reading.mjs",
     "validator.mjs",
     "local-inspection.mjs",
     "evidence-graph.mjs",

@@ -8,7 +8,7 @@ Comprobación local (Node 20+):
 node --test apps/almas-web-preview/test/validator.test.mjs
 ```
 
-Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `birth-request.mjs`, `birth-ui.mjs`, `birth-geocoding.mjs`, `validator.mjs`, `local-inspection.mjs`, `evidence-graph.mjs`, `astrology-view.mjs`, `report-view.mjs`, `json-lexical-digest.mjs`, `full-schema-validator.mjs` (generado durante build), `api/synthetic.js`, `api/canonical-demo.js` y `vercel.json`, únicamente a la aplicación Vercel aislada con Vercel Authentication activada. **No omitir `local-inspection.mjs`: `app.mjs` lo importa estáticamente y su ausencia impediría cargar toda la interfaz.** Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md`, `CANONICAL_GATE_DEMO.md`, `LOCAL_EVIDENCE_VIEWER.md` y los tests.
+Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `birth-request.mjs`, `birth-ui.mjs`, `birth-geocoding.mjs`, `symbolic-reading.mjs`, `validator.mjs`, `local-inspection.mjs`, `evidence-graph.mjs`, `astrology-view.mjs`, `report-view.mjs`, `json-lexical-digest.mjs`, `full-schema-validator.mjs` (generado durante build), `api/synthetic.js`, `api/canonical-demo.js` y `vercel.json`, únicamente a la aplicación Vercel aislada con Vercel Authentication activada. **No omitir `local-inspection.mjs`: `app.mjs` lo importa estáticamente y su ausencia impediría cargar toda la interfaz.** Configurar `ALMAS_ENGINE_URL` y `ALMAS_API_SHARED_SECRET` cifradas solo para Preview. El endpoint se conecta exclusivamente al servicio gratuito Render `almas-engine-synthetic-preview`, con `autoDeploy=no`, y rechaza métodos con payload y rutas dinámicas. No usar casos privados como fixtures. Mantener Atacires SHADOW/NO-GO y sin alterar los índices productivos. Consultar `ENGINE_DEMO.md`, `CANONICAL_GATE_DEMO.md`, `LOCAL_EVIDENCE_VIEWER.md` y los tests.
 
 
 ## Entrada natal por ciudad (geocodificación explícita)
@@ -75,3 +75,9 @@ PYTHONPATH=src .venv/bin/python apps/almas-web-preview/local_engine_server.py \
 ```
 
 La descarga es una acción manual, explícita y previa al cálculo, y no transmite nacimientos. Para ejecutar después el servidor se usa el mismo comando **sin** `--preflight-only` tras generar los activos `npm run build`. Nunca subas archivos personales ni el kernel a la Preview.
+
+## Lectura automática simbólica experimental (1.3.4)
+
+El panel de análisis local incluye una lectura por cada punto ya presente en `canonical.natal_context.subjects.*.point_signs`. El módulo `symbolic-reading.mjs` reutiliza `astrology-view.mjs` para mostrar posiciones, signos, casas, decanatos, regentes y retrogradación **solo si están declarados**. No calcula efemérides, aspectos, orbes, posiciones, nuevos índices ni estados de modelos. Para los planetas y puntos contemplados por la política editorial `ALMAS_SYMBOLIC_EDITORIAL_V1` aporta asociaciones convencionales etiquetadas siempre `E_PROJECT_HYPOTHESIS`, no hechos probados ni diagnóstico psicológico. No evalúa por sí solo vínculos de llama gemela.
+
+Cada comentario conserva una ruta canónica y los datos faltantes se etiquetan como no evaluables. La lectura puede descargarse como JSON únicamente por pulsación local; no llega a Vercel, Render ni a un modelo de IA remoto. **Esta lectura no sustituye la autoría fuente-a-fuente ni el DOCX/PDF oficial**. Su transparencia es una base para el trabajo editorial, no una certificación científica.
