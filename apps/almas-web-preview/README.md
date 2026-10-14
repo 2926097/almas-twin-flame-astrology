@@ -81,3 +81,33 @@ La descarga es una acción manual, explícita y previa al cálculo, y no transmi
 El panel de análisis local incluye una lectura por cada punto ya presente en `canonical.natal_context.subjects.*.point_signs`. El módulo `symbolic-reading.mjs` reutiliza `astrology-view.mjs` para mostrar posiciones, signos, casas, decanatos, regentes y retrogradación **solo si están declarados**. No calcula efemérides, aspectos, orbes, posiciones, nuevos índices ni estados de modelos. Para los planetas y puntos contemplados por la política editorial `ALMAS_SYMBOLIC_EDITORIAL_V1` aporta asociaciones convencionales etiquetadas siempre `E_PROJECT_HYPOTHESIS`, no hechos probados ni diagnóstico psicológico. No evalúa por sí solo vínculos de llama gemela.
 
 Cada comentario conserva una ruta canónica y los datos faltantes se etiquetan como no evaluables. La lectura puede descargarse como JSON únicamente por pulsación local; no llega a Vercel, Render ni a un modelo de IA remoto. **Esta lectura no sustituye la autoría fuente-a-fuente ni el DOCX/PDF oficial**. Su transparencia es una base para el trabajo editorial, no una certificación científica.
+
+## Edición autoral B5 desde la interfaz privada — fase experimental
+
+Tras obtener un `canonical_analysis` validado y el par oficial M30/M31, la
+interfaz abierta en `http://127.0.0.1` muestra un panel local para redactar
+manualmente las 12 secciones M31. No aparece en Vercel ni en otros hosts. Cada
+sección expone sus rutas canónicas y clases epistemológicas admitidas; las
+secciones `NOT_AVAILABLE` quedan bloqueadas. Las afirmaciones doctrinales
+requieren referencias a fuentes introducidas en la bibliografía manual.
+Ninguna narrativa ni biblioteca de fuentes se genera automáticamente.
+
+**Validar y descargar borrador editorial** realiza un preflight JavaScript
+fail-closed, sin peticiones de red, telemetría ni almacenamiento; produce
+`almas-editorial-12-authored-local.json` solo al hacer clic y cuando todas las
+secciones disponibles tienen narrativa y procedencia. Se debe conservar en una
+carpeta privada, junto a `almas-local-results.json`. Para producir DOCX/PDF B5
+de forma segura, el usuario ejecuta en el mismo equipo:
+
+```bash
+PYTHONPATH=src python apps/almas-web-preview/local_editorial_12.py \
+  --bundle /CARPETA/PRIVADA/almas-local-results.json \
+  --authored /CARPETA/PRIVADA/almas-editorial-12-authored-local.json \
+  --docx-out /CARPETA/PRIVADA/informe-12.docx \
+  --pdf-out /CARPETA/PRIVADA/informe-12.pdf
+```
+
+La validación Python (schemas oficiales, fingerprint, M30/M31, trazabilidad,
+secciones, bibliografía y preflight PDF) es la última puerta obligatoria.
+No se modifica `ALMAS_AUTHORED_REPORT` productivo (11 secciones), no se
+calculan nuevos índices ni se activa Atacires o producción remota.
