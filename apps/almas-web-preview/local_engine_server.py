@@ -29,7 +29,8 @@ SUBJECT_KEYS = frozenset(("id", "display_name", "birth_date", "birth_time",
 ALLOWED_ASSETS = frozenset(("index.html", "app.mjs", "validator.mjs",
     "local-inspection.mjs", "evidence-graph.mjs", "astrology-view.mjs",
     "report-view.mjs", "json-lexical-digest.mjs", "full-schema-validator.mjs",
-    "birth-request.mjs", "birth-ui.mjs", "birth-geocoding.mjs", "symbolic-reading.mjs"))
+    "birth-request.mjs", "birth-ui.mjs", "birth-geocoding.mjs", "symbolic-reading.mjs",
+    "local-editorial-author.mjs"))
 MAX_REQUEST_BYTES = 64 * 1024
 
 
