@@ -180,17 +180,44 @@ def render_pdf_from_docx(docx_path: Path, pdf_path: Path, *,
     return {"pdf_sha256": sha256(pdf_path.read_bytes()).hexdigest(),
         "pages": result.page_count, "preflight_passed":True}
 
+def _unique_json_fields(items: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Reject ambiguous keys at every JSON nesting level; never accept last-wins."""
+    output: dict[str, Any] = {}
+    for key, value in items:
+        if key in output:
+            raise EditorialGateError("DUPLICATE_JSON_KEY")
+        output[key] = value
+    return output
+
+def _reject_nonfinite(_value: str) -> None:
+    raise EditorialGateError("NONFINITE_JSON_NUMBER")
+
 def _read_json(path: Path) -> dict[str, Any]:
-    obj=json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(obj,dict):
+    obj = json.loads(path.read_text(encoding="utf-8"),
+                     object_pairs_hook=_unique_json_fields,
+                     parse_constant=_reject_nonfinite)
+    if not isinstance(obj, dict):
         raise EditorialGateError("INPUT_OBJECT_REQUIRED")
     return obj
 
+def read_bundle(path: Path) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Open the explicit loopback-exported bundle without copying private data."""
+    bundle = _read_json(path)
+    names = ("canonical_analysis", "m30", "m31")
+    documents = tuple(bundle.get(name) for name in names)
+    if not all(isinstance(document, dict) for document in documents):
+        raise EditorialGateError("LOCAL_BUNDLE_DOCUMENTS_MISSING")
+    if "state" in bundle and bundle["state"] != documents[1].get("state"):
+        raise EditorialGateError("LOCAL_BUNDLE_STATE_MISMATCH")
+    return documents
+
 def main() -> int:
     parser=argparse.ArgumentParser(description="ALMAS offline twelve-section authoring; no cloud API")
-    parser.add_argument("canonical",type=Path)
-    parser.add_argument("m30",type=Path)
-    parser.add_argument("m31",type=Path)
+    parser.add_argument("canonical",type=Path,nargs="?")
+    parser.add_argument("m30",type=Path,nargs="?")
+    parser.add_argument("m31",type=Path,nargs="?")
+    parser.add_argument("--bundle",type=Path,
+        help="Exportación privada almas-local-results.json de la interfaz local")
     parser.add_argument("--scaffold-out",type=Path)
     parser.add_argument("--authored",type=Path)
     parser.add_argument("--docx-out",type=Path)
@@ -198,7 +225,14 @@ def main() -> int:
     args=parser.parse_args()
     if bool(args.scaffold_out)==bool(args.authored):
         parser.error("Select exactly one of --scaffold-out or --authored")
-    canonical,gate,model=map(_read_json,(args.canonical,args.m30,args.m31))
+    if args.bundle is not None:
+        if any(x is not None for x in (args.canonical, args.m30, args.m31)):
+            parser.error("--bundle cannot be combined with separate M30/M31 paths")
+        canonical, gate, model = read_bundle(args.bundle)
+    else:
+        if any(x is None for x in (args.canonical, args.m30, args.m31)):
+            parser.error("Provide canonical, m30, m31 or use --bundle")
+        canonical, gate, model = map(_read_json, (args.canonical, args.m30, args.m31))
     # Schema validation is authoritative for each official document.
     from schema_gate import build_validator,validate_document
     root=Path(__file__).resolve().parents[2]

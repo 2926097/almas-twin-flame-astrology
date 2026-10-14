@@ -76,6 +76,7 @@ test("editing a selected city invalidates both geocoding and prior request",()=>
  assert.equal(el("birthALat").value,"");
  assert.equal(el("birthAZone").value,"");
  assert.equal(el("birthDownload").disabled,true);
+ assert.equal(el("birthBundleDownload").disabled,true);
  el("birthIntakeForm").listeners.submit({preventDefault(){}});
  assert.match(el("birthIntakeStatus").textContent,/busca y selecciona una ciudad/);
  assert.equal(el("birthDownload").disabled,true);

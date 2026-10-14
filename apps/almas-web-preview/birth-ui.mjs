@@ -156,7 +156,9 @@ if(form){
     const accepted=await ingestCanonicalLocal(JSON.stringify(data.canonical_analysis));
     if(!accepted)throw Error("CANONICAL_REJECTED_BY_BROWSER_VALIDATOR");
     const reportAccepted=await ingestOfficialLocalReport(data.m30,data.m31);
+    if(epoch!==inputEpoch)return; // edited inputs cannot reactivate an obsolete export
     $("birthLocalResult").textContent+=" · M30/M31 navegador: "+(reportAccepted?"PASS, HTML disponible":"BLOQUEADO, consulta detalle del informe");
+    if(!reportAccepted)throw Error("M30_M31_BROWSER_GATE_REJECTED");
     $("birthBundleDownload").disabled=false;
     $("birthBundleDownload").onclick=()=>downloadJson("almas-local-results.json",{
       canonical_analysis:data.canonical_analysis,m30:data.m30,m31:data.m31,
