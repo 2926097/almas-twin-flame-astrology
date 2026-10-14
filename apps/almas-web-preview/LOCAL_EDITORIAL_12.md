@@ -6,6 +6,38 @@ exigiendo 11 secciones. **Este módulo no modifica ni sustituye esos contratos.*
 Define un formato LOCAL EDITORIAL independiente, `ALMAS_LOCAL_EDITORIAL_12_V1`,
 para permitir redacción manual respaldada por rutas canónicas y exportación B5.
 
+## Entrada directa desde el motor integral local
+
+Tras calcular M00–M31 en `http://127.0.0.1`, usar **Exportar resultados locales**
+para descargar `almas-local-results.json`. Esta exportación se genera solamente
+después de una acción explícita del usuario; no debe subirse a GitHub, Vercel,
+Render ni a ninguna herramienta de diagnóstico remota. Contiene datos
+potencialmente personales y permanece bajo control del usuario.
+
+Ahora el comando admite `--bundle`, que extrae en memoria los tres documentos
+del fichero local sin escribir copias intermedias ni modificar el motor:
+
+```bash
+PYTHONPATH=src python apps/almas-web-preview/local_editorial_12.py \
+  --bundle /CARPETA/PRIVADA/almas-local-results.json \
+  --scaffold-out /CARPETA/PRIVADA/borrador-12.json
+
+# Tras redactar y contrastar todas las secciones disponibles:
+PYTHONPATH=src python apps/almas-web-preview/local_editorial_12.py \
+  --bundle /CARPETA/PRIVADA/almas-local-results.json \
+  --authored /CARPETA/PRIVADA/borrador-12.json \
+  --docx-out /CARPETA/PRIVADA/almas-informe-12.docx \
+  --pdf-out /CARPETA/PRIVADA/almas-informe-12.pdf
+```
+
+El modo original de tres archivos sigue vigente. Ambos modos pasan
+exactamente por la misma validación de schemas oficiales, huellas M30/M31,
+estado de reportabilidad, 12 secciones, trazabilidad epistemológica y
+preflight PDF B5. Se rechazan claves JSON duplicadas (también anidadas),
+valores numéricos JSON no finitos, documentos ausentes y estados divergentes.
+El paquete no redacta automáticamente ni confirma hipótesis metafísicas.
+Se preserva el contrato productivo de **11 secciones**.
+
 ## Flujo offline
 
 A partir de una ejecución real M00–M31 con `canonical_analysis.json`,
