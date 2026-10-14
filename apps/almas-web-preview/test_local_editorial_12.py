@@ -5,10 +5,12 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+import json
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from local_editorial_12 import (SECTION_ORDER, FORMAT, EditorialGateError,
-    digest, make_scaffold, validate_authored, verify_m31, render_docx)
+    digest, make_scaffold, validate_authored, verify_m31, render_docx,
+    read_bundle, _read_json)
 
 class EditorialTwelveTests(unittest.TestCase):
     def setUp(self):
@@ -60,6 +62,51 @@ class EditorialTwelveTests(unittest.TestCase):
         mod=deepcopy(self.model);mod["canonical_fingerprint"]="f"*64
         with self.assertRaisesRegex(EditorialGateError,"M30_M31_INTEGRITY_INVALID"):
             make_scaffold(self.canonical,self.gate,mod)
+    def test_local_export_bundle_enters_same_twelve_section_gate(self):
+        with tempfile.TemporaryDirectory() as td:
+            path=Path(td)/"almas-local-results.json"
+            package={"canonical_analysis":self.canonical,
+                     "m30":self.gate,"m31":self.model,
+                     "state":"PARTIAL","module_statuses":{},
+                     "atlas":{"synthetic":True}}
+            path.write_text(json.dumps(package),encoding="utf-8")
+            canonical,gate,model=read_bundle(path)
+            self.assertEqual(make_scaffold(canonical,gate,model),self.authored)
+            self.assertEqual(verify_m31(canonical,gate,model),digest(self.canonical))
+
+    def test_bundle_fail_closed_for_missing_mismatched_or_malformed_documents(self):
+        with tempfile.TemporaryDirectory() as td:
+            path=Path(td)/"almas-local-results.json"
+            package={"canonical_analysis":self.canonical,"m30":self.gate,
+                     "m31":self.model,"state":"PARTIAL"}
+            cases=(
+                ({**package,"m31":None},"LOCAL_BUNDLE_DOCUMENTS_MISSING"),
+                ({**package,"state":"READY"},"LOCAL_BUNDLE_STATE_MISMATCH"),
+                ({**package,"m30":{**self.gate,"canonical_fingerprint":"0"*64}},
+                 "M30_M31_INTEGRITY_INVALID"),
+            )
+            for document,expected in cases:
+                path.write_text(json.dumps(document),encoding="utf-8")
+                with self.subTest(expected=expected),self.assertRaisesRegex(
+                        EditorialGateError,expected):
+                    canonical,gate,model=read_bundle(path)
+                    make_scaffold(canonical,gate,model)
+
+    def test_json_input_disallows_duplicate_keys_and_nonfinite_numbers(self):
+        with tempfile.TemporaryDirectory() as td:
+            path=Path(td)/"invalid.json"
+            for raw,expected in (
+                ('{"m30":{},"m30":{}}',"DUPLICATE_JSON_KEY"),
+                ('{"m30":{"state":"READY","state":"PARTIAL"}}',
+                 "DUPLICATE_JSON_KEY"),
+                ('{"value":NaN}',"NONFINITE_JSON_NUMBER"),
+                ('{"value":Infinity}',"NONFINITE_JSON_NUMBER"),
+            ):
+                path.write_text(raw,encoding="utf-8")
+                with self.subTest(raw=raw),self.assertRaisesRegex(
+                        EditorialGateError,expected):
+                    _read_json(path)
+
     def test_pdf_is_preflighted_in_b5_and_keeps_fingerprint(self):
         from shutil import which
         from local_editorial_12 import render_pdf_from_docx
