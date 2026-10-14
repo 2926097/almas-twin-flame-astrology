@@ -5,6 +5,7 @@ import {chartAvailability,selectChartMode,drawNatalWheel,describePlacement} from
 import {assessReportTriplet,createLocalReportHtml,parseContractJsonStrict} from "./report-view.mjs";
 import {digestCanonicalRaw} from "./json-lexical-digest.mjs";
 import {buildSymbolicReadings} from "./symbolic-reading.mjs";
+import {createLocalEditorialDraft,validateLocalEditorialDraft} from "./local-editorial-author.mjs";
 
 async function fullSchemaValidate(doc,name="canonical-analysis.schema.json"){
   try {
@@ -20,6 +21,7 @@ let loadedCanonical=null,loadedCanonicalRaw=null,loadEpoch=0;
 let generatedSymbolic=null;
 const LOCAL_PAGE_SIZE=80;
 let verifiedReport=null,reportEpoch=0;
+let editorialModel=null,editorialInputs=[];
 
 function renderAdvanced(){
   if(!loadedCanonical)return;
@@ -60,10 +62,88 @@ $("chartMode").addEventListener("change",renderSelectedNatal);
 function resetReport(){
   reportEpoch++;
   verifiedReport=null;
+  editorialModel=null;
+  editorialInputs=[];
+  $("localEditorialPanel").hidden=true;
+  $("localEditorialSections").replaceChildren();
+  $("editorialSources").value="[]";
+  $("editorialStatus").textContent="Sin documento oficial verificado.";
   $("exportDocument").disabled=true;
   $("reportStatus").textContent="Sin validar.";
   $("reportSections").replaceChildren();
 }
+function enableLocalEditorial(model){
+  // Private authoring must never be offered on hosted preview deployments.
+  if(globalThis.location?.hostname!=="127.0.0.1"||
+     globalThis.location?.protocol!=="http:")return;
+  const seed=createLocalEditorialDraft(verifiedReport,model);
+  editorialModel=model;
+  const container=$("localEditorialSections");
+  container.replaceChildren();
+  const addField=(parent,caption,type,value,disabled)=>{
+    const label=document.createElement("label");
+    label.textContent=caption+" ";
+    const field=document.createElement(type);
+    field.value=value;field.disabled=disabled;
+    if(type==="textarea"){field.rows=4;field.maxLength=50000;}
+    label.appendChild(field);parent.appendChild(label);
+    return field;
+  };
+  editorialInputs=model.sections.map((spec,i)=>{
+    const disabled=spec.section_state==="NOT_AVAILABLE";
+    const fieldset=document.createElement("fieldset");
+    const legend=document.createElement("legend");
+    legend.textContent=spec.section_id+" — "+spec.title+
+      (disabled?" (no disponible en el canónico)":"");
+    fieldset.appendChild(legend);
+    const hint=document.createElement("p");
+    hint.className="muted";
+    hint.textContent="Rutas permitidas: "+(spec.available_paths.join(", ")||"ninguna")+
+      " · Clases: "+(spec.epistemic_classes_allowed.join(", ")||"ninguna");
+    fieldset.appendChild(hint);
+    const narrative=addField(fieldset,"Narrativa revisada","textarea","",disabled);
+    const paths=addField(fieldset,"Rutas canónicas usadas, separadas por comas",
+      "input","",disabled);
+    const classes=addField(fieldset,"Clases epistemológicas, separadas por comas",
+      "input","",disabled);
+    const refs=addField(fieldset,"IDs de fuentes utilizadas, separados por comas",
+      "input","",disabled);
+    const limits=addField(fieldset,"Limitaciones, separadas por comas",
+      "input",seed.sections[i].limitations.join(", "),disabled);
+    container.appendChild(fieldset);
+    return {narrative,paths,classes,refs,limits};
+  });
+  $("localEditorialPanel").hidden=false;
+  $("editorialStatus").textContent="Borrador sin redactar: exportación bloqueada hasta verificar trazabilidad.";
+}
+const splitValues=raw=>raw.split(",").map(x=>x.trim()).filter(Boolean);
+$("exportEditorial").addEventListener("click",()=>{
+  if(!verifiedReport?.ok||!editorialModel||
+     globalThis.location?.hostname!=="127.0.0.1"||
+     globalThis.location?.protocol!=="http:")return;
+  try{
+    const draft=createLocalEditorialDraft(verifiedReport,editorialModel);
+    draft.bibliography=JSON.parse($("editorialSources").value);
+    for(const [i,controls] of editorialInputs.entries()){
+      const s=draft.sections[i];
+      if(editorialModel.sections[i].section_state==="NOT_AVAILABLE")continue;
+      s.narrative=controls.narrative.value;
+      s.canonical_paths_used=splitValues(controls.paths.value);
+      s.epistemic_classes_used=splitValues(controls.classes.value);
+      s.source_refs=splitValues(controls.refs.value);
+      s.limitations=splitValues(controls.limits.value);
+    }
+    validateLocalEditorialDraft(draft,verifiedReport,editorialModel);
+    const blob=new Blob([JSON.stringify(draft,null,2)+"\n"],{type:"application/json"});
+    const url=URL.createObjectURL(blob),link=document.createElement("a");
+    link.href=url;link.download="almas-editorial-12-authored-local.json";
+    document.body.appendChild(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    $("editorialStatus").textContent="Borrador verificado y descargado localmente. La publicación B5 exige repetir el gate Python.";
+  }catch(error){
+    $("editorialStatus").textContent="BLOQUEADO: "+(error.message||"datos editoriales inválidos");
+  }
+});
 for(const id of ["m30File","m31File"])$(id).addEventListener("change",resetReport);
 $("verifyDocument").addEventListener("click",async()=>{
   resetReport();
@@ -85,6 +165,7 @@ $("verifyDocument").addEventListener("click",async()=>{
     if(token!==loadEpoch||reportToken!==reportEpoch)return;
     if(!check.ok)throw Error(check.reason);
     verifiedReport=check;
+    enableLocalEditorial(model);
     $("reportStatus").textContent="M30/M31 "+check.state+
       " · huella validada · documento declarativo, sin narrativa generada.";
     $("exportDocument").disabled=false;
@@ -303,6 +384,7 @@ export async function ingestOfficialLocalReport(gate,model){
   if(token!==loadEpoch||rt!==reportEpoch)return false;
   if(!check.ok)throw Error(check.reason);
   verifiedReport=check;
+  enableLocalEditorial(model);
   $("exportDocument").disabled=false;
   $("reportStatus").textContent="M30/M31 locales "+check.state+
     " · huella canónica verificada · documento declarativo sin narrativa.";
