@@ -13,7 +13,8 @@ function readSubject(prefix){
  latitude:city.latitude,longitude:city.longitude};
 }
 function collectRequest(){
- return buildTwoBirthRequest(readSubject("birthA"),readSubject("birthB"),{profile:$("birthProfile").value});
+ return buildTwoBirthRequest(readSubject("birthA"),readSubject("birthB"),{
+  profile:$("birthProfile").value,policyPreset:$("birthPreset").value});
 }
 function downloadJson(name,obj){
  const url=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)+"\n"],{type:"application/json"}));

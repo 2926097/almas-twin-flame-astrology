@@ -65,6 +65,10 @@ test("user selects two unambiguous cities, hidden coordinates/timezone power exi
   assert.equal(call.url.includes("Sujeto"),false);
  }
  let prevented=false;
+ el("birthIntakeForm").listeners.submit({preventDefault(){}});
+ assert.equal(el("birthDownload").disabled,true);
+ assert.match(el("birthIntakeStatus").textContent,/preset/i);
+ el("birthPreset").value="ALMAS_RELATIONAL_STRICT_RESEARCH_V1";
  el("birthIntakeForm").listeners.submit({preventDefault(){prevented=true;}});
  assert.equal(prevented,true);
  assert.equal(el("birthDownload").disabled,false);

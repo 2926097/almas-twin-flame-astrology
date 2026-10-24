@@ -19,6 +19,15 @@ function subject(input,id){
  if(["A","B"].includes(reliability)&&!time)fail(id+": calidad A/B exige hora registrada.");
  const tz=String(input.timezone||"").trim();
  if(time&&!/^[A-Za-z][A-Za-z0-9_+\/-]{2,100}$/.test(tz))fail(id+": indica zona horaria IANA.");
+ if(time){
+  try{new Intl.DateTimeFormat("en",{timeZone:tz});}
+  catch{fail(id+": zona horaria IANA desconocida.");}
+ }
+ for(const value of [input.latitude,input.longitude]){
+  if(!["string","number"].includes(typeof value)||
+     (typeof value==="string"&&!value.trim()))
+   fail(id+": coordenadas numéricas obligatorias.");
+ }
  const lat=Number(input.latitude),lon=Number(input.longitude);
  if(input.latitude===""||input.longitude===""||!Number.isFinite(lat)||!Number.isFinite(lon)||lat< -90||lat>90||lon< -180||lon>180)
    fail(id+": latitud (-90 a 90) y longitud (-180 a 180) son obligatorias.");

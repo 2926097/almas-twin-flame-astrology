@@ -13,6 +13,15 @@ Desplegar **todos** los activos del visor: `index.html`, `app.mjs`, `birth-reque
 
 ## Entrada natal por ciudad (geocodificación explícita)
 
+Antes de validar o exportar una solicitud, el usuario debe seleccionar expresamente
+el preset experimental `ALMAS_RELATIONAL_STRICT_RESEARCH_V1`. La selección no
+acredita validación universal. El adaptador comprueba que las zonas IANA existen y
+rechaza coordenadas vacías o valores que solo resultarían numéricos por coerción
+(por ejemplo, `null` o booleanos). La prueba cruzada JS → Python verifica la
+aceptación por el adaptador oficial y la conservación del fingerprint, sin orbes
+implícitos, ajustes al caso ni solicitudes Atacires. Se conserva la interfaz
+`buildTwoBirthRequest` y la ausencia explícita de hora para calidades C/D.
+
 El formulario de ALMAS Web 1.3 sustituye las tres cajas visibles de latitud, longitud y zona IANA de cada persona por **Ciudad de nacimiento** y **Buscar ciudad**. No se ejecutan consultas al abrir la página ni al teclear. Cuando el usuario pulsa el botón (o Enter), `birth-ui.mjs` envía **exclusivamente el texto escrito en la caja de ciudad**, mediante GET directo desde el navegador a `https://geocoding-api.open-meteo.com/v1/search` (sin cookies ni referer), nunca nombres, fechas, horas o el resto de la solicitud. Open-Meteo obtiene los datos de GeoNames, con atribución CC BY 4.0 visible en el panel. La API gratuita está destinada a uso no comercial; antes de distribución comercial se requiere servicio/licencia apropiada.
 
 Se ofrecen hasta diez coincidencias indicando ciudad, división administrativa y país, **sin seleccionar nunca automáticamente**. La elección explícita fija únicamente en estado local la latitud, longitud y `timezone` IANA proporcionados por el servicio; los tres campos se mantienen ocultos. Cualquier edición posterior del texto invalida tanto la elección como solicitudes calculadas/exportaciones. Si la API no encuentra una localidad o no devuelve coordenadas/zona válidas, el formulario se bloquea sin adivinar coordenadas; se puede buscar `Ciudad, Provincia` o `Ciudad, País`.
