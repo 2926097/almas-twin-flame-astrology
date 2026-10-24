@@ -12,14 +12,17 @@ PUBLIC.mkdir(exist_ok=True)
 ASSETS=(
     "index.html",
     "app.mjs",
+    "birth-request.mjs",
+    "birth-ui.mjs",
+    "birth-geocoding.mjs",
+    "symbolic-reading.mjs",
+    "local-editorial-author.mjs",
     "validator.mjs",
     "local-inspection.mjs",
     "evidence-graph.mjs",
     "astrology-view.mjs",
     "report-view.mjs",
     "json-lexical-digest.mjs",
-    "birth-request.mjs",
-    "birth-intake.mjs",
     "full-schema-validator.mjs",
 )
 for filename in ASSETS:
