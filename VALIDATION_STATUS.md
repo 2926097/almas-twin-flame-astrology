@@ -2,6 +2,18 @@
 
 **Versión pública:** 1.26.0
 
+## Corte verificado de main · 24 octubre 2026 · 04516859
+
+Este registro es un corte fechado, no una declaración permanente sobre el HEAD de `main`. Para cualquier commit posterior deben consultarse sus propios workflows y jobs; un PASS anterior no se hereda por proximidad ni por una fusión.
+
+La PR #110 se fusionó en `0451685910c1e432650ee145a718ccccbf24e4c1` tras reconciliar su captura local con el formulario único por ciudad. Su HEAD `d028d0a76d24472edb3d772afae854f2d0687b98` completó seis workflows y 27 jobs en success; no constan reviews formales ni hilos de revisión en GitHub. El cambio neto se limita a seis archivos de `apps/almas-web-preview/**`.
+
+Sobre el commit de fusión, [Núcleo Python, run 40099964483](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/40099964483), completó los ocho shards Python 3.10/3.12. Por versión: `core` 1.233 casos (21 skipped por extras opcionales), `atacires-core` 108, `full-pipeline` 1 y `returns` 1; total 1.343 casos contabilizados, 1.322 satisfactorios y 21 omitidos, sin fallos ni errores. No se suman ambas versiones como casos independientes. Backend astronómico ([40099964511](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/40099964511), trece jobs, incluidos ambos COMPLETE_GATE), Web ([40099964508](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/40099964508)), Contrato público (40099964528), Jyotiṣa (40099964487) y Pair identity (40099964527) finalizaron en success. Incluidas tres ejecuciones Release SSAR, el corte contiene nueve runs y 30 jobs satisfactorios.
+
+La integración de dos nacimientos sintéticos con kernel real fue verificada en `1294cf8b5f6a47b06e3e578f8ba7fdace4b4fe0e`, [run 38560213185](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/38560213185): DE440s con checksum preregistrado, 32 módulos, canonical y fingerprint válidos. La publicación editorial B5 fue verificada en `8e9cf27f6ed4fa2a2094eb4520297eda1653fb28`, [run 38538082457](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/38538082457). Sus filtros no ejecutaron esas dos suites sobre `04516859`; esos antecedentes no se presentan como certificados de dicho SHA. El cierre documental vuelve a disparar ambas suites sobre el HEAD de su PR mediante cambios de comentarios en sus propios workflows, sin alterar comandos, dependencias, filtros o criterios de aceptación; el resultado debe comprobarse en los checks del commit exacto.
+
+Se mantienen Atacires SHADOW, desactivado por defecto y sin scoring; contrato authored-report oficial de once secciones; edición local de doce secciones y narrativa simbólica experimentales; NO-GO para tratamiento personal remoto y promoción productiva. El holdout externo sigue no ejecutado, PX v3 inactivo y ningún discriminador L3 real autorizado. CI técnica no equivale a validación empírica externa, probabilidad metafísica ni certificación de un despliegue Vercel.
+
 ## Corte histórico de depuración · 4 octubre 2026
 
 El censo reproducible actual comprende **1.162 tests**, **111 fuentes** (70 `VERIFIED_PRIMARY`, 41 `VERIFIED_METADATA`), **144 conceptos** y **93 relaciones**. La regresión local terminó 1.162 tests en 723,994 s, sin errores ni skips; la verificación exacta del código final se atribuye a los recibos de CI, con SHA y digest del worktree. Los estados de releases siguientes son históricos y no sustituyen una comprobación del SHA actual. Los recibos y capas de verificación se generan con `scripts/build_validation_snapshot.py`; una batería interrumpida o incompleta permanece `NOT_FULLY_VERIFIED`. El catálogo adjunto añade trazabilidad de 19 archivos/18 obras sin incorporarlos automáticamente al registro canónico. Véanse `docs/AUDIT_DEPURATION_2026_10_04.md` y `docs/ATTACHED_SOURCE_REVIEW_2026_10_04.md`.
@@ -13,7 +25,7 @@ El commit `484d0a236e007d1c51e0986a2a94f644a1f85b26` terminó la regresión remo
 
 Este resultado acredita regresión técnica del SHA citado, no validez empírica externa ni promoción ontológica. Atacires permanece en SHADOW y desactivado por defecto; la validación externa SSAR/RRA y de identidad diádica conserva sus estados documentados, sin promoción por el resultado de CI.
 
-## Estado verificado de main · 8 octubre 2026 · SHA actual
+## Corte histórico verificado de main · 8 octubre 2026 · 9046d947
 
 El commit `9046d9473beaa35297c582f312a125b1bb42af6c` terminó el workflow `Núcleo Python` (run `37741950146`) con resultado global **success**. Se conservaron los ocho recibos para Python 3.10/3.12 y los shards `core`, `atacires-core`, `full-pipeline` y `returns`. Por versión: `core` ejecutó 1.223 tests (21 skips opcionales), `atacires-core` 108, `full-pipeline` 1 y `returns` 1; total de 1.333, cero fallos y cero errores. IDs de recibo: 3.10 core `11534178884`, atacires `11534475086`, pipeline `11534103287`, returns `11533974197`; 3.12 core `11534658489`, atacires `11533224457`, pipeline `11534355383`, returns `11534172634`.
 
@@ -172,7 +184,7 @@ Este cierre valida coherencia de implementación y materialización. No constitu
 
 ## Pruebas automatizadas
 
-El dato de **574 tests deterministas** corresponde al cierre histórico 1.20. Para la regresión actual, véanse arriba el SHA, el run y los conteos verificables de los ocho shards.
+El dato de **574 tests deterministas** corresponde al cierre histórico 1.20. Para cada corte de regresión, véanse arriba su SHA, run y conteos de los ocho shards; para un HEAD posterior deben verificarse sus checks específicos.
 
 El workflow `Núcleo Python` ejecuta:
 
