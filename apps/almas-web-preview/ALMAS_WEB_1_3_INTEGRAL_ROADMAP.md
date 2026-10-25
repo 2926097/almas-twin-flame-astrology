@@ -59,7 +59,7 @@ Abrir `http://127.0.0.1:8765/` **en el mismo equipo**. No abrir una puerta/firew
 - `PYTHONPATH=src:tests python -m unittest discover -s apps/almas-web-preview -p 'test_local_engine_server.py' -v`
 - `npm run build`, suite completa aislada, seis workflows remotos en PASS en **el mismo SHA**
 - Contraste con `run_relational_work_request.py` y manifest de producción sin modificar scoring ni ontología
-- Certificación de cálculo de astronomía con kernel SHA certificado y caso sintético autorizado **pendiente** de ejecutar en entorno completo
+- Integración sintética con kernel real verificada en `1294cf8b5f6a47b06e3e578f8ba7fdace4b4fe0e`, run [38560213185](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/38560213185): DE440s con checksum preregistrado, 32 módulos, canonical y fingerprint válidos. Es una prueba técnica sintética de ese SHA; para otro HEAD se exige una ejecución aplicable, no se hereda el PASS. No sustituye COMPLETE_GATE, validación empírica externa ni certificación de un equipo privado.
 
 ### Gates que permanecen
 
@@ -74,3 +74,11 @@ Abrir `http://127.0.0.1:8765/` **en el mismo equipo**. No abrir una puerta/firew
 - En el servidor privado loopback, la CSP permite exclusivamente `connect-src 'self' https://geocoding-api.open-meteo.com`. Vercel no publica análisis natales ni endpoints personales. Si falta localidad, región, país o zona válida, la interfaz bloquea el análisis en lugar de inventar coordenadas.
 
 Pruebas: `node --test apps/almas-web-preview/test/birth-geocoding.test.mjs apps/almas-web-preview/test/birth-city-ui.test.mjs`. Integradas a la suite web en GitHub Actions.
+
+## Corte de reconciliación · 24 octubre 2026
+
+La PR #110 se integró en `0451685910c1e432650ee145a718ccccbf24e4c1`. Conserva el formulario único por ciudad y recupera validaciones estrictas IANA/coordenadas, preset elegido expresamente y regresión JS → adaptador Python. La exportación sigue en `REQUEST_ONLY`; el cálculo se realiza únicamente mediante el servicio local ya descrito. Seis workflows y 27 jobs del HEAD de la PR, y seis workflows principales más tres runs Release SSAR del merge, finalizaron en success. El corte detallado y sus límites constan en `VALIDATION_STATUS.md`.
+
+La edición humana local y la CLI experimental de doce secciones, integradas mediante PR #114/#116/#117, permiten producir DOCX/PDF B5 solo tras autoría trazable, schemas, M30/M31, fingerprint y preflight. No son publicación automática ni sustituyen el authored-report oficial de once secciones. Las prohibiciones de publicación sin autoría anteriores se refieren a ese supuesto, no a esta vía local experimental. Véase `README.md` de esta aplicación para los comandos vigentes.
+
+La reconciliación de #110 no desplegó ni recertificó Vercel. Un nuevo despliegue requiere verificar por separado commit, target Preview, estado READY, SSO para todos los deployments y rutas privadas inaccesibles. Ningún resultado de CI autoriza por sí solo producción ni tratamiento personal remoto. Atacires permanece SHADOW/NO-GO.

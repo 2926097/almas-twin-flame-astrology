@@ -1,3 +1,4 @@
+# Cierre 2026-10-25: repetir este gate en el HEAD documental, sin heredar PASS históricos.
 name: ALMAS Web · publicación editorial local 12 secciones
 on:
   pull_request:

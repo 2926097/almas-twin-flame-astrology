@@ -1,3 +1,4 @@
+# Cierre 2026-10-25: repetir este gate en el HEAD documental, sin heredar PASS históricos.
 name: ALMAS Web · dos nacimientos sintéticos con kernel real
 on:
   pull_request:
