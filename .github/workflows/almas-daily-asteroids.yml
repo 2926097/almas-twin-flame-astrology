@@ -1,0 +1,56 @@
+name: ALMAS Daily Asteroid Ephemerides
+
+on:
+  schedule:
+    - cron: '37 9 * * *' # 09:00 UTC sky calculated after reference moment
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "UTC civil day YYYY-MM-DD (empty = today)"
+        type: string
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: almas-asteroid-ephemerides
+  cancel-in-progress: false
+
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install astronomy engine
+        run: python -m pip install --disable-pip-version-check pyswisseph==2.10.3.2
+      - name: Run offline integrity tests
+        run: python -m unittest discover -s tests -p 'test_daily_asteroid_ephemeris.py' -v
+      - name: Download numbered asteroid source files and calculate both days
+        env:
+          REQUESTED_DAY: ${{ inputs.day }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          DAY="${REQUESTED_DAY:-$(date -u +%F)}"
+          [[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "Invalid date"; exit 2; }
+          python tools/daily_asteroid_ephemeris.py \
+            --date "$DAY" \
+            --cache "$RUNNER_TEMP/almas-ephemeris" \
+            --output "data/public-asteroid-ephemerides/$DAY.json"
+          cp "data/public-asteroid-ephemerides/$DAY.json" data/public-asteroid-ephemerides/latest.json
+      - name: Commit complete verified publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/public-asteroid-ephemerides/
+          if git diff --cached --quiet; then echo 'No changes'; exit 0; fi
+          git commit -m "data: daily verified asteroid positions at 09 UTC"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
