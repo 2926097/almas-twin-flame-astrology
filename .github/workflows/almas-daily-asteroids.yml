@@ -1,6 +1,12 @@
 name: ALMAS Daily Asteroid Ephemerides
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/almas-daily-asteroids.yml'
+      - 'tools/daily_asteroid_ephemeris.py'
+      - 'tests/test_daily_asteroid_ephemeris.py'
   schedule:
     - cron: '37 9 * * *' # 09:00 UTC sky calculated after reference moment
   workflow_dispatch:
