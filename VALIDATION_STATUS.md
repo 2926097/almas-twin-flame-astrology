@@ -2,6 +2,20 @@
 
 **Versión pública:** 1.26.0
 
+
+## Corte de cierre técnico verificado de main · 30 octubre 2026 · 9777cf08
+
+Esta es una **instantánea histórica de un SHA exacto**, no un PASS transferible a commits posteriores. La [PR #119](https://github.com/2926097/almas-twin-flame-astrology/pull/119) («Auditoría SHADOW de evidencia M21–M24 sin promoción ontológica») se fusionó mediante squash a las 09:39:08 UTC, dejando `main` en `9777cf083c451164adb7672eaf8acfc906c55f40`. La PR partió del HEAD `9c655c2ae6943fea5f988291b91ca65201d5b225`, con 28/28 checks satisfactoriamente terminados sobre ese HEAD. La fusión introdujo cuatro archivos nuevos de auditoría y seis líneas aditivas en `.github/workflows/python-tests.yml` para instalar `pyswisseph==2.10.3.2` en el shard `core`; no cambió algoritmos productivos, schemas, fórmulas, pesos, índices ni políticas ontológicas.
+
+**Verificación posterior a la fusión:** el SHA de `main` `9777cf08` completó **31/31 checks en `success`** y diez ejecuciones de workflows sin fallos: [Núcleo Python, run 41034986066](https://github.com/2926097/almas-twin-flame-astrology/actions/runs/41034986066), Backend astronómico `41034986097`, Contrato público `41034986060`, Jyotiṣa `41034986130`, Pair identity `41034986063`, Web aislada `41034986198`, Web sintética con kernel real `41034986084` y tres Release SSAR `41035017111`, `41035101185`, `41037063751`. Los ocho jobs de Núcleo Python finalizaron en `success` en Python 3.10/3.12, shards `core`, `atacires-core`, `full-pipeline` y `returns`. Existen ocho artefactos `test-receipt-*` correspondientes al run; esta afirmación registra su presencia en GitHub, no una auditoría independiente del contenido binario de todos los ZIP.
+
+Según los logs de ambos jobs `core`, **1.245 tests por versión, 11 skips opcionales, cero fallos y cero errores**; entre los tests ejecutados figuran los ocho controles adversariales nuevos de M21–M24. El shard `atacires-core` ejecutó 108 pruebas por versión y los shards `full-pipeline` y `returns` una prueba cada uno. Los shards son disjuntos por versión: **1.355 pruebas contabilizadas; 1.344 satisfactorias y 11 omitidas por versión**. Los dos intérpretes no se suman como observaciones independientes. También resultaron `PASS` la distribución wheel aislada, contrato público, corpus PU-M y regresiones SSAR. El recibo SSAR mantiene **validación externa `NOT_PERFORMED`**.
+
+**Frontera epistemológica y de despliegue:** la auditoría `ALMAS_METHOD_EVIDENCE_AUDIT_V1` es `SHADOW_READ_ONLY`: controla consistencia de las frecuencias nulas, supervivencia en AB0–AB8, elegibilidad de sensibilidad horaria y atribución Shapley por raíces, sin crear valores p confirmatorios, medir utilidad predictiva externa, modificar índices ni promover ontología. Mantener Atacires `SHADOW`, validación ontológica `NOT_EVALUABLE`, no promoción L3 y `NO-GO` para validación empírica real o procesamiento personal remoto hasta cumplirse sus gates independientes.
+
+El [issue #120](https://github.com/2926097/almas-twin-flame-astrology/issues/120) permanece **abierto** para cohorte externa independiente, preregistro, controles negativos y evaluación ciega. El manifiesto `validation/holdouts/manifest.json` contiene `artifacts: []`; las políticas de identidad diádica y RRA conservan `INFRASTRUCTURE_ONLY_NO_EMPIRICAL_HOLDOUT` y `DRAFT_NOT_PREREGISTERED`, respectivamente. No se ha ejecutado una validación confirmatoria ni generado una prueba de existencia de llamas gemelas.
+
+
 ## Corte verificado de main · 24 octubre 2026 · 04516859
 
 Este registro es un corte fechado, no una declaración permanente sobre el HEAD de `main`. Para cualquier commit posterior deben consultarse sus propios workflows y jobs; un PASS anterior no se hereda por proximidad ni por una fusión.
