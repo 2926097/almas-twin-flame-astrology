@@ -145,7 +145,8 @@ def calculate(day: date, cache: Path) -> dict:
         "primary_ids": list(PRIORITY),
         "verified_complete": True,
         "files": files,
-        "asteroids": bodies,\n        "chiron": chiron,
+        "asteroids": bodies,
+        "chiron": chiron,
         "privacy": "Public ephemerides only: no natal data, charts or relational interpretation",
     }
 
