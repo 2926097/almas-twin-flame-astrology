@@ -1,12 +1,12 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "reference_day_utc": "2026-10-30",
   "reference_time_utc": "09:00:00",
   "checked_days": [
     "2026-10-29",
     "2026-10-30"
   ],
-  "created_at_utc": "2026-10-30T06:03:04.597605+00:00",
+  "created_at_utc": "2026-10-30T12:19:38.384921+00:00",
   "engine": "pyswisseph 2.10.03",
   "frame": "tropical geocentric apparent ecliptic of date (not topocentric)",
   "primary_ids": [
@@ -22,87 +22,87 @@
   "files": {
     "sepl_18.se1": {
       "path": "sepl_18.se1",
-      "source": "https://ephe.scryr.io/ephe/sepl_18.se1",
+      "source": "local_cache",
       "sha256": "ca1393ceab3a44fbc895887cf789c68819ae6a1cbc9b22225872dbe4ccd99a66"
     },
     "semo_18.se1": {
       "path": "semo_18.se1",
-      "source": "https://ephe.scryr.io/ephe/semo_18.se1",
+      "source": "local_cache",
       "sha256": "1ca07bd67c24374d77226180c20a4f9996cba013697894810518e7eb582ca4f7"
     },
     "seas_18.se1": {
       "path": "seas_18.se1",
-      "source": "https://ephe.scryr.io/ephe/seas_18.se1",
+      "source": "local_cache",
       "sha256": "a2cd8fc33807c78ca9a700c91c2e042258b12fc4796519e00781440b5ad8b2e2"
     },
     "ast2/se02847s.se1": {
       "path": "ast2/se02847s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast2/se02847s.se1",
+      "source": "local_cache",
       "sha256": "74783166f1b2d00ef3f581cf3e7083c7665ada0e9d81fdc3364c075278dfed5a"
     },
     "ast1/se01170s.se1": {
       "path": "ast1/se01170s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast1/se01170s.se1",
+      "source": "local_cache",
       "sha256": "3b453e7a940fb77f6df7e57bfd47814eae2cff0728ff223672beeb5cbb09c69a"
     },
     "ast4/se04227s.se1": {
       "path": "ast4/se04227s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast4/se04227s.se1",
+      "source": "local_cache",
       "sha256": "cd13400e2b3a390dcdf8da38d4e942e05a5dc8c51cc315dd79a5fc72c1944a8d"
     },
     "ast3/se03811s.se1": {
       "path": "ast3/se03811s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast3/se03811s.se1",
+      "source": "local_cache",
       "sha256": "e7bcd25cfe9d95ce82a7f987b503090e7762ad2668d1e7bec351872c1e72aea0"
     },
     "ast0/se00016s.se1": {
       "path": "ast0/se00016s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast0/se00016s.se1",
+      "source": "local_cache",
       "sha256": "494ceb60d14147ad8cbaa7a9a3242cc8ac410ab47e2dc9e91d6badd2d1d2527c"
     },
     "ast0/se00433s.se1": {
       "path": "ast0/se00433s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast0/se00433s.se1",
+      "source": "local_cache",
       "sha256": "479bc9383cc2a9b8fb26c2a67f67220a04bcc5c348ab8b77fbc42202d71a5849"
     },
     "ast0/se00042s.se1": {
       "path": "ast0/se00042s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast0/se00042s.se1",
+      "source": "local_cache",
       "sha256": "6c6c9386934df4cad50fcb7a3ea60f530657202fdd710ffd8dfd66defdd50432"
     },
     "ast1/se01923s.se1": {
       "path": "ast1/se01923s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast1/se01923s.se1",
+      "source": "local_cache",
       "sha256": "fd2ef1eca7ee4057077c8ad5d4ecb717b6fa5f96f7bc48126ae5dbefcdefbf3a"
     },
     "ast1/se01221s.se1": {
       "path": "ast1/se01221s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast1/se01221s.se1",
+      "source": "local_cache",
       "sha256": "37901d35ac64ab5e4b4129b3a2ab1f84e200f7aa3ee8ffb16249996fe46210c3"
     },
     "ast1/se01585s.se1": {
       "path": "ast1/se01585s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast1/se01585s.se1",
+      "source": "local_cache",
       "sha256": "5d8a9ab26cdce085101041f4dcf710071faa2303aaf0fec9a904c25611efaed2"
     },
     "ast0/se00447s.se1": {
       "path": "ast0/se00447s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast0/se00447s.se1",
+      "source": "local_cache",
       "sha256": "ac30dac7312dbf0bb57acd189767a41e0f1c758612212a0ce5f8f3b6a4599957"
     },
     "ast0/se00763s.se1": {
       "path": "ast0/se00763s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast0/se00763s.se1",
+      "source": "local_cache",
       "sha256": "ae2f09b21e200f54e2decd015a48c0142a0b9a0725be608181489711f3a03e09"
     },
     "ast0/se00399s.se1": {
       "path": "ast0/se00399s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast0/se00399s.se1",
+      "source": "local_cache",
       "sha256": "bb5f812eda4eaf7b1c06dd99569f69f30af822a5bbda3645fd910c2bdbd8c4ff"
     },
     "ast6/se06583s.se1": {
       "path": "ast6/se06583s.se1",
-      "source": "https://ephe.scryr.io/ephe/ast6/se06583s.se1",
+      "source": "local_cache",
       "sha256": "8bef471224f29dedd98c92af6df0dc2f3ea2077a59f1fc5236877aeeb66ebe05"
     }
   },
@@ -450,6 +450,31 @@
           "flags_requested": 258,
           "flags_returned": 258
         }
+      }
+    }
+  },
+  "chiron": {
+    "number": 2060,
+    "name": "Chiron",
+    "source_file": "seas_18.se1",
+    "positions": {
+      "2026-10-29": {
+        "longitude_deg": 28.1951606,
+        "latitude_deg": 0.13840861,
+        "distance_au": 17.2467101343,
+        "speed_deg_per_day": -0.04616121,
+        "motion": "R",
+        "flags_requested": 258,
+        "flags_returned": 258
+      },
+      "2026-10-30": {
+        "longitude_deg": 28.14907277,
+        "latitude_deg": 0.13709298,
+        "distance_au": 17.2487956101,
+        "speed_deg_per_day": -0.0460129,
+        "motion": "R",
+        "flags_requested": 258,
+        "flags_returned": 258
       }
     }
   },
