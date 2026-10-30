@@ -25,6 +25,25 @@ class TestAsteroids(TestCase):
             with self.assertRaisesRegex(RuntimeError, "Swiss calculation unavailable"):
                 m.position(2847, date(2026, 10, 29))
 
+    def test_chiron_uses_dedicated_body_and_rejects_fallback(self):
+        with mock.patch.object(m.swe, "calc_ut", return_value=((15, 0, 10, -0.01, 0, 0), m.swe.FLG_SWIEPH)) as calc:
+            result = m.chiron_position(date(2026, 10, 30))
+            self.assertEqual(calc.call_args.args[1], m.swe.CHIRON)
+            self.assertEqual(result["motion"], "R")
+        with mock.patch.object(m.swe, "calc_ut", return_value=((15, 0, 10, -0.01, 0, 0), m.swe.FLG_MOSEPH)):
+            with self.assertRaisesRegex(RuntimeError, "Chiron 2060: Swiss calculation unavailable"):
+                m.chiron_position(date(2026, 10, 30))
+
+    def test_chiron_is_mandatory_for_publication(self):
+        valid = {"longitude_deg": 15.0, "latitude_deg": 0, "distance_au": 10,
+                 "speed_deg_per_day": -0.01, "motion": "R", "flags_requested": 258,
+                 "flags_returned": m.swe.FLG_SWIEPH}
+        with mock.patch.object(m, "obtain", return_value={"path": "mock", "source": "local_cache", "sha256": "mock"}), \\
+             mock.patch.object(m, "position", return_value=valid), \\
+             mock.patch.object(m, "chiron_position", side_effect=RuntimeError("Swiss missing")):
+            with self.assertRaisesRegex(RuntimeError, "chiron_2060"):
+                m.calculate(date(2026, 10, 30), Path("/tmp/unused"))
+
     def test_motion_and_longitude(self):
         with mock.patch.object(m.swe, "calc_ut", return_value=((354.123, 1, 2, -0.23, 0, 0), m.swe.FLG_SWIEPH)):
             result = m.position(2847, date(2026, 10, 29))
