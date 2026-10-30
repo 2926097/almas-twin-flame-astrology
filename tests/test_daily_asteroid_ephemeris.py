@@ -38,9 +38,11 @@ class TestAsteroids(TestCase):
         valid = {"longitude_deg": 15.0, "latitude_deg": 0, "distance_au": 10,
                  "speed_deg_per_day": -0.01, "motion": "R", "flags_requested": 258,
                  "flags_returned": m.swe.FLG_SWIEPH}
-        with mock.patch.object(m, "obtain", return_value={"path": "mock", "source": "local_cache", "sha256": "mock"}), \\
-             mock.patch.object(m, "position", return_value=valid), \\
-             mock.patch.object(m, "chiron_position", side_effect=RuntimeError("Swiss missing")):
+        with (
+            mock.patch.object(m, "obtain", return_value={"path": "mock", "source": "local_cache", "sha256": "mock"}),
+            mock.patch.object(m, "position", return_value=valid),
+            mock.patch.object(m, "chiron_position", side_effect=RuntimeError("Swiss missing")),
+        ):
             with self.assertRaisesRegex(RuntimeError, "chiron_2060"):
                 m.calculate(date(2026, 10, 30), Path("/tmp/unused"))
 
