@@ -36,7 +36,16 @@ jobs:
         run: python -m pip install --disable-pip-version-check pyswisseph==2.10.3.2
       - name: Run offline integrity tests
         run: python -m unittest discover -s tests -p 'test_daily_asteroid_ephemeris.py' -v
-      - name: Download numbered asteroid source files and calculate both days
+      # Reuse previously verified Swiss Ephemeris binaries across ephemeral runners.
+      # A versioned immutable key prevents downloading on every scheduled run;
+      # change the version deliberately when refreshing orbital source files.
+      - name: Restore persistent Swiss Ephemeris cache
+        id: swiss-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .ephemeris-files
+          key: almas-swiss-asteroids-2026-v1
+      - name: Download missing files and calculate both days
         env:
           REQUESTED_DAY: ${{ inputs.day }}
         shell: bash
@@ -46,9 +55,17 @@ jobs:
           [[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "Invalid date"; exit 2; }
           python tools/daily_asteroid_ephemeris.py \
             --date "$DAY" \
-            --cache "$RUNNER_TEMP/almas-ephemeris" \
+            --cache ".ephemeris-files" \
             --output "data/public-asteroid-ephemerides/$DAY.json"
           cp "data/public-asteroid-ephemerides/$DAY.json" data/public-asteroid-ephemerides/latest.json
+      # Save only after the Python calculation has verified all mandatory
+      # objects. Cache is an optimization, not the source of published truth.
+      - name: Save Swiss Ephemeris cache after successful verification
+        if: steps.swiss-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .ephemeris-files
+          key: almas-swiss-asteroids-2026-v1
       - name: Commit complete verified publication
         shell: bash
         run: |
