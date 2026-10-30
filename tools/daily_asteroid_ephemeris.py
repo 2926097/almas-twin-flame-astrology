@@ -3,7 +3,7 @@
 
 Source: Swiss Ephemeris short asteroid files (1500–2100), tropical geocentric
 apparent longitudes at 09:00 UTC for requested civil day and previous day.
-No Moshier fallback is accepted, and partial results are never published.
+Includes mandatory Chiron (2060) from seas_18.se1. No Moshier fallback is\naccepted, and partial results are never published.
 """
 from __future__ import annotations
 
@@ -75,6 +75,31 @@ def position(number: int, day: date) -> dict:
     }
 
 
+def chiron_position(day: date) -> dict:
+    """Chiron is a built-in Swiss Ephemeris body (2060), not a generic asteroid ID.
+
+    The bundled seas_18.se1 contains its orbital data for the 2026 reference.
+    Reject fallback to Moshier exactly as for the numbered asteroids.
+    """
+    jd_ut = swe.julday(day.year, day.month, day.day, 9.0, swe.GREG_CAL)
+    requested = swe.FLG_SWIEPH | swe.FLG_SPEED
+    xx, returned = swe.calc_ut(jd_ut, swe.CHIRON, requested)
+    if not (returned & swe.FLG_SWIEPH):
+        raise RuntimeError(f"Chiron 2060: Swiss calculation unavailable, flags={returned}")
+    longitude, latitude, distance, speed = xx[:4]
+    if not (0 <= longitude < 360 and -90 <= latitude <= 90):
+        raise ValueError("Chiron 2060: invalid longitude/latitude")
+    return {
+        "longitude_deg": round(longitude, 8),
+        "latitude_deg": round(latitude, 8),
+        "distance_au": round(distance, 10),
+        "speed_deg_per_day": round(speed, 8),
+        "motion": "R" if speed < -1e-7 else "D" if speed > 1e-7 else "STATIONARY_SPEED_THRESHOLD",
+        "flags_requested": requested,
+        "flags_returned": returned,
+    }
+
+
 def calculate(day: date, cache: Path) -> dict:
     files = {}
     missing = {}
@@ -97,10 +122,20 @@ def calculate(day: date, cache: Path) -> dict:
             }
         except Exception as exc:
             missing[str(number)] = str(exc)
-    if missing or not all(str(n) in bodies for n in PRIORITY):
+    chiron = None
+    try:
+        chiron = {
+            "number": 2060,
+            "name": "Chiron",
+            "source_file": "seas_18.se1",
+            "positions": {d.isoformat(): chiron_position(d) for d in dates},
+        }
+    except Exception as exc:
+        missing["chiron_2060"] = str(exc)
+    if missing or chiron is None or not all(str(n) in bodies for n in PRIORITY):
         raise RuntimeError("NO_PUBLICATION calculation errors: " + json.dumps(missing, ensure_ascii=False))
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "reference_day_utc": day.isoformat(),
         "reference_time_utc": "09:00:00",
         "checked_days": [d.isoformat() for d in dates],
@@ -110,7 +145,7 @@ def calculate(day: date, cache: Path) -> dict:
         "primary_ids": list(PRIORITY),
         "verified_complete": True,
         "files": files,
-        "asteroids": bodies,
+        "asteroids": bodies,\n        "chiron": chiron,
         "privacy": "Public ephemerides only: no natal data, charts or relational interpretation",
     }
 
@@ -126,7 +161,7 @@ def main() -> int:
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
-    print(f"VERIFIED {day.isoformat()} ({len(ASTEROIDS)} objects) -> {output}")
+    print(f"VERIFIED {day.isoformat()} ({len(ASTEROIDS)} asteroids + Chiron) -> {output}")
     return 0
 
 
