@@ -44,7 +44,10 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .ephemeris-files
-          key: almas-swiss-asteroids-2026-v1
+          key: almas-swiss-asteroids-2026-v2-${{ hashFiles('tools/daily_asteroid_ephemeris.py') }}
+          restore-keys: |
+            almas-swiss-asteroids-2026-v2-
+            almas-swiss-asteroids-2026-v1
       - name: Download missing files and calculate both days
         env:
           REQUESTED_DAY: ${{ inputs.day }}
@@ -65,7 +68,75 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: .ephemeris-files
-          key: almas-swiss-asteroids-2026-v1
+          key: almas-swiss-asteroids-2026-v2-${{ hashFiles('tools/daily_asteroid_ephemeris.py') }}
+      # Independent output guard: do not push stale, Moshier, or incomplete data.
+      - name: Verify published ephemeris contract
+        env:
+          REQUESTED_DAY: ${{ inputs.day }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          DAY="${REQUESTED_DAY:-$(date -u +%F)}"
+          python - "$DAY" <<'PY'
+          import json, math, pathlib, sys
+          from datetime import date, timedelta
+          day = date.fromisoformat(sys.argv[1])
+          previous = (day - timedelta(days=1)).isoformat()
+          today = day.isoformat()
+          p = pathlib.Path("data/public-asteroid-ephemerides") / f"{today}.json"
+          data = json.loads(p.read_text(encoding="utf-8"))
+          assert data["schema_version"] == "1.2"
+          assert data["reference_day_utc"] == today
+          assert data["reference_time_utc"] == "09:00:00"
+          assert data["checked_days"] == [previous, today]
+          assert data["verified_complete"] is True
+          for n in (2847, 1170, 4227, 3811, 3, 16, 433):
+              obj = data["asteroids"][str(n)]["positions"]
+              for d in (previous, today):
+                  pos = obj[d]
+                  assert math.isfinite(pos["longitude_deg"])
+                  assert math.isfinite(pos["speed_deg_per_day"])
+                  assert pos["flags_returned"] & 2, f"Asteroid {n} no Swiss"
+          for name in ("sun", "moon", "mercury", "venus", "mars", "jupiter",
+                       "saturn", "uranus", "neptune", "pluto", "true_node"):
+              for d in (previous, today):
+                  pos = data["planets"][name][d]
+                  assert math.isfinite(pos["longitude_deg"])
+                  assert math.isfinite(pos["speed_deg_per_day"])
+                  assert pos["flags_returned"] & 2, f"Planet {name} no Swiss"
+          assert data["chiron"]["number"] == 2060
+          for d in (previous, today):
+              pos = data["chiron"]["positions"][d]
+              assert math.isfinite(pos["longitude_deg"])
+              assert math.isfinite(pos["speed_deg_per_day"])
+              assert pos["flags_returned"] & 2, "Chiron no Swiss"
+          print(f"ALMAS CONTRACT PASSED: {today}, 7 mandatory asteroids + 11 planets/node + Chiron")
+          PY
+      # Failure diagnostics are generated in GitHub Actions, not in isolated ChatGPT Python.
+      - name: Diagnose DNS if workflow failed
+        if: failure()
+        shell: bash
+        run: |
+          mkdir -p diagnostics
+          {
+            echo "date_utc=$(date -u +%FT%TZ)"
+            echo "job=ALMAS Daily Asteroid Ephemerides"
+            for domain in ephe.scryr.io www.astro.com github.com; do
+              echo "=== DNS $domain ==="
+              if timeout 8 getent ahostsv4 "$domain" | head -n 1; then
+                echo "lookup_attempt_finished"
+              else
+                echo "lookup_failed_or_timed_out"
+              fi
+            done
+          } | tee diagnostics/connectivity.txt
+      - name: Attach workflow diagnostic report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: almas-connectivity-${{ github.run_id }}
+          path: diagnostics/connectivity.txt
+          if-no-files-found: ignore
       - name: Commit complete verified publication
         shell: bash
         run: |
