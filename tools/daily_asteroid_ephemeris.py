@@ -233,7 +233,7 @@ def main() -> int:
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
-    print(f"VERIFIED {day.isoformat()} ({len(result["asteroids"])} asteroids + {len(result["planets"])} planets/node + Chiron) -> {output}")
+    print(f"VERIFIED {day.isoformat()} ({len(result['asteroids'])} asteroids + {len(result['planets'])} planets/node + Chiron) -> {output}")
     return 0
 
 
