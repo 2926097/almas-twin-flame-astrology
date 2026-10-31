@@ -112,8 +112,19 @@ jobs:
               assert pos["flags_returned"] & 2, "Chiron no Swiss"
           print(f"ALMAS CONTRACT PASSED: {today}, 7 mandatory asteroids + 11 planets/node + Chiron")
           PY
+      - name: Commit complete verified publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/public-asteroid-ephemerides/
+          if git diff --cached --quiet; then echo 'No changes'; exit 0; fi
+          git commit -m "data: daily verified asteroid positions at 09 UTC"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
       # Failure diagnostics are generated in GitHub Actions, not in isolated ChatGPT Python.
-      - name: Diagnose DNS if workflow failed
+      - name: Record DNS diagnostics after any workflow failure
         if: failure()
         shell: bash
         run: |
@@ -137,14 +148,3 @@ jobs:
           name: almas-connectivity-${{ github.run_id }}
           path: diagnostics/connectivity.txt
           if-no-files-found: ignore
-      - name: Commit complete verified publication
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/public-asteroid-ephemerides/
-          if git diff --cached --quiet; then echo 'No changes'; exit 0; fi
-          git commit -m "data: daily verified asteroid positions at 09 UTC"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
