@@ -8,11 +8,17 @@ on:
       - 'tools/daily_asteroid_ephemeris.py'
       - 'tests/test_daily_asteroid_ephemeris.py'
   schedule:
-    - cron: '37 9 * * *' # 09:00 UTC sky calculated after reference moment
+    # Early publication and fallbacks for tomorrow's 01:00 Europe/Madrid alert.
+    - cron: '17 18 * * *'
+      timezone: "Europe/Madrid"
+    - cron: '17 22 * * *'
+      timezone: "Europe/Madrid"
+    - cron: '17 0 * * *'
+      timezone: "Europe/Madrid"
   workflow_dispatch:
     inputs:
       day:
-        description: "UTC civil day YYYY-MM-DD (empty = today)"
+        description: "Reference day YYYY-MM-DD (empty = Madrid date, next day after 17:00)"
         type: string
         required: false
 
@@ -48,19 +54,74 @@ jobs:
           restore-keys: |
             almas-swiss-asteroids-2026-v2-
             almas-swiss-asteroids-2026-v1
-      - name: Download missing files and calculate both days
+      - name: Determine target reference day in Europe/Madrid
         env:
           REQUESTED_DAY: ${{ inputs.day }}
         shell: bash
         run: |
           set -euo pipefail
-          DAY="${REQUESTED_DAY:-$(date -u +%F)}"
-          [[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "Invalid date"; exit 2; }
+          python - <<'PY'
+          import os
+          from datetime import date, datetime, timedelta
+          from zoneinfo import ZoneInfo
+          requested = os.environ.get("REQUESTED_DAY", "").strip()
+          now_madrid = datetime.now(ZoneInfo("Europe/Madrid"))
+          if requested:
+              target = date.fromisoformat(requested)
+          else:
+              # Night-before triggers target tomorrow. Late executions after
+              # midnight target today's Spanish civil date.
+              target = now_madrid.date() + timedelta(days=int(now_madrid.hour >= 17))
+          print(f"ALMAS reference day={target}, local clock={now_madrid.isoformat()}")
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+              print(f"ALMAS_REFERENCE_DAY={target.isoformat()}", file=env)
+          PY
+      - name: Reuse verified dated output when present
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, math, os
+          from datetime import date, timedelta
+          from pathlib import Path
+          day = date.fromisoformat(os.environ["ALMAS_REFERENCE_DAY"])
+          previous, today = (day - timedelta(days=1)).isoformat(), day.isoformat()
+          path = Path("data/public-asteroid-ephemerides") / f"{today}.json"
+          try:
+              data = json.loads(path.read_text(encoding="utf-8"))
+              assert data["schema_version"] == "1.2"
+              assert data["reference_day_utc"] == today
+              assert data["reference_time_utc"] == "09:00:00"
+              assert data["checked_days"] == [previous, today]
+              assert data["verified_complete"] is True
+              assert data["chiron"]["number"] == 2060
+              bodies = [data["asteroids"][str(n)]["positions"] for n in (2847, 1170, 4227, 3811, 3, 16, 433)]
+              bodies += [data["planets"][name] for name in (
+                  "sun", "moon", "mercury", "venus", "mars", "jupiter",
+                  "saturn", "uranus", "neptune", "pluto", "true_node")]
+              bodies += [data["chiron"]["positions"]]
+              for obj in bodies:
+                  for d in (previous, today):
+                      pos = obj[d]
+                      assert math.isfinite(pos["longitude_deg"])
+                      assert math.isfinite(pos["speed_deg_per_day"])
+                      assert pos["flags_returned"] & 2
+          except (OSError, KeyError, TypeError, ValueError, AssertionError) as exc:
+              print(f"Generate/repair {today}: {type(exc).__name__}: {exc}")
+          else:
+              print(f"Reusing verified {today}: no duplicate computation")
+              with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+                  print("ALMAS_REUSE=true", file=env)
+          PY
+      - name: Download missing files and calculate both days
+        if: env.ALMAS_REUSE != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          DAY="$ALMAS_REFERENCE_DAY"
           python tools/daily_asteroid_ephemeris.py \
             --date "$DAY" \
             --cache ".ephemeris-files" \
             --output "data/public-asteroid-ephemerides/$DAY.json"
-          cp "data/public-asteroid-ephemerides/$DAY.json" data/public-asteroid-ephemerides/latest.json
       # Save only after the Python calculation has verified all mandatory
       # objects. Cache is an optimization, not the source of published truth.
       - name: Save Swiss Ephemeris cache after successful verification
@@ -71,12 +132,10 @@ jobs:
           key: almas-swiss-asteroids-2026-v2-${{ hashFiles('tools/daily_asteroid_ephemeris.py') }}
       # Independent output guard: do not push stale, Moshier, or incomplete data.
       - name: Verify published ephemeris contract
-        env:
-          REQUESTED_DAY: ${{ inputs.day }}
         shell: bash
         run: |
           set -euo pipefail
-          DAY="${REQUESTED_DAY:-$(date -u +%F)}"
+          DAY="$ALMAS_REFERENCE_DAY"
           python - "$DAY" <<'PY'
           import json, math, pathlib, sys
           from datetime import date, timedelta
@@ -111,6 +170,26 @@ jobs:
               assert math.isfinite(pos["speed_deg_per_day"])
               assert pos["flags_returned"] & 2, "Chiron no Swiss"
           print(f"ALMAS CONTRACT PASSED: {today}, 7 mandatory asteroids + 11 planets/node + Chiron")
+          PY
+      - name: Update latest only for newest reference day
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          day = os.environ["ALMAS_REFERENCE_DAY"]
+          root = Path("data/public-asteroid-ephemerides")
+          latest = root / "latest.json"
+          current = json.loads(latest.read_text(encoding="utf-8")) if latest.exists() else {}
+          if current.get("reference_day_utc", "") <= day:
+              content = (root / f"{day}.json").read_bytes()
+              if not latest.exists() or latest.read_bytes() != content:
+                  latest.write_bytes(content)
+                  print(f"Updated latest -> {day}")
+              else:
+                  print(f"Latest unchanged: {day}")
+          else:
+              print(f"Preserved newer latest: {current['reference_day_utc']}")
           PY
       - name: Commit complete verified publication
         shell: bash
