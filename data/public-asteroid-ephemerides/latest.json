@@ -1,12 +1,12 @@
 {
   "schema_version": "1.2",
-  "reference_day_utc": "2026-11-08",
+  "reference_day_utc": "2026-11-09",
   "reference_time_utc": "09:00:00",
   "checked_days": [
-    "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-09"
   ],
-  "created_at_utc": "2026-11-07T20:57:18.895942+00:00",
+  "created_at_utc": "2026-11-08T21:13:50.476635+00:00",
   "engine": "pyswisseph 2.10.03",
   "frame": "tropical geocentric apparent ecliptic of date (not topocentric)",
   "primary_ids": [
@@ -110,20 +110,20 @@
     "2847": {
       "name": "Parvati",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 218.77041866,
-          "latitude_deg": -0.8583942,
-          "distance_au": 2.9589353176,
-          "speed_deg_per_day": 0.58076999,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 219.35138406,
           "latitude_deg": -0.84968545,
           "distance_au": 2.9565337808,
           "speed_deg_per_day": 0.58115957,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 219.9327323,
+          "latitude_deg": -0.84094813,
+          "distance_au": 2.9540597845,
+          "speed_deg_per_day": 0.58153528,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -133,20 +133,20 @@
     "1170": {
       "name": "Siva",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 88.71468458,
-          "latitude_deg": 39.82508423,
-          "distance_au": 0.8518704807,
-          "speed_deg_per_day": 0.10104566,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 88.80948002,
           "latitude_deg": 40.2104932,
           "distance_au": 0.8492634667,
           "speed_deg_per_day": 0.08852616,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 88.89169872,
+          "latitude_deg": 40.59065192,
+          "distance_au": 0.8467685558,
+          "speed_deg_per_day": 0.07589497,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -156,20 +156,20 @@
     "4227": {
       "name": "Kaali",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 98.47733362,
-          "latitude_deg": -3.30240677,
-          "distance_au": 1.5271592632,
-          "speed_deg_per_day": 0.03583639,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 98.50923113,
           "latitude_deg": -3.31256602,
           "distance_au": 1.5159595844,
           "speed_deg_per_day": 0.02794744,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 98.53320575,
+          "latitude_deg": -3.32249916,
+          "distance_au": 1.5048896954,
+          "speed_deg_per_day": 0.01999134,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -179,20 +179,20 @@
     "3811": {
       "name": "Karma",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 251.06934698,
-          "latitude_deg": -7.69776102,
-          "distance_au": 3.6928025323,
-          "speed_deg_per_day": 0.39265782,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 251.46244794,
           "latitude_deg": -7.68005668,
           "distance_au": 3.6978663019,
           "speed_deg_per_day": 0.39354267,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 251.8564236,
+          "latitude_deg": -7.66258205,
+          "distance_au": 3.7027947982,
+          "speed_deg_per_day": 0.39440682,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -202,20 +202,20 @@
     "3": {
       "name": "Juno",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 303.60141316,
-          "latitude_deg": 5.32054836,
-          "distance_au": 2.5216573681,
-          "speed_deg_per_day": 0.2827245,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 303.88613133,
           "latitude_deg": 5.24293555,
           "distance_au": 2.5318929054,
           "speed_deg_per_day": 0.28670511,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 304.17480313,
+          "latitude_deg": 5.16594145,
+          "distance_au": 2.5420900363,
+          "speed_deg_per_day": 0.29063129,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -225,20 +225,20 @@
     "16": {
       "name": "Psyche",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 160.39647281,
-          "latitude_deg": -0.3294045,
-          "distance_au": 3.3959909953,
-          "speed_deg_per_day": 0.26814963,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 160.66333602,
           "latitude_deg": -0.32215839,
           "distance_au": 3.3839767548,
           "speed_deg_per_day": 0.26556956,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 160.92759628,
+          "latitude_deg": -0.31486305,
+          "distance_au": 3.3718790351,
+          "speed_deg_per_day": 0.26294334,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -248,20 +248,20 @@
     "433": {
       "name": "Eros",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 262.1677102,
-          "latitude_deg": -2.99609726,
-          "distance_au": 2.4297511591,
-          "speed_deg_per_day": 0.5938758,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 262.76149574,
           "latitude_deg": -2.94158375,
           "distance_au": 2.4372508908,
           "speed_deg_per_day": 0.59369662,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 263.35510358,
+          "latitude_deg": -2.88732463,
+          "distance_au": 2.4446807529,
+          "speed_deg_per_day": 0.59351983,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -271,20 +271,20 @@
     "42": {
       "name": "Isis",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 167.16782783,
-          "latitude_deg": 6.85163467,
-          "distance_au": 3.3812786097,
-          "speed_deg_per_day": 0.30045014,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 167.46731661,
           "latitude_deg": 6.88547612,
           "distance_au": 3.3686281182,
           "speed_deg_per_day": 0.29851621,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 167.764851,
+          "latitude_deg": 6.91970267,
+          "distance_au": 3.3558795548,
+          "speed_deg_per_day": 0.29654072,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -294,20 +294,20 @@
     "1923": {
       "name": "Osiris",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 181.1051893,
-          "latitude_deg": 0.62636233,
-          "distance_au": 2.9708249764,
-          "speed_deg_per_day": 0.44349814,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 181.54805751,
           "latitude_deg": 0.60950473,
           "distance_au": 2.9624762202,
           "speed_deg_per_day": 0.44223353,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 181.98964717,
+          "latitude_deg": 0.59255882,
+          "distance_au": 2.9540367654,
+          "speed_deg_per_day": 0.44094069,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -317,20 +317,20 @@
     "1221": {
       "name": "Amor",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 10.336643,
-          "latitude_deg": -8.94363561,
-          "distance_au": 1.8811401357,
-          "speed_deg_per_day": -0.20816879,
-          "motion": "R",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 10.13190818,
           "latitude_deg": -8.945553,
           "distance_au": 1.8892551172,
           "speed_deg_per_day": -0.20128514,
+          "motion": "R",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 9.93411969,
+          "latitude_deg": -8.94624174,
+          "distance_au": 1.897597286,
+          "speed_deg_per_day": -0.19427885,
           "motion": "R",
           "flags_requested": 258,
           "flags_returned": 258
@@ -340,20 +340,20 @@
     "1585": {
       "name": "Union",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 264.13465935,
-          "latitude_deg": 18.33327086,
-          "distance_au": 4.1717703766,
-          "speed_deg_per_day": 0.30364043,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 264.43902747,
           "latitude_deg": 18.26409588,
           "distance_au": 4.1786818153,
           "speed_deg_per_day": 0.30509014,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 264.74483142,
+          "latitude_deg": 18.19565977,
+          "distance_au": 4.1854574678,
+          "speed_deg_per_day": 0.30651164,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -363,20 +363,20 @@
     "447": {
       "name": "Valentine",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 241.31301459,
-          "latitude_deg": 0.35850011,
-          "distance_au": 4.0274917639,
-          "speed_deg_per_day": 0.3733096,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 241.6865916,
           "latitude_deg": 0.34678204,
           "distance_au": 4.0309270935,
           "speed_deg_per_day": 0.37384127,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 242.06069038,
+          "latitude_deg": 0.33509479,
+          "distance_au": 4.034211762,
+          "speed_deg_per_day": 0.37435268,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -386,20 +386,20 @@
     "763": {
       "name": "Cupido",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 244.95493728,
-          "latitude_deg": -1.7958362,
-          "distance_au": 3.3223251177,
-          "speed_deg_per_day": 0.45847801,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 245.41388054,
           "latitude_deg": -1.78295793,
           "distance_au": 3.3249540218,
           "speed_deg_per_day": 0.45940685,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 245.8737451,
+          "latitude_deg": -1.77012535,
+          "distance_au": 3.3274609121,
+          "speed_deg_per_day": 0.46032017,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -409,20 +409,20 @@
     "399": {
       "name": "Persephone",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 41.16197238,
-          "latitude_deg": 15.69547165,
-          "distance_au": 2.2461078184,
-          "speed_deg_per_day": -0.21381234,
-          "motion": "R",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 40.94849518,
           "latitude_deg": 15.71746941,
           "distance_au": 2.2469793017,
           "speed_deg_per_day": -0.21309475,
+          "motion": "R",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 40.73585198,
+          "latitude_deg": 15.73722134,
+          "distance_au": 2.248141796,
+          "speed_deg_per_day": -0.2121445,
           "motion": "R",
           "flags_requested": 258,
           "flags_returned": 258
@@ -432,20 +432,20 @@
     "6583": {
       "name": "Destinn",
       "positions": {
-        "2026-11-07": {
-          "longitude_deg": 100.52005419,
-          "latitude_deg": 8.11750378,
-          "distance_au": 1.6965322357,
-          "speed_deg_per_day": 0.0300899,
-          "motion": "D",
-          "flags_requested": 258,
-          "flags_returned": 258
-        },
         "2026-11-08": {
           "longitude_deg": 100.54635921,
           "latitude_deg": 8.13927717,
           "distance_au": 1.6864444092,
           "speed_deg_per_day": 0.02251167,
+          "motion": "D",
+          "flags_requested": 258,
+          "flags_returned": 258
+        },
+        "2026-11-09": {
+          "longitude_deg": 100.5650643,
+          "latitude_deg": 8.16052542,
+          "distance_au": 1.6764822204,
+          "speed_deg_per_day": 0.01489072,
           "motion": "D",
           "flags_requested": 258,
           "flags_returned": 258
@@ -455,15 +455,6 @@
   },
   "planets": {
     "sun": {
-      "2026-11-07": {
-        "longitude_deg": 224.96370221,
-        "latitude_deg": -8.48e-05,
-        "distance_au": 0.9911103048,
-        "speed_deg_per_day": 1.00364532,
-        "motion": "D",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 225.96761227,
         "latitude_deg": -0.00010143,
@@ -472,18 +463,18 @@
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
-      }
-    },
-    "moon": {
-      "2026-11-07": {
-        "longitude_deg": 202.77235024,
-        "latitude_deg": -4.16419306,
-        "distance_au": 0.0026183614,
-        "speed_deg_per_day": 12.743508,
+      },
+      "2026-11-09": {
+        "longitude_deg": 226.97203935,
+        "latitude_deg": -0.00011067,
+        "distance_au": 0.9906292704,
+        "speed_deg_per_day": 1.00467875,
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
-      },
+      }
+    },
+    "moon": {
       "2026-11-08": {
         "longitude_deg": 215.42723337,
         "latitude_deg": -4.67031486,
@@ -492,18 +483,18 @@
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 227.9045205,
+        "latitude_deg": -4.94342941,
+        "distance_au": 0.002660536,
+        "speed_deg_per_day": 12.3885394,
+        "motion": "D",
+        "flags_requested": 258,
+        "flags_returned": 258
       }
     },
     "mercury": {
-      "2026-11-07": {
-        "longitude_deg": 218.74792874,
-        "latitude_deg": 0.56453507,
-        "distance_au": 0.694220156,
-        "speed_deg_per_day": -1.11637859,
-        "motion": "R",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 217.69761281,
         "latitude_deg": 0.8757994,
@@ -512,18 +503,18 @@
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
-      }
-    },
-    "venus": {
-      "2026-11-07": {
-        "longitude_deg": 203.76406185,
-        "latitude_deg": -3.276685,
-        "distance_au": 0.2976129509,
-        "speed_deg_per_day": -0.27082579,
+      },
+      "2026-11-09": {
+        "longitude_deg": 216.79829499,
+        "latitude_deg": 1.16310053,
+        "distance_au": 0.7223951076,
+        "speed_deg_per_day": -0.81566444,
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
-      },
+      }
+    },
+    "venus": {
       "2026-11-08": {
         "longitude_deg": 203.51329976,
         "latitude_deg": -3.02537552,
@@ -532,18 +523,18 @@
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 203.30305611,
+        "latitude_deg": -2.77585789,
+        "distance_au": 0.3051602416,
+        "speed_deg_per_day": -0.18983055,
+        "motion": "R",
+        "flags_requested": 258,
+        "flags_returned": 258
       }
     },
     "mars": {
-      "2026-11-07": {
-        "longitude_deg": 141.76338382,
-        "latitude_deg": 1.73701207,
-        "distance_au": 1.3801026405,
-        "speed_deg_per_day": 0.48147723,
-        "motion": "D",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 142.24299635,
         "latitude_deg": 1.7590833,
@@ -552,18 +543,18 @@
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
-      }
-    },
-    "jupiter": {
-      "2026-11-07": {
-        "longitude_deg": 145.04939118,
-        "latitude_deg": 0.71222975,
-        "distance_au": 5.4021053646,
-        "speed_deg_per_day": 0.10606182,
+      },
+      "2026-11-09": {
+        "longitude_deg": 142.71883005,
+        "latitude_deg": 1.78134039,
+        "distance_au": 1.3633989852,
+        "speed_deg_per_day": 0.4739192,
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
-      },
+      }
+    },
+    "jupiter": {
       "2026-11-08": {
         "longitude_deg": 145.15418766,
         "latitude_deg": 0.71579956,
@@ -572,18 +563,18 @@
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 145.2564331,
+        "latitude_deg": 0.71939547,
+        "distance_au": 5.371077711,
+        "speed_deg_per_day": 0.10095945,
+        "motion": "D",
+        "flags_requested": 258,
+        "flags_returned": 258
       }
     },
     "saturn": {
-      "2026-11-07": {
-        "longitude_deg": 8.90868824,
-        "latitude_deg": -2.66861579,
-        "distance_au": 8.6048574714,
-        "speed_deg_per_day": -0.05531364,
-        "motion": "R",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 8.85404009,
         "latitude_deg": -2.66579651,
@@ -592,18 +583,18 @@
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
-      }
-    },
-    "uranus": {
-      "2026-11-07": {
-        "longitude_deg": 64.43587628,
-        "latitude_deg": -0.15061989,
-        "distance_au": 18.4972304548,
-        "speed_deg_per_day": -0.03887184,
+      },
+      "2026-11-09": {
+        "longitude_deg": 8.80074279,
+        "latitude_deg": -2.6629059,
+        "distance_au": 8.6248586551,
+        "speed_deg_per_day": -0.05261265,
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
-      },
+      }
+    },
+    "uranus": {
       "2026-11-08": {
         "longitude_deg": 64.3968433,
         "latitude_deg": -0.15050478,
@@ -612,18 +603,18 @@
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
-      }
-    },
-    "neptune": {
-      "2026-11-07": {
-        "longitude_deg": 1.95804319,
-        "latitude_deg": -1.41180821,
-        "distance_au": 29.1450581164,
-        "speed_deg_per_day": -0.01848355,
+      },
+      "2026-11-09": {
+        "longitude_deg": 64.35750096,
+        "latitude_deg": -0.1503868,
+        "distance_au": 18.4864761545,
+        "speed_deg_per_day": -0.03949093,
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
-      },
+      }
+    },
+    "neptune": {
       "2026-11-08": {
         "longitude_deg": 1.93977669,
         "latitude_deg": -1.4113468,
@@ -632,18 +623,18 @@
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 1.92195001,
+        "latitude_deg": -1.41087481,
+        "distance_au": 29.1693449478,
+        "speed_deg_per_day": -0.01760445,
+        "motion": "R",
+        "flags_requested": 258,
+        "flags_returned": 258
       }
     },
     "pluto": {
-      "2026-11-07": {
-        "longitude_deg": 303.18608833,
-        "latitude_deg": -4.26824799,
-        "distance_au": 35.8246633729,
-        "speed_deg_per_day": 0.01051976,
-        "motion": "D",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 303.19684713,
         "latitude_deg": -4.26758741,
@@ -652,23 +643,32 @@
         "motion": "D",
         "flags_requested": 258,
         "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 303.20808194,
+        "latitude_deg": -4.26693491,
+        "distance_au": 35.85956884,
+        "speed_deg_per_day": 0.0114712,
+        "motion": "D",
+        "flags_requested": 258,
+        "flags_returned": 258
       }
     },
     "true_node": {
-      "2026-11-07": {
-        "longitude_deg": 326.60727453,
-        "latitude_deg": 0.0,
-        "distance_au": 0.0026364371,
-        "speed_deg_per_day": -0.17777026,
-        "motion": "R",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 326.40902408,
         "latitude_deg": 0.0,
         "distance_au": 0.002651076,
         "speed_deg_per_day": -0.21631424,
+        "motion": "R",
+        "flags_requested": 258,
+        "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 326.18043297,
+        "latitude_deg": 0.0,
+        "distance_au": 0.0026608524,
+        "speed_deg_per_day": -0.23760375,
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
@@ -680,20 +680,20 @@
     "name": "Chiron",
     "source_file": "seas_18.se1",
     "positions": {
-      "2026-11-07": {
-        "longitude_deg": 27.787288,
-        "latitude_deg": 0.12649225,
-        "distance_au": 17.276448105,
-        "speed_deg_per_day": -0.04418486,
-        "motion": "R",
-        "flags_requested": 258,
-        "flags_returned": 258
-      },
       "2026-11-08": {
         "longitude_deg": 27.74327055,
         "latitude_deg": 0.12516046,
         "distance_au": 17.281262248,
         "speed_deg_per_day": -0.04384611,
+        "motion": "R",
+        "flags_requested": 258,
+        "flags_returned": 258
+      },
+      "2026-11-09": {
+        "longitude_deg": 27.69960237,
+        "latitude_deg": 0.12382769,
+        "distance_au": 17.2863734296,
+        "speed_deg_per_day": -0.04348679,
         "motion": "R",
         "flags_requested": 258,
         "flags_returned": 258
