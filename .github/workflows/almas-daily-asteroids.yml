@@ -171,6 +171,71 @@ jobs:
               assert pos["flags_returned"] & 2, "Chiron no Swiss"
           print(f"ALMAS CONTRACT PASSED: {today}, 7 mandatory asteroids + 11 planets/node + Chiron")
           PY
+      # Prepublish a second, future-dated verified file on EVERY run.
+      # This makes the 01:00 Madrid reader independent from same-night
+      # GitHub scheduling latency: any previous-day run prepares that day.
+      - name: Prepublish next reference day (T+1) with full Swiss validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import math
+          import os
+          from datetime import date, timedelta
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+
+          base = date.fromisoformat(os.environ["ALMAS_REFERENCE_DAY"])
+          tomorrow = (base + timedelta(days=1)).isoformat()
+          previous = base.isoformat()
+          output = Path("data/public-asteroid-ephemerides") / f"{tomorrow}.json"
+
+          def validate(path):
+              data = json.loads(path.read_text(encoding="utf-8"))
+              assert data["schema_version"] == "1.2"
+              assert data["reference_day_utc"] == tomorrow
+              assert data["reference_time_utc"] == "09:00:00"
+              assert data["checked_days"] == [previous, tomorrow]
+              assert data["verified_complete"] is True
+              assert data["chiron"]["number"] == 2060
+              assert data["chiron"]["source_file"] == "seas_18.se1"
+              required = ["sepl_18.se1", "semo_18.se1", "seas_18.se1"]
+              required += [f"ast{n // 1000}/se{n:05d}s.se1" for n in
+                           (2847, 1170, 4227, 3811, 16, 433)]
+              for name in required:
+                  meta = data["files"][name]
+                  assert re.fullmatch(r"[a-fA-F0-9]{64}", meta["sha256"]), name
+              bodies = [data["asteroids"][str(n)]["positions"] for n in
+                        (2847, 1170, 4227, 3811, 3, 16, 433)]
+              bodies += [data["planets"][name] for name in (
+                  "sun", "moon", "mercury", "venus", "mars", "jupiter",
+                  "saturn", "uranus", "neptune", "pluto", "true_node")]
+              bodies.append(data["chiron"]["positions"])
+              for body in bodies:
+                  for day in (previous, tomorrow):
+                      pos = body[day]
+                      assert math.isfinite(pos["longitude_deg"])
+                      assert math.isfinite(pos["speed_deg_per_day"])
+                      assert pos["flags_returned"] & 2, f"Not Swiss: {day}"
+              return len(bodies)
+
+          try:
+              checked = validate(output)
+              print(f"ALMAS T+1 PREPUBLISHED: reusing {tomorrow}, validated {checked} bodies")
+          except (OSError, KeyError, TypeError, ValueError, AssertionError) as err:
+              print(f"ALMAS T+1 BUILD: {tomorrow}; existing file missing/invalid: {err}")
+              subprocess.run([
+                  sys.executable, "tools/daily_asteroid_ephemeris.py",
+                  "--date", tomorrow,
+                  "--cache", ".ephemeris-files",
+                  "--output", str(output)
+              ], check=True)
+              checked = validate(output)
+              print(f"ALMAS T+1 PREPUBLISHED: generated {tomorrow}, validated {checked} bodies")
+          PY
       - name: Update latest only for newest reference day
         shell: bash
         run: |
