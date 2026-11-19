@@ -1,0 +1,40 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ALMAS · Observatorio</title>
+<style>
+:root{color-scheme:light;font:17px system-ui;color:#172e36;background:#f5f2eb}
+body{max-width:48rem;margin:auto;padding:1.25rem}h1{font:clamp(2.6rem,9vw,5rem)/1 Georgia,serif;margin:.4em 0;color:#163e46}
+header{border-bottom:2px solid #315a60}label,button,select{font:inherit}button,select,input{max-width:100%}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin:1.2rem 0}
+article{background:#fffdf8;border-left:.28rem solid #477578;margin:.75rem 0;padding:.9rem 1rem;break-inside:avoid}
+article b{display:block;color:#124a52}small{color:#3c5359}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+@page{size:A4 portrait;margin:15mm}@media print{nav,details{display:none}body{padding:0}}
+</style><header><small>PROYECTO ALMAS</small><h1>Observatorio</h1><p id="estado">Abre el resultado JSON de una lectura para explorar sus contactos.</p></header>
+<nav><label>Lectura <input type="file" id="archivo" accept=".json"></label><label>Carta <select id="filtro"></select></label><button id="print">Imprimir lámina</button></nav>
+<p id="ventana"></p><main id="contactos"></main><details><summary>Procedencia y cobertura</summary><pre id="fuentes"></pre></details>
+<script type="application/json" id="inicial">null</script><script>
+const el=id=>document.getElementById(id);
+let lectura=null;
+const signos='Aries Tauro Géminis Cáncer Leo Virgo Libra Escorpio Sagitario Capricornio Acuario Piscis'.split(' ');
+function grado(lon){const m=Math.round(lon*60)%21600;return Math.floor(m/60)%30+'° '+String(m%60).padStart(2,'0')+'′ '+signos[Math.floor(m/1800)]}
+function dibujar(){
+ el('contactos').replaceChildren();
+ for(const c of lectura.contactos.filter(c=>!el('filtro').value||c.carta===el('filtro').value)){
+ const art=document.createElement('article'),tit=document.createElement('b'),line=document.createElement('p'),nota=document.createElement('small');
+ tit.textContent=c.transito+' · '+c.aspecto+' ('+c.angulo+'°) · '+c.receptor;
+ line.textContent='Tránsito '+grado(c.longitud)+' ⟷ '+c.carta+' '+grado(c.destino);
+ nota.textContent='Orbe '+(60*c.orbe).toFixed(2)+'′ · ayer '+(60*c.orbe_ayer).toFixed(2)+'′';
+ art.append(tit,line,nota);el('contactos').append(art)}
+ if(!el('contactos').children.length)el('contactos').textContent='Sin contactos seleccionados para esta vista.';
+}
+function cargar(data){
+ lectura=null;el('filtro').replaceChildren();el('contactos').replaceChildren();el('ventana').textContent='';el('fuentes').textContent='';
+ if(data?.estado==='PENDIENTE'){el('estado').textContent='Efemérides pendientes de verificación';el('fuentes').textContent=JSON.stringify(data.incidencias,null,2);return}
+ if(data?.estado!=='VALIDADO_HOY_AYER'||!Array.isArray(data.contactos)||!data.cobertura)throw Error('Formato de lectura incompatible');
+ lectura=data;el('estado').textContent=(data.vinculo||'Cielo geocéntrico')+' · '+data.fecha+' · '+data.referencia+(data.version?' · '+data.version:'');
+ el('ventana').textContent=Object.values(data.cobertura).filter(Boolean).length+' de 11 días cubiertos · '+data.contactos.length+' contactos mayores seleccionados';
+ el('filtro').add(new Option('Todas',''));for(const carta of new Set(data.contactos.map(c=>c.carta)))el('filtro').add(new Option(carta,carta));
+ el('fuentes').textContent=JSON.stringify({cobertura:data.cobertura,huellas:data.archivos_sha256,incidencias:data.incidencias},null,2);dibujar();
+}
+el('archivo').onchange=async e=>{try{cargar(JSON.parse(await e.target.files[0].text()))}catch(err){cargar({estado:'PENDIENTE',incidencias:{archivo:String(err)}})}};
+el('filtro').onchange=()=>{if(lectura)dibujar()};el('print').onclick=()=>window.print();
+const inicial=JSON.parse(el('inicial').textContent);if(inicial)cargar(inicial);
+</script></html>
