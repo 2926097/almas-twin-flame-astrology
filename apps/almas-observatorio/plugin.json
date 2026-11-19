@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "almas-observatorio",
+  "version": "1.0.0",
+  "description": "Adquisición, análisis y lectura astrológica diaria ALMAS con comprobación por cuerpo y fecha.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "ALMAS · Observatorio",
+        "shortDescription": "Lectura astrológica diaria",
+        "longDescription": "Analiza efemérides, contrasta configuraciones y prepara lecturas y láminas por vínculo.",
+        "category": "Productivity",
+        "defaultPrompt": "Genera la lectura ALMAS del vínculo y la fecha indicados."
+      }
+    }
+  }
+}
